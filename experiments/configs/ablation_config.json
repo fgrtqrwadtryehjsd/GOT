@@ -1,0 +1,32 @@
+{
+  "full": {
+    "enable_graph": true,
+    "enable_constraint": true,
+    "enable_check": true,
+    "enable_feedback": true
+  },
+  "wo_graph": {
+    "enable_graph": false,
+    "enable_constraint": true,
+    "enable_check": true,
+    "enable_feedback": true
+  },
+  "wo_constraint": {
+    "enable_graph": true,
+    "enable_constraint": false,
+    "enable_check": true,
+    "enable_feedback": true
+  },
+  "wo_check": {
+    "enable_graph": true,
+    "enable_constraint": true,
+    "enable_check": false,
+    "enable_feedback": false
+  },
+  "wo_feedback": {
+    "enable_graph": true,
+    "enable_constraint": true,
+    "enable_check": true,
+    "enable_feedback": false
+  }
+}

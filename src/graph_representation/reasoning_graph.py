@@ -122,6 +122,11 @@ class ReasoningGraph:
             neighbor_ids.append(edge.dst_id)
         return neighbor_ids
 
+    def get_neighbor_content(self, node_id: str) -> str:
+        """获取邻居节点的文本内容（用于 Prompt 构建）"""
+        node = self.get_node(node_id)
+        return node.content if node else node_id
+
     def get_predecessors(self, node_id: str) -> List[str]:
         """获取节点的所有前驱节点ID"""
         predecessor_ids = []

@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# 虚拟环境
+.venv/
+venv/
+env/
+
+# 实验结果（大文件）
+experiments/results/
+
+# 数据集原始文件（HuggingFace 缓存）
+data/hotpotqa/
+data/gsm8k/
+data/clutrr/
+
+# 环境变量
+.env
+.env.*
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# 日志
+*.log
+logs/

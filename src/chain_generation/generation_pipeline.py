@@ -93,8 +93,9 @@ class GraphGuidedGenerator:
             answer = self._extract_answer(reasoning_text)
 
         # Step 5: 一致性校验 + 闭环修正
-        score = self.consistency_checker.check(graph, reasoning_text)
-        
+        check_result = self.consistency_checker.check(graph, reasoning_text)
+        score = check_result["consistency_score"]
+
         iteration_count = 0
         if score < self.consistency_threshold and self.model is not None:
             result = self.feedback_loop.refine(

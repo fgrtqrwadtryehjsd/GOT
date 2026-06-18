@@ -25,30 +25,57 @@ from src.utils.config import Config
 
 
 def load_dataset(dataset_name: str, split: str = "test", num_samples: int = None):
-    """加载基准数据集"""
-    from datasets import load_dataset
+    """
+    加载基准数据集
+    优先从本地 data/processed/ 读取预处理数据；
+    本地不存在时实时下载并缓存。
+    """
+    # 优先读取本地预处理数据
+    processed_dir = Path(__file__).parent.parent / "data" / "processed"
+    try:
+        from data.prepare_data import load_processed_dataset
+        samples = load_processed_dataset(
+            dataset_name,
+            data_dir=str(processed_dir),
+            num_samples=num_samples,
+        )
+        return samples
+    except Exception:
+        pass  # 降级到实时下载
+
+    # 降级：实时下载
+    from datasets import load_dataset as hf_load
 
     if dataset_name == "hotpotqa":
-        ds = load_dataset("hotpot_qa", "distractor", split=f"{split}")
+        ds = hf_load("hotpot_qa", "distractor", split=split, trust_remote_code=True)
         samples = []
         for item in ds:
             question = item["question"]
-            context = " ".join([" ".join(ctx) for ctx in item["context"]["sentences"]])
-            answer = item["answer"]
-            samples.append({"question": question, "context": context, "answer": answer})
-    
+            context = " | ".join(
+                f"[{t}] " + " ".join(s)
+                for t, s in zip(item["context"]["title"], item["context"]["sentences"])
+            )
+            samples.append({
+                "question": question,
+                "context": context[:2000],
+                "answer": item["answer"],
+            })
+
     elif dataset_name == "gsm8k":
-        ds = load_dataset("openai/gsm8k", "main", split=split)
+        ds = hf_load("openai/gsm8k", "main", split=split, trust_remote_code=True)
         samples = []
         for item in ds:
-            question = item["question"]
-            answer = item["answer"].split("####")[-1].strip() if "####" in item["answer"] else item["answer"]
-            samples.append({"question": question, "context": "", "answer": answer})
-    
+            answer = (
+                item["answer"].split("####")[-1].strip()
+                if "####" in item["answer"]
+                else item["answer"]
+            )
+            samples.append({"question": item["question"], "context": "", "answer": answer})
+
     elif dataset_name == "clutrr":
-        # CLUTRR需要从GitHub下载
-        samples = []  # TODO: 实现CLUTRR数据加载
-    
+        from data.prepare_data import _clutrr_builtin_samples
+        samples = _clutrr_builtin_samples(num_samples or 500)
+
     else:
         raise ValueError(f"Unknown dataset: {dataset_name}")
 
@@ -60,15 +87,26 @@ def load_dataset(dataset_name: str, split: str = "test", num_samples: int = None
 
 def create_model(model_name: str):
     """创建LLM模型实例"""
-    from src.models import QwenModel
+    from src.models import QwenModel, GPTModel, LlamaModel
 
     model_map = {
-        "qwen3-8b": "Qwen/Qwen3-8B",
-        "qwen3-70b": "Qwen/Qwen3-70B-Instruct-GPTQ-Int4",
+        "qwen3-8b": ("qwen", "Qwen/Qwen3-8B"),
+        "qwen3-70b": ("qwen", "Qwen/Qwen3-70B-Instruct-GPTQ-Int4"),
+        "gpt-4o": ("gpt", "gpt-4o"),
+        "gpt-4": ("gpt", "gpt-4"),
+        "gpt-3.5": ("gpt", "gpt-3.5-turbo"),
+        "llama3-8b": ("llama", "meta-llama/Llama-3-8B-Instruct"),
+        "llama3-70b": ("llama", "meta-llama/Llama-3-70B-Instruct"),
     }
 
-    actual_name = model_map.get(model_name, model_name)
-    return QwenModel(model_name=actual_name, load_method="transformers")
+    family, actual_name = model_map.get(model_name, ("qwen", model_name))
+
+    if family == "gpt":
+        return GPTModel(model_name=actual_name)
+    elif family == "llama":
+        return LlamaModel(model_name=actual_name, load_method="transformers")
+    else:
+        return QwenModel(model_name=actual_name, load_method="transformers")
 
 
 def create_method(method_name: str, model):

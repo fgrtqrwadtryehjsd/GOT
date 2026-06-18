@@ -1,0 +1,23 @@
+{
+  "hotpotqa": {
+    "dataset": "hotpotqa",
+    "methods": "gers,standard_cot,cot_sc,tot,zero_shot",
+    "model": "qwen3-8b",
+    "num_samples": 500,
+    "output_dir": "experiments/results/"
+  },
+  "gsm8k": {
+    "dataset": "gsm8k",
+    "methods": "gers,standard_cot,cot_sc,tot,zero_shot",
+    "model": "qwen3-8b",
+    "num_samples": 500,
+    "output_dir": "experiments/results/"
+  },
+  "clutrr": {
+    "dataset": "clutrr",
+    "methods": "gers,standard_cot,cot_sc,tot,zero_shot",
+    "model": "qwen3-8b",
+    "num_samples": 300,
+    "output_dir": "experiments/results/"
+  }
+}
