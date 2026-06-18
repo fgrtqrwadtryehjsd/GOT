@@ -129,13 +129,27 @@ class FeedbackLoop:
         }
 
     def _extract_answer(self, text: str) -> str:
-        """提取最终答案"""
+        """提取最终答案（支持中英文、Markdown、数字回退）"""
+        import re
         lines = text.strip().split("\n")
+        keywords = [
+            "答案是", "答案：", "最终答案", "Final Answer",
+            "The answer is", "Therefore", "结论：", "结论:",
+        ]
+        for line in reversed(lines):
+            line_s = line.strip().lstrip("#").strip()
+            for kw in keywords:
+                if kw in line_s:
+                    after = line_s.split(kw, 1)[-1].strip(" :：*#")
+                    if after:
+                        num = re.search(r"-?\d[\d,\.]*", after)
+                        return num.group().replace(",", "") if num else after
+                    break
         for line in reversed(lines):
             line = line.strip()
-            if any(kw in line for kw in ["答案是", "答案：", "最终答案"]):
-                for kw in ["答案是", "答案是:", "答案：", "最终答案:", "最终答案："]:
-                    if kw in line:
-                        return line.split(kw)[-1].strip()
-                return line
+            if not line:
+                continue
+            num = re.search(r"-?\d[\d,\.]*", line)
+            if num:
+                return num.group().replace(",", "")
         return lines[-1].strip() if lines else ""

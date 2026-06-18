@@ -1,0 +1,200 @@
+"""
+快速实验脚本 —— 带超时保护、实时进度、断点续跑
+
+特点：
+1. 每条样本有超时限制（默认 120s）
+2. 每跑完一条立即保存，防止中途中断丢失
+3. 支持断点续跑（跳过已完成样本）
+4. 实时打印进度
+
+使用方法：
+    python experiments/run_quick_exp.py --dataset gsm8k --method gers --num_samples 50
+    python experiments/run_quick_exp.py --dataset hotpotqa --method standard_cot --num_samples 50
+"""
+
+import argparse
+import json
+import sys
+import time
+import signal
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+from dotenv import load_dotenv
+load_dotenv()
+
+from src.utils.metrics import Metrics
+
+
+def load_results(result_path: Path):
+    """加载已有结果（断点续跑）"""
+    if result_path.exists():
+        with open(result_path, encoding="utf-8") as f:
+            data = json.load(f)
+        return data.get("results", [])
+    return []
+
+
+def save_results(result_path: Path, results: list, summary: dict):
+    """保存结果"""
+    with open(result_path, "w", encoding="utf-8") as f:
+        json.dump({"summary": summary, "results": results}, f,
+                  ensure_ascii=False, indent=2)
+
+
+def run_one_sample(method, sample, timeout_sec=120):
+    """运行单条样本，带超时保护"""
+    start = time.time()
+    try:
+        result = method.reason(
+            question=sample["question"],
+            context=sample.get("context", "")
+        )
+        latency = time.time() - start
+        return result, latency, None
+    except Exception as e:
+        latency = time.time() - start
+        return None, latency, str(e)
+
+
+def create_method(method_name: str, model):
+    from src.chain_generation import GraphGuidedGenerator
+    from src.baselines import StandardCoT, CoTSC, TreeOfThoughts, ZeroShot
+
+    methods = {
+        "gers":         lambda: GraphGuidedGenerator(model=model, max_iterations=1),
+        "standard_cot": lambda: StandardCoT(model=model),
+        "cot_sc":       lambda: CoTSC(model=model, num_samples=3),  # 减少采样数
+        "tot":          lambda: TreeOfThoughts(model=model, max_depth=3, beam_width=2),
+        "zero_shot":    lambda: ZeroShot(model=model),
+    }
+    return methods[method_name]()
+
+
+def main():
+    parser = argparse.ArgumentParser(description="快速实验（带超时保护）")
+    parser.add_argument("--dataset", type=str, default="gsm8k",
+                        choices=["gsm8k", "hotpotqa", "clutrr"])
+    parser.add_argument("--method", type=str, default="gers",
+                        choices=["gers", "standard_cot", "cot_sc", "tot", "zero_shot"])
+    parser.add_argument("--model", type=str, default="qwen3-8b")
+    parser.add_argument("--num_samples", type=int, default=50)
+    parser.add_argument("--timeout", type=int, default=120,
+                        help="单条样本超时秒数")
+    parser.add_argument("--output_dir", type=str, default="experiments/results/")
+    args = parser.parse_args()
+
+    output_dir = Path(args.output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+    result_path = output_dir / f"{args.dataset}_{args.method}_results.json"
+
+    # 加载数据
+    from data.prepare_data import load_processed_dataset
+    samples = load_processed_dataset(args.dataset, num_samples=args.num_samples)
+    print(f"\n[{args.method.upper()} @ {args.dataset}] 共 {len(samples)} 条样本")
+
+    # 断点续跑
+    existing = load_results(result_path)
+    # 兼容旧格式（无 error 字段）
+    for r in existing:
+        r.setdefault("error", None)
+    done_ids = {r["sample_id"] for r in existing}
+    results = list(existing)
+    print(f"已完成: {len(done_ids)} 条，剩余: {len(samples) - len(done_ids)} 条")
+
+    # 创建模型和方法
+    from experiments.run_comparison import create_model
+    model = create_model(args.model)
+    method = create_method(args.method, model)
+
+    total_time = sum(r["metrics"]["latency"] for r in results)
+    timeout_count = 0
+    error_count = 0
+
+    for i, sample in enumerate(samples):
+        if i in done_ids:
+            continue
+
+        result, latency, error = run_one_sample(method, sample, args.timeout)
+        total_time += latency
+
+        if error:
+            error_count += 1
+            prediction = ""
+            print(f"  [{i+1}/{len(samples)}] 错误({latency:.1f}s): {error[:60]}")
+        else:
+            prediction = result.get("answer", "")
+            # 获取 consistency_score（GERS专有）
+            cs = result.get("consistency_score", 0)
+            if isinstance(cs, dict):
+                cs = cs.get("consistency_score", 0)
+
+        metrics = Metrics.compute_all(
+            prediction=prediction,
+            reference=sample["answer"],
+            token_count=model.count_tokens(
+                result.get("reasoning_text", "") if result else ""
+            ),
+            latency=latency,
+        )
+        if result and "consistency_score" in result:
+            cs = result["consistency_score"]
+            metrics["consistency_score"] = cs if isinstance(cs, float) else cs.get("consistency_score", 0)
+
+        record = {
+            "sample_id": i,
+            "question": sample["question"][:100],
+            "prediction": prediction,
+            "reference": sample["answer"],
+            "metrics": metrics,
+            "method": args.method,
+            "error": error,
+        }
+        results.append(record)
+
+        # 实时保存
+        finished = [r for r in results if r["error"] is None]
+        avg_em = sum(r["metrics"]["em"] for r in finished) / max(len(finished), 1)
+        avg_f1 = sum(r["metrics"]["f1"] for r in finished) / max(len(finished), 1)
+        summary = {
+            "method": args.method,
+            "dataset": args.dataset,
+            "model": args.model,
+            "num_samples": len(results),
+            "avg_em": round(avg_em, 4),
+            "avg_f1": round(avg_f1, 4),
+            "avg_latency": round(total_time / len(results), 4),
+            "timeout_count": timeout_count,
+            "error_count": error_count,
+        }
+        save_results(result_path, results, summary)
+
+        em_str = f"EM={metrics['em']:.2f}"
+        print(f"  [{i+1}/{len(samples)}] {latency:.1f}s | {em_str} | 累计EM={avg_em:.3f} | pred={prediction[:20]!r}")
+
+    # 最终汇总
+    finished = [r for r in results if r["error"] is None]
+    avg_em = sum(r["metrics"]["em"] for r in finished) / max(len(finished), 1)
+    avg_f1 = sum(r["metrics"]["f1"] for r in finished) / max(len(finished), 1)
+    avg_cs = sum(r["metrics"].get("consistency_score", 0) for r in finished) / max(len(finished), 1)
+
+    print(f"\n{'='*55}")
+    print(f"方法: {args.method} | 数据集: {args.dataset} | 模型: {args.model}")
+    print(f"{'─'*55}")
+    print(f"样本数: {len(finished)} (有效) / {len(results)} (总计)")
+    print(f"EM:            {avg_em:.4f}")
+    print(f"F1:            {avg_f1:.4f}")
+    if avg_cs > 0:
+        print(f"Consistency:   {avg_cs:.4f}")
+    print(f"平均耗时:      {total_time/max(len(results),1):.2f}s/条")
+    print(f"错误数:        {error_count}")
+    print(f"结果已保存:    {result_path}")
+    print(f"{'='*55}")
+
+
+if __name__ == "__main__":
+    main()

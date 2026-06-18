@@ -119,25 +119,37 @@ class GraphGuidedGenerator:
         }
 
     def _extract_answer(self, reasoning_text: str) -> str:
-        """从推理文本中提取最终答案"""
-        # 尝试多种提取方式
+        """从推理文本中提取最终答案（支持中英文、Markdown多种格式）"""
+        import re
         lines = reasoning_text.strip().split("\n")
-        
-        # 方式1：查找"答案是"等关键词
+
+        # 关键词列表（中英文 + Markdown 标题格式）
+        answer_keywords = [
+            "答案是", "答案是:", "答案：", "最终答案", "Final Answer",
+            "The answer is", "Therefore, the answer is",
+            "最终结果", "所以答案", "结论：", "结论:",
+        ]
+
+        # 从后往前找含答案关键词的行
+        for line in reversed(lines):
+            line_stripped = line.strip().lstrip("#").strip()
+            for kw in answer_keywords:
+                if kw in line_stripped:
+                    # 取关键词后面的内容
+                    after = line_stripped.split(kw, 1)[-1].strip(" :：*#")
+                    if after:
+                        # 提取第一个数字或短答案
+                        num = re.search(r"-?\d[\d,\.]*", after)
+                        return num.group().replace(",", "") if num else after
+                    break
+
+        # 末尾数字回退：取最后一行中的数字
         for line in reversed(lines):
             line = line.strip()
-            if any(kw in line for kw in ["答案是", "答案是:", "答案：", 
-                                           "最终答案", "Final Answer"]):
-                # 提取答案部分
-                for kw in ["答案是", "答案是:", "答案：", "最终答案:", "Final Answer:"]:
-                    if kw in line:
-                        return line.split(kw)[-1].strip()
-                return line
-        
-        # 方式2：取最后一行
-        if lines:
-            last_line = lines[-1].strip()
-            if last_line:
-                return last_line
-        
-        return ""
+            if not line:
+                continue
+            num = re.search(r"-?\d[\d,\.]*", line)
+            if num:
+                return num.group().replace(",", "")
+
+        return lines[-1].strip() if lines else ""
