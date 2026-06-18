@@ -34,9 +34,15 @@ def prepare_hotpotqa(output_dir: Path, num_samples: int = 500, split: str = "val
     """
     import json as _json
 
-    # 优先尝试本地文件
-    local_json = Path("data/hotpotqa/hotpot_dev_distractor_v1.json")
-    if local_json.exists():
+    # 优先尝试本地文件（两个可能的路径）
+    local_candidates = [
+        Path("data/hotpotqa/hotpot_dev_distractor_v1.json"),
+        Path("data/hotpotqa_raw/raw/hotpot_dev_distractor_v1.json"),
+        Path(__file__).parent / "hotpotqa" / "hotpot_dev_distractor_v1.json",
+        Path(__file__).parent / "hotpotqa_raw" / "raw" / "hotpot_dev_distractor_v1.json",
+    ]
+    local_json = next((p for p in local_candidates if p.exists()), None)
+    if local_json:
         print(f"[HotpotQA] 使用本地文件: {local_json}")
         with open(local_json, encoding="utf-8") as f:
             raw = _json.load(f)
