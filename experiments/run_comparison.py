@@ -87,26 +87,40 @@ def load_dataset(dataset_name: str, split: str = "test", num_samples: int = None
 
 def create_model(model_name: str):
     """创建LLM模型实例"""
-    from src.models import QwenModel, GPTModel, LlamaModel
+    from src.models import QwenModel, GPTModel, LlamaModel, DashScopeModel
+
+    # 阿里云 DashScope 模型
+    dashscope_models = {
+        "qwen-max", "qwen-plus", "qwen-turbo", "qwen-long",
+        "qwen3-235b-a22b", "qwen3-32b", "qwen3-8b",
+    }
+    if model_name in dashscope_models or model_name.startswith("qwen-") or model_name.startswith("qwen3-"):
+        return DashScopeModel(model_name=model_name)
 
     model_map = {
-        "qwen3-8b": ("qwen", "Qwen/Qwen3-8B"),
-        "qwen3-70b": ("qwen", "Qwen/Qwen3-70B-Instruct-GPTQ-Int4"),
+        # 本地 Qwen
+        "qwen3-8b-local": ("qwen", "Qwen/Qwen3-8B"),
+        "qwen3-70b-local": ("qwen", "Qwen/Qwen3-70B-Instruct-GPTQ-Int4"),
+        # GPT
         "gpt-4o": ("gpt", "gpt-4o"),
         "gpt-4": ("gpt", "gpt-4"),
         "gpt-3.5": ("gpt", "gpt-3.5-turbo"),
+        # LLaMA
         "llama3-8b": ("llama", "meta-llama/Llama-3-8B-Instruct"),
         "llama3-70b": ("llama", "meta-llama/Llama-3-70B-Instruct"),
     }
 
-    family, actual_name = model_map.get(model_name, ("qwen", model_name))
+    family, actual_name = model_map.get(model_name, ("dashscope", model_name))
 
     if family == "gpt":
         return GPTModel(model_name=actual_name)
     elif family == "llama":
         return LlamaModel(model_name=actual_name, load_method="transformers")
-    else:
+    elif family == "qwen":
         return QwenModel(model_name=actual_name, load_method="transformers")
+    else:
+        # 默认走 DashScope
+        return DashScopeModel(model_name=actual_name)
 
 
 def create_method(method_name: str, model):
