@@ -8,8 +8,8 @@ class Config:
     """GERS系统全局配置"""
     
     # 模型配置
-    model_name: str = "Qwen/Qwen3-8B"
-    model_load_method: str = "transformers"  # transformers / vllm / api
+    model_name: str = "qwen3-8b"
+    model_load_method: str = "api"           # api = DashScope / transformers / vllm
     model_device: str = "auto"
     model_api_base: Optional[str] = None
     

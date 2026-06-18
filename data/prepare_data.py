@@ -26,50 +26,75 @@ def prepare_hotpotqa(output_dir: Path, num_samples: int = 500, split: str = "val
     """
     下载并预处理 HotpotQA 数据集
 
-    输出格式（每条样本）：
-    {
-        "id": str,
-        "question": str,
-        "context": str,      # 拼接的段落文本
-        "answer": str,
-        "type": str,         # bridge / comparison
-        "supporting_facts": [[title, sent_idx], ...]
-    }
+    支持两种方式：
+    1. 自动从 HuggingFace 下载（需要网络访问 HF）
+    2. 从本地 JSON 文件解析（手动下载后放到 data/hotpotqa/）
+       - 下载地址：https://hotpotqa.github.io/
+       - 文件名：hotpot_dev_distractor_v1.json
     """
-    print(f"[HotpotQA] 正在下载 {split} 集...")
+    import json as _json
+
+    # 优先尝试本地文件
+    local_json = Path("data/hotpotqa/hotpot_dev_distractor_v1.json")
+    if local_json.exists():
+        print(f"[HotpotQA] 使用本地文件: {local_json}")
+        with open(local_json, encoding="utf-8") as f:
+            raw = _json.load(f)
+        samples = []
+        for item in raw:
+            if num_samples and len(samples) >= num_samples:
+                break
+            context_parts = []
+            for title, sentences in item.get("context", []):
+                context_parts.append(f"[{title}] " + " ".join(sentences))
+            samples.append({
+                "id": item["_id"],
+                "question": item["question"],
+                "context": " | ".join(context_parts)[:2000],
+                "answer": item["answer"],
+                "type": item.get("type", ""),
+                "supporting_facts": [f[0] for f in item.get("supporting_facts", [])],
+            })
+        out_path = output_dir / "hotpotqa_test.json"
+        with open(out_path, "w", encoding="utf-8") as f:
+            _json.dump(samples, f, ensure_ascii=False, indent=2)
+        print(f"[HotpotQA] 已保存 {len(samples)} 条样本 → {out_path}")
+        return samples
+
+    # 尝试 HuggingFace 下载
+    print(f"[HotpotQA] 尝试从 HuggingFace 下载 {split} 集...")
     try:
         from datasets import load_dataset
     except ImportError:
         raise ImportError("请安装 datasets 库：pip install datasets")
 
-    ds = load_dataset("hotpot_qa", "distractor", split=split, trust_remote_code=True)
+    try:
+        ds = load_dataset("hotpot_qa", "distractor", split=split)
+    except Exception:
+        # 新版 datasets 包名
+        ds = load_dataset("simonycl/hotpotqa-distractor", split=split)
+
     samples = []
     for i, item in enumerate(ds):
         if num_samples and len(samples) >= num_samples:
             break
-
-        # 拼接所有段落作为上下文
         context_parts = []
         for title, sentences in zip(
             item["context"]["title"], item["context"]["sentences"]
         ):
             context_parts.append(f"[{title}] " + " ".join(sentences))
-        context = " | ".join(context_parts)
-
         samples.append({
-            "id": item["id"],
+            "id": item.get("id", str(i)),
             "question": item["question"],
-            "context": context[:2000],   # 截断避免超长
+            "context": " | ".join(context_parts)[:2000],
             "answer": item["answer"],
             "type": item.get("type", ""),
             "supporting_facts": item.get("supporting_facts", {}).get("title", []),
         })
 
-    # 保存
     out_path = output_dir / "hotpotqa_test.json"
     with open(out_path, "w", encoding="utf-8") as f:
-        json.dump(samples, f, ensure_ascii=False, indent=2)
-
+        _json.dump(samples, f, ensure_ascii=False, indent=2)
     print(f"[HotpotQA] 已保存 {len(samples)} 条样本 → {out_path}")
     return samples
 
@@ -92,7 +117,7 @@ def prepare_gsm8k(output_dir: Path, num_samples: int = 500, split: str = "test")
     print(f"[GSM8K] 正在下载 {split} 集...")
     from datasets import load_dataset
 
-    ds = load_dataset("openai/gsm8k", "main", split=split, trust_remote_code=True)
+    ds = load_dataset("openai/gsm8k", "main", split=split)
     samples = []
     for i, item in enumerate(ds):
         if num_samples and len(samples) >= num_samples:
