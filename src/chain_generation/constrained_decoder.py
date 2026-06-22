@@ -59,31 +59,20 @@ class ConstrainedDecoder:
             return self._hybrid_constraint(graph, execution_plan, base_prompt)
 
     def _soft_constraint(self, graph: ReasoningGraph, plan: Dict, prompt: str) -> str:
-        """
-        软约束 —— 在Prompt中添加推理路径引导
-        
-        策略：将执行计划作为"思维框架"注入Prompt，
-        引导模型按照规划路径思考，但不强制
-        """
-        # 格式化执行计划
+        """软约束 —— Prompt 引导 + 强制 Final Answer 格式"""
         from .path_planner import PathPlanner
         planner = PathPlanner()
         plan_text = planner.format_execution_plan(graph, plan)
 
         constraint_prompt = f"""{prompt}
 
-【推理路径规划】
-请严格按照以下逻辑步骤进行推理，每个步骤的结论必须基于其前驱步骤的结果：
-
+Follow this reasoning path (each step must cite its predecessors):
 {plan_text}
 
-【约束要求】
-1. 必须按上述步骤顺序进行推理，不得跳步
-2. 每一步推导必须引用前一步的结论
-3. 如果某一步无法推导，请明确说明并尝试替代路径
-4. 最终答案必须汇总所有关键步骤的结果
+IMPORTANT: After completing all reasoning steps, you MUST end your response with:
+Final Answer: <concise answer only, no explanation>
 
-请开始推理："""
+Begin:"""
 
         return constraint_prompt
 

@@ -116,23 +116,25 @@ class GraphPromptBuilder:
         facts = [n.content for n in graph.get_fact_nodes()]
         facts_text = "\n".join(f"- {f}" for f in facts)
 
-        prompt = f"""请解答以下问题。
+        prompt = f"""Please answer the following question step by step.
 
-问题：{question}
-{f'参考信息：{context}' if context else ''}
+Question: {question}
+{f'Reference: {context[:1500]}' if context else ''}
 
-【已知事实】
+[Known Facts]
 {facts_text}
 
-【推理路径规划】
+[Reasoning Path]
 {plan_text}
 
-请严格按照上述推理路径进行逐步推导。每个步骤必须：
-1. 明确标注当前处于哪一步
-2. 说明本步的推理依据（基于哪些事实或前驱步骤）
-3. 给出本步的中间结论
-4. 最终汇总所有步骤得出答案
+Please follow the reasoning path strictly. For each step:
+1. State which step you are on
+2. Explain the reasoning basis
+3. Give the intermediate conclusion
 
-开始推理："""
+At the very end, you MUST output on its own line:
+Final Answer: <your concise answer here>
+
+Begin reasoning:"""
 
         return prompt

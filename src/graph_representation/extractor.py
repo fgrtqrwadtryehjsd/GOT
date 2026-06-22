@@ -8,41 +8,41 @@ import json
 from typing import Dict, List, Optional
 
 
-# 图构建Prompt模板
-GRAPH_EXTRACTION_PROMPT = """你是一个推理分析专家。请分析以下问题，提取出推理所需的结构化信息。
+# 图构建Prompt模板（英文，避免翻译导致答案不匹配）
+GRAPH_EXTRACTION_PROMPT = """You are a reasoning analysis expert. Analyze the following question and extract structured reasoning information.
 
-问题：{question}
+Question: {question}
 {context_section}
 
-请按以下JSON格式输出：
+Output ONLY valid JSON in this exact format:
 
 ```json
 {{
     "facts": [
-        {{"content": "事实描述", "source": "question/context", "evidence": "原始文本"}}
+        {{"content": "fact description (keep original language)", "source": "question/context", "evidence": "original text"}}
     ],
     "steps": [
-        {{"content": "推理步骤描述", "operation": "比较/计算/检索/推导"}}
+        {{"content": "reasoning step description", "operation": "compare/calculate/lookup/infer"}}
     ],
     "conclusions": [
-        {{"content": "目标结论描述", "answer": "预期答案（如有）"}}
+        {{"content": "target conclusion", "answer": "expected answer if known"}}
     ],
     "relations": [
-        {{"source": "节点A的内容", "target": "节点B的内容", "type": "derive/support/conflict", "description": "关系说明"}}
+        {{"source": "node A content", "target": "node B content", "type": "derive/support/conflict", "description": "relation description"}}
     ]
 }}
 ```
 
-要求：
-1. facts：从问题和上下文中提取已知事实和证据
-2. steps：识别需要执行的推理步骤（子任务分解）
-3. conclusions：明确问题的最终目标
-4. relations：标注节点之间的逻辑关系
-   - derive：A推导出B（因果/逻辑推导）
-   - support：A支撑B（证据支撑）
-   - conflict：A与B矛盾（逻辑冲突）
+Requirements:
+1. facts: extract known facts and evidence from question and context (preserve original wording)
+2. steps: identify reasoning sub-tasks needed
+3. conclusions: the final goal/answer target
+4. relations: logical connections between nodes
+   - derive: A logically leads to B
+   - support: A supports/evidences B
+   - conflict: A contradicts B
 
-请确保提取的信息完整且逻辑关系准确。只输出JSON，不要输出其他内容。"""
+Output ONLY the JSON, no other text."""
 
 
 class EntityRelationExtractor:

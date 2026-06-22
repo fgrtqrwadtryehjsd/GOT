@@ -84,11 +84,15 @@ def normalize_hotpotqa_answer(raw: str) -> str:
     """HotpotQA 专用：提取简洁文本或 yes/no"""
     cleaned = clean_answer(raw)
     # yes/no 标准化
-    lower = cleaned.lower().strip()
-    if lower in ('yes', 'yes.', 'yes,', '是', '是的', '是。'):
+    lower = cleaned.lower().strip().rstrip('.,!?，。！？').strip()
+    if lower in ('yes', '是', '是的', 'yes they are', 'yes they were',
+                 'yes both', 'both are', 'both were'):
         return 'yes'
-    if lower in ('no', 'no.', 'no,', '否', '不是', '不', '没有'):
+    if lower in ('no', '否', '不是', '不', '没有', 'no they are not',
+                 'no they were not', 'neither', 'not both'):
         return 'no'
+    # 去掉末尾的地名补充（如 ", New York City"）
+    # 保留核心实体
     return cleaned
 
 

@@ -119,33 +119,53 @@ class GraphGuidedGenerator:
         }
 
     def _extract_answer(self, reasoning_text: str) -> str:
-        """从推理文本中提取最终答案（支持中英文、Markdown多种格式）"""
+        """从推理文本中提取最终答案
+
+        优先找 'Final Answer: xxx'（全文扫描，不局限于最后几行）
+        """
         import re
+
+        # 全文扫描：找所有 Final Answer / 最终答案
+        pattern = re.compile(
+            r'(?:Final Answer|最终答案|The final answer is|Therefore[,，]\s*the answer is)'
+            r'[：:\s]*(.+?)(?:\n|$)',
+            re.IGNORECASE
+        )
+        matches = pattern.findall(reasoning_text)
+        if matches:
+            # 取最后一个匹配（最终结论）
+            ans = matches[-1].strip().strip('*#.,。').strip()
+            if ans and len(ans) < 200:
+                return ans
+
+        # 回退：其他答案关键词
         lines = reasoning_text.strip().split("\n")
-
-        answer_keywords = [
-            "答案是", "答案是:", "答案：", "最终答案", "Final Answer",
-            "The answer is", "Therefore, the answer is",
-            "最终结果", "所以答案", "结论：", "结论:",
+        other_patterns = [
+            re.compile(r'(?:The answer is|答案[是：:])[\s]*(.+)', re.IGNORECASE),
+            re.compile(r'(?:结论[：:])[\s]*(.+)', re.IGNORECASE),
         ]
-
         for line in reversed(lines):
-            line_stripped = line.strip().lstrip("#*").strip()
-            for kw in answer_keywords:
-                if kw in line_stripped:
-                    after = line_stripped.split(kw, 1)[-1].strip(" :：*#\n")
-                    after = after.split("\n")[0].split("（")[0].strip(" *|")
-                    if after and 1 < len(after) < 200:
-                        return after
-                    break
+            for pat in other_patterns:
+                m = pat.search(line)
+                if m:
+                    ans = m.group(1).strip().strip('*#.,。').strip()
+                    if ans and len(ans) < 200:
+                        return ans
 
-        # 取最后一段有意义的短行（排除步骤编号、空行、纯符号行）
+        # 最终回退：取最后一个有意义的短句（排除闲聊）
+        noise_patterns = [
+            r'^如需', r'^如有', r'^需要', r'^欢迎', r'^可以.*扩展',
+            r'^通过上述', r'^综上所述', r'^我们得到', r'^\$\$', r'^---'
+        ]
         for line in reversed(lines):
-            line = line.strip().lstrip("#*|>-").strip()
-            # 跳过步骤编号（如 "步骤1:"、"1."）、纯符号、过短过长
+            line = line.strip().lstrip('#*|>-').strip()
             if not line or len(line) < 2 or len(line) > 150:
                 continue
             if re.match(r'^[\d\s\.\:步骤]+$', line):
+                continue
+            if re.match(r'^[|【】\[\]{}（）\(\)$$]+$', line):
+                continue
+            if any(re.match(p, line) for p in noise_patterns):
                 continue
             return line
 
