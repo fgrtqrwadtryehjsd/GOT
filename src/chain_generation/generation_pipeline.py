@@ -104,7 +104,8 @@ class GraphGuidedGenerator:
                  constraint_mode: str = "soft",
                  max_iterations: int = 1,
                  consistency_threshold: float = 0.6,
-                 enable_nli: bool = False):
+                 enable_nli: bool = False,
+                 _no_context: bool = False):
         self.model = model
         self.path_planner = PathPlanner()
         self.consistency_checker = ConsistencyChecker(
@@ -113,6 +114,7 @@ class GraphGuidedGenerator:
         )
         self.max_iterations = max_iterations
         self.consistency_threshold = consistency_threshold
+        self._no_context = _no_context  # 消融：不传递前驱答案
 
     def reason(self, question: str, context: str = "") -> Dict:
         """
@@ -164,9 +166,8 @@ class GraphGuidedGenerator:
                 continue  # 只对 Step 节点（子问题）调用 LLM
 
             # 构建前驱答案上下文
-            prev_answers_text = self._format_previous_answers(
-                node_id, graph, sub_answers
-            )
+            prev_answers_text = "" if self._no_context else \
+                self._format_previous_answers(node_id, graph, sub_answers)
 
             sub_q_text = node.content
             sub_prompt = ANSWER_SUBQ_PROMPT.format(
