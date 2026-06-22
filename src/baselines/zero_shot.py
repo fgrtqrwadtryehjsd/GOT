@@ -54,8 +54,35 @@ class ZeroShot:
             return {"answer": "", "reasoning_text": "[需要配置模型]", "method": self.mode}
 
         response = self.model.generate(prompt)
+        answer = self._extract_answer(response)
         return {
-            "answer": response.strip(),
+            "answer": answer,
             "reasoning_text": response,
             "method": self.mode,
         }
+
+    def _extract_answer(self, text: str) -> str:
+        """提取简洁答案，去掉解释性前缀和多余说明"""
+        lines = text.strip().split("\n")
+        keywords = [
+            "答案：", "答案:", "答案是", "最终答案",
+            "Final Answer:", "The answer is", "Therefore,",
+            "**答案", "结论：",
+        ]
+        for line in reversed(lines):
+            line_s = line.strip().lstrip("#*").strip()
+            for kw in keywords:
+                if kw in line_s:
+                    after = line_s.split(kw, 1)[-1].strip(" :：*#\n")
+                    after = after.split("\n")[0].strip(" *")
+                    # 去掉解释性括号（如 "yes（是的）"）
+                    after = after.split("（")[0].split("(")[0].strip(" *")
+                    if after and len(after) < 150:
+                        return after
+                    break
+        # 回退：取第一行简短内容
+        for line in lines[:3]:
+            line = line.strip().lstrip("#*").strip()
+            if line and len(line) < 100:
+                return line
+        return lines[0].strip() if lines else ""

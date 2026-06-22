@@ -172,7 +172,21 @@ class TreeOfThoughts:
 
     def _extract_answer(self, text: str) -> str:
         lines = text.strip().split("\n")
+        keywords = [
+            "答案是", "答案：", "答案:", "最终答案", "Final Answer",
+            "The answer is", "Therefore,", "结论：",
+        ]
         for line in reversed(lines):
-            if any(kw in line for kw in ["答案是", "答案：", "最终答案"]):
-                return line.strip()
+            line_s = line.strip().lstrip("#*").strip()
+            for kw in keywords:
+                if kw in line_s:
+                    after = line_s.split(kw, 1)[-1].strip(" :：*#\n")
+                    after = after.split("\n")[0].split("（")[0].strip(" *")
+                    if after and len(after) < 150:
+                        return after
+                    break
+        for line in reversed(lines):
+            line = line.strip().lstrip("#*").strip()
+            if line and len(line) < 100:
+                return line
         return lines[-1].strip() if lines else ""

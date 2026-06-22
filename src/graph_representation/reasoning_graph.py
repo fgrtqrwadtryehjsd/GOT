@@ -140,26 +140,36 @@ class ReasoningGraph:
     def topological_sort(self) -> List[str]:
         """
         拓扑排序 —— 获取推理执行顺序
-        
-        返回节点ID列表，按逻辑依赖关系排序：
-        事实节点 → 过程节点 → 目标节点
-        
-        用于：路径规划模块（PathPlanner）
         """
         try:
-            # 仅考虑非Conflict边构建拓扑排序
             derive_graph = nx.DiGraph()
             for node_id in self.nodes:
                 derive_graph.add_node(node_id)
             for edge in self.edges.values():
                 if edge.edge_type in (EdgeType.DERIVE, EdgeType.SUPPORT):
                     derive_graph.add_edge(edge.src_id, edge.dst_id)
-            
-            return list(nx.topological_sort(derive_graph))
-        except nx.NetworkXUnfeasible:
-            # 存在环路，返回部分排序
-            return list(nx.lexicographical_topological_sort(
-                derive_graph, key=lambda x: x))
+
+            if nx.is_directed_acyclic_graph(derive_graph):
+                return list(nx.topological_sort(derive_graph))
+            else:
+                # 有环时先破环，删除权重最小的边
+                cycles = list(nx.simple_cycles(derive_graph))
+                removed = set()
+                for cycle in cycles:
+                    for i in range(len(cycle)):
+                        e = (cycle[i], cycle[(i+1) % len(cycle)])
+                        if e not in removed:
+                            derive_graph.remove_edge(*e)
+                            removed.add(e)
+                            break
+                    if nx.is_directed_acyclic_graph(derive_graph):
+                        break
+                try:
+                    return list(nx.topological_sort(derive_graph))
+                except Exception:
+                    return list(self.nodes.keys())
+        except Exception:
+            return list(self.nodes.keys())
 
     def find_path(self, src_id: str, dst_id: str, method: str = "dfs") -> List[str]:
         """

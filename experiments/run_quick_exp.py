@@ -28,6 +28,15 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from src.utils.metrics import Metrics
+from src.utils.answer_normalizer import (
+    normalize_gsm8k_answer, normalize_hotpotqa_answer, normalize_clutrr_answer
+)
+
+NORMALIZERS = {
+    "gsm8k": normalize_gsm8k_answer,
+    "hotpotqa": normalize_hotpotqa_answer,
+    "clutrr": normalize_clutrr_answer,
+}
 
 
 def load_results(result_path: Path):
@@ -111,6 +120,8 @@ def main():
     model = create_model(args.model)
     method = create_method(args.method, model)
 
+    # 答案标准化器
+    normalizer = NORMALIZERS.get(args.dataset, lambda x: x)
     total_time = sum(r["metrics"]["latency"] for r in results)
     timeout_count = 0
     error_count = 0
@@ -127,7 +138,7 @@ def main():
             prediction = ""
             print(f"  [{i+1}/{len(samples)}] 错误({latency:.1f}s): {error[:60]}")
         else:
-            prediction = result.get("answer", "")
+            prediction = normalizer(result.get("answer", ""))
             # 获取 consistency_score（GERS专有）
             cs = result.get("consistency_score", 0)
             if isinstance(cs, dict):
@@ -135,7 +146,7 @@ def main():
 
         metrics = Metrics.compute_all(
             prediction=prediction,
-            reference=sample["answer"],
+            reference=normalizer(sample["answer"]),
             token_count=model.count_tokens(
                 result.get("reasoning_text", "") if result else ""
             ),

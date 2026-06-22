@@ -123,33 +123,30 @@ class GraphGuidedGenerator:
         import re
         lines = reasoning_text.strip().split("\n")
 
-        # 关键词列表（中英文 + Markdown 标题格式）
         answer_keywords = [
             "答案是", "答案是:", "答案：", "最终答案", "Final Answer",
             "The answer is", "Therefore, the answer is",
             "最终结果", "所以答案", "结论：", "结论:",
         ]
 
-        # 从后往前找含答案关键词的行
         for line in reversed(lines):
-            line_stripped = line.strip().lstrip("#").strip()
+            line_stripped = line.strip().lstrip("#*").strip()
             for kw in answer_keywords:
                 if kw in line_stripped:
-                    # 取关键词后面的内容
-                    after = line_stripped.split(kw, 1)[-1].strip(" :：*#")
-                    if after:
-                        # 提取第一个数字或短答案
-                        num = re.search(r"-?\d[\d,\.]*", after)
-                        return num.group().replace(",", "") if num else after
+                    after = line_stripped.split(kw, 1)[-1].strip(" :：*#\n")
+                    after = after.split("\n")[0].split("（")[0].strip(" *|")
+                    if after and 1 < len(after) < 200:
+                        return after
                     break
 
-        # 末尾数字回退：取最后一行中的数字
+        # 取最后一段有意义的短行（排除步骤编号、空行、纯符号行）
         for line in reversed(lines):
-            line = line.strip()
-            if not line:
+            line = line.strip().lstrip("#*|>-").strip()
+            # 跳过步骤编号（如 "步骤1:"、"1."）、纯符号、过短过长
+            if not line or len(line) < 2 or len(line) > 150:
                 continue
-            num = re.search(r"-?\d[\d,\.]*", line)
-            if num:
-                return num.group().replace(",", "")
+            if re.match(r'^[\d\s\.\:步骤]+$', line):
+                continue
+            return line
 
-        return lines[-1].strip() if lines else ""
+        return ""
