@@ -1,0 +1,293 @@
+{
+  "summary": {
+    "config": "wo_decompose",
+    "description": "w/o Decompose: 不分解，退化为 Standard CoT",
+    "dataset": "hotpotqa",
+    "num_samples": 20,
+    "avg_em": 0.35,
+    "avg_latency": 8.5673,
+    "error_count": 0
+  },
+  "results": [
+    {
+      "sample_id": 0,
+      "question": "Were Scott Derrickson and Ed Wood of the same nationality?",
+      "prediction": "Yes, Scott Derrickson and Ed Wood were of the same nationality — they were both American",
+      "reference": "yes",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.13333333333333333,
+        "token_count": 0,
+        "latency": 6.085944652557373
+      },
+      "config": "wo_decompose",
+      "error": null
+    },
+    {
+      "sample_id": 1,
+      "question": "What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tel",
+      "prediction": "Shirley Temple** 曾担任以下两个政府职位",
+      "reference": "Chief of Protocol",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 6.70220160484314
+      },
+      "config": "wo_decompose",
+      "error": null
+    },
+    {
+      "sample_id": 2,
+      "question": "What science fantasy young adult series, told in first person, has a set of companion books narratin",
+      "prediction": "：",
+      "reference": "Animorphs",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 14.027292251586914
+      },
+      "config": "wo_decompose",
+      "error": null
+    },
+    {
+      "sample_id": 3,
+      "question": "Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?",
+      "prediction": "No**, the Laleli Mosque and Esma Sultan Mansion are not located in the same neighborhood",
+      "reference": "no",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.13333333333333333,
+        "token_count": 0,
+        "latency": 12.574361562728882
+      },
+      "config": "wo_decompose",
+      "error": null
+    },
+    {
+      "sample_id": 4,
+      "question": "The director of the romantic comedy \"Big Stone Gap\" is based in what New York city?",
+      "prediction": "Greenwich Village, New York City**",
+      "reference": "Greenwich Village, New York City",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 7.798335075378418
+      },
+      "config": "wo_decompose",
+      "error": null
+    },
+    {
+      "sample_id": 5,
+      "question": "2014 S/S is the debut album of a South Korean boy group that was formed by who?",
+      "prediction": "YG Entertainment**",
+      "reference": "YG Entertainment",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 8.42590069770813
+      },
+      "config": "wo_decompose",
+      "error": null
+    },
+    {
+      "sample_id": 6,
+      "question": "Who was known by his stage name Aladin and helped organizations improve their performance as a consu",
+      "prediction": "无法确定**，因为参考信息中没有提到任何人的艺名为“Aladin”",
+      "reference": "Eenasul Fateh",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 7.715693712234497
+      },
+      "config": "wo_decompose",
+      "error": null
+    },
+    {
+      "sample_id": 7,
+      "question": "The arena where the Lewiston Maineiacs played their home games can seat how many people?",
+      "prediction": "无法从提供的信息中得出答案。**",
+      "reference": "3,677 seated",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 7.7046942710876465
+      },
+      "config": "wo_decompose",
+      "error": null
+    },
+    {
+      "sample_id": 8,
+      "question": "Who is older, Annie Morton or Terry Richardson?",
+      "prediction": "Terry Richardson 是 older（更年长）的。**",
+      "reference": "Terry Richardson",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.6666666666666666,
+        "token_count": 0,
+        "latency": 3.922168254852295
+      },
+      "config": "wo_decompose",
+      "error": null
+    },
+    {
+      "sample_id": 9,
+      "question": "Are Local H and For Against both from the United States?",
+      "prediction": "Yes, Local H and For Against are both from the United States.**",
+      "reference": "yes",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.15384615384615385,
+        "token_count": 0,
+        "latency": 9.213218688964844
+      },
+      "config": "wo_decompose",
+      "error": null
+    },
+    {
+      "sample_id": 10,
+      "question": "What is the name of the fight song of the university whose main campus is in Lawrence, Kansas and wh",
+      "prediction": "\"Be Not Afraid\"**",
+      "reference": "Kansas Song",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 6.435568332672119
+      },
+      "config": "wo_decompose",
+      "error": null
+    },
+    {
+      "sample_id": 11,
+      "question": "What screenwriter with credits for \"Evolution\" co-wrote a film starring Nicolas Cage and Téa Leoni?",
+      "prediction": "Jeffrey Boam**",
+      "reference": "David Weissman",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 11.529484748840332
+      },
+      "config": "wo_decompose",
+      "error": null
+    },
+    {
+      "sample_id": 12,
+      "question": "What year did Guns N Roses perform a promo for a movie starring Arnold Schwarzenegger as a former Ne",
+      "prediction": "1990年",
+      "reference": "1999",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 12.373672485351562
+      },
+      "config": "wo_decompose",
+      "error": null
+    },
+    {
+      "sample_id": 13,
+      "question": "Are Random House Tower and 888 7th Avenue both used for real estate?",
+      "prediction": "Yes, both Random House Tower and 888 7th Avenue are used for real estate",
+      "reference": "no",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 7.397401809692383
+      },
+      "config": "wo_decompose",
+      "error": null
+    },
+    {
+      "sample_id": 14,
+      "question": "The football manager who recruited David Beckham managed Manchester United during what timeframe?",
+      "prediction": "：",
+      "reference": "from 1986 to 2013",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 12.593119859695435
+      },
+      "config": "wo_decompose",
+      "error": null
+    },
+    {
+      "sample_id": 15,
+      "question": "Brown State Fishing Lake is in a country that has a population of how many inhabitants ?",
+      "prediction": "：",
+      "reference": "9,984",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 4.255818843841553
+      },
+      "config": "wo_decompose",
+      "error": null
+    },
+    {
+      "sample_id": 16,
+      "question": "The Vermont Catamounts men's soccer team currently competes in a conference that was formerly known ",
+      "prediction": "Delaware Valley Conference**",
+      "reference": "the North Atlantic Conference",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.28571428571428575,
+        "token_count": 0,
+        "latency": 9.30614972114563
+      },
+      "config": "wo_decompose",
+      "error": null
+    },
+    {
+      "sample_id": 17,
+      "question": "Are Giuseppe Verdi and Ambroise Thomas both Opera composers ?",
+      "prediction": "Yes, Giuseppe Verdi and Ambroise Thomas are both opera composers",
+      "reference": "yes",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.18181818181818182,
+        "token_count": 0,
+        "latency": 9.403507232666016
+      },
+      "config": "wo_decompose",
+      "error": null
+    },
+    {
+      "sample_id": 18,
+      "question": "Roger O. Egeberg was Assistant Secretary for Health and Scientific Affairs during the administration",
+      "prediction": "**",
+      "reference": "1969 until 1974",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 8.690258741378784
+      },
+      "config": "wo_decompose",
+      "error": null
+    },
+    {
+      "sample_id": 19,
+      "question": "Which writer was from England, Henry Roth or Robert Erskine Childers?",
+      "prediction": "Robert Erskine Childers** 是来自英格兰的作家",
+      "reference": "Robert Erskine Childers DSC",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.75,
+        "token_count": 0,
+        "latency": 5.191394567489624
+      },
+      "config": "wo_decompose",
+      "error": null
+    }
+  ]
+}

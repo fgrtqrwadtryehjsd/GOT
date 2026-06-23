@@ -14,8 +14,9 @@ build/
 venv/
 env/
 
-# 实验结果（大文件）
-experiments/results/
+# 实验日志（不提交）
+experiments/results/log_*.txt
+experiments/results/ablation/log_*.txt
 
 # 数据集原始文件（体积过大不提交）
 data/hotpotqa/

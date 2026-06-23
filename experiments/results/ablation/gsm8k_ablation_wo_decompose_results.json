@@ -1,0 +1,293 @@
+{
+  "summary": {
+    "config": "wo_decompose",
+    "description": "w/o Decompose: 不分解，退化为 Standard CoT",
+    "dataset": "gsm8k",
+    "num_samples": 20,
+    "avg_em": 1.0,
+    "avg_latency": 5.5004,
+    "error_count": 0
+  },
+  "results": [
+    {
+      "sample_id": 0,
+      "question": "Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for ",
+      "prediction": "18",
+      "reference": "18",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 4.621474266052246
+      },
+      "config": "wo_decompose",
+      "error": null
+    },
+    {
+      "sample_id": 1,
+      "question": "A robe takes 2 bolts of blue fiber and half that much white fiber.  How many bolts in total does it ",
+      "prediction": "3",
+      "reference": "3",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 3.7390027046203613
+      },
+      "config": "wo_decompose",
+      "error": null
+    },
+    {
+      "sample_id": 2,
+      "question": "Josh decides to try flipping a house.  He buys a house for $80,000 and then puts in $50,000 in repai",
+      "prediction": "70000",
+      "reference": "70000",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 4.777784585952759
+      },
+      "config": "wo_decompose",
+      "error": null
+    },
+    {
+      "sample_id": 3,
+      "question": "James decides to run 3 sprints 3 times a week.  He runs 60 meters each sprint.  How many total meter",
+      "prediction": "540",
+      "reference": "540",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 3.0289409160614014
+      },
+      "config": "wo_decompose",
+      "error": null
+    },
+    {
+      "sample_id": 4,
+      "question": "Every day, Wendi feeds each of her chickens three cups of mixed chicken feed, containing seeds, meal",
+      "prediction": "20",
+      "reference": "20",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 3.7583022117614746
+      },
+      "config": "wo_decompose",
+      "error": null
+    },
+    {
+      "sample_id": 5,
+      "question": "Kylar went to the store to buy glasses for his new apartment. One glass costs $5, but every second g",
+      "prediction": "64",
+      "reference": "64",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 3.185256004333496
+      },
+      "config": "wo_decompose",
+      "error": null
+    },
+    {
+      "sample_id": 6,
+      "question": "Toulouse has twice as many sheep as Charleston. Charleston has 4 times as many sheep as Seattle. How",
+      "prediction": "260",
+      "reference": "260",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 4.556454420089722
+      },
+      "config": "wo_decompose",
+      "error": null
+    },
+    {
+      "sample_id": 7,
+      "question": "Carla is downloading a 200 GB file. Normally she can download 2 GB/minute, but 40% of the way throug",
+      "prediction": "160",
+      "reference": "160",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 10.253818988800049
+      },
+      "config": "wo_decompose",
+      "error": null
+    },
+    {
+      "sample_id": 8,
+      "question": "John drives for 3 hours at a speed of 60 mph and then turns around because he realizes he forgot som",
+      "prediction": "45",
+      "reference": "45",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 10.6224045753479
+      },
+      "config": "wo_decompose",
+      "error": null
+    },
+    {
+      "sample_id": 9,
+      "question": "Eliza's rate per hour for the first 40 hours she works each week is $10. She also receives an overti",
+      "prediction": "460",
+      "reference": "460",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 4.687440633773804
+      },
+      "config": "wo_decompose",
+      "error": null
+    },
+    {
+      "sample_id": 10,
+      "question": "A new program had 60 downloads in the first month. The number of downloads in the second month was t",
+      "prediction": "366",
+      "reference": "366",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 4.677082300186157
+      },
+      "config": "wo_decompose",
+      "error": null
+    },
+    {
+      "sample_id": 11,
+      "question": "Toula went to the bakery and bought various types of pastries. She bought 3 dozen donuts which cost ",
+      "prediction": "694",
+      "reference": "694",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 4.754212141036987
+      },
+      "config": "wo_decompose",
+      "error": null
+    },
+    {
+      "sample_id": 12,
+      "question": "Carlos is planting a lemon tree. The tree will cost $90 to plant. Each year it will grow 7 lemons, w",
+      "prediction": "13",
+      "reference": "13",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 6.6425721645355225
+      },
+      "config": "wo_decompose",
+      "error": null
+    },
+    {
+      "sample_id": 13,
+      "question": "Melanie is a door-to-door saleswoman. She sold a third of her vacuum cleaners at the green house, 2 ",
+      "prediction": "18",
+      "reference": "18",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 7.6826629638671875
+      },
+      "config": "wo_decompose",
+      "error": null
+    },
+    {
+      "sample_id": 14,
+      "question": "In a dance class of 20 students, 20% enrolled in contemporary dance, 25% of the remaining enrolled i",
+      "prediction": "60",
+      "reference": "60",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 5.936155557632446
+      },
+      "config": "wo_decompose",
+      "error": null
+    },
+    {
+      "sample_id": 15,
+      "question": "A merchant wants to make a choice of purchase between 2 purchase plans: jewelry worth $5,000 or elec",
+      "prediction": "125",
+      "reference": "125",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 4.782988786697388
+      },
+      "config": "wo_decompose",
+      "error": null
+    },
+    {
+      "sample_id": 16,
+      "question": "Two trains leave San Rafael at the same time. They begin traveling westward, both traveling for 80 m",
+      "prediction": "230",
+      "reference": "230",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 4.499449253082275
+      },
+      "config": "wo_decompose",
+      "error": null
+    },
+    {
+      "sample_id": 17,
+      "question": "Jill gets paid $20 per hour to teach and $30 to be a cheerleading coach. If she works 50 weeks a yea",
+      "prediction": "57500",
+      "reference": "57500",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 4.842167615890503
+      },
+      "config": "wo_decompose",
+      "error": null
+    },
+    {
+      "sample_id": 18,
+      "question": "Claire makes a 3 egg omelet every morning for breakfast.  How many dozens of eggs will she eat in 4 ",
+      "prediction": "7",
+      "reference": "7",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 3.767366409301758
+      },
+      "config": "wo_decompose",
+      "error": null
+    },
+    {
+      "sample_id": 19,
+      "question": "Marissa is hiking a 12-mile trail. She took 1 hour to walk the first 4 miles, then another hour to w",
+      "prediction": "6",
+      "reference": "6",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 9.192996740341187
+      },
+      "config": "wo_decompose",
+      "error": null
+    }
+  ]
+}

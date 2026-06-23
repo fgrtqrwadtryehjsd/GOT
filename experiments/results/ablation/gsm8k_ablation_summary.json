@@ -1,0 +1,29 @@
+{
+  "dataset": "gsm8k",
+  "model": "qwen3-8b",
+  "num_samples": 20,
+  "results": {
+    "full_gers": {
+      "em": 0.75,
+      "consistency": 0.8
+    },
+    "wo_decompose": {
+      "em": 1.0,
+      "consistency": 0.0
+    },
+    "wo_context": {
+      "em": 0.85,
+      "consistency": 0.8
+    },
+    "wo_consistency": {
+      "em": 0.75,
+      "consistency": 0.8
+    }
+  },
+  "configs": {
+    "full_gers": "Full GERS: 分解+依赖传递+汇总+校验（完整方法）",
+    "wo_decompose": "w/o Decompose: 不分解，退化为 Standard CoT",
+    "wo_context": "w/o Context: 子问题不传递前驱答案（独立回答）",
+    "wo_consistency": "w/o Consistency: 无 Consistency Score 校验"
+  }
+}

@@ -1,0 +1,4215 @@
+{
+  "summary": {
+    "method": "standard_cot",
+    "dataset": "clutrr",
+    "model": "qwen3-8b",
+    "num_samples": 300,
+    "avg_em": 0.1933,
+    "avg_f1": 0.0,
+    "avg_latency": 3.4265,
+    "timeout_count": 0,
+    "error_count": 0
+  },
+  "results": [
+    {
+      "sample_id": 0,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "Alice 和 David 是叔侄关系。**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 159,
+        "latency": 5.266526699066162
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 1,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 2.7612802982330322
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 2,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.464524269104004
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 3,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑（或姨妈）**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 112,
+        "latency": 3.843971014022827
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 4,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 2.6027162075042725
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 5,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "Alice 和 David 是叔侄关系，David 是 Alice 的叔叔。**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 150,
+        "latency": 3.514023780822754
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 6,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 2.7855992317199707
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 7,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 3.256777763366699
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 8,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑（或姨妈）**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 105,
+        "latency": 2.862813711166382
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 9,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 2.6696770191192627
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 10,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "Alice 和 David 是叔侄关系，David 是 Alice 的叔叔。**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 150,
+        "latency": 3.395164728164673
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 11,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 2.807940721511841
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 12,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.380394458770752
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 13,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑（或姨妈）**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 105,
+        "latency": 3.0623326301574707
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 14,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 2.631786584854126
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 15,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "David是Alice的祖叔。**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 4.013953447341919
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 16,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 3.6139016151428223
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 17,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 4.1082282066345215
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 18,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Mike是Karen的弟弟或妹妹。**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 98,
+        "latency": 2.70143461227417
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 19,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 3.1200222969055176
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 20,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "Alice 和 David 是叔侄关系，David 是 Alice 的叔叔。**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 150,
+        "latency": 3.816241979598999
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 21,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 2.7934234142303467
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 22,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 4.100902557373047
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 23,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑（或姨妈）**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 105,
+        "latency": 2.9352915287017822
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 24,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 2.77193021774292
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 25,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "即：David 是 Alice 的叔叔",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 183,
+        "latency": 5.243856906890869
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 26,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 2.761364459991455
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 27,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 4.144625186920166
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 28,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Mike是Karen的侄子",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 114,
+        "latency": 3.8143703937530518
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 29,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 2.766766309738159
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 30,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "Alice 和 David 是叔侄关系，David 是 Alice 的叔叔。**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 150,
+        "latency": 5.358712911605835
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 31,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 2.7699568271636963
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 32,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 3.2388930320739746
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 33,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Mike是Karen的侄子。**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 116,
+        "latency": 3.4893107414245605
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 34,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 2.752324342727661
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 35,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "即：David 是 Alice 的叔叔",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 183,
+        "latency": 4.5897133350372314
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 36,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 3.811631917953491
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 37,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.721461296081543
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 38,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑（或姨妈）**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 105,
+        "latency": 2.9149396419525146
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 39,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 3.0037312507629395
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 40,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "即：David 是 Alice 的叔叔",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 183,
+        "latency": 4.839004039764404
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 41,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 2.8391494750976562
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 42,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.5318379402160645
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 43,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Mike是Karen的侄子。**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 3.707200050354004
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 44,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 2.580446243286133
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 45,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "Alice 和 David 是叔侄关系，David 是 Alice 的叔叔。**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 150,
+        "latency": 3.955271005630493
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 46,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 3.0039546489715576
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 47,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 3.3770956993103027
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 48,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑（或姨妈）**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 105,
+        "latency": 2.9955952167510986
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 49,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 2.8395564556121826
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 50,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "Alice 和 David 是叔侄关系，David 是 Alice 的叔叔。**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 150,
+        "latency": 3.713075876235962
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 51,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 2.9162073135375977
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 52,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.4061388969421387
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 53,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Mike是Karen的侄子。**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 116,
+        "latency": 3.0561418533325195
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 54,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 2.832282304763794
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 55,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "David 是 Alice 的叔叔。**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 147,
+        "latency": 4.161627292633057
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 56,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "因此，Eva 是 George 的叔母",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 147,
+        "latency": 3.8057444095611572
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 57,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.416433572769165
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 58,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑（或姨妈）**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 105,
+        "latency": 3.0347740650177
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 59,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 3.0634357929229736
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 60,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "Alice 和 David 是叔侄关系，David 是 Alice 的叔叔。**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 150,
+        "latency": 3.3408732414245605
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 61,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 2.8105576038360596
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 62,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 3.3607020378112793
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 63,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Mike是Karen的侄子",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 106,
+        "latency": 3.1465604305267334
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 64,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 3.4590981006622314
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 65,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "即：David 是 Alice 的叔叔",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 183,
+        "latency": 4.772480010986328
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 66,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 2.793701171875
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 67,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.3929951190948486
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 68,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑（或姨妈）**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 105,
+        "latency": 3.017951726913452
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 69,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 2.575789213180542
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 70,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "即：David 是 Alice 的叔叔",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 183,
+        "latency": 4.4524757862091064
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 71,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 2.8228259086608887
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 72,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.353081464767456
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 73,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "换句话说，Karen是Mike的兄妹的配偶，即Mike的婶婶/叔叔",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 139,
+        "latency": 4.5439252853393555
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 74,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 2.7148470878601074
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 75,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "Alice 和 David 是叔侄关系，David 是 Alice 的叔叔。**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 150,
+        "latency": 3.396090030670166
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 76,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 2.83449387550354
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 77,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.3725717067718506
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 78,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Mike是Karen的侄子",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 106,
+        "latency": 2.924088478088379
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 79,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 104,
+        "latency": 2.779589891433716
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 80,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "Alice 和 David 是叔侄关系，David 是 Alice 的叔叔。**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 150,
+        "latency": 3.5518765449523926
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 81,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 3.6609349250793457
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 82,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.994537591934204
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 83,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑（或姨妈）**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 112,
+        "latency": 3.8831887245178223
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 84,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 2.5893914699554443
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 85,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "Alice 和 David 是叔侄关系，即 David 是 Alice 的叔叔**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 149,
+        "latency": 4.522204399108887
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 86,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 3.4194583892822266
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 87,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.4842309951782227
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 88,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑（或姨妈）**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 96,
+        "latency": 3.361989974975586
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 89,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 2.8052446842193604
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 90,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "即：David 是 Alice 的叔叔",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 183,
+        "latency": 5.088833570480347
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 91,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 2.8205440044403076
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 92,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 3.2936513423919678
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 93,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑（或姨妈）**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 105,
+        "latency": 2.8623974323272705
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 94,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 104,
+        "latency": 3.006270170211792
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 95,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "Alice 与 David 的亲属关系是：叔叔与侄女。**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 145,
+        "latency": 4.194127798080444
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 96,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 3.0036866664886475
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 97,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.651371479034424
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 98,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 110,
+        "latency": 3.190077304840088
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 99,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 4.16291618347168
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 100,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "Alice 和 David 是叔侄关系，David 是 Alice 的叔叔。**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 150,
+        "latency": 3.6629011631011963
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 101,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 3.1147193908691406
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 102,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 3.1756467819213867
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 103,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Mike是Karen的侄子",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 114,
+        "latency": 3.4556338787078857
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 104,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 4.278052806854248
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 105,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "Alice 与 David 的亲属关系是：叔叔与侄女。**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 145,
+        "latency": 3.5682246685028076
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 106,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 3.9678328037261963
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 107,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.7669100761413574
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 108,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑（或姨妈）。**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 98,
+        "latency": 3.5796539783477783
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 109,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 2.9130890369415283
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 110,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "Alice 和 David 是叔侄关系，David 是 Alice 的叔叔。**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 150,
+        "latency": 3.2968692779541016
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 111,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 3.435272693634033
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 112,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 3.179962158203125
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 113,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑（或姨妈）**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 105,
+        "latency": 2.8681564331054688
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 114,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 104,
+        "latency": 2.8970348834991455
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 115,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "Alice 和 David 是叔侄关系，David 是 Alice 的叔叔。**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 150,
+        "latency": 4.101366996765137
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 116,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 2.712742328643799
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 117,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.4116415977478027
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 118,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑（或姨妈）**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 96,
+        "latency": 2.944009780883789
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 119,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 106,
+        "latency": 3.3062925338745117
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 120,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "David 是 Alice 的叔叔。**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 147,
+        "latency": 4.686352252960205
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 121,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 3.829237699508667
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 122,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 3.1067893505096436
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 123,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑（或姨妈）**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 112,
+        "latency": 7.571090936660767
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 124,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 2.8373522758483887
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 125,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "即：David 是 Alice 的叔叔",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 183,
+        "latency": 4.636149883270264
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 126,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 3.6439175605773926
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 127,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 4.409711599349976
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 128,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑（或姨妈）**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 112,
+        "latency": 3.8764450550079346
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 129,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 104,
+        "latency": 3.1957061290740967
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 130,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "Alice 与 David 的亲属关系是：叔叔与侄女。**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 145,
+        "latency": 4.695160627365112
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 131,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 3.010223150253296
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 132,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.6799306869506836
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 133,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Mike是Karen的侄子。**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 116,
+        "latency": 3.673611879348755
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 134,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 3.340754270553589
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 135,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "Alice 与 David 是叔侄关系，即 David 是 Alice 的叔叔。** ✅",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 173,
+        "latency": 3.64119291305542
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 136,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 3.0433335304260254
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 137,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.3534138202667236
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 138,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑（或姨妈）**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 105,
+        "latency": 2.998379707336426
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 139,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 2.751171588897705
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 140,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "Alice 和 David 是叔侄关系，David 是 Alice 的叔叔。** ✅",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 182,
+        "latency": 4.860463857650757
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 141,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 2.8122217655181885
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 142,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 6.6539013385772705
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 143,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 110,
+        "latency": 3.183354377746582
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 144,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 3.5918960571289062
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 145,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "David 是 Alice 的叔叔。**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 147,
+        "latency": 4.315824508666992
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 146,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 3.68127703666687
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 147,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 3.745899200439453
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 148,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 110,
+        "latency": 4.916929483413696
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 149,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 3.14096736907959
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 150,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "即：David 是 Alice 的叔叔",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 183,
+        "latency": 4.7990264892578125
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 151,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 3.5063588619232178
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 152,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.607088327407837
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 153,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑（或姨妈）**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 112,
+        "latency": 4.393500089645386
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 154,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 3.1596505641937256
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 155,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "Alice 是 David 的侄女。**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 171,
+        "latency": 3.725740909576416
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 156,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 2.787212610244751
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 157,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.730091094970703
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 158,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的婶婶或叔叔，Mike是Karen的侄子。**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 138,
+        "latency": 4.824063062667847
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 159,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 5.404418468475342
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 160,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "即：David 是 Alice 的叔叔",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 183,
+        "latency": 4.430748224258423
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 161,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 2.815152406692505
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 162,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.7415754795074463
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 163,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑（或姨妈）。**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 98,
+        "latency": 3.5925066471099854
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 164,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 2.6898279190063477
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 165,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "Alice 和 David 是叔侄关系，David 是 Alice 的叔叔。**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 150,
+        "latency": 3.965822458267212
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 166,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 3.531466484069824
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 167,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.4261693954467773
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 168,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑（或姨妈）**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 105,
+        "latency": 2.944561243057251
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 169,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 3.071784257888794
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 170,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "David 是 Alice 的叔叔。**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 147,
+        "latency": 3.8346009254455566
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 171,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 2.7721524238586426
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 172,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 3.796347141265869
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 173,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Mike是Karen的侄子",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 106,
+        "latency": 3.1973536014556885
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 174,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 5.0580549240112305
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 175,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "Alice 和 David 是叔侄关系，David 是 Alice 的叔叔。**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 150,
+        "latency": 4.802610874176025
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 176,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 3.9302752017974854
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 177,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.968667507171631
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 178,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑（或姨妈）**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 112,
+        "latency": 3.5113255977630615
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 179,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 3.542781114578247
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 180,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "David 是 Alice 的叔公**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 215,
+        "latency": 8.792782068252563
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 181,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 2.8215456008911133
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 182,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 3.044950485229492
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 183,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑（或姨妈）**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 105,
+        "latency": 3.074402332305908
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 184,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 2.562821388244629
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 185,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "Alice 和 David 是叔侄关系，David 是 Alice 的叔叔。**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 150,
+        "latency": 3.3219351768493652
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 186,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 4.174479722976685
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 187,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.5770328044891357
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 188,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑（或姨妈）**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 96,
+        "latency": 3.045797824859619
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 189,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 106,
+        "latency": 3.46612286567688
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 190,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "David 是 Alice 的叔叔。**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 147,
+        "latency": 3.8163902759552
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 191,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 3.715212345123291
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 192,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.8250532150268555
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 193,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑（或姨妈）**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 105,
+        "latency": 2.984281539916992
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 194,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 3.4619855880737305
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 195,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "David 是 Alice 的叔叔。**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 147,
+        "latency": 4.194086313247681
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 196,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "- 因此，Eva 是 George 的姑姑",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 176,
+        "latency": 4.180572032928467
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 197,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.823719024658203
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 198,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑（或姨妈）**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 105,
+        "latency": 2.908531665802002
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 199,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 106,
+        "latency": 3.596076488494873
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 200,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "Alice 和 David 是叔侄关系。**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 154,
+        "latency": 5.4208409786224365
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 201,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 3.569345712661743
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 202,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 4.231903791427612
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 203,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑（或姨妈）**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 105,
+        "latency": 2.946631669998169
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 204,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 3.1621291637420654
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 205,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "即：David 是 Alice 的叔叔",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 183,
+        "latency": 4.114655494689941
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 206,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 3.3151021003723145
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 207,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.7151200771331787
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 208,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑（或姨妈）**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 112,
+        "latency": 3.758608102798462
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 209,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 3.2422564029693604
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 210,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "即：David 是 Alice 的叔叔",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 183,
+        "latency": 4.747299671173096
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 211,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 3.9181201457977295
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 212,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.48136568069458
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 213,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑（或姨妈）**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 112,
+        "latency": 3.45837140083313
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 214,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 3.359288215637207
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 215,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "Alice 和 David 是叔侄关系，David 是 Alice 的叔叔。**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 150,
+        "latency": 4.189713954925537
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 216,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 3.4744768142700195
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 217,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.963444471359253
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 218,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的婶婶（或叔叔，视Karen性别而定），即Karen是Mike的婶婶/叔叔",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 117,
+        "latency": 5.063544511795044
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 219,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 2.890608549118042
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 220,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "即：David 是 Alice 的叔叔",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 183,
+        "latency": 4.616608142852783
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 221,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 2.9105093479156494
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 222,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.395056962966919
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 223,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑（或姨妈）**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 105,
+        "latency": 3.542273759841919
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 224,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 3.5576415061950684
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 225,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "即：David 是 Alice 的叔叔",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 183,
+        "latency": 4.831455230712891
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 226,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 2.9183902740478516
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 227,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.997121572494507
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 228,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Mike是Karen的侄子。**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 100,
+        "latency": 4.066226482391357
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 229,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 3.5813636779785156
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 230,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "Alice 和 David 是叔侄关系，David 是 Alice 的叔叔。**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 150,
+        "latency": 3.2854092121124268
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 231,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 2.843994379043579
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 232,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.6343259811401367
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 233,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑（或姨妈）**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 112,
+        "latency": 3.2992780208587646
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 234,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 2.837841749191284
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 235,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "Alice 和 David 是叔侄关系，David 是 Alice 的叔叔。**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 150,
+        "latency": 3.246870756149292
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 236,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 2.9680631160736084
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 237,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.374650716781616
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 238,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑（或姨妈）**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 105,
+        "latency": 2.794675350189209
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 239,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 2.657661199569702
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 240,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "Alice 和 David 是叔侄关系，David 是 Alice 的叔叔。**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 150,
+        "latency": 3.6705329418182373
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 241,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 2.940315008163452
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 242,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.571226119995117
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 243,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姨妈（或姑姑），Mike是Karen的侄子",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 122,
+        "latency": 4.442087888717651
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 244,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 5.270392179489136
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 245,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "Alice 与 David 是叔侄关系，即 David 是 Alice 的叔叔**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 174,
+        "latency": 4.921981573104858
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 246,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 3.6858255863189697
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 247,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.3335447311401367
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 248,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑（或姨妈）**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 105,
+        "latency": 2.9189045429229736
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 249,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 2.674490451812744
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 250,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "David 是 Alice 的叔叔。**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 147,
+        "latency": 4.395219087600708
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 251,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 3.328782558441162
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 252,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.432596206665039
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 253,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Mike是Karen的弟弟或妹妹。**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 98,
+        "latency": 3.278684139251709
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 254,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 3.6063270568847656
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 255,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "Alice 与 David 的亲属关系是：叔叔与侄女。**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 145,
+        "latency": 5.614190340042114
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 256,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 3.182523012161255
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 257,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.921466827392578
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 258,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 110,
+        "latency": 3.339341640472412
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 259,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 3.2080044746398926
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 260,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "即：David 是 Alice 的叔叔",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 183,
+        "latency": 4.276214838027954
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 261,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 3.333364725112915
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 262,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.7009503841400146
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 263,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姐姐",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 83,
+        "latency": 2.745586395263672
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 264,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 3.984496593475342
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 265,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "Alice 和 David 是祖叔（叔公）与孙女的关系。**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 159,
+        "latency": 4.162814140319824
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 266,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 3.176438808441162
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 267,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 3.3498482704162598
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 268,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姐姐",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 83,
+        "latency": 3.091364622116089
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 269,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 2.6248397827148438
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 270,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "Alice 和 David 是叔侄关系，David 是 Alice 的叔叔。**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 150,
+        "latency": 3.3091835975646973
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 271,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 2.8807458877563477
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 272,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.539769411087036
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 273,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑（或姨妈）**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 105,
+        "latency": 3.0509886741638184
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 274,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 106,
+        "latency": 3.326988697052002
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 275,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "Alice 和 David 是叔侄关系，David 是 Alice 的叔叔。**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 150,
+        "latency": 3.8202853202819824
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 276,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 3.5009565353393555
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 277,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.502488851547241
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 278,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Mike是Karen的侄子。**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 116,
+        "latency": 3.4152402877807617
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 279,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 3.2579402923583984
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 280,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "Alice 和 David 是叔侄关系，即 David 是 Alice 的叔叔**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 149,
+        "latency": 4.66425895690918
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 281,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 3.607125759124756
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 282,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.576057195663452
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 283,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑（或姨妈）**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 105,
+        "latency": 2.8644230365753174
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 284,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 3.2762224674224854
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 285,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "Alice 和 David 是叔侄关系，David 是 Alice 的叔叔。**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 150,
+        "latency": 3.237643241882324
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 286,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 2.8005242347717285
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 287,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.629734754562378
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 288,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Karen是Mike的姑姑（或姨妈）**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 105,
+        "latency": 2.874082326889038
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 289,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 3.1597800254821777
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 290,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "Alice 和 David 是叔侄关系，David 是 Alice 的叔叔。** ✅",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 182,
+        "latency": 5.173093557357788
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 291,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 3.0747487545013428
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 292,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 3.1588876247406006
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 293,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Mike是Karen的侄子。**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 116,
+        "latency": 4.528778314590454
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 294,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 104,
+        "latency": 3.1235361099243164
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 295,
+      "question": "基于以上信息，Alice与David是什么亲属关系？",
+      "prediction": "Alice 与 David 是叔侄关系**",
+      "reference": "叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 164,
+        "latency": 4.910242795944214
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 296,
+      "question": "Eva与George是什么亲属关系？",
+      "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 3.3392136096954346
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 297,
+      "question": "Hannah与Jack是什么亲属关系？",
+      "prediction": "Hannah 是 Jack 的儿媳。**",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 2.5737476348876953
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 298,
+      "question": "Karen与Mike是什么亲属关系？",
+      "prediction": "Mike是Karen的弟弟或妹妹。**",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 100,
+        "latency": 2.824498414993286
+      },
+      "method": "standard_cot",
+      "error": null
+    },
+    {
+      "sample_id": 299,
+      "question": "Nancy与Peter是什么亲属关系？",
+      "prediction": "Nancy 是 Peter 的侄女，Peter 是 Nancy 的叔叔。**",
+      "reference": "叔叔/伯伯",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 2.781126022338867
+      },
+      "method": "standard_cot",
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,313 @@
+{
+  "summary": {
+    "config": "wo_context",
+    "description": "w/o Context: 子问题不传递前驱答案（独立回答）",
+    "dataset": "gsm8k",
+    "num_samples": 20,
+    "avg_em": 0.85,
+    "avg_latency": 7.5102,
+    "error_count": 0
+  },
+  "results": [
+    {
+      "sample_id": 0,
+      "question": "Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for ",
+      "prediction": "18",
+      "reference": "18",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 13.666956186294556,
+        "consistency_score": 0.8
+      },
+      "config": "wo_context",
+      "error": null
+    },
+    {
+      "sample_id": 1,
+      "question": "A robe takes 2 bolts of blue fiber and half that much white fiber.  How many bolts in total does it ",
+      "prediction": "3",
+      "reference": "3",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 3.322587728500366,
+        "consistency_score": 0.8
+      },
+      "config": "wo_context",
+      "error": null
+    },
+    {
+      "sample_id": 2,
+      "question": "Josh decides to try flipping a house.  He buys a house for $80,000 and then puts in $50,000 in repai",
+      "prediction": "50000",
+      "reference": "70000",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 4.4159979820251465,
+        "consistency_score": 0.8
+      },
+      "config": "wo_context",
+      "error": null
+    },
+    {
+      "sample_id": 3,
+      "question": "James decides to run 3 sprints 3 times a week.  He runs 60 meters each sprint.  How many total meter",
+      "prediction": "540",
+      "reference": "540",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 4.044396162033081,
+        "consistency_score": 0.8
+      },
+      "config": "wo_context",
+      "error": null
+    },
+    {
+      "sample_id": 4,
+      "question": "Every day, Wendi feeds each of her chickens three cups of mixed chicken feed, containing seeds, meal",
+      "prediction": "20",
+      "reference": "20",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 6.790979862213135,
+        "consistency_score": 0.8
+      },
+      "config": "wo_context",
+      "error": null
+    },
+    {
+      "sample_id": 5,
+      "question": "Kylar went to the store to buy glasses for his new apartment. One glass costs $5, but every second g",
+      "prediction": "64",
+      "reference": "64",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 7.5356738567352295,
+        "consistency_score": 0.8
+      },
+      "config": "wo_context",
+      "error": null
+    },
+    {
+      "sample_id": 6,
+      "question": "Toulouse has twice as many sheep as Charleston. Charleston has 4 times as many sheep as Seattle. How",
+      "prediction": "260",
+      "reference": "260",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 7.563915014266968,
+        "consistency_score": 0.8
+      },
+      "config": "wo_context",
+      "error": null
+    },
+    {
+      "sample_id": 7,
+      "question": "Carla is downloading a 200 GB file. Normally she can download 2 GB/minute, but 40% of the way throug",
+      "prediction": "140",
+      "reference": "160",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 9.39102578163147,
+        "consistency_score": 0.8
+      },
+      "config": "wo_context",
+      "error": null
+    },
+    {
+      "sample_id": 8,
+      "question": "John drives for 3 hours at a speed of 60 mph and then turns around because he realizes he forgot som",
+      "prediction": "45",
+      "reference": "45",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 11.896090984344482,
+        "consistency_score": 0.8
+      },
+      "config": "wo_context",
+      "error": null
+    },
+    {
+      "sample_id": 9,
+      "question": "Eliza's rate per hour for the first 40 hours she works each week is $10. She also receives an overti",
+      "prediction": "460",
+      "reference": "460",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 7.80890417098999,
+        "consistency_score": 0.8
+      },
+      "config": "wo_context",
+      "error": null
+    },
+    {
+      "sample_id": 10,
+      "question": "A new program had 60 downloads in the first month. The number of downloads in the second month was t",
+      "prediction": "366",
+      "reference": "366",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 9.142312049865723,
+        "consistency_score": 0.8
+      },
+      "config": "wo_context",
+      "error": null
+    },
+    {
+      "sample_id": 11,
+      "question": "Toula went to the bakery and bought various types of pastries. She bought 3 dozen donuts which cost ",
+      "prediction": "694",
+      "reference": "694",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 9.601397037506104,
+        "consistency_score": 0.8
+      },
+      "config": "wo_context",
+      "error": null
+    },
+    {
+      "sample_id": 12,
+      "question": "Carlos is planting a lemon tree. The tree will cost $90 to plant. Each year it will grow 7 lemons, w",
+      "prediction": "12",
+      "reference": "13",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 10.196069240570068,
+        "consistency_score": 0.8
+      },
+      "config": "wo_context",
+      "error": null
+    },
+    {
+      "sample_id": 13,
+      "question": "Melanie is a door-to-door saleswoman. She sold a third of her vacuum cleaners at the green house, 2 ",
+      "prediction": "18",
+      "reference": "18",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 9.787482500076294,
+        "consistency_score": 0.8
+      },
+      "config": "wo_context",
+      "error": null
+    },
+    {
+      "sample_id": 14,
+      "question": "In a dance class of 20 students, 20% enrolled in contemporary dance, 25% of the remaining enrolled i",
+      "prediction": "60",
+      "reference": "60",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 4.620969772338867,
+        "consistency_score": 0.8
+      },
+      "config": "wo_context",
+      "error": null
+    },
+    {
+      "sample_id": 15,
+      "question": "A merchant wants to make a choice of purchase between 2 purchase plans: jewelry worth $5,000 or elec",
+      "prediction": "125",
+      "reference": "125",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 5.030795574188232,
+        "consistency_score": 0.8
+      },
+      "config": "wo_context",
+      "error": null
+    },
+    {
+      "sample_id": 16,
+      "question": "Two trains leave San Rafael at the same time. They begin traveling westward, both traveling for 80 m",
+      "prediction": "230",
+      "reference": "230",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 3.8768362998962402,
+        "consistency_score": 0.8
+      },
+      "config": "wo_context",
+      "error": null
+    },
+    {
+      "sample_id": 17,
+      "question": "Jill gets paid $20 per hour to teach and $30 to be a cheerleading coach. If she works 50 weeks a yea",
+      "prediction": "57500",
+      "reference": "57500",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 9.285991430282593,
+        "consistency_score": 0.8
+      },
+      "config": "wo_context",
+      "error": null
+    },
+    {
+      "sample_id": 18,
+      "question": "Claire makes a 3 egg omelet every morning for breakfast.  How many dozens of eggs will she eat in 4 ",
+      "prediction": "7",
+      "reference": "7",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 6.422064304351807,
+        "consistency_score": 0.8
+      },
+      "config": "wo_context",
+      "error": null
+    },
+    {
+      "sample_id": 19,
+      "question": "Marissa is hiking a 12-mile trail. She took 1 hour to walk the first 4 miles, then another hour to w",
+      "prediction": "6",
+      "reference": "6",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 5.803542375564575,
+        "consistency_score": 0.8
+      },
+      "config": "wo_context",
+      "error": null
+    }
+  ]
+}
