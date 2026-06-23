@@ -1,0 +1,1415 @@
+{
+  "summary": {
+    "method": "cot_sc",
+    "dataset": "gsm8k",
+    "model": "qwen3-8b",
+    "num_samples": 100,
+    "avg_em": 0.77,
+    "avg_f1": 0.75,
+    "avg_latency": 15.6899,
+    "timeout_count": 0,
+    "error_count": 0
+  },
+  "results": [
+    {
+      "sample_id": 0,
+      "question": "Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for ",
+      "prediction": "18",
+      "reference": "18",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 124,
+        "latency": 14.51526403427124
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 1,
+      "question": "A robe takes 2 bolts of blue fiber and half that much white fiber.  How many bolts in total does it ",
+      "prediction": "3",
+      "reference": "3",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 111,
+        "latency": 8.949047327041626
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 2,
+      "question": "Josh decides to try flipping a house.  He buys a house for $80,000 and then puts in $50,000 in repai",
+      "prediction": "70000",
+      "reference": "70000",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 148,
+        "latency": 17.217289447784424
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 3,
+      "question": "James decides to run 3 sprints 3 times a week.  He runs 60 meters each sprint.  How many total meter",
+      "prediction": "540",
+      "reference": "540",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 97,
+        "latency": 10.773262977600098
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 4,
+      "question": "Every day, Wendi feeds each of her chickens three cups of mixed chicken feed, containing seeds, meal",
+      "prediction": "20",
+      "reference": "20",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 117,
+        "latency": 11.939759492874146
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 5,
+      "question": "Kylar went to the store to buy glasses for his new apartment. One glass costs $5, but every second g",
+      "prediction": "64",
+      "reference": "64",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 94,
+        "latency": 9.834290981292725
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 6,
+      "question": "Toulouse has twice as many sheep as Charleston. Charleston has 4 times as many sheep as Seattle. How",
+      "prediction": "260",
+      "reference": "260",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 183,
+        "latency": 13.984315395355225
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 7,
+      "question": "Carla is downloading a 200 GB file. Normally she can download 2 GB/minute, but 40% of the way throug",
+      "prediction": "$$",
+      "reference": "160",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 199,
+        "latency": 17.594924211502075
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 8,
+      "question": "John drives for 3 hours at a speed of 60 mph and then turns around because he realizes he forgot som",
+      "prediction": "45",
+      "reference": "45",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 249,
+        "latency": 26.349045991897583
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 9,
+      "question": "Eliza's rate per hour for the first 40 hours she works each week is $10. She also receives an overti",
+      "prediction": "460",
+      "reference": "460",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 150,
+        "latency": 13.735430479049683
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 10,
+      "question": "A new program had 60 downloads in the first month. The number of downloads in the second month was t",
+      "prediction": "366",
+      "reference": "366",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 126,
+        "latency": 12.674700736999512
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 11,
+      "question": "Toula went to the bakery and bought various types of pastries. She bought 3 dozen donuts which cost ",
+      "prediction": "694",
+      "reference": "694",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 118,
+        "latency": 11.752984762191772
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 12,
+      "question": "Carlos is planting a lemon tree. The tree will cost $90 to plant. Each year it will grow 7 lemons, w",
+      "prediction": "13",
+      "reference": "13",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 168,
+        "latency": 16.559701204299927
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 13,
+      "question": "Melanie is a door-to-door saleswoman. She sold a third of her vacuum cleaners at the green house, 2 ",
+      "prediction": "18",
+      "reference": "18",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 215,
+        "latency": 22.45987343788147
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 14,
+      "question": "In a dance class of 20 students, 20% enrolled in contemporary dance, 25% of the remaining enrolled i",
+      "prediction": "60",
+      "reference": "60",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 192,
+        "latency": 18.062601566314697
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 15,
+      "question": "A merchant wants to make a choice of purchase between 2 purchase plans: jewelry worth $5,000 or elec",
+      "prediction": "125",
+      "reference": "125",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 191,
+        "latency": 21.444502592086792
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 16,
+      "question": "Two trains leave San Rafael at the same time. They begin traveling westward, both traveling for 80 m",
+      "prediction": "230",
+      "reference": "230",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 131,
+        "latency": 16.875834703445435
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 17,
+      "question": "Jill gets paid $20 per hour to teach and $30 to be a cheerleading coach. If she works 50 weeks a yea",
+      "prediction": "57500",
+      "reference": "57500",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 148,
+        "latency": 15.007578134536743
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 18,
+      "question": "Claire makes a 3 egg omelet every morning for breakfast.  How many dozens of eggs will she eat in 4 ",
+      "prediction": "7",
+      "reference": "7",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 125,
+        "latency": 12.843174934387207
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 19,
+      "question": "Marissa is hiking a 12-mile trail. She took 1 hour to walk the first 4 miles, then another hour to w",
+      "prediction": "4",
+      "reference": "6",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 221,
+        "latency": 26.152881860733032
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 20,
+      "question": "I have 10 liters of orange drink that are two-thirds water and I wish to add it to 15 liters of pine",
+      "prediction": "$$",
+      "reference": "15",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 277,
+        "latency": 39.93426251411438
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 21,
+      "question": "Raymond and Samantha are cousins. Raymond was born 6 years before Samantha. Raymond had a son at the",
+      "prediction": "14",
+      "reference": "14",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 149,
+        "latency": 14.839695930480957
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 22,
+      "question": "Billy sells DVDs. He has 8 customers on Tuesday. His first 3 customers buy one DVD each.  His next 2",
+      "prediction": "7",
+      "reference": "7",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 103,
+        "latency": 12.587707757949829
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 23,
+      "question": "A candle melts by 2 centimeters every hour that it burns. How many centimeters shorter will a candle",
+      "prediction": "$$",
+      "reference": "8",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 107,
+        "latency": 16.087992668151855
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 24,
+      "question": "Kyle bought last year's best-selling book for $19.50. This is with a 25% discount from the original ",
+      "prediction": "26",
+      "reference": "26",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 99,
+        "latency": 14.46862268447876
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 25,
+      "question": "Marie ordered one chicken meal that costs $12, 5 packs of milk that costs $3 each, 4 apples that cos",
+      "prediction": "2",
+      "reference": "2",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 146,
+        "latency": 19.413859128952026
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 26,
+      "question": "Mishka bought 3 pairs of shorts, 3 pairs of pants, and 3 pairs of shoes. One pair of shorts costs $1",
+      "prediction": "243",
+      "reference": "243",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 151,
+        "latency": 17.458341360092163
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 27,
+      "question": "Cynthia eats one serving of ice cream every night.  She buys cartons of ice cream with 15 servings o",
+      "prediction": "16.00",
+      "reference": "16",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 160,
+        "latency": 15.918802499771118
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 28,
+      "question": "Henry made two stops during his 60-mile bike trip. He first stopped after 20 miles. His second stop ",
+      "prediction": "$$",
+      "reference": "25",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 150,
+        "latency": 14.283016920089722
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 29,
+      "question": "Gloria is shoe shopping when she comes across a pair of boots that fit her shoe budget. However, she",
+      "prediction": "否合理",
+      "reference": "104",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 129,
+        "latency": 34.73076105117798
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 30,
+      "question": "Darrell and Allen's ages are in the ratio of 7:11. If their total age now is 162, calculate Allen's ",
+      "prediction": "109",
+      "reference": "109",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 129,
+        "latency": 11.615477085113525
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 31,
+      "question": "Gunter is trying to count the jelly beans in a jar. He asks his friends how many they think are in t",
+      "prediction": "$$",
+      "reference": "80",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 158,
+        "latency": 16.149014234542847
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 32,
+      "question": "John takes care of 10 dogs.  Each dog takes .5 hours a day to walk and take care of their business. ",
+      "prediction": "10",
+      "reference": "35",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 112,
+        "latency": 11.062005996704102
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 33,
+      "question": "Gretchen has 110 coins. There are 30 more gold coins than silver coins. How many gold coins does Gre",
+      "prediction": "70",
+      "reference": "70",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 124,
+        "latency": 11.740299701690674
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 34,
+      "question": "Siobhan has 2 fewer jewels than Aaron. Aaron has 5 more jewels than half of Raymond's jewels. If Ray",
+      "prediction": "23",
+      "reference": "23",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 106,
+        "latency": 9.789336442947388
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 35,
+      "question": "Mike plays ping pong for 40 minutes.  In the first 20 minutes, he scores 4 points.  In the second 20",
+      "prediction": "$$",
+      "reference": "9",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 121,
+        "latency": 11.93804121017456
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 36,
+      "question": "Terry eats 2 yogurts a day.  They are currently on sale at 4 yogurts for $5.00.  How much does he sp",
+      "prediction": "$$",
+      "reference": "75",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 146,
+        "latency": 13.743996143341064
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 37,
+      "question": "John plans to sell all his toys and use the money to buy video games. He has 13 lego sets and he sel",
+      "prediction": "2",
+      "reference": "2",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 317,
+        "latency": 35.399924993515015
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 38,
+      "question": "John runs 60 miles a week. He runs 3 days a week.  He runs 3 hours the first day and half as much th",
+      "prediction": "10",
+      "reference": "10",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 171,
+        "latency": 14.118074893951416
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 39,
+      "question": "Dana can run at a rate of speed four times faster than she can walk, but she can skip at a rate of s",
+      "prediction": "18",
+      "reference": "18",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 177,
+        "latency": 18.169840574264526
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 40,
+      "question": "Brandon's iPhone is four times as old as Ben's iPhone. Ben's iPhone is two times older than Suzy's i",
+      "prediction": "8",
+      "reference": "8",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 172,
+        "latency": 17.836159467697144
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 41,
+      "question": "The great dragon, Perg, sat high atop mount Farbo, breathing fire upon anything within a distance of",
+      "prediction": "1000",
+      "reference": "200",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 252,
+        "latency": 27.615233182907104
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 42,
+      "question": "Grandma Jones baked 5 apple pies for the fireman's luncheon.  She cut each pie into 8 pieces and set",
+      "prediction": "26",
+      "reference": "26",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 94,
+        "latency": 9.483255863189697
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 43,
+      "question": "According to its nutritional info, a bag of chips has 250 calories per serving. If a 300g bag has 5 ",
+      "prediction": "48",
+      "reference": "48",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 180,
+        "latency": 18.95508098602295
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 44,
+      "question": "Charlie wants to sell beeswax candles.  For every pound of beeswax, he can make 10 tapered candles. ",
+      "prediction": "20.00",
+      "reference": "20",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 122,
+        "latency": 15.02256155014038
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 45,
+      "question": "Meredith is a freelance blogger who writes about health topics and submits to clients each day as he",
+      "prediction": "104",
+      "reference": "104",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 152,
+        "latency": 13.673472166061401
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 46,
+      "question": "Candice put 80 post-it notes in her purse before she headed out to her job at the coffee shop.  On h",
+      "prediction": "163",
+      "reference": "163",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 145,
+        "latency": 13.380122423171997
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 47,
+      "question": "John buys twice as many red ties as blue ties.  The red ties cost 50% more than blue ties.  He spent",
+      "prediction": "800",
+      "reference": "800",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 193,
+        "latency": 19.303841829299927
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 48,
+      "question": "Tracy used a piece of wire 4 feet long to support tomato plants in the garden. The wire was cut into",
+      "prediction": "8",
+      "reference": "8",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 93,
+        "latency": 14.233647346496582
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 49,
+      "question": "Richard lives in an apartment building with 15 floors. Each floor contains 8 units, and 3/4 of the b",
+      "prediction": "30",
+      "reference": "30",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 99,
+        "latency": 10.41911244392395
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 50,
+      "question": "Lloyd has an egg farm. His chickens produce 252 eggs per day and he sells them for $2 per dozen. How",
+      "prediction": "294",
+      "reference": "294",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 94,
+        "latency": 10.505738019943237
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 51,
+      "question": "Tom's ship can travel at 10 miles per hour.  He is sailing from 1 to 4 PM.  He then travels back at ",
+      "prediction": "5",
+      "reference": "5",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 126,
+        "latency": 11.133422136306763
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 52,
+      "question": "Uriah's book bag is getting too heavy for him. He needs to remove 15 pounds from it. His comic books",
+      "prediction": "15",
+      "reference": "15",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 164,
+        "latency": 20.074663877487183
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 53,
+      "question": "A mechanic charges different rates to repair the tires of trucks and cars.  For each truck tire that",
+      "prediction": "40",
+      "reference": "40",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 172,
+        "latency": 17.269803285598755
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 54,
+      "question": "The Doubtfire sisters are driving home with 7 kittens adopted from the local animal shelter when the",
+      "prediction": "40",
+      "reference": "40",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 125,
+        "latency": 12.530483484268188
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 55,
+      "question": "Jean has 30 lollipops. Jean eats 2 of the lollipops. With the remaining lollipops, Jean wants to pac",
+      "prediction": "14",
+      "reference": "14",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 115,
+        "latency": 8.788151741027832
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 56,
+      "question": "Peter plans to go to the movies this week. He always gets a ticket for $7 and popcorn for $7. If he ",
+      "prediction": "3",
+      "reference": "3",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 102,
+        "latency": 8.685557842254639
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 57,
+      "question": "A wooden bridge can carry no more than 5000 pounds. A delivery truck filled with identical boxes, ea",
+      "prediction": "83",
+      "reference": "83",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 155,
+        "latency": 15.078837156295776
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 58,
+      "question": "Stephen placed an online order for groceries.  His final bill came to $40.00.  Because this was thro",
+      "prediction": "$$",
+      "reference": "57",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 131,
+        "latency": 15.301786661148071
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 59,
+      "question": "A raspberry bush has 6 clusters of 20 fruit each and 67 individual fruit scattered across the bush. ",
+      "prediction": "187",
+      "reference": "187",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 106,
+        "latency": 9.883374452590942
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 60,
+      "question": "A basket contains 25 oranges among which 1 is bad, 20% are unripe, 2 are sour and the rest are good.",
+      "prediction": "17",
+      "reference": "17",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 266,
+        "latency": 32.4983446598053
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 61,
+      "question": "Janet buys a brooch for her daughter.  She pays $500 for the material to make it and then another $8",
+      "prediction": "1430",
+      "reference": "1430",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 90,
+        "latency": 12.478984117507935
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 62,
+      "question": "If Marcy works for the same company for 40 years, she gets an annual pension of $50,000/year. Starti",
+      "prediction": "1875",
+      "reference": "25000",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 297,
+        "latency": 28.310726165771484
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 63,
+      "question": "Aleena subscribed to a streaming service that charges her $140 per month. If the streaming company c",
+      "prediction": "这是 Aleena 在一年内支付给流媒体服务的总金额",
+      "reference": "1596",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 155,
+        "latency": 16.55343461036682
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 64,
+      "question": "Sophia is thinking of taking a road trip in her car, and would like to know how far she can drive on",
+      "prediction": "300",
+      "reference": "300",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 176,
+        "latency": 17.780696630477905
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 65,
+      "question": "Jim spends 2 hours watching TV and then decides to go to bed and reads for half as long.  He does th",
+      "prediction": "$$",
+      "reference": "36",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 100,
+        "latency": 11.562862396240234
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 66,
+      "question": "There are four schools competing at a basketball tournament. Each school has sent a girls’ basketbal",
+      "prediction": "48",
+      "reference": "48",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 111,
+        "latency": 10.262776613235474
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 67,
+      "question": "A treasure hunter found a buried treasure chest filled with gems. There were 175 diamonds, 35 fewer ",
+      "prediction": "600",
+      "reference": "595",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 127,
+        "latency": 12.56011438369751
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 68,
+      "question": "There are twice as many boys as girls at Dr. Wertz's school. If there are 60 girls and 5 students to",
+      "prediction": "36",
+      "reference": "36",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 144,
+        "latency": 14.44131088256836
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 69,
+      "question": "Bailey starts with a certain amount of money. Then she receives a weekly allowance of $5 for 8 weeks",
+      "prediction": "60",
+      "reference": "60",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 118,
+        "latency": 11.230515718460083
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 70,
+      "question": "Judy teaches 5 dance classes, every day, on the weekdays and 8 classes on Saturday.  If each class h",
+      "prediction": "7425",
+      "reference": "7425",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 138,
+        "latency": 16.895956993103027
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 71,
+      "question": "Kelian has two recipes for preparing dishes, one having 20 instructions and the second one having tw",
+      "prediction": "60",
+      "reference": "60",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 91,
+        "latency": 11.077834844589233
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 72,
+      "question": "Tommy is fundraising for his charity by selling brownies for $3 a slice and cheesecakes for $4 a sli",
+      "prediction": "221",
+      "reference": "221",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 129,
+        "latency": 12.149379014968872
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 73,
+      "question": "Shiela bought five cell phones for $150 each for a 3-month installment. A 2% interest will be charge",
+      "prediction": "255",
+      "reference": "255",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 117,
+        "latency": 11.171565532684326
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 74,
+      "question": "Artie has a flower stand at the Farmers Market. He sells three kinds of flowers: marigolds, petunias",
+      "prediction": "88",
+      "reference": "88",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 110,
+        "latency": 13.504848718643188
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 75,
+      "question": "Luke is spending time at the beach building sandcastles. He eventually notices that each level of a ",
+      "prediction": "60",
+      "reference": "60",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 145,
+        "latency": 15.389087677001953
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 76,
+      "question": "Cecilia just bought a new puppy. According to her veterinarian, she has to feed the puppy 1 cup of d",
+      "prediction": "5",
+      "reference": "5",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 151,
+        "latency": 15.541138410568237
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 77,
+      "question": "If Raymond does half as much laundry as Sarah, and Sarah does 4 times as much laundry as David, calc",
+      "prediction": "100",
+      "reference": "100",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 172,
+        "latency": 21.64830756187439
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 78,
+      "question": "Vincent can buy flowers in packages of 3 for $2.50 or in packages of 2 for $1. How much money does h",
+      "prediction": "6",
+      "reference": "6",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 168,
+        "latency": 17.73482346534729
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 79,
+      "question": "John adopts a dog.  He takes the dog to the groomer, which costs $100.  The groomer offers him a 30%",
+      "prediction": "70",
+      "reference": "70",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 92,
+        "latency": 10.38210153579712
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 80,
+      "question": "Two girls each got 1/6 of the 24 liters of water. Then a boy got 6 liters of water. How many liters ",
+      "prediction": "$$",
+      "reference": "10",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 121,
+        "latency": 10.123104095458984
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 81,
+      "question": "Charlie had 10 stickers. He bought 21 stickers from a store in the mall and got 23 stickers for his ",
+      "prediction": "17",
+      "reference": "17",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 105,
+        "latency": 10.396698236465454
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 82,
+      "question": "Grace weighs 125 pounds. Alex weighs 2 pounds less than 4 times what Grace weighs. What are their co",
+      "prediction": "$$",
+      "reference": "623",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 179,
+        "latency": 13.210286140441895
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 83,
+      "question": "Dan plants 3 rose bushes. Each rose bush has 25 roses. Each rose has 8 thorns. How many thorns are t",
+      "prediction": "600",
+      "reference": "600",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 83,
+        "latency": 7.971311092376709
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 84,
+      "question": "A football team played 22 games. They won 8 more than they lost. How many did they win?",
+      "prediction": "15",
+      "reference": "15",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 125,
+        "latency": 12.378615856170654
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 85,
+      "question": "Gene is sewing a quilt out of old souvenir t-shirts. He has one shirt from each vacation he has been",
+      "prediction": "11",
+      "reference": "44",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 140,
+        "latency": 14.207146644592285
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 86,
+      "question": "Greg has an alarm set to ring three times a day as a reminder. When the alarm goes off, it continues",
+      "prediction": "22",
+      "reference": "22",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 470,
+        "latency": 33.109020709991455
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 87,
+      "question": "A company pays each of its employees $600 in a month. The company has a policy of increasing the sal",
+      "prediction": "9360",
+      "reference": "9360",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 249,
+        "latency": 26.322973489761353
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 88,
+      "question": "Marilyn's first record sold 10 times as many copies as Harald's. If they sold 88,000 copies combined",
+      "prediction": "8000",
+      "reference": "8000",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 103,
+        "latency": 9.629867553710938
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 89,
+      "question": "Christina is planning a birthday party and needs .75 gift bags per invited guest, because 1/4 of att",
+      "prediction": "18",
+      "reference": "24",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 106,
+        "latency": 10.898203134536743
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 90,
+      "question": "Ted the T-Rex was planning to bring potato salad to the dinosaur picnic.  He knows that an adult din",
+      "prediction": "225",
+      "reference": "225",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 113,
+        "latency": 12.74350643157959
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 91,
+      "question": "Jan has three times the number of pets as Marcia. Marcia has two more pets than Cindy. If Cindy has ",
+      "prediction": "$$",
+      "reference": "28",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 137,
+        "latency": 11.210753679275513
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 92,
+      "question": "Emily has 4 kids named Amy, Jackson, Corey, and James. Amy is 5 years older than Jackson and 2 years",
+      "prediction": "4",
+      "reference": "4",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 151,
+        "latency": 14.399333000183105
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 93,
+      "question": "Lee used to be able to run the 400-meter hurdles two seconds faster than Gerald would run the 400-me",
+      "prediction": "2",
+      "reference": "36",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 178,
+        "latency": 20.890419244766235
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 94,
+      "question": "In a neighborhood, the number of rabbits pets is twelve less than the combined number of pet dogs an",
+      "prediction": "348",
+      "reference": "348",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 147,
+        "latency": 15.73922324180603
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 95,
+      "question": "Out of the 200 Grade 5 students, 2/5 are boys and 2/3 of the girls are in the girl scout. How many g",
+      "prediction": "40",
+      "reference": "40",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 111,
+        "latency": 13.116820335388184
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 96,
+      "question": "Harry slept 9 hours last night. His friend James slept only 2/3 of what Harry slept. How many more h",
+      "prediction": "3",
+      "reference": "3",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 121,
+        "latency": 10.60544228553772
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 97,
+      "question": "When Freda cooks canned tomatoes into sauce, they lose half their volume. Each 16 ounce can of tomat",
+      "prediction": "12",
+      "reference": "12",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 168,
+        "latency": 14.150201320648193
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 98,
+      "question": "Cars have lined up on the motorway. Some of the cars drive through in the first 15 minutes of the tr",
+      "prediction": "否合理",
+      "reference": "5",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 208,
+        "latency": 20.877826929092407
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 99,
+      "question": "Mary is an avid gardener. Yesterday, she received 18 new potted plants from her favorite plant nurse",
+      "prediction": "58",
+      "reference": "58",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 131,
+        "latency": 12.488199234008789
+      },
+      "method": "cot_sc",
+      "error": null
+    }
+  ]
+}
