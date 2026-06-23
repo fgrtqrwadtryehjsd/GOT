@@ -97,6 +97,58 @@ def normalize_hotpotqa_answer(raw: str) -> str:
 
 
 def normalize_clutrr_answer(raw: str) -> str:
-    """CLUTRR 专用：提取亲属关系词"""
+    """CLUTRR 专用：提取亲属关系词，中文同义词标准化"""
     cleaned = clean_answer(raw)
+
+    # 从完整句子中提取关系词（"X是Y的叔叔" → "叔叔"）
+    m = re.search(r'是[^的]*的(.{2,6}?)(?:[。，,.]|$)', cleaned)
+    if m:
+        cleaned = m.group(1).strip()
+
+    # 取第一个关系词（"叔叔和侄女" → "叔叔"）
+    cleaned = re.split(r'[和与及,，、]', cleaned)[0].strip()
+
+    # 同义词映射到标准词（与 data/processed/clutrr_test.json 的标签对齐）
+    synonym_map = {
+        "叔叔": "叔叔",
+        "舅舅": "舅舅",
+        "公公": "公公",
+        "侄子": "侄子",
+        "侄女": "侄女",
+        "叔祖父": "叔祖父",
+        "外祖父": "外祖父",
+        "外公": "外祖父",
+        "侄孙": "侄孙",
+        "女儿": "女儿",
+        "父亲": "父亲",
+        "爸爸": "父亲",
+        "母亲": "母亲",
+        "妈妈": "母亲",
+        "儿子": "儿子",
+        "祖父": "祖父",
+        "爷爷": "祖父",
+        "祖母": "祖母",
+        "奶奶": "祖母",
+        "兄弟": "兄弟",
+        "哥哥": "兄弟",
+        "弟弟": "兄弟",
+        "姐妹": "姐妹",
+        "姐姐": "姐妹",
+        "妹妹": "姐妹",
+        "丈夫": "丈夫",
+        "妻子": "妻子",
+        "uncle": "叔叔",
+        "aunt": "姑姑",
+        "father": "父亲",
+        "mother": "母亲",
+        "son": "儿子",
+        "daughter": "女儿",
+        "grandfather": "祖父",
+        "grandmother": "祖母",
+        "nephew": "侄子",
+        "niece": "侄女",
+    }
+    for k, v in synonym_map.items():
+        if k == cleaned or k in cleaned.lower():
+            return v
     return cleaned
