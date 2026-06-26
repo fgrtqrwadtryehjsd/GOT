@@ -4,9 +4,9 @@
     "dataset": "hotpotqa",
     "model": "qwen3-8b",
     "num_samples": 100,
-    "avg_em": 0.02,
-    "avg_f1": 0.0101,
-    "avg_latency": 25.7286,
+    "avg_em": 0.43,
+    "avg_f1": 0.2907,
+    "avg_latency": 19.0497,
     "timeout_count": 0,
     "error_count": 0
   },
@@ -14,13 +14,13 @@
     {
       "sample_id": 0,
       "question": "Were Scott Derrickson and Ed Wood of the same nationality?",
-      "prediction": "比较两人的国籍信息**：在获得Scott Derrickson和Ed Wood各自的国籍信息后，进行对比分析，判断两人是否具有相同的国籍",
+      "prediction": "Yes, both Scott Derrickson and Ed Wood were American",
       "reference": "yes",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 51,
-        "latency": 15.325021505355835
+        "em": 1.0,
+        "f1": 0.19999999999999998,
+        "token_count": 120,
+        "latency": 19.93338966369629
       },
       "method": "tot",
       "error": null
@@ -28,13 +28,13 @@
     {
       "sample_id": 1,
       "question": "What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tel",
-      "prediction": "确认电影《Kiss and Tell》的演员表**：查找该电影的官方资料或可靠的影视数据库（如IMDb），以确定哪位女演员饰演了Corliss Archer这一角色",
+      "prediction": "Chief of Protocol of the United States",
       "reference": "Chief of Protocol",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 50,
-        "latency": 20.83470869064331
+        "em": 1.0,
+        "f1": 0.6666666666666666,
+        "token_count": 132,
+        "latency": 20.660328149795532
       },
       "method": "tot",
       "error": null
@@ -42,13 +42,13 @@
     {
       "sample_id": 2,
       "question": "What science fantasy young adult series, told in first person, has a set of companion books narratin",
-      "prediction": "探索“被奴役的世界”这一主题在科幻文学中的常见表现形式**：考虑哪些作品以殖民地、被征服星球或种族压迫为核心情节，并且采用多视角叙事，尤其是通过扩展宇宙设定来展现不同世界和种族的命运",
+      "prediction": "The Hork-Bajir Chronicles",
       "reference": "Animorphs",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 65,
-        "latency": 30.95517897605896
+        "token_count": 162,
+        "latency": 21.266149520874023
       },
       "method": "tot",
       "error": null
@@ -56,13 +56,13 @@
     {
       "sample_id": 3,
       "question": "Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?",
-      "prediction": "查阅可靠的旅游或地理资料**：查找权威的伊斯坦布尔旅游网站、地图服务（如Google Maps）或历史文献，确认Laleli Mosque的确切位置，并标注其所在的街区名称",
+      "prediction": "No, the Laleli Mosque and Esma Sultan Mansion are not located in the same neighborhood",
       "reference": "no",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 69,
-        "latency": 20.334741830825806
+        "em": 1.0,
+        "f1": 0.13333333333333333,
+        "token_count": 135,
+        "latency": 20.020362854003906
       },
       "method": "tot",
       "error": null
@@ -70,13 +70,13 @@
     {
       "sample_id": 4,
       "question": "The director of the romantic comedy \"Big Stone Gap\" is based in what New York city?",
-      "prediction": "确认电影《Big Stone Gap》的导演身份**：首先通过可靠的电影数据库或权威资料查找该片的导演姓名，以确定具体是哪位导演",
+      "prediction": "Greenwich Village, New York City",
       "reference": "Greenwich Village, New York City",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 47,
-        "latency": 22.184755086898804
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 81,
+        "latency": 15.888208627700806
       },
       "method": "tot",
       "error": null
@@ -84,13 +84,13 @@
     {
       "sample_id": 5,
       "question": "2014 S/S is the debut album of a South Korean boy group that was formed by who?",
-      "prediction": "调查该团体出道时的成员名单及经纪公司背景**：在确定团体名称后，检索其出道时的成员名单及其所属经纪公司，从而回答“由谁组建”的问题",
+      "prediction": "Shinee was formed by S.M. Entertainment",
       "reference": "YG Entertainment",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 44,
-        "latency": 18.059826374053955
+        "f1": 0.25,
+        "token_count": 132,
+        "latency": 18.174980640411377
       },
       "method": "tot",
       "error": null
@@ -98,13 +98,13 @@
     {
       "sample_id": 6,
       "question": "Who was known by his stage name Aladin and helped organizations improve their performance as a consu",
-      "prediction": "分析社交媒体与个人品牌信息**：在LinkedIn、Twitter或专业博客平台上搜索“Aladin”，查看是否有相关人物发布过关于咨询工作的内容，从而判断其是否为活跃于该领域的顾问",
+      "prediction": "There is no evidence that James P. Comer was known by the stage name \"Aladin.\"",
       "reference": "Eenasul Fateh",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 68,
-        "latency": 25.029613733291626
+        "token_count": 158,
+        "latency": 18.641830921173096
       },
       "method": "tot",
       "error": null
@@ -112,13 +112,13 @@
     {
       "sample_id": 7,
       "question": "The arena where the Lewiston Maineiacs played their home games can seat how many people?",
-      "prediction": "确认Lewiston Maineiacs的主场名称**：首先需要明确该球队的主场场馆名称，例如“Colisée Beauport”或“Sawgrass Center”，以便后续查找具体容量信息",
+      "prediction": "6000",
       "reference": "3,677 seated",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 58,
-        "latency": 20.44765830039978
+        "token_count": 124,
+        "latency": 18.598020315170288
       },
       "method": "tot",
       "error": null
@@ -126,13 +126,13 @@
     {
       "sample_id": 8,
       "question": "Who is older, Annie Morton or Terry Richardson?",
-      "prediction": "确认Annie Morton的出生年份**：通过查阅权威资料（如维基百科、IMDb或知名人物传记网站）找到Annie Morton的确切出生年份，例如1947年",
+      "prediction": "Terry Richardson is older than Annie Morton",
       "reference": "Terry Richardson",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 52,
-        "latency": 16.66917061805725
+        "em": 1.0,
+        "f1": 0.4444444444444445,
+        "token_count": 118,
+        "latency": 16.95827865600586
       },
       "method": "tot",
       "error": null
@@ -140,13 +140,13 @@
     {
       "sample_id": 9,
       "question": "Are Local H and For Against both from the United States?",
-      "prediction": "查阅两支乐队的官方资料**：访问Local H和For Against的官方网站或权威音乐数据库（如AllMusic、Bandcamp等），核实两支乐队的国籍和所属国家信息",
+      "prediction": "Yes, both Local H and For Against are from the United States",
       "reference": "yes",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 49,
-        "latency": 20.265971660614014
+        "em": 1.0,
+        "f1": 0.15384615384615385,
+        "token_count": 155,
+        "latency": 19.256502628326416
       },
       "method": "tot",
       "error": null
@@ -154,13 +154,13 @@
     {
       "sample_id": 10,
       "question": "What is the name of the fight song of the university whose main campus is in Lawrence, Kansas and wh",
-      "prediction": "确认堪萨斯州劳伦斯市的主要大学**：查找并确认该市最知名的高等教育机构，通常为堪萨斯大学（University of Kansas），因其主校区位于劳伦斯市",
+      "prediction": "The fight song of the University of Missouri–Kansas City is \"UMKC Fight Song.\"",
       "reference": "Kansas Song",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 43,
-        "latency": 25.198910236358643
+        "f1": 0.1818181818181818,
+        "token_count": 102,
+        "latency": 18.135348320007324
       },
       "method": "tot",
       "error": null
@@ -168,13 +168,13 @@
     {
       "sample_id": 11,
       "question": "What screenwriter with credits for \"Evolution\" co-wrote a film starring Nicolas Cage and Téa Leoni?",
-      "prediction": "确认《Evolution》的编剧名单**：查找并核实电影《Evolution》的官方编剧信息，确定其主要编剧人员，以便后续进行交叉比对",
+      "prediction": "The screenwriter with credits for \"Evolution\" who co-wrote the film starring Nicolas Cage and Téa Leoni is Jim Cash, as he co-wrote \"Bad Boys.\"",
       "reference": "David Weissman",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 53,
-        "latency": 28.97225570678711
+        "token_count": 130,
+        "latency": 18.92387557029724
       },
       "method": "tot",
       "error": null
@@ -182,13 +182,13 @@
     {
       "sample_id": 12,
       "question": "What year did Guns N Roses perform a promo for a movie starring Arnold Schwarzenegger as a former Ne",
-      "prediction": "确定电影名称**：首先需要确定哪部电影中Arnold Schwarzenegger饰演了一位前纽约警察侦探，这有助于缩小搜索范围并找到Guns N Roses参与的宣传活动",
+      "prediction": "1989",
       "reference": "1999",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 77,
-        "latency": 28.29959011077881
+        "token_count": 120,
+        "latency": 23.87759041786194
       },
       "method": "tot",
       "error": null
@@ -196,13 +196,13 @@
     {
       "sample_id": 13,
       "question": "Are Random House Tower and 888 7th Avenue both used for real estate?",
-      "prediction": "查阅Random House Tower的官方网站或权威建筑数据库**，以确认其具体用途是否涉及房地产相关功能，如办公、住宅或商业租赁",
+      "prediction": "No, Random House Tower is a publishing imprint and not a real estate property, while 888 7th Avenue is a commercial real estate building",
       "reference": "no",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 60,
-        "latency": 16.152287483215332
+        "em": 1.0,
+        "f1": 0.1,
+        "token_count": 169,
+        "latency": 23.379326820373535
       },
       "method": "tot",
       "error": null
@@ -210,13 +210,13 @@
     {
       "sample_id": 14,
       "question": "The football manager who recruited David Beckham managed Manchester United during what timeframe?",
-      "prediction": "查找该经理在曼联的执教时间段**：一旦确认某位经理曾执教曼联，就需要进一步查证其在曼联的具体执教起止时间，以回答问题中的时间范围",
+      "prediction": "1945 to 1969",
       "reference": "from 1986 to 2013",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 58,
-        "latency": 22.48567032814026
+        "f1": 0.28571428571428575,
+        "token_count": 87,
+        "latency": 17.154524564743042
       },
       "method": "tot",
       "error": null
@@ -224,13 +224,13 @@
     {
       "sample_id": 15,
       "question": "Brown State Fishing Lake is in a country that has a population of how many inhabitants ?",
-      "prediction": "查找该国家最近的人口普查或官方统计数据**：访问该国的国家统计局网站或国际人口数据库（如世界银行、联合国人口司），获取该国最新的人口数量信息",
+      "prediction": "The United States of America",
       "reference": "9,984",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 66,
-        "latency": 30.298434734344482
+        "token_count": 83,
+        "latency": 16.24061894416809
       },
       "method": "tot",
       "error": null
@@ -238,13 +238,13 @@
     {
       "sample_id": 16,
       "question": "The Vermont Catamounts men's soccer team currently competes in a conference that was formerly known ",
-      "prediction": "查找该会议在1988至1996年的历史资料**：通过查阅体育历史网站、会议官网存档或相关书籍，寻找该会议在此期间是否曾使用过不同的名称",
+      "prediction": "The conference was formerly known as the America East Conference from 1988 to 1996",
       "reference": "the North Atlantic Conference",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 60,
-        "latency": 26.668287992477417
+        "f1": 0.25,
+        "token_count": 111,
+        "latency": 23.01180076599121
       },
       "method": "tot",
       "error": null
@@ -252,13 +252,13 @@
     {
       "sample_id": 17,
       "question": "Are Giuseppe Verdi and Ambroise Thomas both Opera composers ?",
-      "prediction": "查阅Giuseppe Verdi的生平资料**：确认他是否出生于意大利，活跃于19世纪，并专注于歌剧创作，以进一步验证其作为歌剧作曲家的身份",
+      "prediction": "Yes, both Giuseppe Verdi and Ambroise Thomas are confirmed as opera composers based on the context",
       "reference": "yes",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 67,
-        "latency": 30.00022792816162
+        "em": 1.0,
+        "f1": 0.11764705882352941,
+        "token_count": 134,
+        "latency": 20.231238842010498
       },
       "method": "tot",
       "error": null
@@ -266,13 +266,13 @@
     {
       "sample_id": 18,
       "question": "Roger O. Egeberg was Assistant Secretary for Health and Scientific Affairs during the administration",
-      "prediction": "确认Roger O. Egeberg的任职时间**：查找官方政府记录或权威历史数据库，确定Roger O. Egeberg担任助理卫生与科学事务秘书的具体年份，从而推断出对应总统的任期",
+      "prediction": "1969–1974",
       "reference": "1969 until 1974",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 60,
-        "latency": 24.04816484451294
+        "token_count": 58,
+        "latency": 18.16303277015686
       },
       "method": "tot",
       "error": null
@@ -280,13 +280,13 @@
     {
       "sample_id": 19,
       "question": "Which writer was from England, Henry Roth or Robert Erskine Childers?",
-      "prediction": "调查罗伯特·埃斯基恩·切德勒斯（Robert Erskine Childers）的出生地和国籍**：查找他的出生记录及文学作品中的线索，以确定他是否为英国作家",
+      "prediction": "Robert Erskine Childers",
       "reference": "Robert Erskine Childers DSC",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.28571428571428575,
-        "token_count": 58,
-        "latency": 20.788885831832886
+        "em": 1.0,
+        "f1": 0.8571428571428571,
+        "token_count": 123,
+        "latency": 20.741870880126953
       },
       "method": "tot",
       "error": null
@@ -294,13 +294,13 @@
     {
       "sample_id": 20,
       "question": "Which other Mexican Formula One race car driver has held the podium besides the Force India driver b",
-      "prediction": "列出所有墨西哥出身的F1车手名单**：收集历史上所有具有墨西哥国籍或出生地为墨西哥的F1车手，然后逐一检查他们的比赛成绩，寻找除上述车手之外是否还有人登上过领奖台",
+      "prediction": "Sergio Pérez",
       "reference": "Pedro Rodríguez",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 62,
-        "latency": 30.413867950439453
+        "token_count": 106,
+        "latency": 21.153433322906494
       },
       "method": "tot",
       "error": null
@@ -308,13 +308,13 @@
     {
       "sample_id": 21,
       "question": "This singer of A Rather Blustery Day also voiced what hedgehog?",
-      "prediction": "查找“A Rather Blustery Day”的演唱者**：通过音乐数据库或搜索引擎确认这首歌的演唱者，以确定与之相关的歌手身份",
+      "prediction": "The singer of \"A Rather Blustery Day\" also voiced Sonic the Hedgehog",
       "reference": "Sonic",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 54,
-        "latency": 23.71642804145813
+        "em": 1.0,
+        "f1": 0.16666666666666669,
+        "token_count": 118,
+        "latency": 19.92428708076477
       },
       "method": "tot",
       "error": null
@@ -322,13 +322,13 @@
     {
       "sample_id": 22,
       "question": "Aside from the Apple Remote, what other device can control the program Apple Remote was originally d",
-      "prediction": "确定 Apple Remote 的原始设计用途**：首先需要明确 Apple Remote 最初是为哪个具体程序或设备设计的，这有助于缩小可能的替代控制设备范围",
+      "prediction": "A universal remote or a compatible media player",
       "reference": "keyboard function keys",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 66,
-        "latency": 29.527196645736694
+        "token_count": 156,
+        "latency": 20.019957542419434
       },
       "method": "tot",
       "error": null
@@ -336,13 +336,13 @@
     {
       "sample_id": 23,
       "question": "Which performance act has a higher instrument to person ratio, Badly Drawn Boy or Wolf Alice? ",
-      "prediction": "比较两者的“乐器到人”比例**：基于已收集的Badly Drawn Boy和Wolf Alice各自的乐器数量与人声参与度的数据，进行定量分析，计算并比较两者“乐器到人”的比率，以得出最终结论",
+      "prediction": "Wolf Alice has a higher instrument-to-person ratio than Badly Drawn Boy",
       "reference": "Badly Drawn Boy",
       "metrics": {
         "em": 1.0,
-        "f1": 0.28571428571428575,
-        "token_count": 73,
-        "latency": 32.66417098045349
+        "f1": 0.42857142857142855,
+        "token_count": 162,
+        "latency": 20.90458631515503
       },
       "method": "tot",
       "error": null
@@ -350,13 +350,13 @@
     {
       "sample_id": 24,
       "question": "What was the father of Kasper Schmeichel voted to be by the IFFHS in 1992?",
-      "prediction": "确认Kasper Schmeichel的父亲姓名**：通过查阅权威足球资料来源，如维基百科、IFFHS官方记录或知名体育媒体，确定Kasper Schmeichel的父亲是哪位前职业球员",
+      "prediction": "IFFHS World's Best Goalkeeper",
       "reference": "World's Best Goalkeeper",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 61,
-        "latency": 27.109398365020752
+        "em": 1.0,
+        "f1": 0.8571428571428571,
+        "token_count": 91,
+        "latency": 17.872868537902832
       },
       "method": "tot",
       "error": null
@@ -364,13 +364,13 @@
     {
       "sample_id": 25,
       "question": "Who was the writer of These Boots Are Made for Walkin' and who died in 2007?",
-      "prediction": "查找歌曲《These Boots Are Made for Walkin'》的创作者信息**：确认该歌曲的词曲作者是谁，并进一步调查其生平及去世时间",
+      "prediction": "Nancy Sinatra wrote \"These Boots Are Made for Walkin'\" and died in 2007",
       "reference": "Barton Lee Hazlewood",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 34,
-        "latency": 15.489287376403809
+        "token_count": 144,
+        "latency": 20.76803731918335
       },
       "method": "tot",
       "error": null
@@ -378,13 +378,13 @@
     {
       "sample_id": 26,
       "question": "The 2011–12 VCU Rams men's basketball team, led by third year head coach Shaka Smart, represented Vi",
-      "prediction": "验证Shaka Smart的执教经历**：确认Shaka Smart在2011–12赛季是否确实担任VCU男篮主教练，并核实他的执教履历以确保信息准确性",
+      "prediction": "1968",
       "reference": "1838",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 84,
-        "latency": 25.237534046173096
+        "token_count": 119,
+        "latency": 22.95744252204895
       },
       "method": "tot",
       "error": null
@@ -392,13 +392,13 @@
     {
       "sample_id": 27,
       "question": "Are both Dictyosperma, and Huernia described as a genus?",
-      "prediction": "分析Huernia的分类历史**：在IPNI中查询“Huernia”，查看其名称状态、有效性和是否有合并或更名记录，以判断它是否被正式描述为一个属",
+      "prediction": "Yes, both Dictyosperma and Huernia are described as genera",
       "reference": "yes",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 66,
-        "latency": 30.477237462997437
+        "em": 1.0,
+        "f1": 0.19999999999999998,
+        "token_count": 120,
+        "latency": 19.886144161224365
       },
       "method": "tot",
       "error": null
@@ -406,13 +406,13 @@
     {
       "sample_id": 28,
       "question": "Kaiser Ventures corporation was founded by an American industrialist who became known as the father ",
-      "prediction": "确定该工业家的姓名**：查找与“现代美国造船业之父”这一称号相关的历史人物，尤其是那些在20世纪初对美国造船业有重大影响的工业家",
+      "prediction": "Edgar Fosburgh Kaiser Jr., grandson of Henry J. Kaiser—the father of modern American s",
       "reference": "Henry J. Kaiser",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 69,
-        "latency": 28.411730766296387
+        "em": 1.0,
+        "f1": 0.375,
+        "token_count": 215,
+        "latency": 24.852144479751587
       },
       "method": "tot",
       "error": null
@@ -420,13 +420,13 @@
     {
       "sample_id": 29,
       "question": "What is the name for the adventure in \"Tunnels and Trolls\", a game designed by Ken St. Andre?",
-      "prediction": "参考玩家社区与衍生作品**：调查玩家论坛、游戏指南或相关衍生作品（如小说、漫画）中是否提及“adventure”的特定称呼，这可能反映游戏内部的术语或文化习惯",
+      "prediction": "The name for the adventure in \"Tunnels and Trolls\" is not specified in the provided context, but the game includes various adventures and scenarios",
       "reference": "Arena of Khazan",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 61,
-        "latency": 24.318447589874268
+        "token_count": 134,
+        "latency": 18.419899940490723
       },
       "method": "tot",
       "error": null
@@ -434,13 +434,13 @@
     {
       "sample_id": 30,
       "question": "When was Poison's album \"Shut Up, Make Love\" released?",
-      "prediction": "确认专辑名称的正确性**：首先应核实“Shut Up, Make Love”是否为Poison的真实专辑名称，或是否存在拼写错误，例如是否应为“Shut Up and Make Love”，因为后者是Poison更为人知的一张专辑",
+      "prediction": "Poison's album \"Shut Up, Make Love\" was released in 2000",
       "reference": "2000",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 84,
-        "latency": 26.98896813392639
+        "em": 1.0,
+        "f1": 0.18181818181818182,
+        "token_count": 119,
+        "latency": 23.607541799545288
       },
       "method": "tot",
       "error": null
@@ -448,13 +448,13 @@
     {
       "sample_id": 31,
       "question": "Hayden is a singer-songwriter from Canada, but where does Buck-Tick hail from?",
-      "prediction": "探索Buck-Tick在音乐史上的地位**：既然已知Buck-Tick起源于日本东京，下一步可以研究他们在日本摇滚乐发展中的角色，以及他们是否对后来的乐队产生了影响",
+      "prediction": "Buck-Tick hails from Japan",
       "reference": "Fujioka, Gunma",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 57,
-        "latency": 27.85617423057556
+        "token_count": 84,
+        "latency": 17.54683256149292
       },
       "method": "tot",
       "error": null
@@ -462,13 +462,13 @@
     {
       "sample_id": 32,
       "question": "Which  French ace pilot and adventurer fly L'Oiseau Blanc",
-      "prediction": "研究1913年“白鸟”飞行计划的参与者**：确认该计划是否由某位著名的法国飞行员主导，并了解其背景、动机及参与人员名单，以识别可能的候选人",
+      "prediction": "François Coli",
       "reference": "Charles Eugène",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 66,
-        "latency": 26.082412481307983
+        "token_count": 107,
+        "latency": 18.599045038223267
       },
       "method": "tot",
       "error": null
@@ -476,13 +476,13 @@
     {
       "sample_id": 33,
       "question": "Are Freakonomics and In the Realm of the Hackers both American documentaries?",
-      "prediction": "比较两部作品的背景信息**：在确认两部作品的类型和制作国家后，综合信息判断它们是否均为美国制作的纪录片",
+      "prediction": "No, \"Freakonomics\" is an American public radio program, while \"In the Realm of the Hackers\" is not mentioned in the context provided",
       "reference": "no",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 51,
-        "latency": 22.263107299804688
+        "em": 1.0,
+        "f1": 0.10526315789473684,
+        "token_count": 172,
+        "latency": 16.907748699188232
       },
       "method": "tot",
       "error": null
@@ -490,13 +490,13 @@
     {
       "sample_id": 34,
       "question": "Which band, Letters to Cleo or Screaming Trees, had more members?",
-      "prediction": "比较两支乐队的最大成员数**：在分别获取Letters to Cleo和Screaming Trees的历史最大成员数后，进行对比，判断哪一支乐队成员更多",
+      "prediction": "Letters to Cleo had more members",
       "reference": "Letters to Cleo",
       "metrics": {
         "em": 1.0,
-        "f1": 0.28571428571428575,
-        "token_count": 63,
-        "latency": 23.083626747131348
+        "f1": 0.6666666666666666,
+        "token_count": 139,
+        "latency": 17.702512979507446
       },
       "method": "tot",
       "error": null
@@ -504,13 +504,13 @@
     {
       "sample_id": 35,
       "question": "Alexander Kerensky was defeated and destroyed by the Bolsheviks in the course of a civil war that en",
-      "prediction": "确定俄国内战的主要结束时间点**：查找历史资料确认俄国内战通常被认为是在哪一年结束，例如1922年，因为这是红军最终击败白军并控制全国的关键时期",
+      "prediction": "The Russian Civil War ended with the Bolsheviks' victory, leading to the establishment of the Soviet Union",
       "reference": "October 1922",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 50,
-        "latency": 29.467838764190674
+        "token_count": 150,
+        "latency": 21.18912100791931
       },
       "method": "tot",
       "error": null
@@ -518,13 +518,13 @@
     {
       "sample_id": 36,
       "question": "Seven Brief Lessons on Physics was written by an Italian physicist that has worked in France since w",
-      "prediction": "查阅卡洛·罗韦利的学术简历**：搜索他的个人资料或官方传记，确认他何时离开意大利并前往法国开始其学术生涯",
+      "prediction": "1927",
       "reference": "2000",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 56,
-        "latency": 26.009227514266968
+        "token_count": 77,
+        "latency": 15.675767660140991
       },
       "method": "tot",
       "error": null
@@ -532,13 +532,13 @@
     {
       "sample_id": 37,
       "question": "The Livesey Hal War Memorial commemorates the fallen of which war, that had over 60 million casualti",
-      "prediction": "分析纪念碑的铭文与设计元素**：查看纪念碑上的文字说明、雕塑风格或装饰图案，这些细节往往能提供关于所纪念战争的重要线索",
+      "prediction": "World War II",
       "reference": "World War II",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 58,
-        "latency": 25.81949019432068
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 137,
+        "latency": 21.222209930419922
       },
       "method": "tot",
       "error": null
@@ -546,13 +546,13 @@
     {
       "sample_id": 38,
       "question": "Are both Elko Regional Airport and Gerald R. Ford International Airport located in Michigan?",
-      "prediction": "查阅权威机场数据库**：访问如FAA（美国联邦航空管理局）或AirportDatabase.com等权威资源，确认Elko Regional Airport的具体地理位置，以判断其是否位于密歇根州",
+      "prediction": "No, Gerald R. Ford International Airport is in Michigan, but Elko Regional Airport is not",
       "reference": "no",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 68,
-        "latency": 21.300328254699707
+        "em": 1.0,
+        "f1": 0.14285714285714288,
+        "token_count": 150,
+        "latency": 16.22588610649109
       },
       "method": "tot",
       "error": null
@@ -560,13 +560,13 @@
     {
       "sample_id": 39,
       "question": "Ralph Hefferline was a psychology professor at a university that is located in what city?",
-      "prediction": "使用LinkedIn或其他职业社交平台查询Ralph Hefferline的个人资料**：在LinkedIn上搜索他的名字，查看其工作经历部分，通常会明确列出他曾任职的大学名称及地理位置",
+      "prediction": "Princeton, New Jersey",
       "reference": "New York City",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 58,
-        "latency": 17.497532606124878
+        "f1": 0.3333333333333333,
+        "token_count": 70,
+        "latency": 15.784300088882446
       },
       "method": "tot",
       "error": null
@@ -574,13 +574,13 @@
     {
       "sample_id": 40,
       "question": "Which dog's ancestors include Gordon and Irish Setters: the Manchester Terrier or the Scotch Collie?",
-      "prediction": "分析基因图谱与DNA研究**：参考现代犬类基因组研究数据，比对曼彻斯特梗和苏格兰牧羊犬的DNA，确认是否在遗传上与戈登猎犬或爱尔兰 setter 存在共同祖先",
+      "prediction": "The Manchester Terrier",
       "reference": "Scotch Collie",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 43,
-        "latency": 30.081753492355347
+        "token_count": 142,
+        "latency": 22.742133617401123
       },
       "method": "tot",
       "error": null
@@ -588,13 +588,13 @@
     {
       "sample_id": 41,
       "question": "Where is the company that Sachin Warrier worked for as a software engineer headquartered? ",
-      "prediction": "搜索Sachin Warrier的LinkedIn资料**：通过查看他的LinkedIn个人档案，可以确认他作为软件工程师曾就职的公司名称",
+      "prediction": "Cambridge Silicon Radio is headquartered in Cambridge, England",
       "reference": "Mumbai",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 63,
-        "latency": 22.429031372070312
+        "token_count": 78,
+        "latency": 15.764920949935913
       },
       "method": "tot",
       "error": null
@@ -602,13 +602,13 @@
     {
       "sample_id": 42,
       "question": "A Japanese manga series based on a 16 year old high school student Ichitaka Seto, is written and ill",
-      "prediction": "确定该漫画的作者信息**：在确认漫画名称后，进一步查找该作品的作者信息，包括其出生年份，通常可以通过漫画官方网站、维基百科或相关动漫数据库获取",
+      "prediction": "1962",
       "reference": "1962",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 51,
-        "latency": 21.902662992477417
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 77,
+        "latency": 17.163437128067017
       },
       "method": "tot",
       "error": null
@@ -616,13 +616,13 @@
     {
       "sample_id": 43,
       "question": "The battle in which Giuseppe Arimondi lost his life secured what for Ethiopia?",
-      "prediction": "分析该战役是否与埃塞俄比亚的独立或主权斗争相关**：研究这场战斗是否发生在埃塞俄比亚抵抗外国侵略（如意大利殖民）的关键时期，进而探讨其在维护国家主权和独立方面的作用",
+      "prediction": "The battle in which Giuseppe Arimondi lost his life secured Ethiopia's independence and its recognition as a sovereign nation",
       "reference": "sovereignty",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 57,
-        "latency": 27.420280694961548
+        "token_count": 182,
+        "latency": 19.52209496498108
       },
       "method": "tot",
       "error": null
@@ -630,13 +630,13 @@
     {
       "sample_id": 44,
       "question": "Alfred Balk served as the secretary of the Committee on the Employment of Minority Groups in the New",
-      "prediction": "查阅美国新闻媒体委员会的官方历史记录**：访问该委员会的官方网站或相关政府机构的档案库，查找其历任秘书名单，确认Alfred Balk的任职时间及对应的副总统任期",
+      "prediction": "Joe Biden",
       "reference": "Nelson Rockefeller",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 78,
-        "latency": 26.390522718429565
+        "token_count": 154,
+        "latency": 17.827287435531616
       },
       "method": "tot",
       "error": null
@@ -644,13 +644,13 @@
     {
       "sample_id": 45,
       "question": "A medieval fortress in Dirleton, East Lothian, Scotland borders on the south side of what coastal ar",
-      "prediction": "利用现代地图工具进行地理定位**：使用在线地图服务（如Google Maps）定位Dirleton，并观察其南侧邻近的水域或海岸名称，以获取更直观的答案",
+      "prediction": "The Firth of Forth",
       "reference": "Yellowcraig",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 54,
-        "latency": 22.615477561950684
+        "token_count": 117,
+        "latency": 20.174228191375732
       },
       "method": "tot",
       "error": null
@@ -658,13 +658,13 @@
     {
       "sample_id": 46,
       "question": "Who is the writer of this song that was inspired by words on a tombstone and was the first track on ",
-      "prediction": "查阅“Back to Mono”专辑的详细曲目和背景资料**：通过官方发行信息或音乐数据库（如AllMusic、Discogs等）确认该专辑第一首歌的名称，并查找是否有提及该歌曲的创作灵感来源",
+      "prediction": "The writer of the song inspired by words on a tombstone and featured as the first track on the box set Back to Mono is John Prine",
       "reference": "Phil Spector",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 59,
-        "latency": 25.627084732055664
+        "token_count": 145,
+        "latency": 20.588721990585327
       },
       "method": "tot",
       "error": null
@@ -672,13 +672,13 @@
     {
       "sample_id": 47,
       "question": "What type of forum did a former Soviet statesman initiate?",
-      "prediction": "调查该政治家是否曾担任国际组织或论坛的创始成员或领导职务**：查找其是否在如上海合作组织（SCO）、欧亚经济联盟（EAEU）或其他类似论坛中扮演了发起人或核心角色",
+      "prediction": "There is no documented evidence that Nikolai Podgorny or Andrei Kirilenko initiated a specific forum",
       "reference": "Organizations could come together to address global issues",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 56,
-        "latency": 25.475656032562256
+        "token_count": 173,
+        "latency": 13.67189359664917
       },
       "method": "tot",
       "error": null
@@ -686,13 +686,13 @@
     {
       "sample_id": 48,
       "question": "Are Ferocactus and Silene both types of plant?",
-      "prediction": "考察Ferocactus与Silene的进化关系**：通过比较它们的基因组、形态结构及系统发育树，分析它们是否属于同一演化分支，从而揭示植物界中不同科属之间的亲缘关系",
+      "prediction": "Yes, both Ferocactus and Silene are types of plants",
       "reference": "yes",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 67,
-        "latency": 23.769336462020874
+        "em": 1.0,
+        "f1": 0.19999999999999998,
+        "token_count": 111,
+        "latency": 18.643340826034546
       },
       "method": "tot",
       "error": null
@@ -700,13 +700,13 @@
     {
       "sample_id": 49,
       "question": "Which British first-generation jet-powered medium bomber was used in the South West Pacific theatre ",
-      "prediction": "参考战时档案或飞行员回忆录**：寻找关于“流星”在南西太平洋战区活动的第一手资料，如飞行员日志、作战报告或历史文献，以确认其是否实际参与了该地区的战斗行动",
+      "prediction": "English Electric Canberra",
       "reference": "English Electric Canberra",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 67,
-        "latency": 30.068233489990234
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 143,
+        "latency": 21.210909843444824
       },
       "method": "tot",
       "error": null
@@ -714,13 +714,13 @@
     {
       "sample_id": 50,
       "question": "Which year and which conference was the 14th season for this conference as part of the NCAA Division",
-      "prediction": "确定科罗拉多野牛队在该赛季所处的NCAA Division**：首先需要查找科罗拉多大学在相关赛季中参加的是NCAA Division I、II还是III，因为不同级别的会议结构和历史不同，这将有助于缩小可能的会议范围",
+      "prediction": "2016–17 season, Pac-12 Conference",
       "reference": "2009 Big 12 Conference",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 84,
-        "latency": 32.807610750198364
+        "f1": 0.25,
+        "token_count": 76,
+        "latency": 14.788572788238525
       },
       "method": "tot",
       "error": null
@@ -728,13 +728,13 @@
     {
       "sample_id": 51,
       "question": "In 1991 Euromarché was bought by a chain that operated how any hypermarkets at the end of 2016?",
-      "prediction": "查阅1991年欧洲零售业的重要并购事件**：通过检索历史新闻报道、行业分析报告或商业数据库，确认Euromarché在1991年被哪家连锁超市收购",
+      "prediction": "44",
       "reference": "1,462",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 55,
-        "latency": 27.657347202301025
+        "token_count": 134,
+        "latency": 20.456787109375
       },
       "method": "tot",
       "error": null
@@ -742,13 +742,13 @@
     {
       "sample_id": 52,
       "question": "What race track in the midwest hosts a 500 mile race eavery May?",
-      "prediction": "查找每年5月举行的500英里赛事信息**：通过查阅赛车日历或官方赛事网站，确认哪些赛事在每年5月举行，并且距离为500英里，进而判断这些赛事是否在中西部地区进行",
+      "prediction": "There is no 500-mile race held every May at a track in the Midwest based on the provided information",
       "reference": "Indianapolis Motor Speedway",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 71,
-        "latency": 31.69279670715332
+        "token_count": 196,
+        "latency": 22.55268383026123
       },
       "method": "tot",
       "error": null
@@ -756,13 +756,13 @@
     {
       "sample_id": 53,
       "question": "In what city did the \"Prince of tenors\" star in a film based on an opera by Giacomo Puccini?",
-      "prediction": "确定恩里科·卡雷拉是否参与过基于普契尼歌剧改编的电影**：接下来可以调查恩里科·卡雷拉是否曾出演过以普契尼歌剧为蓝本的电影，例如《图兰朵》或《托斯卡》等，并确认他是否有相关影视作品的参与记录",
+      "prediction": "New York City",
       "reference": "Rome",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 82,
-        "latency": 31.38983988761902
+        "token_count": 158,
+        "latency": 20.671976804733276
       },
       "method": "tot",
       "error": null
@@ -770,13 +770,13 @@
     {
       "sample_id": 54,
       "question": "Ellie Goulding worked with what other writers on her third studio album, Delirium?",
-      "prediction": "参考音乐评论或采访内容**：查找Ellie Goulding在专辑发行前后的采访，或音乐评论文章，这些资料通常会提及专辑创作过程中与其他音乐人的合作情况",
+      "prediction": "Ellie Goulding worked with Savan Kotecha, Ilya Salmanzadeh, Tove Lo, Max Martin, and Ali Payami on her third studio album, Delirium",
       "reference": "Max Martin, Savan Kotecha and Ilya Salmanzadeh",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 65,
-        "latency": 27.549095153808594
+        "f1": 0.5,
+        "token_count": 154,
+        "latency": 19.896295309066772
       },
       "method": "tot",
       "error": null
@@ -784,13 +784,13 @@
     {
       "sample_id": 55,
       "question": "Which Australian city founded in 1838 contains a boarding school opened by a Prime Minister of Austr",
-      "prediction": "交叉比对总理与学校创办信息**：将已知的澳大利亚总理名单与他们所创办的学校进行比对，特别是那些以伦敦学校命名的学校，并检查这些学校是否位于1838年成立的城市中",
+      "prediction": "Adelaide",
       "reference": "Marion, South Australia",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 57,
-        "latency": 30.64612054824829
+        "token_count": 145,
+        "latency": 19.597594499588013
       },
       "method": "tot",
       "error": null
@@ -798,13 +798,13 @@
     {
       "sample_id": 56,
       "question": "D1NZ is a series based on what oversteering technique?",
-      "prediction": "研究语言学和缩写可能性**：尝试解析“D1NZ”可能的字母组合含义，如是否为“Drift 1st Neutral Zone”或其他类似表达，探索其是否隐含某种驾驶策略或技术概念",
+      "prediction": "D1NZ is not based on an oversteering technique; it is not linked to any of the series or automotive terms mentioned in the context",
       "reference": "Drifting",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 62,
-        "latency": 28.534903526306152
+        "token_count": 155,
+        "latency": 18.887932062149048
       },
       "method": "tot",
       "error": null
@@ -812,13 +812,13 @@
     {
       "sample_id": 57,
       "question": "who is younger Keith Bostic or Jerry Glanville ?",
-      "prediction": "比较两人出生年份并得出结论**：在获得两人的出生年份后，直接比较谁的出生年份更晚，从而判断谁更年轻",
+      "prediction": "Jerry Glanville is younger than Keith Bostic",
       "reference": "Keith Bostic",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 43,
-        "latency": 21.908003330230713
+        "em": 1.0,
+        "f1": 0.4444444444444445,
+        "token_count": 77,
+        "latency": 16.164271593093872
       },
       "method": "tot",
       "error": null
@@ -826,13 +826,13 @@
     {
       "sample_id": 58,
       "question": "According to the 2001 census, what was the population of the city in which Kirton End is located?",
-      "prediction": "确认Kirton End的地理位置**：首先需要确定Kirton End位于英国的哪个郡或城市，例如英格兰的林肯郡（Lincolnshire）或其他地区，以便准确查找该地区的2001年人口数据",
+      "prediction": "4505",
       "reference": "35,124",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 78,
-        "latency": 30.616029739379883
+        "token_count": 82,
+        "latency": 19.350738763809204
       },
       "method": "tot",
       "error": null
@@ -840,13 +840,13 @@
     {
       "sample_id": 59,
       "question": "Are both Cypress and Ajuga genera?",
-      "prediction": "查阅《Flora of China》或《The Plant List》**：参考权威植物分类文献，确认Ajuga是否被列为一个独立的属，并查看其所属科属关系",
+      "prediction": "Yes, both Cypress and Ajuga are valid genera. Ajuga is explicitly identified as a genus in the Lamiaceae family, and Cypress refers to the genus Cupressus within the Cupressaceae family",
       "reference": "no",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 53,
-        "latency": 30.013487339019775
+        "token_count": 180,
+        "latency": 19.10370182991028
       },
       "method": "tot",
       "error": null
@@ -854,13 +854,13 @@
     {
       "sample_id": 60,
       "question": "What distinction is held by the former NBA player who was a member of the Charlotte Hornets during t",
-      "prediction": "确定该球员是否是唯一同时具备NBA球员与WNBA教练身份的人选**：可以通过对比其他同时拥有NBA球员经历和WNBA教练经历的球员，判断该球员是否具有独特性，从而确认其历史地位",
+      "prediction": "The former NBA player who was a member of the Charlotte Hornets during the 1992-93 sea",
       "reference": "shortest player ever to play in the National Basketball Association",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 80,
-        "latency": 31.96320629119873
+        "f1": 0.16666666666666666,
+        "token_count": 184,
+        "latency": 21.857607126235962
       },
       "method": "tot",
       "error": null
@@ -868,13 +868,13 @@
     {
       "sample_id": 61,
       "question": "What is the name of the executive producer of the film that has a score composed by Jerry Goldsmith?",
-      "prediction": "",
+      "prediction": "\"Alien\"",
       "reference": "Ronald Shusett",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 61,
-        "latency": 31.298662424087524
+        "token_count": 77,
+        "latency": 17.996114253997803
       },
       "method": "tot",
       "error": null
@@ -882,13 +882,13 @@
     {
       "sample_id": 62,
       "question": "Who was born earlier, Emma Bull or Virginia Woolf?",
-      "prediction": "查找Virginia Woolf的出生年份**：接下来需要确认Virginia Woolf的出生年份，为两人的出生时间比较提供依据",
+      "prediction": "Virginia Woolf was born earlier",
       "reference": "Adeline Virginia Woolf",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 39,
-        "latency": 29.386016845703125
+        "f1": 0.5,
+        "token_count": 69,
+        "latency": 11.460615873336792
       },
       "method": "tot",
       "error": null
@@ -896,13 +896,13 @@
     {
       "sample_id": 63,
       "question": "What was the Roud Folk Song Index of the nursery rhyme inspiring What Are Little Girls Made Of?",
-      "prediction": "查找该童谣在Roud Folk Song Index中的编号**：通过已知的童谣名称或歌词内容，在Roud Folk Song Index数据库中进行搜索，查看是否有对应的条目，并记录其索引号",
+      "prediction": "326",
       "reference": "821",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 82,
-        "latency": 30.698118925094604
+        "token_count": 84,
+        "latency": 17.481297731399536
       },
       "method": "tot",
       "error": null
@@ -910,13 +910,13 @@
     {
       "sample_id": 64,
       "question": "Scott Parkin has been a vocal critic of Exxonmobil and another corporation that has operations in ho",
-      "prediction": "查找Scott Parkin公开批评的其他公司名称**：首先需要通过可靠的新闻报道、博客文章或社交媒体内容，确认Scott Parkin所批评的另一家具体是哪家企业，以便后续进行国际业务范围的调查",
+      "prediction": "One country",
       "reference": "more than 70 countries",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 77,
-        "latency": 27.151456832885742
+        "token_count": 108,
+        "latency": 19.289105653762817
       },
       "method": "tot",
       "error": null
@@ -924,13 +924,13 @@
     {
       "sample_id": 65,
       "question": "What WB supernatrual drama series was Jawbreaker star Rose Mcgowan best known for being in?",
-      "prediction": "筛选Rose McGowan参与的超自然题材剧集**：从她的影视履历中提取出所有涉及超自然、奇幻或恐怖元素的电视剧，并进行排序以识别最著名的作品",
+      "prediction": "Charmed",
       "reference": "Charmed",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 69,
-        "latency": 28.744297981262207
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 130,
+        "latency": 19.39120626449585
       },
       "method": "tot",
       "error": null
@@ -938,13 +938,13 @@
     {
       "sample_id": 66,
       "question": "Vince Phillips held a junior welterweight title by an organization recognized by what larger Hall of",
-      "prediction": "确认Vince Phillips所获得的Junior Welterweight头衔所属的具体拳击组织**：首先需要查证Vince Phillips是否曾赢得过WBC、WBA、IBF或WBO等国际拳击组织的Junior Welterweight冠军头衔，以明确他所持有的头衔归属",
+      "prediction": "The British Boxing Board of Control (BBBofC) is recognized by the International Boxing Hall of Fame",
       "reference": "International Boxing Hall of Fame",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 99,
-        "latency": 30.616702556610107
+        "em": 1.0,
+        "f1": 0.5555555555555556,
+        "token_count": 148,
+        "latency": 18.842852354049683
       },
       "method": "tot",
       "error": null
@@ -952,13 +952,13 @@
     {
       "sample_id": 67,
       "question": "What is the name of the singer who's song was released as the lead single from the album \"Confession",
-      "prediction": "确认专辑《Confessions》的发行时间和首支单曲**：首先查找该专辑的发行日期和首支单曲的名称，以便进一步验证该歌曲是否在排行榜上连续八周占据高位",
+      "prediction": "Ricki-Lee Coulter",
       "reference": "Usher",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 58,
-        "latency": 26.58358645439148
+        "token_count": 101,
+        "latency": 18.833443641662598
       },
       "method": "tot",
       "error": null
@@ -966,13 +966,13 @@
     {
       "sample_id": 68,
       "question": "who is the younger brother of The episode guest stars of The Hard Easy ",
-      "prediction": "确认《The Hard Easy》中是否有已知的兄弟角色或演员**：查看该集的演员表，识别是否有演员在剧中扮演兄弟角色，或是否有演员本人是现实中的兄弟关系",
+      "prediction": "None of the guest stars from \"Moving On (The Office)\" or \"Brother from Another Series\" are the younger brother of any character or actor associated with \"The Hard Easy.\"",
       "reference": "Bill Murray",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 61,
-        "latency": 24.431649923324585
+        "token_count": 190,
+        "latency": 13.808424949645996
       },
       "method": "tot",
       "error": null
@@ -980,13 +980,13 @@
     {
       "sample_id": 69,
       "question": "The 2017–18 Wigan Athletic F.C. season will be a year in which the team competes in the league cup k",
-      "prediction": "对比其他赛季联赛杯的命名方式**：查看前一赛季（2016–17）和后一赛季（2018–19）联赛杯的名称，分析是否存在赞助商命名的变化规律，从而推断2017–18赛季的赛事名称",
+      "prediction": "Carabao Cup",
       "reference": "Carabao Cup",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 57,
-        "latency": 27.87593650817871
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 117,
+        "latency": 20.610901832580566
       },
       "method": "tot",
       "error": null
@@ -994,13 +994,13 @@
     {
       "sample_id": 70,
       "question": "Which of Tara Strong major voice role in animated series is an American animated television series b",
-      "prediction": "查阅《Teen Titans》官方资料或角色设定集**：参考《Teen Titans》的官方指南、角色介绍或幕后特辑，寻找是否有明确指出Tara Strong配音的具体角色，以获得更直接的答案",
+      "prediction": "Raven",
       "reference": "Teen Titans Go!",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 69,
-        "latency": 22.904910564422607
+        "token_count": 96,
+        "latency": 18.21423363685608
       },
       "method": "tot",
       "error": null
@@ -1008,13 +1008,13 @@
     {
       "sample_id": 71,
       "question": "What is the inhabitant of the city where  122nd SS-Standarte was formed in2014",
-      "prediction": "查找纳粹德国SS部队的编制与驻地记录**：通过查阅纳粹德国时期SS部队的编制资料、军事档案或相关历史文献，确定122nd SS-Standarte是否确实存在，并找出其成立的具体城市和时间",
+      "prediction": "The inhabitants of Strasbourg in 2014 were called Strasbourgers, with a population of 276170",
       "reference": "276,170 inhabitants",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 67,
-        "latency": 29.186959981918335
+        "f1": 0.2666666666666667,
+        "token_count": 105,
+        "latency": 19.164924144744873
       },
       "method": "tot",
       "error": null
@@ -1022,13 +1022,13 @@
     {
       "sample_id": 72,
       "question": "What color clothing do people of the Netherlands wear during Oranjegekte or to celebrate the nationa",
-      "prediction": "调查Koningsdag当天人们穿着橙色服装的具体方式与文化意义**：了解荷兰人如何选择和搭配橙色服饰，是否有特定的服饰传统或禁忌，以及这种行为如何反映集体身份和民族自豪感",
+      "prediction": "People of the Netherlands wear orange clothing during Koningsdag to celebrate the national holiday and honor the royal family",
       "reference": "orange",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 59,
-        "latency": 25.513200044631958
+        "em": 1.0,
+        "f1": 0.1111111111111111,
+        "token_count": 146,
+        "latency": 21.98214101791382
       },
       "method": "tot",
       "error": null
@@ -1036,13 +1036,13 @@
     {
       "sample_id": 73,
       "question": "What was the name of the 1996 loose adaptation of William Shakespeare's \"Romeo & Juliet\" written by ",
-      "prediction": "检查1996年莎士比亚改编电影的详细信息**：搜索1996年上映的莎士比亚改编电影列表，重点关注是否有任何电影被描述为“loose adaptation”（宽松改编）版本的《罗密欧与朱丽叶》",
+      "prediction": "The question contains an error; the 1996 adaptation was directed and written by Baz Luhrmann, not James Gunn",
       "reference": "Tromeo and Juliet",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 65,
-        "latency": 28.957839488983154
+        "f1": 0.1,
+        "token_count": 207,
+        "latency": 26.613715648651123
       },
       "method": "tot",
       "error": null
@@ -1050,13 +1050,13 @@
     {
       "sample_id": 74,
       "question": "Robert Suettinger was the national intelligence officer under which former Governor of Arkansas?",
-      "prediction": "确认Arkansas州长在Suettinger任职期间的在任情况**：通过核实Suettinger的任职时间，确定该时间段内Arkansas的州长是谁，从而判断其是否为相关人物",
+      "prediction": "Bill Clinton",
       "reference": "William Jefferson Clinton",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 69,
-        "latency": 31.648560285568237
+        "f1": 0.4,
+        "token_count": 106,
+        "latency": 18.628284454345703
       },
       "method": "tot",
       "error": null
@@ -1064,13 +1064,13 @@
     {
       "sample_id": 75,
       "question": "What American professional Hawaiian surfer born 18 October 1992 won the Rip Curl Pro Portugal?",
-      "prediction": "交叉验证选手身份与赛事成绩**：将1992年10月18日出生的美国冲浪运动员与Rip Curl Pro Portugal赛事的获奖记录进行比对，确认是否有匹配的选手及其夺冠年份",
+      "prediction": "John John Florence",
       "reference": "John John Florence",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 61,
-        "latency": 25.28194808959961
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 105,
+        "latency": 17.11612033843994
       },
       "method": "tot",
       "error": null
@@ -1078,13 +1078,13 @@
     {
       "sample_id": 76,
       "question": "What is the middle name of the actress who plays Bobbi Bacha in Suburban Madness?",
-      "prediction": "访问IMDb网站，搜索电影《Suburban Madness》的演员表**：通过查找该电影的详细信息，可以确认哪位女演员饰演了Bobbi Bacha这一角色",
+      "prediction": "Christopher",
       "reference": "Ann",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 70,
-        "latency": 26.41386890411377
+        "token_count": 85,
+        "latency": 17.164988040924072
       },
       "method": "tot",
       "error": null
@@ -1092,13 +1092,13 @@
     {
       "sample_id": 77,
       "question": "Alvaro Mexia had a diplomatic mission with which tribe of indigenous people?",
-      "prediction": "确认Alvaro Mexia的背景与职业身份**：首先需要明确Alvaro Mexia是否为外交官、政府官员或历史人物，以及他所处的时代和国家，这将有助于缩小可能涉及的原住民部落范围",
+      "prediction": "There is no specific indigenous tribe directly associated with Alvaro Mexia based on the provided context",
       "reference": "Apalachees",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 64,
-        "latency": 28.781194925308228
+        "token_count": 186,
+        "latency": 19.158215284347534
       },
       "method": "tot",
       "error": null
@@ -1106,13 +1106,13 @@
     {
       "sample_id": 78,
       "question": "What nationality were social anthropologists Alfred Gell and Edmund Leach?",
-      "prediction": "核实Edmund Leach的出生地与国籍信息**：查找Edmund Leach的出生记录和早期生活资料，确定他是否出生于英国，从而确认其国籍为英国",
+      "prediction": "Alfred Gell was British, and Edmund Leach was British",
       "reference": "British",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 56,
-        "latency": 19.515682697296143
+        "em": 1.0,
+        "f1": 0.25,
+        "token_count": 117,
+        "latency": 16.654541015625
       },
       "method": "tot",
       "error": null
@@ -1120,13 +1120,13 @@
     {
       "sample_id": 79,
       "question": "In which year was the King who made the 1925 Birthday Honours born?",
-      "prediction": "查找乔治五世的出生日期**：一旦确认乔治五世是1925年的君主，接下来需要查找他的出生日期，以确定他是否在该年有生日",
+      "prediction": "1865",
       "reference": "1865",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 45,
-        "latency": 26.40415906906128
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 114,
+        "latency": 18.65035343170166
       },
       "method": "tot",
       "error": null
@@ -1134,13 +1134,13 @@
     {
       "sample_id": 80,
       "question": "What is the county seat of the county where East Lempster, New Hampshire is located?",
-      "prediction": "查阅美国人口普查局或新罕布什尔州政府网站**：访问美国人口普查局的地理数据库或新罕布什尔州地方政府官方网站，确认East Lempster所属的具体县名",
+      "prediction": "Newport",
       "reference": "Newport",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 57,
-        "latency": 22.14494514465332
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 104,
+        "latency": 19.093207120895386
       },
       "method": "tot",
       "error": null
@@ -1148,13 +1148,13 @@
     {
       "sample_id": 81,
       "question": "The Album Against the Wind was the 11th Album of a Rock singer Robert C Seger born may 6 1945. What ",
-      "prediction": "搜索相关音乐评论或访谈记录**：查找关于Robert C Seger的音乐评论、采访或纪录片，了解他是否曾以其他名字进行演出或录音",
+      "prediction": "Bob Seger",
       "reference": "Bob Seger",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 54,
-        "latency": 25.17700982093811
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 95,
+        "latency": 19.62517499923706
       },
       "method": "tot",
       "error": null
@@ -1162,13 +1162,13 @@
     {
       "sample_id": 82,
       "question": "Rostker v. Goldberg held that the practice of what way of filling armed forces vacancies was consitu",
-      "prediction": "考察该裁决在当代社会价值观变迁下的适用性**：下一步可分析随着性别平等意识增强，该裁决是否仍被视为合宪，以及是否引发新的法律挑战或司法审查",
+      "prediction": "Rostker v. Goldberg held that requiring only men to register for the draft was constitutional",
       "reference": "Conscription",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 49,
-        "latency": 27.543424606323242
+        "token_count": 198,
+        "latency": 22.055819511413574
       },
       "method": "tot",
       "error": null
@@ -1176,13 +1176,13 @@
     {
       "sample_id": 83,
       "question": "Handi-Snacks are a snack food product line sold by what American multinational confectionery, food, ",
-      "prediction": "查找Handi-Snacks的制造商信息**：通过搜索或数据库查询，寻找与“Handi-Snacks”相关的品牌所有者或生产公司，特别是那些总部位于伊利诺伊州的公司",
+      "prediction": "PepsiCo",
       "reference": "Mondelez International, Inc.",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 79,
-        "latency": 27.375547170639038
+        "token_count": 141,
+        "latency": 17.67430543899536
       },
       "method": "tot",
       "error": null
@@ -1190,13 +1190,13 @@
     {
       "sample_id": 84,
       "question": "What was the name of a woman from the book titled \"Their Lives: The Women Targeted by the Clinton Ma",
-      "prediction": "检索克林顿政府时期白宫实习生名单**：通过白宫历史档案、官方记录或权威历史资料，查找1993年至2001年间担任白宫实习生的女性名单，以确认书中所提人物是否在其中",
+      "prediction": "The name of the woman from the book \"Their Lives: The Women Targeted by the Clinton Machine\" who was also a former White House intern is Monica Lewinsky",
       "reference": "Monica Lewinsky",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 59,
-        "latency": 25.16645884513855
+        "em": 1.0,
+        "f1": 0.15384615384615385,
+        "token_count": 189,
+        "latency": 19.100506067276
       },
       "method": "tot",
       "error": null
@@ -1204,13 +1204,13 @@
     {
       "sample_id": 85,
       "question": "When was the American lawyer, lobbyist and political consultant who was a senior member of the presi",
-      "prediction": "查找该人物的个人背景信息**：在可信的新闻来源或传记资料中搜索该人物的出生日期，确保信息来源可靠，如维基百科、权威传记网站或官方档案",
+      "prediction": "April 1, 1949",
       "reference": "April 1, 1949",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 63,
-        "latency": 24.841264963150024
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 122,
+        "latency": 16.397982597351074
       },
       "method": "tot",
       "error": null
@@ -1218,13 +1218,13 @@
     {
       "sample_id": 86,
       "question": "In what year was the novel that Lourenço Mutarelli based \"Nina\" on based first published?",
-      "prediction": "确认原作的出版信息**：一旦确定了可能的原作，可以通过图书馆目录、出版社资料或数字档案库（如Google Books、WorldCat等）查找该小说的首次出版年份，并核实其作者和版本信息",
+      "prediction": "1866",
       "reference": "1866",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 70,
-        "latency": 24.87663435935974
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 69,
+        "latency": 18.268816232681274
       },
       "method": "tot",
       "error": null
@@ -1232,13 +1232,13 @@
     {
       "sample_id": 87,
       "question": "Where are Teide National Park and Garajonay National Park located?",
-      "prediction": "确认Teide National Park的地理位置**：首先查找Teide National Park的官方资料或地图，确定其位于西班牙的加那利群岛中的特内里费岛",
+      "prediction": "Teide National Park and Garajonay National Park are both located in the Canary Islands, Spain, speci",
       "reference": "Canary Islands, Spain",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 63,
-        "latency": 21.679852724075317
+        "em": 1.0,
+        "f1": 0.35294117647058826,
+        "token_count": 164,
+        "latency": 18.934624910354614
       },
       "method": "tot",
       "error": null
@@ -1246,13 +1246,13 @@
     {
       "sample_id": 88,
       "question": "How many copies of Roald Dahl's variation on a popular anecdote sold?",
-      "prediction": "分析《Charlie and the Chocolate Factory》中的故事原型**：调查该书中的情节（如巧克力工厂、严厉的威利·旺卡等）是否源自民间故事、传统童话或已有的流行轶事，并追溯其原始出处",
+      "prediction": "The sales data for \"Roald Dahl: Collected Stories\" is not explicitly provided in the context, so an exact number of copies sold cannot be determined from the given information",
       "reference": "250 million",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 80,
-        "latency": 28.340057849884033
+        "token_count": 179,
+        "latency": 22.357678651809692
       },
       "method": "tot",
       "error": null
@@ -1260,13 +1260,13 @@
     {
       "sample_id": 89,
       "question": "What occupation do Chris Menges and Aram Avakian share?",
-      "prediction": "比较两人的职业重叠领域**：分析 Chris Menges 和 Aram Avakian 是否在相同的行业或职位上有交集，如是否都从事录音工程或音乐制作工作",
+      "prediction": "Film director",
       "reference": "director",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 57,
-        "latency": 18.22699475288391
+        "em": 1.0,
+        "f1": 0.6666666666666666,
+        "token_count": 77,
+        "latency": 17.091718435287476
       },
       "method": "tot",
       "error": null
@@ -1274,13 +1274,13 @@
     {
       "sample_id": 90,
       "question": "Andrew Jaspan was the co-founder of what not-for-profit media outlet?",
-      "prediction": "研究Andrew Jaspan在媒体行业中的影响力和合作网络**：了解他是否与其他媒体人、记者或非营利机构创始人有合作关系，从而推测他可能共同创立的媒体平台",
+      "prediction": "The Conversation",
       "reference": "The Conversation",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 68,
-        "latency": 25.666799783706665
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 117,
+        "latency": 17.436854600906372
       },
       "method": "tot",
       "error": null
@@ -1288,13 +1288,13 @@
     {
       "sample_id": 91,
       "question": "Which American film director hosted the 18th Independent Spirit Awards in 2002?",
-      "prediction": "参考独立精神奖的官方历史记录或历年回顾资料**：访问独立精神奖的官方网站或其官方出版物，查找2002年颁奖典礼的主持信息，以获得最准确的答案",
+      "prediction": "Jim Jarmusch",
       "reference": "John Waters",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 52,
-        "latency": 24.650646448135376
+        "token_count": 106,
+        "latency": 18.80328130722046
       },
       "method": "tot",
       "error": null
@@ -1302,13 +1302,13 @@
     {
       "sample_id": 92,
       "question": "Where does the hotel and casino located in which Bill Cosby's third album was recorded?",
-      "prediction": "查阅Bill Cosby第三张专辑的发行资料**：搜索该专辑的官方发行信息、唱片公司记录或音乐历史档案，确认其录音地点是否与特定的酒店和赌场相关联",
+      "prediction": "Flamingo Las Vegas",
       "reference": "Las Vegas Strip in Paradise",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 61,
-        "latency": 25.72485899925232
+        "f1": 0.5,
+        "token_count": 75,
+        "latency": 17.411128044128418
       },
       "method": "tot",
       "error": null
@@ -1316,13 +1316,13 @@
     {
       "sample_id": 93,
       "question": "Do the drinks Gibson and Zurracapote both contain gin?",
-      "prediction": "查阅经典鸡尾酒书籍**：参考《The Savoy Cocktail Book》或《Drunken Botany》等权威著作，确认Gibson鸡尾酒的传统配方是否包含金酒",
+      "prediction": "No, only Gin-Ka contains gin, so Gibson and Zurracapote are not both gin-based",
       "reference": "no",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 53,
-        "latency": 26.247477769851685
+        "em": 1.0,
+        "f1": 0.14285714285714288,
+        "token_count": 127,
+        "latency": 17.51134443283081
       },
       "method": "tot",
       "error": null
@@ -1330,13 +1330,13 @@
     {
       "sample_id": 94,
       "question": "In what month is the annual documentary film festival, that is presented by the fortnightly publishe",
-      "prediction": "确认期刊的出版频率和内容范围**：查阅权威资料或期刊官方网站，核实该英国文学评论期刊是否确实为每两周出版一次，并确认其是否以文学评论为主，从而进一步缩小可能的期刊范围",
+      "prediction": "March and April",
       "reference": "March and April",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 95,
-        "latency": 38.45446300506592
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 115,
+        "latency": 17.165928840637207
       },
       "method": "tot",
       "error": null
@@ -1344,13 +1344,13 @@
     {
       "sample_id": 95,
       "question": "Tysons Galleria is located in what county?",
-      "prediction": "查找Tysons Galleria的官方地址信息**：访问Tysons Galleria的官方网站或权威地图服务（如Google Maps），确认其具体地址，从而确定所在城市和县",
+      "prediction": "Fairfax County",
       "reference": "Fairfax County",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 60,
-        "latency": 19.508097648620605
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 84,
+        "latency": 20.219522953033447
       },
       "method": "tot",
       "error": null
@@ -1358,13 +1358,13 @@
     {
       "sample_id": 96,
       "question": "Bordan Tkachuk was the CEO of a company that provides what sort of products?",
-      "prediction": "查阅Bordan Tkachuk的LinkedIn个人资料**：通过查看其LinkedIn页面，可以获取他目前或曾经任职公司的名称，以及他在该公司担任的职位和所从事的业务领域",
+      "prediction": "Cardinal Health provides pharmaceuticals, medical products, and surgical supplies",
       "reference": "IT products and services",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 67,
-        "latency": 18.364478826522827
+        "f1": 0.30769230769230765,
+        "token_count": 139,
+        "latency": 14.183092594146729
       },
       "method": "tot",
       "error": null
@@ -1372,13 +1372,13 @@
     {
       "sample_id": 97,
       "question": "Which filmmaker was known for animation, Lev Yilmaz or Pamela B. Green?",
-      "prediction": "查阅 IMDb 页面**：访问 Lev Yilmaz 和 Pamela B. Green 的 IMDb 个人资料，查看他们的作品列表，特别是是否有动画电影或动画短片的记录",
+      "prediction": "Aryanto Yuniawan",
       "reference": "Levni Yilmaz",
       "metrics": {
         "em": 0.0,
-        "f1": 0.15384615384615385,
-        "token_count": 61,
-        "latency": 16.577823162078857
+        "f1": 0.0,
+        "token_count": 129,
+        "latency": 18.848406553268433
       },
       "method": "tot",
       "error": null
@@ -1386,13 +1386,13 @@
     {
       "sample_id": 98,
       "question": "In which city is the ambassador of the Rabat-Salé-Kénitra administrative region to China based?",
-      "prediction": "查询中国外交部关于摩洛哥各地区外交代表的信息**：访问中国外交部网站或联系其领事保护部门，了解摩洛哥各行政区域在华外交代表的具体安排和驻地信息",
+      "prediction": "Beijing",
       "reference": "Beijing",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 65,
-        "latency": 30.34226107597351
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 141,
+        "latency": 22.82780146598816
       },
       "method": "tot",
       "error": null
@@ -1400,13 +1400,13 @@
     {
       "sample_id": 99,
       "question": "Are Yingkou and Fuding the same level of city?",
-      "prediction": "确认 Yingkou 的行政归属和级别**：首先查证 Yingkou 所属的省份或自治区，以及它在该行政区划中的具体级别",
+      "prediction": "No, Yingkou is a prefecture-level city, while Fuding is a county-level city, so they are not at the same administrative level",
       "reference": "no",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 56,
-        "latency": 23.248109817504883
+        "em": 1.0,
+        "f1": 0.10526315789473684,
+        "token_count": 165,
+        "latency": 17.790315866470337
       },
       "method": "tot",
       "error": null

@@ -75,7 +75,7 @@ class ConsistencyChecker:
     def check(self, graph: ReasoningGraph, reasoning_text: str = "") -> Dict:
         """
         执行综合一致性校验
-        
+
         Returns:
             {
                 "consistency_score": float,        # 综合得分 [0, 1]
@@ -100,12 +100,33 @@ class ConsistencyChecker:
             self.w_coverage * coverage["coverage_score"]
         )
 
+        # 推理链长度惩罚：子问题越多，结构得分越低（防止过分解）
+        step_nodes = graph.get_step_nodes()
+        num_steps = len(step_nodes)
+        if num_steps > 3:
+            length_penalty = max(0.7, 1.0 - (num_steps - 3) * 0.1)
+            structural_score *= length_penalty
+
         # === 第二层：语义校验 ===
         semantic_score = 0.5  # 默认中性得分
         nli_result = None
         if self.enable_nli:
             nli_result = self.nli_verifier.verify_graph(graph)
             semantic_score = nli_result["nli_score"]
+        else:
+            # NLI关闭时，用子答案质量作为语义得分的替代
+            if step_nodes:
+                empty_count = 0
+                low_conf_count = 0
+                for node in step_nodes:
+                    ans = node.metadata.get("answer", "")
+                    if not ans or len(ans.strip()) < 2:
+                        empty_count += 1
+                    elif any(kw in ans.lower() for kw in ["i don't know", "unclear", "unknown", "无法确定", "不确定", "insufficient"]):
+                        low_conf_count += 1
+                total = len(step_nodes)
+                semantic_score = 1.0 - (empty_count * 0.5 + low_conf_count * 0.3) / max(total, 1)
+                semantic_score = max(0.1, min(1.0, semantic_score))
 
         # === 第三层：综合评估 ===
         consistency_score = self.alpha * structural_score + self.beta * semantic_score

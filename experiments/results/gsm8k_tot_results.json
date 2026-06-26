@@ -4,9 +4,9 @@
     "dataset": "gsm8k",
     "model": "qwen3-8b",
     "num_samples": 100,
-    "avg_em": 0.2,
-    "avg_f1": 0.09,
-    "avg_latency": 29.6117,
+    "avg_em": 0.86,
+    "avg_f1": 0.8,
+    "avg_latency": 19.4148,
     "timeout_count": 0,
     "error_count": 0
   },
@@ -19,8 +19,8 @@
       "metrics": {
         "em": 1.0,
         "f1": 1.0,
-        "token_count": 41,
-        "latency": 22.39961576461792
+        "token_count": 77,
+        "latency": 20.962913036346436
       },
       "method": "tot",
       "error": null
@@ -28,13 +28,13 @@
     {
       "sample_id": 1,
       "question": "A robe takes 2 bolts of blue fiber and half that much white fiber.  How many bolts in total does it ",
-      "prediction": "9",
+      "prediction": "3",
       "reference": "3",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 44,
-        "latency": 23.665400981903076
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 58,
+        "latency": 17.129867792129517
       },
       "method": "tot",
       "error": null
@@ -42,13 +42,13 @@
     {
       "sample_id": 2,
       "question": "Josh decides to try flipping a house.  He buys a house for $80,000 and then puts in $50,000 in repai",
-      "prediction": "计算利润（修复后价值 - 总成本）**：",
+      "prediction": "70000",
       "reference": "70000",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 14,
-        "latency": 29.974812746047974
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 90,
+        "latency": 21.381551265716553
       },
       "method": "tot",
       "error": null
@@ -56,13 +56,13 @@
     {
       "sample_id": 3,
       "question": "James decides to run 3 sprints 3 times a week.  He runs 60 meters each sprint.  How many total meter",
-      "prediction": "计算一周的总跑步距离**：",
+      "prediction": "540",
       "reference": "540",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 9,
-        "latency": 21.580819845199585
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 71,
+        "latency": 20.340785026550293
       },
       "method": "tot",
       "error": null
@@ -70,13 +70,13 @@
     {
       "sample_id": 4,
       "question": "Every day, Wendi feeds each of her chickens three cups of mixed chicken feed, containing seeds, meal",
-      "prediction": "计算最后还需喂的饲料量**：",
+      "prediction": "20",
       "reference": "20",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 24,
-        "latency": 25.18907642364502
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 245,
+        "latency": 21.283371448516846
       },
       "method": "tot",
       "error": null
@@ -84,13 +84,13 @@
     {
       "sample_id": 5,
       "question": "Kylar went to the store to buy glasses for his new apartment. One glass costs $5, but every second g",
-      "prediction": "计算每对玻璃的总价**：",
+      "prediction": "64",
       "reference": "64",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 10,
-        "latency": 25.10347867012024
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 61,
+        "latency": 17.58323383331299
       },
       "method": "tot",
       "error": null
@@ -98,13 +98,13 @@
     {
       "sample_id": 6,
       "question": "Toulouse has twice as many sheep as Charleston. Charleston has 4 times as many sheep as Seattle. How",
-      "prediction": "1",
+      "prediction": "260",
       "reference": "260",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 19,
-        "latency": 31.219813108444214
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 96,
+        "latency": 19.708837032318115
       },
       "method": "tot",
       "error": null
@@ -112,13 +112,13 @@
     {
       "sample_id": 7,
       "question": "Carla is downloading a 200 GB file. Normally she can download 2 GB/minute, but 40% of the way throug",
-      "prediction": "40",
+      "prediction": "60",
       "reference": "160",
       "metrics": {
-        "em": 0.0,
+        "em": 1.0,
         "f1": 0.0,
-        "token_count": 16,
-        "latency": 34.23514771461487
+        "token_count": 113,
+        "latency": 20.586793184280396
       },
       "method": "tot",
       "error": null
@@ -126,13 +126,13 @@
     {
       "sample_id": 8,
       "question": "John drives for 3 hours at a speed of 60 mph and then turns around because he realizes he forgot som",
-      "prediction": "2",
+      "prediction": "45",
       "reference": "45",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 21,
-        "latency": 44.03566074371338
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 199,
+        "latency": 26.96958017349243
       },
       "method": "tot",
       "error": null
@@ -140,13 +140,13 @@
     {
       "sample_id": 9,
       "question": "Eliza's rate per hour for the first 40 hours she works each week is $10. She also receives an overti",
-      "prediction": "计算Eliza的总工资**：",
+      "prediction": "560",
       "reference": "460",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 12,
-        "latency": 25.350172519683838
+        "token_count": 65,
+        "latency": 18.966698169708252
       },
       "method": "tot",
       "error": null
@@ -154,13 +154,13 @@
     {
       "sample_id": 10,
       "question": "A new program had 60 downloads in the first month. The number of downloads in the second month was t",
-      "prediction": "将三个月的下载量相加**：",
+      "prediction": "366",
       "reference": "366",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 11,
-        "latency": 25.2119300365448
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 90,
+        "latency": 19.31976819038391
       },
       "method": "tot",
       "error": null
@@ -168,13 +168,13 @@
     {
       "sample_id": 11,
       "question": "Toula went to the bakery and bought various types of pastries. She bought 3 dozen donuts which cost ",
-      "prediction": "方向一：先计算甜甜圈的总费用**",
+      "prediction": "694",
       "reference": "694",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 32,
-        "latency": 24.43341064453125
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 67,
+        "latency": 20.74391508102417
       },
       "method": "tot",
       "error": null
@@ -182,13 +182,13 @@
     {
       "sample_id": 12,
       "question": "Carlos is planting a lemon tree. The tree will cost $90 to plant. Each year it will grow 7 lemons, w",
-      "prediction": "计算收回初始成本所需的年数**：",
+      "prediction": "12",
       "reference": "13",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 11,
-        "latency": 25.45462727546692
+        "token_count": 180,
+        "latency": 19.74295163154602
       },
       "method": "tot",
       "error": null
@@ -196,13 +196,13 @@
     {
       "sample_id": 13,
       "question": "Melanie is a door-to-door saleswoman. She sold a third of her vacuum cleaners at the green house, 2 ",
-      "prediction": "推理步骤：**",
+      "prediction": "2",
       "reference": "18",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 10,
-        "latency": 46.63906645774841
+        "token_count": 248,
+        "latency": 26.906039237976074
       },
       "method": "tot",
       "error": null
@@ -210,13 +210,13 @@
     {
       "sample_id": 14,
       "question": "In a dance class of 20 students, 20% enrolled in contemporary dance, 25% of the remaining enrolled i",
-      "prediction": "2",
+      "prediction": "60",
       "reference": "60",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 18,
-        "latency": 27.09135603904724
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 158,
+        "latency": 21.554877281188965
       },
       "method": "tot",
       "error": null
@@ -224,13 +224,13 @@
     {
       "sample_id": 15,
       "question": "A merchant wants to make a choice of purchase between 2 purchase plans: jewelry worth $5,000 or elec",
-      "prediction": "比较两种投资的利润差异**：",
+      "prediction": "125",
       "reference": "125",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 12,
-        "latency": 26.89683222770691
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 112,
+        "latency": 20.56497883796692
       },
       "method": "tot",
       "error": null
@@ -238,13 +238,13 @@
     {
       "sample_id": 16,
       "question": "Two trains leave San Rafael at the same time. They begin traveling westward, both traveling for 80 m",
-      "prediction": "确定每列车的总行程距离**：",
+      "prediction": "230",
       "reference": "230",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 11,
-        "latency": 28.910263299942017
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 97,
+        "latency": 16.47771644592285
       },
       "method": "tot",
       "error": null
@@ -252,13 +252,13 @@
     {
       "sample_id": 17,
       "question": "Jill gets paid $20 per hour to teach and $30 to be a cheerleading coach. If she works 50 weeks a yea",
-      "prediction": "将两部分年收入相加得出总年收入**：",
+      "prediction": "35000",
       "reference": "57500",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 13,
-        "latency": 23.677272081375122
+        "token_count": 167,
+        "latency": 19.09731101989746
       },
       "method": "tot",
       "error": null
@@ -266,13 +266,13 @@
     {
       "sample_id": 18,
       "question": "Claire makes a 3 egg omelet every morning for breakfast.  How many dozens of eggs will she eat in 4 ",
-      "prediction": "计算每周的蛋数**：",
+      "prediction": "7",
       "reference": "7",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 8,
-        "latency": 30.963369846343994
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 68,
+        "latency": 17.276186227798462
       },
       "method": "tot",
       "error": null
@@ -280,13 +280,13 @@
     {
       "sample_id": 19,
       "question": "Marissa is hiking a 12-mile trail. She took 1 hour to walk the first 4 miles, then another hour to w",
-      "prediction": "3",
+      "prediction": "6",
       "reference": "6",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 14,
-        "latency": 31.696059226989746
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 168,
+        "latency": 19.116177320480347
       },
       "method": "tot",
       "error": null
@@ -294,13 +294,13 @@
     {
       "sample_id": 20,
       "question": "I have 10 liters of orange drink that are two-thirds water and I wish to add it to 15 liters of pine",
-      "prediction": "1",
+      "prediction": "15",
       "reference": "15",
       "metrics": {
         "em": 1.0,
-        "f1": 0.0,
-        "token_count": 42,
-        "latency": 41.114665269851685
+        "f1": 1.0,
+        "token_count": 145,
+        "latency": 21.057633876800537
       },
       "method": "tot",
       "error": null
@@ -308,13 +308,13 @@
     {
       "sample_id": 21,
       "question": "Raymond and Samantha are cousins. Raymond was born 6 years before Samantha. Raymond had a son at the",
-      "prediction": "3",
+      "prediction": "14",
       "reference": "14",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 18,
-        "latency": 30.852940559387207
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 77,
+        "latency": 17.042145252227783
       },
       "method": "tot",
       "error": null
@@ -322,13 +322,13 @@
     {
       "sample_id": 22,
       "question": "Billy sells DVDs. He has 8 customers on Tuesday. His first 3 customers buy one DVD each.  His next 2",
-      "prediction": "将所有顾客购买的DVD数量相加**：",
+      "prediction": "7",
       "reference": "7",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 14,
-        "latency": 25.136295080184937
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 69,
+        "latency": 17.23850393295288
       },
       "method": "tot",
       "error": null
@@ -341,8 +341,8 @@
       "metrics": {
         "em": 1.0,
         "f1": 1.0,
-        "token_count": 48,
-        "latency": 24.748656034469604
+        "token_count": 95,
+        "latency": 16.698623418807983
       },
       "method": "tot",
       "error": null
@@ -350,13 +350,13 @@
     {
       "sample_id": 24,
       "question": "Kyle bought last year's best-selling book for $19.50. This is with a 25% discount from the original ",
-      "prediction": "设原价为 x 并建立方程**：",
+      "prediction": "26.00",
       "reference": "26",
       "metrics": {
-        "em": 0.0,
+        "em": 1.0,
         "f1": 0.0,
-        "token_count": 11,
-        "latency": 30.70058274269104
+        "token_count": 65,
+        "latency": 17.382142782211304
       },
       "method": "tot",
       "error": null
@@ -369,8 +369,8 @@
       "metrics": {
         "em": 1.0,
         "f1": 1.0,
-        "token_count": 27,
-        "latency": 28.872520685195923
+        "token_count": 146,
+        "latency": 19.752086400985718
       },
       "method": "tot",
       "error": null
@@ -378,13 +378,13 @@
     {
       "sample_id": 26,
       "question": "Mishka bought 3 pairs of shorts, 3 pairs of pants, and 3 pairs of shoes. One pair of shorts costs $1",
-      "prediction": "计算鞋子的总费用**：",
+      "prediction": "243.00",
       "reference": "243",
       "metrics": {
-        "em": 0.0,
+        "em": 1.0,
         "f1": 0.0,
-        "token_count": 12,
-        "latency": 20.346346616744995
+        "token_count": 94,
+        "latency": 18.489776134490967
       },
       "method": "tot",
       "error": null
@@ -392,13 +392,13 @@
     {
       "sample_id": 27,
       "question": "Cynthia eats one serving of ice cream every night.  She buys cartons of ice cream with 15 servings o",
-      "prediction": "60",
+      "prediction": "16.00",
       "reference": "16",
       "metrics": {
-        "em": 0.0,
+        "em": 1.0,
         "f1": 0.0,
-        "token_count": 14,
-        "latency": 26.767723560333252
+        "token_count": 86,
+        "latency": 21.04754066467285
       },
       "method": "tot",
       "error": null
@@ -406,13 +406,13 @@
     {
       "sample_id": 28,
       "question": "Henry made two stops during his 60-mile bike trip. He first stopped after 20 miles. His second stop ",
-      "prediction": "1",
+      "prediction": "25",
       "reference": "25",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 13,
-        "latency": 34.327880859375
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 130,
+        "latency": 21.39592432975769
       },
       "method": "tot",
       "error": null
@@ -420,13 +420,13 @@
     {
       "sample_id": 29,
       "question": "Gloria is shoe shopping when she comes across a pair of boots that fit her shoe budget. However, she",
-      "prediction": "1",
+      "prediction": "104",
       "reference": "104",
       "metrics": {
         "em": 1.0,
-        "f1": 0.0,
-        "token_count": 14,
-        "latency": 27.697330236434937
+        "f1": 1.0,
+        "token_count": 116,
+        "latency": 18.22098445892334
       },
       "method": "tot",
       "error": null
@@ -434,13 +434,13 @@
     {
       "sample_id": 30,
       "question": "Darrell and Allen's ages are in the ratio of 7:11. If their total age now is 162, calculate Allen's ",
-      "prediction": "1",
+      "prediction": "109",
       "reference": "109",
       "metrics": {
         "em": 1.0,
-        "f1": 0.0,
-        "token_count": 11,
-        "latency": 37.996362924575806
+        "f1": 1.0,
+        "token_count": 72,
+        "latency": 19.888911247253418
       },
       "method": "tot",
       "error": null
@@ -448,13 +448,13 @@
     {
       "sample_id": 31,
       "question": "Gunter is trying to count the jelly beans in a jar. He asks his friends how many they think are in t",
-      "prediction": "3",
+      "prediction": "80",
       "reference": "80",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 9,
-        "latency": 24.926851749420166
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 77,
+        "latency": 18.402382373809814
       },
       "method": "tot",
       "error": null
@@ -462,13 +462,13 @@
     {
       "sample_id": 32,
       "question": "John takes care of 10 dogs.  Each dog takes .5 hours a day to walk and take care of their business. ",
-      "prediction": "计算每周总耗时**：",
+      "prediction": "35",
       "reference": "35",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 25,
-        "latency": 23.628158807754517
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 79,
+        "latency": 17.336122035980225
       },
       "method": "tot",
       "error": null
@@ -476,13 +476,13 @@
     {
       "sample_id": 33,
       "question": "Gretchen has 110 coins. There are 30 more gold coins than silver coins. How many gold coins does Gre",
-      "prediction": "2",
+      "prediction": "70",
       "reference": "70",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 23,
-        "latency": 34.600666761398315
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 119,
+        "latency": 17.35741901397705
       },
       "method": "tot",
       "error": null
@@ -490,13 +490,13 @@
     {
       "sample_id": 34,
       "question": "Siobhan has 2 fewer jewels than Aaron. Aaron has 5 more jewels than half of Raymond's jewels. If Ray",
-      "prediction": "2",
+      "prediction": "23",
       "reference": "23",
       "metrics": {
         "em": 1.0,
-        "f1": 0.0,
-        "token_count": 18,
-        "latency": 30.754964590072632
+        "f1": 1.0,
+        "token_count": 66,
+        "latency": 18.178142547607422
       },
       "method": "tot",
       "error": null
@@ -504,13 +504,13 @@
     {
       "sample_id": 35,
       "question": "Mike plays ping pong for 40 minutes.  In the first 20 minutes, he scores 4 points.  In the second 20",
-      "prediction": "计算总得分**：",
+      "prediction": "9",
       "reference": "9",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 9,
-        "latency": 24.553404092788696
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 62,
+        "latency": 18.798723936080933
       },
       "method": "tot",
       "error": null
@@ -518,13 +518,13 @@
     {
       "sample_id": 36,
       "question": "Terry eats 2 yogurts a day.  They are currently on sale at 4 yogurts for $5.00.  How much does he sp",
-      "prediction": "4",
+      "prediction": "75.00",
       "reference": "75",
       "metrics": {
-        "em": 0.0,
+        "em": 1.0,
         "f1": 0.0,
-        "token_count": 15,
-        "latency": 25.418326139450073
+        "token_count": 101,
+        "latency": 19.60220718383789
       },
       "method": "tot",
       "error": null
@@ -532,13 +532,13 @@
     {
       "sample_id": 37,
       "question": "John plans to sell all his toys and use the money to buy video games. He has 13 lego sets and he sel",
-      "prediction": "2",
+      "prediction": "0",
       "reference": "2",
       "metrics": {
-        "em": 1.0,
-        "f1": 1.0,
-        "token_count": 10,
-        "latency": 36.44278168678284
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 121,
+        "latency": 21.89612889289856
       },
       "method": "tot",
       "error": null
@@ -546,13 +546,13 @@
     {
       "sample_id": 38,
       "question": "John runs 60 miles a week. He runs 3 days a week.  He runs 3 hours the first day and half as much th",
-      "prediction": "计算John每周跑步的总时间**：",
+      "prediction": "10",
       "reference": "10",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 13,
-        "latency": 25.46860361099243
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 181,
+        "latency": 17.729207515716553
       },
       "method": "tot",
       "error": null
@@ -560,13 +560,13 @@
     {
       "sample_id": 39,
       "question": "Dana can run at a rate of speed four times faster than she can walk, but she can skip at a rate of s",
-      "prediction": "2",
+      "prediction": "12",
       "reference": "18",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 15,
-        "latency": 27.43302822113037
+        "token_count": 247,
+        "latency": 22.45637583732605
       },
       "method": "tot",
       "error": null
@@ -574,13 +574,13 @@
     {
       "sample_id": 40,
       "question": "Brandon's iPhone is four times as old as Ben's iPhone. Ben's iPhone is two times older than Suzy's i",
-      "prediction": "验证年龄关系是否一致**：确认题目中提到的“四倍”和“两倍”关系是否在数值上成立，确保没有理解错误或逻辑矛盾",
+      "prediction": "12",
       "reference": "8",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 71,
-        "latency": 27.620574474334717
+        "token_count": 69,
+        "latency": 18.27765464782715
       },
       "method": "tot",
       "error": null
@@ -588,13 +588,13 @@
     {
       "sample_id": 41,
       "question": "The great dragon, Perg, sat high atop mount Farbo, breathing fire upon anything within a distance of",
-      "prediction": "方向一：确定持宝石时的投掷距离**",
+      "prediction": "200",
       "reference": "200",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 11,
-        "latency": 39.77536129951477
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 111,
+        "latency": 21.268682956695557
       },
       "method": "tot",
       "error": null
@@ -602,13 +602,13 @@
     {
       "sample_id": 42,
       "question": "Grandma Jones baked 5 apple pies for the fireman's luncheon.  She cut each pie into 8 pieces and set",
-      "prediction": "1",
+      "prediction": "26",
       "reference": "26",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 13,
-        "latency": 38.32194256782532
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 116,
+        "latency": 18.654277563095093
       },
       "method": "tot",
       "error": null
@@ -616,13 +616,13 @@
     {
       "sample_id": 43,
       "question": "According to its nutritional info, a bag of chips has 250 calories per serving. If a 300g bag has 5 ",
-      "prediction": "计算剩余可摄入的卡路里**：",
+      "prediction": "48",
       "reference": "48",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 35,
-        "latency": 29.194064617156982
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 164,
+        "latency": 21.871727466583252
       },
       "method": "tot",
       "error": null
@@ -630,13 +630,13 @@
     {
       "sample_id": 44,
       "question": "Charlie wants to sell beeswax candles.  For every pound of beeswax, he can make 10 tapered candles. ",
-      "prediction": "计算总成本（包括 beeswax 和 wicks）**：",
+      "prediction": "30.00",
       "reference": "20",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 11,
-        "latency": 26.793787240982056
+        "token_count": 114,
+        "latency": 20.997101545333862
       },
       "method": "tot",
       "error": null
@@ -644,13 +644,13 @@
     {
       "sample_id": 45,
       "question": "Meredith is a freelance blogger who writes about health topics and submits to clients each day as he",
-      "prediction": "4",
+      "prediction": "104",
       "reference": "104",
       "metrics": {
         "em": 1.0,
-        "f1": 0.0,
-        "token_count": 13,
-        "latency": 34.73000431060791
+        "f1": 1.0,
+        "token_count": 156,
+        "latency": 23.420761346817017
       },
       "method": "tot",
       "error": null
@@ -658,13 +658,13 @@
     {
       "sample_id": 46,
       "question": "Candice put 80 post-it notes in her purse before she headed out to her job at the coffee shop.  On h",
-      "prediction": "1",
+      "prediction": "163",
       "reference": "163",
       "metrics": {
         "em": 1.0,
-        "f1": 0.0,
-        "token_count": 26,
-        "latency": 38.38972020149231
+        "f1": 1.0,
+        "token_count": 237,
+        "latency": 23.6860773563385
       },
       "method": "tot",
       "error": null
@@ -672,13 +672,13 @@
     {
       "sample_id": 47,
       "question": "John buys twice as many red ties as blue ties.  The red ties cost 50% more than blue ties.  He spent",
-      "prediction": "计算蓝领结的数量**：",
+      "prediction": "800",
       "reference": "800",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 29,
-        "latency": 32.54019379615784
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 161,
+        "latency": 23.00938892364502
       },
       "method": "tot",
       "error": null
@@ -686,13 +686,13 @@
     {
       "sample_id": 48,
       "question": "Tracy used a piece of wire 4 feet long to support tomato plants in the garden. The wire was cut into",
-      "prediction": "6",
+      "prediction": "8",
       "reference": "8",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 34,
-        "latency": 22.862228870391846
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 77,
+        "latency": 15.521564722061157
       },
       "method": "tot",
       "error": null
@@ -700,13 +700,13 @@
     {
       "sample_id": 49,
       "question": "Richard lives in an apartment building with 15 floors. Each floor contains 8 units, and 3/4 of the b",
-      "prediction": "1",
+      "prediction": "30",
       "reference": "30",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 13,
-        "latency": 27.44038677215576
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 103,
+        "latency": 18.980323553085327
       },
       "method": "tot",
       "error": null
@@ -714,13 +714,13 @@
     {
       "sample_id": 50,
       "question": "Lloyd has an egg farm. His chickens produce 252 eggs per day and he sells them for $2 per dozen. How",
-      "prediction": "计算每日收入**：首先确定Lloyd每天通过销售鸡蛋获得的总收入，即每天生产的鸡蛋数量乘以每打的价格",
+      "prediction": "294",
       "reference": "294",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 40,
-        "latency": 31.820918083190918
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 94,
+        "latency": 17.032400131225586
       },
       "method": "tot",
       "error": null
@@ -728,13 +728,13 @@
     {
       "sample_id": 51,
       "question": "Tom's ship can travel at 10 miles per hour.  He is sailing from 1 to 4 PM.  He then travels back at ",
-      "prediction": "使用返回速度计算返回所需时间**：",
+      "prediction": "5",
       "reference": "5",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 12,
-        "latency": 31.896552324295044
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 135,
+        "latency": 20.81423544883728
       },
       "method": "tot",
       "error": null
@@ -747,8 +747,8 @@
       "metrics": {
         "em": 1.0,
         "f1": 1.0,
-        "token_count": 17,
-        "latency": 29.79155158996582
+        "token_count": 105,
+        "latency": 19.673697471618652
       },
       "method": "tot",
       "error": null
@@ -756,13 +756,13 @@
     {
       "sample_id": 53,
       "question": "A mechanic charges different rates to repair the tires of trucks and cars.  For each truck tire that",
-      "prediction": "比较周四与周五的总收入**：",
+      "prediction": "40",
       "reference": "40",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 18,
-        "latency": 27.95764994621277
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 174,
+        "latency": 20.974058389663696
       },
       "method": "tot",
       "error": null
@@ -770,13 +770,13 @@
     {
       "sample_id": 54,
       "question": "The Doubtfire sisters are driving home with 7 kittens adopted from the local animal shelter when the",
-      "prediction": "方向一：验证信息是否一致**",
+      "prediction": "40",
       "reference": "40",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 53,
-        "latency": 32.30391263961792
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 122,
+        "latency": 20.00156044960022
       },
       "method": "tot",
       "error": null
@@ -784,13 +784,13 @@
     {
       "sample_id": 55,
       "question": "Jean has 30 lollipops. Jean eats 2 of the lollipops. With the remaining lollipops, Jean wants to pac",
-      "prediction": "计算剩余的糖果数量**：",
+      "prediction": "14",
       "reference": "14",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 9,
-        "latency": 21.727078199386597
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 49,
+        "latency": 17.89174723625183
       },
       "method": "tot",
       "error": null
@@ -803,8 +803,8 @@
       "metrics": {
         "em": 1.0,
         "f1": 1.0,
-        "token_count": 49,
-        "latency": 23.549573183059692
+        "token_count": 82,
+        "latency": 19.186386108398438
       },
       "method": "tot",
       "error": null
@@ -812,13 +812,13 @@
     {
       "sample_id": 57,
       "question": "A wooden bridge can carry no more than 5000 pounds. A delivery truck filled with identical boxes, ea",
-      "prediction": "计算每箱货物对总重量的影响**：",
+      "prediction": "83",
       "reference": "83",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 12,
-        "latency": 25.712162256240845
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 89,
+        "latency": 17.69012761116028
       },
       "method": "tot",
       "error": null
@@ -826,13 +826,13 @@
     {
       "sample_id": 58,
       "question": "Stephen placed an online order for groceries.  His final bill came to $40.00.  Because this was thro",
-      "prediction": "方向一：计算总费用（含税费、配送费和小费）**",
+      "prediction": "53.00",
       "reference": "57",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 44,
-        "latency": 29.7355318069458
+        "token_count": 61,
+        "latency": 19.374887943267822
       },
       "method": "tot",
       "error": null
@@ -840,13 +840,13 @@
     {
       "sample_id": 59,
       "question": "A raspberry bush has 6 clusters of 20 fruit each and 67 individual fruit scattered across the bush. ",
-      "prediction": "将簇内果实与散落果实相加**：",
+      "prediction": "187",
       "reference": "187",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 11,
-        "latency": 22.61227059364319
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 76,
+        "latency": 15.95944333076477
       },
       "method": "tot",
       "error": null
@@ -854,13 +854,13 @@
     {
       "sample_id": 60,
       "question": "A basket contains 25 oranges among which 1 is bad, 20% are unripe, 2 are sour and the rest are good.",
-      "prediction": "计算未成熟橙子的数量**：",
+      "prediction": "17",
       "reference": "17",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 10,
-        "latency": 31.724175214767456
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 109,
+        "latency": 16.579256057739258
       },
       "method": "tot",
       "error": null
@@ -868,13 +868,13 @@
     {
       "sample_id": 61,
       "question": "Janet buys a brooch for her daughter.  She pays $500 for the material to make it and then another $8",
-      "prediction": "计算总支付金额**：",
+      "prediction": "1530",
       "reference": "1430",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 9,
-        "latency": 24.71258020401001
+        "token_count": 69,
+        "latency": 18.302515268325806
       },
       "method": "tot",
       "error": null
@@ -882,13 +882,13 @@
     {
       "sample_id": 62,
       "question": "If Marcy works for the same company for 40 years, she gets an annual pension of $50,000/year. Starti",
-      "prediction": "20",
+      "prediction": "50000",
       "reference": "25000",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 22,
-        "latency": 43.304304122924805
+        "token_count": 96,
+        "latency": 18.588138818740845
       },
       "method": "tot",
       "error": null
@@ -896,13 +896,13 @@
     {
       "sample_id": 63,
       "question": "Aleena subscribed to a streaming service that charges her $140 per month. If the streaming company c",
-      "prediction": "6",
+      "prediction": "1596",
       "reference": "1596",
       "metrics": {
         "em": 1.0,
-        "f1": 0.0,
-        "token_count": 12,
-        "latency": 25.112836599349976
+        "f1": 1.0,
+        "token_count": 115,
+        "latency": 19.180870294570923
       },
       "method": "tot",
       "error": null
@@ -910,13 +910,13 @@
     {
       "sample_id": 64,
       "question": "Sophia is thinking of taking a road trip in her car, and would like to know how far she can drive on",
-      "prediction": "计算单次加油后能行驶的总里程**：",
+      "prediction": "300",
       "reference": "300",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 21,
-        "latency": 41.00076508522034
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 83,
+        "latency": 18.35966730117798
       },
       "method": "tot",
       "error": null
@@ -924,13 +924,13 @@
     {
       "sample_id": 65,
       "question": "Jim spends 2 hours watching TV and then decides to go to bed and reads for half as long.  He does th",
-      "prediction": "3",
+      "prediction": "36",
       "reference": "36",
       "metrics": {
         "em": 1.0,
-        "f1": 0.0,
-        "token_count": 66,
-        "latency": 24.364276885986328
+        "f1": 1.0,
+        "token_count": 125,
+        "latency": 19.2880756855011
       },
       "method": "tot",
       "error": null
@@ -938,13 +938,13 @@
     {
       "sample_id": 66,
       "question": "There are four schools competing at a basketball tournament. Each school has sent a girls’ basketbal",
-      "prediction": "1",
+      "prediction": "48",
       "reference": "48",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 13,
-        "latency": 35.60485816001892
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 111,
+        "latency": 18.977535724639893
       },
       "method": "tot",
       "error": null
@@ -957,8 +957,8 @@
       "metrics": {
         "em": 1.0,
         "f1": 1.0,
-        "token_count": 62,
-        "latency": 23.465656757354736
+        "token_count": 188,
+        "latency": 21.1460440158844
       },
       "method": "tot",
       "error": null
@@ -966,13 +966,13 @@
     {
       "sample_id": 68,
       "question": "There are twice as many boys as girls at Dr. Wertz's school. If there are 60 girls and 5 students to",
-      "prediction": "验证总学生数是否正确**：",
+      "prediction": "36",
       "reference": "36",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 33,
-        "latency": 26.20824122428894
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 129,
+        "latency": 18.506893157958984
       },
       "method": "tot",
       "error": null
@@ -980,13 +980,13 @@
     {
       "sample_id": 69,
       "question": "Bailey starts with a certain amount of money. Then she receives a weekly allowance of $5 for 8 weeks",
-      "prediction": "计算总 allowance 金额**：",
+      "prediction": "60",
       "reference": "60",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 15,
-        "latency": 26.23772692680359
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 128,
+        "latency": 17.06809163093567
       },
       "method": "tot",
       "error": null
@@ -994,13 +994,13 @@
     {
       "sample_id": 70,
       "question": "Judy teaches 5 dance classes, every day, on the weekdays and 8 classes on Saturday.  If each class h",
-      "prediction": "计算每节课的总收入**：",
+      "prediction": "7425",
       "reference": "7425",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 10,
-        "latency": 26.129303455352783
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 196,
+        "latency": 20.097479581832886
       },
       "method": "tot",
       "error": null
@@ -1013,8 +1013,8 @@
       "metrics": {
         "em": 1.0,
         "f1": 1.0,
-        "token_count": 33,
-        "latency": 24.260536432266235
+        "token_count": 74,
+        "latency": 15.473493337631226
       },
       "method": "tot",
       "error": null
@@ -1022,13 +1022,13 @@
     {
       "sample_id": 72,
       "question": "Tommy is fundraising for his charity by selling brownies for $3 a slice and cheesecakes for $4 a sli",
-      "prediction": "3",
+      "prediction": "221",
       "reference": "221",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 37,
-        "latency": 19.918219566345215
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 108,
+        "latency": 17.385043382644653
       },
       "method": "tot",
       "error": null
@@ -1036,13 +1036,13 @@
     {
       "sample_id": 73,
       "question": "Shiela bought five cell phones for $150 each for a 3-month installment. A 2% interest will be charge",
-      "prediction": "3",
+      "prediction": "255",
       "reference": "255",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 17,
-        "latency": 34.07706069946289
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 87,
+        "latency": 17.773390293121338
       },
       "method": "tot",
       "error": null
@@ -1050,13 +1050,13 @@
     {
       "sample_id": 74,
       "question": "Artie has a flower stand at the Farmers Market. He sells three kinds of flowers: marigolds, petunias",
-      "prediction": "1",
+      "prediction": "88",
       "reference": "88",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 28,
-        "latency": 33.24702525138855
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 210,
+        "latency": 21.105143785476685
       },
       "method": "tot",
       "error": null
@@ -1064,13 +1064,13 @@
     {
       "sample_id": 75,
       "question": "Luke is spending time at the beach building sandcastles. He eventually notices that each level of a ",
-      "prediction": "1",
+      "prediction": "60",
       "reference": "60",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 13,
-        "latency": 38.089022397994995
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 130,
+        "latency": 19.78457474708557
       },
       "method": "tot",
       "error": null
@@ -1078,13 +1078,13 @@
     {
       "sample_id": 76,
       "question": "Cecilia just bought a new puppy. According to her veterinarian, she has to feed the puppy 1 cup of d",
-      "prediction": "370",
+      "prediction": "5",
       "reference": "5",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 56,
-        "latency": 39.13264608383179
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 142,
+        "latency": 22.58135724067688
       },
       "method": "tot",
       "error": null
@@ -1092,13 +1092,13 @@
     {
       "sample_id": 77,
       "question": "If Raymond does half as much laundry as Sarah, and Sarah does 4 times as much laundry as David, calc",
-      "prediction": "计算 Raymond 和 David 的洗衣量差值**：",
+      "prediction": "100",
       "reference": "100",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 21,
-        "latency": 29.962620735168457
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 104,
+        "latency": 19.710681915283203
       },
       "method": "tot",
       "error": null
@@ -1106,13 +1106,13 @@
     {
       "sample_id": 78,
       "question": "Vincent can buy flowers in packages of 3 for $2.50 or in packages of 2 for $1. How much money does h",
-      "prediction": "2",
+      "prediction": "6.00",
       "reference": "6",
       "metrics": {
-        "em": 0.0,
+        "em": 1.0,
         "f1": 0.0,
-        "token_count": 17,
-        "latency": 27.740625143051147
+        "token_count": 130,
+        "latency": 20.420825242996216
       },
       "method": "tot",
       "error": null
@@ -1120,13 +1120,13 @@
     {
       "sample_id": 79,
       "question": "John adopts a dog.  He takes the dog to the groomer, which costs $100.  The groomer offers him a 30%",
-      "prediction": "30",
+      "prediction": "70",
       "reference": "70",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 29,
-        "latency": 19.50096559524536
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 45,
+        "latency": 14.369999170303345
       },
       "method": "tot",
       "error": null
@@ -1134,13 +1134,13 @@
     {
       "sample_id": 80,
       "question": "Two girls each got 1/6 of the 24 liters of water. Then a boy got 6 liters of water. How many liters ",
-      "prediction": "计算两个女孩共分得的水量**：",
+      "prediction": "10",
       "reference": "10",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 11,
-        "latency": 24.658331394195557
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 101,
+        "latency": 17.672288417816162
       },
       "method": "tot",
       "error": null
@@ -1148,13 +1148,13 @@
     {
       "sample_id": 81,
       "question": "Charlie had 10 stickers. He bought 21 stickers from a store in the mall and got 23 stickers for his ",
-      "prediction": "1",
+      "prediction": "17",
       "reference": "17",
       "metrics": {
         "em": 1.0,
-        "f1": 0.0,
-        "token_count": 14,
-        "latency": 35.175694942474365
+        "f1": 1.0,
+        "token_count": 88,
+        "latency": 18.26660656929016
       },
       "method": "tot",
       "error": null
@@ -1162,13 +1162,13 @@
     {
       "sample_id": 82,
       "question": "Grace weighs 125 pounds. Alex weighs 2 pounds less than 4 times what Grace weighs. What are their co",
-      "prediction": "4",
+      "prediction": "623",
       "reference": "623",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 42,
-        "latency": 21.81989073753357
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 55,
+        "latency": 16.96226167678833
       },
       "method": "tot",
       "error": null
@@ -1176,13 +1176,13 @@
     {
       "sample_id": 83,
       "question": "Dan plants 3 rose bushes. Each rose bush has 25 roses. Each rose has 8 thorns. How many thorns are t",
-      "prediction": "8",
+      "prediction": "600",
       "reference": "600",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 40,
-        "latency": 29.156927347183228
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 84,
+        "latency": 18.810401678085327
       },
       "method": "tot",
       "error": null
@@ -1190,13 +1190,13 @@
     {
       "sample_id": 84,
       "question": "A football team played 22 games. They won 8 more than they lost. How many did they win?",
-      "prediction": "1",
+      "prediction": "15",
       "reference": "15",
       "metrics": {
         "em": 1.0,
-        "f1": 0.0,
-        "token_count": 29,
-        "latency": 38.05632972717285
+        "f1": 1.0,
+        "token_count": 136,
+        "latency": 28.637074947357178
       },
       "method": "tot",
       "error": null
@@ -1204,13 +1204,13 @@
     {
       "sample_id": 85,
       "question": "Gene is sewing a quilt out of old souvenir t-shirts. He has one shirt from each vacation he has been",
-      "prediction": "确定每个度假对应一个拼图块**：",
+      "prediction": "44",
       "reference": "44",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 13,
-        "latency": 27.526184558868408
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 87,
+        "latency": 19.150845766067505
       },
       "method": "tot",
       "error": null
@@ -1223,8 +1223,8 @@
       "metrics": {
         "em": 1.0,
         "f1": 1.0,
-        "token_count": 17,
-        "latency": 38.21357774734497
+        "token_count": 100,
+        "latency": 19.00582504272461
       },
       "method": "tot",
       "error": null
@@ -1232,13 +1232,13 @@
     {
       "sample_id": 87,
       "question": "A company pays each of its employees $600 in a month. The company has a policy of increasing the sal",
-      "prediction": "下一步推理：**",
+      "prediction": "8280",
       "reference": "9360",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 8,
-        "latency": 53.21078658103943
+        "token_count": 95,
+        "latency": 21.234472274780273
       },
       "method": "tot",
       "error": null
@@ -1246,13 +1246,13 @@
     {
       "sample_id": 88,
       "question": "Marilyn's first record sold 10 times as many copies as Harald's. If they sold 88,000 copies combined",
-      "prediction": "1",
+      "prediction": "8000",
       "reference": "8000",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 23,
-        "latency": 31.05994153022766
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 151,
+        "latency": 21.38711404800415
       },
       "method": "tot",
       "error": null
@@ -1260,13 +1260,13 @@
     {
       "sample_id": 89,
       "question": "Christina is planning a birthday party and needs .75 gift bags per invited guest, because 1/4 of att",
-      "prediction": "0.75",
+      "prediction": "24",
       "reference": "24",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 39,
-        "latency": 21.6434428691864
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 99,
+        "latency": 17.44490671157837
       },
       "method": "tot",
       "error": null
@@ -1274,13 +1274,13 @@
     {
       "sample_id": 90,
       "question": "Ted the T-Rex was planning to bring potato salad to the dinosaur picnic.  He knows that an adult din",
-      "prediction": "1",
+      "prediction": "225",
       "reference": "225",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 13,
-        "latency": 27.017879724502563
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 95,
+        "latency": 19.20216941833496
       },
       "method": "tot",
       "error": null
@@ -1288,13 +1288,13 @@
     {
       "sample_id": 91,
       "question": "Jan has three times the number of pets as Marcia. Marcia has two more pets than Cindy. If Cindy has ",
-      "prediction": "计算三人总共有多少只宠物**：",
+      "prediction": "28",
       "reference": "28",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 32,
-        "latency": 24.03455090522766
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 72,
+        "latency": 17.48143768310547
       },
       "method": "tot",
       "error": null
@@ -1302,13 +1302,13 @@
     {
       "sample_id": 92,
       "question": "Emily has 4 kids named Amy, Jackson, Corey, and James. Amy is 5 years older than Jackson and 2 years",
-      "prediction": "1",
+      "prediction": "4",
       "reference": "4",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 36,
-        "latency": 30.764754056930542
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 72,
+        "latency": 16.561415433883667
       },
       "method": "tot",
       "error": null
@@ -1316,13 +1316,13 @@
     {
       "sample_id": 93,
       "question": "Lee used to be able to run the 400-meter hurdles two seconds faster than Gerald would run the 400-me",
-      "prediction": "方向三：设未知数并建立方程求解**",
+      "prediction": "36",
       "reference": "36",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 12,
-        "latency": 30.95890998840332
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 146,
+        "latency": 19.663268566131592
       },
       "method": "tot",
       "error": null
@@ -1330,13 +1330,13 @@
     {
       "sample_id": 94,
       "question": "In a neighborhood, the number of rabbits pets is twelve less than the combined number of pet dogs an",
-      "prediction": "1",
+      "prediction": "348",
       "reference": "348",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 31,
-        "latency": 29.817456245422363
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 99,
+        "latency": 21.354007482528687
       },
       "method": "tot",
       "error": null
@@ -1344,13 +1344,13 @@
     {
       "sample_id": 95,
       "question": "Out of the 200 Grade 5 students, 2/5 are boys and 2/3 of the girls are in the girl scout. How many g",
-      "prediction": "计算未参加女童军的女生人数**：",
+      "prediction": "40",
       "reference": "40",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 22,
-        "latency": 26.15100121498108
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 143,
+        "latency": 17.503477096557617
       },
       "method": "tot",
       "error": null
@@ -1358,13 +1358,13 @@
     {
       "sample_id": 96,
       "question": "Harry slept 9 hours last night. His friend James slept only 2/3 of what Harry slept. How many more h",
-      "prediction": "6",
+      "prediction": "3",
       "reference": "3",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 58,
-        "latency": 31.507503271102905
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 59,
+        "latency": 15.419159173965454
       },
       "method": "tot",
       "error": null
@@ -1372,13 +1372,13 @@
     {
       "sample_id": 97,
       "question": "When Freda cooks canned tomatoes into sauce, they lose half their volume. Each 16 ounce can of tomat",
-      "prediction": "1",
+      "prediction": "24",
       "reference": "12",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
-        "token_count": 15,
-        "latency": 30.835076808929443
+        "token_count": 157,
+        "latency": 19.70404815673828
       },
       "method": "tot",
       "error": null
@@ -1386,13 +1386,13 @@
     {
       "sample_id": 98,
       "question": "Cars have lined up on the motorway. Some of the cars drive through in the first 15 minutes of the tr",
-      "prediction": "1",
+      "prediction": "5",
       "reference": "5",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 16,
-        "latency": 38.66388988494873
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 262,
+        "latency": 23.739006280899048
       },
       "method": "tot",
       "error": null
@@ -1400,13 +1400,13 @@
     {
       "sample_id": 99,
       "question": "Mary is an avid gardener. Yesterday, she received 18 new potted plants from her favorite plant nurse",
-      "prediction": "1",
+      "prediction": "40",
       "reference": "58",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 16,
-        "latency": 26.816372394561768
+        "token_count": 85,
+        "latency": 17.608765602111816
       },
       "method": "tot",
       "error": null
