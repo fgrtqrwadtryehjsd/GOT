@@ -1,11 +1,11 @@
 {
   "summary": {
-    "config": "full_gers",
-    "description": "Full GERS: 分解+路径+约束+依赖传递+闭环修正+校验",
+    "config": "wo_feedback",
+    "description": "w/o Feedback: 不使用闭环修正（仅一次性校验打分）",
     "dataset": "hotpotqa",
     "num_samples": 100,
     "avg_em": 0.43,
-    "avg_latency": 9.7791,
+    "avg_latency": 10.4378,
     "error_count": 0
   },
   "results": [
@@ -18,10 +18,10 @@
         "em": 1.0,
         "f1": 0.19999999999999998,
         "token_count": 0,
-        "latency": 9.669706344604492,
+        "latency": 7.695338487625122,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -33,10 +33,10 @@
         "em": 1.0,
         "f1": 0.6666666666666666,
         "token_count": 0,
-        "latency": 9.760546684265137,
+        "latency": 8.924484252929688,
         "consistency_score": 0.7333
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -48,25 +48,25 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 10.468214511871338,
+        "latency": 11.853935718536377,
         "consistency_score": 0.7333
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 3,
       "question": "Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?",
-      "prediction": "no",
+      "prediction": "No, the Laleli Mosque and Esma Sultan Mansion are not located in the same neighborhood",
       "reference": "no",
       "metrics": {
         "em": 1.0,
-        "f1": 1.0,
+        "f1": 0.13333333333333333,
         "token_count": 0,
-        "latency": 11.821195602416992,
+        "latency": 9.408635377883911,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -78,10 +78,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 8.812397241592407,
+        "latency": 9.077569246292114,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -93,10 +93,10 @@
         "em": 0.0,
         "f1": 0.5,
         "token_count": 0,
-        "latency": 12.571143865585327,
+        "latency": 11.871149778366089,
         "consistency_score": 0.8667
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -108,10 +108,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 8.789190530776978,
+        "latency": 10.229860067367554,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -123,10 +123,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 10.10704231262207,
+        "latency": 11.25072956085205,
         "consistency_score": 0.7333
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -138,10 +138,10 @@
         "em": 1.0,
         "f1": 0.4444444444444445,
         "token_count": 0,
-        "latency": 9.03095555305481,
+        "latency": 8.929962396621704,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -153,25 +153,25 @@
         "em": 1.0,
         "f1": 0.15384615384615385,
         "token_count": 0,
-        "latency": 7.599482536315918,
+        "latency": 9.78678822517395,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 10,
       "question": "What is the name of the fight song of the university whose main campus is in Lawrence, Kansas and wh",
-      "prediction": "\"The Mizzou Fight Song\"",
+      "prediction": "\"Let's Go Mizzou\"",
       "reference": "Kansas Song",
       "metrics": {
         "em": 0.0,
-        "f1": 0.3333333333333333,
+        "f1": 0.0,
         "token_count": 0,
-        "latency": 13.43095874786377,
+        "latency": 12.023582696914673,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -183,10 +183,10 @@
         "em": 0.0,
         "f1": 0.4,
         "token_count": 0,
-        "latency": 10.220596075057983,
+        "latency": 9.842172622680664,
         "consistency_score": 0.7333
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -198,10 +198,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 9.136214256286621,
+        "latency": 10.347722291946411,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -213,10 +213,10 @@
         "em": 1.0,
         "f1": 0.11764705882352941,
         "token_count": 0,
-        "latency": 8.953245639801025,
+        "latency": 10.126102924346924,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -228,10 +228,10 @@
         "em": 0.0,
         "f1": 0.1,
         "token_count": 0,
-        "latency": 8.31578278541565,
+        "latency": 10.118180751800537,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -243,10 +243,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 9.012688636779785,
+        "latency": 12.636536598205566,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -258,10 +258,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 13.01617169380188,
+        "latency": 13.196838617324829,
         "consistency_score": 0.7333
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -273,10 +273,10 @@
         "em": 1.0,
         "f1": 0.18181818181818182,
         "token_count": 0,
-        "latency": 9.185536623001099,
+        "latency": 9.746365785598755,
         "consistency_score": 0.7333
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -288,10 +288,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 9.394193649291992,
+        "latency": 8.970945358276367,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -303,25 +303,25 @@
         "em": 1.0,
         "f1": 0.8571428571428571,
         "token_count": 0,
-        "latency": 7.664265394210815,
+        "latency": 8.431467533111572,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 20,
       "question": "Which other Mexican Formula One race car driver has held the podium besides the Force India driver b",
-      "prediction": "Sergio Pérez",
+      "prediction": "Esteban Ocon",
       "reference": "Pedro Rodríguez",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 8.763959884643555,
+        "latency": 9.237316608428955,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -333,25 +333,25 @@
         "em": 1.0,
         "f1": 0.5,
         "token_count": 0,
-        "latency": 9.412229061126709,
+        "latency": 9.772156238555908,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 22,
       "question": "Aside from the Apple Remote, what other device can control the program Apple Remote was originally d",
-      "prediction": "A universal remote",
+      "prediction": "Universal remote",
       "reference": "keyboard function keys",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 8.948283672332764,
-        "consistency_score": 0.6
+        "latency": 10.867730379104614,
+        "consistency_score": 0.7333
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -363,10 +363,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 11.133093357086182,
+        "latency": 9.41658091545105,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -378,10 +378,10 @@
         "em": 1.0,
         "f1": 0.8571428571428571,
         "token_count": 0,
-        "latency": 9.984757661819458,
+        "latency": 10.10400938987732,
         "consistency_score": 0.7333
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -393,10 +393,10 @@
         "em": 1.0,
         "f1": 0.8,
         "token_count": 0,
-        "latency": 9.585188865661621,
+        "latency": 10.204885244369507,
         "consistency_score": 0.7333
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -408,10 +408,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 10.515283346176147,
+        "latency": 12.119823455810547,
         "consistency_score": 0.7333
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -423,25 +423,25 @@
         "em": 1.0,
         "f1": 0.18181818181818182,
         "token_count": 0,
-        "latency": 9.590876340866089,
+        "latency": 11.753249406814575,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 28,
       "question": "Kaiser Ventures corporation was founded by an American industrialist who became known as the father ",
-      "prediction": "Edgar Fosburgh Kaiser Jr. founded Kaiser Ventures corporation and is the grandson of Henry J. Kaiser, the father of modern American shipbuilding",
+      "prediction": "Edgar Fosburgh Kaiser Jr. founded Kaiser Ventures corporation, and he is the grandson of Henry J. Kaiser, the father of modern American shipbuilding",
       "reference": "Henry J. Kaiser",
       "metrics": {
         "em": 1.0,
-        "f1": 0.2857142857142857,
+        "f1": 0.2727272727272727,
         "token_count": 0,
-        "latency": 10.367370843887329,
+        "latency": 12.10007119178772,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -453,10 +453,10 @@
         "em": 0.0,
         "f1": 0.18181818181818182,
         "token_count": 0,
-        "latency": 9.591339111328125,
+        "latency": 10.433761835098267,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -468,10 +468,10 @@
         "em": 1.0,
         "f1": 0.18181818181818182,
         "token_count": 0,
-        "latency": 9.657692670822144,
+        "latency": 8.693641185760498,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -483,10 +483,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 7.93153715133667,
+        "latency": 9.730977296829224,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -498,10 +498,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 8.27754020690918,
+        "latency": 10.007246017456055,
         "consistency_score": 0.7333
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -513,10 +513,10 @@
         "em": 1.0,
         "f1": 0.1111111111111111,
         "token_count": 0,
-        "latency": 10.803180932998657,
+        "latency": 10.33673095703125,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -528,10 +528,10 @@
         "em": 1.0,
         "f1": 0.6666666666666666,
         "token_count": 0,
-        "latency": 7.749461889266968,
+        "latency": 14.543519735336304,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -543,10 +543,10 @@
         "em": 0.0,
         "f1": 0.22222222222222224,
         "token_count": 0,
-        "latency": 8.819029808044434,
+        "latency": 10.961480617523193,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -558,10 +558,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 9.490371704101562,
+        "latency": 10.97717833518982,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -573,10 +573,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 9.978108406066895,
+        "latency": 10.096458673477173,
         "consistency_score": 0.7333
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -588,25 +588,25 @@
         "em": 1.0,
         "f1": 0.14285714285714288,
         "token_count": 0,
-        "latency": 9.043850898742676,
+        "latency": 10.62830924987793,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 39,
       "question": "Ralph Hefferline was a psychology professor at a university that is located in what city?",
-      "prediction": "Princeton, New Jersey",
+      "prediction": "Toronto",
       "reference": "New York City",
       "metrics": {
         "em": 0.0,
-        "f1": 0.3333333333333333,
+        "f1": 0.0,
         "token_count": 0,
-        "latency": 8.857553482055664,
+        "latency": 10.234290599822998,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -618,10 +618,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 9.290487051010132,
+        "latency": 9.79376482963562,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -633,10 +633,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 13.89590072631836,
+        "latency": 19.69519853591919,
         "consistency_score": 0.7
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -648,10 +648,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 8.756386995315552,
+        "latency": 10.906408786773682,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -663,10 +663,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 10.454495906829834,
+        "latency": 11.646313428878784,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -678,10 +678,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 14.198341846466064,
+        "latency": 10.18342924118042,
         "consistency_score": 0.8667
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -693,10 +693,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 9.52379584312439,
+        "latency": 10.24208688735962,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -708,10 +708,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 9.396224737167358,
+        "latency": 10.99986720085144,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -723,10 +723,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 8.907621622085571,
+        "latency": 10.515567541122437,
         "consistency_score": 0.7333
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -738,10 +738,10 @@
         "em": 1.0,
         "f1": 0.19999999999999998,
         "token_count": 0,
-        "latency": 8.18829345703125,
+        "latency": 9.0610830783844,
         "consistency_score": 0.7333
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -753,10 +753,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 9.123334169387817,
+        "latency": 9.140796661376953,
         "consistency_score": 1.0
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -768,10 +768,10 @@
         "em": 0.0,
         "f1": 0.28571428571428575,
         "token_count": 0,
-        "latency": 24.222060680389404,
+        "latency": 29.173476696014404,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -783,10 +783,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 9.277541637420654,
+        "latency": 10.738718509674072,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -798,10 +798,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 9.313366651535034,
+        "latency": 9.607593536376953,
         "consistency_score": 0.7333
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -813,10 +813,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 9.867406129837036,
+        "latency": 14.913518190383911,
         "consistency_score": 0.7333
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -828,10 +828,10 @@
         "em": 0.0,
         "f1": 0.5,
         "token_count": 0,
-        "latency": 9.594721555709839,
+        "latency": 9.613001823425293,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -843,25 +843,25 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 9.187342882156372,
+        "latency": 9.345245838165283,
         "consistency_score": 0.7333
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 56,
       "question": "D1NZ is a series based on what oversteering technique?",
-      "prediction": "D1NZ is a series based on the oversteering technique known as \"drift.\"",
+      "prediction": "The information provided does not allow for a determination of the answer",
       "reference": "Drifting",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 8.44536566734314,
+        "latency": 9.438392400741577,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -873,10 +873,10 @@
         "em": 1.0,
         "f1": 0.4444444444444445,
         "token_count": 0,
-        "latency": 14.926406860351562,
+        "latency": 16.137311697006226,
         "consistency_score": 0.7
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -888,10 +888,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 8.948530435562134,
+        "latency": 11.613359212875366,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -903,10 +903,10 @@
         "em": 1.0,
         "f1": 0.2222222222222222,
         "token_count": 0,
-        "latency": 8.4665367603302,
+        "latency": 8.604262113571167,
         "consistency_score": 0.7333
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -918,10 +918,10 @@
         "em": 0.0,
         "f1": 0.12903225806451613,
         "token_count": 0,
-        "latency": 11.921926498413086,
+        "latency": 14.447903633117676,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -933,10 +933,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 9.178500175476074,
+        "latency": 8.796942472457886,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -948,10 +948,10 @@
         "em": 0.0,
         "f1": 0.36363636363636365,
         "token_count": 0,
-        "latency": 8.16853642463684,
+        "latency": 8.27690315246582,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -963,25 +963,25 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 9.943171262741089,
+        "latency": 9.749151945114136,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 64,
       "question": "Scott Parkin has been a vocal critic of Exxonmobil and another corporation that has operations in ho",
-      "prediction": "Scott Parkin has been a vocal critic of ExxonMobil, which operates in 60 countries",
+      "prediction": "Scott Parkin has been a vocal critic of ExxonMobil, which has operations in 90 countries",
       "reference": "more than 70 countries",
       "metrics": {
         "em": 0.0,
         "f1": 0.11111111111111112,
         "token_count": 0,
-        "latency": 9.090607166290283,
+        "latency": 8.263283967971802,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -993,10 +993,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 9.389544486999512,
+        "latency": 8.555024862289429,
         "consistency_score": 0.7333
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1008,10 +1008,10 @@
         "em": 1.0,
         "f1": 0.9090909090909091,
         "token_count": 0,
-        "latency": 10.253568172454834,
+        "latency": 9.539918422698975,
         "consistency_score": 0.7333
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1023,10 +1023,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 12.006308317184448,
+        "latency": 11.614141464233398,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1038,10 +1038,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 9.096914291381836,
+        "latency": 9.168982028961182,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1053,10 +1053,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 9.460121870040894,
+        "latency": 10.175484895706177,
         "consistency_score": 0.7333
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1068,10 +1068,10 @@
         "em": 1.0,
         "f1": 0.7499999999999999,
         "token_count": 0,
-        "latency": 13.096043586730957,
+        "latency": 9.395952701568604,
         "consistency_score": 0.7333
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1083,10 +1083,10 @@
         "em": 0.0,
         "f1": 0.13333333333333336,
         "token_count": 0,
-        "latency": 9.257832765579224,
+        "latency": 17.265360593795776,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1098,10 +1098,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 9.28523874282837,
+        "latency": 8.294525623321533,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1113,10 +1113,10 @@
         "em": 0.0,
         "f1": 0.09523809523809525,
         "token_count": 0,
-        "latency": 10.03753399848938,
+        "latency": 10.414530277252197,
         "consistency_score": 0.7333
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1128,10 +1128,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 8.05427861213684,
+        "latency": 7.826837778091431,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1143,10 +1143,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 10.290653228759766,
+        "latency": 10.460660457611084,
         "consistency_score": 0.8667
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1158,10 +1158,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 8.325055122375488,
+        "latency": 8.500220775604248,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1173,25 +1173,25 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 10.585712671279907,
+        "latency": 10.51072645187378,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 78,
       "question": "What nationality were social anthropologists Alfred Gell and Edmund Leach?",
-      "prediction": "Edmund Leach was British, and Alfred Gell's nationality is not specified in the context",
+      "prediction": "Edmund Leach was British, while Alfred Gell's nationality is not specified in the context",
       "reference": "British",
       "metrics": {
         "em": 1.0,
         "f1": 0.13333333333333333,
         "token_count": 0,
-        "latency": 9.930914163589478,
+        "latency": 8.621576309204102,
         "consistency_score": 0.7333
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1203,10 +1203,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 10.888497352600098,
+        "latency": 8.691705465316772,
         "consistency_score": 0.7333
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1218,10 +1218,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 7.6960344314575195,
+        "latency": 8.651065349578857,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1233,10 +1233,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 9.115169763565063,
+        "latency": 9.545400857925415,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1248,10 +1248,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 9.933658838272095,
+        "latency": 9.80294418334961,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1263,10 +1263,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 11.206116437911987,
+        "latency": 11.0043203830719,
         "consistency_score": 0.8667
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1278,10 +1278,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 9.986144304275513,
+        "latency": 10.629765748977661,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1293,25 +1293,25 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 8.623040676116943,
+        "latency": 9.309286117553711,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 86,
       "question": "In what year was the novel that Lourenço Mutarelli based \"Nina\" on based first published?",
-      "prediction": "The novel that Lourenço Mutarelli's \"Nina\" is based on was first published in 2014",
+      "prediction": "1928",
       "reference": "1866",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 9.381419658660889,
+        "latency": 10.557746648788452,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1323,10 +1323,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 9.825085163116455,
+        "latency": 11.117002010345459,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1338,10 +1338,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 9.254060745239258,
+        "latency": 9.269216299057007,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1353,10 +1353,10 @@
         "em": 1.0,
         "f1": 0.6666666666666666,
         "token_count": 0,
-        "latency": 8.08084487915039,
+        "latency": 8.819406747817993,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1368,10 +1368,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 8.435291290283203,
+        "latency": 8.73804235458374,
         "consistency_score": 0.7333
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1383,10 +1383,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 8.67659854888916,
+        "latency": 9.586045026779175,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1398,25 +1398,25 @@
         "em": 0.0,
         "f1": 0.5,
         "token_count": 0,
-        "latency": 7.817225217819214,
+        "latency": 7.755086660385132,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 93,
       "question": "Do the drinks Gibson and Zurracapote both contain gin?",
-      "prediction": "No, the drinks Gibson and Zurracapote do not both contain gin",
+      "prediction": "No, the drink Zurracapote's composition is unknown, so it cannot be determined if both drinks contain gin",
       "reference": "no",
       "metrics": {
         "em": 1.0,
-        "f1": 0.16666666666666669,
+        "f1": 0.1111111111111111,
         "token_count": 0,
-        "latency": 8.368775606155396,
+        "latency": 9.244424104690552,
         "consistency_score": 0.5937
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1428,10 +1428,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 9.367864847183228,
+        "latency": 8.707898139953613,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1443,10 +1443,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 7.768688917160034,
+        "latency": 7.410341024398804,
         "consistency_score": 0.7333
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1458,10 +1458,10 @@
         "em": 0.0,
         "f1": 0.2,
         "token_count": 0,
-        "latency": 10.01842713356018,
+        "latency": 8.925089836120605,
         "consistency_score": 0.7333
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1473,10 +1473,10 @@
         "em": 0.0,
         "f1": 0.1111111111111111,
         "token_count": 0,
-        "latency": 8.873342275619507,
+        "latency": 8.51043701171875,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1488,10 +1488,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 9.343681812286377,
+        "latency": 9.491779327392578,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1503,10 +1503,10 @@
         "em": 1.0,
         "f1": 0.19999999999999998,
         "token_count": 0,
-        "latency": 8.435503721237183,
+        "latency": 10.074126482009888,
         "consistency_score": 0.6
       },
-      "config": "full_gers",
+      "config": "wo_feedback",
       "error": null
     }
   ]

@@ -72,14 +72,19 @@ def run_one_sample(method, sample, timeout_sec=120):
 
 def create_method(method_name: str, model):
     from src.chain_generation import GraphGuidedGenerator
-    from src.baselines import StandardCoT, CoTSC, TreeOfThoughts, ZeroShot
+    from src.baselines import StandardCoT, CoTSC, TreeOfThoughts, ZeroShot, MoDeGraphBaseline
 
     methods = {
-        "gers":         lambda: GraphGuidedGenerator(model=model, max_iterations=1),
-        "standard_cot": lambda: StandardCoT(model=model),
-        "cot_sc":       lambda: CoTSC(model=model, num_samples=3),  # 减少采样数
-        "tot":          lambda: TreeOfThoughts(model=model, max_depth=3, beam_width=2),
-        "zero_shot":    lambda: ZeroShot(model=model),
+        "gers":             lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=False, adaptive=False, consistency_threshold=0.75),
+        "gers_adaptive":    lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=False, adaptive=True, consistency_threshold=0.75),
+        "gers_nli":         lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=True, adaptive=False, consistency_threshold=0.75),
+        "gers_feedback":    lambda: GraphGuidedGenerator(model=model, max_iterations=2, enable_nli=False, adaptive=False, consistency_threshold=0.75),
+        "gers_adaptive_fb": lambda: GraphGuidedGenerator(model=model, max_iterations=2, enable_nli=False, adaptive=True, consistency_threshold=0.75),
+        "standard_cot":     lambda: StandardCoT(model=model),
+        "cot_sc":           lambda: CoTSC(model=model, num_samples=3),
+        "tot":              lambda: TreeOfThoughts(model=model, max_depth=3, beam_width=2),
+        "zero_shot":        lambda: ZeroShot(model=model),
+        "modegraph":        lambda: MoDeGraphBaseline(model=model),
     }
     return methods[method_name]()
 
@@ -89,7 +94,7 @@ def main():
     parser.add_argument("--dataset", type=str, default="gsm8k",
                         choices=["gsm8k", "hotpotqa", "clutrr"])
     parser.add_argument("--method", type=str, default="gers",
-                        choices=["gers", "standard_cot", "cot_sc", "tot", "zero_shot"])
+                        choices=["gers", "gers_adaptive", "gers_nli", "gers_feedback", "gers_adaptive_fb", "standard_cot", "cot_sc", "tot", "zero_shot", "modegraph"])
     parser.add_argument("--model", type=str, default="qwen3-8b")
     parser.add_argument("--num_samples", type=int, default=50)
     parser.add_argument("--timeout", type=int, default=120,
@@ -165,6 +170,12 @@ def main():
             "method": args.method,
             "error": error,
         }
+        # 记录 GERS 专有指标
+        if result and args.method == "gers":
+            record["iterations"] = result.get("iterations", 0)
+            record["consistency_detail"] = result.get("consistency_detail")
+            record["token_count"] = result.get("token_count", 0)
+            record["num_sub_questions"] = len(result.get("sub_qa_chain", []))
         results.append(record)
 
         # 实时保存

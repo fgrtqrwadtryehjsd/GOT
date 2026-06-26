@@ -1,17 +1,17 @@
 """
-消融实验脚本（重构版）
+消融实验脚本（重构版 v3）
 
 验证 GERS 各模块的独立贡献：
 
-配置1: Full GERS        - 分解 + 依赖传递 + 汇总 + 校验
-配置2: w/o Decompose    - 不分解，直接一次生成（退化为 CoT）
-配置3: w/o Context      - 子问题不传递前驱答案
-配置4: w/o Summary      - 无汇总步骤，直接取最后一个子答案
-配置5: w/o Consistency  - 无校验，不计算 Consistency Score
+配置1: Full GERS           - 分解 + 路径描述 + 约束解码 + 依赖传递 + 闭环修正 + 校验
+配置2: w/o Decompose       - 不分解，直接一次生成（退化为 CoT）
+配置3: w/o Context         - 子问题不传递前驱答案
+配置4: w/o Constraint      - 不使用 ConstrainedDecoder（无路径约束）
+配置5: w/o Feedback        - 不使用闭环修正（仅一次性校验打分）
 
 使用方法：
-    python experiments/run_ablation_v2.py --dataset gsm8k --num_samples 20
-    python experiments/run_ablation_v2.py --dataset hotpotqa --num_samples 20
+    python experiments/run_ablation_v2.py --dataset gsm8k --num_samples 100
+    python experiments/run_ablation_v2.py --dataset hotpotqa --num_samples 100
 """
 
 import argparse
@@ -82,12 +82,14 @@ def run_ablation_config(config_name: str, config: dict,
             else:
                 gen = GraphGuidedGenerator(
                     model=model,
-                    enable_nli=False,
+                    enable_nli=True,
                     **config.get("gers_kwargs", {})
                 )
                 result = gen.reason(sample["question"], context=sample.get("context", ""))
                 prediction = normalizer(result.get("answer", ""))
                 cs = result.get("consistency_score", 0.0)
+                if isinstance(cs, dict):
+                    cs = cs.get("consistency_score", 0.0)
 
             latency = time.time() - start
             error = None
@@ -152,7 +154,7 @@ def main():
     parser.add_argument("--dataset", type=str, default="gsm8k",
                         choices=["gsm8k", "hotpotqa", "clutrr"])
     parser.add_argument("--model", type=str, default="qwen3-8b")
-    parser.add_argument("--num_samples", type=int, default=20)
+    parser.add_argument("--num_samples", type=int, default=100)
     parser.add_argument("--output_dir", type=str, default="experiments/results/ablation/")
     args = parser.parse_args()
 
@@ -172,9 +174,9 @@ def main():
     # 消融配置
     configs = {
         "full_gers": {
-            "description": "Full GERS: 分解+依赖传递+汇总+校验（完整方法）",
+            "description": "Full GERS: 分解+路径+约束+依赖传递+闭环修正+校验",
             "method": "gers",
-            "gers_kwargs": {},
+            "gers_kwargs": {"max_iterations": 2},
         },
         "wo_decompose": {
             "description": "w/o Decompose: 不分解，退化为 Standard CoT",
@@ -183,12 +185,17 @@ def main():
         "wo_context": {
             "description": "w/o Context: 子问题不传递前驱答案（独立回答）",
             "method": "gers",
-            "gers_kwargs": {"_no_context": True},  # 标记，在Pipeline内处理
+            "gers_kwargs": {"_no_context": True, "max_iterations": 2},
         },
-        "wo_consistency": {
-            "description": "w/o Consistency: 无 Consistency Score 校验",
+        "wo_constraint": {
+            "description": "w/o Constraint: 不使用 ConstrainedDecoder 约束解码",
             "method": "gers",
-            "gers_kwargs": {},  # Pipeline 已设 max_iterations=0
+            "gers_kwargs": {"_no_constraint": True, "max_iterations": 2},
+        },
+        "wo_feedback": {
+            "description": "w/o Feedback: 不使用闭环修正（仅一次性校验打分）",
+            "method": "gers",
+            "gers_kwargs": {"_no_feedback": True, "max_iterations": 1},
         },
     }
 

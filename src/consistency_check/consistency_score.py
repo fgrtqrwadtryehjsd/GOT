@@ -33,8 +33,9 @@ class ConsistencyChecker:
     """
 
     def __init__(self,
-                 enable_nli: bool = False,
+                 enable_nli: bool = True,
                  nli_model: Optional[NLIVerifier] = None,
+                 llm=None,
                  alpha: float = 0.6,
                  beta: float = 0.4,
                  w_connectivity: float = 0.35,
@@ -44,6 +45,7 @@ class ConsistencyChecker:
         Args:
             enable_nli: 是否启用NLI语义校验
             nli_model: NLI检测器实例
+            llm: LLM 模型实例（用于 LLM-based NLI，当 nli_model 为 None 时自动创建）
             alpha: 结构层权重
             beta: 语义层权重
             w_connectivity: 连通性在结构层中的权重
@@ -53,9 +55,17 @@ class ConsistencyChecker:
         self.connectivity_checker = ConnectivityChecker()
         self.cycle_detector = CycleDetector()
         self.coverage_calculator = CoverageCalculator()
-        self.nli_verifier = nli_model or NLIVerifier()
+        
+        # NLI 校验器：优先使用传入的，否则用 LLM 创建
+        if nli_model is not None:
+            self.nli_verifier = nli_model
+        elif llm is not None:
+            self.nli_verifier = NLIVerifier(llm=llm)
+        else:
+            self.nli_verifier = NLIVerifier()
         
         self.enable_nli = enable_nli
+        self.llm = llm
         self.alpha = alpha
         self.beta = beta
         self.w_connectivity = w_connectivity

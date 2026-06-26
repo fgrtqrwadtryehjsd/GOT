@@ -1,11 +1,11 @@
 {
   "summary": {
-    "config": "wo_context",
-    "description": "w/o Context: 子问题不传递前驱答案（独立回答）",
+    "config": "wo_feedback",
+    "description": "w/o Feedback: 不使用闭环修正（仅一次性校验打分）",
     "dataset": "gsm8k",
     "num_samples": 100,
-    "avg_em": 0.64,
-    "avg_latency": 13.4368,
+    "avg_em": 0.61,
+    "avg_latency": 15.6236,
     "error_count": 0
   },
   "results": [
@@ -18,25 +18,25 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 20.876933813095093,
-        "consistency_score": 0.5895
+        "latency": 21.76827335357666,
+        "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 1,
       "question": "A robe takes 2 bolts of blue fiber and half that much white fiber.  How many bolts in total does it ",
-      "prediction": "3",
+      "prediction": "5",
       "reference": "3",
       "metrics": {
-        "em": 1.0,
-        "f1": 1.0,
+        "em": 0.0,
+        "f1": 0.0,
         "token_count": 0,
-        "latency": 7.115305423736572,
+        "latency": 9.053252220153809,
         "consistency_score": 0.7228
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -48,10 +48,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 10.991604566574097,
+        "latency": 14.290141582489014,
         "consistency_score": 0.7333
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -63,10 +63,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 7.017242193222046,
+        "latency": 8.423470735549927,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -78,10 +78,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 11.892083883285522,
+        "latency": 12.384476900100708,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -93,10 +93,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 20.123860836029053,
+        "latency": 17.189577102661133,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -108,55 +108,55 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 10.651395559310913,
+        "latency": 12.665808200836182,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 7,
       "question": "Carla is downloading a 200 GB file. Normally she can download 2 GB/minute, but 40% of the way throug",
-      "prediction": "100",
+      "prediction": "120",
       "reference": "160",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 25.258591175079346,
+        "latency": 27.273643493652344,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 8,
       "question": "John drives for 3 hours at a speed of 60 mph and then turns around because he realizes he forgot som",
-      "prediction": "180",
+      "prediction": "120",
       "reference": "45",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 24.234093189239502,
+        "latency": 36.78355431556702,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 9,
       "question": "Eliza's rate per hour for the first 40 hours she works each week is $10. She also receives an overti",
-      "prediction": "460",
+      "prediction": "470",
       "reference": "460",
       "metrics": {
-        "em": 1.0,
-        "f1": 1.0,
+        "em": 0.0,
+        "f1": 0.0,
         "token_count": 0,
-        "latency": 15.916215181350708,
+        "latency": 27.382357120513916,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -168,10 +168,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 19.863418102264404,
+        "latency": 22.027050256729126,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -183,10 +183,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 12.349573135375977,
+        "latency": 17.53027057647705,
         "consistency_score": 0.68
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -198,40 +198,40 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 20.721757888793945,
+        "latency": 36.62806010246277,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 13,
       "question": "Melanie is a door-to-door saleswoman. She sold a third of her vacuum cleaners at the green house, 2 ",
-      "prediction": "18",
+      "prediction": "21",
       "reference": "18",
       "metrics": {
-        "em": 1.0,
-        "f1": 1.0,
+        "em": 0.0,
+        "f1": 0.0,
         "token_count": 0,
-        "latency": 17.843600273132324,
+        "latency": 20.007561206817627,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 14,
       "question": "In a dance class of 20 students, 20% enrolled in contemporary dance, 25% of the remaining enrolled i",
-      "prediction": "75",
+      "prediction": "60",
       "reference": "60",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
+        "em": 1.0,
+        "f1": 1.0,
         "token_count": 0,
-        "latency": 9.484427452087402,
-        "consistency_score": 0.5895
+        "latency": 11.868759632110596,
+        "consistency_score": 0.579
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -243,10 +243,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 7.11169695854187,
+        "latency": 12.486231088638306,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -258,25 +258,25 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 10.131256341934204,
+        "latency": 12.316490411758423,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 17,
       "question": "Jill gets paid $20 per hour to teach and $30 to be a cheerleading coach. If she works 50 weeks a yea",
-      "prediction": "52500",
+      "prediction": "57500",
       "reference": "57500",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
+        "em": 1.0,
+        "f1": 1.0,
         "token_count": 0,
-        "latency": 12.400457620620728,
+        "latency": 12.751558542251587,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -288,10 +288,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 12.547350645065308,
+        "latency": 15.958839893341064,
         "consistency_score": 0.5948
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -303,10 +303,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 13.865788698196411,
+        "latency": 11.45685625076294,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -318,10 +318,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 15.733227014541626,
+        "latency": 16.936104774475098,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -333,10 +333,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 10.027928829193115,
+        "latency": 12.50701642036438,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -348,10 +348,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 8.34202241897583,
+        "latency": 8.58544135093689,
         "consistency_score": 0.579
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -363,25 +363,25 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 9.878780603408813,
+        "latency": 11.33449935913086,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 24,
       "question": "Kyle bought last year's best-selling book for $19.50. This is with a 25% discount from the original ",
-      "prediction": "26",
+      "prediction": "26.00",
       "reference": "26",
       "metrics": {
         "em": 1.0,
-        "f1": 1.0,
+        "f1": 0.0,
         "token_count": 0,
-        "latency": 7.897731304168701,
+        "latency": 10.19341516494751,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -393,25 +393,25 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 17.183164596557617,
+        "latency": 23.527875185012817,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 26,
       "question": "Mishka bought 3 pairs of shorts, 3 pairs of pants, and 3 pairs of shoes. One pair of shorts costs $1",
-      "prediction": "247.50",
+      "prediction": "166.50",
       "reference": "243",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 12.068271398544312,
+        "latency": 20.366984367370605,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -423,10 +423,10 @@
         "em": 1.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 12.850536108016968,
+        "latency": 22.16167640686035,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -438,10 +438,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 7.893860578536987,
+        "latency": 11.336109399795532,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -453,25 +453,25 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 10.073052644729614,
+        "latency": 13.314955711364746,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 30,
       "question": "Darrell and Allen's ages are in the ratio of 7:11. If their total age now is 162, calculate Allen's ",
-      "prediction": "109",
+      "prediction": "119",
       "reference": "109",
       "metrics": {
-        "em": 1.0,
-        "f1": 1.0,
+        "em": 0.0,
+        "f1": 0.0,
         "token_count": 0,
-        "latency": 9.593686580657959,
+        "latency": 10.11585283279419,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -483,10 +483,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 14.925843715667725,
+        "latency": 17.64726996421814,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -498,25 +498,25 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 8.611507177352905,
+        "latency": 8.82693338394165,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 33,
       "question": "Gretchen has 110 coins. There are 30 more gold coins than silver coins. How many gold coins does Gre",
-      "prediction": "70",
+      "prediction": "90",
       "reference": "70",
       "metrics": {
-        "em": 1.0,
-        "f1": 1.0,
+        "em": 0.0,
+        "f1": 0.0,
         "token_count": 0,
-        "latency": 8.110913515090942,
+        "latency": 9.206093549728394,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -528,10 +528,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 12.329475402832031,
+        "latency": 14.26737928390503,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -543,25 +543,25 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 9.077271699905396,
-        "consistency_score": 0.5895
+        "latency": 10.525139808654785,
+        "consistency_score": 0.579
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 36,
       "question": "Terry eats 2 yogurts a day.  They are currently on sale at 4 yogurts for $5.00.  How much does he sp",
-      "prediction": "150",
+      "prediction": "75.00",
       "reference": "75",
       "metrics": {
-        "em": 0.0,
+        "em": 1.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 21.4604549407959,
+        "latency": 14.660626411437988,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -573,10 +573,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 7.39542031288147,
+        "latency": 8.894186735153198,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -588,10 +588,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 9.052032232284546,
+        "latency": 9.566234350204468,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -603,40 +603,40 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 23.11982274055481,
+        "latency": 31.691856622695923,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 40,
       "question": "Brandon's iPhone is four times as old as Ben's iPhone. Ben's iPhone is two times older than Suzy's i",
-      "prediction": "8",
+      "prediction": "12",
       "reference": "8",
       "metrics": {
-        "em": 1.0,
-        "f1": 1.0,
+        "em": 0.0,
+        "f1": 0.0,
         "token_count": 0,
-        "latency": 10.83080768585205,
-        "consistency_score": 0.6
+        "latency": 12.12717604637146,
+        "consistency_score": 0.593
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 41,
       "question": "The great dragon, Perg, sat high atop mount Farbo, breathing fire upon anything within a distance of",
-      "prediction": "400",
+      "prediction": "200",
       "reference": "200",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
+        "em": 1.0,
+        "f1": 1.0,
         "token_count": 0,
-        "latency": 10.526853799819946,
+        "latency": 13.21949815750122,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -648,10 +648,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 9.525357484817505,
+        "latency": 18.900763273239136,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -663,10 +663,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 9.349183559417725,
+        "latency": 10.154990196228027,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -678,40 +678,40 @@
         "em": 1.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 19.852943420410156,
+        "latency": 26.00827145576477,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 45,
       "question": "Meredith is a freelance blogger who writes about health topics and submits to clients each day as he",
-      "prediction": "88",
+      "prediction": "104",
       "reference": "104",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
+        "em": 1.0,
+        "f1": 1.0,
         "token_count": 0,
-        "latency": 26.959915161132812,
-        "consistency_score": 0.5916
+        "latency": 21.751644134521484,
+        "consistency_score": 0.5958
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 46,
       "question": "Candice put 80 post-it notes in her purse before she headed out to her job at the coffee shop.  On h",
-      "prediction": "153",
+      "prediction": "155",
       "reference": "163",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 10.36577296257019,
+        "latency": 10.78822946548462,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -723,10 +723,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 21.087464570999146,
+        "latency": 19.967705249786377,
         "consistency_score": 0.5958
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -738,10 +738,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 10.679100275039673,
+        "latency": 9.45418381690979,
         "consistency_score": 0.5895
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -753,10 +753,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 9.389184474945068,
+        "latency": 10.079432964324951,
         "consistency_score": 0.7333
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -768,10 +768,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 8.670646667480469,
+        "latency": 9.192097425460815,
         "consistency_score": 0.7333
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -783,10 +783,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 13.22806191444397,
+        "latency": 16.844252586364746,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -798,10 +798,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 10.683883666992188,
+        "latency": 10.206489562988281,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -813,10 +813,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 10.068361043930054,
+        "latency": 12.366334438323975,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -828,10 +828,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 12.421799421310425,
+        "latency": 11.853424310684204,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -843,10 +843,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 9.744205236434937,
+        "latency": 9.117711782455444,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -858,25 +858,25 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 13.573631286621094,
-        "consistency_score": 0.6
+        "latency": 17.182446002960205,
+        "consistency_score": 0.5895
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 57,
       "question": "A wooden bridge can carry no more than 5000 pounds. A delivery truck filled with identical boxes, ea",
-      "prediction": "83",
+      "prediction": "52",
       "reference": "83",
       "metrics": {
-        "em": 1.0,
-        "f1": 1.0,
+        "em": 0.0,
+        "f1": 0.0,
         "token_count": 0,
-        "latency": 6.047313690185547,
+        "latency": 10.27677869796753,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -888,10 +888,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 15.14460825920105,
+        "latency": 12.695437669754028,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -903,10 +903,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 9.866820096969604,
+        "latency": 10.204545974731445,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -918,10 +918,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 10.499847888946533,
+        "latency": 11.008898496627808,
         "consistency_score": 0.5895
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -933,10 +933,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 17.42534589767456,
+        "latency": 21.43279004096985,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -948,25 +948,25 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 11.73813509941101,
+        "latency": 13.958917379379272,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 63,
       "question": "Aleena subscribed to a streaming service that charges her $140 per month. If the streaming company c",
-      "prediction": "1260",
+      "prediction": "1512",
       "reference": "1596",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 22.240159511566162,
+        "latency": 26.734318256378174,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -978,40 +978,40 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 13.469092845916748,
+        "latency": 12.330032587051392,
         "consistency_score": 0.7333
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 65,
       "question": "Jim spends 2 hours watching TV and then decides to go to bed and reads for half as long.  He does th",
-      "prediction": "96",
+      "prediction": "2352",
       "reference": "36",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 17.95301103591919,
-        "consistency_score": 0.5948
+        "latency": 16.051194667816162,
+        "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 66,
       "question": "There are four schools competing at a basketball tournament. Each school has sent a girls’ basketbal",
-      "prediction": "48",
+      "prediction": "60",
       "reference": "48",
       "metrics": {
-        "em": 1.0,
-        "f1": 1.0,
+        "em": 0.0,
+        "f1": 0.0,
         "token_count": 0,
-        "latency": 22.855945348739624,
+        "latency": 21.47544527053833,
         "consistency_score": 0.5842
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1023,10 +1023,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 11.705039262771606,
+        "latency": 13.236634492874146,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1038,10 +1038,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 10.150124549865723,
+        "latency": 11.830636501312256,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1053,115 +1053,115 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 8.33269739151001,
+        "latency": 9.71618103981018,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 70,
       "question": "Judy teaches 5 dance classes, every day, on the weekdays and 8 classes on Saturday.  If each class h",
-      "prediction": "1",
+      "prediction": "2100.00",
       "reference": "7425",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 33.31928730010986,
+        "latency": 36.492440938949585,
         "consistency_score": 0.594
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 71,
       "question": "Kelian has two recipes for preparing dishes, one having 20 instructions and the second one having tw",
-      "prediction": "60",
+      "prediction": "80",
       "reference": "60",
       "metrics": {
-        "em": 1.0,
-        "f1": 1.0,
+        "em": 0.0,
+        "f1": 0.0,
         "token_count": 0,
-        "latency": 6.513862609863281,
+        "latency": 11.581736326217651,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 72,
       "question": "Tommy is fundraising for his charity by selling brownies for $3 a slice and cheesecakes for $4 a sli",
-      "prediction": "258",
+      "prediction": "221",
       "reference": "221",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
+        "em": 1.0,
+        "f1": 1.0,
         "token_count": 0,
-        "latency": 11.59753942489624,
+        "latency": 11.994746685028076,
         "consistency_score": 0.7333
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 73,
       "question": "Shiela bought five cell phones for $150 each for a 3-month installment. A 2% interest will be charge",
-      "prediction": "255",
+      "prediction": "85",
       "reference": "255",
       "metrics": {
-        "em": 1.0,
-        "f1": 1.0,
+        "em": 0.0,
+        "f1": 0.0,
         "token_count": 0,
-        "latency": 15.483151197433472,
+        "latency": 18.944292545318604,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 74,
       "question": "Artie has a flower stand at the Farmers Market. He sells three kinds of flowers: marigolds, petunias",
-      "prediction": "62",
+      "prediction": "88",
       "reference": "88",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
+        "em": 1.0,
+        "f1": 1.0,
         "token_count": 0,
-        "latency": 35.57300424575806,
+        "latency": 41.851266622543335,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 75,
       "question": "Luke is spending time at the beach building sandcastles. He eventually notices that each level of a ",
-      "prediction": "60",
+      "prediction": "1",
       "reference": "60",
       "metrics": {
-        "em": 1.0,
-        "f1": 1.0,
+        "em": 0.0,
+        "f1": 0.0,
         "token_count": 0,
-        "latency": 7.821033954620361,
+        "latency": 13.219512939453125,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 76,
       "question": "Cecilia just bought a new puppy. According to her veterinarian, she has to feed the puppy 1 cup of d",
-      "prediction": "7",
+      "prediction": "3",
       "reference": "5",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 15.996238946914673,
-        "consistency_score": 0.6747
+        "latency": 17.37100338935852,
+        "consistency_score": 0.68
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1173,10 +1173,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 14.675519227981567,
+        "latency": 18.388401746749878,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1188,10 +1188,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 12.419976472854614,
+        "latency": 10.319084644317627,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1203,10 +1203,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 10.21207857131958,
+        "latency": 9.316105127334595,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1218,25 +1218,25 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 8.074150085449219,
+        "latency": 9.847577333450317,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 81,
       "question": "Charlie had 10 stickers. He bought 21 stickers from a store in the mall and got 23 stickers for his ",
-      "prediction": "17",
+      "prediction": "16",
       "reference": "17",
       "metrics": {
-        "em": 1.0,
-        "f1": 1.0,
+        "em": 0.0,
+        "f1": 0.0,
         "token_count": 0,
-        "latency": 24.575616359710693,
+        "latency": 27.751821994781494,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1248,10 +1248,10 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 8.709863185882568,
+        "latency": 8.38599681854248,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1263,25 +1263,25 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 7.685698509216309,
+        "latency": 9.39427900314331,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 84,
       "question": "A football team played 22 games. They won 8 more than they lost. How many did they win?",
-      "prediction": "15",
+      "prediction": "17",
       "reference": "15",
       "metrics": {
-        "em": 1.0,
-        "f1": 1.0,
+        "em": 0.0,
+        "f1": 0.0,
         "token_count": 0,
-        "latency": 7.682861328125,
-        "consistency_score": 0.5895
+        "latency": 8.971589803695679,
+        "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1293,25 +1293,25 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 13.736897706985474,
+        "latency": 13.589431047439575,
         "consistency_score": 0.7333
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 86,
       "question": "Greg has an alarm set to ring three times a day as a reminder. When the alarm goes off, it continues",
-      "prediction": "22",
+      "prediction": "12",
       "reference": "22",
       "metrics": {
-        "em": 1.0,
-        "f1": 1.0,
+        "em": 0.0,
+        "f1": 0.0,
         "token_count": 0,
-        "latency": 15.700249195098877,
+        "latency": 24.94334840774536,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1323,10 +1323,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 12.054933786392212,
+        "latency": 10.2181077003479,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1338,25 +1338,25 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 8.626403570175171,
+        "latency": 8.926968574523926,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 89,
       "question": "Christina is planning a birthday party and needs .75 gift bags per invited guest, because 1/4 of att",
-      "prediction": "18",
+      "prediction": "24",
       "reference": "24",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
+        "em": 1.0,
+        "f1": 1.0,
         "token_count": 0,
-        "latency": 10.908508777618408,
-        "consistency_score": 0.693
+        "latency": 12.949504375457764,
+        "consistency_score": 0.7
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1368,85 +1368,85 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 25.733567714691162,
+        "latency": 29.10853147506714,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 91,
       "question": "Jan has three times the number of pets as Marcia. Marcia has two more pets than Cindy. If Cindy has ",
-      "prediction": "24",
+      "prediction": "30",
       "reference": "28",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 12.565355062484741,
+        "latency": 11.8037588596344,
         "consistency_score": 0.5895
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 92,
       "question": "Emily has 4 kids named Amy, Jackson, Corey, and James. Amy is 5 years older than Jackson and 2 years",
-      "prediction": "7",
+      "prediction": "4",
       "reference": "4",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
+        "em": 1.0,
+        "f1": 1.0,
         "token_count": 0,
-        "latency": 13.084199905395508,
-        "consistency_score": 0.5948
+        "latency": 16.478134870529175,
+        "consistency_score": 0.5895
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 93,
       "question": "Lee used to be able to run the 400-meter hurdles two seconds faster than Gerald would run the 400-me",
-      "prediction": "36",
+      "prediction": "2",
       "reference": "36",
       "metrics": {
-        "em": 1.0,
-        "f1": 1.0,
+        "em": 0.0,
+        "f1": 0.0,
         "token_count": 0,
-        "latency": 10.308600425720215,
+        "latency": 14.42575216293335,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 94,
       "question": "In a neighborhood, the number of rabbits pets is twelve less than the combined number of pet dogs an",
-      "prediction": "216",
+      "prediction": "468",
       "reference": "348",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 21.856518268585205,
+        "latency": 20.463974714279175,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 95,
       "question": "Out of the 200 Grade 5 students, 2/5 are boys and 2/3 of the girls are in the girl scout. How many g",
-      "prediction": "27",
+      "prediction": "40",
       "reference": "40",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
+        "em": 1.0,
+        "f1": 1.0,
         "token_count": 0,
-        "latency": 11.763392210006714,
+        "latency": 11.388131380081177,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1458,40 +1458,40 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 0,
-        "latency": 9.3081693649292,
+        "latency": 9.034441709518433,
         "consistency_score": 0.579
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 97,
       "question": "When Freda cooks canned tomatoes into sauce, they lose half their volume. Each 16 ounce can of tomat",
-      "prediction": "9",
+      "prediction": "12",
       "reference": "12",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
+        "em": 1.0,
+        "f1": 1.0,
         "token_count": 0,
-        "latency": 20.536085844039917,
-        "consistency_score": 0.5895
+        "latency": 24.2828848361969,
+        "consistency_score": 0.5948
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
       "sample_id": 98,
       "question": "Cars have lined up on the motorway. Some of the cars drive through in the first 15 minutes of the tr",
-      "prediction": "10",
+      "prediction": "15",
       "reference": "5",
       "metrics": {
-        "em": 0.0,
+        "em": 1.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 9.733660221099854,
+        "latency": 11.935819625854492,
         "consistency_score": 0.7333
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     },
     {
@@ -1503,10 +1503,10 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
-        "latency": 7.021196365356445,
+        "latency": 12.902448177337646,
         "consistency_score": 0.6
       },
-      "config": "wo_context",
+      "config": "wo_feedback",
       "error": null
     }
   ]

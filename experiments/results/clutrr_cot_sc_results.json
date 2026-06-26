@@ -1,0 +1,4215 @@
+{
+  "summary": {
+    "method": "cot_sc",
+    "dataset": "clutrr",
+    "model": "qwen3-8b",
+    "num_samples": 300,
+    "avg_em": 0.1733,
+    "avg_f1": 0.13,
+    "avg_latency": 11.9151,
+    "timeout_count": 0,
+    "error_count": 0
+  },
+  "results": [
+    {
+      "sample_id": 0,
+      "question": "基于以上信息，Matthew与Michael是什么亲属关系？",
+      "prediction": "妻子",
+      "reference": "表兄弟",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 207,
+        "latency": 15.579434633255005
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 1,
+      "question": "基于以上信息，Joshua与John是什么亲属关系？",
+      "prediction": "Joshua",
+      "reference": "兄弟姐妹",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 191,
+        "latency": 12.069368124008179
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 2,
+      "question": "基于以上信息，Lisa与Ashley是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "婆婆",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 104,
+        "latency": 8.094390153884888
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 3,
+      "question": "基于以上信息，Stephanie与David是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "阿姨",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 132,
+        "latency": 9.855017900466919
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 4,
+      "question": "基于以上信息，Mary与Ashley是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "父亲",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 160,
+        "latency": 11.48836636543274
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 5,
+      "question": "基于以上信息，Jeffrey与Robert是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "姑姑",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 129,
+        "latency": 8.500025272369385
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 6,
+      "question": "基于以上信息，Kenneth与Donna是什么亲属关系？",
+      "prediction": "祖母",
+      "reference": "祖母",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 154,
+        "latency": 11.058007955551147
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 7,
+      "question": "基于以上信息，Donald与Timothy是什么亲属关系？",
+      "prediction": "岳父**",
+      "reference": "表姐妹",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 246,
+        "latency": 17.89441990852356
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 8,
+      "question": "基于以上信息，Patricia与Stephanie是什么亲属关系？",
+      "prediction": "祖母",
+      "reference": "祖母",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 140,
+        "latency": 9.600796222686768
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 9,
+      "question": "基于以上信息，Sarah与Melissa是什么亲属关系？",
+      "prediction": "Sarah 是 Melissa 的姑姑（或姨妈）。**",
+      "reference": "姑母",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 167,
+        "latency": 10.430620193481445
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 10,
+      "question": "基于以上信息，John与Thomas是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "伯父/叔父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 155,
+        "latency": 11.943074703216553
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 11,
+      "question": "基于以上信息，Ronald与Ashley是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "姨祖母",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 202,
+        "latency": 15.442404508590698
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 12,
+      "question": "基于以上信息，Kenneth与Robert是什么亲属关系？",
+      "prediction": "女儿",
+      "reference": "外甥女",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 106,
+        "latency": 7.402979612350464
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 13,
+      "question": "基于以上信息，Donna与Carol是什么亲属关系？",
+      "prediction": "丈夫",
+      "reference": "兄弟姐妹",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 138,
+        "latency": 11.063456773757935
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 14,
+      "question": "基于以上信息，David与Kevin是什么亲属关系？",
+      "prediction": "David",
+      "reference": "表兄弟",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 191,
+        "latency": 13.645366668701172
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 15,
+      "question": "基于以上信息，Deborah与Daniel是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "伯伯/叔叔",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 132,
+        "latency": 9.331752300262451
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 16,
+      "question": "基于以上信息，Sarah与Jeffrey是什么亲属关系？",
+      "prediction": "女儿",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 122,
+        "latency": 7.783560037612915
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 17,
+      "question": "基于以上信息，Joshua与Ronald是什么亲属关系？",
+      "prediction": "Joshua",
+      "reference": "兄弟姐妹",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 110,
+        "latency": 13.304293870925903
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 18,
+      "question": "基于以上信息，David与George是什么亲属关系？",
+      "prediction": "外祖父",
+      "reference": "舅祖父",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 213,
+        "latency": 20.837668657302856
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 19,
+      "question": "基于以上信息，Sandra与Emily是什么亲属关系？",
+      "prediction": "儿子",
+      "reference": "侄女",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 134,
+        "latency": 10.17142653465271
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 20,
+      "question": "基于以上信息，Michelle与Jeffrey是什么亲属关系？",
+      "prediction": "外祖父",
+      "reference": "姑姑",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 204,
+        "latency": 16.245777368545532
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 21,
+      "question": "基于以上信息，Brian与Edward是什么亲属关系？",
+      "prediction": "祖父",
+      "reference": "姑祖母",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 260,
+        "latency": 17.809075117111206
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 22,
+      "question": "基于以上信息，Sarah与Ashley是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "岳母",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 102,
+        "latency": 6.718656301498413
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 23,
+      "question": "基于以上信息，Lisa与Carol是什么亲属关系？",
+      "prediction": "丈夫",
+      "reference": "堂姐妹",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 164,
+        "latency": 13.810405015945435
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 24,
+      "question": "基于以上信息，Jeffrey与Karen是什么亲属关系？",
+      "prediction": "叔叔",
+      "reference": "伯伯/叔叔",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 114,
+        "latency": 9.083030462265015
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 25,
+      "question": "基于以上信息，Matthew与Sarah是什么亲属关系？",
+      "prediction": "丈夫",
+      "reference": "表姐妹",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 157,
+        "latency": 11.183022499084473
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 26,
+      "question": "基于以上信息，Anthony与Elizabeth是什么亲属关系？",
+      "prediction": "儿子",
+      "reference": "侄女",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 150,
+        "latency": 10.022653341293335
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 27,
+      "question": "基于以上信息，Andrew与Karen是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "母亲",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 195,
+        "latency": 16.617339849472046
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 28,
+      "question": "基于以上信息，Brian与Paul是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "岳父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 137,
+        "latency": 17.653162002563477
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 29,
+      "question": "基于以上信息，Michael与Deborah是什么亲属关系？",
+      "prediction": "姐夫",
+      "reference": "堂兄弟",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 216,
+        "latency": 15.998127698898315
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 30,
+      "question": "基于以上信息，Jessica与Karen是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "伯父/叔父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 156,
+        "latency": 9.72264575958252
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 31,
+      "question": "基于以上信息，Daniel与Mark是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "伯伯/叔叔",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 107,
+        "latency": 9.301313161849976
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 32,
+      "question": "基于以上信息，Anthony与Andrew是什么亲属关系？",
+      "prediction": "妻子",
+      "reference": "表姐妹",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 168,
+        "latency": 18.789207696914673
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 33,
+      "question": "基于以上信息，William与Margaret是什么亲属关系？",
+      "prediction": "祖父",
+      "reference": "伯祖父/叔祖父",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 149,
+        "latency": 10.500659704208374
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 34,
+      "question": "基于以上信息，Carol与Ronald是什么亲属关系？",
+      "prediction": "儿子",
+      "reference": "侄女",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 117,
+        "latency": 11.283126592636108
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 35,
+      "question": "基于以上信息，Margaret与Michelle是什么亲属关系？",
+      "prediction": "孙女",
+      "reference": "外甥孙",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 304,
+        "latency": 22.478654384613037
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 36,
+      "question": "基于以上信息，Jennifer与Mark是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "伯伯/叔叔",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 119,
+        "latency": 8.229339599609375
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 37,
+      "question": "基于以上信息，Paul与Kenneth是什么亲属关系？",
+      "prediction": "继母",
+      "reference": "岳母",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 110,
+        "latency": 9.088192701339722
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 38,
+      "question": "基于以上信息，James与Susan是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 119,
+        "latency": 11.639076948165894
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 39,
+      "question": "基于以上信息，Ryan与Sandra是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "阿姨",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 114,
+        "latency": 10.502899408340454
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 40,
+      "question": "基于以上信息，Kimberly与Andrew是什么亲属关系？",
+      "prediction": "岳母",
+      "reference": "母亲",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 147,
+        "latency": 10.160500049591064
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 41,
+      "question": "基于以上信息，Ashley与James是什么亲属关系？",
+      "prediction": "兄弟",
+      "reference": "兄弟姐妹",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 129,
+        "latency": 10.084978818893433
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 42,
+      "question": "基于以上信息，Charles与Jason是什么亲属关系？",
+      "prediction": "Charles",
+      "reference": "堂兄弟",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 249,
+        "latency": 17.019503116607666
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 43,
+      "question": "基于以上信息，Daniel与Kenneth是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "舅舅",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 96,
+        "latency": 9.70336103439331
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 44,
+      "question": "基于以上信息，Steven与James是什么亲属关系？",
+      "prediction": "叔叔",
+      "reference": "伯伯/叔叔",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 96,
+        "latency": 7.9714484214782715
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 45,
+      "question": "基于以上信息，David与Mary是什么亲属关系？",
+      "prediction": "姐妹",
+      "reference": "外甥女",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 190,
+        "latency": 14.231826066970825
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 46,
+      "question": "基于以上信息，Lisa与Amanda是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "父亲",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 166,
+        "latency": 13.39950680732727
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 47,
+      "question": "基于以上信息，Deborah与Joshua是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "舅舅",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 136,
+        "latency": 9.020856142044067
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 48,
+      "question": "基于以上信息，Betty与Thomas是什么亲属关系？",
+      "prediction": "祖母",
+      "reference": "父亲",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 176,
+        "latency": 18.60054111480713
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 49,
+      "question": "基于以上信息，Carol与Patricia是什么亲属关系？",
+      "prediction": "公公",
+      "reference": "父亲",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 169,
+        "latency": 12.678998470306396
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 50,
+      "question": "基于以上信息，Margaret与Kimberly是什么亲属关系？",
+      "prediction": "外祖父",
+      "reference": "姨祖母",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 205,
+        "latency": 14.647860050201416
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 51,
+      "question": "基于以上信息，Sarah与David是什么亲属关系？",
+      "prediction": "妻子",
+      "reference": "表姐妹",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 226,
+        "latency": 20.14785623550415
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 52,
+      "question": "基于以上信息，Timothy与Linda是什么亲属关系？",
+      "prediction": "祖父",
+      "reference": "伯祖父/叔祖父",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 192,
+        "latency": 14.029290199279785
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 53,
+      "question": "基于以上信息，Paul与Lisa是什么亲属关系？",
+      "prediction": "儿子",
+      "reference": "侄子",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 96,
+        "latency": 7.943617343902588
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 54,
+      "question": "基于以上信息，Ashley与Ronald是什么亲属关系？",
+      "prediction": "女儿",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 124,
+        "latency": 9.672379493713379
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 55,
+      "question": "基于以上信息，Andrew与George是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "伯伯/叔叔",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 143,
+        "latency": 9.313652276992798
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 56,
+      "question": "基于以上信息，Lisa与Steven是什么亲属关系？",
+      "prediction": "妻子",
+      "reference": "表姐妹",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 230,
+        "latency": 19.973305702209473
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 57,
+      "question": "基于以上信息，Betty与Sarah是什么亲属关系？",
+      "prediction": "丈夫",
+      "reference": "兄弟姐妹",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 132,
+        "latency": 9.285801649093628
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 58,
+      "question": "基于以上信息，Andrew与Brian是什么亲属关系？",
+      "prediction": "儿子",
+      "reference": "侄女",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 133,
+        "latency": 9.42400574684143
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 59,
+      "question": "基于以上信息，Joshua与Amanda是什么亲属关系？",
+      "prediction": "丈夫",
+      "reference": "表兄弟",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 205,
+        "latency": 15.346374034881592
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 60,
+      "question": "基于以上信息，Emily与Susan是什么亲属关系？",
+      "prediction": "Emily",
+      "reference": "兄弟姐妹",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 109,
+        "latency": 7.344372034072876
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 61,
+      "question": "基于以上信息，Amanda与Donald是什么亲属关系？",
+      "prediction": "女儿",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 88,
+        "latency": 6.880282878875732
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 62,
+      "question": "基于以上信息，Daniel与Barbara是什么亲属关系？",
+      "prediction": "Daniel",
+      "reference": "兄弟姐妹",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 143,
+        "latency": 9.442995071411133
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 63,
+      "question": "基于以上信息，Donna与Nancy是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "母亲",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 153,
+        "latency": 11.633831024169922
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 64,
+      "question": "基于以上信息，Michael与Sarah是什么亲属关系？",
+      "prediction": "孙子**",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 205,
+        "latency": 15.374457120895386
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 65,
+      "question": "基于以上信息，John与Sandra是什么亲属关系？",
+      "prediction": "舅舅",
+      "reference": "姨祖母",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 182,
+        "latency": 14.592458009719849
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 66,
+      "question": "基于以上信息，Sarah与Melissa是什么亲属关系？",
+      "prediction": "Sarah",
+      "reference": "表兄弟",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 185,
+        "latency": 14.48412561416626
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 67,
+      "question": "基于以上信息，Jessica与Elizabeth是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "岳父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 98,
+        "latency": 9.89717149734497
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 68,
+      "question": "基于以上信息，Jennifer与Joshua是什么亲属关系？",
+      "prediction": "侄女",
+      "reference": "外甥孙",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 166,
+        "latency": 10.786257266998291
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 69,
+      "question": "基于以上信息，Jason与Patricia是什么亲属关系？",
+      "prediction": "儿子",
+      "reference": "侄女",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 145,
+        "latency": 11.355447769165039
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 70,
+      "question": "基于以上信息，Kimberly与Linda是什么亲属关系？",
+      "prediction": "儿子",
+      "reference": "侄女",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 191,
+        "latency": 13.703049898147583
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 71,
+      "question": "基于以上信息，Margaret与Jeffrey是什么亲属关系？",
+      "prediction": "Margaret",
+      "reference": "兄弟姐妹",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 212,
+        "latency": 17.28584575653076
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 72,
+      "question": "基于以上信息，Ashley与Betty是什么亲属关系？",
+      "prediction": "公公",
+      "reference": "父亲",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 173,
+        "latency": 14.933598756790161
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 73,
+      "question": "基于以上信息，Kimberly与Betty是什么亲属关系？",
+      "prediction": "外祖父",
+      "reference": "姨祖母",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 256,
+        "latency": 16.954252243041992
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 74,
+      "question": "基于以上信息，Anthony与Emily是什么亲属关系？",
+      "prediction": "孙子",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 152,
+        "latency": 10.791052103042603
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 75,
+      "question": "基于以上信息，Jennifer与David是什么亲属关系？",
+      "prediction": "岳母",
+      "reference": "母亲",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 126,
+        "latency": 11.694041013717651
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 76,
+      "question": "基于以上信息，Carol与Sarah是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "舅舅",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 119,
+        "latency": 9.70819878578186
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 77,
+      "question": "基于以上信息，Ryan与Betty是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "母亲",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 170,
+        "latency": 14.468151330947876
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 78,
+      "question": "基于以上信息，Joshua与Andrew是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "姑姑",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 137,
+        "latency": 9.284815073013306
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 79,
+      "question": "基于以上信息，Ronald与Betty是什么亲属关系？",
+      "prediction": "外祖父",
+      "reference": "祖父",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 149,
+        "latency": 11.167011499404907
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 80,
+      "question": "基于以上信息，Melissa与Andrew是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "伯祖父/叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 246,
+        "latency": 16.40281343460083
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 81,
+      "question": "基于以上信息，Donald与Susan是什么亲属关系？",
+      "prediction": "丈夫",
+      "reference": "兄弟姐妹",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 143,
+        "latency": 9.088088989257812
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 82,
+      "question": "基于以上信息，Mary与Jason是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "伯伯/叔叔",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 167,
+        "latency": 10.957618474960327
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 83,
+      "question": "基于以上信息，George与Jessica是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "姑母",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 170,
+        "latency": 11.268121004104614
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 84,
+      "question": "基于以上信息，Susan与Steven是什么亲属关系？",
+      "prediction": "祖母",
+      "reference": "祖母",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 122,
+        "latency": 8.122201204299927
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 85,
+      "question": "基于以上信息，Kenneth与Thomas是什么亲属关系？",
+      "prediction": "妻子",
+      "reference": "母亲",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 154,
+        "latency": 13.908849477767944
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 86,
+      "question": "基于以上信息，Kenneth与Mark是什么亲属关系？",
+      "prediction": "妻子",
+      "reference": "母亲",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 108,
+        "latency": 8.415664196014404
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 87,
+      "question": "基于以上信息，David与Linda是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "姑姑",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 133,
+        "latency": 10.253910541534424
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 88,
+      "question": "基于以上信息，Jeffrey与Michelle是什么亲属关系？",
+      "prediction": "孙女",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 168,
+        "latency": 13.05562710762024
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 89,
+      "question": "基于以上信息，Mary与Susan是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "表姐妹",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 210,
+        "latency": 15.607204675674438
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 90,
+      "question": "基于以上信息，Jennifer与William是什么亲属关系？",
+      "prediction": "祖父",
+      "reference": "伯祖父/叔祖父",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 268,
+        "latency": 15.286825895309448
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 91,
+      "question": "基于以上信息，Sandra与Daniel是什么亲属关系？",
+      "prediction": "祖母",
+      "reference": "祖母",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 98,
+        "latency": 6.867896318435669
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 92,
+      "question": "基于以上信息，Karen与Nancy是什么亲属关系？",
+      "prediction": "祖父",
+      "reference": "姨祖母",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 254,
+        "latency": 20.29074740409851
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 93,
+      "question": "基于以上信息，Nancy与Deborah是什么亲属关系？",
+      "prediction": "外祖父",
+      "reference": "姨祖母",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 205,
+        "latency": 14.334153890609741
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 94,
+      "question": "基于以上信息，Mary与Anthony是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "岳母",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 205,
+        "latency": 13.32216191291809
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 95,
+      "question": "基于以上信息，Daniel与Margaret是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "母亲",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 170,
+        "latency": 12.88904356956482
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 96,
+      "question": "基于以上信息，Mark与Nancy是什么亲属关系？",
+      "prediction": "外祖父",
+      "reference": "祖父",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 8.087683200836182
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 97,
+      "question": "基于以上信息，Amanda与Michael是什么亲属关系？",
+      "prediction": "妻子",
+      "reference": "表兄弟",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 277,
+        "latency": 18.53970980644226
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 98,
+      "question": "基于以上信息，Lisa与James是什么亲属关系？",
+      "prediction": "儿子",
+      "reference": "侄女",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 107,
+        "latency": 9.152457475662231
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 99,
+      "question": "基于以上信息，Susan与Michael是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "岳母",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 106,
+        "latency": 7.636893272399902
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 100,
+      "question": "基于以上信息，Kevin与Lisa是什么亲属关系？",
+      "prediction": "丈夫",
+      "reference": "兄弟姐妹",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 127,
+        "latency": 8.734498023986816
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 101,
+      "question": "基于以上信息，Donald与Emily是什么亲属关系？",
+      "prediction": "祖父",
+      "reference": "伯祖父/叔祖父",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 182,
+        "latency": 18.036044597625732
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 102,
+      "question": "基于以上信息，Barbara与Carol是什么亲属关系？",
+      "prediction": "祖母",
+      "reference": "祖母",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 111,
+        "latency": 8.032419919967651
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 103,
+      "question": "基于以上信息，Karen与Emily是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "伯伯/叔叔",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 117,
+        "latency": 8.504360437393188
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 104,
+      "question": "基于以上信息，Nancy与Andrew是什么亲属关系？",
+      "prediction": "Nancy",
+      "reference": "堂兄弟",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 201,
+        "latency": 14.442283391952515
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 105,
+      "question": "基于以上信息，Steven与Melissa是什么亲属关系？",
+      "prediction": "孙子",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 170,
+        "latency": 11.447758197784424
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 106,
+      "question": "基于以上信息，Matthew与Amanda是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "岳父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 142,
+        "latency": 9.010268449783325
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 107,
+      "question": "基于以上信息，Joshua与Lisa是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "岳母",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 105,
+        "latency": 8.87812614440918
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 108,
+      "question": "基于以上信息，Carol与Sarah是什么亲属关系？",
+      "prediction": "祖母",
+      "reference": "祖母",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 86,
+        "latency": 7.167137384414673
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 109,
+      "question": "基于以上信息，Edward与Nancy是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "岳母",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 119,
+        "latency": 8.35029673576355
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 110,
+      "question": "基于以上信息，Melissa与Stephanie是什么亲属关系？",
+      "prediction": "女儿",
+      "reference": "外甥孙",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 187,
+        "latency": 15.379598140716553
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 111,
+      "question": "基于以上信息，Ashley与Robert是什么亲属关系？",
+      "prediction": "祖父",
+      "reference": "姑祖母",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 159,
+        "latency": 11.573354721069336
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 112,
+      "question": "基于以上信息，Jennifer与Andrew是什么亲属关系？",
+      "prediction": "信息",
+      "reference": "侄子",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 161,
+        "latency": 11.521774768829346
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 113,
+      "question": "基于以上信息，Brian与David是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "姑姑",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 93,
+        "latency": 7.327306509017944
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 114,
+      "question": "基于以上信息，Kimberly与Ryan是什么亲属关系？",
+      "prediction": "祖母",
+      "reference": "祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 150,
+        "latency": 9.789360046386719
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 115,
+      "question": "基于以上信息，Kevin与Susan是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "姑母",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 142,
+        "latency": 9.268460035324097
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 116,
+      "question": "基于以上信息，Steven与Amanda是什么亲属关系？",
+      "prediction": "丈夫",
+      "reference": "表兄弟",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 147,
+        "latency": 13.511509895324707
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 117,
+      "question": "基于以上信息，James与Andrew是什么亲属关系？",
+      "prediction": "因此",
+      "reference": "表姐妹",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 161,
+        "latency": 10.171164751052856
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 118,
+      "question": "基于以上信息，Susan与Lisa是什么亲属关系？",
+      "prediction": "叔叔",
+      "reference": "伯父/叔父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 234,
+        "latency": 16.875083208084106
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 119,
+      "question": "基于以上信息，Melissa与Ronald是什么亲属关系？",
+      "prediction": "儿子",
+      "reference": "侄子",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 155,
+        "latency": 10.551457405090332
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 120,
+      "question": "基于以上信息，Sandra与Patricia是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "岳父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 117,
+        "latency": 8.583341121673584
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 121,
+      "question": "基于以上信息，Nancy与Linda是什么亲属关系？",
+      "prediction": "丈夫",
+      "reference": "表姐妹",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 173,
+        "latency": 11.525538682937622
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 122,
+      "question": "基于以上信息，Jeffrey与Robert是什么亲属关系？",
+      "prediction": "妻子",
+      "reference": "表姐妹",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 177,
+        "latency": 10.910714149475098
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 123,
+      "question": "基于以上信息，Charles与Donald是什么亲属关系？",
+      "prediction": "女儿",
+      "reference": "外甥女",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 138,
+        "latency": 8.93010687828064
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 124,
+      "question": "基于以上信息，Anthony与Stephanie是什么亲属关系？",
+      "prediction": "孙女",
+      "reference": "外甥孙",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 201,
+        "latency": 18.75360417366028
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 125,
+      "question": "基于以上信息，David与Brian是什么亲属关系？",
+      "prediction": "祖父",
+      "reference": "舅祖父",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 167,
+        "latency": 11.66716456413269
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 126,
+      "question": "基于以上信息，William与Thomas是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "伯伯/叔叔",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 130,
+        "latency": 10.352722406387329
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 127,
+      "question": "基于以上信息，George与Michael是什么亲属关系？",
+      "prediction": "孙子",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 196,
+        "latency": 14.227835416793823
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 128,
+      "question": "基于以上信息，Kenneth与Melissa是什么亲属关系？",
+      "prediction": "叔叔",
+      "reference": "姑母",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 236,
+        "latency": 15.373791456222534
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 129,
+      "question": "基于以上信息，Deborah与William是什么亲属关系？",
+      "prediction": "祖母",
+      "reference": "伯祖父/叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 217,
+        "latency": 14.241795063018799
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 130,
+      "question": "基于以上信息，Jeffrey与Michelle是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "母亲",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 139,
+        "latency": 10.375191688537598
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 131,
+      "question": "基于以上信息，Timothy与Kenneth是什么亲属关系？",
+      "prediction": "祖母",
+      "reference": "祖母",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 127,
+        "latency": 8.63648271560669
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 132,
+      "question": "基于以上信息，Daniel与Lisa是什么亲属关系？",
+      "prediction": "丈夫",
+      "reference": "父亲",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 126,
+        "latency": 11.242523670196533
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 133,
+      "question": "基于以上信息，Ronald与Ashley是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "伯伯/叔叔",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 129,
+        "latency": 9.078123807907104
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 134,
+      "question": "基于以上信息，Kenneth与Kevin是什么亲属关系？",
+      "prediction": "祖父",
+      "reference": "姑祖母",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 247,
+        "latency": 20.782209396362305
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 135,
+      "question": "基于以上信息，Amanda与John是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "姑母",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 178,
+        "latency": 15.840708255767822
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 136,
+      "question": "基于以上信息，Michael与Thomas是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "舅舅",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 137,
+        "latency": 9.485120296478271
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 137,
+      "question": "基于以上信息，Thomas与Ronald是什么亲属关系？",
+      "prediction": "祖父",
+      "reference": "伯祖父/叔祖父",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 184,
+        "latency": 16.998029947280884
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 138,
+      "question": "基于以上信息，Melissa与Sandra是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "舅舅",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 139,
+        "latency": 10.223410367965698
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 139,
+      "question": "基于以上信息，Ryan与Jennifer是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "母亲",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 211,
+        "latency": 13.513196468353271
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 140,
+      "question": "基于以上信息，Barbara与Timothy是什么亲属关系？",
+      "prediction": "子女**",
+      "reference": "侄子",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 146,
+        "latency": 11.304708242416382
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 141,
+      "question": "基于以上信息，Jeffrey与Paul是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "姑姑",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 129,
+        "latency": 9.805549383163452
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 142,
+      "question": "基于以上信息，Elizabeth与Stephanie是什么亲属关系？",
+      "prediction": "丈夫",
+      "reference": "兄弟姐妹",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 136,
+        "latency": 7.84082818031311
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 143,
+      "question": "基于以上信息，Ronald与Deborah是什么亲属关系？",
+      "prediction": "Ronald",
+      "reference": "兄弟姐妹",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 121,
+        "latency": 9.01350998878479
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 144,
+      "question": "基于以上信息，Paul与Donald是什么亲属关系？",
+      "prediction": "祖母",
+      "reference": "祖母",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 130,
+        "latency": 11.949663400650024
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 145,
+      "question": "基于以上信息，William与Patricia是什么亲属关系？",
+      "prediction": "孙女",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 149,
+        "latency": 10.24965214729309
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 146,
+      "question": "基于以上信息，Ronald与Emily是什么亲属关系？",
+      "prediction": "孙女",
+      "reference": "外甥孙",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 228,
+        "latency": 14.910365581512451
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 147,
+      "question": "基于以上信息，Mark与Thomas是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "伯伯/叔叔",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 101,
+        "latency": 8.363926410675049
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 148,
+      "question": "基于以上信息，Charles与Elizabeth是什么亲属关系？",
+      "prediction": "丈夫",
+      "reference": "父亲",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 106,
+        "latency": 9.451236248016357
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 149,
+      "question": "基于以上信息，Daniel与Deborah是什么亲属关系？",
+      "prediction": "孙女",
+      "reference": "外甥孙",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 192,
+        "latency": 11.140984535217285
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 150,
+      "question": "基于以上信息，Brian与Mark是什么亲属关系？",
+      "prediction": "儿子",
+      "reference": "侄子",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 118,
+        "latency": 10.0191068649292
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 151,
+      "question": "基于以上信息，John与Jeffrey是什么亲属关系？",
+      "prediction": "外祖父",
+      "reference": "姨祖母",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 204,
+        "latency": 14.245311498641968
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 152,
+      "question": "基于以上信息，Linda与Margaret是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "姑母",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 175,
+        "latency": 10.940758228302002
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 153,
+      "question": "基于以上信息，Donna与Michael是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "婆婆",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 108,
+        "latency": 12.41873288154602
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 154,
+      "question": "基于以上信息，Brian与Betty是什么亲属关系？",
+      "prediction": "Brian",
+      "reference": "表兄弟",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 245,
+        "latency": 15.618406772613525
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 155,
+      "question": "基于以上信息，Mary与Barbara是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "表兄弟",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 218,
+        "latency": 13.238596200942993
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 156,
+      "question": "基于以上信息，Jennifer与Sandra是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "阿姨",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 96,
+        "latency": 7.0403876304626465
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 157,
+      "question": "基于以上信息，Nancy与Robert是什么亲属关系？",
+      "prediction": "妻子",
+      "reference": "堂姐妹",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 264,
+        "latency": 34.58432650566101
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 158,
+      "question": "基于以上信息，Stephanie与Karen是什么亲属关系？",
+      "prediction": "祖母",
+      "reference": "姑祖母",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 311,
+        "latency": 18.364460229873657
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 159,
+      "question": "基于以上信息，Michelle与Melissa是什么亲属关系？",
+      "prediction": "Michelle",
+      "reference": "表姐妹",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 185,
+        "latency": 11.820276021957397
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 160,
+      "question": "基于以上信息，Susan与Ronald是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "姑姑",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 107,
+        "latency": 7.7627036571502686
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 161,
+      "question": "基于以上信息，Steven与Matthew是什么亲属关系？",
+      "prediction": "女儿",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 140,
+        "latency": 10.35491943359375
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 162,
+      "question": "基于以上信息，Andrew与Elizabeth是什么亲属关系？",
+      "prediction": "儿子",
+      "reference": "侄子",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 207,
+        "latency": 14.158663988113403
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 163,
+      "question": "基于以上信息，Deborah与John是什么亲属关系？",
+      "prediction": "妻子",
+      "reference": "堂兄弟",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 166,
+        "latency": 11.223877191543579
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 164,
+      "question": "基于以上信息，Mark与Lisa是什么亲属关系？",
+      "prediction": "儿子",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 182,
+        "latency": 12.843903541564941
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 165,
+      "question": "基于以上信息，Kevin与Susan是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "母亲",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 176,
+        "latency": 11.511703729629517
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 166,
+      "question": "基于以上信息，Deborah与Donna是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "姑姑",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 151,
+        "latency": 12.969146728515625
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 167,
+      "question": "基于以上信息，Deborah与Mark是什么亲属关系？",
+      "prediction": "祖母",
+      "reference": "祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 288,
+        "latency": 23.682631969451904
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 168,
+      "question": "基于以上信息，Carol与Barbara是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "岳母",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 180,
+        "latency": 14.04113507270813
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 169,
+      "question": "基于以上信息，Carol与Ashley是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "伯伯/叔叔",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 87,
+        "latency": 7.367032289505005
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 170,
+      "question": "基于以上信息，Sandra与Thomas是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "姑姑",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 134,
+        "latency": 10.37453293800354
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 171,
+      "question": "基于以上信息，Linda与Barbara是什么亲属关系？",
+      "prediction": "女儿",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 241,
+        "latency": 15.695705652236938
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 172,
+      "question": "基于以上信息，Sandra与Jessica是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "伯伯/叔叔",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 127,
+        "latency": 7.974117279052734
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 173,
+      "question": "基于以上信息，Ronald与Daniel是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "姑姑",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 123,
+        "latency": 8.31062126159668
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 174,
+      "question": "基于以上信息，Edward与Daniel是什么亲属关系？",
+      "prediction": "祖父",
+      "reference": "舅祖父",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 173,
+        "latency": 11.383470296859741
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 175,
+      "question": "基于以上信息，Melissa与Ashley是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "岳父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 106,
+        "latency": 8.417016983032227
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 176,
+      "question": "基于以上信息，Susan与Timothy是什么亲属关系？",
+      "prediction": "所以",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 148,
+        "latency": 10.521313190460205
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 177,
+      "question": "基于以上信息，Lisa与Jeffrey是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "阿姨",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 131,
+        "latency": 9.23703384399414
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 178,
+      "question": "基于以上信息，Emily与Linda是什么亲属关系？",
+      "prediction": "女儿",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 160,
+        "latency": 12.044437170028687
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 179,
+      "question": "基于以上信息，Daniel与Michelle是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "伯祖父/叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 167,
+        "latency": 11.007806301116943
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 180,
+      "question": "基于以上信息，Stephanie与Kevin是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "姑姑",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 122,
+        "latency": 7.926072835922241
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 181,
+      "question": "基于以上信息，Mary与Ronald是什么亲属关系？",
+      "prediction": "妻子",
+      "reference": "堂兄弟",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 174,
+        "latency": 14.445966720581055
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 182,
+      "question": "基于以上信息，Donna与Lisa是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "伯伯/叔叔",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 149,
+        "latency": 14.887956857681274
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 183,
+      "question": "基于以上信息，Amanda与Jeffrey是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "阿姨",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 95,
+        "latency": 7.999448776245117
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 184,
+      "question": "基于以上信息，Sandra与Jason是什么亲属关系？",
+      "prediction": "叔叔",
+      "reference": "伯伯/叔叔",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 119,
+        "latency": 8.48863935470581
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 185,
+      "question": "基于以上信息，Deborah与Matthew是什么亲属关系？",
+      "prediction": "女儿",
+      "reference": "侄女",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 316,
+        "latency": 20.350961446762085
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 186,
+      "question": "基于以上信息，Steven与Sarah是什么亲属关系？",
+      "prediction": "丈夫",
+      "reference": "表兄弟",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 271,
+        "latency": 21.35035538673401
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 187,
+      "question": "基于以上信息，Ronald与William是什么亲属关系？",
+      "prediction": "祖父",
+      "reference": "伯祖父/叔祖父",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 186,
+        "latency": 13.450912952423096
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 188,
+      "question": "基于以上信息，Jessica与Mark是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "伯伯/叔叔",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 105,
+        "latency": 9.830544233322144
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 189,
+      "question": "基于以上信息，Karen与Kenneth是什么亲属关系？",
+      "prediction": "Karen",
+      "reference": "兄弟姐妹",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 200,
+        "latency": 11.888725757598877
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 190,
+      "question": "基于以上信息，William与Stephanie是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "舅舅",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 8.674699068069458
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 191,
+      "question": "基于以上信息，Joshua与Paul是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "岳母",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 108,
+        "latency": 8.075447082519531
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 192,
+      "question": "基于以上信息，James与Mark是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "岳母",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 156,
+        "latency": 10.21183729171753
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 193,
+      "question": "基于以上信息，Mary与John是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "阿姨",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 120,
+        "latency": 8.440327882766724
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 194,
+      "question": "基于以上信息，Deborah与Donna是什么亲属关系？",
+      "prediction": "女儿",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 159,
+        "latency": 11.778609991073608
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 195,
+      "question": "基于以上信息，Jessica与Ronald是什么亲属关系？",
+      "prediction": "侄子",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 225,
+        "latency": 13.627763271331787
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 196,
+      "question": "基于以上信息，George与Susan是什么亲属关系？",
+      "prediction": "岳父",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 140,
+        "latency": 9.148714542388916
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 197,
+      "question": "基于以上信息，Daniel与Amanda是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "阿姨",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 117,
+        "latency": 11.53793740272522
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 198,
+      "question": "基于以上信息，Jeffrey与Carol是什么亲属关系？",
+      "prediction": "女儿",
+      "reference": "表兄弟",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 202,
+        "latency": 12.25906753540039
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 199,
+      "question": "基于以上信息，Barbara与Michelle是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "舅舅",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 135,
+        "latency": 8.755152225494385
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 200,
+      "question": "基于以上信息，Kevin与Daniel是什么亲属关系？",
+      "prediction": "女儿",
+      "reference": "外甥女",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 143,
+        "latency": 10.093554735183716
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 201,
+      "question": "基于以上信息，Anthony与Donna是什么亲属关系？",
+      "prediction": "儿子",
+      "reference": "侄子",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 152,
+        "latency": 10.277313232421875
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 202,
+      "question": "基于以上信息，Patricia与Kenneth是什么亲属关系？",
+      "prediction": "女儿",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 144,
+        "latency": 9.836673974990845
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 203,
+      "question": "基于以上信息，Sarah与Emily是什么亲属关系？",
+      "prediction": "丈夫",
+      "reference": "堂兄弟",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 206,
+        "latency": 14.516189575195312
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 204,
+      "question": "基于以上信息，Michael与Daniel是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "母亲",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 158,
+        "latency": 11.065077781677246
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 205,
+      "question": "基于以上信息，Paul与Jennifer是什么亲属关系？",
+      "prediction": "祖父",
+      "reference": "祖父",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 88,
+        "latency": 6.674148797988892
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 206,
+      "question": "基于以上信息，Edward与Nancy是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "阿姨",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 122,
+        "latency": 8.531194686889648
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 207,
+      "question": "基于以上信息，Robert与William是什么亲属关系？",
+      "prediction": "女儿",
+      "reference": "外甥女",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 150,
+        "latency": 10.06785249710083
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 208,
+      "question": "基于以上信息，George与Jeffrey是什么亲属关系？",
+      "prediction": "孙女",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 137,
+        "latency": 9.449768781661987
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 209,
+      "question": "基于以上信息，George与Kenneth是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "岳父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 142,
+        "latency": 9.235109090805054
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 210,
+      "question": "基于以上信息，Karen与Edward是什么亲属关系？",
+      "prediction": "儿子",
+      "reference": "侄子",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 109,
+        "latency": 8.617909908294678
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 211,
+      "question": "基于以上信息，Jason与Ronald是什么亲属关系？",
+      "prediction": "祖父",
+      "reference": "舅祖父",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 242,
+        "latency": 15.196660280227661
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 212,
+      "question": "基于以上信息，Paul与Melissa是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "岳母",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 141,
+        "latency": 10.176965475082397
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 213,
+      "question": "基于以上信息，Paul与Brian是什么亲属关系？",
+      "prediction": "Paul",
+      "reference": "兄弟姐妹",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 123,
+        "latency": 10.888705253601074
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 214,
+      "question": "基于以上信息，Margaret与Kevin是什么亲属关系？",
+      "prediction": "外祖父",
+      "reference": "表兄弟",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 244,
+        "latency": 20.381675243377686
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 215,
+      "question": "基于以上信息，George与Brian是什么亲属关系？",
+      "prediction": "George",
+      "reference": "表兄弟",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 197,
+        "latency": 15.804867029190063
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 216,
+      "question": "基于以上信息，David与Donald是什么亲属关系？",
+      "prediction": "儿子",
+      "reference": "侄子",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 152,
+        "latency": 10.731214046478271
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 217,
+      "question": "基于以上信息，Matthew与Daniel是什么亲属关系？",
+      "prediction": "叔叔",
+      "reference": "伯祖父/叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 191,
+        "latency": 11.843640804290771
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 218,
+      "question": "基于以上信息，Lisa与Kenneth是什么亲属关系？",
+      "prediction": "祖母",
+      "reference": "祖母",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 124,
+        "latency": 9.19781756401062
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 219,
+      "question": "基于以上信息，Jessica与John是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "姑姑",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 133,
+        "latency": 11.541034698486328
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 220,
+      "question": "基于以上信息，Kevin与Ryan是什么亲属关系？",
+      "prediction": "Kevin",
+      "reference": "表姐妹",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 169,
+        "latency": 12.573251485824585
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 221,
+      "question": "基于以上信息，Brian与Donald是什么亲属关系？",
+      "prediction": "祖父",
+      "reference": "姨祖母",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 163,
+        "latency": 13.190244913101196
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 222,
+      "question": "基于以上信息，Susan与Barbara是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "姑姑",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 130,
+        "latency": 9.051711320877075
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 223,
+      "question": "基于以上信息，Jessica与Patricia是什么亲属关系？",
+      "prediction": "丈夫",
+      "reference": "兄弟姐妹",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 134,
+        "latency": 9.148338556289673
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 224,
+      "question": "基于以上信息，Nancy与Anthony是什么亲属关系？",
+      "prediction": "婶婶",
+      "reference": "表兄弟",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 276,
+        "latency": 16.090600728988647
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 225,
+      "question": "基于以上信息，Karen与Patricia是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "伯伯/叔叔",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 129,
+        "latency": 9.679416418075562
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 226,
+      "question": "基于以上信息，Daniel与George是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "姑姑",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 104,
+        "latency": 7.472032785415649
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 227,
+      "question": "基于以上信息，Edward与Nancy是什么亲属关系？",
+      "prediction": "祖父",
+      "reference": "祖父",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 122,
+        "latency": 8.477588891983032
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 228,
+      "question": "基于以上信息，Elizabeth与Barbara是什么亲属关系？",
+      "prediction": "外祖父",
+      "reference": "祖父",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 148,
+        "latency": 8.785682916641235
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 229,
+      "question": "基于以上信息，Karen与Sarah是什么亲属关系？",
+      "prediction": "这是基于提供的信息最合理的推论",
+      "reference": "母亲",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 153,
+        "latency": 9.707291841506958
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 230,
+      "question": "基于以上信息，Ryan与Mark是什么亲属关系？",
+      "prediction": "女儿",
+      "reference": "外甥女",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 117,
+        "latency": 8.47321629524231
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 231,
+      "question": "基于以上信息，Andrew与Patricia是什么亲属关系？",
+      "prediction": "",
+      "reference": "外甥女",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 1205,
+        "latency": 34.46807146072388
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 232,
+      "question": "基于以上信息，Nancy与Margaret是什么亲属关系？",
+      "prediction": "孙子",
+      "reference": "侄女",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 119,
+        "latency": 11.110555648803711
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 233,
+      "question": "基于以上信息，Kenneth与Melissa是什么亲属关系？",
+      "prediction": "祖父",
+      "reference": "舅祖父",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 169,
+        "latency": 13.757426261901855
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 234,
+      "question": "基于以上信息，Stephanie与Lisa是什么亲属关系？",
+      "prediction": "姐妹",
+      "reference": "兄弟姐妹",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 164,
+        "latency": 11.199237823486328
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 235,
+      "question": "基于以上信息，Edward与Stephanie是什么亲属关系？",
+      "prediction": "女儿",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 141,
+        "latency": 8.330442190170288
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 236,
+      "question": "基于以上信息，Kimberly与Matthew是什么亲属关系？",
+      "prediction": "祖父",
+      "reference": "姑祖母",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 199,
+        "latency": 12.55815601348877
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 237,
+      "question": "基于以上信息，Ronald与Daniel是什么亲属关系？",
+      "prediction": "妻子",
+      "reference": "兄弟姐妹",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 167,
+        "latency": 12.82899785041809
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 238,
+      "question": "基于以上信息，Robert与Michael是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "姑姑",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 105,
+        "latency": 7.562252998352051
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 239,
+      "question": "基于以上信息，Mary与Betty是什么亲属关系？",
+      "prediction": "兄弟",
+      "reference": "表兄弟",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 243,
+        "latency": 18.13699436187744
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 240,
+      "question": "基于以上信息，Robert与Stephanie是什么亲属关系？",
+      "prediction": "祖父",
+      "reference": "伯祖父/叔祖父",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 186,
+        "latency": 12.68137001991272
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 241,
+      "question": "基于以上信息，Steven与Ashley是什么亲属关系？",
+      "prediction": "Steven",
+      "reference": "堂兄弟",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 193,
+        "latency": 13.50281810760498
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 242,
+      "question": "基于以上信息，Andrew与Lisa是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "姨祖母",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 229,
+        "latency": 15.45926022529602
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 243,
+      "question": "基于以上信息，Donna与Andrew是什么亲属关系？",
+      "prediction": "儿子",
+      "reference": "侄女",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 140,
+        "latency": 10.035201787948608
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 244,
+      "question": "基于以上信息，Mary与William是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "舅舅",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 133,
+        "latency": 13.171648502349854
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 245,
+      "question": "基于以上信息，Lisa与Steven是什么亲属关系？",
+      "prediction": "妻子",
+      "reference": "表姐妹",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 270,
+        "latency": 21.991263389587402
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 246,
+      "question": "基于以上信息，James与Carol是什么亲属关系？",
+      "prediction": "儿子",
+      "reference": "侄女",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 112,
+        "latency": 8.62441611289978
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 247,
+      "question": "基于以上信息，Patricia与Jeffrey是什么亲属关系？",
+      "prediction": "孙女",
+      "reference": "侄孙",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 188,
+        "latency": 18.75766086578369
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 248,
+      "question": "基于以上信息，Kimberly与George是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "父亲",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 165,
+        "latency": 10.657953023910522
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 249,
+      "question": "基于以上信息，George与Daniel是什么亲属关系？",
+      "prediction": "儿子",
+      "reference": "侄女",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 117,
+        "latency": 7.463086128234863
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 250,
+      "question": "基于以上信息，Barbara与George是什么亲属关系？",
+      "prediction": "姑姑",
+      "reference": "舅舅",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 120,
+        "latency": 8.38395094871521
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 251,
+      "question": "基于以上信息，Elizabeth与Ashley是什么亲属关系？",
+      "prediction": "祖母",
+      "reference": "伯祖父/叔祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 216,
+        "latency": 14.916757583618164
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 252,
+      "question": "基于以上信息，Ronald与Anthony是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "舅祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 188,
+        "latency": 13.769106149673462
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 253,
+      "question": "基于以上信息，Margaret与Amanda是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "阿姨",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 136,
+        "latency": 9.328303098678589
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 254,
+      "question": "基于以上信息，Timothy与Betty是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "阿姨",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 151,
+        "latency": 9.418663501739502
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 255,
+      "question": "基于以上信息，Kimberly与Betty是什么亲属关系？",
+      "prediction": "叔叔",
+      "reference": "姑姑",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 127,
+        "latency": 9.636500597000122
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 256,
+      "question": "基于以上信息，Edward与George是什么亲属关系？",
+      "prediction": "Edward",
+      "reference": "堂兄弟",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 217,
+        "latency": 14.142069339752197
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 257,
+      "question": "基于以上信息，Lisa与Jason是什么亲属关系？",
+      "prediction": "妻子",
+      "reference": "兄弟姐妹",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 107,
+        "latency": 8.196061134338379
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 258,
+      "question": "基于以上信息，Jennifer与Joshua是什么亲属关系？",
+      "prediction": "妻子",
+      "reference": "兄弟姐妹",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 123,
+        "latency": 7.903571844100952
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 259,
+      "question": "基于以上信息，Donald与Edward是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "岳父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 116,
+        "latency": 9.136634111404419
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 260,
+      "question": "基于以上信息，Susan与Amanda是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "母亲",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 140,
+        "latency": 10.035441875457764
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 261,
+      "question": "基于以上信息，Michael与Susan是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "伯伯/叔叔",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 130,
+        "latency": 9.552473545074463
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 262,
+      "question": "基于以上信息，Timothy与Daniel是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "岳父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 149,
+        "latency": 11.020548582077026
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 263,
+      "question": "基于以上信息，Daniel与Anthony是什么亲属关系？",
+      "prediction": "祖母",
+      "reference": "祖母",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 142,
+        "latency": 10.016465187072754
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 264,
+      "question": "基于以上信息，Mark与Mary是什么亲属关系？",
+      "prediction": "祖父",
+      "reference": "舅祖父",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 244,
+        "latency": 15.86503005027771
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 265,
+      "question": "基于以上信息，Ashley与Kenneth是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "舅祖父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 194,
+        "latency": 13.506067991256714
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 266,
+      "question": "基于以上信息，Brian与Stephanie是什么亲属关系？",
+      "prediction": "儿子",
+      "reference": "侄女",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 143,
+        "latency": 9.155757188796997
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 267,
+      "question": "基于以上信息，Donna与William是什么亲属关系？",
+      "prediction": "女儿",
+      "reference": "外甥女",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 154,
+        "latency": 10.218733310699463
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 268,
+      "question": "基于以上信息，Michael与Jennifer是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "岳父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 129,
+        "latency": 7.882416248321533
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 269,
+      "question": "基于以上信息，Matthew与Robert是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "父亲",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 138,
+        "latency": 9.017385959625244
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 270,
+      "question": "基于以上信息，Michelle与Lisa是什么亲属关系？",
+      "prediction": "岳母",
+      "reference": "表兄弟",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 215,
+        "latency": 15.707326889038086
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 271,
+      "question": "基于以上信息，Margaret与Timothy是什么亲属关系？",
+      "prediction": "妻子",
+      "reference": "表兄弟",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 188,
+        "latency": 12.925810098648071
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 272,
+      "question": "基于以上信息，Daniel与Anthony是什么亲属关系？",
+      "prediction": "Daniel",
+      "reference": "兄弟姐妹",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 118,
+        "latency": 8.719653844833374
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 273,
+      "question": "基于以上信息，Charles与Mark是什么亲属关系？",
+      "prediction": "祖父",
+      "reference": "舅祖父",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 182,
+        "latency": 11.340543270111084
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 274,
+      "question": "基于以上信息，Barbara与Mary是什么亲属关系？",
+      "prediction": "祖父",
+      "reference": "伯祖父/叔祖父",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 166,
+        "latency": 11.387274026870728
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 275,
+      "question": "基于以上信息，Amanda与Barbara是什么亲属关系？",
+      "prediction": "孙子",
+      "reference": "侄子",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 131,
+        "latency": 12.122310638427734
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 276,
+      "question": "基于以上信息，Ashley与Betty是什么亲属关系？",
+      "prediction": "外祖父",
+      "reference": "姨祖母",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 210,
+        "latency": 14.221576929092407
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 277,
+      "question": "基于以上信息，Jessica与Daniel是什么亲属关系？",
+      "prediction": "孙子",
+      "reference": "侄子",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 117,
+        "latency": 8.03604507446289
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 278,
+      "question": "基于以上信息，Robert与Sandra是什么亲属关系？",
+      "prediction": "孙女",
+      "reference": "外甥女",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 158,
+        "latency": 11.840627908706665
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 279,
+      "question": "基于以上信息，Edward与Lisa是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "阿姨",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 125,
+        "latency": 8.67284107208252
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 280,
+      "question": "基于以上信息，Matthew与Deborah是什么亲属关系？",
+      "prediction": "女儿",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 156,
+        "latency": 10.670897006988525
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 281,
+      "question": "基于以上信息，George与Charles是什么亲属关系？",
+      "prediction": "公公",
+      "reference": "表姐妹",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 247,
+        "latency": 16.356759071350098
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 282,
+      "question": "基于以上信息，Betty与Kimberly是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "公公",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 131,
+        "latency": 8.549729585647583
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 283,
+      "question": "基于以上信息，Ashley与Mark是什么亲属关系？",
+      "prediction": "岳母",
+      "reference": "岳母",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 102,
+        "latency": 7.657154321670532
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 284,
+      "question": "基于以上信息，Matthew与Stephanie是什么亲属关系？",
+      "prediction": "祖父",
+      "reference": "祖父",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 110,
+        "latency": 7.843117713928223
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 285,
+      "question": "基于以上信息，Donna与Anthony是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "姑母",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 191,
+        "latency": 12.843717098236084
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 286,
+      "question": "基于以上信息，George与Anthony是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "兄弟姐妹",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 193,
+        "latency": 14.20617413520813
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 287,
+      "question": "基于以上信息，Michelle与Ashley是什么亲属关系？",
+      "prediction": "外祖父",
+      "reference": "祖父",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 167,
+        "latency": 13.254950523376465
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 288,
+      "question": "基于以上信息，James与William是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "表姐妹",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 153,
+        "latency": 13.39175820350647
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 289,
+      "question": "基于以上信息，Ashley与Joshua是什么亲属关系？",
+      "prediction": "Ashley 是 Joshua 的姑姑（或姨妈）。**",
+      "reference": "阿姨",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 138,
+        "latency": 9.882444143295288
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 290,
+      "question": "基于以上信息，Stephanie与Matthew是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "伯伯/叔叔",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 159,
+        "latency": 11.390776872634888
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 291,
+      "question": "基于以上信息，Donald与Barbara是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "舅舅",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 146,
+        "latency": 10.300008058547974
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 292,
+      "question": "基于以上信息，Barbara与Kimberly是什么亲属关系？",
+      "prediction": "母亲",
+      "reference": "姑母",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 180,
+        "latency": 17.462552547454834
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 293,
+      "question": "基于以上信息，Nancy与Brian是什么亲属关系？",
+      "prediction": "妻子",
+      "reference": "表姐妹",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 187,
+        "latency": 12.231296062469482
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 294,
+      "question": "基于以上信息，Carol与Betty是什么亲属关系？",
+      "prediction": "关系",
+      "reference": "父亲",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 149,
+        "latency": 13.282958507537842
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 295,
+      "question": "基于以上信息，Stephanie与Daniel是什么亲属关系？",
+      "prediction": "父亲",
+      "reference": "姑姑",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 136,
+        "latency": 10.251933574676514
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 296,
+      "question": "基于以上信息，John与Kimberly是什么亲属关系？",
+      "prediction": "John 是 Kimberly 的继父（或养父）。**",
+      "reference": "岳父",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 123,
+        "latency": 9.210393190383911
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 297,
+      "question": "基于以上信息，Mary与Joshua是什么亲属关系？",
+      "prediction": "女儿",
+      "reference": "外甥",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 114,
+        "latency": 9.867977857589722
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 298,
+      "question": "基于以上信息，Michael与Robert是什么亲属关系？",
+      "prediction": "女儿",
+      "reference": "外甥女",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 128,
+        "latency": 9.615944623947144
+      },
+      "method": "cot_sc",
+      "error": null
+    },
+    {
+      "sample_id": 299,
+      "question": "基于以上信息，Jessica与Linda是什么亲属关系？",
+      "prediction": "丈夫",
+      "reference": "表姐妹",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 218,
+        "latency": 15.37198257446289
+      },
+      "method": "cot_sc",
+      "error": null
+    }
+  ]
+}

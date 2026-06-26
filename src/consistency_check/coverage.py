@@ -69,11 +69,29 @@ class CoverageCalculator:
         else:
             avg_coverage = 0.0
 
-        coverage_score = 0.6 * global_coverage + 0.4 * avg_coverage
+        # 答案置信度因子：检查 Step 节点的答案质量
+        step_nodes = graph.get_step_nodes()
+        answer_quality = 1.0
+        if step_nodes:
+            empty_count = 0
+            low_confidence_count = 0
+            for node in step_nodes:
+                ans = node.metadata.get("answer", "")
+                if not ans or len(ans.strip()) < 2:
+                    empty_count += 1
+                elif any(kw in ans.lower() for kw in ["i don't know", "unclear", "unknown", "无法确定", "不确定"]):
+                    low_confidence_count += 1
+            total_steps = len(step_nodes)
+            answer_quality = 1.0 - (empty_count * 0.5 + low_confidence_count * 0.3) / max(total_steps, 1)
+            answer_quality = max(0.0, min(1.0, answer_quality))
+
+        # 融合覆盖度和答案质量
+        coverage_score = 0.5 * global_coverage + 0.3 * avg_coverage + 0.2 * answer_quality
 
         return {
             "global_coverage": global_coverage,
             "per_conclusion_coverage": per_conclusion,
             "uncovered_conclusions": uncovered,
+            "answer_quality": round(answer_quality, 4),
             "coverage_score": max(0.0, min(1.0, coverage_score)),
         }

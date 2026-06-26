@@ -14,23 +14,21 @@ from ..graph_representation.reasoning_graph import ReasoningGraph
 from .consistency_score import ConsistencyChecker
 
 
-FEEDBACK_PROMPT = """以下推理过程存在逻辑问题，请修正：
+FEEDBACK_PROMPT = """The following reasoning has logical issues. Please fix them and re-answer the question.
 
-原始问题：{question}
+Original question: {question}
 
-原始推理过程：
+Original reasoning:
 {reasoning}
 
-检测到的问题：
+Detected issues:
 {issues}
 
-请基于以下修正方向重新推理：
-1. 补充断链处的缺失推理步骤
-2. 解决循环论证，选择更合理的推理路径
-3. 为证据不足的结论添加支撑
-4. 消除逻辑矛盾
+Please fix the reasoning and provide a corrected answer.
+You MUST end your response with exactly:
+Final Answer: <your concise answer>
 
-请给出修正后的完整推理过程："""
+Corrected reasoning:"""
 
 
 class FeedbackLoop:
@@ -131,19 +129,26 @@ class FeedbackLoop:
     def _extract_answer(self, text: str) -> str:
         import re
         lines = text.strip().split("\n")
+        # 优先匹配 Final Answer / 最终答案
         for line in reversed(lines):
             m = re.search(r'(?:Final Answer|最终答案)[：:]\s*(.+)', line, re.IGNORECASE)
             if m:
                 ans = m.group(1).strip().strip('*#').strip()
                 if ans:
                     return ans
+        # 回退：最后非空有效行
+        noise_patterns = [
+            r'^如需', r'^如有', r'^需要', r'^\$\$', r'^---',
+            r'^通过补充', r'^合理处理', r'^The question',
+            r'^Please', r'^Note:', r'^\*',
+        ]
         for line in reversed(lines):
             line = line.strip().lstrip('#*|>-').strip()
             if not line or len(line) < 2 or len(line) > 150:
                 continue
             if re.match(r'^[\d\s\.\:步骤]+$', line):
                 continue
-            if re.match(r'^[|【】\[\]{}（）\(\)]+$', line):
+            if any(re.match(p, line) for p in noise_patterns):
                 continue
             return line
         return ""

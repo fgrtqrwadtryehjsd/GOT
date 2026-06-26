@@ -1,29 +1,34 @@
 {
   "dataset": "hotpotqa",
   "model": "qwen3-8b",
-  "num_samples": 20,
+  "num_samples": 100,
   "results": {
     "full_gers": {
-      "em": 0.35,
-      "consistency": 0.8
+      "em": 0.43,
+      "consistency": 0.652596
     },
     "wo_decompose": {
       "em": 0.35,
       "consistency": 0.0
     },
     "wo_context": {
-      "em": 0.3,
-      "consistency": 0.8
+      "em": 0.4,
+      "consistency": 0.652659
     },
-    "wo_consistency": {
-      "em": 0.35,
-      "consistency": 0.8
+    "wo_constraint": {
+      "em": 0.43,
+      "consistency": 0.6547829999999999
+    },
+    "wo_feedback": {
+      "em": 0.43,
+      "consistency": 0.653929
     }
   },
   "configs": {
-    "full_gers": "Full GERS: 分解+依赖传递+汇总+校验（完整方法）",
+    "full_gers": "Full GERS: 分解+路径+约束+依赖传递+闭环修正+校验",
     "wo_decompose": "w/o Decompose: 不分解，退化为 Standard CoT",
     "wo_context": "w/o Context: 子问题不传递前驱答案（独立回答）",
-    "wo_consistency": "w/o Consistency: 无 Consistency Score 校验"
+    "wo_constraint": "w/o Constraint: 不使用 ConstrainedDecoder 约束解码",
+    "wo_feedback": "w/o Feedback: 不使用闭环修正（仅一次性校验打分）"
   }
 }

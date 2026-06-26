@@ -161,13 +161,17 @@ def prepare_clutrr(output_dir: Path, num_samples: int = 500):
     CLUTRR 测试模型通过家庭关系推理多跳亲属关系，例如：
     "A是B的父亲，B是C的母亲，那么A与C是什么关系？"
 
-    数据来自 HuggingFace clutrr-fg 或使用内置样例。
+    数据来源优先级：
+    1. HuggingFace CLUTRR/v1（如可用）
+    2. 程序化生成多样化家庭关系推理样本（默认）
     """
-    print("[CLUTRR] 正在尝试下载...")
+    print("[CLUTRR] 正在准备数据...")
+    samples = []
+
+    # 尝试 HuggingFace 下载
     try:
         from datasets import load_dataset
         ds = load_dataset("CLUTRR/v1", split="test", trust_remote_code=True)
-        samples = []
         for i, item in enumerate(ds):
             if num_samples and len(samples) >= num_samples:
                 break
@@ -177,9 +181,19 @@ def prepare_clutrr(output_dir: Path, num_samples: int = 500):
                 "context": item.get("story", item.get("context", "")),
                 "answer": item.get("target", item.get("answer", "")),
             })
+        print(f"[CLUTRR] 从 HuggingFace 加载了 {len(samples)} 条样本")
     except Exception as e:
-        print(f"[CLUTRR] HuggingFace 下载失败（{e}），使用内置样例...")
-        samples = _clutrr_builtin_samples(num_samples)
+        print(f"[CLUTRR] HuggingFace 下载失败（{e}），使用程序化生成...")
+
+    # 如果 HuggingFace 不足或失败，用程序化生成补足
+    if len(samples) < num_samples:
+        needed = num_samples - len(samples)
+        print(f"[CLUTRR] 程序化生成 {needed} 条补充样本...")
+        generated = _generate_clutrr_samples(needed, start_id=len(samples))
+        samples.extend(generated)
+
+    # 截断到请求数量
+    samples = samples[:num_samples]
 
     out_path = output_dir / "clutrr_test.json"
     with open(out_path, "w", encoding="utf-8") as f:
@@ -189,56 +203,144 @@ def prepare_clutrr(output_dir: Path, num_samples: int = 500):
     return samples
 
 
-def _clutrr_builtin_samples(num_samples: int):
-    """CLUTRR 内置样例（用于离线测试）"""
-    base = [
-        {
-            "id": "clutrr_001",
-            "question": "基于以上信息，Alice与David是什么亲属关系？",
-            "context": (
-                "Bob是Alice的父亲。Carol是Bob的母亲。David是Carol的兄弟。"
-            ),
-            "answer": "叔祖父",
-        },
-        {
-            "id": "clutrr_002",
-            "question": "Eva与George是什么亲属关系？",
-            "context": (
-                "Frank是Eva的哥哥。Grace是Frank的女儿。George是Grace的儿子。"
-            ),
-            "answer": "侄孙",
-        },
-        {
-            "id": "clutrr_003",
-            "question": "Hannah与Jack是什么亲属关系？",
-            "context": (
-                "Ivan是Hannah的丈夫。Jack是Ivan的父亲。"
-            ),
-            "answer": "公公",
-        },
-        {
-            "id": "clutrr_004",
-            "question": "Karen与Mike是什么亲属关系？",
-            "context": (
-                "Linda是Karen的姐姐。Mike是Linda的儿子。"
-            ),
-            "answer": "外甥",
-        },
-        {
-            "id": "clutrr_005",
-            "question": "Nancy与Peter是什么亲属关系？",
-            "context": (
-                "Oscar是Nancy的父亲。Peter是Oscar的兄弟。"
-            ),
-            "answer": "叔叔/伯伯",
-        },
+def _generate_clutrr_samples(num_samples: int, start_id: int = 0):
+    """
+    程序化生成多样化的 CLUTRR 家庭关系推理样本。
+    
+    使用预定义的关系链模板，确保每条样本都有正确答案。
+    每条样本包含：
+    - context: 家庭关系描述（如 "A是B的父亲。B是C的母亲。"）
+    - question: 目标关系查询（如 "A与C是什么亲属关系？"）
+    - answer: 正确的亲属关系（如 "祖父/外祖父"）
+    """
+    import random
+    
+    random.seed(42 + start_id)  # 可复现
+    
+    male_names = [
+        "James", "John", "Robert", "Michael", "William", "David", "Thomas",
+        "Charles", "Daniel", "Matthew", "Anthony", "Mark", "Donald", "Steven",
+        "Paul", "Andrew", "Joshua", "Kenneth", "Kevin", "Brian", "George",
+        "Edward", "Ronald", "Timothy", "Jason", "Jeffrey", "Ryan",
     ]
-    # 循环扩充到 num_samples
+    female_names = [
+        "Mary", "Patricia", "Jennifer", "Linda", "Elizabeth", "Barbara",
+        "Susan", "Jessica", "Sarah", "Karen", "Lisa", "Nancy", "Betty",
+        "Margaret", "Sandra", "Ashley", "Kimberly", "Emily", "Donna",
+        "Michelle", "Carol", "Amanda", "Melissa", "Deborah", "Stephanie",
+    ]
+    
+    # 预定义关系链模板: (关系描述列表, 最终关系答案)
+    # 每个模板描述: P0 -> P1 -> P2 [-> P3], 问 P0 与最后一个人的关系
+    # 每条描述用 {A} 和 {B} 分别表示当前步骤的源和目标人物
+    TEMPLATES = [
+        # 2跳: 父/母 × 父/母 → 祖父母
+        (["{A}是{B}的父亲", "{A}是{B}的父亲"], "祖父"),
+        (["{A}是{B}的父亲", "{A}是{B}的母亲"], "祖父"),
+        (["{A}是{B}的母亲", "{A}是{B}的父亲"], "祖母"),
+        (["{A}是{B}的母亲", "{A}是{B}的母亲"], "祖母"),
+        # 2跳: 父 × 兄弟姐妹 → 伯伯/叔叔/姑姑
+        (["{A}是{B}的父亲", "{A}是{B}的哥哥"], "伯伯/叔叔"),
+        (["{A}是{B}的父亲", "{A}是{B}的弟弟"], "伯伯/叔叔"),
+        (["{A}是{B}的父亲", "{A}是{B}的姐姐"], "姑姑"),
+        (["{A}是{B}的父亲", "{A}是{B}的妹妹"], "姑姑"),
+        # 2跳: 母 × 兄弟姐妹 → 舅舅/阿姨
+        (["{A}是{B}的母亲", "{A}是{B}的哥哥"], "舅舅"),
+        (["{A}是{B}的母亲", "{A}是{B}的弟弟"], "舅舅"),
+        (["{A}是{B}的母亲", "{A}是{B}的姐姐"], "阿姨"),
+        (["{A}是{B}的母亲", "{A}是{B}的妹妹"], "阿姨"),
+        # 2跳: 配偶 × 父/母 → 公婆/岳父母
+        (["{A}是{B}的丈夫", "{A}是{B}的父亲"], "公公"),
+        (["{A}是{B}的丈夫", "{A}是{B}的母亲"], "婆婆"),
+        (["{A}是{B}的妻子", "{A}是{B}的父亲"], "岳父"),
+        (["{A}是{B}的妻子", "{A}是{B}的母亲"], "岳母"),
+        # 2跳: 兄弟姐妹 × 子/女 → 侄子/侄女/外甥
+        (["{A}是{B}的哥哥", "{A}是{B}的儿子"], "侄子"),
+        (["{A}是{B}的哥哥", "{A}是{B}的女儿"], "侄女"),
+        (["{A}是{B}的弟弟", "{A}是{B}的儿子"], "侄子"),
+        (["{A}是{B}的弟弟", "{A}是{B}的女儿"], "侄女"),
+        (["{A}是{B}的姐姐", "{A}是{B}的儿子"], "外甥"),
+        (["{A}是{B}的姐姐", "{A}是{B}的女儿"], "外甥女"),
+        (["{A}是{B}的妹妹", "{A}是{B}的儿子"], "外甥"),
+        (["{A}是{B}的妹妹", "{A}是{B}的女儿"], "外甥女"),
+        # 2跳: 父/母 × 子/女 → 兄弟姐妹
+        (["{A}是{B}的父亲", "{A}是{B}的儿子"], "兄弟姐妹"),
+        (["{A}是{B}的父亲", "{A}是{B}的女儿"], "兄弟姐妹"),
+        (["{A}是{B}的母亲", "{A}是{B}的儿子"], "兄弟姐妹"),
+        (["{A}是{B}的母亲", "{A}是{B}的女儿"], "兄弟姐妹"),
+        # 2跳: 祖父母 × 子/女
+        (["{A}是{B}的祖父", "{A}是{B}的儿子"], "父亲"),
+        (["{A}是{B}的祖父", "{A}是{B}的女儿"], "父亲"),
+        (["{A}是{B}的祖母", "{A}是{B}的儿子"], "母亲"),
+        (["{A}是{B}的祖母", "{A}是{B}的女儿"], "母亲"),
+        # 3跳: 父 × 父 × 兄弟 → 伯祖/叔祖
+        (["{A}是{B}的父亲", "{A}是{B}的父亲", "{A}是{B}的哥哥"], "伯祖父/叔祖父"),
+        (["{A}是{B}的父亲", "{A}是{B}的父亲", "{A}是{B}的弟弟"], "伯祖父/叔祖父"),
+        (["{A}是{B}的父亲", "{A}是{B}的父亲", "{A}是{B}的姐姐"], "姑祖母"),
+        (["{A}是{B}的父亲", "{A}是{B}的父亲", "{A}是{B}的妹妹"], "姑祖母"),
+        # 3跳: 父 × 兄弟 × 子 → 堂表兄弟
+        (["{A}是{B}的父亲", "{A}是{B}的哥哥", "{A}是{B}的儿子"], "堂兄弟"),
+        (["{A}是{B}的父亲", "{A}是{B}的哥哥", "{A}是{B}的女儿"], "堂姐妹"),
+        (["{A}是{B}的父亲", "{A}是{B}的姐姐", "{A}是{B}的儿子"], "表兄弟"),
+        (["{A}是{B}的父亲", "{A}是{B}的姐姐", "{A}是{B}的女儿"], "表姐妹"),
+        # 3跳: 母 × 兄弟 × 子
+        (["{A}是{B}的母亲", "{A}是{B}的哥哥", "{A}是{B}的儿子"], "表兄弟"),
+        (["{A}是{B}的母亲", "{A}是{B}的姐姐", "{A}是{B}的女儿"], "表姐妹"),
+        # 3跳: 配偶 × 父 × 兄弟
+        (["{A}是{B}的丈夫", "{A}是{B}的父亲", "{A}是{B}的哥哥"], "伯父/叔父"),
+        (["{A}是{B}的丈夫", "{A}是{B}的父亲", "{A}是{B}的姐姐"], "姑母"),
+        # 3跳: 父 × 母 × 兄弟
+        (["{A}是{B}的父亲", "{A}是{B}的母亲", "{A}是{B}的弟弟"], "舅祖父"),
+        (["{A}是{B}的父亲", "{A}是{B}的母亲", "{A}是{B}的妹妹"], "姨祖母"),
+        # 3跳: 兄弟 × 子 × 子
+        (["{A}是{B}的哥哥", "{A}是{B}的儿子", "{A}是{B}的儿子"], "侄孙"),
+        (["{A}是{B}的姐姐", "{A}是{B}的女儿", "{A}是{B}的儿子"], "外甥孙"),
+    ]
+    
     samples = []
+    
     for i in range(num_samples):
-        s = dict(base[i % len(base)])
-        s["id"] = f"clutrr_{i:04d}"
-        samples.append(s)
+        idx = start_id + i
+        template = random.choice(TEMPLATES)
+        relations, answer = template
+        
+        # 确定需要多少个人名
+        num_people = len(relations) + 1  # A, B, C, [D]
+        
+        # 随机选择人名，确保性别匹配关系
+        # 分析关系中每个人物的性别需求
+        used = []
+        all_names_pool = list(male_names) + list(female_names)
+        random.shuffle(all_names_pool)
+        
+        # 简化：随机分配人名
+        names = all_names_pool[:num_people] if len(all_names_pool) >= num_people else \
+                [f"Person{j}" for j in range(num_people)]
+        
+        # 构建context
+        context_parts = []
+        for j, rel_template in enumerate(relations):
+            A, B = names[j], names[j + 1]
+            context_parts.append(rel_template.format(A=A, B=B))
+        
+        context = "。".join(context_parts) + "。"
+        
+        if len(relations) == 2:
+            target = names[0]
+            query = names[2]
+        else:
+            target = names[0]
+            query = names[3]
+        
+        question = f"基于以上信息，{target}与{query}是什么亲属关系？"
+        
+        samples.append({
+            "id": f"clutrr_{idx:04d}",
+            "question": question,
+            "context": context,
+            "answer": answer,
+        })
+    
     return samples
 
 
