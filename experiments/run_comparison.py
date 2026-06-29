@@ -73,8 +73,25 @@ def load_dataset(dataset_name: str, split: str = "test", num_samples: int = None
             samples.append({"question": item["question"], "context": "", "answer": answer})
 
     elif dataset_name == "clutrr":
-        from data.prepare_data import _clutrr_builtin_samples
-        samples = _clutrr_builtin_samples(num_samples or 500)
+        raise NotImplementedError(
+            "CLUTRR 已于 2026-06-29 从主实验移除。详见 docs/clutrr_changelog.md"
+        )
+    elif dataset_name == "2wikimultihopqa":
+        ds = hf_load("xanhho/2WikiMultihopQA", split=split, trust_remote_code=True)
+        samples = []
+        for item in ds:
+            context_parts = []
+            for title, sentences in zip(
+                item.get("context", {}).get("title", []),
+                item.get("context", {}).get("sentences", []),
+            ):
+                context_parts.append(f"[{title}] " + " ".join(sentences))
+            samples.append({
+                "question": item["question"],
+                "context": " | ".join(context_parts)[:2000],
+                "answer": item["answer"],
+                "type": item.get("type", ""),
+            })
 
     else:
         raise ValueError(f"Unknown dataset: {dataset_name}")
@@ -233,7 +250,7 @@ def run_comparison(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="对比实验")
     parser.add_argument("--dataset", type=str, default="hotpotqa",
-                       choices=["hotpotqa", "gsm8k", "clutrr"])
+                       choices=["hotpotqa", "gsm8k", "2wikimultihopqa"])
     parser.add_argument("--methods", type=str, default="gers,standard_cot,cot_sc,tot,zero_shot")
     parser.add_argument("--model", type=str, default="qwen3-8b")
     parser.add_argument("--num_samples", type=int, default=500)

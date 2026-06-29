@@ -7,6 +7,7 @@ Self-Consistency (CoT-SC) 基线
 from typing import Dict, List
 from collections import Counter
 from .standard_cot import StandardCoT
+from ..utils.answer_normalizer import normalize_for_vote
 
 
 class CoTSC:
@@ -30,8 +31,9 @@ class CoTSC:
             answers.append(result["answer"])
             all_reasoning.append(result["reasoning_text"])
 
-        # 投票取众数
-        counter = Counter(answers)
+        # 投票前归一化：聚拢 "yes"/"Yes"/"Yes." 等语义等价答案，避免投票碎片化
+        norm_answers = [normalize_for_vote(a) for a in answers]
+        counter = Counter(norm_answers)
         most_common = counter.most_common(1)[0] if counter else ("", 0)
         answer, vote_count = most_common
 

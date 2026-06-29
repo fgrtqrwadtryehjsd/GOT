@@ -1,0 +1,1991 @@
+{
+  "summary": {
+    "method": "cot_sc_gers",
+    "dataset": "hotpotqa",
+    "num_samples": 100,
+    "avg_em": 0.19,
+    "avg_f1": 0.2838,
+    "avg_latency": 22.9087,
+    "error_count": 0,
+    "workers": 4
+  },
+  "results": [
+    {
+      "sample_id": 0,
+      "question": "Were Scott Derrickson and Ed Wood of the same nationality?",
+      "prediction": "yes",
+      "reference": "yes",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 280,
+        "latency": 25.183167695999146
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "yes": 0.83
+      },
+      "majority_answer": "yes"
+    },
+    {
+      "sample_id": 1,
+      "question": "What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tel",
+      "prediction": "the woman who portrayed corliss archer in the film kiss and tell held the posi",
+      "reference": "Chief of Protocol",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 367,
+        "latency": 16.64197587966919
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the woman who portrayed corliss archer in the film kiss and tell held the posi": 0.83
+      },
+      "majority_answer": "the woman who portrayed corliss archer in the film kiss and tell held the posi"
+    },
+    {
+      "sample_id": 2,
+      "question": "What science fantasy young adult series, told in first person, has a set of companion books narratin",
+      "prediction": "the science fantasy young adult series",
+      "reference": "Animorphs",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 467,
+        "latency": 53.65343141555786
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the science fantasy young adult series": 0.5,
+        "given the available information and the specific focus on enslaved worlds and": 0.5,
+        "given the available information": 0.5
+      },
+      "majority_answer": "the science fantasy young adult series"
+    },
+    {
+      "sample_id": 3,
+      "question": "Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?",
+      "prediction": "yes",
+      "reference": "no",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 268,
+        "latency": 17.6474347114563
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "no": 0.4,
+        "yes": 0.5
+      },
+      "majority_answer": "yes"
+    },
+    {
+      "sample_id": 4,
+      "question": "The director of the romantic comedy \"Big Stone Gap\" is based in what New York city?",
+      "prediction": "greenwich village new york city",
+      "reference": "Greenwich Village, New York City",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 418,
+        "latency": 26.699007987976074
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "new york city": 0.17,
+        "greenwich village new york city": 0.17
+      },
+      "majority_answer": "greenwich village new york city"
+    },
+    {
+      "sample_id": 5,
+      "question": "2014 S/S is the debut album of a South Korean boy group that was formed by who?",
+      "prediction": "winner was formed by yg entertainment",
+      "reference": "YG Entertainment",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5,
+        "token_count": 468,
+        "latency": 24.011983394622803
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "winner was formed by yg entertainment": 0.27
+      },
+      "majority_answer": "winner was formed by yg entertainment"
+    },
+    {
+      "sample_id": 6,
+      "question": "Who was known by his stage name Aladin and helped organizations improve their performance as a consu",
+      "prediction": "there is no individual in the provided context who is known by the stage name a",
+      "reference": "Eenasul Fateh",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 457,
+        "latency": 35.28668141365051
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "there is no individual in the provided context who is known by the stage name a": 0.33
+      },
+      "majority_answer": "there is no individual in the provided context who is known by the stage name a"
+    },
+    {
+      "sample_id": 7,
+      "question": "The arena where the Lewiston Maineiacs played their home games can seat how many people?",
+      "prediction": "",
+      "reference": "3,677 seated",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 286,
+        "latency": 20.104348182678223
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "": 0.17
+      },
+      "majority_answer": ""
+    },
+    {
+      "sample_id": 8,
+      "question": "Who is older, Annie Morton or Terry Richardson?",
+      "prediction": "terry richardson is older than annie morton",
+      "reference": "Terry Richardson",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4444444444444445,
+        "token_count": 156,
+        "latency": 15.933526992797852
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "terry richardson is older than annie morton": 1.0
+      },
+      "majority_answer": "terry richardson is older than annie morton"
+    },
+    {
+      "sample_id": 9,
+      "question": "Are Local H and For Against both from the United States?",
+      "prediction": "yes",
+      "reference": "yes",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 304,
+        "latency": 15.613053321838379
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "yes": 0.33
+      },
+      "majority_answer": "yes"
+    },
+    {
+      "sample_id": 10,
+      "question": "What is the name of the fight song of the university whose main campus is in Lawrence, Kansas and wh",
+      "prediction": "the name of the fight song of the university whose main campus is in lawrence k",
+      "reference": "Kansas Song",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.13333333333333336,
+        "token_count": 404,
+        "latency": 27.40508270263672
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the name of the fight song of the university whose main campus is in lawrence k": 0.17
+      },
+      "majority_answer": "the name of the fight song of the university whose main campus is in lawrence k"
+    },
+    {
+      "sample_id": 11,
+      "question": "What screenwriter with credits for \"Evolution\" co-wrote a film starring Nicolas Cage and Téa Leoni?",
+      "prediction": "after reviewing all available information",
+      "reference": "David Weissman",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 604,
+        "latency": 35.39626359939575
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "after reviewing all available information": 0.17,
+        "greg berlanti": 0.17
+      },
+      "majority_answer": "after reviewing all available information"
+    },
+    {
+      "sample_id": 12,
+      "question": "What year did Guns N Roses perform a promo for a movie starring Arnold Schwarzenegger as a former Ne",
+      "prediction": "1990",
+      "reference": "1999",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 551,
+        "latency": 48.63080072402954
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "1990": 0.3
+      },
+      "majority_answer": "1990"
+    },
+    {
+      "sample_id": 13,
+      "question": "Are Random House Tower and 888 7th Avenue both used for real estate?",
+      "prediction": "yes",
+      "reference": "no",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 458,
+        "latency": 35.46665978431702
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "yes": 0.53
+      },
+      "majority_answer": "yes"
+    },
+    {
+      "sample_id": 14,
+      "question": "The football manager who recruited David Beckham managed Manchester United during what timeframe?",
+      "prediction": "the football manager who recruited david beckham managed manchester united from",
+      "reference": "from 1986 to 2013",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.13333333333333333,
+        "token_count": 563,
+        "latency": 35.03741097450256
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the football manager who recruited david beckham managed manchester united from": 0.43,
+        "sir alex ferguson managed manchester united during the timeframe 1990 to 1996": 0.17
+      },
+      "majority_answer": "the football manager who recruited david beckham managed manchester united from"
+    },
+    {
+      "sample_id": 15,
+      "question": "Brown State Fishing Lake is in a country that has a population of how many inhabitants ?",
+      "prediction": "the country where brown state fishing lake",
+      "reference": "9,984",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 201,
+        "latency": 15.516222476959229
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the country where brown state fishing lake": 0.5
+      },
+      "majority_answer": "the country where brown state fishing lake"
+    },
+    {
+      "sample_id": 16,
+      "question": "The Vermont Catamounts men's soccer team currently competes in a conference that was formerly known ",
+      "prediction": "the vermont catamounts men s soccer team currently competes in the america eas",
+      "reference": "the North Atlantic Conference",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.125,
+        "token_count": 416,
+        "latency": 32.73574662208557
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the vermont catamounts men s soccer team currently competes in the america eas": 0.17
+      },
+      "majority_answer": "the vermont catamounts men s soccer team currently competes in the america eas"
+    },
+    {
+      "sample_id": 17,
+      "question": "Are Giuseppe Verdi and Ambroise Thomas both Opera composers ?",
+      "prediction": "yes",
+      "reference": "yes",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 337,
+        "latency": 18.314344882965088
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "yes": 0.83
+      },
+      "majority_answer": "yes"
+    },
+    {
+      "sample_id": 18,
+      "question": "Roger O. Egeberg was Assistant Secretary for Health and Scientific Affairs during the administration",
+      "prediction": "",
+      "reference": "1969 until 1974",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 321,
+        "latency": 17.221293926239014
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "": 0.17
+      },
+      "majority_answer": ""
+    },
+    {
+      "sample_id": 19,
+      "question": "Which writer was from England, Henry Roth or Robert Erskine Childers?",
+      "prediction": "the writer from england",
+      "reference": "Robert Erskine Childers DSC",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 261,
+        "latency": 26.779890775680542
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the writer from england": 1.0
+      },
+      "majority_answer": "the writer from england"
+    },
+    {
+      "sample_id": 20,
+      "question": "Which other Mexican Formula One race car driver has held the podium besides the Force India driver b",
+      "prediction": "sergio pérez",
+      "reference": "Pedro Rodríguez",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 388,
+        "latency": 22.583528995513916
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the other mexican formula one race car driver who has held the podium besides th": 0.17,
+        "sergio pérez": 0.17
+      },
+      "majority_answer": "sergio pérez"
+    },
+    {
+      "sample_id": 21,
+      "question": "This singer of A Rather Blustery Day also voiced what hedgehog?",
+      "prediction": "tails miles prower",
+      "reference": "Sonic",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 348,
+        "latency": 26.677560806274414
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": true,
+      "gers_scores": {
+        "the singer of a rather blustery day likely pooh bear is kate higgins": 0.3,
+        "miles tails prower": 0.17,
+        "tails miles prower": 0.33
+      },
+      "majority_answer": "the singer of a rather blustery day likely pooh bear is kate higgins"
+    },
+    {
+      "sample_id": 22,
+      "question": "Aside from the Apple Remote, what other device can control the program Apple Remote was originally d",
+      "prediction": "the keyboard",
+      "reference": "keyboard function keys",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4,
+        "token_count": 323,
+        "latency": 15.256716251373291
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the keyboard": 0.5
+      },
+      "majority_answer": "the keyboard"
+    },
+    {
+      "sample_id": 23,
+      "question": "Which performance act has a higher instrument to person ratio, Badly Drawn Boy or Wolf Alice? ",
+      "prediction": "wolf alice has a higher instrument to person ratio than badly drawn boy",
+      "reference": "Badly Drawn Boy",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.375,
+        "token_count": 488,
+        "latency": 21.012912034988403
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "wolf alice has a higher instrument to person ratio than badly drawn boy": 0.67
+      },
+      "majority_answer": "wolf alice has a higher instrument to person ratio than badly drawn boy"
+    },
+    {
+      "sample_id": 24,
+      "question": "What was the father of Kasper Schmeichel voted to be by the IFFHS in 1992?",
+      "prediction": "since the question specifically asks what the father of kasper schmeichel was vo",
+      "reference": "World's Best Goalkeeper",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 250,
+        "latency": 18.57281732559204
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "since the question specifically asks what the father of kasper schmeichel was vo": 1.0
+      },
+      "majority_answer": "since the question specifically asks what the father of kasper schmeichel was vo"
+    },
+    {
+      "sample_id": 25,
+      "question": "Who was the writer of These Boots Are Made for Walkin' and who died in 2007?",
+      "prediction": "the writer of these boots are made for walkin",
+      "reference": "Barton Lee Hazlewood",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 301,
+        "latency": 18.23971438407898
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the writer of these boots are made for walkin": 0.17,
+        "the writer of these boots": 0.5
+      },
+      "majority_answer": "the writer of these boots are made for walkin"
+    },
+    {
+      "sample_id": 26,
+      "question": "The 2011–12 VCU Rams men's basketball team, led by third year head coach Shaka Smart, represented Vi",
+      "prediction": "1968",
+      "reference": "1838",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 359,
+        "latency": 18.83374810218811
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": true,
+      "gers_scores": {
+        "based on known historical data": 0.17,
+        "": 0.17,
+        "1968": 0.33
+      },
+      "majority_answer": "based on known historical data"
+    },
+    {
+      "sample_id": 27,
+      "question": "Are both Dictyosperma, and Huernia described as a genus?",
+      "prediction": "yes",
+      "reference": "yes",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 275,
+        "latency": 21.6033775806427
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "yes": 1.0
+      },
+      "majority_answer": "yes"
+    },
+    {
+      "sample_id": 28,
+      "question": "Kaiser Ventures corporation was founded by an American industrialist who became known as the father ",
+      "prediction": "the kaiser ventures corporation",
+      "reference": "Henry J. Kaiser",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.28571428571428575,
+        "token_count": 549,
+        "latency": 26.191452264785767
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the father of modern american shipbuilding": 0.47,
+        "the kaiser ventures corporation": 0.43
+      },
+      "majority_answer": "the kaiser ventures corporation"
+    },
+    {
+      "sample_id": 29,
+      "question": "What is the name for the adventure in \"Tunnels and Trolls\", a game designed by Ken St. Andre?",
+      "prediction": "the context provided does not specify the name of a particular adventure in tun",
+      "reference": "Arena of Khazan",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.125,
+        "token_count": 322,
+        "latency": 22.921669721603394
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": true,
+      "gers_scores": {
+        "": 0.33,
+        "the context provided does not specify the name of a particular adventure in tun": 0.5,
+        "the name for the adventure in tunnels and trolls is the lost city of zin": 0.4
+      },
+      "majority_answer": ""
+    },
+    {
+      "sample_id": 30,
+      "question": "When was Poison's album \"Shut Up, Make Love\" released?",
+      "prediction": "february 2000",
+      "reference": "2000",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.6666666666666666,
+        "token_count": 287,
+        "latency": 19.722522735595703
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "february 2000": 0.83,
+        "the exact release date of poison s album shut up": 0.47
+      },
+      "majority_answer": "february 2000"
+    },
+    {
+      "sample_id": 31,
+      "question": "Hayden is a singer-songwriter from Canada, but where does Buck-Tick hail from?",
+      "prediction": "buck tick hails from fujioka gunma japan",
+      "reference": "Fujioka, Gunma",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4444444444444445,
+        "token_count": 192,
+        "latency": 15.476367950439453
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "buck tick hails from japan": 0.5,
+        "buck tick hails from fujioka gunma japan": 0.83
+      },
+      "majority_answer": "buck tick hails from fujioka gunma japan"
+    },
+    {
+      "sample_id": 32,
+      "question": "Which  French ace pilot and adventurer fly L'Oiseau Blanc",
+      "prediction": "",
+      "reference": "Charles Eugène",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 385,
+        "latency": 24.961195945739746
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "": 0.83,
+        "charles nungesser flew l oiseau blanc": 1.0
+      },
+      "majority_answer": ""
+    },
+    {
+      "sample_id": 33,
+      "question": "Are Freakonomics and In the Realm of the Hackers both American documentaries?",
+      "prediction": "no",
+      "reference": "no",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 466,
+        "latency": 25.484959602355957
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "no": 0.5
+      },
+      "majority_answer": "no"
+    },
+    {
+      "sample_id": 34,
+      "question": "Which band, Letters to Cleo or Screaming Trees, had more members?",
+      "prediction": "letters to cleo had more members than screaming trees",
+      "reference": "Letters to Cleo",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5,
+        "token_count": 350,
+        "latency": 19.298706531524658
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "letters to cleo had more members than screaming trees": 0.83
+      },
+      "majority_answer": "letters to cleo had more members than screaming trees"
+    },
+    {
+      "sample_id": 35,
+      "question": "Alexander Kerensky was defeated and destroyed by the Bolsheviks in the course of a civil war that en",
+      "prediction": "the russian civil war",
+      "reference": "October 1922",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 437,
+        "latency": 22.202316522598267
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the russian civil war": 0.47,
+        "the russian civil war ended in 1922": 1.0
+      },
+      "majority_answer": "the russian civil war"
+    },
+    {
+      "sample_id": 36,
+      "question": "Seven Brief Lessons on Physics was written by an Italian physicist that has worked in France since w",
+      "prediction": "the context does not provide enough information to identify the author of seven",
+      "reference": "2000",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 442,
+        "latency": 26.258125066757202
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the context does not provide enough information to identify the author of seven": 0.17,
+        "1932": 0.0
+      },
+      "majority_answer": "the context does not provide enough information to identify the author of seven"
+    },
+    {
+      "sample_id": 37,
+      "question": "The Livesey Hal War Memorial commemorates the fallen of which war, that had over 60 million casualti",
+      "prediction": "world war ii",
+      "reference": "World War II",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 257,
+        "latency": 21.310147285461426
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the livesey hall war memorial commemorates the fallen of world war ii which": 0.83,
+        "world war ii": 0.83
+      },
+      "majority_answer": "world war ii"
+    },
+    {
+      "sample_id": 38,
+      "question": "Are both Elko Regional Airport and Gerald R. Ford International Airport located in Michigan?",
+      "prediction": "no",
+      "reference": "no",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 349,
+        "latency": 14.8355393409729
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "no": 0.33
+      },
+      "majority_answer": "no"
+    },
+    {
+      "sample_id": 39,
+      "question": "Ralph Hefferline was a psychology professor at a university that is located in what city?",
+      "prediction": "princeton new jersey",
+      "reference": "New York City",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3333333333333333,
+        "token_count": 375,
+        "latency": 17.263854503631592
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the context does not provide information about ralph hefferline s affiliatio": 0.33,
+        "princeton new jersey": 0.17
+      },
+      "majority_answer": "princeton new jersey"
+    },
+    {
+      "sample_id": 40,
+      "question": "Which dog's ancestors include Gordon and Irish Setters: the Manchester Terrier or the Scotch Collie?",
+      "prediction": "neither the manchester terrier nor the scotch collie is stated to have gordon",
+      "reference": "Scotch Collie",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.2857142857142857,
+        "token_count": 782,
+        "latency": 37.34873032569885
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "neither the manchester terrier nor the scotch collie is stated to have gordon": 0.5,
+        "neither the manchester terrier nor the scotch collie has gordon and irish setter": 0.47,
+        "neither the manchester terrier nor the scotch collie has gordon and ir": 0.4
+      },
+      "majority_answer": "neither the manchester terrier nor the scotch collie is stated to have gordon"
+    },
+    {
+      "sample_id": 41,
+      "question": "Where is the company that Sachin Warrier worked for as a software engineer headquartered? ",
+      "prediction": "the company that sachin warrier worked for as a software engineer is tata cons",
+      "reference": "Mumbai",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 237,
+        "latency": 14.452775955200195
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the company that sachin warrier worked for as a software engineer is tata cons": 0.33,
+        "the company that sachin warrier worked for as a software engineer tata consulta": 0.83
+      },
+      "majority_answer": "the company that sachin warrier worked for as a software engineer is tata cons"
+    },
+    {
+      "sample_id": 42,
+      "question": "A Japanese manga series based on a 16 year old high school student Ichitaka Seto, is written and ill",
+      "prediction": "1967",
+      "reference": "1962",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 225,
+        "latency": 14.149045944213867
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "1967": 0.1,
+        "the provided context does not include the birth year of yūsei matsui who wrote": 0.17
+      },
+      "majority_answer": "1967"
+    },
+    {
+      "sample_id": 43,
+      "question": "The battle in which Giuseppe Arimondi lost his life secured what for Ethiopia?",
+      "prediction": "the battle in which giuseppe arimondi lost his life the battle of adwa sec",
+      "reference": "sovereignty",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 429,
+        "latency": 18.791056394577026
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the battle in which giuseppe arimondi lost his life the battle of adwa sec": 0.83
+      },
+      "majority_answer": "the battle in which giuseppe arimondi lost his life the battle of adwa sec"
+    },
+    {
+      "sample_id": 44,
+      "question": "Alfred Balk served as the secretary of the Committee on the Employment of Minority Groups in the New",
+      "prediction": "the correct answer is",
+      "reference": "Nelson Rockefeller",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 399,
+        "latency": 15.255581378936768
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the correct answer is": 0.33
+      },
+      "majority_answer": "the correct answer is"
+    },
+    {
+      "sample_id": 45,
+      "question": "A medieval fortress in Dirleton, East Lothian, Scotland borders on the south side of what coastal ar",
+      "prediction": "the medieval fortress in dirleton",
+      "reference": "Yellowcraig",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 362,
+        "latency": 19.821688890457153
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the medieval fortress in dirleton": 0.27
+      },
+      "majority_answer": "the medieval fortress in dirleton"
+    },
+    {
+      "sample_id": 46,
+      "question": "Who is the writer of this song that was inspired by words on a tombstone and was the first track on ",
+      "prediction": "the writer of the song that",
+      "reference": "Phil Spector",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 538,
+        "latency": 40.69878935813904
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the song i fought the law but the law won": 0.17,
+        "the writer of the song that": 0.17
+      },
+      "majority_answer": "the writer of the song that"
+    },
+    {
+      "sample_id": 47,
+      "question": "What type of forum did a former Soviet statesman initiate?",
+      "prediction": "the type of forum initiated by the former soviet statesman felix dzerzhinsky was",
+      "reference": "Organizations could come together to address global issues",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 517,
+        "latency": 31.649938821792603
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": true,
+      "gers_scores": {
+        "the type of forum initiated by a former soviet statesman is the cheka sovie": 0.0,
+        "the type of forum initiated by a former soviet statesman is the cheka which": 0.1,
+        "the type of forum initiated by the former soviet statesman felix dzerzhinsky was": 0.17
+      },
+      "majority_answer": "the type of forum initiated by a former soviet statesman is the cheka sovie"
+    },
+    {
+      "sample_id": 48,
+      "question": "Are Ferocactus and Silene both types of plant?",
+      "prediction": "yes",
+      "reference": "yes",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 412,
+        "latency": 27.144580364227295
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "yes": 0.5
+      },
+      "majority_answer": "yes"
+    },
+    {
+      "sample_id": 49,
+      "question": "Which British first-generation jet-powered medium bomber was used in the South West Pacific theatre ",
+      "prediction": "the english electric canberra",
+      "reference": "English Electric Canberra",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.8571428571428571,
+        "token_count": 436,
+        "latency": 25.89998745918274
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": true,
+      "gers_scores": {
+        "the british first generation jet powered medium bomber used in the south west pa": 0.27,
+        "the english electric canberra": 0.47,
+        "the context does not clearly state which british first generation jet powered me": 0.27
+      },
+      "majority_answer": "the british first generation jet powered medium bomber used in the south west pa"
+    },
+    {
+      "sample_id": 50,
+      "question": "Which year and which conference was the 14th season for this conference as part of the NCAA Division",
+      "prediction": "the 14th season for the conference that the colorado buffaloes played in wit",
+      "reference": "2009 Big 12 Conference",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.13333333333333333,
+        "token_count": 1089,
+        "latency": 42.77960801124573
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the 14th season for the conference that the colorado buffaloes played in wit": 0.33,
+        "the 14th season for the big 12 conference as part of the ncaa division i": 0.27,
+        "the 14th season for the big 12 conference as part of the ncaa division": 0.33
+      },
+      "majority_answer": "the 14th season for the conference that the colorado buffaloes played in wit"
+    },
+    {
+      "sample_id": 51,
+      "question": "In 1991 Euromarché was bought by a chain that operated how any hypermarkets at the end of 2016?",
+      "prediction": "the context does not provide enough information to determine the exact number of",
+      "reference": "1,462",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 443,
+        "latency": 23.821600914001465
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the context does not provide enough information to determine the exact number of": 0.17,
+        "the context does not provide enough information to determine how many hypermarke": 0.17
+      },
+      "majority_answer": "the context does not provide enough information to determine the exact number of"
+    },
+    {
+      "sample_id": 52,
+      "question": "What race track in the midwest hosts a 500 mile race eavery May?",
+      "prediction": "",
+      "reference": "Indianapolis Motor Speedway",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 531,
+        "latency": 28.474134922027588
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "": 0.17
+      },
+      "majority_answer": ""
+    },
+    {
+      "sample_id": 53,
+      "question": "In what city did the \"Prince of tenors\" star in a film based on an opera by Giacomo Puccini?",
+      "prediction": "paris",
+      "reference": "Rome",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 241,
+        "latency": 20.012847661972046
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the prince of tenors": 0.17,
+        "paris": 0.17
+      },
+      "majority_answer": "paris"
+    },
+    {
+      "sample_id": 54,
+      "question": "Ellie Goulding worked with what other writers on her third studio album, Delirium?",
+      "prediction": "ellie goulding worked with max martin",
+      "reference": "Max Martin, Savan Kotecha and Ilya Salmanzadeh",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.30769230769230765,
+        "token_count": 372,
+        "latency": 21.435372829437256
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "ellie goulding worked with max martin": 0.5
+      },
+      "majority_answer": "ellie goulding worked with max martin"
+    },
+    {
+      "sample_id": 55,
+      "question": "Which Australian city founded in 1838 contains a boarding school opened by a Prime Minister of Austr",
+      "prediction": "geelong",
+      "reference": "Marion, South Australia",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 999,
+        "latency": 58.62624955177307
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "geelong": 0.17,
+        "is": 0.17,
+        "adelaide": 0.17
+      },
+      "majority_answer": "geelong"
+    },
+    {
+      "sample_id": 56,
+      "question": "D1NZ is a series based on what oversteering technique?",
+      "prediction": "there is no available information in the provided context to determine what over",
+      "reference": "Drifting",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 387,
+        "latency": 23.23818588256836
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": true,
+      "gers_scores": {
+        "based on the information provided and standard knowledge d1nz is likely bas": 0.17,
+        "based on the information provided and common knowledge d1nz is likely a ref": 0.17,
+        "there is no available information in the provided context to determine what over": 0.33
+      },
+      "majority_answer": "based on the information provided and standard knowledge d1nz is likely bas"
+    },
+    {
+      "sample_id": 57,
+      "question": "who is younger Keith Bostic or Jerry Glanville ?",
+      "prediction": "the provided context does not include the birth years of either keith bostic or",
+      "reference": "Keith Bostic",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.2666666666666667,
+        "token_count": 310,
+        "latency": 17.564924478530884
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the provided context does not include the birth years of either keith bostic or": 0.5,
+        "the given context does not provide the birth years of either keith bostic or jer": 0.5,
+        "keith bostic is younger than jerry glanville": 0.17
+      },
+      "majority_answer": "the provided context does not include the birth years of either keith bostic or"
+    },
+    {
+      "sample_id": 58,
+      "question": "According to the 2001 census, what was the population of the city in which Kirton End is located?",
+      "prediction": "the population of the city in which kirton end",
+      "reference": "35,124",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 450,
+        "latency": 25.54478621482849
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the population of the city in which kirton end": 0.17
+      },
+      "majority_answer": "the population of the city in which kirton end"
+    },
+    {
+      "sample_id": 59,
+      "question": "Are both Cypress and Ajuga genera?",
+      "prediction": "yes",
+      "reference": "no",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 311,
+        "latency": 19.227864027023315
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "yes": 0.83
+      },
+      "majority_answer": "yes"
+    },
+    {
+      "sample_id": 60,
+      "question": "What distinction is held by the former NBA player who was a member of the Charlotte Hornets during t",
+      "prediction": "the former nba player who",
+      "reference": "shortest player ever to play in the National Basketball Association",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.26666666666666666,
+        "token_count": 554,
+        "latency": 23.945812702178955
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the former nba player who": 0.3
+      },
+      "majority_answer": "the former nba player who"
+    },
+    {
+      "sample_id": 61,
+      "question": "What is the name of the executive producer of the film that has a score composed by Jerry Goldsmith?",
+      "prediction": "the name of the executive producer of the film that has a score composed by jerr",
+      "reference": "Ronald Shusett",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 375,
+        "latency": 19.21904683113098
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the name of the executive producer of the film that has a score composed by jerr": 0.5,
+        "steven spielberg": 0.5
+      },
+      "majority_answer": "the name of the executive producer of the film that has a score composed by jerr"
+    },
+    {
+      "sample_id": 62,
+      "question": "Who was born earlier, Emma Bull or Virginia Woolf?",
+      "prediction": "virginia woolf was born earlier",
+      "reference": "Adeline Virginia Woolf",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5,
+        "token_count": 144,
+        "latency": 9.812749862670898
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "virginia woolf was born earlier": 1.0
+      },
+      "majority_answer": "virginia woolf was born earlier"
+    },
+    {
+      "sample_id": 63,
+      "question": "What was the Roud Folk Song Index of the nursery rhyme inspiring What Are Little Girls Made Of?",
+      "prediction": "the roud folk song index of the nursery rhyme inspiring what are little girls m",
+      "reference": "821",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 489,
+        "latency": 28.7186758518219
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the roud folk song index of the nursery rhyme inspiring what are little girls m": 0.17,
+        "the roud folk song index number for the nursery rhyme inspiring what are little": 0.17,
+        "the nursery rhyme what": 0.17
+      },
+      "majority_answer": "the roud folk song index of the nursery rhyme inspiring what are little girls m"
+    },
+    {
+      "sample_id": 64,
+      "question": "Scott Parkin has been a vocal critic of Exxonmobil and another corporation that has operations in ho",
+      "prediction": "the context does not provide the exact number of countries where halliburton ope",
+      "reference": "more than 70 countries",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.125,
+        "token_count": 492,
+        "latency": 27.9292950630188
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": true,
+      "gers_scores": {
+        "over 80 countries": 0.17,
+        "the context does not provide the exact number of countries where halliburton ope": 0.4,
+        "": 0.4
+      },
+      "majority_answer": "over 80 countries"
+    },
+    {
+      "sample_id": 65,
+      "question": "What WB supernatrual drama series was Jawbreaker star Rose Mcgowan best known for being in?",
+      "prediction": "charmed",
+      "reference": "Charmed",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 295,
+        "latency": 15.235366821289062
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "rose mcgowan": 0.4,
+        "charmed": 1.0
+      },
+      "majority_answer": "charmed"
+    },
+    {
+      "sample_id": 66,
+      "question": "Vince Phillips held a junior welterweight title by an organization recognized by what larger Hall of",
+      "prediction": "the international boxing hall of fame ibhof",
+      "reference": "International Boxing Hall of Fame",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.8333333333333333,
+        "token_count": 581,
+        "latency": 32.32805562019348
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the international boxing hall of fame ibhof": 0.17,
+        "international boxing hall of fame": 0.17
+      },
+      "majority_answer": "the international boxing hall of fame ibhof"
+    },
+    {
+      "sample_id": 67,
+      "question": "What is the name of the singer who's song was released as the lead single from the album \"Confession",
+      "prediction": "based on the given context and the information available none of the songs li",
+      "reference": "Usher",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 684,
+        "latency": 40.53783464431763
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": true,
+      "gers_scores": {
+        "beyoncé": 0.17,
+        "based on the given context and the information available none of the songs li": 0.33,
+        "the name of the singer whose song": 0.17
+      },
+      "majority_answer": "beyoncé"
+    },
+    {
+      "sample_id": 68,
+      "question": "who is the younger brother of The episode guest stars of The Hard Easy ",
+      "prediction": "there is no information provided about guest stars in the hard easy so it is",
+      "reference": "Bill Murray",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 451,
+        "latency": 21.198832035064697
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the question cannot be answered based on the given context as no guest stars of": 0.33,
+        "there is no information provided about guest stars in the hard easy so it is": 0.33
+      },
+      "majority_answer": "there is no information provided about guest stars in the hard easy so it is"
+    },
+    {
+      "sample_id": 69,
+      "question": "The 2017–18 Wigan Athletic F.C. season will be a year in which the team competes in the league cup k",
+      "prediction": "the 2017 18 wigan athletic f c season competed in the efl cup known as the",
+      "reference": "Carabao Cup",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.125,
+        "token_count": 252,
+        "latency": 16.06148052215576
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the 2017 18 wigan athletic f c season competed in the efl cup known as the": 0.83,
+        "the name of the league cup that wigan athletic f c competed in during the 2017": 0.5,
+        "the 2017 18 wigan athletic f c season competed in the league cup known as the": 0.83
+      },
+      "majority_answer": "the 2017 18 wigan athletic f c season competed in the efl cup known as the"
+    },
+    {
+      "sample_id": 70,
+      "question": "Which of Tara Strong major voice role in animated series is an American animated television series b",
+      "prediction": "",
+      "reference": "Teen Titans Go!",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 430,
+        "latency": 23.58721113204956
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "": 1.0
+      },
+      "majority_answer": ""
+    },
+    {
+      "sample_id": 71,
+      "question": "What is the inhabitant of the city where  122nd SS-Standarte was formed in2014",
+      "prediction": "the inhabitant of the city where the 122nd ss standarte was formed in 2014 is",
+      "reference": "276,170 inhabitants",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 220,
+        "latency": 22.699997901916504
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the inhabitant of the city where the 122nd ss standarte was formed in 2014 is": 0.83,
+        "the city where the 122nd ss standarte was formed": 0.43,
+        "the inhabitant count of the city of strasbourg in 2014 the city proper was": 0.6
+      },
+      "majority_answer": "the inhabitant of the city where the 122nd ss standarte was formed in 2014 is"
+    },
+    {
+      "sample_id": 72,
+      "question": "What color clothing do people of the Netherlands wear during Oranjegekte or to celebrate the nationa",
+      "prediction": "",
+      "reference": "orange",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 419,
+        "latency": 20.486802339553833
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "": 0.5,
+        "people of the netherlands wear orange clothing during oranjegekte or to celeb": 1.0
+      },
+      "majority_answer": ""
+    },
+    {
+      "sample_id": 73,
+      "question": "What was the name of the 1996 loose adaptation of William Shakespeare's \"Romeo & Juliet\" written by ",
+      "prediction": "there",
+      "reference": "Tromeo and Juliet",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 324,
+        "latency": 21.283077478408813
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "there": 0.33,
+        "": 0.17
+      },
+      "majority_answer": "there"
+    },
+    {
+      "sample_id": 74,
+      "question": "Robert Suettinger was the national intelligence officer under which former Governor of Arkansas?",
+      "prediction": "robert suettinger",
+      "reference": "William Jefferson Clinton",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 464,
+        "latency": 26.481305837631226
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "robert suettinger": 0.17,
+        "there is no evidence that robert suettinger": 0.17,
+        "there is no evidence that robert suettinger served under a former governor of ar": 0.17
+      },
+      "majority_answer": "robert suettinger"
+    },
+    {
+      "sample_id": 75,
+      "question": "What American professional Hawaiian surfer born 18 October 1992 won the Rip Curl Pro Portugal?",
+      "prediction": "based on the provided information and logical deduction the american professi",
+      "reference": "John John Florence",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 522,
+        "latency": 28.345959186553955
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "based on the provided information and logical deduction the american professi": 0.6,
+        "based on the given information and logical inference the american professional": 0.5667,
+        "we can confirm that john john florence": 0.6
+      },
+      "majority_answer": "based on the provided information and logical deduction the american professi"
+    },
+    {
+      "sample_id": 76,
+      "question": "What is the middle name of the actress who plays Bobbi Bacha in Suburban Madness?",
+      "prediction": "the middle name of the actress who plays bobbi bacha in suburban madness is",
+      "reference": "Ann",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 210,
+        "latency": 16.665443420410156
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the middle name of the actress who plays bobbi bacha in suburban madness is": 1.0
+      },
+      "majority_answer": "the middle name of the actress who plays bobbi bacha in suburban madness is"
+    },
+    {
+      "sample_id": 77,
+      "question": "Alvaro Mexia had a diplomatic mission with which tribe of indigenous people?",
+      "prediction": "the provided context does not contain sufficient information to determine which",
+      "reference": "Apalachees",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 307,
+        "latency": 18.049575567245483
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the provided context does not contain sufficient information to determine which": 0.33,
+        "the question cannot be answered based on the given context": 0.33,
+        "the provided context does not contain enough information to determine which trib": 0.33
+      },
+      "majority_answer": "the provided context does not contain sufficient information to determine which"
+    },
+    {
+      "sample_id": 78,
+      "question": "What nationality were social anthropologists Alfred Gell and Edmund Leach?",
+      "prediction": "both alfred gell and edmund leach were british",
+      "reference": "British",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.2222222222222222,
+        "token_count": 233,
+        "latency": 12.61721396446228
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "both alfred gell and edmund leach were british": 0.5
+      },
+      "majority_answer": "both alfred gell and edmund leach were british"
+    },
+    {
+      "sample_id": 79,
+      "question": "In which year was the King who made the 1925 Birthday Honours born?",
+      "prediction": "1865",
+      "reference": "1865",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 215,
+        "latency": 12.504393577575684
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "1865": 0.33
+      },
+      "majority_answer": "1865"
+    },
+    {
+      "sample_id": 80,
+      "question": "What is the county seat of the county where East Lempster, New Hampshire is located?",
+      "prediction": "newport",
+      "reference": "Newport",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 142,
+        "latency": 7.525856256484985
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "newport": 1.0
+      },
+      "majority_answer": "newport"
+    },
+    {
+      "sample_id": 81,
+      "question": "The Album Against the Wind was the 11th Album of a Rock singer Robert C Seger born may 6 1945. What ",
+      "prediction": "bob seger",
+      "reference": "Bob Seger",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 263,
+        "latency": 15.690220832824707
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the rock singer s stage name is": 1.0,
+        "bob seger": 1.0
+      },
+      "majority_answer": "bob seger"
+    },
+    {
+      "sample_id": 82,
+      "question": "Rostker v. Goldberg held that the practice of what way of filling armed forces vacancies was consitu",
+      "prediction": "the rostker v goldberg decision held that the practice of requiring only men",
+      "reference": "Conscription",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 365,
+        "latency": 21.11811351776123
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": true,
+      "gers_scores": {
+        "the practice of requiring only men to register for the draft was deemed constitu": 0.83,
+        "the rostker v goldberg decision held that the practice of requiring only men": 1.0,
+        "the practice of requiring only men to register for the draft was held to be c": 0.83
+      },
+      "majority_answer": "the practice of requiring only men to register for the draft was deemed constitu"
+    },
+    {
+      "sample_id": 83,
+      "question": "Handi-Snacks are a snack food product line sold by what American multinational confectionery, food, ",
+      "prediction": "the american multinational confectionery",
+      "reference": "Mondelez International, Inc.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 453,
+        "latency": 29.8812415599823
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the american multinational confectionery": 0.17,
+        "the company that sells handi snacks": 0.17,
+        "based on the above analysis and general knowledge": 0.17
+      },
+      "majority_answer": "the american multinational confectionery"
+    },
+    {
+      "sample_id": 84,
+      "question": "What was the name of a woman from the book titled \"Their Lives: The Women Targeted by the Clinton Ma",
+      "prediction": "monica lewinsky",
+      "reference": "Monica Lewinsky",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 469,
+        "latency": 22.593106746673584
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": true,
+      "gers_scores": {
+        "the name of the woman from the book their lives the women targeted by the cli": 0.17,
+        "monica lewinsky": 0.33,
+        "the name of the woman from the book their lives the women targeted by the clin": 0.17
+      },
+      "majority_answer": "the name of the woman from the book their lives the women targeted by the cli"
+    },
+    {
+      "sample_id": 85,
+      "question": "When was the American lawyer, lobbyist and political consultant who was a senior member of the presi",
+      "prediction": "april 1 1949",
+      "reference": "April 1, 1949",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 182,
+        "latency": 8.615469217300415
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "april 1 1949": 1.0
+      },
+      "majority_answer": "april 1 1949"
+    },
+    {
+      "sample_id": 86,
+      "question": "In what year was the novel that Lourenço Mutarelli based \"Nina\" on based first published?",
+      "prediction": "the publication year of the novel a arte de produzir efeito sem causa by loure",
+      "reference": "1866",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 345,
+        "latency": 20.421499252319336
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the novel that lourenço mutarelli based nina on": 0.27,
+        "the publication year of the novel a arte de produzir efeito sem causa by loure": 0.5
+      },
+      "majority_answer": "the publication year of the novel a arte de produzir efeito sem causa by loure"
+    },
+    {
+      "sample_id": 87,
+      "question": "Where are Teide National Park and Garajonay National Park located?",
+      "prediction": "teide national park and garajonay national park",
+      "reference": "Canary Islands, Spain",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 289,
+        "latency": 15.789146184921265
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "teide national park and garajonay national park": 0.83
+      },
+      "majority_answer": "teide national park and garajonay national park"
+    },
+    {
+      "sample_id": 88,
+      "question": "How many copies of Roald Dahl's variation on a popular anecdote sold?",
+      "prediction": "the context does not provide enough information to determine how many copies of",
+      "reference": "250 million",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 473,
+        "latency": 25.876625776290894
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the context does not provide enough information to determine how many copies of": 0.5,
+        "the context does not provide specific information about which anecdote or variat": 0.5,
+        "the question cannot be answered definitively based on the given context as it d": 0.5
+      },
+      "majority_answer": "the context does not provide enough information to determine how many copies of"
+    },
+    {
+      "sample_id": 89,
+      "question": "What occupation do Chris Menges and Aram Avakian share?",
+      "prediction": "film director",
+      "reference": "director",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.6666666666666666,
+        "token_count": 277,
+        "latency": 14.976117134094238
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "film director": 1.0
+      },
+      "majority_answer": "film director"
+    },
+    {
+      "sample_id": 90,
+      "question": "Andrew Jaspan was the co-founder of what not-for-profit media outlet?",
+      "prediction": "the conversation",
+      "reference": "The Conversation",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 235,
+        "latency": 12.002623558044434
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the conversation": 1.0
+      },
+      "majority_answer": "the conversation"
+    },
+    {
+      "sample_id": 91,
+      "question": "Which American film director hosted the 18th Independent Spirit Awards in 2002?",
+      "prediction": "janeane garofalo hosted the 18th independent spirit awards in 2002 while sh",
+      "reference": "John Waters",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 581,
+        "latency": 27.434178590774536
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "janeane garofalo hosted the 18th independent spirit awards in 2002 while sh": 0.33,
+        "the american film director who hosted the 18th independent spirit awards in 2002": 0.33
+      },
+      "majority_answer": "janeane garofalo hosted the 18th independent spirit awards in 2002 while sh"
+    },
+    {
+      "sample_id": 92,
+      "question": "Where does the hotel and casino located in which Bill Cosby's third album was recorded?",
+      "prediction": "the hotel and casino located in which bill cosby s third album was recorded is",
+      "reference": "Las Vegas Strip in Paradise",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.1,
+        "token_count": 290,
+        "latency": 13.44561219215393
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the hotel and casino located in which bill cosby s third album was recorded is": 1.0
+      },
+      "majority_answer": "the hotel and casino located in which bill cosby s third album was recorded is"
+    },
+    {
+      "sample_id": 93,
+      "question": "Do the drinks Gibson and Zurracapote both contain gin?",
+      "prediction": "no",
+      "reference": "no",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 428,
+        "latency": 24.231839656829834
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "": 0.5,
+        "no": 0.33
+      },
+      "majority_answer": "no"
+    },
+    {
+      "sample_id": 94,
+      "question": "In what month is the annual documentary film festival, that is presented by the fortnightly publishe",
+      "prediction": "the annual documentary film festival presented by the fortnightly published brit",
+      "reference": "March and April",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 293,
+        "latency": 13.959785223007202
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the annual documentary film festival presented by the fortnightly published brit": 0.83
+      },
+      "majority_answer": "the annual documentary film festival presented by the fortnightly published brit"
+    },
+    {
+      "sample_id": 95,
+      "question": "Tysons Galleria is located in what county?",
+      "prediction": "fairfax county",
+      "reference": "Fairfax County",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 246,
+        "latency": 12.024840831756592
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "fairfax county": 1.0
+      },
+      "majority_answer": "fairfax county"
+    },
+    {
+      "sample_id": 96,
+      "question": "Bordan Tkachuk was the CEO of a company that provides what sort of products?",
+      "prediction": "",
+      "reference": "IT products and services",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 488,
+        "latency": 19.60716199874878
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "": 0.33
+      },
+      "majority_answer": ""
+    },
+    {
+      "sample_id": 97,
+      "question": "Which filmmaker was known for animation, Lev Yilmaz or Pamela B. Green?",
+      "prediction": "neither lev yilmaz nor pamela b green",
+      "reference": "Levni Yilmaz",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.22222222222222224,
+        "token_count": 408,
+        "latency": 27.468392372131348
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "neither lev yilmaz nor pamela b green": 0.33,
+        "the context does not provide information about either lev yilmaz or pamela": 0.17
+      },
+      "majority_answer": "neither lev yilmaz nor pamela b green"
+    },
+    {
+      "sample_id": 98,
+      "question": "In which city is the ambassador of the Rabat-Salé-Kénitra administrative region to China based?",
+      "prediction": "the ambassador of the rabat salé kénitra administrative region to china is based",
+      "reference": "Beijing",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 286,
+        "latency": 13.20905876159668
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "the ambassador of the rabat salé kénitra administrative region to china is based": 0.4
+      },
+      "majority_answer": "the ambassador of the rabat salé kénitra administrative region to china is based"
+    },
+    {
+      "sample_id": 99,
+      "question": "Are Yingkou and Fuding the same level of city?",
+      "prediction": "no",
+      "reference": "no",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 388,
+        "latency": 19.364155769348145
+      },
+      "method": "cot_sc_gers",
+      "error": null,
+      "gers_rerank_triggered": false,
+      "gers_scores": {
+        "no": 1.0,
+        "": 1.0
+      },
+      "majority_answer": "no"
+    }
+  ]
+}

@@ -1,23 +1,23 @@
 {
   "hotpotqa": {
     "dataset": "hotpotqa",
-    "methods": "gers,standard_cot,cot_sc,tot,zero_shot",
+    "methods": "gers,gers_adaptive,gers_sc,standard_cot,cot_sc,cot_sc_gers,tot,zero_shot",
     "model": "qwen3-8b",
     "num_samples": 500,
     "output_dir": "experiments/results/"
   },
   "gsm8k": {
     "dataset": "gsm8k",
-    "methods": "gers,standard_cot,cot_sc,tot,zero_shot",
+    "methods": "gers,gers_adaptive,standard_cot,cot_sc,cot_sc_gers,tot,zero_shot",
     "model": "qwen3-8b",
     "num_samples": 500,
     "output_dir": "experiments/results/"
   },
-  "clutrr": {
-    "dataset": "clutrr",
-    "methods": "gers,standard_cot,cot_sc,tot,zero_shot",
+  "2wikimultihopqa": {
+    "dataset": "2wikimultihopqa",
+    "methods": "gers,gers_adaptive,standard_cot,cot_sc,cot_sc_gers,tot,zero_shot",
     "model": "qwen3-8b",
-    "num_samples": 300,
+    "num_samples": 500,
     "output_dir": "experiments/results/"
   }
 }

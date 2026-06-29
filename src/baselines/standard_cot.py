@@ -22,7 +22,7 @@ class StandardCoT:
         self.model = model
 
     def reason(self, question: str, context: str = "") -> Dict:
-        context_section = f"\n参考信息：{context}" if context else ""
+        context_section = f"\nContext: {context}" if context else ""
         prompt = COT_PROMPT.format(question=question, context_section=context_section)
 
         if self.model is None:

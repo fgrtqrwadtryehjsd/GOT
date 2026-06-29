@@ -179,6 +179,10 @@ class GraphGuidedGenerator:
         self._no_context = _no_context
         self._no_constraint = _no_constraint
         self._no_feedback = _no_feedback
+        # Self-Consistency 时每条 DAG 的分解温度（None=用默认 0.2）。
+        # 注意：generate() 用的是参数 temperature，不读 model.temperature，
+        # 所以必须在这里显式传给 _decompose，否则 K 条 DAG 无温度多样性。
+        self._decompose_temperature: Optional[float] = None
 
     def reason(self, question: str, context: str = "") -> Dict:
         """
@@ -386,13 +390,12 @@ class GraphGuidedGenerator:
         logger.debug(f"GERS-SC: 生成 {K} 条推理DAG...")
 
         candidates = []
-        original_temp = getattr(self.model, 'temperature', None)
+        original_decomp_temp = self._decompose_temperature
 
         for k in range(K):
-            # 每条DAG使用不同temperature增加多样性
+            # 每条DAG使用不同分解温度增加多样性（真正传入 _decompose → generate）
             temp = 0.3 + k * 0.2  # 0.3, 0.5, 0.7, ...
-            if hasattr(self.model, 'temperature'):
-                self.model.temperature = temp
+            self._decompose_temperature = temp
 
             # 临时关闭self_consistency避免递归
             saved_k = self.self_consistency_k
@@ -418,9 +421,8 @@ class GraphGuidedGenerator:
             })
             logger.debug(f"  DAG {k+1}/{K}: CS={cs:.4f}, answer={result['answer'][:40]}")
 
-        # 恢复原始temperature
-        if original_temp is not None and hasattr(self.model, 'temperature'):
-            self.model.temperature = original_temp
+        # 恢复原始分解温度
+        self._decompose_temperature = original_decomp_temp
 
         # 选Consistency Score最高的候选
         best = max(candidates, key=lambda c: c["consistency_score"])
@@ -545,7 +547,9 @@ class GraphGuidedGenerator:
             question=question,
             context_section=context_section
         )
-        response = self.model.generate(prompt, max_tokens=600, temperature=0.2)
+        # Self-Consistency 时由 _reason_with_self_consistency 注入不同温度，保证 K 条 DAG 多样
+        decomp_temp = self._decompose_temperature if self._decompose_temperature is not None else 0.2
+        response = self.model.generate(prompt, max_tokens=600, temperature=decomp_temp)
 
         # 解析 JSON
         try:

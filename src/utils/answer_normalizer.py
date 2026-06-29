@@ -97,58 +97,29 @@ def normalize_hotpotqa_answer(raw: str) -> str:
 
 
 def normalize_clutrr_answer(raw: str) -> str:
-    """CLUTRR 专用：提取亲属关系词，中文同义词标准化"""
-    cleaned = clean_answer(raw)
+    """[已废弃] CLUTRR 标准化器已停用，保留仅为 API 兼容。"""
+    raise NotImplementedError("CLUTRR 标准化器已停用，请改用 HotpotQA 标准化器")
 
-    # 从完整句子中提取关系词（"X是Y的叔叔" → "叔叔"）
-    m = re.search(r'是[^的]*的(.{2,6}?)(?:[。，,.]|$)', cleaned)
-    if m:
-        cleaned = m.group(1).strip()
 
-    # 取第一个关系词（"叔叔和侄女" → "叔叔"）
-    cleaned = re.split(r'[和与及,，、]', cleaned)[0].strip()
+def normalize_2wikimultihopqa_answer(raw: str) -> str:
+    """2WikiMultiHopQA 专用：与 HotpotQA 类似的简洁实体/yes-no 答案"""
+    # 2WikiMultiHopQA 答案结构与 HotpotQA 类似（短实体/yes-no/日期）
+    return normalize_hotpotqa_answer(raw)
 
-    # 同义词映射到标准词（与 data/processed/clutrr_test.json 的标签对齐）
-    synonym_map = {
-        "叔叔": "叔叔",
-        "舅舅": "舅舅",
-        "公公": "公公",
-        "侄子": "侄子",
-        "侄女": "侄女",
-        "叔祖父": "叔祖父",
-        "外祖父": "外祖父",
-        "外公": "外祖父",
-        "侄孙": "侄孙",
-        "女儿": "女儿",
-        "父亲": "父亲",
-        "爸爸": "父亲",
-        "母亲": "母亲",
-        "妈妈": "母亲",
-        "儿子": "儿子",
-        "祖父": "祖父",
-        "爷爷": "祖父",
-        "祖母": "祖母",
-        "奶奶": "祖母",
-        "兄弟": "兄弟",
-        "哥哥": "兄弟",
-        "弟弟": "兄弟",
-        "姐妹": "姐妹",
-        "姐姐": "姐妹",
-        "妹妹": "姐妹",
-        "丈夫": "丈夫",
-        "妻子": "妻子",
-        "uncle": "叔叔",
-        "aunt": "姑姑",
-        "father": "父亲",
-        "mother": "母亲",
-        "son": "儿子",
-        "daughter": "女儿",
-        "grandfather": "祖父",
-        "grandmother": "祖母",
-        "nephew": "侄子",
-        "niece": "侄女",
-    }
-    for k, v in synonym_map.items():
-        if k == cleaned or k in cleaned.lower():
-            return v
-    return cleaned
+
+def normalize_for_vote(answer: str) -> str:
+    """投票前归一化：聚拢语义等价的简短答案（yes/no 聚合 + 小写 + 去标点）。
+
+    用于 CoT-SC / CoT-SC+GERS 的多数投票，避免 "yes"/"Yes"/"Yes." 这类
+    本应相同的答案被拆成不同票，削弱投票效果。
+    """
+    if not answer:
+        return ""
+    a = clean_answer(answer).lower().strip()
+    a = re.sub(r'[^\w\s]', ' ', a)          # 标点→空格
+    a = ' '.join(a.split())                 # 折叠空白
+    if a in ('yes', '是', '是的', 'true', 'correct', 'yeah'):
+        return 'yes'
+    if a in ('no', '否', '不是', '不', 'false', 'nope', 'neither'):
+        return 'no'
+    return a

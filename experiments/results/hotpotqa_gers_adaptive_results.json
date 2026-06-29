@@ -2,13 +2,12 @@
   "summary": {
     "method": "gers_adaptive",
     "dataset": "hotpotqa",
-    "model": "qwen3-8b",
     "num_samples": 100,
     "avg_em": 0.26,
-    "avg_f1": 0.3804,
-    "avg_latency": 5.0891,
-    "timeout_count": 0,
-    "error_count": 0
+    "avg_f1": 0.3821,
+    "avg_latency": 5.2572,
+    "error_count": 0,
+    "workers": 4
   },
   "results": [
     {
@@ -20,11 +19,44 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 47,
-        "latency": 6.600527286529541,
+        "latency": 3.754065752029419,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "57e17fde": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 93,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 1,
@@ -35,11 +67,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 57,
-        "latency": 4.832326650619507,
+        "latency": 4.700448274612427,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "d392faf5": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 107,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 2,
@@ -50,11 +115,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 86,
-        "latency": 5.037823438644409,
+        "latency": 6.2411065101623535,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "76f683f0": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 102,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 3,
@@ -65,11 +163,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 102,
-        "latency": 5.003623008728027,
+        "latency": 6.257853269577026,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "d5515c05": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 162,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 4,
@@ -80,11 +211,44 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 59,
-        "latency": 4.145862579345703,
+        "latency": 3.6231584548950195,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "9cc263cd": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 72,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 5,
@@ -95,11 +259,44 @@
         "em": 0.0,
         "f1": 0.5,
         "token_count": 84,
-        "latency": 4.697954177856445,
+        "latency": 5.074209213256836,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "b6c315ce": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 94,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 6,
@@ -110,11 +307,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 89,
-        "latency": 4.369552373886108,
+        "latency": 5.900471448898315,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "cbf9a22f": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 138,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 7,
@@ -125,11 +355,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 72,
-        "latency": 4.667639970779419,
+        "latency": 5.572603702545166,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "9992fc45": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 74,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 8,
@@ -140,11 +403,44 @@
         "em": 0.0,
         "f1": 0.4444444444444445,
         "token_count": 45,
-        "latency": 4.111651420593262,
+        "latency": 3.158416986465454,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "257a7820": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 47,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 9,
@@ -155,11 +451,44 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 59,
-        "latency": 4.5720930099487305,
+        "latency": 4.210215330123901,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "7aa9d935": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 116,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 10,
@@ -170,11 +499,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 79,
-        "latency": 4.074243545532227,
+        "latency": 4.255606174468994,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "9184d9bb": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 93,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 11,
@@ -185,11 +547,44 @@
         "em": 0.0,
         "f1": 0.5,
         "token_count": 57,
-        "latency": 4.963199615478516,
+        "latency": 5.5961620807647705,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "47d1668b": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 85,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 12,
@@ -200,11 +595,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 59,
-        "latency": 6.1715991497039795,
+        "latency": 7.256102561950684,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "6c75ad37": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 98,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 13,
@@ -214,12 +642,45 @@
       "metrics": {
         "em": 1.0,
         "f1": 1.0,
-        "token_count": 111,
-        "latency": 7.253862142562866,
+        "token_count": 103,
+        "latency": 8.747270345687866,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "04b8ce28": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 159,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 14,
@@ -230,11 +691,44 @@
         "em": 0.0,
         "f1": 0.13333333333333333,
         "token_count": 72,
-        "latency": 4.338037490844727,
+        "latency": 3.641629457473755,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "97b8e756": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 98,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 15,
@@ -244,12 +738,16 @@
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 233,
-        "latency": 5.335070848464966,
+        "token_count": 240,
+        "latency": 3.6381125450134277,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": null,
+      "token_count": 240,
+      "num_sub_questions": 0
     },
     {
       "sample_id": 16,
@@ -260,11 +758,44 @@
         "em": 0.0,
         "f1": 0.22222222222222224,
         "token_count": 94,
-        "latency": 5.275218486785889,
+        "latency": 4.282790422439575,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "bcefacda": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 90,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 17,
@@ -275,11 +806,44 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 49,
-        "latency": 7.833815336227417,
+        "latency": 5.861357688903809,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "6541a52a": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 124,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 18,
@@ -290,11 +854,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 71,
-        "latency": 4.408013820648193,
+        "latency": 7.3674116134643555,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "4432550d": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 69,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 19,
@@ -305,11 +902,44 @@
         "em": 0.0,
         "f1": 0.8571428571428571,
         "token_count": 52,
-        "latency": 6.9538633823394775,
+        "latency": 6.280089855194092,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "3761377d": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 98,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 20,
@@ -320,11 +950,44 @@
         "em": 0.0,
         "f1": 0.3333333333333333,
         "token_count": 62,
-        "latency": 5.163758993148804,
+        "latency": 4.654177904129028,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "8b116106": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 96,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 21,
@@ -335,11 +998,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 57,
-        "latency": 6.2941107749938965,
+        "latency": 5.527966022491455,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "7af8e37b": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 115,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 22,
@@ -350,11 +1046,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 79,
-        "latency": 4.920655727386475,
+        "latency": 5.345130205154419,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "16c14db0": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 140,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 23,
@@ -365,11 +1094,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 84,
-        "latency": 4.784039735794067,
+        "latency": 6.315343856811523,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "94c0c787": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 146,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 24,
@@ -380,11 +1142,44 @@
         "em": 0.0,
         "f1": 0.8571428571428571,
         "token_count": 59,
-        "latency": 5.254592418670654,
+        "latency": 5.333291292190552,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "73504b1b": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 97,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 25,
@@ -395,11 +1190,44 @@
         "em": 0.0,
         "f1": 0.8,
         "token_count": 53,
-        "latency": 6.086938381195068,
+        "latency": 5.466530799865723,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "ea71fe49": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 71,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 26,
@@ -410,11 +1238,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 59,
-        "latency": 5.079543828964233,
+        "latency": 4.268876552581787,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "f7d0b08c": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 91,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 27,
@@ -425,11 +1286,44 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 58,
-        "latency": 4.932305574417114,
+        "latency": 6.494893312454224,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "6246979d": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 103,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 28,
@@ -440,11 +1334,44 @@
         "em": 0.0,
         "f1": 0.13333333333333333,
         "token_count": 108,
-        "latency": 4.636839389801025,
+        "latency": 5.237285375595093,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "5e057e77": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 154,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 29,
@@ -455,11 +1382,44 @@
         "em": 0.0,
         "f1": 0.25,
         "token_count": 59,
-        "latency": 4.292973756790161,
+        "latency": 6.095043182373047,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "86fc6da5": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 97,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 30,
@@ -470,11 +1430,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 66,
-        "latency": 4.69143009185791,
+        "latency": 4.575894355773926,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "1312f1a3": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 98,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 31,
@@ -485,11 +1478,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 60,
-        "latency": 6.929805040359497,
+        "latency": 4.329622745513916,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "82dd7654": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 128,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 32,
@@ -500,11 +1526,44 @@
         "em": 0.0,
         "f1": 0.28571428571428575,
         "token_count": 73,
-        "latency": 4.858250141143799,
+        "latency": 4.7647082805633545,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "dd2f8717": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 125,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 33,
@@ -515,11 +1574,44 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 87,
-        "latency": 5.499590873718262,
+        "latency": 5.04611611366272,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "436a4b0e": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 164,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 34,
@@ -530,11 +1622,44 @@
         "em": 0.0,
         "f1": 0.6666666666666666,
         "token_count": 42,
-        "latency": 4.31834602355957,
+        "latency": 5.963589668273926,
         "consistency_score": 0.779
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 0.779,
+        "structural_score": 0.965,
+        "semantic_score": 0.5,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "f93dc0c7": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 0.5,
+          "coverage_score": 0.9
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 89,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 35,
@@ -545,11 +1670,44 @@
         "em": 0.0,
         "f1": 0.6666666666666666,
         "token_count": 79,
-        "latency": 5.1385509967803955,
+        "latency": 6.077051639556885,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "50133af2": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 144,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 36,
@@ -560,11 +1718,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 53,
-        "latency": 4.72162652015686,
+        "latency": 4.238020420074463,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "500f5045": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 101,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 37,
@@ -575,11 +1766,44 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 50,
-        "latency": 3.6467370986938477,
+        "latency": 3.5095126628875732,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "24718f13": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 55,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 38,
@@ -590,11 +1814,44 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 72,
-        "latency": 4.917652368545532,
+        "latency": 3.1640899181365967,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "315fd088": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 68,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 39,
@@ -605,11 +1862,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 58,
-        "latency": 4.9607343673706055,
+        "latency": 3.373464584350586,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "495dae7f": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 69,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 40,
@@ -620,11 +1910,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 105,
-        "latency": 6.343186616897583,
+        "latency": 5.985387086868286,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "6cf28855": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 218,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 41,
@@ -635,11 +1958,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 95,
-        "latency": 5.8836915493011475,
+        "latency": 10.015426874160767,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "a5679681": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 137,
+      "num_sub_questions": 3
     },
     {
       "sample_id": 42,
@@ -650,11 +2006,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 49,
-        "latency": 5.673653602600098,
+        "latency": 6.841229200363159,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "5aa101cb": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 128,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 43,
@@ -665,11 +2054,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 98,
-        "latency": 6.085088491439819,
+        "latency": 4.81825590133667,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "e9670b78": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 159,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 44,
@@ -680,11 +2102,44 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 100,
-        "latency": 4.847703218460083,
+        "latency": 4.3308165073394775,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "6a469ac7": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 130,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 45,
@@ -695,11 +2150,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 56,
-        "latency": 5.534128189086914,
+        "latency": 4.90801739692688,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "6ec49fbc": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 134,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 46,
@@ -710,11 +2198,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 83,
-        "latency": 4.893839359283447,
+        "latency": 6.405890464782715,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "ce0705ab": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 102,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 47,
@@ -725,11 +2246,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 95,
-        "latency": 4.712704658508301,
+        "latency": 5.938591480255127,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "c4b862cf": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 184,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 48,
@@ -740,11 +2294,44 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 55,
-        "latency": 5.4902989864349365,
+        "latency": 4.4233880043029785,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "6bb19e26": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 102,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 49,
@@ -755,26 +2342,92 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 88,
-        "latency": 4.743462324142456,
+        "latency": 4.5615761280059814,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "f6bce396": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 113,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 50,
       "question": "Which year and which conference was the 14th season for this conference as part of the NCAA Division",
-      "prediction": "The 14th season for the Pac-12 Conference as part of the NCAA Division I was in",
+      "prediction": "1993, Pac-12 Conference",
       "reference": "2009 Big 12 Conference",
       "metrics": {
         "em": 0.0,
-        "f1": 0.11111111111111112,
-        "token_count": 153,
-        "latency": 11.284916877746582,
+        "f1": 0.28571428571428575,
+        "token_count": 136,
+        "latency": 12.296206951141357,
         "consistency_score": 0.94
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 0.94,
+        "structural_score": 0.9,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "10ffc5e2": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 187,
+      "num_sub_questions": 4
     },
     {
       "sample_id": 51,
@@ -785,11 +2438,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 49,
-        "latency": 4.925590515136719,
+        "latency": 5.051450490951538,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "5eb0a2bb": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 77,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 52,
@@ -800,11 +2486,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 78,
-        "latency": 5.733084440231323,
+        "latency": 5.929826021194458,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "560d86b9": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 110,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 53,
@@ -815,11 +2534,44 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 63,
-        "latency": 6.081050872802734,
+        "latency": 5.810796737670898,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "7397afeb": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 74,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 54,
@@ -830,11 +2582,44 @@
         "em": 0.0,
         "f1": 0.30769230769230765,
         "token_count": 94,
-        "latency": 5.678584814071655,
+        "latency": 5.759816884994507,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "d53cb2a9": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 141,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 55,
@@ -845,11 +2630,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 68,
-        "latency": 4.118634223937988,
+        "latency": 5.130859375,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "0fd55201": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 98,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 56,
@@ -860,11 +2678,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 44,
-        "latency": 3.9332408905029297,
+        "latency": 4.036590814590454,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "59653910": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 49,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 57,
@@ -875,11 +2726,44 @@
         "em": 0.0,
         "f1": 0.23529411764705882,
         "token_count": 117,
-        "latency": 6.555054187774658,
+        "latency": 6.467108726501465,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "60791eab": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 210,
+      "num_sub_questions": 3
     },
     {
       "sample_id": 58,
@@ -890,11 +2774,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 72,
-        "latency": 4.172592401504517,
+        "latency": 4.963483810424805,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "63835809": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 60,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 59,
@@ -905,11 +2822,44 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 63,
-        "latency": 4.5956525802612305,
+        "latency": 4.130841016769409,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "877a3176": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 122,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 60,
@@ -920,11 +2870,44 @@
         "em": 0.0,
         "f1": 0.16666666666666666,
         "token_count": 107,
-        "latency": 6.155805349349976,
+        "latency": 5.960353851318359,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "6730ca39": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 149,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 61,
@@ -935,11 +2918,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 53,
-        "latency": 5.831731796264648,
+        "latency": 3.781285524368286,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "ff3ded75": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 82,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 62,
@@ -950,11 +2966,44 @@
         "em": 0.0,
         "f1": 0.5,
         "token_count": 48,
-        "latency": 4.2686309814453125,
+        "latency": 4.349924564361572,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "0e586a64": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 47,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 63,
@@ -965,26 +3014,63 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 55,
-        "latency": 4.9056901931762695,
+        "latency": 3.9230968952178955,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "71aec697": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 76,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 64,
       "question": "Scott Parkin has been a vocal critic of Exxonmobil and another corporation that has operations in ho",
-      "prediction": "The context does not provide enough information to determine how many countries",
+      "prediction": "Since the context does not provide an exact number of countries where ExxonMobil",
       "reference": "more than 70 countries",
       "metrics": {
         "em": 0.0,
-        "f1": 0.125,
-        "token_count": 463,
-        "latency": 6.514331340789795,
+        "f1": 0.11764705882352941,
+        "token_count": 537,
+        "latency": 6.700414180755615,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": null,
+      "token_count": 537,
+      "num_sub_questions": 0
     },
     {
       "sample_id": 65,
@@ -994,12 +3080,45 @@
       "metrics": {
         "em": 1.0,
         "f1": 1.0,
-        "token_count": 64,
-        "latency": 4.869738340377808,
+        "token_count": 68,
+        "latency": 4.506704330444336,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "6d6ed557": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 94,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 66,
@@ -1010,11 +3129,44 @@
         "em": 0.0,
         "f1": 0.9090909090909091,
         "token_count": 88,
-        "latency": 4.179406642913818,
+        "latency": 3.501755714416504,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "778149bf": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 92,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 67,
@@ -1025,11 +3177,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 52,
-        "latency": 4.148781776428223,
+        "latency": 9.073739051818848,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "5faa3028": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 76,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 68,
@@ -1040,11 +3225,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 72,
-        "latency": 4.254060506820679,
+        "latency": 4.568893194198608,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "b81a4220": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 100,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 69,
@@ -1055,11 +3273,44 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 68,
-        "latency": 4.145885944366455,
+        "latency": 3.879575729370117,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "f708b24f": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 71,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 70,
@@ -1070,11 +3321,44 @@
         "em": 0.0,
         "f1": 0.7499999999999999,
         "token_count": 76,
-        "latency": 4.532086372375488,
+        "latency": 6.387248754501343,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "051761ff": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 89,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 71,
@@ -1085,11 +3369,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 65,
-        "latency": 4.582155704498291,
+        "latency": 4.766127586364746,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "64bae809": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 72,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 72,
@@ -1100,11 +3417,44 @@
         "em": 0.0,
         "f1": 0.6666666666666666,
         "token_count": 91,
-        "latency": 5.556027412414551,
+        "latency": 4.108001947402954,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "0abcc60e": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 132,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 73,
@@ -1115,11 +3465,44 @@
         "em": 0.0,
         "f1": 0.4,
         "token_count": 70,
-        "latency": 4.555816650390625,
+        "latency": 6.178318738937378,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "ad23665d": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 81,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 74,
@@ -1130,11 +3513,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 86,
-        "latency": 4.058361768722534,
+        "latency": 5.216241121292114,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "db783ec3": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 134,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 75,
@@ -1145,11 +3561,44 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 64,
-        "latency": 5.5913612842559814,
+        "latency": 4.751142740249634,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "367726bf": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 138,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 76,
@@ -1160,11 +3609,44 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 41,
-        "latency": 4.8400492668151855,
+        "latency": 3.4851856231689453,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "44887c83": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 46,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 77,
@@ -1174,12 +3656,45 @@
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 155,
-        "latency": 5.885599136352539,
+        "token_count": 181,
+        "latency": 7.74603009223938,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "52bb9cca": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 245,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 78,
@@ -1190,11 +3705,44 @@
         "em": 0.0,
         "f1": 0.2222222222222222,
         "token_count": 47,
-        "latency": 4.112283229827881,
+        "latency": 4.202046632766724,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "583e0200": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 81,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 79,
@@ -1205,11 +3753,44 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 46,
-        "latency": 4.145709037780762,
+        "latency": 4.855055570602417,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "d6c94ee9": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 46,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 80,
@@ -1220,11 +3801,44 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 48,
-        "latency": 3.684818744659424,
+        "latency": 2.8260743618011475,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "7dbc8479": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 48,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 81,
@@ -1235,11 +3849,44 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 46,
-        "latency": 4.084612131118774,
+        "latency": 4.1711108684539795,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "617dc4b0": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 64,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 82,
@@ -1250,11 +3897,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 113,
-        "latency": 4.75156569480896,
+        "latency": 7.39335298538208,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "e0871838": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 179,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 83,
@@ -1265,11 +3945,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 74,
-        "latency": 4.015022277832031,
+        "latency": 5.438192844390869,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "0e265230": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 76,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 84,
@@ -1280,11 +3993,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 87,
-        "latency": 6.8579912185668945,
+        "latency": 5.439984083175659,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "8003ff6f": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 147,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 85,
@@ -1295,26 +4041,92 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 69,
-        "latency": 5.323091506958008,
+        "latency": 4.278088569641113,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "d862f00a": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 105,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 86,
       "question": "In what year was the novel that Lourenço Mutarelli based \"Nina\" on based first published?",
-      "prediction": "The novel that Lourenço Mutarelli's \"Nina\"",
+      "prediction": "2014",
       "reference": "1866",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 76,
-        "latency": 4.766529083251953,
+        "token_count": 65,
+        "latency": 4.574701309204102,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "114ef269": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 107,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 87,
@@ -1325,26 +4137,63 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 73,
-        "latency": 4.282192230224609,
+        "latency": 6.1145920753479,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "d4323525": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 93,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 88,
       "question": "How many copies of Roald Dahl's variation on a popular anecdote sold?",
-      "prediction": "**",
+      "prediction": "the question \"How many copies of Roald Dahl's variation on a popular anecdote so",
       "reference": "250 million",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 563,
-        "latency": 7.149438381195068,
+        "token_count": 567,
+        "latency": 6.607483386993408,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": null,
+      "token_count": 567,
+      "num_sub_questions": 0
     },
     {
       "sample_id": 89,
@@ -1355,11 +4204,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 61,
-        "latency": 4.349627494812012,
+        "latency": 6.099560260772705,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "052b2dc9": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 115,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 90,
@@ -1370,11 +4252,44 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 67,
-        "latency": 5.410254716873169,
+        "latency": 4.593630790710449,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "333e4d2c": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 147,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 91,
@@ -1385,11 +4300,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 48,
-        "latency": 4.424357891082764,
+        "latency": 4.083272695541382,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "dab52cfc": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 57,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 92,
@@ -1400,11 +4348,44 @@
         "em": 0.0,
         "f1": 0.5,
         "token_count": 59,
-        "latency": 4.262397050857544,
+        "latency": 7.440834283828735,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "68f5b1d5": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 73,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 93,
@@ -1415,26 +4396,92 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 83,
-        "latency": 4.692728519439697,
+        "latency": 4.204552888870239,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "4b251568": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 120,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 94,
       "question": "In what month is the annual documentary film festival, that is presented by the fortnightly publishe",
-      "prediction": "The annual documentary film festival presented by the London Review of Books is",
+      "prediction": "The annual documentary film festival presented by the British journal of literar",
       "reference": "March and April",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 86,
-        "latency": 3.952420234680176,
+        "token_count": 92,
+        "latency": 4.144351243972778,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "4e9ce6a3": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 110,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 95,
@@ -1444,12 +4491,45 @@
       "metrics": {
         "em": 1.0,
         "f1": 1.0,
-        "token_count": 44,
-        "latency": 4.9456071853637695,
+        "token_count": 46,
+        "latency": 5.078420877456665,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "6ea72236": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 90,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 96,
@@ -1460,11 +4540,44 @@
         "em": 0.0,
         "f1": 0.5,
         "token_count": 76,
-        "latency": 4.689149379730225,
+        "latency": 5.079327344894409,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "83a3e9e3": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 129,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 97,
@@ -1475,11 +4588,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 50,
-        "latency": 4.117225885391235,
+        "latency": 4.147066116333008,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "fcc5f8a5": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 117,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 98,
@@ -1490,11 +4636,44 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 113,
-        "latency": 4.8891661167144775,
+        "latency": 5.588061094284058,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "686d07f8": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 158,
+      "num_sub_questions": 2
     },
     {
       "sample_id": 99,
@@ -1505,11 +4684,44 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 75,
-        "latency": 4.067918539047241,
+        "latency": 3.4723291397094727,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
-      "error": null
+      "error": null,
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "f54faa5d": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 97,
+      "num_sub_questions": 2
     }
   ]
 }

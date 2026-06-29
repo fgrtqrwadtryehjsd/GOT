@@ -1,11 +1,11 @@
 {
   "summary": {
-    "method": "zero_shot",
+    "method": "cot_sc",
     "dataset": "hotpotqa",
     "num_samples": 100,
-    "avg_em": 0.16,
-    "avg_f1": 0.2528,
-    "avg_latency": 1.7776,
+    "avg_em": 0.2,
+    "avg_f1": 0.2841,
+    "avg_latency": 19.9914,
     "error_count": 0,
     "workers": 4
   },
@@ -18,94 +18,94 @@
       "metrics": {
         "em": 1.0,
         "f1": 1.0,
-        "token_count": 58,
-        "latency": 1.1131572723388672
+        "token_count": 362,
+        "latency": 13.862958669662476
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 1,
       "question": "What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tel",
-      "prediction": "United States ambassador to Ghana and Czechoslovakia, and Chief of Protocol of t",
+      "prediction": "the woman who portrayed corliss archer in the film kiss and tell was shirley",
       "reference": "Chief of Protocol",
       "metrics": {
         "em": 0.0,
-        "f1": 0.42857142857142855,
-        "token_count": 96,
-        "latency": 1.28643798828125
+        "f1": 0.0,
+        "token_count": 378,
+        "latency": 27.477216005325317
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 2,
       "question": "What science fantasy young adult series, told in first person, has a set of companion books narratin",
-      "prediction": "Additionally",
+      "prediction": "the science fantasy young adult series",
       "reference": "Animorphs",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 142,
-        "latency": 2.4365053176879883
+        "token_count": 508,
+        "latency": 25.491545915603638
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 3,
       "question": "Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?",
-      "prediction": "no",
+      "prediction": "yes",
       "reference": "no",
       "metrics": {
-        "em": 1.0,
-        "f1": 1.0,
-        "token_count": 156,
-        "latency": 2.1371700763702393
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 268,
+        "latency": 17.550507068634033
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 4,
       "question": "The director of the romantic comedy \"Big Stone Gap\" is based in what New York city?",
-      "prediction": "Greenwich Village, New York City",
+      "prediction": "greenwich village new york city",
       "reference": "Greenwich Village, New York City",
       "metrics": {
         "em": 1.0,
         "f1": 1.0,
-        "token_count": 51,
-        "latency": 0.8269495964050293
+        "token_count": 418,
+        "latency": 21.54874348640442
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 5,
       "question": "2014 S/S is the debut album of a South Korean boy group that was formed by who?",
-      "prediction": "The 2014 S/S album",
+      "prediction": "winner was formed by yg entertainment",
       "reference": "YG Entertainment",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 29,
-        "latency": 0.8085241317749023
+        "f1": 0.5,
+        "token_count": 468,
+        "latency": 25.992348194122314
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 6,
       "question": "Who was known by his stage name Aladin and helped organizations improve their performance as a consu",
-      "prediction": "James P. Comer",
+      "prediction": "there is no individual in the provided context who is known by the stage name a",
       "reference": "Eenasul Fateh",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 119,
-        "latency": 1.8121798038482666
+        "token_count": 457,
+        "latency": 26.88489079475403
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
@@ -116,24 +116,24 @@
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 80,
-        "latency": 1.3158133029937744
+        "token_count": 300,
+        "latency": 17.614640712738037
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 8,
       "question": "Who is older, Annie Morton or Terry Richardson?",
-      "prediction": "Annie Morton was born on October 8",
+      "prediction": "terry richardson is older than annie morton",
       "reference": "Terry Richardson",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 37,
-        "latency": 0.8672678470611572
+        "f1": 0.4444444444444445,
+        "token_count": 156,
+        "latency": 12.447213888168335
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
@@ -144,108 +144,108 @@
       "metrics": {
         "em": 1.0,
         "f1": 1.0,
-        "token_count": 140,
-        "latency": 1.8187458515167236
+        "token_count": 304,
+        "latency": 14.093618869781494
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 10,
       "question": "What is the name of the fight song of the university whose main campus is in Lawrence, Kansas and wh",
-      "prediction": "UMKC Fight Song",
+      "prediction": "the name of the fight song of the university whose main campus is in lawrence k",
       "reference": "Kansas Song",
       "metrics": {
         "em": 0.0,
-        "f1": 0.4,
-        "token_count": 71,
-        "latency": 1.1455607414245605
+        "f1": 0.13333333333333336,
+        "token_count": 620,
+        "latency": 21.702767610549927
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 11,
       "question": "What screenwriter with credits for \"Evolution\" co-wrote a film starring Nicolas Cage and Téa Leoni?",
-      "prediction": "David Koepp",
+      "prediction": "after reviewing all available information",
       "reference": "David Weissman",
       "metrics": {
         "em": 0.0,
-        "f1": 0.5,
-        "token_count": 86,
-        "latency": 1.8672523498535156
+        "f1": 0.0,
+        "token_count": 604,
+        "latency": 35.54847693443298
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 12,
       "question": "What year did Guns N Roses perform a promo for a movie starring Arnold Schwarzenegger as a former Ne",
-      "prediction": "is:",
+      "prediction": "1990",
       "reference": "1999",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 245,
-        "latency": 3.793790578842163
+        "token_count": 551,
+        "latency": 26.019434928894043
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 13,
       "question": "Are Random House Tower and 888 7th Avenue both used for real estate?",
-      "prediction": "no",
+      "prediction": "yes",
       "reference": "no",
       "metrics": {
-        "em": 1.0,
-        "f1": 1.0,
-        "token_count": 137,
-        "latency": 2.101970672607422
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 449,
+        "latency": 17.52489137649536
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 14,
       "question": "The football manager who recruited David Beckham managed Manchester United during what timeframe?",
-      "prediction": "The football manager who recruited David Beckham",
+      "prediction": "alex ferguson",
       "reference": "from 1986 to 2013",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 59,
-        "latency": 1.8014705181121826
+        "token_count": 525,
+        "latency": 32.92853546142578
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 15,
       "question": "Brown State Fishing Lake is in a country that has a population of how many inhabitants ?",
-      "prediction": "The country where Brown State Fishing Lake",
+      "prediction": "the country where brown state fishing lake",
       "reference": "9,984",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 129,
-        "latency": 2.2046685218811035
+        "token_count": 202,
+        "latency": 8.801495552062988
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 16,
       "question": "The Vermont Catamounts men's soccer team currently competes in a conference that was formerly known ",
-      "prediction": "Delaware Valley Conference",
+      "prediction": "the vermont catamounts men s soccer team currently competes in the america eas",
       "reference": "the North Atlantic Conference",
       "metrics": {
         "em": 0.0,
-        "f1": 0.28571428571428575,
-        "token_count": 68,
-        "latency": 1.0798656940460205
+        "f1": 0.125,
+        "token_count": 416,
+        "latency": 23.672231912612915
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
@@ -256,136 +256,136 @@
       "metrics": {
         "em": 1.0,
         "f1": 1.0,
-        "token_count": 96,
-        "latency": 2.1351659297943115
+        "token_count": 336,
+        "latency": 16.46735405921936
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 18,
       "question": "Roger O. Egeberg was Assistant Secretary for Health and Scientific Affairs during the administration",
-      "prediction": "1963 to 1969",
+      "prediction": "",
       "reference": "1969 until 1974",
       "metrics": {
         "em": 0.0,
-        "f1": 0.3333333333333333,
-        "token_count": 119,
-        "latency": 2.2021992206573486
+        "f1": 0.0,
+        "token_count": 321,
+        "latency": 14.939847707748413
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 19,
       "question": "Which writer was from England, Henry Roth or Robert Erskine Childers?",
-      "prediction": "Robert Erskine Childers was from England",
+      "prediction": "the writer from england",
       "reference": "Robert Erskine Childers DSC",
       "metrics": {
         "em": 0.0,
-        "f1": 0.6,
-        "token_count": 21,
-        "latency": 0.5388469696044922
+        "f1": 0.0,
+        "token_count": 261,
+        "latency": 14.034456491470337
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 20,
       "question": "Which other Mexican Formula One race car driver has held the podium besides the Force India driver b",
-      "prediction": "based on the provided data",
+      "prediction": "sergio pérez",
       "reference": "Pedro Rodríguez",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 147,
-        "latency": 2.191965341567993
+        "token_count": 507,
+        "latency": 22.077204704284668
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 21,
       "question": "This singer of A Rather Blustery Day also voiced what hedgehog?",
-      "prediction": "Miles \"Tails\" Prower**",
+      "prediction": "the context does not provide enough information to determine who the singer of",
       "reference": "Sonic",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 43,
-        "latency": 1.0838632583618164
+        "token_count": 500,
+        "latency": 18.309223890304565
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 22,
       "question": "Aside from the Apple Remote, what other device can control the program Apple Remote was originally d",
-      "prediction": "The Apple Remote",
+      "prediction": "the keyboard",
       "reference": "keyboard function keys",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 72,
-        "latency": 0.9999966621398926
+        "f1": 0.4,
+        "token_count": 355,
+        "latency": 11.719401836395264
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 23,
       "question": "Which performance act has a higher instrument to person ratio, Badly Drawn Boy or Wolf Alice? ",
-      "prediction": "Badly Drawn Boy** has a higher instrument to person ratio",
+      "prediction": "wolf alice has a higher instrument to person ratio than badly drawn boy",
       "reference": "Badly Drawn Boy",
       "metrics": {
         "em": 0.0,
-        "f1": 0.4615384615384615,
-        "token_count": 248,
-        "latency": 4.901208400726318
+        "f1": 0.375,
+        "token_count": 449,
+        "latency": 22.193626642227173
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 24,
       "question": "What was the father of Kasper Schmeichel voted to be by the IFFHS in 1992?",
-      "prediction": "The father of Kasper Schmeichel",
+      "prediction": "peter schmeichel",
       "reference": "World's Best Goalkeeper",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 30,
-        "latency": 2.7010555267333984
+        "token_count": 282,
+        "latency": 13.447521209716797
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 25,
       "question": "Who was the writer of These Boots Are Made for Walkin' and who died in 2007?",
-      "prediction": "would be none",
+      "prediction": "the writer of these boots are made for walkin",
       "reference": "Barton Lee Hazlewood",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 125,
-        "latency": 2.3250937461853027
+        "token_count": 301,
+        "latency": 14.776317358016968
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 26,
       "question": "The 2011–12 VCU Rams men's basketball team, led by third year head coach Shaka Smart, represented Vi",
-      "prediction": "Virginia Commonwealth University",
+      "prediction": "based on known historical facts",
       "reference": "1838",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 13,
-        "latency": 0.4175879955291748
+        "token_count": 381,
+        "latency": 12.254972457885742
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
@@ -396,80 +396,80 @@
       "metrics": {
         "em": 1.0,
         "f1": 1.0,
-        "token_count": 99,
-        "latency": 3.1870298385620117
+        "token_count": 364,
+        "latency": 21.758319854736328
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 28,
       "question": "Kaiser Ventures corporation was founded by an American industrialist who became known as the father ",
-      "prediction": "to the question is:",
+      "prediction": "the kaiser ventures corporation",
       "reference": "Henry J. Kaiser",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 139,
-        "latency": 2.035841703414917
+        "f1": 0.28571428571428575,
+        "token_count": 588,
+        "latency": 23.323603868484497
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 29,
       "question": "What is the name for the adventure in \"Tunnels and Trolls\", a game designed by Ken St. Andre?",
-      "prediction": "The name for the adventure in \"Tunnels and Trolls\" is **\"The Temple of the Forgo",
+      "prediction": "",
       "reference": "Arena of Khazan",
       "metrics": {
         "em": 0.0,
-        "f1": 0.13333333333333333,
-        "token_count": 49,
-        "latency": 1.215684413909912
+        "f1": 0.0,
+        "token_count": 309,
+        "latency": 16.7083797454834
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 30,
       "question": "When was Poison's album \"Shut Up, Make Love\" released?",
-      "prediction": "The Poison album \"Shut Up",
+      "prediction": "february 2000",
       "reference": "2000",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 30,
-        "latency": 0.9252903461456299
+        "f1": 0.6666666666666666,
+        "token_count": 292,
+        "latency": 12.647918939590454
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 31,
       "question": "Hayden is a singer-songwriter from Canada, but where does Buck-Tick hail from?",
-      "prediction": "Buck-Tick hails from Japan. The band",
+      "prediction": "buck tick hails from fujioka gunma japan",
       "reference": "Fujioka, Gunma",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 18,
-        "latency": 0.7420473098754883
+        "f1": 0.4444444444444445,
+        "token_count": 197,
+        "latency": 9.617002487182617
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 32,
       "question": "Which  French ace pilot and adventurer fly L'Oiseau Blanc",
-      "prediction": "The French ace pilot and adventurer who flew L'Oiseau Blanc was **Charles Nunges",
+      "prediction": "",
       "reference": "Charles Eugène",
       "metrics": {
         "em": 0.0,
-        "f1": 0.13333333333333336,
-        "token_count": 65,
-        "latency": 1.2633628845214844
+        "f1": 0.0,
+        "token_count": 421,
+        "latency": 32.46993088722229
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
@@ -480,66 +480,66 @@
       "metrics": {
         "em": 1.0,
         "f1": 1.0,
-        "token_count": 157,
-        "latency": 2.6663148403167725
+        "token_count": 466,
+        "latency": 24.691157341003418
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 34,
       "question": "Which band, Letters to Cleo or Screaming Trees, had more members?",
-      "prediction": "Letters to Cleo had more members than Screaming Trees",
+      "prediction": "letters to cleo had more members than screaming trees",
       "reference": "Letters to Cleo",
       "metrics": {
         "em": 0.0,
         "f1": 0.5,
-        "token_count": 305,
-        "latency": 4.727775573730469
+        "token_count": 327,
+        "latency": 15.785973310470581
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 35,
       "question": "Alexander Kerensky was defeated and destroyed by the Bolsheviks in the course of a civil war that en",
-      "prediction": "** The Russian Civil War ended when the Bolsheviks formed the Soviet Union in 19",
+      "prediction": "the russian civil war",
       "reference": "October 1922",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 99,
-        "latency": 1.7560276985168457
+        "token_count": 437,
+        "latency": 18.755781173706055
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 36,
       "question": "Seven Brief Lessons on Physics was written by an Italian physicist that has worked in France since w",
-      "prediction": "to the question cannot be determined",
+      "prediction": "the italian physicist who wrote seven brief lessons on physics began working i",
       "reference": "2000",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 65,
-        "latency": 1.1087548732757568
+        "token_count": 426,
+        "latency": 22.199138879776
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 37,
       "question": "The Livesey Hal War Memorial commemorates the fallen of which war, that had over 60 million casualti",
-      "prediction": "The Livesey Hall War Memorial commemorates the fallen of **World War I and World",
+      "prediction": "world war ii",
       "reference": "World War II",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.28571428571428575,
-        "token_count": 34,
-        "latency": 2.101473331451416
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 257,
+        "latency": 13.257185220718384
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
@@ -550,136 +550,136 @@
       "metrics": {
         "em": 1.0,
         "f1": 1.0,
-        "token_count": 92,
-        "latency": 1.473700761795044
+        "token_count": 349,
+        "latency": 12.447019815444946
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 39,
       "question": "Ralph Hefferline was a psychology professor at a university that is located in what city?",
-      "prediction": "The university where Ralph Hefferline",
+      "prediction": "princeton new jersey",
       "reference": "New York City",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 114,
-        "latency": 1.6814589500427246
+        "f1": 0.3333333333333333,
+        "token_count": 408,
+        "latency": 17.41851782798767
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 40,
       "question": "Which dog's ancestors include Gordon and Irish Setters: the Manchester Terrier or the Scotch Collie?",
-      "prediction": "The Manchester Terrier",
+      "prediction": "the scotch collie",
       "reference": "Scotch Collie",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 173,
-        "latency": 2.4024159908294678
+        "f1": 0.8,
+        "token_count": 893,
+        "latency": 41.78982067108154
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 41,
       "question": "Where is the company that Sachin Warrier worked for as a software engineer headquartered? ",
-      "prediction": "Mumbai, India",
+      "prediction": "the company that sachin warrier worked for as a software engineer tata consulta",
       "reference": "Mumbai",
       "metrics": {
         "em": 0.0,
-        "f1": 0.6666666666666666,
-        "token_count": 50,
-        "latency": 1.0738649368286133
+        "f1": 0.0,
+        "token_count": 266,
+        "latency": 10.566433668136597
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 42,
       "question": "A Japanese manga series based on a 16 year old high school student Ichitaka Seto, is written and ill",
-      "prediction": "based on the given information about Masakazu Katsura. However, it is important",
+      "prediction": "1968",
       "reference": "1962",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 242,
-        "latency": 3.960280656814575
+        "token_count": 521,
+        "latency": 18.63045907020569
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 43,
       "question": "The battle in which Giuseppe Arimondi lost his life secured what for Ethiopia?",
-      "prediction": "The battle in which Giuseppe Arimondi lost his life was the Battle of Adwa d",
+      "prediction": "the battle in which giuseppe arimondi lost his life the battle of adwa sec",
       "reference": "sovereignty",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 114,
-        "latency": 2.024475336074829
+        "token_count": 406,
+        "latency": 16.33533239364624
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 44,
       "question": "Alfred Balk served as the secretary of the Committee on the Employment of Minority Groups in the New",
-      "prediction": "Nelson Rockefeller",
+      "prediction": "the correct answer is",
       "reference": "Nelson Rockefeller",
       "metrics": {
-        "em": 1.0,
-        "f1": 1.0,
-        "token_count": 44,
-        "latency": 0.9005465507507324
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 399,
+        "latency": 17.24722170829773
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 45,
       "question": "A medieval fortress in Dirleton, East Lothian, Scotland borders on the south side of what coastal ar",
-      "prediction": "The medieval fortress in Dirleton",
+      "prediction": "the medieval fortress in dirleton",
       "reference": "Yellowcraig",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 60,
-        "latency": 1.4633724689483643
+        "token_count": 438,
+        "latency": 20.816178560256958
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 46,
       "question": "Who is the writer of this song that was inspired by words on a tombstone and was the first track on ",
-      "prediction": "This song",
+      "prediction": "the writer of the song that",
       "reference": "Phil Spector",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 73,
-        "latency": 1.3715410232543945
+        "token_count": 538,
+        "latency": 45.932393312454224
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 47,
       "question": "What type of forum did a former Soviet statesman initiate?",
-      "prediction": "Politburo",
+      "prediction": "the type of forum initiated by a former soviet statesman is the ms excelsior n",
       "reference": "Organizations could come together to address global issues",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 148,
-        "latency": 2.2177083492279053
+        "token_count": 656,
+        "latency": 25.455193042755127
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
@@ -690,150 +690,150 @@
       "metrics": {
         "em": 1.0,
         "f1": 1.0,
-        "token_count": 133,
-        "latency": 2.409914016723633
+        "token_count": 412,
+        "latency": 20.06085515022278
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 49,
       "question": "Which British first-generation jet-powered medium bomber was used in the South West Pacific theatre ",
-      "prediction": "While the Canberra was manufactured in the 1950s",
+      "prediction": "the british first generation jet powered medium bomber used in the south west pa",
       "reference": "English Electric Canberra",
       "metrics": {
         "em": 0.0,
-        "f1": 0.2,
-        "token_count": 82,
-        "latency": 1.2409954071044922
+        "f1": 0.0,
+        "token_count": 436,
+        "latency": 15.112185716629028
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 50,
       "question": "Which year and which conference was the 14th season for this conference as part of the NCAA Division",
-      "prediction": "The year was 2009",
+      "prediction": "since the 2009 colorado buffaloes football team played in the big 12 confe",
       "reference": "2009 Big 12 Conference",
       "metrics": {
         "em": 0.0,
-        "f1": 0.25,
-        "token_count": 66,
-        "latency": 1.5494482517242432
+        "f1": 0.375,
+        "token_count": 586,
+        "latency": 26.418685913085938
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 51,
       "question": "In 1991 Euromarché was bought by a chain that operated how any hypermarkets at the end of 2016?",
-      "prediction": "The question asks about the number of hypermarkets operated by the chain that bo",
+      "prediction": "the context does not provide enough information to determine the exact number of",
       "reference": "1,462",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 95,
-        "latency": 1.7310435771942139
+        "token_count": 443,
+        "latency": 21.92016363143921
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 52,
       "question": "What race track in the midwest hosts a 500 mile race eavery May?",
-      "prediction": "The race track in the Midwest that hosts a 500-mile race every May is **Darlingt",
+      "prediction": "",
       "reference": "Indianapolis Motor Speedway",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 91,
-        "latency": 2.323369264602661
+        "token_count": 519,
+        "latency": 33.99519753456116
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 53,
       "question": "In what city did the \"Prince of tenors\" star in a film based on an opera by Giacomo Puccini?",
-      "prediction": "Santa Fe",
+      "prediction": "the city where the prince of tenors franco corelli starred in a film based o",
       "reference": "Rome",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 144,
-        "latency": 2.1653859615325928
+        "token_count": 543,
+        "latency": 18.07738184928894
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 54,
       "question": "Ellie Goulding worked with what other writers on her third studio album, Delirium?",
-      "prediction": "Ellie Goulding worked with Max Martin",
+      "prediction": "ellie goulding worked with max martin",
       "reference": "Max Martin, Savan Kotecha and Ilya Salmanzadeh",
       "metrics": {
         "em": 0.0,
         "f1": 0.30769230769230765,
-        "token_count": 100,
-        "latency": 1.6600244045257568
+        "token_count": 396,
+        "latency": 36.82184886932373
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 55,
       "question": "Which Australian city founded in 1838 contains a boarding school opened by a Prime Minister of Austr",
-      "prediction": "to the question as stated. The reference information pertains to a school in Ind",
+      "prediction": "adelaide",
       "reference": "Marion, South Australia",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 225,
-        "latency": 3.8582921028137207
+        "token_count": 775,
+        "latency": 45.788498878479004
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 56,
       "question": "D1NZ is a series based on what oversteering technique?",
-      "prediction": "Drifting (a type of oversteering technique)",
+      "prediction": "the most likely oversteering technique associated with the series d1nz is",
       "reference": "Drifting",
       "metrics": {
         "em": 0.0,
-        "f1": 0.2857142857142857,
-        "token_count": 135,
-        "latency": 2.1305997371673584
+        "f1": 0.0,
+        "token_count": 453,
+        "latency": 30.58391499519348
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 57,
       "question": "who is younger Keith Bostic or Jerry Glanville ?",
-      "prediction": "Keith Bostic is younger than Jerry Glanville.**",
+      "prediction": "the given context does not provide the birth years of either keith bostic or jer",
       "reference": "Keith Bostic",
       "metrics": {
         "em": 0.0,
-        "f1": 0.4444444444444445,
-        "token_count": 143,
-        "latency": 1.9851174354553223
+        "f1": 0.25,
+        "token_count": 254,
+        "latency": 12.440392255783081
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 58,
       "question": "According to the 2001 census, what was the population of the city in which Kirton End is located?",
-      "prediction": "the correct response is:",
+      "prediction": "the population of the city in which kirton end",
       "reference": "35,124",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 314,
-        "latency": 3.9071197509765625
+        "token_count": 403,
+        "latency": 19.24151110649109
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
@@ -844,276 +844,276 @@
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 102,
-        "latency": 1.539132833480835
+        "token_count": 364,
+        "latency": 16.113163232803345
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 60,
       "question": "What distinction is held by the former NBA player who was a member of the Charlotte Hornets during t",
-      "prediction": "Distinction: Muggsy Bogues",
+      "prediction": "the former nba player who",
       "reference": "shortest player ever to play in the National Basketball Association",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 107,
-        "latency": 1.5456342697143555
+        "f1": 0.26666666666666666,
+        "token_count": 608,
+        "latency": 23.40552592277527
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 61,
       "question": "What is the name of the executive producer of the film that has a score composed by Jerry Goldsmith?",
-      "prediction": "Steven Spielberg",
+      "prediction": "from the above analysis",
       "reference": "Ronald Shusett",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 110,
-        "latency": 1.5947833061218262
+        "token_count": 504,
+        "latency": 26.041958570480347
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 62,
       "question": "Who was born earlier, Emma Bull or Virginia Woolf?",
-      "prediction": "Virginia Woolf was born earlier.**",
+      "prediction": "virginia woolf was born earlier",
       "reference": "Adeline Virginia Woolf",
       "metrics": {
         "em": 0.0,
         "f1": 0.5,
-        "token_count": 84,
-        "latency": 1.472121000289917
+        "token_count": 144,
+        "latency": 8.233307361602783
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 63,
       "question": "What was the Roud Folk Song Index of the nursery rhyme inspiring What Are Little Girls Made Of?",
-      "prediction": "The nursery rhyme inspiring \"What",
+      "prediction": "the roud folk song index of the nursery rhyme inspiring what are little girls",
       "reference": "821",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 32,
-        "latency": 0.697373628616333
+        "token_count": 401,
+        "latency": 20.231238842010498
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 64,
       "question": "Scott Parkin has been a vocal critic of Exxonmobil and another corporation that has operations in ho",
-      "prediction": "Halliburton operates in over 80 countries.**",
+      "prediction": "the context does not provide the exact number of countries where halliburton ope",
       "reference": "more than 70 countries",
       "metrics": {
         "em": 0.0,
-        "f1": 0.2,
-        "token_count": 173,
-        "latency": 2.250343084335327
+        "f1": 0.125,
+        "token_count": 493,
+        "latency": 32.29892349243164
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 65,
       "question": "What WB supernatrual drama series was Jawbreaker star Rose Mcgowan best known for being in?",
-      "prediction": "Rose McGowan",
+      "prediction": "charmed",
       "reference": "Charmed",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 46,
-        "latency": 7.203630208969116
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 351,
+        "latency": 14.907529830932617
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 66,
       "question": "Vince Phillips held a junior welterweight title by an organization recognized by what larger Hall of",
-      "prediction": "The organization recognized by the larger Hall of Fame is the **World Boxing Ass",
+      "prediction": "the international boxing hall of fame ibhof",
       "reference": "International Boxing Hall of Fame",
       "metrics": {
         "em": 0.0,
-        "f1": 0.47058823529411764,
-        "token_count": 69,
-        "latency": 2.101651906967163
+        "f1": 0.8333333333333333,
+        "token_count": 569,
+        "latency": 23.4957377910614
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 67,
       "question": "What is the name of the singer who's song was released as the lead single from the album \"Confession",
-      "prediction": "The singer whose song",
+      "prediction": "the name of the singer whose song",
       "reference": "Usher",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 76,
-        "latency": 1.192300796508789
+        "token_count": 652,
+        "latency": 27.447035789489746
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 68,
       "question": "who is the younger brother of The episode guest stars of The Hard Easy ",
-      "prediction": "If you",
+      "prediction": "if the question",
       "reference": "Bill Murray",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 175,
-        "latency": 2.159254312515259
+        "token_count": 572,
+        "latency": 21.6409592628479
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 69,
       "question": "The 2017–18 Wigan Athletic F.C. season will be a year in which the team competes in the league cup k",
-      "prediction": "The 2017–18 Wigan Athletic F.C. season will be a year in which the team competes",
+      "prediction": "the league cup that wigan athletic f c competed in during the 2017 18 season f",
       "reference": "Carabao Cup",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 38,
-        "latency": 1.075206995010376
+        "f1": 0.125,
+        "token_count": 243,
+        "latency": 25.407549142837524
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 70,
       "question": "Which of Tara Strong major voice role in animated series is an American animated television series b",
-      "prediction": "Tara Strong's major voice role in the animated series \"Teen Titans Go!\" is as St",
+      "prediction": "",
       "reference": "Teen Titans Go!",
       "metrics": {
         "em": 0.0,
-        "f1": 0.33333333333333337,
-        "token_count": 23,
-        "latency": 0.507274866104126
+        "f1": 0.0,
+        "token_count": 608,
+        "latency": 22.208107709884644
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 71,
       "question": "What is the inhabitant of the city where  122nd SS-Standarte was formed in2014",
-      "prediction": "The 122nd SS-Standarte",
+      "prediction": "the population of strasbourg in 2014 was 276",
       "reference": "276,170 inhabitants",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 62,
-        "latency": 1.2851145267486572
+        "token_count": 413,
+        "latency": 20.19782018661499
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 72,
       "question": "What color clothing do people of the Netherlands wear during Oranjegekte or to celebrate the nationa",
-      "prediction": "During Oranjegekte (which",
+      "prediction": "",
       "reference": "orange",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 69,
-        "latency": 1.0823352336883545
+        "token_count": 350,
+        "latency": 15.556589365005493
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 73,
       "question": "What was the name of the 1996 loose adaptation of William Shakespeare's \"Romeo & Juliet\" written by ",
-      "prediction": "based on the reference information provided",
+      "prediction": "there",
       "reference": "Tromeo and Juliet",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 117,
-        "latency": 1.7576227188110352
+        "token_count": 375,
+        "latency": 17.100640535354614
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 74,
       "question": "Robert Suettinger was the national intelligence officer under which former Governor of Arkansas?",
-      "prediction": "Robert Suettinger",
+      "prediction": "there is no record indicating that robert suettinger the former director of the",
       "reference": "William Jefferson Clinton",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 26,
-        "latency": 0.44071388244628906
+        "token_count": 670,
+        "latency": 22.447773456573486
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 75,
       "question": "What American professional Hawaiian surfer born 18 October 1992 won the Rip Curl Pro Portugal?",
-      "prediction": "The American professional Hawaiian surfer born on 18 October 1992 who won the Ri",
+      "prediction": "john john florence",
       "reference": "John John Florence",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 131,
-        "latency": 1.93300199508667
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 508,
+        "latency": 20.43948531150818
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 76,
       "question": "What is the middle name of the actress who plays Bobbi Bacha in Suburban Madness?",
-      "prediction": "Ann",
+      "prediction": "the middle name of the actress who plays bobbi bacha in suburban madness is",
       "reference": "Ann",
       "metrics": {
-        "em": 1.0,
-        "f1": 1.0,
-        "token_count": 49,
-        "latency": 1.027860164642334
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 210,
+        "latency": 13.074481964111328
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 77,
       "question": "Alvaro Mexia had a diplomatic mission with which tribe of indigenous people?",
-      "prediction": "ed",
+      "prediction": "the question cannot be answered based on the given context",
       "reference": "Apalachees",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 53,
-        "latency": 0.7375917434692383
+        "token_count": 313,
+        "latency": 14.573070287704468
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 78,
       "question": "What nationality were social anthropologists Alfred Gell and Edmund Leach?",
-      "prediction": "Alfred Gell and Edmund Leach were both British. Edmund Leach is explicitly descr",
+      "prediction": "both alfred gell and edmund leach were british",
       "reference": "British",
       "metrics": {
         "em": 0.0,
-        "f1": 0.16666666666666669,
-        "token_count": 84,
-        "latency": 1.2486121654510498
+        "f1": 0.2222222222222222,
+        "token_count": 250,
+        "latency": 10.066025257110596
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
@@ -1124,192 +1124,192 @@
       "metrics": {
         "em": 1.0,
         "f1": 1.0,
-        "token_count": 22,
-        "latency": 0.6755521297454834
+        "token_count": 206,
+        "latency": 10.544631242752075
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 80,
       "question": "What is the county seat of the county where East Lempster, New Hampshire is located?",
-      "prediction": "East Lempster is located in Sullivan County",
+      "prediction": "newport",
       "reference": "Newport",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 47,
-        "latency": 0.9752578735351562
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 142,
+        "latency": 5.493017911911011
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 81,
       "question": "The Album Against the Wind was the 11th Album of a Rock singer Robert C Seger born may 6 1945. What ",
-      "prediction": "The Rock singer's stage name",
+      "prediction": "bob seger",
       "reference": "Bob Seger",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 128,
-        "latency": 1.8699939250946045
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 263,
+        "latency": 20.584386110305786
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 82,
       "question": "Rostker v. Goldberg held that the practice of what way of filling armed forces vacancies was consitu",
-      "prediction": "The Supreme Court case Rostker v. Goldberg held that the practice of **requi",
+      "prediction": "the rostker v goldberg decision held that the practice of requiring only men",
       "reference": "Conscription",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 74,
-        "latency": 1.2750508785247803
+        "token_count": 365,
+        "latency": 17.994619607925415
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 83,
       "question": "Handi-Snacks are a snack food product line sold by what American multinational confectionery, food, ",
-      "prediction": "PepsiCo",
+      "prediction": "given that frito lay a subsidiary of pepsico is based in illinois and prod",
       "reference": "Mondelez International, Inc.",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 40,
-        "latency": 0.730614185333252
+        "token_count": 566,
+        "latency": 22.234421968460083
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 84,
       "question": "What was the name of a woman from the book titled \"Their Lives: The Women Targeted by the Clinton Ma",
-      "prediction": "The name of the woman from the book titled *\"Their Lives: The Women Targeted by",
+      "prediction": "monica lewinsky",
       "reference": "Monica Lewinsky",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 153,
-        "latency": 1.9411728382110596
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 348,
+        "latency": 17.115402221679688
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 85,
       "question": "When was the American lawyer, lobbyist and political consultant who was a senior member of the presi",
-      "prediction": "The American lawyer",
+      "prediction": "april 1 1949",
       "reference": "April 1, 1949",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 44,
-        "latency": 1.2000620365142822
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 181,
+        "latency": 7.861134052276611
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 86,
       "question": "In what year was the novel that Lourenço Mutarelli based \"Nina\" on based first published?",
-      "prediction": "ed based on the given information",
+      "prediction": "the publication year of the novel a arte de produzir efeito sem causa by loure",
       "reference": "1866",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 64,
-        "latency": 1.0974652767181396
+        "token_count": 372,
+        "latency": 22.05731701850891
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 87,
       "question": "Where are Teide National Park and Garajonay National Park located?",
-      "prediction": "- Garajonay National Park",
+      "prediction": "teide national park and garajonay national park",
       "reference": "Canary Islands, Spain",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 62,
-        "latency": 1.0869712829589844
+        "token_count": 289,
+        "latency": 15.704677820205688
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 88,
       "question": "How many copies of Roald Dahl's variation on a popular anecdote sold?",
-      "prediction": "would be more than 250 million copies",
+      "prediction": "the context does not specify which particular variation on a popular anecdote is",
       "reference": "250 million",
       "metrics": {
         "em": 0.0,
-        "f1": 0.4444444444444445,
-        "token_count": 221,
-        "latency": 2.5943353176116943
+        "f1": 0.0,
+        "token_count": 442,
+        "latency": 20.166465759277344
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 89,
       "question": "What occupation do Chris Menges and Aram Avakian share?",
-      "prediction": "- Aram Avakian was a film director",
+      "prediction": "both chris menges and aram avakian share the occupation of film director",
       "reference": "director",
       "metrics": {
         "em": 0.0,
-        "f1": 0.2857142857142857,
-        "token_count": 80,
-        "latency": 1.309528112411499
+        "f1": 0.15384615384615385,
+        "token_count": 310,
+        "latency": 16.476348161697388
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 90,
       "question": "Andrew Jaspan was the co-founder of what not-for-profit media outlet?",
-      "prediction": "Andrew Jaspan",
+      "prediction": "the conversation",
       "reference": "The Conversation",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 27,
-        "latency": 0.5817611217498779
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 245,
+        "latency": 10.58052134513855
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 91,
       "question": "Which American film director hosted the 18th Independent Spirit Awards in 2002?",
-      "prediction": "cannot be determined from the given reference information**",
+      "prediction": "david duchovny hosted the 18th independent spirit awards in 2002",
       "reference": "John Waters",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 156,
-        "latency": 5.263468027114868
+        "token_count": 367,
+        "latency": 25.53163480758667
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 92,
       "question": "Where does the hotel and casino located in which Bill Cosby's third album was recorded?",
-      "prediction": "Bill Cosby's third album",
+      "prediction": "the hotel and casino located in which bill cosby s third album was recorded is",
       "reference": "Las Vegas Strip in Paradise",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 52,
-        "latency": 1.1647272109985352
+        "f1": 0.1,
+        "token_count": 290,
+        "latency": 11.050674200057983
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
@@ -1320,80 +1320,80 @@
       "metrics": {
         "em": 1.0,
         "f1": 1.0,
-        "token_count": 96,
-        "latency": 2.702955722808838
+        "token_count": 327,
+        "latency": 17.714690446853638
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 94,
       "question": "In what month is the annual documentary film festival, that is presented by the fortnightly publishe",
-      "prediction": "March and April",
+      "prediction": "the annual documentary film festival presented by the fortnightly published brit",
       "reference": "March and April",
       "metrics": {
-        "em": 1.0,
-        "f1": 1.0,
-        "token_count": 60,
-        "latency": 0.870267391204834
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 416,
+        "latency": 14.750149965286255
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 95,
       "question": "Tysons Galleria is located in what county?",
-      "prediction": "Tysons Galleria is located in Fairfax County",
+      "prediction": "fairfax county",
       "reference": "Fairfax County",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.4444444444444445,
-        "token_count": 13,
-        "latency": 1.4998137950897217
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 246,
+        "latency": 10.828633308410645
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 96,
       "question": "Bordan Tkachuk was the CEO of a company that provides what sort of products?",
-      "prediction": "Bordan Tkachuk was the CEO of Cardinal Health",
+      "prediction": "",
       "reference": "IT products and services",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 34,
-        "latency": 0.6044783592224121
+        "token_count": 442,
+        "latency": 20.105103969573975
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 97,
       "question": "Which filmmaker was known for animation, Lev Yilmaz or Pamela B. Green?",
-      "prediction": "Neither Lev Yilmaz nor Pamela B. Green",
+      "prediction": "the context does not provide information about either lev yilmaz or pamela",
       "reference": "Levni Yilmaz",
       "metrics": {
         "em": 0.0,
-        "f1": 0.22222222222222224,
-        "token_count": 127,
-        "latency": 2.0583994388580322
+        "f1": 0.14285714285714285,
+        "token_count": 564,
+        "latency": 31.04376983642578
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
       "sample_id": 98,
       "question": "In which city is the ambassador of the Rabat-Salé-Kénitra administrative region to China based?",
-      "prediction": "The ambassador of the Rabat-Salé-Kénitra administrative region to China is based",
+      "prediction": "the ambassador of the rabat salé kénitra administrative region to china is based",
       "reference": "Beijing",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 43,
-        "latency": 0.767737627029419
+        "token_count": 286,
+        "latency": 12.14338231086731
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     },
     {
@@ -1404,10 +1404,10 @@
       "metrics": {
         "em": 1.0,
         "f1": 1.0,
-        "token_count": 82,
-        "latency": 1.4649920463562012
+        "token_count": 390,
+        "latency": 26.577343225479126
       },
-      "method": "zero_shot",
+      "method": "cot_sc",
       "error": null
     }
   ]

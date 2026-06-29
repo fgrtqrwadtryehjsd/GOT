@@ -30,13 +30,13 @@ load_dotenv()
 
 from src.utils.metrics import Metrics
 from src.utils.answer_normalizer import (
-    normalize_gsm8k_answer, normalize_hotpotqa_answer, normalize_clutrr_answer
+    normalize_gsm8k_answer, normalize_hotpotqa_answer, normalize_2wikimultihopqa_answer
 )
 
 NORMALIZERS = {
     "gsm8k": normalize_gsm8k_answer,
     "hotpotqa": normalize_hotpotqa_answer,
-    "clutrr": normalize_clutrr_answer,
+    "2wikimultihopqa": normalize_2wikimultihopqa_answer,
 }
 
 
@@ -152,7 +152,7 @@ def run_ablation_config(config_name: str, config: dict,
 def main():
     parser = argparse.ArgumentParser(description="消融实验（重构版）")
     parser.add_argument("--dataset", type=str, default="gsm8k",
-                        choices=["gsm8k", "hotpotqa", "clutrr"])
+                        choices=["gsm8k", "hotpotqa", "2wikimultihopqa"])
     parser.add_argument("--model", type=str, default="qwen3-8b")
     parser.add_argument("--num_samples", type=int, default=100)
     parser.add_argument("--output_dir", type=str, default="experiments/results/ablation/")

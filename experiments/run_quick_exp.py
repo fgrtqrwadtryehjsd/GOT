@@ -29,13 +29,13 @@ load_dotenv()
 
 from src.utils.metrics import Metrics
 from src.utils.answer_normalizer import (
-    normalize_gsm8k_answer, normalize_hotpotqa_answer, normalize_clutrr_answer
+    normalize_gsm8k_answer, normalize_hotpotqa_answer, normalize_2wikimultihopqa_answer
 )
 
 NORMALIZERS = {
     "gsm8k": normalize_gsm8k_answer,
     "hotpotqa": normalize_hotpotqa_answer,
-    "clutrr": normalize_clutrr_answer,
+    "2wikimultihopqa": normalize_2wikimultihopqa_answer,
 }
 
 
@@ -72,7 +72,7 @@ def run_one_sample(method, sample, timeout_sec=120):
 
 def create_method(method_name: str, model):
     from src.chain_generation import GraphGuidedGenerator
-    from src.baselines import StandardCoT, CoTSC, TreeOfThoughts, ZeroShot, MoDeGraphBaseline
+    from src.baselines import StandardCoT, CoTSC, CoTSCWithGERS, TreeOfThoughts, ZeroShot, MoDeGraphBaseline
 
     methods = {
         # GERS 核心配置：_no_constraint=True（消融证明约束解码负贡献，已砍掉）
@@ -84,6 +84,8 @@ def create_method(method_name: str, model):
         "gers_feedback":    lambda: GraphGuidedGenerator(model=model, max_iterations=2, enable_nli=False, adaptive=False, consistency_threshold=0.75, _no_constraint=True),
         "standard_cot":     lambda: StandardCoT(model=model),
         "cot_sc":           lambda: CoTSC(model=model, num_samples=3),
+        # CoT-SC + GERS 加权重排：N次CoT采样 → 归一化投票 → GERS质量分加权 → 选优
+        "cot_sc_gers":      lambda: CoTSCWithGERS(model=model, num_samples=3, gers_lambda=1.0, enable_gers_rerank=True),
         "tot":              lambda: TreeOfThoughts(model=model, max_depth=3, beam_width=2),
         "zero_shot":        lambda: ZeroShot(model=model),
         "modegraph":        lambda: MoDeGraphBaseline(model=model),
@@ -94,9 +96,9 @@ def create_method(method_name: str, model):
 def main():
     parser = argparse.ArgumentParser(description="快速实验（带超时保护）")
     parser.add_argument("--dataset", type=str, default="gsm8k",
-                        choices=["gsm8k", "hotpotqa", "clutrr"])
+                        choices=["gsm8k", "hotpotqa", "2wikimultihopqa"])
     parser.add_argument("--method", type=str, default="gers",
-                        choices=["gers", "gers_adaptive", "gers_sc", "gers_nli", "gers_feedback", "standard_cot", "cot_sc", "tot", "zero_shot", "modegraph"])
+                        choices=["gers", "gers_adaptive", "gers_sc", "gers_nli", "gers_feedback", "standard_cot", "cot_sc", "cot_sc_gers", "tot", "zero_shot", "modegraph"])
     parser.add_argument("--model", type=str, default="qwen3-8b")
     parser.add_argument("--num_samples", type=int, default=50)
     parser.add_argument("--timeout", type=int, default=120,

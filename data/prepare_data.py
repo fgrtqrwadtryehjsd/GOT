@@ -4,7 +4,10 @@
 支持数据集：
 - HotpotQA（多跳问答）
 - GSM8K（数学推理）
-- CLUTRR（逻辑归纳推理）
+- 2WikiMultiHopQA（依赖结构密集多跳，含 comparison/bridge/inference/compositional 四类）
+
+[2026-06-29 起移除] CLUTRR（程序化生成的自造数据，所有方法零区分度）
+详见 docs/clutrr_changelog.md
 
 使用方法：
     python data/prepare_data.py --dataset all --output_dir data/processed
@@ -153,194 +156,128 @@ def prepare_gsm8k(output_dir: Path, num_samples: int = 500, split: str = "test")
 
 
 # ─── CLUTRR ──────────────────────────────────────────────────────────────────
+# 2026-06-29 起 CLUTRR 已被从主实验移除（见 docs/clutrr_changelog.md）
+# 原因：所有方法 EM 在 0.13~0.19 区间贴地，零区分度，且为程序化生成的自造数据。
+# 函数体保留以避免破坏历史脚本导入，但调用会立即报错。
 
 def prepare_clutrr(output_dir: Path, num_samples: int = 500):
-    """
-    下载并预处理 CLUTRR 逻辑归纳推理数据集
-
-    CLUTRR 测试模型通过家庭关系推理多跳亲属关系，例如：
-    "A是B的父亲，B是C的母亲，那么A与C是什么关系？"
-
-    数据来源优先级：
-    1. HuggingFace CLUTRR/v1（如可用）
-    2. 程序化生成多样化家庭关系推理样本（默认）
-    """
-    print("[CLUTRR] 正在准备数据...")
-    samples = []
-
-    # 尝试 HuggingFace 下载
-    try:
-        from datasets import load_dataset
-        ds = load_dataset("CLUTRR/v1", split="test", trust_remote_code=True)
-        for i, item in enumerate(ds):
-            if num_samples and len(samples) >= num_samples:
-                break
-            samples.append({
-                "id": str(i),
-                "question": item.get("query", item.get("question", "")),
-                "context": item.get("story", item.get("context", "")),
-                "answer": item.get("target", item.get("answer", "")),
-            })
-        print(f"[CLUTRR] 从 HuggingFace 加载了 {len(samples)} 条样本")
-    except Exception as e:
-        print(f"[CLUTRR] HuggingFace 下载失败（{e}），使用程序化生成...")
-
-    # 如果 HuggingFace 不足或失败，用程序化生成补足
-    if len(samples) < num_samples:
-        needed = num_samples - len(samples)
-        print(f"[CLUTRR] 程序化生成 {needed} 条补充样本...")
-        generated = _generate_clutrr_samples(needed, start_id=len(samples))
-        samples.extend(generated)
-
-    # 截断到请求数量
-    samples = samples[:num_samples]
-
-    out_path = output_dir / "clutrr_test.json"
-    with open(out_path, "w", encoding="utf-8") as f:
-        json.dump(samples, f, ensure_ascii=False, indent=2)
-
-    print(f"[CLUTRR] 已保存 {len(samples)} 条样本 → {out_path}")
-    return samples
+    """[已废弃] CLUTRR 已被从主实验移除。请改用 HotpotQA / GSM8K / 2WikiMultiHopQA。"""
+    raise NotImplementedError(
+        "CLUTRR 已被从主实验移除（2026-06-29）。详见 docs/clutrr_changelog.md。"
+        "请改用 HotpotQA / GSM8K / 2WikiMultiHopQA。"
+    )
 
 
 def _generate_clutrr_samples(num_samples: int, start_id: int = 0):
+    """[已废弃] CLUTRR 程序化生成器已停用，保留仅为 API 兼容。"""
+    raise NotImplementedError("CLUTRR _generate_clutrr_samples 已停用")
+
+
+# ─── 2WikiMultiHopQA ────────────────────────────────────────────────────────
+
+def prepare_2wikimultihopqa(output_dir: Path, num_samples: int = 500,
+                             split: str = "dev"):
     """
-    程序化生成多样化的 CLUTRR 家庭关系推理样本。
-    
-    使用预定义的关系链模板，确保每条样本都有正确答案。
-    每条样本包含：
-    - context: 家庭关系描述（如 "A是B的父亲。B是C的母亲。"）
-    - question: 目标关系查询（如 "A与C是什么亲属关系？"）
-    - answer: 正确的亲属关系（如 "祖父/外祖父"）
+    下载并预处理 2WikiMultiHopQA 数据集（依赖结构密集多跳）
+
+    2WikiMultiHopQA 是基于 Wikipedia 的多跳问答数据集，包含 4 类问题：
+    - comparison：A 和 B 谁更...（对比型，GERS 杀手锏）
+    - bridge：A 是 X，X 是 Y，那么 A 是 Y 的什么（桥接型）
+    - inference：基于证据推断（GERS 也能受益）
+    - compositional / bridge_comparison：组合推理（高阶 GERS）
+
+    数据集来源（按优先级）：
+    1. 本地 data/2wiki_raw/data/dev.json（Dropbox 官方 data.zip，2026-06-29 已下载）
+    2. HuggingFace xanhho/2WikiMultihopQA（新版 datasets 已不支持 trust_remote_code）
+
+    输出格式：
+    {
+        "id": str,
+        "question": str,
+        "context": str,       # 拼接的 Wikipedia 段落
+        "answer": str,        # 短答案或 yes/no
+        "type": str,          # comparison/bridge/inference/compositional/bridge_comparison
+        "supporting_facts": list
+    }
     """
-    import random
-    
-    random.seed(42 + start_id)  # 可复现
-    
-    male_names = [
-        "James", "John", "Robert", "Michael", "William", "David", "Thomas",
-        "Charles", "Daniel", "Matthew", "Anthony", "Mark", "Donald", "Steven",
-        "Paul", "Andrew", "Joshua", "Kenneth", "Kevin", "Brian", "George",
-        "Edward", "Ronald", "Timothy", "Jason", "Jeffrey", "Ryan",
-    ]
-    female_names = [
-        "Mary", "Patricia", "Jennifer", "Linda", "Elizabeth", "Barbara",
-        "Susan", "Jessica", "Sarah", "Karen", "Lisa", "Nancy", "Betty",
-        "Margaret", "Sandra", "Ashley", "Kimberly", "Emily", "Donna",
-        "Michelle", "Carol", "Amanda", "Melissa", "Deborah", "Stephanie",
-    ]
-    
-    # 预定义关系链模板: (关系描述列表, 最终关系答案)
-    # 每个模板描述: P0 -> P1 -> P2 [-> P3], 问 P0 与最后一个人的关系
-    # 每条描述用 {A} 和 {B} 分别表示当前步骤的源和目标人物
-    TEMPLATES = [
-        # 2跳: 父/母 × 父/母 → 祖父母
-        (["{A}是{B}的父亲", "{A}是{B}的父亲"], "祖父"),
-        (["{A}是{B}的父亲", "{A}是{B}的母亲"], "祖父"),
-        (["{A}是{B}的母亲", "{A}是{B}的父亲"], "祖母"),
-        (["{A}是{B}的母亲", "{A}是{B}的母亲"], "祖母"),
-        # 2跳: 父 × 兄弟姐妹 → 伯伯/叔叔/姑姑
-        (["{A}是{B}的父亲", "{A}是{B}的哥哥"], "伯伯/叔叔"),
-        (["{A}是{B}的父亲", "{A}是{B}的弟弟"], "伯伯/叔叔"),
-        (["{A}是{B}的父亲", "{A}是{B}的姐姐"], "姑姑"),
-        (["{A}是{B}的父亲", "{A}是{B}的妹妹"], "姑姑"),
-        # 2跳: 母 × 兄弟姐妹 → 舅舅/阿姨
-        (["{A}是{B}的母亲", "{A}是{B}的哥哥"], "舅舅"),
-        (["{A}是{B}的母亲", "{A}是{B}的弟弟"], "舅舅"),
-        (["{A}是{B}的母亲", "{A}是{B}的姐姐"], "阿姨"),
-        (["{A}是{B}的母亲", "{A}是{B}的妹妹"], "阿姨"),
-        # 2跳: 配偶 × 父/母 → 公婆/岳父母
-        (["{A}是{B}的丈夫", "{A}是{B}的父亲"], "公公"),
-        (["{A}是{B}的丈夫", "{A}是{B}的母亲"], "婆婆"),
-        (["{A}是{B}的妻子", "{A}是{B}的父亲"], "岳父"),
-        (["{A}是{B}的妻子", "{A}是{B}的母亲"], "岳母"),
-        # 2跳: 兄弟姐妹 × 子/女 → 侄子/侄女/外甥
-        (["{A}是{B}的哥哥", "{A}是{B}的儿子"], "侄子"),
-        (["{A}是{B}的哥哥", "{A}是{B}的女儿"], "侄女"),
-        (["{A}是{B}的弟弟", "{A}是{B}的儿子"], "侄子"),
-        (["{A}是{B}的弟弟", "{A}是{B}的女儿"], "侄女"),
-        (["{A}是{B}的姐姐", "{A}是{B}的儿子"], "外甥"),
-        (["{A}是{B}的姐姐", "{A}是{B}的女儿"], "外甥女"),
-        (["{A}是{B}的妹妹", "{A}是{B}的儿子"], "外甥"),
-        (["{A}是{B}的妹妹", "{A}是{B}的女儿"], "外甥女"),
-        # 2跳: 父/母 × 子/女 → 兄弟姐妹
-        (["{A}是{B}的父亲", "{A}是{B}的儿子"], "兄弟姐妹"),
-        (["{A}是{B}的父亲", "{A}是{B}的女儿"], "兄弟姐妹"),
-        (["{A}是{B}的母亲", "{A}是{B}的儿子"], "兄弟姐妹"),
-        (["{A}是{B}的母亲", "{A}是{B}的女儿"], "兄弟姐妹"),
-        # 2跳: 祖父母 × 子/女
-        (["{A}是{B}的祖父", "{A}是{B}的儿子"], "父亲"),
-        (["{A}是{B}的祖父", "{A}是{B}的女儿"], "父亲"),
-        (["{A}是{B}的祖母", "{A}是{B}的儿子"], "母亲"),
-        (["{A}是{B}的祖母", "{A}是{B}的女儿"], "母亲"),
-        # 3跳: 父 × 父 × 兄弟 → 伯祖/叔祖
-        (["{A}是{B}的父亲", "{A}是{B}的父亲", "{A}是{B}的哥哥"], "伯祖父/叔祖父"),
-        (["{A}是{B}的父亲", "{A}是{B}的父亲", "{A}是{B}的弟弟"], "伯祖父/叔祖父"),
-        (["{A}是{B}的父亲", "{A}是{B}的父亲", "{A}是{B}的姐姐"], "姑祖母"),
-        (["{A}是{B}的父亲", "{A}是{B}的父亲", "{A}是{B}的妹妹"], "姑祖母"),
-        # 3跳: 父 × 兄弟 × 子 → 堂表兄弟
-        (["{A}是{B}的父亲", "{A}是{B}的哥哥", "{A}是{B}的儿子"], "堂兄弟"),
-        (["{A}是{B}的父亲", "{A}是{B}的哥哥", "{A}是{B}的女儿"], "堂姐妹"),
-        (["{A}是{B}的父亲", "{A}是{B}的姐姐", "{A}是{B}的儿子"], "表兄弟"),
-        (["{A}是{B}的父亲", "{A}是{B}的姐姐", "{A}是{B}的女儿"], "表姐妹"),
-        # 3跳: 母 × 兄弟 × 子
-        (["{A}是{B}的母亲", "{A}是{B}的哥哥", "{A}是{B}的儿子"], "表兄弟"),
-        (["{A}是{B}的母亲", "{A}是{B}的姐姐", "{A}是{B}的女儿"], "表姐妹"),
-        # 3跳: 配偶 × 父 × 兄弟
-        (["{A}是{B}的丈夫", "{A}是{B}的父亲", "{A}是{B}的哥哥"], "伯父/叔父"),
-        (["{A}是{B}的丈夫", "{A}是{B}的父亲", "{A}是{B}的姐姐"], "姑母"),
-        # 3跳: 父 × 母 × 兄弟
-        (["{A}是{B}的父亲", "{A}是{B}的母亲", "{A}是{B}的弟弟"], "舅祖父"),
-        (["{A}是{B}的父亲", "{A}是{B}的母亲", "{A}是{B}的妹妹"], "姨祖母"),
-        # 3跳: 兄弟 × 子 × 子
-        (["{A}是{B}的哥哥", "{A}是{B}的儿子", "{A}是{B}的儿子"], "侄孙"),
-        (["{A}是{B}的姐姐", "{A}是{B}的女儿", "{A}是{B}的儿子"], "外甥孙"),
-    ]
-    
+    print(f"[2WikiMultiHopQA] 正在准备 {split} 集...")
+
     samples = []
-    
-    for i in range(num_samples):
-        idx = start_id + i
-        template = random.choice(TEMPLATES)
-        relations, answer = template
-        
-        # 确定需要多少个人名
-        num_people = len(relations) + 1  # A, B, C, [D]
-        
-        # 随机选择人名，确保性别匹配关系
-        # 分析关系中每个人物的性别需求
-        used = []
-        all_names_pool = list(male_names) + list(female_names)
-        random.shuffle(all_names_pool)
-        
-        # 简化：随机分配人名
-        names = all_names_pool[:num_people] if len(all_names_pool) >= num_people else \
-                [f"Person{j}" for j in range(num_people)]
-        
-        # 构建context
+    raw = None
+
+    # 1) 本地 Dropbox 官方 data.zip
+    local_candidates = [
+        Path("data/2wiki_raw/data/dev.json"),
+        Path("data/2wiki_raw/data/train.json"),
+        Path("data/2wiki_raw/dev.json"),
+    ]
+    for p in local_candidates:
+        if p.exists():
+            print(f"[2WikiMultiHopQA] 使用本地文件: {p}")
+            with open(p, encoding="utf-8") as f:
+                raw = json.load(f)
+            break
+
+    if raw is None:
+        raise FileNotFoundError(
+            "未找到 2WikiMultiHopQA 本地文件。请先下载官方 data.zip：\n"
+            "https://www.dropbox.com/s/npidmtadreo6df2/data.zip\n"
+            "解压后将 data/dev.json 放到 data/2wiki_raw/data/ 目录下。"
+        )
+
+    # 2WikiMultiHopQA 字段：_id, question, answer, supporting_facts, context, evidences, type, entity_ids
+    for i, item in enumerate(raw):
+        if num_samples and len(samples) >= num_samples:
+            break
+
+        # 解析 context：context 是 [[title, [sent1, sent2, ...]], ...]
         context_parts = []
-        for j, rel_template in enumerate(relations):
-            A, B = names[j], names[j + 1]
-            context_parts.append(rel_template.format(A=A, B=B))
-        
-        context = "。".join(context_parts) + "。"
-        
-        if len(relations) == 2:
-            target = names[0]
-            query = names[2]
-        else:
-            target = names[0]
-            query = names[3]
-        
-        question = f"基于以上信息，{target}与{query}是什么亲属关系？"
-        
+        context_raw = item.get("context", [])
+        if isinstance(context_raw, list):
+            for ctx_item in context_raw:
+                if isinstance(ctx_item, list) and len(ctx_item) >= 2:
+                    title, sentences = ctx_item[0], ctx_item[1]
+                    if isinstance(sentences, list):
+                        context_parts.append(f"[{title}] " + " ".join(str(s) for s in sentences))
+                    else:
+                        context_parts.append(f"[{title}] {sentences}")
+
+        # 解析 supporting_facts
+        sf = item.get("supporting_facts", [])
+        sf_titles = []
+        if isinstance(sf, list):
+            for s in sf:
+                if isinstance(s, list) and s:
+                    sf_titles.append(s[0])
+
+        question = item.get("question", "")
+        answer = item.get("answer", "")
+        qtype = item.get("type", "")
+
+        if not question or not answer:
+            continue
+
         samples.append({
-            "id": f"clutrr_{idx:04d}",
+            "id": str(item.get("_id", i)),
             "question": question,
-            "context": context,
+            "context": " | ".join(context_parts)[:2000] if context_parts else "",
             "answer": answer,
+            "type": qtype,
+            "supporting_facts": sf_titles,
         })
-    
+
+    out_path = output_dir / "2wikimultihopqa_test.json"
+    with open(out_path, "w", encoding="utf-8") as f:
+        json.dump(samples, f, ensure_ascii=False, indent=2)
+
+    # 统计分题型
+    type_counts = {}
+    for s in samples:
+        t = s.get("type", "unknown")
+        type_counts[t] = type_counts.get(t, 0) + 1
+
+    print(f"[2WikiMultiHopQA] 已保存 {len(samples)} 条样本 → {out_path}")
+    print(f"[2WikiMultiHopQA] 题型分布: {type_counts}")
     return samples
 
 
@@ -379,7 +316,7 @@ def load_processed_dataset(dataset_name: str,
     加载已预处理的数据集（优先读取本地 processed，否则实时下载）
 
     Args:
-        dataset_name: hotpotqa / gsm8k / clutrr
+        dataset_name: hotpotqa / gsm8k / 2wikimultihopqa
         data_dir: processed 数据目录
         num_samples: 最多加载条数
 
@@ -390,7 +327,7 @@ def load_processed_dataset(dataset_name: str,
     filename_map = {
         "hotpotqa": "hotpotqa_test.json",
         "gsm8k": "gsm8k_test.json",
-        "clutrr": "clutrr_test.json",
+        "2wikimultihopqa": "2wikimultihopqa_test.json",
     }
 
     fname = filename_map.get(dataset_name)
@@ -412,8 +349,8 @@ def load_processed_dataset(dataset_name: str,
         return prepare_hotpotqa(data_dir, num_samples or 500)
     elif dataset_name == "gsm8k":
         return prepare_gsm8k(data_dir, num_samples or 500)
-    elif dataset_name == "clutrr":
-        return prepare_clutrr(data_dir, num_samples or 500)
+    elif dataset_name == "2wikimultihopqa":
+        return prepare_2wikimultihopqa(data_dir, num_samples or 500)
 
 
 # ─── CLI 入口 ─────────────────────────────────────────────────────────────────
@@ -422,7 +359,7 @@ def main():
     parser = argparse.ArgumentParser(description="准备实验数据集")
     parser.add_argument(
         "--dataset", type=str, default="all",
-        choices=["all", "hotpotqa", "gsm8k", "clutrr"],
+        choices=["all", "hotpotqa", "gsm8k", "2wikimultihopqa"],
         help="要准备的数据集名称，all=全部",
     )
     parser.add_argument(
@@ -443,7 +380,7 @@ def main():
     output_dir.mkdir(parents=True, exist_ok=True)
 
     datasets_to_prepare = (
-        ["hotpotqa", "gsm8k", "clutrr"]
+        ["hotpotqa", "gsm8k", "2wikimultihopqa"]
         if args.dataset == "all"
         else [args.dataset]
     )
@@ -457,8 +394,8 @@ def main():
                 prepare_hotpotqa(output_dir, args.num_samples)
             elif ds_name == "gsm8k":
                 prepare_gsm8k(output_dir, args.num_samples)
-            elif ds_name == "clutrr":
-                prepare_clutrr(output_dir, args.num_samples)
+            elif ds_name == "2wikimultihopqa":
+                prepare_2wikimultihopqa(output_dir, args.num_samples)
         except Exception as e:
             print(f"[错误] {ds_name} 准备失败: {e}")
             continue
@@ -467,7 +404,7 @@ def main():
             fname_map = {
                 "hotpotqa": "hotpotqa_test.json",
                 "gsm8k": "gsm8k_test.json",
-                "clutrr": "clutrr_test.json",
+                "2wikimultihopqa": "2wikimultihopqa_test.json",
             }
             validate_dataset(output_dir / fname_map[ds_name])
 
