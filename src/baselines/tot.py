@@ -125,7 +125,8 @@ class TreeOfThoughts:
             reasoning_path=reasoning_text
         )
         answer_response = self.model.generate(answer_prompt, max_tokens=200, temperature=0.1)
-        answer = self._extract_answer(answer_response)
+        from ..utils.answer_extractor import extract_answer
+        answer = extract_answer(answer_response, question=question)
 
         return {
             "answer": answer,
@@ -158,8 +159,9 @@ class TreeOfThoughts:
         )
         answer_response = self.model.generate(answer_prompt, max_tokens=200, temperature=0.1)
 
+        from ..utils.answer_extractor import extract_answer as _extract
         return {
-            "answer": self._extract_answer(answer_response),
+            "answer": _extract(answer_response, question=question),
             "reasoning_text": current_text + "\n\n" + answer_response,
             "method": "ToT (dfs)",
         }

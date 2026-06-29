@@ -4,9 +4,9 @@
     "dataset": "hotpotqa",
     "model": "qwen3-8b",
     "num_samples": 100,
-    "avg_em": 0.26,
-    "avg_f1": 0.3804,
-    "avg_latency": 5.0891,
+    "avg_em": 0.27,
+    "avg_f1": 0.4016,
+    "avg_latency": 4.9197,
     "timeout_count": 0,
     "error_count": 0
   },
@@ -20,7 +20,7 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 47,
-        "latency": 6.600527286529541,
+        "latency": 6.468765020370483,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -35,7 +35,7 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 57,
-        "latency": 4.832326650619507,
+        "latency": 5.715203762054443,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -50,7 +50,7 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 86,
-        "latency": 5.037823438644409,
+        "latency": 5.138371706008911,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -64,8 +64,8 @@
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 102,
-        "latency": 5.003623008728027,
+        "token_count": 99,
+        "latency": 6.00254487991333,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -80,7 +80,7 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 59,
-        "latency": 4.145862579345703,
+        "latency": 4.419980525970459,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -95,7 +95,7 @@
         "em": 0.0,
         "f1": 0.5,
         "token_count": 84,
-        "latency": 4.697954177856445,
+        "latency": 5.034443378448486,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -110,7 +110,7 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 89,
-        "latency": 4.369552373886108,
+        "latency": 4.458944797515869,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -125,7 +125,7 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 72,
-        "latency": 4.667639970779419,
+        "latency": 5.309485197067261,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -140,7 +140,7 @@
         "em": 0.0,
         "f1": 0.4444444444444445,
         "token_count": 45,
-        "latency": 4.111651420593262,
+        "latency": 5.685207366943359,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -155,7 +155,7 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 59,
-        "latency": 4.5720930099487305,
+        "latency": 4.687557697296143,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -170,7 +170,7 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 79,
-        "latency": 4.074243545532227,
+        "latency": 4.327975034713745,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -185,7 +185,7 @@
         "em": 0.0,
         "f1": 0.5,
         "token_count": 57,
-        "latency": 4.963199615478516,
+        "latency": 4.49703574180603,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -200,7 +200,7 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 59,
-        "latency": 6.1715991497039795,
+        "latency": 4.792477607727051,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -214,8 +214,8 @@
       "metrics": {
         "em": 1.0,
         "f1": 1.0,
-        "token_count": 111,
-        "latency": 7.253862142562866,
+        "token_count": 102,
+        "latency": 5.165370225906372,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -230,7 +230,7 @@
         "em": 0.0,
         "f1": 0.13333333333333333,
         "token_count": 72,
-        "latency": 4.338037490844727,
+        "latency": 4.493021249771118,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -239,13 +239,13 @@
     {
       "sample_id": 15,
       "question": "Brown State Fishing Lake is in a country that has a population of how many inhabitants ?",
-      "prediction": "The country where Brown State Fishing Lake",
+      "prediction": "Approximately 331 million inhabitants",
       "reference": "9,984",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 233,
-        "latency": 5.335070848464966,
+        "token_count": 65,
+        "latency": 5.025702476501465,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -260,7 +260,7 @@
         "em": 0.0,
         "f1": 0.22222222222222224,
         "token_count": 94,
-        "latency": 5.275218486785889,
+        "latency": 4.715118169784546,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -275,7 +275,7 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 49,
-        "latency": 7.833815336227417,
+        "latency": 5.280190467834473,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -290,7 +290,7 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 71,
-        "latency": 4.408013820648193,
+        "latency": 4.39995551109314,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -305,7 +305,7 @@
         "em": 0.0,
         "f1": 0.8571428571428571,
         "token_count": 52,
-        "latency": 6.9538633823394775,
+        "latency": 4.179778814315796,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -320,7 +320,7 @@
         "em": 0.0,
         "f1": 0.3333333333333333,
         "token_count": 62,
-        "latency": 5.163758993148804,
+        "latency": 4.504124164581299,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -335,7 +335,7 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 57,
-        "latency": 6.2941107749938965,
+        "latency": 5.267168760299683,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -349,8 +349,8 @@
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 79,
-        "latency": 4.920655727386475,
+        "token_count": 77,
+        "latency": 4.839417934417725,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -359,13 +359,13 @@
     {
       "sample_id": 23,
       "question": "Which performance act has a higher instrument to person ratio, Badly Drawn Boy or Wolf Alice? ",
-      "prediction": "Wolf Alice has a higher instrument to person ratio",
+      "prediction": "Badly Drawn Boy has a higher instrument to person ratio",
       "reference": "Badly Drawn Boy",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 84,
-        "latency": 4.784039735794067,
+        "f1": 0.4615384615384615,
+        "token_count": 85,
+        "latency": 4.944079399108887,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -380,7 +380,7 @@
         "em": 0.0,
         "f1": 0.8571428571428571,
         "token_count": 59,
-        "latency": 5.254592418670654,
+        "latency": 5.08195948600769,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -395,7 +395,7 @@
         "em": 0.0,
         "f1": 0.8,
         "token_count": 53,
-        "latency": 6.086938381195068,
+        "latency": 5.604313850402832,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -410,7 +410,7 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 59,
-        "latency": 5.079543828964233,
+        "latency": 4.83805251121521,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -425,7 +425,7 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 58,
-        "latency": 4.932305574417114,
+        "latency": 4.686332702636719,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -434,13 +434,13 @@
     {
       "sample_id": 28,
       "question": "Kaiser Ventures corporation was founded by an American industrialist who became known as the father ",
-      "prediction": "Edgar Fosburgh Kaiser Jr. founded Kaiser Ventures corporation, and he is the gra",
+      "prediction": "The founder of Kaiser Ventures corporation",
       "reference": "Henry J. Kaiser",
       "metrics": {
         "em": 0.0,
-        "f1": 0.13333333333333333,
-        "token_count": 108,
-        "latency": 4.636839389801025,
+        "f1": 0.2222222222222222,
+        "token_count": 112,
+        "latency": 4.772104024887085,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -455,7 +455,7 @@
         "em": 0.0,
         "f1": 0.25,
         "token_count": 59,
-        "latency": 4.292973756790161,
+        "latency": 4.545062303543091,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -470,7 +470,7 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 66,
-        "latency": 4.69143009185791,
+        "latency": 4.950455665588379,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -485,7 +485,7 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 60,
-        "latency": 6.929805040359497,
+        "latency": 5.270575284957886,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -500,7 +500,7 @@
         "em": 0.0,
         "f1": 0.28571428571428575,
         "token_count": 73,
-        "latency": 4.858250141143799,
+        "latency": 5.905316352844238,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -515,7 +515,7 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 87,
-        "latency": 5.499590873718262,
+        "latency": 5.097860336303711,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -530,7 +530,7 @@
         "em": 0.0,
         "f1": 0.6666666666666666,
         "token_count": 42,
-        "latency": 4.31834602355957,
+        "latency": 4.805696964263916,
         "consistency_score": 0.779
       },
       "method": "gers_adaptive",
@@ -545,7 +545,7 @@
         "em": 0.0,
         "f1": 0.6666666666666666,
         "token_count": 79,
-        "latency": 5.1385509967803955,
+        "latency": 5.216183662414551,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -554,13 +554,13 @@
     {
       "sample_id": 36,
       "question": "Seven Brief Lessons on Physics was written by an Italian physicist that has worked in France since w",
-      "prediction": "1986",
+      "prediction": "1938",
       "reference": "2000",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
         "token_count": 53,
-        "latency": 4.72162652015686,
+        "latency": 5.029638767242432,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -575,7 +575,7 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 50,
-        "latency": 3.6467370986938477,
+        "latency": 3.7345457077026367,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -590,7 +590,7 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 72,
-        "latency": 4.917652368545532,
+        "latency": 4.09286093711853,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -599,13 +599,13 @@
     {
       "sample_id": 39,
       "question": "Ralph Hefferline was a psychology professor at a university that is located in what city?",
-      "prediction": "Vancouver",
+      "prediction": "Princeton, New Jersey",
       "reference": "New York City",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 58,
-        "latency": 4.9607343673706055,
+        "f1": 0.3333333333333333,
+        "token_count": 71,
+        "latency": 4.811274766921997,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -620,7 +620,7 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 105,
-        "latency": 6.343186616897583,
+        "latency": 6.36129903793335,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -635,7 +635,7 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 95,
-        "latency": 5.8836915493011475,
+        "latency": 5.393419981002808,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -650,7 +650,7 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 49,
-        "latency": 5.673653602600098,
+        "latency": 5.2539756298065186,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -665,7 +665,7 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 98,
-        "latency": 6.085088491439819,
+        "latency": 5.149317264556885,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -679,8 +679,8 @@
       "metrics": {
         "em": 1.0,
         "f1": 1.0,
-        "token_count": 100,
-        "latency": 4.847703218460083,
+        "token_count": 89,
+        "latency": 5.908775568008423,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -695,7 +695,7 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 56,
-        "latency": 5.534128189086914,
+        "latency": 5.000628471374512,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -710,7 +710,7 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 83,
-        "latency": 4.893839359283447,
+        "latency": 4.648203134536743,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -719,13 +719,13 @@
     {
       "sample_id": 47,
       "question": "What type of forum did a former Soviet statesman initiate?",
-      "prediction": "The former Soviet statesman Nikolai Podgorny initiated a national forum for disc",
+      "prediction": "The former Soviet statesman Nikolai Podgorny initiated a national forum promotin",
       "reference": "Organizations could come together to address global issues",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 95,
-        "latency": 4.712704658508301,
+        "token_count": 88,
+        "latency": 4.843676567077637,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -740,7 +740,7 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 55,
-        "latency": 5.4902989864349365,
+        "latency": 4.948631286621094,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -755,7 +755,7 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 88,
-        "latency": 4.743462324142456,
+        "latency": 4.420078992843628,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -764,13 +764,13 @@
     {
       "sample_id": 50,
       "question": "Which year and which conference was the 14th season for this conference as part of the NCAA Division",
-      "prediction": "The 14th season for the Pac-12 Conference as part of the NCAA Division I was in",
+      "prediction": "1993, Pac-12 Conference",
       "reference": "2009 Big 12 Conference",
       "metrics": {
         "em": 0.0,
-        "f1": 0.11111111111111112,
-        "token_count": 153,
-        "latency": 11.284916877746582,
+        "f1": 0.28571428571428575,
+        "token_count": 136,
+        "latency": 10.408604383468628,
         "consistency_score": 0.94
       },
       "method": "gers_adaptive",
@@ -785,7 +785,7 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 49,
-        "latency": 4.925590515136719,
+        "latency": 4.716172218322754,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -800,7 +800,7 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 78,
-        "latency": 5.733084440231323,
+        "latency": 5.327857494354248,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -815,7 +815,7 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 63,
-        "latency": 6.081050872802734,
+        "latency": 5.016329526901245,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -830,7 +830,7 @@
         "em": 0.0,
         "f1": 0.30769230769230765,
         "token_count": 94,
-        "latency": 5.678584814071655,
+        "latency": 5.515549421310425,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -845,7 +845,7 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 68,
-        "latency": 4.118634223937988,
+        "latency": 4.338929891586304,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -860,7 +860,7 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 44,
-        "latency": 3.9332408905029297,
+        "latency": 3.885451316833496,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -875,7 +875,7 @@
         "em": 0.0,
         "f1": 0.23529411764705882,
         "token_count": 117,
-        "latency": 6.555054187774658,
+        "latency": 6.410599946975708,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -890,7 +890,7 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 72,
-        "latency": 4.172592401504517,
+        "latency": 4.688482999801636,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -905,7 +905,7 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 63,
-        "latency": 4.5956525802612305,
+        "latency": 5.116844654083252,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -920,7 +920,7 @@
         "em": 0.0,
         "f1": 0.16666666666666666,
         "token_count": 107,
-        "latency": 6.155805349349976,
+        "latency": 5.288374423980713,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -935,7 +935,7 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 53,
-        "latency": 5.831731796264648,
+        "latency": 4.1889708042144775,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -950,7 +950,7 @@
         "em": 0.0,
         "f1": 0.5,
         "token_count": 48,
-        "latency": 4.2686309814453125,
+        "latency": 3.885514259338379,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -965,7 +965,7 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 55,
-        "latency": 4.9056901931762695,
+        "latency": 4.60158896446228,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -974,13 +974,13 @@
     {
       "sample_id": 64,
       "question": "Scott Parkin has been a vocal critic of Exxonmobil and another corporation that has operations in ho",
-      "prediction": "The context does not provide enough information to determine how many countries",
+      "prediction": "The number of countries where ExxonMobil operates",
       "reference": "more than 70 countries",
       "metrics": {
         "em": 0.0,
-        "f1": 0.125,
-        "token_count": 463,
-        "latency": 6.514331340789795,
+        "f1": 0.18181818181818182,
+        "token_count": 94,
+        "latency": 4.966645002365112,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -994,8 +994,8 @@
       "metrics": {
         "em": 1.0,
         "f1": 1.0,
-        "token_count": 64,
-        "latency": 4.869738340377808,
+        "token_count": 68,
+        "latency": 4.3491692543029785,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -1010,7 +1010,7 @@
         "em": 0.0,
         "f1": 0.9090909090909091,
         "token_count": 88,
-        "latency": 4.179406642913818,
+        "latency": 4.566710472106934,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -1025,7 +1025,7 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 52,
-        "latency": 4.148781776428223,
+        "latency": 4.270529508590698,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -1040,7 +1040,7 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 72,
-        "latency": 4.254060506820679,
+        "latency": 4.608973741531372,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -1055,7 +1055,7 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 68,
-        "latency": 4.145885944366455,
+        "latency": 4.4863176345825195,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -1070,7 +1070,7 @@
         "em": 0.0,
         "f1": 0.7499999999999999,
         "token_count": 76,
-        "latency": 4.532086372375488,
+        "latency": 5.126468181610107,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -1085,7 +1085,7 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 65,
-        "latency": 4.582155704498291,
+        "latency": 4.454966068267822,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -1100,7 +1100,7 @@
         "em": 0.0,
         "f1": 0.6666666666666666,
         "token_count": 91,
-        "latency": 5.556027412414551,
+        "latency": 5.157196760177612,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -1115,7 +1115,7 @@
         "em": 0.0,
         "f1": 0.4,
         "token_count": 70,
-        "latency": 4.555816650390625,
+        "latency": 4.620374917984009,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -1130,7 +1130,7 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 86,
-        "latency": 4.058361768722534,
+        "latency": 4.682475566864014,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -1145,7 +1145,7 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 64,
-        "latency": 5.5913612842559814,
+        "latency": 5.262479543685913,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -1160,7 +1160,7 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 41,
-        "latency": 4.8400492668151855,
+        "latency": 4.060910940170288,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -1174,8 +1174,8 @@
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 155,
-        "latency": 5.885599136352539,
+        "token_count": 181,
+        "latency": 6.16564679145813,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -1189,8 +1189,8 @@
       "metrics": {
         "em": 0.0,
         "f1": 0.2222222222222222,
-        "token_count": 47,
-        "latency": 4.112283229827881,
+        "token_count": 225,
+        "latency": 3.164797306060791,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -1205,7 +1205,7 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 46,
-        "latency": 4.145709037780762,
+        "latency": 4.721091985702515,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -1220,7 +1220,7 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 48,
-        "latency": 3.684818744659424,
+        "latency": 3.7238998413085938,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -1235,7 +1235,7 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 46,
-        "latency": 4.084612131118774,
+        "latency": 4.129561185836792,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -1250,7 +1250,7 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 113,
-        "latency": 4.75156569480896,
+        "latency": 5.303299427032471,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -1265,7 +1265,7 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 74,
-        "latency": 4.015022277832031,
+        "latency": 4.2206871509552,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -1280,7 +1280,7 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 87,
-        "latency": 6.8579912185668945,
+        "latency": 5.111427307128906,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -1295,7 +1295,7 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 69,
-        "latency": 5.323091506958008,
+        "latency": 5.310208082199097,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -1304,13 +1304,13 @@
     {
       "sample_id": 86,
       "question": "In what year was the novel that Lourenço Mutarelli based \"Nina\" on based first published?",
-      "prediction": "The novel that Lourenço Mutarelli's \"Nina\"",
+      "prediction": "2014",
       "reference": "1866",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 76,
-        "latency": 4.766529083251953,
+        "token_count": 65,
+        "latency": 5.226569890975952,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -1325,7 +1325,7 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 73,
-        "latency": 4.282192230224609,
+        "latency": 4.32450008392334,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -1334,13 +1334,13 @@
     {
       "sample_id": 88,
       "question": "How many copies of Roald Dahl's variation on a popular anecdote sold?",
-      "prediction": "**",
+      "prediction": "Exact sales figures for \"The Landlady\"",
       "reference": "250 million",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 563,
-        "latency": 7.149438381195068,
+        "token_count": 122,
+        "latency": 5.687425136566162,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -1355,7 +1355,7 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 61,
-        "latency": 4.349627494812012,
+        "latency": 5.423523426055908,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -1370,7 +1370,7 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 67,
-        "latency": 5.410254716873169,
+        "latency": 4.715665817260742,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -1385,7 +1385,7 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 48,
-        "latency": 4.424357891082764,
+        "latency": 3.950202226638794,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -1394,13 +1394,13 @@
     {
       "sample_id": 92,
       "question": "Where does the hotel and casino located in which Bill Cosby's third album was recorded?",
-      "prediction": "The Flamingo Hotel in Las Vegas, Nevada",
+      "prediction": "Flamingo Las Vegas",
       "reference": "Las Vegas Strip in Paradise",
       "metrics": {
         "em": 0.0,
         "f1": 0.5,
-        "token_count": 59,
-        "latency": 4.262397050857544,
+        "token_count": 83,
+        "latency": 5.773740768432617,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -1415,7 +1415,7 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 83,
-        "latency": 4.692728519439697,
+        "latency": 4.560401439666748,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -1424,13 +1424,13 @@
     {
       "sample_id": 94,
       "question": "In what month is the annual documentary film festival, that is presented by the fortnightly publishe",
-      "prediction": "The annual documentary film festival presented by the London Review of Books is",
+      "prediction": "The annual documentary film festival presented by the British journal of literar",
       "reference": "March and April",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 86,
-        "latency": 3.952420234680176,
+        "token_count": 92,
+        "latency": 4.168379068374634,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -1444,8 +1444,8 @@
       "metrics": {
         "em": 1.0,
         "f1": 1.0,
-        "token_count": 44,
-        "latency": 4.9456071853637695,
+        "token_count": 285,
+        "latency": 4.480262756347656,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -1460,7 +1460,7 @@
         "em": 0.0,
         "f1": 0.5,
         "token_count": 76,
-        "latency": 4.689149379730225,
+        "latency": 4.499026298522949,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -1475,7 +1475,7 @@
         "em": 0.0,
         "f1": 0.0,
         "token_count": 50,
-        "latency": 4.117225885391235,
+        "latency": 4.471853733062744,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -1484,13 +1484,13 @@
     {
       "sample_id": 98,
       "question": "In which city is the ambassador of the Rabat-Salé-Kénitra administrative region to China based?",
-      "prediction": "The ambassador of the Rabat-Salé-Kénitra administrative region to China is based",
+      "prediction": "Beijing",
       "reference": "Beijing",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 113,
-        "latency": 4.8891661167144775,
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 57,
+        "latency": 4.79237699508667,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",
@@ -1505,7 +1505,7 @@
         "em": 1.0,
         "f1": 1.0,
         "token_count": 75,
-        "latency": 4.067918539047241,
+        "latency": 4.322173833847046,
         "consistency_score": 1.0
       },
       "method": "gers_adaptive",

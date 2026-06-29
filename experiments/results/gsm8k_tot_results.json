@@ -4,11 +4,12 @@
     "dataset": "gsm8k",
     "model": "qwen3-8b",
     "num_samples": 100,
-    "avg_em": 0.86,
+    "avg_em": 0.85,
     "avg_f1": 0.8,
     "avg_latency": 19.4148,
     "timeout_count": 0,
-    "error_count": 0
+    "error_count": 0,
+    "avg_em_old": 0.86
   },
   "results": [
     {
@@ -115,10 +116,11 @@
       "prediction": "60",
       "reference": "160",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 113,
-        "latency": 20.586793184280396
+        "latency": 20.586793184280396,
+        "em_old": 1.0
       },
       "method": "tot",
       "error": null

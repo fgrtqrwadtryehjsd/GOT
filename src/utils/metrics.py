@@ -8,16 +8,48 @@ class Metrics:
     """推理评估指标集合"""
 
     @staticmethod
-    def exact_match(prediction: str, reference: str) -> float:
-        """精确匹配率（支持部分包含匹配）"""
+    def exact_match(prediction: str, reference: str, dataset: str = None) -> float:
+        """精确匹配率
+
+        Args:
+            prediction: 预测答案
+            reference: 参考答案
+            dataset: 数据集名称（gsm8k 走数值比较，其余走 SQuAD 式归一化 EM）
+        """
+        # GSM8K：抽取数值做数值相等比较
+        if dataset and dataset.lower() == "gsm8k":
+            return Metrics._numeric_em(prediction, reference)
+
+        # HotpotQA / CLUTRR：SQuAD 式归一化 EM（不再使用双向子串匹配）
         pred = Metrics._normalize(prediction)
         ref = Metrics._normalize(reference)
         if pred == ref:
             return 1.0
-        # 部分匹配：预测是参考的子串，或参考是预测的子串（针对 HotpotQA 长实体名）
-        if pred and ref and (pred in ref or ref in pred):
-            return 1.0
         return 0.0
+
+    @staticmethod
+    def _numeric_em(prediction: str, reference: str) -> float:
+        """GSM8K 数值 EM：抽取最后一个数字做数值相等比较"""
+        pred_num = Metrics._extract_number(prediction)
+        ref_num = Metrics._extract_number(reference)
+        if pred_num is None or ref_num is None:
+            # 回退到归一化字符串比较
+            return 1.0 if Metrics._normalize(prediction) == Metrics._normalize(reference) else 0.0
+        return 1.0 if abs(pred_num - ref_num) < 1e-6 else 0.0
+
+    @staticmethod
+    def _extract_number(text: str):
+        """从文本中抽取最后一个数字（支持负数和小数）"""
+        if not text:
+            return None
+        numbers = re.findall(r'[-+]?\d*\.?\d+', text.replace(',', ''))
+        if not numbers:
+            return None
+        try:
+            num = numbers[-1]
+            return float(num) if '.' in num else int(num)
+        except (ValueError, IndexError):
+            return None
 
     @staticmethod
     def f1_score(prediction: str, reference: str) -> float:
@@ -75,10 +107,11 @@ class Metrics:
                     graph=None, check_result: Dict = None,
                     reasoning_path: List[str] = None,
                     token_count: int = 0,
-                    latency: float = 0.0) -> Dict:
+                    latency: float = 0.0,
+                    dataset: str = None) -> Dict:
         """计算所有指标"""
         result = {
-            "em": Metrics.exact_match(prediction, reference),
+            "em": Metrics.exact_match(prediction, reference, dataset=dataset),
             "f1": Metrics.f1_score(prediction, reference),
             "token_count": token_count,
             "latency": latency,

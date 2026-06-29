@@ -4,11 +4,12 @@
     "dataset": "clutrr",
     "model": "qwen3-8b",
     "num_samples": 300,
-    "avg_em": 0.1933,
+    "avg_em": 0.0,
     "avg_f1": 0.0,
     "avg_latency": 3.4265,
     "timeout_count": 0,
-    "error_count": 0
+    "error_count": 0,
+    "avg_em_old": 0.19333333333333333
   },
   "results": [
     {
@@ -31,10 +32,11 @@
       "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 2.7612802982330322
+        "latency": 2.7612802982330322,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -101,10 +103,11 @@
       "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 2.7855992317199707
+        "latency": 2.7855992317199707,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -171,10 +174,11 @@
       "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 2.807940721511841
+        "latency": 2.807940721511841,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -241,10 +245,11 @@
       "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 3.6139016151428223
+        "latency": 3.6139016151428223,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -311,10 +316,11 @@
       "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 2.7934234142303467
+        "latency": 2.7934234142303467,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -381,10 +387,11 @@
       "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 2.761364459991455
+        "latency": 2.761364459991455,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -451,10 +458,11 @@
       "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 2.7699568271636963
+        "latency": 2.7699568271636963,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -521,10 +529,11 @@
       "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 3.811631917953491
+        "latency": 3.811631917953491,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -591,10 +600,11 @@
       "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 2.8391494750976562
+        "latency": 2.8391494750976562,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -661,10 +671,11 @@
       "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 3.0039546489715576
+        "latency": 3.0039546489715576,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -731,10 +742,11 @@
       "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 2.9162073135375977
+        "latency": 2.9162073135375977,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -871,10 +883,11 @@
       "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 2.8105576038360596
+        "latency": 2.8105576038360596,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -941,10 +954,11 @@
       "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 2.793701171875
+        "latency": 2.793701171875,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -1011,10 +1025,11 @@
       "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 2.8228259086608887
+        "latency": 2.8228259086608887,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -1081,10 +1096,11 @@
       "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 2.83449387550354
+        "latency": 2.83449387550354,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -1151,10 +1167,11 @@
       "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 3.6609349250793457
+        "latency": 3.6609349250793457,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -1221,10 +1238,11 @@
       "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 3.4194583892822266
+        "latency": 3.4194583892822266,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -1291,10 +1309,11 @@
       "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 2.8205440044403076
+        "latency": 2.8205440044403076,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -1361,10 +1380,11 @@
       "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 3.0036866664886475
+        "latency": 3.0036866664886475,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -1431,10 +1451,11 @@
       "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 3.1147193908691406
+        "latency": 3.1147193908691406,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -1501,10 +1522,11 @@
       "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 3.9678328037261963
+        "latency": 3.9678328037261963,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -1571,10 +1593,11 @@
       "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 3.435272693634033
+        "latency": 3.435272693634033,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -1641,10 +1664,11 @@
       "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 2.712742328643799
+        "latency": 2.712742328643799,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -1711,10 +1735,11 @@
       "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 3.829237699508667
+        "latency": 3.829237699508667,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -1781,10 +1806,11 @@
       "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 3.6439175605773926
+        "latency": 3.6439175605773926,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -1851,10 +1877,11 @@
       "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 3.010223150253296
+        "latency": 3.010223150253296,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -1921,10 +1948,11 @@
       "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 3.0433335304260254
+        "latency": 3.0433335304260254,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -1991,10 +2019,11 @@
       "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 2.8122217655181885
+        "latency": 2.8122217655181885,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -2061,10 +2090,11 @@
       "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 3.68127703666687
+        "latency": 3.68127703666687,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -2131,10 +2161,11 @@
       "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 3.5063588619232178
+        "latency": 3.5063588619232178,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -2201,10 +2232,11 @@
       "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 2.787212610244751
+        "latency": 2.787212610244751,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -2271,10 +2303,11 @@
       "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 2.815152406692505
+        "latency": 2.815152406692505,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -2341,10 +2374,11 @@
       "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 3.531466484069824
+        "latency": 3.531466484069824,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -2411,10 +2445,11 @@
       "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 2.7721524238586426
+        "latency": 2.7721524238586426,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -2481,10 +2516,11 @@
       "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 3.9302752017974854
+        "latency": 3.9302752017974854,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -2551,10 +2587,11 @@
       "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 2.8215456008911133
+        "latency": 2.8215456008911133,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -2621,10 +2658,11 @@
       "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 4.174479722976685
+        "latency": 4.174479722976685,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -2691,10 +2729,11 @@
       "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 3.715212345123291
+        "latency": 3.715212345123291,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -2831,10 +2870,11 @@
       "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 3.569345712661743
+        "latency": 3.569345712661743,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -2901,10 +2941,11 @@
       "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 3.3151021003723145
+        "latency": 3.3151021003723145,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -2971,10 +3012,11 @@
       "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 3.9181201457977295
+        "latency": 3.9181201457977295,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -3041,10 +3083,11 @@
       "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 3.4744768142700195
+        "latency": 3.4744768142700195,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -3111,10 +3154,11 @@
       "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 2.9105093479156494
+        "latency": 2.9105093479156494,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -3181,10 +3225,11 @@
       "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 2.9183902740478516
+        "latency": 2.9183902740478516,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -3251,10 +3296,11 @@
       "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 2.843994379043579
+        "latency": 2.843994379043579,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -3321,10 +3367,11 @@
       "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 2.9680631160736084
+        "latency": 2.9680631160736084,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -3391,10 +3438,11 @@
       "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 2.940315008163452
+        "latency": 2.940315008163452,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -3461,10 +3509,11 @@
       "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 3.6858255863189697
+        "latency": 3.6858255863189697,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -3531,10 +3580,11 @@
       "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 3.328782558441162
+        "latency": 3.328782558441162,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -3601,10 +3651,11 @@
       "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 3.182523012161255
+        "latency": 3.182523012161255,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -3671,10 +3722,11 @@
       "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 3.333364725112915
+        "latency": 3.333364725112915,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -3741,10 +3793,11 @@
       "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 3.176438808441162
+        "latency": 3.176438808441162,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -3811,10 +3864,11 @@
       "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 2.8807458877563477
+        "latency": 2.8807458877563477,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -3881,10 +3935,11 @@
       "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 3.5009565353393555
+        "latency": 3.5009565353393555,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -3951,10 +4006,11 @@
       "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 3.607125759124756
+        "latency": 3.607125759124756,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -4021,10 +4077,11 @@
       "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 2.8005242347717285
+        "latency": 2.8005242347717285,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -4091,10 +4148,11 @@
       "prediction": "Eva 和 George 是叔侄孙关系，即 Eva 是 George 的祖姑（或姑姑）**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 3.0747487545013428
+        "latency": 3.0747487545013428,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null
@@ -4161,10 +4219,11 @@
       "prediction": "Eva 和 George 是祖孙关系，具体来说，George 是 Eva 的侄孙。**",
       "reference": "侄孙",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 125,
-        "latency": 3.3392136096954346
+        "latency": 3.3392136096954346,
+        "em_old": 1.0
       },
       "method": "standard_cot",
       "error": null

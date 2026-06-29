@@ -4,11 +4,12 @@
     "dataset": "hotpotqa",
     "model": "qwen3-8b",
     "num_samples": 100,
-    "avg_em": 0.42,
+    "avg_em": 0.16,
     "avg_f1": 0.3069,
     "avg_latency": 8.9507,
     "timeout_count": 0,
-    "error_count": 0
+    "error_count": 0,
+    "avg_em_old": 0.42
   },
   "results": [
     {
@@ -17,11 +18,12 @@
       "prediction": "Yes, both Scott Derrickson and Ed Wood were American",
       "reference": "yes",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.19999999999999998,
         "token_count": 53,
         "latency": 8.830098628997803,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers_feedback",
       "error": null
@@ -32,11 +34,12 @@
       "prediction": "Chief of Protocol of the United States",
       "reference": "Chief of Protocol",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.6666666666666666,
         "token_count": 107,
         "latency": 7.809963226318359,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers_feedback",
       "error": null
@@ -62,11 +65,12 @@
       "prediction": "No, the Laleli Mosque and Esma Sultan Mansion are not located in the same neighborhood",
       "reference": "no",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.13333333333333333,
         "token_count": 72,
         "latency": 7.038324594497681,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers_feedback",
       "error": null
@@ -137,11 +141,12 @@
       "prediction": "Terry Richardson is older than Annie Morton",
       "reference": "Terry Richardson",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.4444444444444445,
         "token_count": 80,
         "latency": 7.21487832069397,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers_feedback",
       "error": null
@@ -152,11 +157,12 @@
       "prediction": "Yes, both Local H and For Against are from the United States",
       "reference": "yes",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.15384615384615385,
         "token_count": 75,
         "latency": 6.7510597705841064,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers_feedback",
       "error": null
@@ -212,11 +218,12 @@
       "prediction": "No, Random House Tower is used for office space, while 888 7th Avenue is a residential building",
       "reference": "no",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.11764705882352941,
         "token_count": 106,
         "latency": 8.25277066230774,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers_feedback",
       "error": null
@@ -272,11 +279,12 @@
       "prediction": "Yes, Giuseppe Verdi and Ambroise Thomas are both opera composers",
       "reference": "yes",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.18181818181818182,
         "token_count": 49,
         "latency": 8.164966583251953,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers_feedback",
       "error": null
@@ -302,11 +310,12 @@
       "prediction": "Robert Erskine Childers",
       "reference": "Robert Erskine Childers DSC",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.8571428571428571,
         "token_count": 61,
         "latency": 8.10603952407837,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers_feedback",
       "error": null
@@ -332,11 +341,12 @@
       "prediction": "Sonic the Hedgehog",
       "reference": "Sonic",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.5,
         "token_count": 56,
         "latency": 8.255183935165405,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers_feedback",
       "error": null
@@ -377,11 +387,12 @@
       "prediction": "IFFHS World's Best Goalkeeper",
       "reference": "World's Best Goalkeeper",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.8571428571428571,
         "token_count": 59,
         "latency": 8.232467651367188,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers_feedback",
       "error": null
@@ -392,11 +403,12 @@
       "prediction": "Lee Hazlewood",
       "reference": "Barton Lee Hazlewood",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.8,
         "token_count": 69,
         "latency": 8.97352147102356,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers_feedback",
       "error": null
@@ -422,11 +434,12 @@
       "prediction": "Yes, both Dictyosperma and Huernia are described as a genus",
       "reference": "yes",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.18181818181818182,
         "token_count": 58,
         "latency": 8.193068504333496,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers_feedback",
       "error": null
@@ -437,11 +450,12 @@
       "prediction": "Edgar Fosburgh Kaiser Jr. founded Kaiser Ventures corporation and is the grandson of Henry J. Kaiser, the father of modern American shipbuilding",
       "reference": "Henry J. Kaiser",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.2857142857142857,
         "token_count": 117,
         "latency": 13.005589962005615,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers_feedback",
       "error": null
@@ -467,11 +481,12 @@
       "prediction": "Poison's album \"Shut Up, Make Love\" was released in 2000",
       "reference": "2000",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.18181818181818182,
         "token_count": 112,
         "latency": 7.8736326694488525,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers_feedback",
       "error": null
@@ -512,11 +527,12 @@
       "prediction": "No, Freakonomics is not a documentary, but In the Realm of the Hackers is a documentary. Therefore, not both are American documentaries",
       "reference": "no",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.1111111111111111,
         "token_count": 70,
         "latency": 8.566509246826172,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers_feedback",
       "error": null
@@ -527,11 +543,12 @@
       "prediction": "Letters to Cleo had more members",
       "reference": "Letters to Cleo",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.6666666666666666,
         "token_count": 91,
         "latency": 7.354222774505615,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers_feedback",
       "error": null
@@ -587,11 +604,12 @@
       "prediction": "No, Elko Regional Airport is in Nevada, and Gerald R. Ford International Airport is in Michigan",
       "reference": "no",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.14285714285714288,
         "token_count": 98,
         "latency": 8.441241025924683,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers_feedback",
       "error": null
@@ -737,11 +755,12 @@
       "prediction": "Yes, both Ferocactus and Silene are types of plants",
       "reference": "yes",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.19999999999999998,
         "token_count": 41,
         "latency": 7.163351535797119,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers_feedback",
       "error": null
@@ -872,11 +891,12 @@
       "prediction": "Keith Bostic is younger than Jerry Glanville",
       "reference": "Keith Bostic",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.4444444444444445,
         "token_count": 128,
         "latency": 11.42818284034729,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers_feedback",
       "error": null
@@ -902,11 +922,12 @@
       "prediction": "No, Cypress is not a genus, but Ajuga is a genus",
       "reference": "no",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.2222222222222222,
         "token_count": 35,
         "latency": 6.977999687194824,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers_feedback",
       "error": null
@@ -1007,11 +1028,12 @@
       "prediction": "The International Boxing Hall of Fame",
       "reference": "International Boxing Hall of Fame",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.9090909090909091,
         "token_count": 125,
         "latency": 8.851479291915894,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers_feedback",
       "error": null
@@ -1067,11 +1089,12 @@
       "prediction": "Raven in Teen Titans Go",
       "reference": "Teen Titans Go!",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.7499999999999999,
         "token_count": 110,
         "latency": 7.98712158203125,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers_feedback",
       "error": null
@@ -1187,11 +1210,12 @@
       "prediction": "Edmund Leach was British, while Alfred Gell's nationality is not specified in the context",
       "reference": "British",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.13333333333333333,
         "token_count": 116,
         "latency": 8.88352108001709,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers_feedback",
       "error": null
@@ -1352,11 +1376,12 @@
       "prediction": "Film director",
       "reference": "director",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.6666666666666666,
         "token_count": 39,
         "latency": 7.2443623542785645,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers_feedback",
       "error": null
@@ -1412,11 +1437,12 @@
       "prediction": "No, the drink Zurracapote's composition is unknown, so it cannot be determined if both drinks contain gin",
       "reference": "no",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.1111111111111111,
         "token_count": 80,
         "latency": 8.232616901397705,
-        "consistency_score": 0.7937
+        "consistency_score": 0.7937,
+        "em_old": 1.0
       },
       "method": "gers_feedback",
       "error": null
@@ -1502,11 +1528,12 @@
       "prediction": "No, Yingkou is a prefecture-level city while Fuding is a county-level city",
       "reference": "no",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.19999999999999998,
         "token_count": 85,
         "latency": 8.31910252571106,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers_feedback",
       "error": null

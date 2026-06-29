@@ -4,9 +4,10 @@
     "description": "Full GERS: 分解+路径+约束+依赖传递+闭环修正+校验",
     "dataset": "gsm8k",
     "num_samples": 100,
-    "avg_em": 0.61,
+    "avg_em": 0.6,
     "avg_latency": 15.193,
-    "error_count": 0
+    "error_count": 0,
+    "avg_em_old": 0.61
   },
   "results": [
     {
@@ -1485,11 +1486,12 @@
       "prediction": "15",
       "reference": "5",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
         "latency": 10.554610013961792,
-        "consistency_score": 0.7333
+        "consistency_score": 0.7333,
+        "em_old": 1.0
       },
       "config": "full_gers",
       "error": null

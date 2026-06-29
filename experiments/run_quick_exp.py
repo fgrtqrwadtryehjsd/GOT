@@ -75,11 +75,13 @@ def create_method(method_name: str, model):
     from src.baselines import StandardCoT, CoTSC, TreeOfThoughts, ZeroShot, MoDeGraphBaseline
 
     methods = {
-        "gers":             lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=False, adaptive=False, consistency_threshold=0.75),
-        "gers_adaptive":    lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=False, adaptive=True, consistency_threshold=0.75),
-        "gers_nli":         lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=True, adaptive=False, consistency_threshold=0.75),
-        "gers_feedback":    lambda: GraphGuidedGenerator(model=model, max_iterations=2, enable_nli=False, adaptive=False, consistency_threshold=0.75),
-        "gers_adaptive_fb": lambda: GraphGuidedGenerator(model=model, max_iterations=2, enable_nli=False, adaptive=True, consistency_threshold=0.75),
+        # GERS 核心配置：_no_constraint=True（消融证明约束解码负贡献，已砍掉）
+        "gers":             lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=False, adaptive=False, consistency_threshold=0.75, _no_constraint=True),
+        "gers_adaptive":    lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=False, adaptive=True, consistency_threshold=0.75, _no_constraint=True),
+        # 图级 Self-Consistency：生成K条DAG，用Consistency Score选优
+        "gers_sc":          lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=True, adaptive=True, consistency_threshold=0.75, _no_constraint=True, self_consistency_k=3),
+        "gers_nli":         lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=True, adaptive=False, consistency_threshold=0.75, _no_constraint=True),
+        "gers_feedback":    lambda: GraphGuidedGenerator(model=model, max_iterations=2, enable_nli=False, adaptive=False, consistency_threshold=0.75, _no_constraint=True),
         "standard_cot":     lambda: StandardCoT(model=model),
         "cot_sc":           lambda: CoTSC(model=model, num_samples=3),
         "tot":              lambda: TreeOfThoughts(model=model, max_depth=3, beam_width=2),
@@ -94,7 +96,7 @@ def main():
     parser.add_argument("--dataset", type=str, default="gsm8k",
                         choices=["gsm8k", "hotpotqa", "clutrr"])
     parser.add_argument("--method", type=str, default="gers",
-                        choices=["gers", "gers_adaptive", "gers_nli", "gers_feedback", "gers_adaptive_fb", "standard_cot", "cot_sc", "tot", "zero_shot", "modegraph"])
+                        choices=["gers", "gers_adaptive", "gers_sc", "gers_nli", "gers_feedback", "standard_cot", "cot_sc", "tot", "zero_shot", "modegraph"])
     parser.add_argument("--model", type=str, default="qwen3-8b")
     parser.add_argument("--num_samples", type=int, default=50)
     parser.add_argument("--timeout", type=int, default=120,
@@ -156,6 +158,7 @@ def main():
                 result.get("reasoning_text", "") if result else ""
             ),
             latency=latency,
+            dataset=args.dataset,
         )
         if result and "consistency_score" in result:
             cs = result["consistency_score"]

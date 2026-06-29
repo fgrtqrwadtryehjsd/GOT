@@ -4,9 +4,10 @@
     "description": "w/o Context: 子问题不传递前驱答案（独立回答）",
     "dataset": "hotpotqa",
     "num_samples": 100,
-    "avg_em": 0.4,
+    "avg_em": 0.2,
     "avg_latency": 9.2301,
-    "error_count": 0
+    "error_count": 0,
+    "avg_em_old": 0.4
   },
   "results": [
     {
@@ -15,11 +16,12 @@
       "prediction": "Yes, both Scott Derrickson and Ed Wood were American",
       "reference": "yes",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.19999999999999998,
         "token_count": 0,
         "latency": 7.429064989089966,
-        "consistency_score": 0.6
+        "consistency_score": 0.6,
+        "em_old": 1.0
       },
       "config": "wo_context",
       "error": null
@@ -30,11 +32,12 @@
       "prediction": "Chief of Protocol of the United States",
       "reference": "Chief of Protocol",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.6666666666666666,
         "token_count": 0,
         "latency": 9.423051118850708,
-        "consistency_score": 0.7333
+        "consistency_score": 0.7333,
+        "em_old": 1.0
       },
       "config": "wo_context",
       "error": null
@@ -75,11 +78,12 @@
       "prediction": "Greenwich Village",
       "reference": "Greenwich Village, New York City",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.5714285714285715,
         "token_count": 0,
         "latency": 7.45817232131958,
-        "consistency_score": 0.6
+        "consistency_score": 0.6,
+        "em_old": 1.0
       },
       "config": "wo_context",
       "error": null
@@ -135,11 +139,12 @@
       "prediction": "Annie Morton is older than Terry Richardson",
       "reference": "Terry Richardson",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.4444444444444445,
         "token_count": 0,
         "latency": 7.712825059890747,
-        "consistency_score": 0.6
+        "consistency_score": 0.6,
+        "em_old": 1.0
       },
       "config": "wo_context",
       "error": null
@@ -150,11 +155,12 @@
       "prediction": "Yes, both Local H and For Against are from the United States",
       "reference": "yes",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.15384615384615385,
         "token_count": 0,
         "latency": 11.051401615142822,
-        "consistency_score": 0.6
+        "consistency_score": 0.6,
+        "em_old": 1.0
       },
       "config": "wo_context",
       "error": null
@@ -270,11 +276,12 @@
       "prediction": "Yes, Giuseppe Verdi and Ambroise Thomas were both opera composers",
       "reference": "yes",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.18181818181818182,
         "token_count": 0,
         "latency": 7.875518560409546,
-        "consistency_score": 0.7333
+        "consistency_score": 0.7333,
+        "em_old": 1.0
       },
       "config": "wo_context",
       "error": null
@@ -300,11 +307,12 @@
       "prediction": "Robert Erskine Childers",
       "reference": "Robert Erskine Childers DSC",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.8571428571428571,
         "token_count": 0,
         "latency": 8.72531008720398,
-        "consistency_score": 0.6
+        "consistency_score": 0.6,
+        "em_old": 1.0
       },
       "config": "wo_context",
       "error": null
@@ -375,11 +383,12 @@
       "prediction": "Peter Schmeichel was voted the IFFHS World's Best Goalkeeper in 1992",
       "reference": "World's Best Goalkeeper",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.42857142857142855,
         "token_count": 0,
         "latency": 9.114166021347046,
-        "consistency_score": 0.7333
+        "consistency_score": 0.7333,
+        "em_old": 1.0
       },
       "config": "wo_context",
       "error": null
@@ -420,11 +429,12 @@
       "prediction": "Yes, both Dictyosperma and Huernia are described as a genus",
       "reference": "yes",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.18181818181818182,
         "token_count": 0,
         "latency": 9.419849395751953,
-        "consistency_score": 0.6
+        "consistency_score": 0.6,
+        "em_old": 1.0
       },
       "config": "wo_context",
       "error": null
@@ -435,11 +445,12 @@
       "prediction": "Edgar Fosburgh Kaiser Jr., the grandson of Henry J. Kaiser, founded Kaiser Ventures corporation",
       "reference": "Henry J. Kaiser",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.4,
         "token_count": 0,
         "latency": 10.724386930465698,
-        "consistency_score": 0.6
+        "consistency_score": 0.6,
+        "em_old": 1.0
       },
       "config": "wo_context",
       "error": null
@@ -525,11 +536,12 @@
       "prediction": "Letters to Cleo had more members",
       "reference": "Letters to Cleo",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.6666666666666666,
         "token_count": 0,
         "latency": 8.16174054145813,
-        "consistency_score": 0.6
+        "consistency_score": 0.6,
+        "em_old": 1.0
       },
       "config": "wo_context",
       "error": null
@@ -585,11 +597,12 @@
       "prediction": "No, Elko Regional Airport is located in Nevada, while Gerald R. Ford International Airport is located in Michigan",
       "reference": "no",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.13333333333333333,
         "token_count": 0,
         "latency": 7.639087915420532,
-        "consistency_score": 0.6
+        "consistency_score": 0.6,
+        "em_old": 1.0
       },
       "config": "wo_context",
       "error": null
@@ -615,11 +628,12 @@
       "prediction": "Neither the Manchester Terrier nor the Scotch Collie has Gordon and Irish Setters as ancestors",
       "reference": "Scotch Collie",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.25,
         "token_count": 0,
         "latency": 11.5249605178833,
-        "consistency_score": 0.6
+        "consistency_score": 0.6,
+        "em_old": 1.0
       },
       "config": "wo_context",
       "error": null
@@ -735,11 +749,12 @@
       "prediction": "Yes, both Ferocactus and Silene are types of plants",
       "reference": "yes",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.19999999999999998,
         "token_count": 0,
         "latency": 7.964887380599976,
-        "consistency_score": 0.7333
+        "consistency_score": 0.7333,
+        "em_old": 1.0
       },
       "config": "wo_context",
       "error": null
@@ -870,11 +885,12 @@
       "prediction": "Keith Bostic is younger than Jerry Glanville",
       "reference": "Keith Bostic",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.4444444444444445,
         "token_count": 0,
         "latency": 13.718127012252808,
-        "consistency_score": 0.7
+        "consistency_score": 0.7,
+        "em_old": 1.0
       },
       "config": "wo_context",
       "error": null
@@ -900,11 +916,12 @@
       "prediction": "No, neither Cypress nor Ajuga are genera. \"Cypress\" is a common name for several genera, and \"Ajuga\" is a genus",
       "reference": "no",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.125,
         "token_count": 0,
         "latency": 8.013405323028564,
-        "consistency_score": 0.7333
+        "consistency_score": 0.7333,
+        "em_old": 1.0
       },
       "config": "wo_context",
       "error": null
@@ -1095,11 +1112,12 @@
       "prediction": "Orange clothing is worn by people in the Netherlands during Oranjegekte or to celebrate Koningsdag",
       "reference": "orange",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.125,
         "token_count": 0,
         "latency": 9.123064994812012,
-        "consistency_score": 0.6
+        "consistency_score": 0.6,
+        "em_old": 1.0
       },
       "config": "wo_context",
       "error": null
@@ -1350,11 +1368,12 @@
       "prediction": "Film director",
       "reference": "director",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.6666666666666666,
         "token_count": 0,
         "latency": 8.261970043182373,
-        "consistency_score": 0.6
+        "consistency_score": 0.6,
+        "em_old": 1.0
       },
       "config": "wo_context",
       "error": null
@@ -1410,11 +1429,12 @@
       "prediction": "No, because there is no information provided about the composition of Zurracapote",
       "reference": "no",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.16666666666666669,
         "token_count": 0,
         "latency": 8.241421699523926,
-        "consistency_score": 0.6
+        "consistency_score": 0.6,
+        "em_old": 1.0
       },
       "config": "wo_context",
       "error": null
@@ -1500,11 +1520,12 @@
       "prediction": "No, Yingkou and Fuding are not the same level of city. Yingkou is a prefecture-level city, while Fuding is a county-level city",
       "reference": "no",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.11764705882352941,
         "token_count": 0,
         "latency": 8.518449306488037,
-        "consistency_score": 0.6
+        "consistency_score": 0.6,
+        "em_old": 1.0
       },
       "config": "wo_context",
       "error": null

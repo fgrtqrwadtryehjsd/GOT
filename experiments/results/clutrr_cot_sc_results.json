@@ -4,11 +4,12 @@
     "dataset": "clutrr",
     "model": "qwen3-8b",
     "num_samples": 300,
-    "avg_em": 0.1733,
+    "avg_em": 0.09,
     "avg_f1": 0.13,
     "avg_latency": 11.9151,
     "timeout_count": 0,
-    "error_count": 0
+    "error_count": 0,
+    "avg_em_old": 0.17333333333333334
   },
   "results": [
     {
@@ -269,10 +270,11 @@
       "prediction": "外祖父",
       "reference": "舅祖父",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 213,
-        "latency": 20.837668657302856
+        "latency": 20.837668657302856,
+        "em_old": 1.0
       },
       "method": "cot_sc",
       "error": null
@@ -353,10 +355,11 @@
       "prediction": "叔叔",
       "reference": "伯伯/叔叔",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 1.0,
         "token_count": 114,
-        "latency": 9.083030462265015
+        "latency": 9.083030462265015,
+        "em_old": 1.0
       },
       "method": "cot_sc",
       "error": null
@@ -479,10 +482,11 @@
       "prediction": "祖父",
       "reference": "伯祖父/叔祖父",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 149,
-        "latency": 10.500659704208374
+        "latency": 10.500659704208374,
+        "em_old": 1.0
       },
       "method": "cot_sc",
       "error": null
@@ -591,10 +595,11 @@
       "prediction": "兄弟",
       "reference": "兄弟姐妹",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 1.0,
         "token_count": 129,
-        "latency": 10.084978818893433
+        "latency": 10.084978818893433,
+        "em_old": 1.0
       },
       "method": "cot_sc",
       "error": null
@@ -633,10 +638,11 @@
       "prediction": "叔叔",
       "reference": "伯伯/叔叔",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 1.0,
         "token_count": 96,
-        "latency": 7.9714484214782715
+        "latency": 7.9714484214782715,
+        "em_old": 1.0
       },
       "method": "cot_sc",
       "error": null
@@ -745,10 +751,11 @@
       "prediction": "祖父",
       "reference": "伯祖父/叔祖父",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 192,
-        "latency": 14.029290199279785
+        "latency": 14.029290199279785,
+        "em_old": 1.0
       },
       "method": "cot_sc",
       "error": null
@@ -1123,10 +1130,11 @@
       "prediction": "外祖父",
       "reference": "祖父",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 149,
-        "latency": 11.167011499404907
+        "latency": 11.167011499404907,
+        "em_old": 1.0
       },
       "method": "cot_sc",
       "error": null
@@ -1277,10 +1285,11 @@
       "prediction": "祖父",
       "reference": "伯祖父/叔祖父",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 268,
-        "latency": 15.286825895309448
+        "latency": 15.286825895309448,
+        "em_old": 1.0
       },
       "method": "cot_sc",
       "error": null
@@ -1361,10 +1370,11 @@
       "prediction": "外祖父",
       "reference": "祖父",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 111,
-        "latency": 8.087683200836182
+        "latency": 8.087683200836182,
+        "em_old": 1.0
       },
       "method": "cot_sc",
       "error": null
@@ -1431,10 +1441,11 @@
       "prediction": "祖父",
       "reference": "伯祖父/叔祖父",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 182,
-        "latency": 18.036044597625732
+        "latency": 18.036044597625732,
+        "em_old": 1.0
       },
       "method": "cot_sc",
       "error": null
@@ -1767,10 +1778,11 @@
       "prediction": "祖父",
       "reference": "舅祖父",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 1.0,
         "token_count": 167,
-        "latency": 11.66716456413269
+        "latency": 11.66716456413269,
+        "em_old": 1.0
       },
       "method": "cot_sc",
       "error": null
@@ -1935,10 +1947,11 @@
       "prediction": "祖父",
       "reference": "伯祖父/叔祖父",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 184,
-        "latency": 16.998029947280884
+        "latency": 16.998029947280884,
+        "em_old": 1.0
       },
       "method": "cot_sc",
       "error": null
@@ -2229,10 +2242,11 @@
       "prediction": "祖母",
       "reference": "姑祖母",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 1.0,
         "token_count": 311,
-        "latency": 18.364460229873657
+        "latency": 18.364460229873657,
+        "em_old": 1.0
       },
       "method": "cot_sc",
       "error": null
@@ -2453,10 +2467,11 @@
       "prediction": "祖父",
       "reference": "舅祖父",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 1.0,
         "token_count": 173,
-        "latency": 11.383470296859741
+        "latency": 11.383470296859741,
+        "em_old": 1.0
       },
       "method": "cot_sc",
       "error": null
@@ -2593,10 +2608,11 @@
       "prediction": "叔叔",
       "reference": "伯伯/叔叔",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 1.0,
         "token_count": 119,
-        "latency": 8.48863935470581
+        "latency": 8.48863935470581,
+        "em_old": 1.0
       },
       "method": "cot_sc",
       "error": null
@@ -2635,10 +2651,11 @@
       "prediction": "祖父",
       "reference": "伯祖父/叔祖父",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 186,
-        "latency": 13.450912952423096
+        "latency": 13.450912952423096,
+        "em_old": 1.0
       },
       "method": "cot_sc",
       "error": null
@@ -2971,10 +2988,11 @@
       "prediction": "祖父",
       "reference": "舅祖父",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 1.0,
         "token_count": 242,
-        "latency": 15.196660280227661
+        "latency": 15.196660280227661,
+        "em_old": 1.0
       },
       "method": "cot_sc",
       "error": null
@@ -3209,10 +3227,11 @@
       "prediction": "外祖父",
       "reference": "祖父",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 148,
-        "latency": 8.785682916641235
+        "latency": 8.785682916641235,
+        "em_old": 1.0
       },
       "method": "cot_sc",
       "error": null
@@ -3279,10 +3298,11 @@
       "prediction": "祖父",
       "reference": "舅祖父",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 1.0,
         "token_count": 169,
-        "latency": 13.757426261901855
+        "latency": 13.757426261901855,
+        "em_old": 1.0
       },
       "method": "cot_sc",
       "error": null
@@ -3363,10 +3383,11 @@
       "prediction": "兄弟",
       "reference": "表兄弟",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 1.0,
         "token_count": 243,
-        "latency": 18.13699436187744
+        "latency": 18.13699436187744,
+        "em_old": 1.0
       },
       "method": "cot_sc",
       "error": null
@@ -3377,10 +3398,11 @@
       "prediction": "祖父",
       "reference": "伯祖父/叔祖父",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 186,
-        "latency": 12.68137001991272
+        "latency": 12.68137001991272,
+        "em_old": 1.0
       },
       "method": "cot_sc",
       "error": null
@@ -3713,10 +3735,11 @@
       "prediction": "祖父",
       "reference": "舅祖父",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 1.0,
         "token_count": 244,
-        "latency": 15.86503005027771
+        "latency": 15.86503005027771,
+        "em_old": 1.0
       },
       "method": "cot_sc",
       "error": null
@@ -3839,10 +3862,11 @@
       "prediction": "祖父",
       "reference": "舅祖父",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 1.0,
         "token_count": 182,
-        "latency": 11.340543270111084
+        "latency": 11.340543270111084,
+        "em_old": 1.0
       },
       "method": "cot_sc",
       "error": null
@@ -3853,10 +3877,11 @@
       "prediction": "祖父",
       "reference": "伯祖父/叔祖父",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 166,
-        "latency": 11.387274026870728
+        "latency": 11.387274026870728,
+        "em_old": 1.0
       },
       "method": "cot_sc",
       "error": null
@@ -4035,10 +4060,11 @@
       "prediction": "外祖父",
       "reference": "祖父",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 167,
-        "latency": 13.254950523376465
+        "latency": 13.254950523376465,
+        "em_old": 1.0
       },
       "method": "cot_sc",
       "error": null

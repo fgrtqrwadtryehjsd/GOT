@@ -4,11 +4,12 @@
     "dataset": "clutrr",
     "model": "qwen3-8b",
     "num_samples": 300,
-    "avg_em": 0.1833,
+    "avg_em": 0.10333333333333333,
     "avg_f1": 0.1533,
     "avg_latency": 8.0027,
     "timeout_count": 0,
-    "error_count": 0
+    "error_count": 0,
+    "avg_em_old": 0.18333333333333332
   },
   "results": [
     {
@@ -737,11 +738,12 @@
       "prediction": "叔叔",
       "reference": "伯伯/叔叔",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 1.0,
         "token_count": 31,
         "latency": 6.028177976608276,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -881,11 +883,12 @@
       "prediction": "祖父",
       "reference": "舅祖父",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 1.0,
         "token_count": 31,
         "latency": 6.24845027923584,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -1169,11 +1172,12 @@
       "prediction": "叔叔",
       "reference": "伯伯/叔叔",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 1.0,
         "token_count": 31,
         "latency": 5.972692012786865,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -1601,11 +1605,12 @@
       "prediction": "祖父",
       "reference": "伯祖父/叔祖父",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 71,
         "latency": 14.662335872650146,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -2129,11 +2134,12 @@
       "prediction": "叔叔",
       "reference": "伯伯/叔叔",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 1.0,
         "token_count": 22,
         "latency": 6.335568904876709,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -2417,11 +2423,12 @@
       "prediction": "祖母",
       "reference": "姨祖母",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 1.0,
         "token_count": 34,
         "latency": 6.863515377044678,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -2513,11 +2520,12 @@
       "prediction": "祖父",
       "reference": "伯祖父/叔祖父",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 71,
         "latency": 14.42259407043457,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -2657,11 +2665,12 @@
       "prediction": "叔叔",
       "reference": "伯伯/叔叔",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 1.0,
         "token_count": 40,
         "latency": 6.112201929092407,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -4961,11 +4970,12 @@
       "prediction": "叔叔",
       "reference": "伯伯/叔叔",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 1.0,
         "token_count": 28,
         "latency": 5.85092306137085,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -6017,11 +6027,12 @@
       "prediction": "外祖父",
       "reference": "舅祖父",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 27,
         "latency": 8.62113618850708,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -6065,11 +6076,12 @@
       "prediction": "叔叔",
       "reference": "伯伯/叔叔",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 1.0,
         "token_count": 36,
         "latency": 6.304335355758667,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -6401,11 +6413,12 @@
       "prediction": "叔叔",
       "reference": "伯伯/叔叔",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 1.0,
         "token_count": 27,
         "latency": 6.998376131057739,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -6593,11 +6606,12 @@
       "prediction": "祖父",
       "reference": "伯祖父/叔祖父",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 30,
         "latency": 7.655956745147705,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -7073,11 +7087,12 @@
       "prediction": "叔叔",
       "reference": "伯伯/叔叔",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 1.0,
         "token_count": 26,
         "latency": 6.805456876754761,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -8129,11 +8144,12 @@
       "prediction": "叔叔",
       "reference": "伯伯/叔叔",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 1.0,
         "token_count": 48,
         "latency": 6.908615827560425,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -8609,11 +8625,12 @@
       "prediction": "祖父",
       "reference": "伯祖父/叔祖父",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 73,
         "latency": 13.507238388061523,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -8753,11 +8770,12 @@
       "prediction": "叔叔",
       "reference": "伯伯/叔叔",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 1.0,
         "token_count": 29,
         "latency": 6.9150025844573975,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -8849,11 +8867,12 @@
       "prediction": "叔叔",
       "reference": "伯伯/叔叔",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 1.0,
         "token_count": 33,
         "latency": 5.86682915687561,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -10433,11 +10452,12 @@
       "prediction": "祖父",
       "reference": "伯祖父/叔祖父",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 53,
         "latency": 12.15224814414978,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -11201,11 +11221,12 @@
       "prediction": "外祖父",
       "reference": "舅祖父",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 67,
         "latency": 15.111672639846802,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -11345,11 +11366,12 @@
       "prediction": "祖母",
       "reference": "姑祖母",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 1.0,
         "token_count": 46,
         "latency": 6.365951061248779,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -11537,11 +11559,12 @@
       "prediction": "祖父",
       "reference": "伯祖父/叔祖父",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 68,
         "latency": 14.825530052185059,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -12545,11 +12568,12 @@
       "prediction": "叔叔",
       "reference": "伯伯/叔叔",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 1.0,
         "token_count": 26,
         "latency": 9.039008140563965,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -13793,11 +13817,12 @@
       "prediction": "外祖父",
       "reference": "祖父",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 53,
         "latency": 6.062280654907227,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,

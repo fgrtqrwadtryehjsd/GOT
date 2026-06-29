@@ -4,9 +4,10 @@
     "description": "w/o Constraint: 不使用 ConstrainedDecoder 约束解码",
     "dataset": "gsm8k",
     "num_samples": 100,
-    "avg_em": 0.8,
+    "avg_em": 0.79,
     "avg_latency": 7.6865,
-    "error_count": 0
+    "error_count": 0,
+    "avg_em_old": 0.8
   },
   "results": [
     {
@@ -75,11 +76,12 @@
       "prediction": "0",
       "reference": "20",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 0,
         "latency": 7.694189071655273,
-        "consistency_score": 0.6
+        "consistency_score": 0.6,
+        "em_old": 1.0
       },
       "config": "wo_constraint",
       "error": null

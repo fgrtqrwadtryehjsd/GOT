@@ -4,11 +4,12 @@
     "dataset": "gsm8k",
     "model": "qwen3-8b",
     "num_samples": 500,
-    "avg_em": 0.7621,
+    "avg_em": 0.752,
     "avg_f1": 0.7379,
     "avg_latency": 83.7666,
     "timeout_count": 0,
-    "error_count": 0
+    "error_count": 0,
+    "avg_em_old": 0.756
   },
   "results": [
     {
@@ -2943,10 +2944,11 @@
       "prediction": "1450",
       "reference": "145",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 180,
-        "latency": 16.222431421279907
+        "latency": 16.222431421279907,
+        "em_old": 1.0
       },
       "method": "cot_sc",
       "error": null
@@ -4707,10 +4709,11 @@
       "prediction": "1",
       "reference": "310",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 115,
-        "latency": 13.169639348983765
+        "latency": 13.169639348983765,
+        "em_old": 1.0
       },
       "method": "cot_sc",
       "error": null

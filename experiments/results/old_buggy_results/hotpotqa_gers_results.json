@@ -4,11 +4,12 @@
     "dataset": "hotpotqa",
     "model": "qwen3-8b",
     "num_samples": 500,
-    "avg_em": 0.404,
+    "avg_em": 0.166,
     "avg_f1": 0.3146,
     "avg_latency": 8.828,
     "timeout_count": 0,
-    "error_count": 0
+    "error_count": 0,
+    "avg_em_old": 0.404
   },
   "results": [
     {
@@ -17,11 +18,12 @@
       "prediction": "Yes, both Scott Derrickson and Ed Wood were American",
       "reference": "yes",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.19999999999999998,
         "token_count": 53,
         "latency": 8.751435995101929,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -65,11 +67,12 @@
       "prediction": "Chief of Protocol of the United States",
       "reference": "Chief of Protocol",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.6666666666666666,
         "token_count": 107,
         "latency": 7.717907905578613,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -161,11 +164,12 @@
       "prediction": "No, the Laleli Mosque and Esma Sultan Mansion are not located in the same neighborhood",
       "reference": "no",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.13333333333333333,
         "token_count": 72,
         "latency": 7.12550687789917,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -401,11 +405,12 @@
       "prediction": "Terry Richardson is older than Annie Morton",
       "reference": "Terry Richardson",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.4444444444444445,
         "token_count": 80,
         "latency": 6.588310956954956,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -449,11 +454,12 @@
       "prediction": "Yes, both Local H and For Against are from the United States",
       "reference": "yes",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.15384615384615385,
         "token_count": 75,
         "latency": 6.09252142906189,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -641,11 +647,12 @@
       "prediction": "No, Random House Tower is used for office space, while 888 7th Avenue is a residential building",
       "reference": "no",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.11764705882352941,
         "token_count": 106,
         "latency": 8.4035325050354,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -833,11 +840,12 @@
       "prediction": "Yes, Giuseppe Verdi and Ambroise Thomas are both opera composers",
       "reference": "yes",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.18181818181818182,
         "token_count": 49,
         "latency": 7.728636264801025,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -929,11 +937,12 @@
       "prediction": "Robert Erskine Childers",
       "reference": "Robert Erskine Childers DSC",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.8571428571428571,
         "token_count": 61,
         "latency": 10.149438381195068,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -1025,11 +1034,12 @@
       "prediction": "Sonic the Hedgehog",
       "reference": "Sonic",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.5,
         "token_count": 56,
         "latency": 7.74939751625061,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -1169,11 +1179,12 @@
       "prediction": "IFFHS World's Best Goalkeeper",
       "reference": "World's Best Goalkeeper",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.8571428571428571,
         "token_count": 59,
         "latency": 8.408113956451416,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -1217,11 +1228,12 @@
       "prediction": "Lee Hazlewood",
       "reference": "Barton Lee Hazlewood",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.8,
         "token_count": 69,
         "latency": 9.31989312171936,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -1313,11 +1325,12 @@
       "prediction": "Yes, both Dictyosperma and Huernia are described as a genus",
       "reference": "yes",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.18181818181818182,
         "token_count": 58,
         "latency": 8.844827890396118,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -1361,11 +1374,12 @@
       "prediction": "Edgar Fosburgh Kaiser Jr. founded Kaiser Ventures corporation and is the grandson of Henry J. Kaiser, the father of modern American shipbuilding",
       "reference": "Henry J. Kaiser",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.2857142857142857,
         "token_count": 117,
         "latency": 9.7681725025177,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -1457,11 +1471,12 @@
       "prediction": "\"Shut Up, Make Love\" was released in 2000",
       "reference": "2000",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.2222222222222222,
         "token_count": 113,
         "latency": 7.843799114227295,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -1601,11 +1616,12 @@
       "prediction": "No, Freakonomics is not a documentary, while In the Realm of the Hackers is a documentary. Therefore, they are not both American documentaries",
       "reference": "no",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.10526315789473684,
         "token_count": 72,
         "latency": 9.253883600234985,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -1649,11 +1665,12 @@
       "prediction": "Letters to Cleo had more members",
       "reference": "Letters to Cleo",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.6666666666666666,
         "token_count": 91,
         "latency": 7.760742425918579,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -1841,11 +1858,12 @@
       "prediction": "No, Elko Regional Airport is in Nevada, and Gerald R. Ford International Airport is in Michigan",
       "reference": "no",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.14285714285714288,
         "token_count": 98,
         "latency": 9.151959896087646,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -2321,11 +2339,12 @@
       "prediction": "Yes, both Ferocactus and Silene are types of plants",
       "reference": "yes",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.19999999999999998,
         "token_count": 41,
         "latency": 7.099963665008545,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -2753,11 +2772,12 @@
       "prediction": "Keith Bostic is younger than Jerry Glanville",
       "reference": "Keith Bostic",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.4444444444444445,
         "token_count": 128,
         "latency": 11.181410074234009,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -2849,11 +2869,12 @@
       "prediction": "No, Cypress is not a genus, but Ajuga is a genus",
       "reference": "no",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.2222222222222222,
         "token_count": 35,
         "latency": 7.419600486755371,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -3185,11 +3206,12 @@
       "prediction": "The International Boxing Hall of Fame",
       "reference": "International Boxing Hall of Fame",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.9090909090909091,
         "token_count": 125,
         "latency": 8.879795551300049,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -3377,11 +3399,12 @@
       "prediction": "Raven in Teen Titans Go",
       "reference": "Teen Titans Go!",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.7499999999999999,
         "token_count": 110,
         "latency": 8.173152685165405,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -3761,11 +3784,12 @@
       "prediction": "Edmund Leach was British, while Alfred Gell's nationality is not specified in the context",
       "reference": "British",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.13333333333333333,
         "token_count": 116,
         "latency": 7.26130747795105,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -4289,11 +4313,12 @@
       "prediction": "Film director",
       "reference": "director",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.6666666666666666,
         "token_count": 39,
         "latency": 6.908708095550537,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -4481,11 +4506,12 @@
       "prediction": "No, the drink Zurracapote's composition is unknown, so it cannot be determined if both drinks contain gin",
       "reference": "no",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.1111111111111111,
         "token_count": 80,
         "latency": 9.155021905899048,
-        "consistency_score": 0.7937
+        "consistency_score": 0.7937,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -4769,11 +4795,12 @@
       "prediction": "No, Yingkou is a prefecture-level city while Fuding is a county-level city",
       "reference": "no",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.19999999999999998,
         "token_count": 85,
         "latency": 7.286923408508301,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -4817,11 +4844,12 @@
       "prediction": "The descendants of the Black Seminoles, known as the Mascogos, settled in Coahuila, Mexico",
       "reference": "Coahuila, Mexico",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.2857142857142857,
         "token_count": 107,
         "latency": 7.714965343475342,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -5441,11 +5469,12 @@
       "prediction": "George Archainbaud died first",
       "reference": "George Archainbaud",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.6666666666666666,
         "token_count": 71,
         "latency": 6.93627142906189,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -5777,11 +5806,12 @@
       "prediction": "The A41 and A5117 are the major truck roads located in Backford Cross",
       "reference": "The A41",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.2857142857142857,
         "token_count": 90,
         "latency": 9.422729015350342,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -6305,11 +6335,12 @@
       "prediction": "The publication years of both Pirate's Cove and Catan are not provided, so a comparison cannot be made",
       "reference": "Pirate's Cove",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.19999999999999998,
         "token_count": 102,
         "latency": 7.621148347854614,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -6737,11 +6768,12 @@
       "prediction": "Oxford University",
       "reference": "Oxford",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.6666666666666666,
         "token_count": 53,
         "latency": 6.367445707321167,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -6785,11 +6817,12 @@
       "prediction": "Roberta Vinci had the best singles ranking",
       "reference": "Roberta Vinci",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.4444444444444445,
         "token_count": 70,
         "latency": 7.244201421737671,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -6833,11 +6866,12 @@
       "prediction": "Both Truth in Science and Discovery embrace the \"Teach the Controversy\" campaign",
       "reference": "\"Teach the Controversy\" campaign",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.5333333333333333,
         "token_count": 79,
         "latency": 7.019437551498413,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -6977,11 +7011,12 @@
       "prediction": "Erika Jayne was born first",
       "reference": "Erika Jayne",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.5714285714285715,
         "token_count": 76,
         "latency": 6.599239826202393,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -7121,11 +7156,12 @@
       "prediction": "Bruce Spizer is an expert on The Beatles, whom he credits as the most influential act of the rock era",
       "reference": "The Beatles",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.19999999999999998,
         "token_count": 131,
         "latency": 8.138508319854736,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -7217,11 +7253,12 @@
       "prediction": "Film director",
       "reference": "director",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.6666666666666666,
         "token_count": 91,
         "latency": 10.883784055709839,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -7409,11 +7446,12 @@
       "prediction": "Yes, both Broughtonia and Laeliocattleya are orchids",
       "reference": "yes",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.25,
         "token_count": 70,
         "latency": 9.404681921005249,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -7505,11 +7543,12 @@
       "prediction": "The Seven Days Battles were fought earlier in our nation's history",
       "reference": "The Seven Days Battles",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.5333333333333333,
         "token_count": 93,
         "latency": 8.053080320358276,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -7601,11 +7640,12 @@
       "prediction": "Manchester United F.C",
       "reference": "Manchester United",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.8,
         "token_count": 57,
         "latency": 9.634767293930054,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -7985,11 +8025,12 @@
       "prediction": "Dinosaur came out first",
       "reference": "Dinosaur",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.4,
         "token_count": 111,
         "latency": 10.313315629959106,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -8129,11 +8170,12 @@
       "prediction": "The Roman Empire",
       "reference": "Roman",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.5,
         "token_count": 54,
         "latency": 6.858565807342529,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -8417,11 +8459,12 @@
       "prediction": "Yes, both Bamboo Mañalac and Danny Jones are musicians",
       "reference": "yes",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.19999999999999998,
         "token_count": 41,
         "latency": 8.025985717773438,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -8561,11 +8604,12 @@
       "prediction": "William Bonfield and Alistair Grant",
       "reference": "Alistair Grant",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.5714285714285715,
         "token_count": 79,
         "latency": 8.9235360622406,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -9041,11 +9085,12 @@
       "prediction": "<No, both films belong to the documentary genre>",
       "reference": "no",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.2222222222222222,
         "token_count": 74,
         "latency": 8.341789722442627,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -9137,11 +9182,12 @@
       "prediction": "Oregon Ducks",
       "reference": "Oregon Ducks football",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.8,
         "token_count": 53,
         "latency": 7.4489946365356445,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -9329,11 +9375,12 @@
       "prediction": "Severe Acute Respiratory Syndrome (SARS)",
       "reference": "severe acute respiratory syndrome",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.888888888888889,
         "token_count": 79,
         "latency": 8.092754364013672,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -9521,11 +9568,12 @@
       "prediction": "The settlement was $10.5 million (USD 8 million)",
       "reference": "$10.5 million",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.4444444444444445,
         "token_count": 92,
         "latency": 8.452778816223145,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -9569,11 +9617,12 @@
       "prediction": "The 1999 Odisha cyclone",
       "reference": "1999 Odisha cyclone",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.8571428571428571,
         "token_count": 79,
         "latency": 8.159191370010376,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -9761,11 +9810,12 @@
       "prediction": "They each won multiple awards",
       "reference": "multiple awards",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.5714285714285715,
         "token_count": 80,
         "latency": 9.525726318359375,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -9905,11 +9955,12 @@
       "prediction": "Yes, both Hot Rod and The Memory of Our People are magazines",
       "reference": "yes",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.15384615384615385,
         "token_count": 64,
         "latency": 7.872260093688965,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -10241,11 +10292,12 @@
       "prediction": "right-hand batsman",
       "reference": "right-hand",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.6666666666666666,
         "token_count": 74,
         "latency": 8.345097303390503,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -10337,11 +10389,12 @@
       "prediction": "The Tennessee Volunteers football team plays as a member of a conference headquartered in Birmingham, Alabama",
       "reference": "Birmingham, Alabama",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.23529411764705882,
         "token_count": 83,
         "latency": 6.842207431793213,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -10625,11 +10678,12 @@
       "prediction": "\"Bottom\" and \"The Comic Strip Presents...\"",
       "reference": "\"The Comic Strip Presents...\"",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.8,
         "token_count": 87,
         "latency": 7.583906173706055,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -10673,11 +10727,12 @@
       "prediction": "No, Dafeng District and Dazhou are not located in the same province",
       "reference": "no",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.15384615384615385,
         "token_count": 78,
         "latency": 7.963939428329468,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -11009,11 +11064,12 @@
       "prediction": "The Marsilea genus contains more individual species of plants than the Brabejum genus",
       "reference": "Marsilea",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.16666666666666669,
         "token_count": 70,
         "latency": 7.101309061050415,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -11489,11 +11545,12 @@
       "prediction": "Ehretia has more species than Xanthoceras",
       "reference": "Ehretia",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.2857142857142857,
         "token_count": 65,
         "latency": 7.798717737197876,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -11633,11 +11690,12 @@
       "prediction": "Reggie Jackson",
       "reference": "Reginald Martinez \"Reggie\" Jackson",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.6666666666666666,
         "token_count": 87,
         "latency": 8.736561298370361,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -12017,11 +12075,12 @@
       "prediction": "Istanbul",
       "reference": "Istanbul, Turkey",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.6666666666666666,
         "token_count": 39,
         "latency": 8.548308610916138,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -12065,11 +12124,12 @@
       "prediction": "Opry Mills is a super-regional shopping mall in Nashville, Tennessee, opened in 2000 on the former site of the Opryland USA theme park",
       "reference": "super-regional shopping mall",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.25,
         "token_count": 125,
         "latency": 8.81121826171875,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -12113,11 +12173,12 @@
       "prediction": "Ordos City, which is one of twelve subdivisions of Inner Mongolia, China",
       "reference": "Ordos City",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.3076923076923077,
         "token_count": 111,
         "latency": 9.422599792480469,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -12545,11 +12606,12 @@
       "prediction": "Leinster, which is situated in the east of Ireland",
       "reference": "the east of Ireland",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.6153846153846153,
         "token_count": 81,
         "latency": 8.573310136795044,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -12593,11 +12655,12 @@
       "prediction": "Lisburn Distillery F.C",
       "reference": "Distillery",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.5,
         "token_count": 80,
         "latency": 7.35445237159729,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -13025,11 +13088,12 @@
       "prediction": "Yes, both Stenocereus and Pachypodium can include tree-like plants",
       "reference": "yes",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.19999999999999998,
         "token_count": 88,
         "latency": 7.950387477874756,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -13265,11 +13329,12 @@
       "prediction": "Eucryphia has more species",
       "reference": "Eucryphia",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.4,
         "token_count": 64,
         "latency": 6.826931953430176,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -13601,11 +13666,12 @@
       "prediction": "Sacred Planet was released first",
       "reference": "Sacred Planet",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.5714285714285715,
         "token_count": 115,
         "latency": 7.925240755081177,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -13649,11 +13715,12 @@
       "prediction": "The band formed in Hanna, Alberta",
       "reference": "Hanna",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.2857142857142857,
         "token_count": 53,
         "latency": 7.791473150253296,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -13697,11 +13764,12 @@
       "prediction": "Ferdi Taygan is older than Mahesh Bhupathi",
       "reference": "Ferdi Taygan",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.4444444444444445,
         "token_count": 82,
         "latency": 12.08378005027771,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -13889,11 +13957,12 @@
       "prediction": "\"Hey Pa! There's a Goat on the Roof\" came to market first",
       "reference": "Hey Pa! There's a Goat on the Roof",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.8,
         "token_count": 61,
         "latency": 9.69872498512268,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -14033,11 +14102,12 @@
       "prediction": "The Crowned Prince",
       "reference": "The Crowned Prince of the Philadelphia Mob",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.6666666666666666,
         "token_count": 60,
         "latency": 6.882663726806641,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -14177,11 +14247,12 @@
       "prediction": "The Continental Army",
       "reference": "Continental Army",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.8,
         "token_count": 139,
         "latency": 8.666395902633667,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -14609,11 +14680,12 @@
       "prediction": "No, Skeptical Inquirer is not confirmed to be a tabloid-style magazine, while The Progressive Populist is described as such",
       "reference": "no",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.10526315789473684,
         "token_count": 128,
         "latency": 7.6533708572387695,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -14753,11 +14825,12 @@
       "prediction": "Sir George Cayley",
       "reference": "George Cayley",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.8,
         "token_count": 92,
         "latency": 9.148965120315552,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -14849,11 +14922,12 @@
       "prediction": "Yes, both Staten Island Catapult and This Is Elvis are documentaries",
       "reference": "yes",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.16666666666666669,
         "token_count": 74,
         "latency": 5.970522403717041,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -14897,11 +14971,12 @@
       "prediction": "Both events occurred in the same year, 2013",
       "reference": "2013",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.2222222222222222,
         "token_count": 51,
         "latency": 9.570925951004028,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -15041,11 +15116,12 @@
       "prediction": "It is not possible to determine who was born first because Am Rong's birth date is not provided",
       "reference": "Am Rong",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.1111111111111111,
         "token_count": 88,
         "latency": 7.440985918045044,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -15185,11 +15261,12 @@
       "prediction": "The Northumbrian dialect of Old English",
       "reference": "Northumbrian",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.2857142857142857,
         "token_count": 106,
         "latency": 7.398608446121216,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -15281,11 +15358,12 @@
       "prediction": "No, Duke Energy is not based in Massachusetts, and the location of Affiliated Managers Group is unspecified",
       "reference": "no",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.11764705882352941,
         "token_count": 74,
         "latency": 6.896741151809692,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -16145,11 +16223,12 @@
       "prediction": "Pakistan",
       "reference": "Pakistani",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 99,
         "latency": 21.482271909713745,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -16193,11 +16272,12 @@
       "prediction": "Franki Valli sang with The Four Seasons",
       "reference": "The Four Seasons",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.6,
         "token_count": 60,
         "latency": 6.957554578781128,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -16241,11 +16321,12 @@
       "prediction": "No, Sorbaria and Goldenrod belong to different families (Rosaceae and Asteraceae, respectively), and they are not both genera of more than 50 flowering plants",
       "reference": "no",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.08695652173913045,
         "token_count": 118,
         "latency": 8.059934377670288,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -16481,11 +16562,12 @@
       "prediction": "The Battle of Belleau Wood occurred earlier",
       "reference": "The Battle of Belleau Wood",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.8333333333333333,
         "token_count": 89,
         "latency": 8.872936487197876,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -16721,11 +16803,12 @@
       "prediction": "tomatoes",
       "reference": "tomato",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 63,
         "latency": 6.7049078941345215,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -16913,11 +16996,12 @@
       "prediction": "Yes, both Rutgers University and Carnegie Mellon University are located in America",
       "reference": "yes",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.16666666666666669,
         "token_count": 57,
         "latency": 7.012963533401489,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -17009,11 +17093,12 @@
       "prediction": "No, because the nationality of Joseph McGrath is unknown, while Thomas H. Ince was American",
       "reference": "no",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.125,
         "token_count": 75,
         "latency": 6.672905445098877,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -17057,11 +17142,12 @@
       "prediction": "No, Phlebodium is a species of fern, but Pieris is not",
       "reference": "no",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.18181818181818182,
         "token_count": 42,
         "latency": 8.334529876708984,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -17153,11 +17239,12 @@
       "prediction": "J. G. Farrell",
       "reference": "Farrell",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.5,
         "token_count": 74,
         "latency": 8.184348821640015,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -17201,11 +17288,12 @@
       "prediction": "New York City",
       "reference": "modern-day New York City",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.8571428571428571,
         "token_count": 101,
         "latency": 9.702160358428955,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -17441,11 +17529,12 @@
       "prediction": "Written media and video game",
       "reference": "video game",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.5714285714285715,
         "token_count": 74,
         "latency": 11.389020442962646,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -17873,11 +17962,12 @@
       "prediction": "Yunho",
       "reference": "Jung Yun-ho",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.6666666666666666,
         "token_count": 61,
         "latency": 9.036938428878784,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -18257,11 +18347,12 @@
       "prediction": "The birth date of José Echegaray y Eizaguirre is not provided, so it is not possible to definitively determine who was born first",
       "reference": "José Echegaray y Eizaguirre",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.32,
         "token_count": 140,
         "latency": 14.781676292419434,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -18497,11 +18588,12 @@
       "prediction": "Curt Menefee is the host of the Fox network's NFL show with co-host Michael Anthony Strahan, who spent his entire 15-year career with the New York Giants",
       "reference": "New York Giants",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.2222222222222222,
         "token_count": 97,
         "latency": 8.936259746551514,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -18593,11 +18685,12 @@
       "prediction": "The Danish band that created \"Dead but Rising\" was formed in Copenhagen in 2001",
       "reference": "Copenhagen",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.14285714285714288,
         "token_count": 69,
         "latency": 9.105832576751709,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -19025,11 +19118,12 @@
       "prediction": "The battleship \"Bismarck\"",
       "reference": "Bismarck",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.5,
         "token_count": 60,
         "latency": 7.995594263076782,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -19073,11 +19167,12 @@
       "prediction": "Manchester United",
       "reference": "Premier League club Manchester United and the England national team",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.33333333333333337,
         "token_count": 62,
         "latency": 6.282036304473877,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -19265,11 +19360,12 @@
       "prediction": "Icehouse pieces were released first",
       "reference": "Icehouse pieces",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.5714285714285715,
         "token_count": 81,
         "latency": 8.576507091522217,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -19409,11 +19505,12 @@
       "prediction": "The Jeep Cherokee was originally sold as a variant of a Jeep model produced during the years 1963 to 1991",
       "reference": "1963 to 1991",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.3,
         "token_count": 102,
         "latency": 7.535686254501343,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -19553,11 +19650,12 @@
       "prediction": "Langston Hughes has the highest number of skill",
       "reference": "Langston Hughes",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.4,
         "token_count": 74,
         "latency": 9.090643167495728,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -19697,11 +19795,12 @@
       "prediction": "Shanghai has a larger population than Hanggin Rear Banner",
       "reference": "Shanghai",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.19999999999999998,
         "token_count": 76,
         "latency": 6.272475004196167,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -19793,11 +19892,12 @@
       "prediction": "Lithuanian-born French actor",
       "reference": "Lithuanian-born French",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.8,
         "token_count": 49,
         "latency": 7.3667285442352295,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -19841,11 +19941,12 @@
       "prediction": "The VMAQT-1 logo is a female spirit in Irish mythology who heralds the death of a family member",
       "reference": "a family member",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.3157894736842105,
         "token_count": 115,
         "latency": 8.05721378326416,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -20225,11 +20326,12 @@
       "prediction": "documentary films about the American hardcore punk scene",
       "reference": "documentary",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.2222222222222222,
         "token_count": 90,
         "latency": 12.066130876541138,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -20465,11 +20567,12 @@
       "prediction": "Bedknobs and Broomsticks is older",
       "reference": "Bedknobs and Broomsticks",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.7499999999999999,
         "token_count": 72,
         "latency": 7.8893513679504395,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -20513,11 +20616,12 @@
       "prediction": "Holston River system",
       "reference": "Holston River",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.8,
         "token_count": 71,
         "latency": 7.239770889282227,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -20801,11 +20905,12 @@
       "prediction": "X Ambassadors has more members",
       "reference": "X Ambassadors",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.5714285714285715,
         "token_count": 64,
         "latency": 6.37588095664978,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -21665,11 +21770,12 @@
       "prediction": "Lord Dunmore",
       "reference": "Royal Governor Lord Dunmore",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.6666666666666666,
         "token_count": 124,
         "latency": 7.663017272949219,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -21809,11 +21915,12 @@
       "prediction": "No, \"Agee\" is a documentary about the writer James Agee, and \"To Shoot an Elephant\" is not a documentary about war",
       "reference": "no",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.11764705882352941,
         "token_count": 88,
         "latency": 8.359344005584717,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -22433,11 +22540,12 @@
       "prediction": "The Battle of Guam occurred first",
       "reference": "Battle of Guam",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.6666666666666666,
         "token_count": 78,
         "latency": 6.662769556045532,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -22625,11 +22733,12 @@
       "prediction": "Executive Search, Board Consulting, and Leadership Strategy Services",
       "reference": "Executive Search, Board Consulting",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.6666666666666666,
         "token_count": 156,
         "latency": 11.876137018203735,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -22673,11 +22782,12 @@
       "prediction": "Both are best known as authors",
       "reference": "author",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 47,
         "latency": 8.45558214187622,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -22721,11 +22831,12 @@
       "prediction": "The Catholic Church",
       "reference": "The Catholic Church in Ireland",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.7499999999999999,
         "token_count": 85,
         "latency": 7.139148712158203,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -22865,11 +22976,12 @@
       "prediction": "NCAA Division I FBS",
       "reference": "NCAA Division I FBS football",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.888888888888889,
         "token_count": 71,
         "latency": 8.013752222061157,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -22913,11 +23025,12 @@
       "prediction": "Tea Moderna is the Macedonian weekly",
       "reference": "Tea Moderna",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.5,
         "token_count": 60,
         "latency": 7.31939697265625,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -22961,11 +23074,12 @@
       "prediction": "Armenia",
       "reference": "Armenian",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 48,
         "latency": 8.012909650802612,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -23009,11 +23123,12 @@
       "prediction": "Kathleen O'Brien programmed the cartridge-based development system made by Shepardson Microsystems",
       "reference": "Kathleen O'Brien",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.3076923076923077,
         "token_count": 85,
         "latency": 8.607836246490479,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -23057,11 +23172,12 @@
       "prediction": "Warner Bros. Records",
       "reference": "Warner Bros",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.8,
         "token_count": 68,
         "latency": 7.1564624309539795,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -23201,11 +23317,12 @@
       "prediction": "Yes, both Goo Goo Dolls and Echosmith were formed in Chino, California",
       "reference": "no",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 64,
         "latency": 6.513642311096191,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -23345,11 +23462,12 @@
       "prediction": "rock and pop",
       "reference": "rock",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.5,
         "token_count": 39,
         "latency": 9.823120832443237,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -23537,11 +23655,12 @@
       "prediction": "Both Berghuis v. Thompkins and Mississippi University for Women v. Hogan were decided 5-4 by the Supreme Court of the United States",
       "reference": "Mississippi University for Women",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.33333333333333337,
         "token_count": 141,
         "latency": 9.562380313873291,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,
@@ -23873,11 +23992,12 @@
       "prediction": "The 2017 US Open was the 137th edition",
       "reference": "137th",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.25,
         "token_count": 50,
         "latency": 7.880023241043091,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers",
       "error": null,

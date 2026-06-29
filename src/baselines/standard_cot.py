@@ -6,12 +6,13 @@ Standard Chain-of-Thought 基线
 
 from typing import Dict, Optional
 
-COT_PROMPT = """请回答以下问题，要求逐步推理。
+COT_PROMPT = """Answer the following question step by step.
 
-问题：{question}
+Question: {question}
 {context_section}
 
-请一步一步地思考并给出答案。"""
+Think step by step, then give the final answer.
+Final Answer: """
 
 
 class StandardCoT:
@@ -28,7 +29,8 @@ class StandardCoT:
             return {"answer": "", "reasoning_text": "[需要配置模型]", "method": "Standard CoT"}
 
         reasoning_text = self.model.generate(prompt)
-        answer = self._extract_answer(reasoning_text)
+        from ..utils.answer_extractor import extract_answer
+        answer = extract_answer(reasoning_text, question=question)
 
         return {
             "answer": answer,

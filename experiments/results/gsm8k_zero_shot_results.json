@@ -4,11 +4,12 @@
     "dataset": "gsm8k",
     "model": "qwen3-8b",
     "num_samples": 500,
-    "avg_em": 0.556,
+    "avg_em": 0.548,
     "avg_f1": 0.528,
     "avg_latency": 3.9081,
     "timeout_count": 0,
-    "error_count": 0
+    "error_count": 0,
+    "avg_em_old": 0.556
   },
   "results": [
     {
@@ -3153,10 +3154,11 @@
       "prediction": "1",
       "reference": "180",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 139,
-        "latency": 3.5186948776245117
+        "latency": 3.5186948776245117,
+        "em_old": 1.0
       },
       "method": "zero_shot",
       "error": null
@@ -5995,10 +5997,11 @@
       "prediction": "50",
       "reference": "150",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 161,
-        "latency": 5.29858136177063
+        "latency": 5.29858136177063,
+        "em_old": 1.0
       },
       "method": "zero_shot",
       "error": null
@@ -6457,10 +6460,11 @@
       "prediction": "4",
       "reference": "84",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 90,
-        "latency": 2.870194435119629
+        "latency": 2.870194435119629,
+        "em_old": 1.0
       },
       "method": "zero_shot",
       "error": null
@@ -6919,10 +6923,11 @@
       "prediction": "2",
       "reference": "25",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 170,
-        "latency": 6.6554083824157715
+        "latency": 6.6554083824157715,
+        "em_old": 1.0
       },
       "method": "zero_shot",
       "error": null

@@ -1,0 +1,165 @@
+{
+  "summary": {
+    "method": "gers_sc",
+    "dataset": "hotpotqa",
+    "model": "qwen3-8b",
+    "num_samples": 10,
+    "avg_em": 0.3,
+    "avg_f1": 0.3944,
+    "avg_latency": 18.4359,
+    "timeout_count": 0,
+    "error_count": 0
+  },
+  "results": [
+    {
+      "sample_id": 0,
+      "question": "Were Scott Derrickson and Ed Wood of the same nationality?",
+      "prediction": "yes",
+      "reference": "yes",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 47,
+        "latency": 19.275226354599,
+        "consistency_score": 0.6
+      },
+      "method": "gers_sc",
+      "error": null
+    },
+    {
+      "sample_id": 1,
+      "question": "What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tel",
+      "prediction": "None",
+      "reference": "Chief of Protocol",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 57,
+        "latency": 21.224955320358276,
+        "consistency_score": 0.7333
+      },
+      "method": "gers_sc",
+      "error": null
+    },
+    {
+      "sample_id": 2,
+      "question": "What science fantasy young adult series, told in first person, has a set of companion books narratin",
+      "prediction": "The Hork-Bajir Chronicles by Victoria Hanley",
+      "reference": "Animorphs",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 86,
+        "latency": 17.475892066955566,
+        "consistency_score": 0.7333
+      },
+      "method": "gers_sc",
+      "error": null
+    },
+    {
+      "sample_id": 3,
+      "question": "Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?",
+      "prediction": "yes",
+      "reference": "no",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 102,
+        "latency": 20.041154623031616,
+        "consistency_score": 0.6
+      },
+      "method": "gers_sc",
+      "error": null
+    },
+    {
+      "sample_id": 4,
+      "question": "The director of the romantic comedy \"Big Stone Gap\" is based in what New York city?",
+      "prediction": "Greenwich Village, New York City",
+      "reference": "Greenwich Village, New York City",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 59,
+        "latency": 16.092663288116455,
+        "consistency_score": 0.6
+      },
+      "method": "gers_sc",
+      "error": null
+    },
+    {
+      "sample_id": 5,
+      "question": "2014 S/S is the debut album of a South Korean boy group that was formed by who?",
+      "prediction": "S.M. Entertainment",
+      "reference": "YG Entertainment",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5,
+        "token_count": 84,
+        "latency": 18.513514757156372,
+        "consistency_score": 0.8667
+      },
+      "method": "gers_sc",
+      "error": null
+    },
+    {
+      "sample_id": 6,
+      "question": "Who was known by his stage name Aladin and helped organizations improve their performance as a consu",
+      "prediction": "James P. Comer",
+      "reference": "Eenasul Fateh",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 89,
+        "latency": 20.55362558364868,
+        "consistency_score": 0.6
+      },
+      "method": "gers_sc",
+      "error": null
+    },
+    {
+      "sample_id": 7,
+      "question": "The arena where the Lewiston Maineiacs played their home games can seat how many people?",
+      "prediction": "The arena can seat 6000 people",
+      "reference": "3,677 seated",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 72,
+        "latency": 17.644575834274292,
+        "consistency_score": 0.7333
+      },
+      "method": "gers_sc",
+      "error": null
+    },
+    {
+      "sample_id": 8,
+      "question": "Who is older, Annie Morton or Terry Richardson?",
+      "prediction": "Terry Richardson is older than Annie Morton",
+      "reference": "Terry Richardson",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4444444444444445,
+        "token_count": 45,
+        "latency": 15.979446172714233,
+        "consistency_score": 0.6
+      },
+      "method": "gers_sc",
+      "error": null
+    },
+    {
+      "sample_id": 9,
+      "question": "Are Local H and For Against both from the United States?",
+      "prediction": "yes",
+      "reference": "yes",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 59,
+        "latency": 17.557682752609253,
+        "consistency_score": 0.6
+      },
+      "method": "gers_sc",
+      "error": null
+    }
+  ]
+}

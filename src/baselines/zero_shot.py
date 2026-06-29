@@ -1,12 +1,12 @@
 """Zero-Shot / Few-Shot基线"""
 from typing import Dict
 
-ZERO_SHOT_PROMPT = """请回答以下问题。
+ZERO_SHOT_PROMPT = """Answer the following question.
 
-问题：{question}
+Question: {question}
 {context_section}
 
-答案："""
+Answer: """
 
 FEW_SHOT_PROMPT = """请参考以下示例回答问题。
 
@@ -54,7 +54,8 @@ class ZeroShot:
             return {"answer": "", "reasoning_text": "[需要配置模型]", "method": self.mode}
 
         response = self.model.generate(prompt)
-        answer = self._extract_answer(response)
+        from ..utils.answer_extractor import extract_answer
+        answer = extract_answer(response, question=question)
         return {
             "answer": answer,
             "reasoning_text": response,

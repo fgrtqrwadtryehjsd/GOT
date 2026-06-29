@@ -4,11 +4,12 @@
     "dataset": "gsm8k",
     "model": "qwen3-8b",
     "num_samples": 500,
-    "avg_em": 0.67,
+    "avg_em": 0.648,
     "avg_f1": 0.636,
     "avg_latency": 11.8215,
     "timeout_count": 0,
-    "error_count": 0
+    "error_count": 0,
+    "avg_em_old": 0.67
   },
   "results": [
     {
@@ -47,11 +48,12 @@
       "prediction": "000",
       "reference": "70000",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 332,
         "latency": 7.350088357925415,
-        "consistency_score": 1.0
+        "consistency_score": 1.0,
+        "em_old": 1.0
       },
       "method": "gers_adaptive",
       "error": null
@@ -1487,11 +1489,12 @@
       "prediction": "15",
       "reference": "5",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 275,
         "latency": 5.341495513916016,
-        "consistency_score": 1.0
+        "consistency_score": 1.0,
+        "em_old": 1.0
       },
       "method": "gers_adaptive",
       "error": null
@@ -1727,11 +1730,12 @@
       "prediction": "60",
       "reference": "6",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 45,
         "latency": 12.951975345611572,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers_adaptive",
       "error": null
@@ -1742,11 +1746,12 @@
       "prediction": "390",
       "reference": "90",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 280,
         "latency": 26.902936220169067,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers_adaptive",
       "error": null
@@ -1967,11 +1972,12 @@
       "prediction": "3",
       "reference": "30",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 108,
         "latency": 21.428691148757935,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers_adaptive",
       "error": null
@@ -2282,11 +2288,12 @@
       "prediction": "1.50",
       "reference": "5",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 53,
         "latency": 9.709996223449707,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers_adaptive",
       "error": null
@@ -2822,11 +2829,12 @@
       "prediction": "106.12",
       "reference": "106",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 53,
         "latency": 11.899954795837402,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers_adaptive",
       "error": null
@@ -3437,11 +3445,12 @@
       "prediction": "15",
       "reference": "1",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 146,
         "latency": 20.37400794029236,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers_adaptive",
       "error": null
@@ -3752,11 +3761,12 @@
       "prediction": "5",
       "reference": "5,600",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 317,
         "latency": 30.7893705368042,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers_adaptive",
       "error": null
@@ -5372,11 +5382,12 @@
       "prediction": "12",
       "reference": "2",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 311,
         "latency": 23.831228017807007,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers_adaptive",
       "error": null
@@ -7412,11 +7423,12 @@
       "prediction": "5",
       "reference": "25",
       "metrics": {
-        "em": 1.0,
+        "em": 0.0,
         "f1": 0.0,
         "token_count": 206,
         "latency": 19.990869998931885,
-        "consistency_score": 0.8
+        "consistency_score": 0.8,
+        "em_old": 1.0
       },
       "method": "gers_adaptive",
       "error": null

@@ -104,7 +104,8 @@ class MoDeGraphBaseline:
         # Step 3: 提取最终答案
         final_prompt = MODEGRAPH_FINAL_PROMPT.format(question=question)
         final_response = self.model.generate(final_prompt, max_tokens=200, temperature=0.1)
-        answer = self._extract_answer(final_response)
+        from ..utils.answer_extractor import extract_answer
+        answer = extract_answer(final_response, question=question)
 
         full_reasoning = f"[Dependency Graph]\n{graph_text}\n\n[Reasoning]\n{reasoning_text}\n\n{final_response}"
 

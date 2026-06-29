@@ -1,74 +1,74 @@
 {
   "summary": {
-    "method": "gers_adaptive",
+    "method": "tot",
     "dataset": "hotpotqa",
     "model": "qwen3-8b",
     "num_samples": 100,
-    "avg_em": 0.26,
-    "avg_f1": 0.3804,
-    "avg_latency": 5.0891,
+    "avg_em": 0.16,
+    "avg_f1": 0.2907,
+    "avg_latency": 19.0497,
     "timeout_count": 0,
-    "error_count": 0
+    "error_count": 0,
+    "avg_em_old": 0.43
   },
   "results": [
     {
       "sample_id": 0,
       "question": "Were Scott Derrickson and Ed Wood of the same nationality?",
-      "prediction": "yes",
+      "prediction": "Yes, both Scott Derrickson and Ed Wood were American",
       "reference": "yes",
       "metrics": {
-        "em": 1.0,
-        "f1": 1.0,
-        "token_count": 47,
-        "latency": 6.600527286529541,
-        "consistency_score": 1.0
+        "em": 0.0,
+        "f1": 0.19999999999999998,
+        "token_count": 120,
+        "latency": 19.93338966369629,
+        "em_old": 1.0
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 1,
       "question": "What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tel",
-      "prediction": "None",
+      "prediction": "Chief of Protocol of the United States",
       "reference": "Chief of Protocol",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 57,
-        "latency": 4.832326650619507,
-        "consistency_score": 1.0
+        "f1": 0.6666666666666666,
+        "token_count": 132,
+        "latency": 20.660328149795532,
+        "em_old": 1.0
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 2,
       "question": "What science fantasy young adult series, told in first person, has a set of companion books narratin",
-      "prediction": "The Hork-Bajir Chronicles by Victoria Hanley",
+      "prediction": "The Hork-Bajir Chronicles",
       "reference": "Animorphs",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 86,
-        "latency": 5.037823438644409,
-        "consistency_score": 1.0
+        "token_count": 162,
+        "latency": 21.266149520874023
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 3,
       "question": "Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?",
-      "prediction": "yes",
+      "prediction": "No, the Laleli Mosque and Esma Sultan Mansion are not located in the same neighborhood",
       "reference": "no",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 102,
-        "latency": 5.003623008728027,
-        "consistency_score": 1.0
+        "f1": 0.13333333333333333,
+        "token_count": 135,
+        "latency": 20.020362854003906,
+        "em_old": 1.0
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
@@ -79,56 +79,52 @@
       "metrics": {
         "em": 1.0,
         "f1": 1.0,
-        "token_count": 59,
-        "latency": 4.145862579345703,
-        "consistency_score": 1.0
+        "token_count": 81,
+        "latency": 15.888208627700806
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 5,
       "question": "2014 S/S is the debut album of a South Korean boy group that was formed by who?",
-      "prediction": "S.M. Entertainment",
+      "prediction": "Shinee was formed by S.M. Entertainment",
       "reference": "YG Entertainment",
       "metrics": {
         "em": 0.0,
-        "f1": 0.5,
-        "token_count": 84,
-        "latency": 4.697954177856445,
-        "consistency_score": 1.0
+        "f1": 0.25,
+        "token_count": 132,
+        "latency": 18.174980640411377
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 6,
       "question": "Who was known by his stage name Aladin and helped organizations improve their performance as a consu",
-      "prediction": "James P. Comer",
+      "prediction": "There is no evidence that James P. Comer was known by the stage name \"Aladin.\"",
       "reference": "Eenasul Fateh",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 89,
-        "latency": 4.369552373886108,
-        "consistency_score": 1.0
+        "token_count": 158,
+        "latency": 18.641830921173096
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 7,
       "question": "The arena where the Lewiston Maineiacs played their home games can seat how many people?",
-      "prediction": "The arena can seat 6000 people",
+      "prediction": "6000",
       "reference": "3,677 seated",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 72,
-        "latency": 4.667639970779419,
-        "consistency_score": 1.0
+        "token_count": 124,
+        "latency": 18.598020315170288
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
@@ -139,146 +135,140 @@
       "metrics": {
         "em": 0.0,
         "f1": 0.4444444444444445,
-        "token_count": 45,
-        "latency": 4.111651420593262,
-        "consistency_score": 1.0
+        "token_count": 118,
+        "latency": 16.95827865600586,
+        "em_old": 1.0
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 9,
       "question": "Are Local H and For Against both from the United States?",
-      "prediction": "yes",
+      "prediction": "Yes, both Local H and For Against are from the United States",
       "reference": "yes",
       "metrics": {
-        "em": 1.0,
-        "f1": 1.0,
-        "token_count": 59,
-        "latency": 4.5720930099487305,
-        "consistency_score": 1.0
+        "em": 0.0,
+        "f1": 0.15384615384615385,
+        "token_count": 155,
+        "latency": 19.256502628326416,
+        "em_old": 1.0
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 10,
       "question": "What is the name of the fight song of the university whose main campus is in Lawrence, Kansas and wh",
-      "prediction": "Mizzou",
+      "prediction": "The fight song of the University of Missouri–Kansas City is \"UMKC Fight Song.\"",
       "reference": "Kansas Song",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 79,
-        "latency": 4.074243545532227,
-        "consistency_score": 1.0
+        "f1": 0.1818181818181818,
+        "token_count": 102,
+        "latency": 18.135348320007324
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 11,
       "question": "What screenwriter with credits for \"Evolution\" co-wrote a film starring Nicolas Cage and Téa Leoni?",
-      "prediction": "David Koepp",
+      "prediction": "The screenwriter with credits for \"Evolution\" who co-wrote the film starring Nicolas Cage and Téa Leoni is Jim Cash, as he co-wrote \"Bad Boys.\"",
       "reference": "David Weissman",
       "metrics": {
         "em": 0.0,
-        "f1": 0.5,
-        "token_count": 57,
-        "latency": 4.963199615478516,
-        "consistency_score": 1.0
+        "f1": 0.0,
+        "token_count": 130,
+        "latency": 18.92387557029724
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 12,
       "question": "What year did Guns N Roses perform a promo for a movie starring Arnold Schwarzenegger as a former Ne",
-      "prediction": "1990",
+      "prediction": "1989",
       "reference": "1999",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 59,
-        "latency": 6.1715991497039795,
-        "consistency_score": 1.0
+        "token_count": 120,
+        "latency": 23.87759041786194
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 13,
       "question": "Are Random House Tower and 888 7th Avenue both used for real estate?",
-      "prediction": "no",
+      "prediction": "No, Random House Tower is a publishing imprint and not a real estate property, while 888 7th Avenue is a commercial real estate building",
       "reference": "no",
       "metrics": {
-        "em": 1.0,
-        "f1": 1.0,
-        "token_count": 111,
-        "latency": 7.253862142562866,
-        "consistency_score": 1.0
+        "em": 0.0,
+        "f1": 0.1,
+        "token_count": 169,
+        "latency": 23.379326820373535,
+        "em_old": 1.0
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 14,
       "question": "The football manager who recruited David Beckham managed Manchester United during what timeframe?",
-      "prediction": "The football manager who recruited David Beckham managed Manchester United from",
+      "prediction": "1945 to 1969",
       "reference": "from 1986 to 2013",
       "metrics": {
         "em": 0.0,
-        "f1": 0.13333333333333333,
-        "token_count": 72,
-        "latency": 4.338037490844727,
-        "consistency_score": 1.0
+        "f1": 0.28571428571428575,
+        "token_count": 87,
+        "latency": 17.154524564743042
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 15,
       "question": "Brown State Fishing Lake is in a country that has a population of how many inhabitants ?",
-      "prediction": "The country where Brown State Fishing Lake",
+      "prediction": "The United States of America",
       "reference": "9,984",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 233,
-        "latency": 5.335070848464966,
-        "consistency_score": 1.0
+        "token_count": 83,
+        "latency": 16.24061894416809
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 16,
       "question": "The Vermont Catamounts men's soccer team currently competes in a conference that was formerly known ",
-      "prediction": "Eastern Collegiate Athletic Conference (ECAC)",
+      "prediction": "The conference was formerly known as the America East Conference from 1988 to 1996",
       "reference": "the North Atlantic Conference",
       "metrics": {
         "em": 0.0,
-        "f1": 0.22222222222222224,
-        "token_count": 94,
-        "latency": 5.275218486785889,
-        "consistency_score": 1.0
+        "f1": 0.25,
+        "token_count": 111,
+        "latency": 23.01180076599121
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 17,
       "question": "Are Giuseppe Verdi and Ambroise Thomas both Opera composers ?",
-      "prediction": "yes",
+      "prediction": "Yes, both Giuseppe Verdi and Ambroise Thomas are confirmed as opera composers based on the context",
       "reference": "yes",
       "metrics": {
-        "em": 1.0,
-        "f1": 1.0,
-        "token_count": 49,
-        "latency": 7.833815336227417,
-        "consistency_score": 1.0
+        "em": 0.0,
+        "f1": 0.11764705882352941,
+        "token_count": 134,
+        "latency": 20.231238842010498,
+        "em_old": 1.0
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
@@ -289,11 +279,10 @@
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 71,
-        "latency": 4.408013820648193,
-        "consistency_score": 1.0
+        "token_count": 58,
+        "latency": 18.16303277015686
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
@@ -304,71 +293,69 @@
       "metrics": {
         "em": 0.0,
         "f1": 0.8571428571428571,
-        "token_count": 52,
-        "latency": 6.9538633823394775,
-        "consistency_score": 1.0
+        "token_count": 123,
+        "latency": 20.741870880126953,
+        "em_old": 1.0
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 20,
       "question": "Which other Mexican Formula One race car driver has held the podium besides the Force India driver b",
-      "prediction": "Pedro de la Rosa",
+      "prediction": "Sergio Pérez",
       "reference": "Pedro Rodríguez",
       "metrics": {
         "em": 0.0,
-        "f1": 0.3333333333333333,
-        "token_count": 62,
-        "latency": 5.163758993148804,
-        "consistency_score": 1.0
+        "f1": 0.0,
+        "token_count": 106,
+        "latency": 21.153433322906494
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 21,
       "question": "This singer of A Rather Blustery Day also voiced what hedgehog?",
-      "prediction": "Spike",
+      "prediction": "The singer of \"A Rather Blustery Day\" also voiced Sonic the Hedgehog",
       "reference": "Sonic",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 57,
-        "latency": 6.2941107749938965,
-        "consistency_score": 1.0
+        "f1": 0.16666666666666669,
+        "token_count": 118,
+        "latency": 19.92428708076477,
+        "em_old": 1.0
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 22,
       "question": "Aside from the Apple Remote, what other device can control the program Apple Remote was originally d",
-      "prediction": "A universal remote",
+      "prediction": "A universal remote or a compatible media player",
       "reference": "keyboard function keys",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 79,
-        "latency": 4.920655727386475,
-        "consistency_score": 1.0
+        "token_count": 156,
+        "latency": 20.019957542419434
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 23,
       "question": "Which performance act has a higher instrument to person ratio, Badly Drawn Boy or Wolf Alice? ",
-      "prediction": "Wolf Alice has a higher instrument to person ratio",
+      "prediction": "Wolf Alice has a higher instrument-to-person ratio than Badly Drawn Boy",
       "reference": "Badly Drawn Boy",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 84,
-        "latency": 4.784039735794067,
-        "consistency_score": 1.0
+        "f1": 0.42857142857142855,
+        "token_count": 162,
+        "latency": 20.90458631515503,
+        "em_old": 1.0
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
@@ -379,26 +366,25 @@
       "metrics": {
         "em": 0.0,
         "f1": 0.8571428571428571,
-        "token_count": 59,
-        "latency": 5.254592418670654,
-        "consistency_score": 1.0
+        "token_count": 91,
+        "latency": 17.872868537902832,
+        "em_old": 1.0
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 25,
       "question": "Who was the writer of These Boots Are Made for Walkin' and who died in 2007?",
-      "prediction": "Lee Hazlewood",
+      "prediction": "Nancy Sinatra wrote \"These Boots Are Made for Walkin'\" and died in 2007",
       "reference": "Barton Lee Hazlewood",
       "metrics": {
         "em": 0.0,
-        "f1": 0.8,
-        "token_count": 53,
-        "latency": 6.086938381195068,
-        "consistency_score": 1.0
+        "f1": 0.0,
+        "token_count": 144,
+        "latency": 20.76803731918335
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
@@ -409,71 +395,69 @@
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 59,
-        "latency": 5.079543828964233,
-        "consistency_score": 1.0
+        "token_count": 119,
+        "latency": 22.95744252204895
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 27,
       "question": "Are both Dictyosperma, and Huernia described as a genus?",
-      "prediction": "yes",
+      "prediction": "Yes, both Dictyosperma and Huernia are described as genera",
       "reference": "yes",
       "metrics": {
-        "em": 1.0,
-        "f1": 1.0,
-        "token_count": 58,
-        "latency": 4.932305574417114,
-        "consistency_score": 1.0
+        "em": 0.0,
+        "f1": 0.19999999999999998,
+        "token_count": 120,
+        "latency": 19.886144161224365,
+        "em_old": 1.0
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 28,
       "question": "Kaiser Ventures corporation was founded by an American industrialist who became known as the father ",
-      "prediction": "Edgar Fosburgh Kaiser Jr. founded Kaiser Ventures corporation, and he is the gra",
+      "prediction": "Edgar Fosburgh Kaiser Jr., grandson of Henry J. Kaiser—the father of modern American s",
       "reference": "Henry J. Kaiser",
       "metrics": {
         "em": 0.0,
-        "f1": 0.13333333333333333,
-        "token_count": 108,
-        "latency": 4.636839389801025,
-        "consistency_score": 1.0
+        "f1": 0.375,
+        "token_count": 215,
+        "latency": 24.852144479751587,
+        "em_old": 1.0
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 29,
       "question": "What is the name for the adventure in \"Tunnels and Trolls\", a game designed by Ken St. Andre?",
-      "prediction": "The Adventure of the Lost City",
+      "prediction": "The name for the adventure in \"Tunnels and Trolls\" is not specified in the provided context, but the game includes various adventures and scenarios",
       "reference": "Arena of Khazan",
       "metrics": {
         "em": 0.0,
-        "f1": 0.25,
-        "token_count": 59,
-        "latency": 4.292973756790161,
-        "consistency_score": 1.0
+        "f1": 0.0,
+        "token_count": 134,
+        "latency": 18.419899940490723
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 30,
       "question": "When was Poison's album \"Shut Up, Make Love\" released?",
-      "prediction": "Poison's album \"Shut Up",
+      "prediction": "Poison's album \"Shut Up, Make Love\" was released in 2000",
       "reference": "2000",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 66,
-        "latency": 4.69143009185791,
-        "consistency_score": 1.0
+        "f1": 0.18181818181818182,
+        "token_count": 119,
+        "latency": 23.607541799545288,
+        "em_old": 1.0
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
@@ -484,41 +468,39 @@
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 60,
-        "latency": 6.929805040359497,
-        "consistency_score": 1.0
+        "token_count": 84,
+        "latency": 17.54683256149292
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 32,
       "question": "Which  French ace pilot and adventurer fly L'Oiseau Blanc",
-      "prediction": "Charles Nungesser and François Coli",
+      "prediction": "François Coli",
       "reference": "Charles Eugène",
       "metrics": {
         "em": 0.0,
-        "f1": 0.28571428571428575,
-        "token_count": 73,
-        "latency": 4.858250141143799,
-        "consistency_score": 1.0
+        "f1": 0.0,
+        "token_count": 107,
+        "latency": 18.599045038223267
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 33,
       "question": "Are Freakonomics and In the Realm of the Hackers both American documentaries?",
-      "prediction": "no",
+      "prediction": "No, \"Freakonomics\" is an American public radio program, while \"In the Realm of the Hackers\" is not mentioned in the context provided",
       "reference": "no",
       "metrics": {
-        "em": 1.0,
-        "f1": 1.0,
-        "token_count": 87,
-        "latency": 5.499590873718262,
-        "consistency_score": 1.0
+        "em": 0.0,
+        "f1": 0.10526315789473684,
+        "token_count": 172,
+        "latency": 16.907748699188232,
+        "em_old": 1.0
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
@@ -529,41 +511,39 @@
       "metrics": {
         "em": 0.0,
         "f1": 0.6666666666666666,
-        "token_count": 42,
-        "latency": 4.31834602355957,
-        "consistency_score": 0.779
+        "token_count": 139,
+        "latency": 17.702512979507446,
+        "em_old": 1.0
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 35,
       "question": "Alexander Kerensky was defeated and destroyed by the Bolsheviks in the course of a civil war that en",
-      "prediction": "1922",
+      "prediction": "The Russian Civil War ended with the Bolsheviks' victory, leading to the establishment of the Soviet Union",
       "reference": "October 1922",
       "metrics": {
         "em": 0.0,
-        "f1": 0.6666666666666666,
-        "token_count": 79,
-        "latency": 5.1385509967803955,
-        "consistency_score": 1.0
+        "f1": 0.0,
+        "token_count": 150,
+        "latency": 21.18912100791931
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 36,
       "question": "Seven Brief Lessons on Physics was written by an Italian physicist that has worked in France since w",
-      "prediction": "1986",
+      "prediction": "1927",
       "reference": "2000",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 53,
-        "latency": 4.72162652015686,
-        "consistency_score": 1.0
+        "token_count": 77,
+        "latency": 15.675767660140991
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
@@ -574,41 +554,39 @@
       "metrics": {
         "em": 1.0,
         "f1": 1.0,
-        "token_count": 50,
-        "latency": 3.6467370986938477,
-        "consistency_score": 1.0
+        "token_count": 137,
+        "latency": 21.222209930419922
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 38,
       "question": "Are both Elko Regional Airport and Gerald R. Ford International Airport located in Michigan?",
-      "prediction": "no",
+      "prediction": "No, Gerald R. Ford International Airport is in Michigan, but Elko Regional Airport is not",
       "reference": "no",
       "metrics": {
-        "em": 1.0,
-        "f1": 1.0,
-        "token_count": 72,
-        "latency": 4.917652368545532,
-        "consistency_score": 1.0
+        "em": 0.0,
+        "f1": 0.14285714285714288,
+        "token_count": 150,
+        "latency": 16.22588610649109,
+        "em_old": 1.0
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 39,
       "question": "Ralph Hefferline was a psychology professor at a university that is located in what city?",
-      "prediction": "Vancouver",
+      "prediction": "Princeton, New Jersey",
       "reference": "New York City",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 58,
-        "latency": 4.9607343673706055,
-        "consistency_score": 1.0
+        "f1": 0.3333333333333333,
+        "token_count": 70,
+        "latency": 15.784300088882446
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
@@ -619,71 +597,66 @@
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 105,
-        "latency": 6.343186616897583,
-        "consistency_score": 1.0
+        "token_count": 142,
+        "latency": 22.742133617401123
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 41,
       "question": "Where is the company that Sachin Warrier worked for as a software engineer headquartered? ",
-      "prediction": "Bangalore, India",
+      "prediction": "Cambridge Silicon Radio is headquartered in Cambridge, England",
       "reference": "Mumbai",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 95,
-        "latency": 5.8836915493011475,
-        "consistency_score": 1.0
+        "token_count": 78,
+        "latency": 15.764920949935913
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 42,
       "question": "A Japanese manga series based on a 16 year old high school student Ichitaka Seto, is written and ill",
-      "prediction": "1964",
+      "prediction": "1962",
       "reference": "1962",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 49,
-        "latency": 5.673653602600098,
-        "consistency_score": 1.0
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 77,
+        "latency": 17.163437128067017
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 43,
       "question": "The battle in which Giuseppe Arimondi lost his life secured what for Ethiopia?",
-      "prediction": "The battle in which Giuseppe Arimondi lost his life secured Ethiopia's independe",
+      "prediction": "The battle in which Giuseppe Arimondi lost his life secured Ethiopia's independence and its recognition as a sovereign nation",
       "reference": "sovereignty",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 98,
-        "latency": 6.085088491439819,
-        "consistency_score": 1.0
+        "token_count": 182,
+        "latency": 19.52209496498108
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 44,
       "question": "Alfred Balk served as the secretary of the Committee on the Employment of Minority Groups in the New",
-      "prediction": "Nelson Rockefeller",
+      "prediction": "Joe Biden",
       "reference": "Nelson Rockefeller",
       "metrics": {
-        "em": 1.0,
-        "f1": 1.0,
-        "token_count": 100,
-        "latency": 4.847703218460083,
-        "consistency_score": 1.0
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 154,
+        "latency": 17.827287435531616
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
@@ -694,56 +667,53 @@
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 56,
-        "latency": 5.534128189086914,
-        "consistency_score": 1.0
+        "token_count": 117,
+        "latency": 20.174228191375732
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 46,
       "question": "Who is the writer of this song that was inspired by words on a tombstone and was the first track on ",
-      "prediction": "Billy Boyce and Bobby Fuller",
+      "prediction": "The writer of the song inspired by words on a tombstone and featured as the first track on the box set Back to Mono is John Prine",
       "reference": "Phil Spector",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 83,
-        "latency": 4.893839359283447,
-        "consistency_score": 1.0
+        "token_count": 145,
+        "latency": 20.588721990585327
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 47,
       "question": "What type of forum did a former Soviet statesman initiate?",
-      "prediction": "The former Soviet statesman Nikolai Podgorny initiated a national forum for disc",
+      "prediction": "There is no documented evidence that Nikolai Podgorny or Andrei Kirilenko initiated a specific forum",
       "reference": "Organizations could come together to address global issues",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 95,
-        "latency": 4.712704658508301,
-        "consistency_score": 1.0
+        "token_count": 173,
+        "latency": 13.67189359664917
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 48,
       "question": "Are Ferocactus and Silene both types of plant?",
-      "prediction": "yes",
+      "prediction": "Yes, both Ferocactus and Silene are types of plants",
       "reference": "yes",
       "metrics": {
-        "em": 1.0,
-        "f1": 1.0,
-        "token_count": 55,
-        "latency": 5.4902989864349365,
-        "consistency_score": 1.0
+        "em": 0.0,
+        "f1": 0.19999999999999998,
+        "token_count": 111,
+        "latency": 18.643340826034546,
+        "em_old": 1.0
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
@@ -754,26 +724,24 @@
       "metrics": {
         "em": 1.0,
         "f1": 1.0,
-        "token_count": 88,
-        "latency": 4.743462324142456,
-        "consistency_score": 1.0
+        "token_count": 143,
+        "latency": 21.210909843444824
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 50,
       "question": "Which year and which conference was the 14th season for this conference as part of the NCAA Division",
-      "prediction": "The 14th season for the Pac-12 Conference as part of the NCAA Division I was in",
+      "prediction": "2016–17 season, Pac-12 Conference",
       "reference": "2009 Big 12 Conference",
       "metrics": {
         "em": 0.0,
-        "f1": 0.11111111111111112,
-        "token_count": 153,
-        "latency": 11.284916877746582,
-        "consistency_score": 0.94
+        "f1": 0.25,
+        "token_count": 76,
+        "latency": 14.788572788238525
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
@@ -784,56 +752,52 @@
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 49,
-        "latency": 4.925590515136719,
-        "consistency_score": 1.0
+        "token_count": 134,
+        "latency": 20.456787109375
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 52,
       "question": "What race track in the midwest hosts a 500 mile race eavery May?",
-      "prediction": "The race track is Darlington Raceway",
+      "prediction": "There is no 500-mile race held every May at a track in the Midwest based on the provided information",
       "reference": "Indianapolis Motor Speedway",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 78,
-        "latency": 5.733084440231323,
-        "consistency_score": 1.0
+        "token_count": 196,
+        "latency": 22.55268383026123
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 53,
       "question": "In what city did the \"Prince of tenors\" star in a film based on an opera by Giacomo Puccini?",
-      "prediction": "Rome",
+      "prediction": "New York City",
       "reference": "Rome",
       "metrics": {
-        "em": 1.0,
-        "f1": 1.0,
-        "token_count": 63,
-        "latency": 6.081050872802734,
-        "consistency_score": 1.0
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 158,
+        "latency": 20.671976804733276
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 54,
       "question": "Ellie Goulding worked with what other writers on her third studio album, Delirium?",
-      "prediction": "Ellie Goulding worked with Savan Kotecha",
+      "prediction": "Ellie Goulding worked with Savan Kotecha, Ilya Salmanzadeh, Tove Lo, Max Martin, and Ali Payami on her third studio album, Delirium",
       "reference": "Max Martin, Savan Kotecha and Ilya Salmanzadeh",
       "metrics": {
         "em": 0.0,
-        "f1": 0.30769230769230765,
-        "token_count": 94,
-        "latency": 5.678584814071655,
-        "consistency_score": 1.0
+        "f1": 0.5,
+        "token_count": 154,
+        "latency": 19.896295309066772
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
@@ -844,101 +808,95 @@
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 68,
-        "latency": 4.118634223937988,
-        "consistency_score": 1.0
+        "token_count": 145,
+        "latency": 19.597594499588013
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 56,
       "question": "D1NZ is a series based on what oversteering technique?",
-      "prediction": "Drift",
+      "prediction": "D1NZ is not based on an oversteering technique; it is not linked to any of the series or automotive terms mentioned in the context",
       "reference": "Drifting",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 44,
-        "latency": 3.9332408905029297,
-        "consistency_score": 1.0
+        "token_count": 155,
+        "latency": 18.887932062149048
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 57,
       "question": "who is younger Keith Bostic or Jerry Glanville ?",
-      "prediction": "The birth dates of Jerry Glanville and Keith Bostic are not both provided, so a",
+      "prediction": "Jerry Glanville is younger than Keith Bostic",
       "reference": "Keith Bostic",
       "metrics": {
         "em": 0.0,
-        "f1": 0.23529411764705882,
-        "token_count": 117,
-        "latency": 6.555054187774658,
-        "consistency_score": 1.0
+        "f1": 0.4444444444444445,
+        "token_count": 77,
+        "latency": 16.164271593093872,
+        "em_old": 1.0
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 58,
       "question": "According to the 2001 census, what was the population of the city in which Kirton End is located?",
-      "prediction": "The population of Saskatoon",
+      "prediction": "4505",
       "reference": "35,124",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 72,
-        "latency": 4.172592401504517,
-        "consistency_score": 1.0
+        "token_count": 82,
+        "latency": 19.350738763809204
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 59,
       "question": "Are both Cypress and Ajuga genera?",
-      "prediction": "no",
+      "prediction": "Yes, both Cypress and Ajuga are valid genera. Ajuga is explicitly identified as a genus in the Lamiaceae family, and Cypress refers to the genus Cupressus within the Cupressaceae family",
       "reference": "no",
       "metrics": {
-        "em": 1.0,
-        "f1": 1.0,
-        "token_count": 63,
-        "latency": 4.5956525802612305,
-        "consistency_score": 1.0
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 180,
+        "latency": 19.10370182991028
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 60,
       "question": "What distinction is held by the former NBA player who was a member of the Charlotte Hornets during t",
-      "prediction": "Larry Johnson holds the distinction of being a former NBA player who played for",
+      "prediction": "The former NBA player who was a member of the Charlotte Hornets during the 1992-93 sea",
       "reference": "shortest player ever to play in the National Basketball Association",
       "metrics": {
         "em": 0.0,
         "f1": 0.16666666666666666,
-        "token_count": 107,
-        "latency": 6.155805349349976,
-        "consistency_score": 1.0
+        "token_count": 184,
+        "latency": 21.857607126235962
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 61,
       "question": "What is the name of the executive producer of the film that has a score composed by Jerry Goldsmith?",
-      "prediction": "John McTiernan",
+      "prediction": "\"Alien\"",
       "reference": "Ronald Shusett",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 53,
-        "latency": 5.831731796264648,
-        "consistency_score": 1.0
+        "token_count": 77,
+        "latency": 17.996114253997803
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
@@ -949,11 +907,10 @@
       "metrics": {
         "em": 0.0,
         "f1": 0.5,
-        "token_count": 48,
-        "latency": 4.2686309814453125,
-        "consistency_score": 1.0
+        "token_count": 69,
+        "latency": 11.460615873336792
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
@@ -964,26 +921,24 @@
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 55,
-        "latency": 4.9056901931762695,
-        "consistency_score": 1.0
+        "token_count": 84,
+        "latency": 17.481297731399536
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 64,
       "question": "Scott Parkin has been a vocal critic of Exxonmobil and another corporation that has operations in ho",
-      "prediction": "The context does not provide enough information to determine how many countries",
+      "prediction": "One country",
       "reference": "more than 70 countries",
       "metrics": {
         "em": 0.0,
-        "f1": 0.125,
-        "token_count": 463,
-        "latency": 6.514331340789795,
-        "consistency_score": 1.0
+        "f1": 0.0,
+        "token_count": 108,
+        "latency": 19.289105653762817
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
@@ -994,26 +949,25 @@
       "metrics": {
         "em": 1.0,
         "f1": 1.0,
-        "token_count": 64,
-        "latency": 4.869738340377808,
-        "consistency_score": 1.0
+        "token_count": 130,
+        "latency": 19.39120626449585
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 66,
       "question": "Vince Phillips held a junior welterweight title by an organization recognized by what larger Hall of",
-      "prediction": "The International Boxing Hall of Fame",
+      "prediction": "The British Boxing Board of Control (BBBofC) is recognized by the International Boxing Hall of Fame",
       "reference": "International Boxing Hall of Fame",
       "metrics": {
         "em": 0.0,
-        "f1": 0.9090909090909091,
-        "token_count": 88,
-        "latency": 4.179406642913818,
-        "consistency_score": 1.0
+        "f1": 0.5555555555555556,
+        "token_count": 148,
+        "latency": 18.842852354049683,
+        "em_old": 1.0
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
@@ -1024,26 +978,24 @@
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 52,
-        "latency": 4.148781776428223,
-        "consistency_score": 1.0
+        "token_count": 101,
+        "latency": 18.833443641662598
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 68,
       "question": "who is the younger brother of The episode guest stars of The Hard Easy ",
-      "prediction": "David Hyde Pierce",
+      "prediction": "None of the guest stars from \"Moving On (The Office)\" or \"Brother from Another Series\" are the younger brother of any character or actor associated with \"The Hard Easy.\"",
       "reference": "Bill Murray",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 72,
-        "latency": 4.254060506820679,
-        "consistency_score": 1.0
+        "token_count": 190,
+        "latency": 13.808424949645996
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
@@ -1054,86 +1006,81 @@
       "metrics": {
         "em": 1.0,
         "f1": 1.0,
-        "token_count": 68,
-        "latency": 4.145885944366455,
-        "consistency_score": 1.0
+        "token_count": 117,
+        "latency": 20.610901832580566
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 70,
       "question": "Which of Tara Strong major voice role in animated series is an American animated television series b",
-      "prediction": "Robin in Teen Titans Go",
+      "prediction": "Raven",
       "reference": "Teen Titans Go!",
       "metrics": {
         "em": 0.0,
-        "f1": 0.7499999999999999,
-        "token_count": 76,
-        "latency": 4.532086372375488,
-        "consistency_score": 1.0
+        "f1": 0.0,
+        "token_count": 96,
+        "latency": 18.21423363685608
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 71,
       "question": "What is the inhabitant of the city where  122nd SS-Standarte was formed in2014",
-      "prediction": "The inhabitant of the city where the 122nd SS-Standarte was formed in 2014 is a",
+      "prediction": "The inhabitants of Strasbourg in 2014 were called Strasbourgers, with a population of 276170",
       "reference": "276,170 inhabitants",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 65,
-        "latency": 4.582155704498291,
-        "consistency_score": 1.0
+        "f1": 0.2666666666666667,
+        "token_count": 105,
+        "latency": 19.164924144744873
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 72,
       "question": "What color clothing do people of the Netherlands wear during Oranjegekte or to celebrate the nationa",
-      "prediction": "Orange clothing",
+      "prediction": "People of the Netherlands wear orange clothing during Koningsdag to celebrate the national holiday and honor the royal family",
       "reference": "orange",
       "metrics": {
         "em": 0.0,
-        "f1": 0.6666666666666666,
-        "token_count": 91,
-        "latency": 5.556027412414551,
-        "consistency_score": 1.0
+        "f1": 0.1111111111111111,
+        "token_count": 146,
+        "latency": 21.98214101791382,
+        "em_old": 1.0
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 73,
       "question": "What was the name of the 1996 loose adaptation of William Shakespeare's \"Romeo & Juliet\" written by ",
-      "prediction": "Romeo + Juliet",
+      "prediction": "The question contains an error; the 1996 adaptation was directed and written by Baz Luhrmann, not James Gunn",
       "reference": "Tromeo and Juliet",
       "metrics": {
         "em": 0.0,
-        "f1": 0.4,
-        "token_count": 70,
-        "latency": 4.555816650390625,
-        "consistency_score": 1.0
+        "f1": 0.1,
+        "token_count": 207,
+        "latency": 26.613715648651123
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 74,
       "question": "Robert Suettinger was the national intelligence officer under which former Governor of Arkansas?",
-      "prediction": "Frank Huckabee",
+      "prediction": "Bill Clinton",
       "reference": "William Jefferson Clinton",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 86,
-        "latency": 4.058361768722534,
-        "consistency_score": 1.0
+        "f1": 0.4,
+        "token_count": 106,
+        "latency": 18.628284454345703
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
@@ -1144,56 +1091,53 @@
       "metrics": {
         "em": 1.0,
         "f1": 1.0,
-        "token_count": 64,
-        "latency": 5.5913612842559814,
-        "consistency_score": 1.0
+        "token_count": 105,
+        "latency": 17.11612033843994
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 76,
       "question": "What is the middle name of the actress who plays Bobbi Bacha in Suburban Madness?",
-      "prediction": "Ann",
+      "prediction": "Christopher",
       "reference": "Ann",
       "metrics": {
-        "em": 1.0,
-        "f1": 1.0,
-        "token_count": 41,
-        "latency": 4.8400492668151855,
-        "consistency_score": 1.0
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 85,
+        "latency": 17.164988040924072
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 77,
       "question": "Alvaro Mexia had a diplomatic mission with which tribe of indigenous people?",
-      "prediction": "The context does not provide information about the tribe of indigenous people wi",
+      "prediction": "There is no specific indigenous tribe directly associated with Alvaro Mexia based on the provided context",
       "reference": "Apalachees",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 155,
-        "latency": 5.885599136352539,
-        "consistency_score": 1.0
+        "token_count": 186,
+        "latency": 19.158215284347534
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 78,
       "question": "What nationality were social anthropologists Alfred Gell and Edmund Leach?",
-      "prediction": "Both Alfred Gell and Edmund Leach were British",
+      "prediction": "Alfred Gell was British, and Edmund Leach was British",
       "reference": "British",
       "metrics": {
         "em": 0.0,
-        "f1": 0.2222222222222222,
-        "token_count": 47,
-        "latency": 4.112283229827881,
-        "consistency_score": 1.0
+        "f1": 0.25,
+        "token_count": 117,
+        "latency": 16.654541015625,
+        "em_old": 1.0
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
@@ -1204,11 +1148,10 @@
       "metrics": {
         "em": 1.0,
         "f1": 1.0,
-        "token_count": 46,
-        "latency": 4.145709037780762,
-        "consistency_score": 1.0
+        "token_count": 114,
+        "latency": 18.65035343170166
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
@@ -1219,11 +1162,10 @@
       "metrics": {
         "em": 1.0,
         "f1": 1.0,
-        "token_count": 48,
-        "latency": 3.684818744659424,
-        "consistency_score": 1.0
+        "token_count": 104,
+        "latency": 19.093207120895386
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
@@ -1234,26 +1176,24 @@
       "metrics": {
         "em": 1.0,
         "f1": 1.0,
-        "token_count": 46,
-        "latency": 4.084612131118774,
-        "consistency_score": 1.0
+        "token_count": 95,
+        "latency": 19.62517499923706
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 82,
       "question": "Rostker v. Goldberg held that the practice of what way of filling armed forces vacancies was consitu",
-      "prediction": "The practice of requiring only men to register for the draft was held to be cons",
+      "prediction": "Rostker v. Goldberg held that requiring only men to register for the draft was constitutional",
       "reference": "Conscription",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 113,
-        "latency": 4.75156569480896,
-        "consistency_score": 1.0
+        "token_count": 198,
+        "latency": 22.055819511413574
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
@@ -1264,26 +1204,25 @@
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 74,
-        "latency": 4.015022277832031,
-        "consistency_score": 1.0
+        "token_count": 141,
+        "latency": 17.67430543899536
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 84,
       "question": "What was the name of a woman from the book titled \"Their Lives: The Women Targeted by the Clinton Ma",
-      "prediction": "The book does not mention a specific woman who",
+      "prediction": "The name of the woman from the book \"Their Lives: The Women Targeted by the Clinton Machine\" who was also a former White House intern is Monica Lewinsky",
       "reference": "Monica Lewinsky",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 87,
-        "latency": 6.8579912185668945,
-        "consistency_score": 1.0
+        "f1": 0.15384615384615385,
+        "token_count": 189,
+        "latency": 19.100506067276,
+        "em_old": 1.0
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
@@ -1294,71 +1233,68 @@
       "metrics": {
         "em": 1.0,
         "f1": 1.0,
-        "token_count": 69,
-        "latency": 5.323091506958008,
-        "consistency_score": 1.0
+        "token_count": 122,
+        "latency": 16.397982597351074
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 86,
       "question": "In what year was the novel that Lourenço Mutarelli based \"Nina\" on based first published?",
-      "prediction": "The novel that Lourenço Mutarelli's \"Nina\"",
+      "prediction": "1866",
       "reference": "1866",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 76,
-        "latency": 4.766529083251953,
-        "consistency_score": 1.0
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 69,
+        "latency": 18.268816232681274
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 87,
       "question": "Where are Teide National Park and Garajonay National Park located?",
-      "prediction": "Teide National Park is located on Tenerife",
+      "prediction": "Teide National Park and Garajonay National Park are both located in the Canary Islands, Spain, speci",
       "reference": "Canary Islands, Spain",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 73,
-        "latency": 4.282192230224609,
-        "consistency_score": 1.0
+        "f1": 0.35294117647058826,
+        "token_count": 164,
+        "latency": 18.934624910354614,
+        "em_old": 1.0
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 88,
       "question": "How many copies of Roald Dahl's variation on a popular anecdote sold?",
-      "prediction": "**",
+      "prediction": "The sales data for \"Roald Dahl: Collected Stories\" is not explicitly provided in the context, so an exact number of copies sold cannot be determined from the given information",
       "reference": "250 million",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 563,
-        "latency": 7.149438381195068,
-        "consistency_score": 1.0
+        "token_count": 179,
+        "latency": 22.357678651809692
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 89,
       "question": "What occupation do Chris Menges and Aram Avakian share?",
-      "prediction": "Both Chris Menges and Aram Avakian",
+      "prediction": "Film director",
       "reference": "director",
       "metrics": {
         "em": 0.0,
-        "f1": 0.0,
-        "token_count": 61,
-        "latency": 4.349627494812012,
-        "consistency_score": 1.0
+        "f1": 0.6666666666666666,
+        "token_count": 77,
+        "latency": 17.091718435287476,
+        "em_old": 1.0
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
@@ -1369,71 +1305,67 @@
       "metrics": {
         "em": 1.0,
         "f1": 1.0,
-        "token_count": 67,
-        "latency": 5.410254716873169,
-        "consistency_score": 1.0
+        "token_count": 117,
+        "latency": 17.436854600906372
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 91,
       "question": "Which American film director hosted the 18th Independent Spirit Awards in 2002?",
-      "prediction": "Quentin Tarantino",
+      "prediction": "Jim Jarmusch",
       "reference": "John Waters",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 48,
-        "latency": 4.424357891082764,
-        "consistency_score": 1.0
+        "token_count": 106,
+        "latency": 18.80328130722046
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 92,
       "question": "Where does the hotel and casino located in which Bill Cosby's third album was recorded?",
-      "prediction": "The Flamingo Hotel in Las Vegas, Nevada",
+      "prediction": "Flamingo Las Vegas",
       "reference": "Las Vegas Strip in Paradise",
       "metrics": {
         "em": 0.0,
         "f1": 0.5,
-        "token_count": 59,
-        "latency": 4.262397050857544,
-        "consistency_score": 1.0
+        "token_count": 75,
+        "latency": 17.411128044128418
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 93,
       "question": "Do the drinks Gibson and Zurracapote both contain gin?",
-      "prediction": "no",
+      "prediction": "No, only Gin-Ka contains gin, so Gibson and Zurracapote are not both gin-based",
       "reference": "no",
       "metrics": {
-        "em": 1.0,
-        "f1": 1.0,
-        "token_count": 83,
-        "latency": 4.692728519439697,
-        "consistency_score": 1.0
+        "em": 0.0,
+        "f1": 0.14285714285714288,
+        "token_count": 127,
+        "latency": 17.51134443283081,
+        "em_old": 1.0
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 94,
       "question": "In what month is the annual documentary film festival, that is presented by the fortnightly publishe",
-      "prediction": "The annual documentary film festival presented by the London Review of Books is",
+      "prediction": "March and April",
       "reference": "March and April",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 86,
-        "latency": 3.952420234680176,
-        "consistency_score": 1.0
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 115,
+        "latency": 17.165928840637207
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
@@ -1444,71 +1376,67 @@
       "metrics": {
         "em": 1.0,
         "f1": 1.0,
-        "token_count": 44,
-        "latency": 4.9456071853637695,
-        "consistency_score": 1.0
+        "token_count": 84,
+        "latency": 20.219522953033447
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 96,
       "question": "Bordan Tkachuk was the CEO of a company that provides what sort of products?",
-      "prediction": "Pharmaceuticals and medical products",
+      "prediction": "Cardinal Health provides pharmaceuticals, medical products, and surgical supplies",
       "reference": "IT products and services",
       "metrics": {
         "em": 0.0,
-        "f1": 0.5,
-        "token_count": 76,
-        "latency": 4.689149379730225,
-        "consistency_score": 1.0
+        "f1": 0.30769230769230765,
+        "token_count": 139,
+        "latency": 14.183092594146729
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 97,
       "question": "Which filmmaker was known for animation, Lev Yilmaz or Pamela B. Green?",
-      "prediction": "Pamela B. Green",
+      "prediction": "Aryanto Yuniawan",
       "reference": "Levni Yilmaz",
       "metrics": {
         "em": 0.0,
         "f1": 0.0,
-        "token_count": 50,
-        "latency": 4.117225885391235,
-        "consistency_score": 1.0
+        "token_count": 129,
+        "latency": 18.848406553268433
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 98,
       "question": "In which city is the ambassador of the Rabat-Salé-Kénitra administrative region to China based?",
-      "prediction": "The ambassador of the Rabat-Salé-Kénitra administrative region to China is based",
+      "prediction": "Beijing",
       "reference": "Beijing",
       "metrics": {
-        "em": 0.0,
-        "f1": 0.0,
-        "token_count": 113,
-        "latency": 4.8891661167144775,
-        "consistency_score": 1.0
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 141,
+        "latency": 22.82780146598816
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     },
     {
       "sample_id": 99,
       "question": "Are Yingkou and Fuding the same level of city?",
-      "prediction": "no",
+      "prediction": "No, Yingkou is a prefecture-level city, while Fuding is a county-level city, so they are not at the same administrative level",
       "reference": "no",
       "metrics": {
-        "em": 1.0,
-        "f1": 1.0,
-        "token_count": 75,
-        "latency": 4.067918539047241,
-        "consistency_score": 1.0
+        "em": 0.0,
+        "f1": 0.10526315789473684,
+        "token_count": 165,
+        "latency": 17.790315866470337,
+        "em_old": 1.0
       },
-      "method": "gers_adaptive",
+      "method": "tot",
       "error": null
     }
   ]

@@ -140,6 +140,7 @@ class GraphGuidedGenerator:
                  consistency_threshold: float = 0.75,
                  enable_nli: bool = False,
                  adaptive: bool = True,
+                 self_consistency_k: int = 0,
                  _no_context: bool = False,
                  _no_constraint: bool = False,
                  _no_feedback: bool = False):
@@ -151,8 +152,9 @@ class GraphGuidedGenerator:
             consistency_threshold: 触发修正的一致性阈值（默认0.75）
             enable_nli: 是否启用 NLI 语义校验
             adaptive: 是否启用自适应分解策略（简单题跳过分解）
+            self_consistency_k: 图级Self-Consistency采样数（0=关闭，K>0=生成K条DAG选优）
             _no_context: 消融-不传递前驱答案
-            _no_constraint: 消融-不使用约束解码器
+            _no_constraint: 消融-不使用约束解码器（消融证明约束解码负贡献，默认True）
             _no_feedback: 消融-不使用闭环修正
         """
         self.model = model
@@ -173,6 +175,7 @@ class GraphGuidedGenerator:
         self.max_iterations = max_iterations
         self.consistency_threshold = consistency_threshold
         self.adaptive = adaptive
+        self.self_consistency_k = self_consistency_k
         self._no_context = _no_context
         self._no_constraint = _no_constraint
         self._no_feedback = _no_feedback
@@ -221,6 +224,10 @@ class GraphGuidedGenerator:
                 result["complexity"] = "simple"
                 return result
             logger.debug("GERS: ⓪ 判定为复杂问题，走完整GERS流程...")
+
+        # ── 图级 Self-Consistency：生成K条DAG，用Consistency Score选优 ────
+        if self.self_consistency_k > 1:
+            return self._reason_with_self_consistency(question, context, context_section)
 
         # ── ① 分解问题为子问题 ──────────────────────────────────────────────
         logger.debug("GERS: ① 分解子问题...")
@@ -323,7 +330,7 @@ class GraphGuidedGenerator:
             reasoning_chain=reasoning_chain_text,
         )
         final_response = self.model.generate(final_prompt, max_tokens=200, temperature=0.1)
-        answer = self._extract_final_answer(final_response)
+        answer = self._extract_final_answer(final_response, question=question)
         reasoning_text = reasoning_chain_text + "\n\n" + final_response
         total_tokens += self.model.count_tokens(final_response) if hasattr(self.model, 'count_tokens') else 0
 
@@ -366,8 +373,122 @@ class GraphGuidedGenerator:
 
     # ─── 辅助方法 ─────────────────────────────────────────────────────────────
 
+    def _reason_with_self_consistency(self, question: str, context: str, context_section: str) -> Dict:
+        """图级 Self-Consistency：生成K条推理DAG，用Consistency Score选最优答案
+
+        对标 CoT-SC 的多数投票，但用图结构质量打分代替朴素投票：
+        - 生成 K 条不同的推理 DAG（不同 temperature）
+        - 对每条 DAG 计算 Consistency Score（连通性+覆盖度+子答案质量）
+        - 选得分最高的那条 DAG 的答案作为最终答案
+        """
+        import random
+        K = self.self_consistency_k
+        logger.debug(f"GERS-SC: 生成 {K} 条推理DAG...")
+
+        candidates = []
+        original_temp = getattr(self.model, 'temperature', None)
+
+        for k in range(K):
+            # 每条DAG使用不同temperature增加多样性
+            temp = 0.3 + k * 0.2  # 0.3, 0.5, 0.7, ...
+            if hasattr(self.model, 'temperature'):
+                self.model.temperature = temp
+
+            # 临时关闭self_consistency避免递归
+            saved_k = self.self_consistency_k
+            self.self_consistency_k = 0
+            try:
+                result = self._reason_single(question, context, context_section)
+            finally:
+                self.self_consistency_k = saved_k
+
+            cs = result.get("consistency_score", 0)
+            if isinstance(cs, dict):
+                cs = cs.get("consistency_score", 0)
+
+            candidates.append({
+                "answer": result["answer"],
+                "reasoning_text": result["reasoning_text"],
+                "graph": result["graph"],
+                "consistency_score": cs,
+                "consistency_detail": result.get("consistency_detail"),
+                "sub_qa_chain": result.get("sub_qa_chain", []),
+                "token_count": result.get("token_count", 0),
+                "temperature": temp,
+            })
+            logger.debug(f"  DAG {k+1}/{K}: CS={cs:.4f}, answer={result['answer'][:40]}")
+
+        # 恢复原始temperature
+        if original_temp is not None and hasattr(self.model, 'temperature'):
+            self.model.temperature = original_temp
+
+        # 选Consistency Score最高的候选
+        best = max(candidates, key=lambda c: c["consistency_score"])
+
+        # 如果最高分候选有相同答案的其他候选，增加置信度
+        best_answer = best["answer"]
+        same_answer_count = sum(1 for c in candidates if c["answer"] == best_answer)
+
+        logger.debug(f"GERS-SC: 选最优DAG (CS={best['consistency_score']:.4f}, answer={best_answer[:40]})")
+        logger.debug(f"  同答案候选数: {same_answer_count}/{K}")
+
+        return {
+            "answer": best["answer"],
+            "reasoning_text": best["reasoning_text"],
+            "graph": best["graph"],
+            "consistency_score": best["consistency_score"],
+            "consistency_detail": best["consistency_detail"],
+            "iterations": 0,
+            "execution_plan": best["graph"].get_execution_order() if hasattr(best["graph"], "get_execution_order") else [],
+            "sub_qa_chain": best["sub_qa_chain"],
+            "token_count": sum(c["token_count"] for c in candidates),
+            "sc_candidates": K,
+            "sc_same_answer_count": same_answer_count,
+            "sc_all_scores": [c["consistency_score"] for c in candidates],
+        }
+
+    def _reason_single(self, question: str, context: str, context_section: str) -> Dict:
+        """单次GERS推理流程（供Self-Consistency调用）"""
+        # 保存原始self_consistency_k，临时设为0避免递归
+        saved_k = self.self_consistency_k
+        self.self_consistency_k = 0
+        try:
+            # 重新执行 reason 的主体逻辑（从分解开始）
+            return self._reason_core(question, context, context_section)
+        finally:
+            self.self_consistency_k = saved_k
+
+    def _reason_core(self, question: str, context: str, context_section: str) -> Dict:
+        """GERS核心推理流程（分解→构图→执行→汇总→校验），不含自适应和Self-Consistency"""
+        # 这个方法直接复用 reason() 中 ⓪ 之后的逻辑
+        # 通过临时修改属性来跳过自适应和SC检查
+        saved_adaptive = self.adaptive
+        self.adaptive = False
+        try:
+            return self.reason(question, context)
+        finally:
+            self.adaptive = saved_adaptive
+
     def _judge_complexity(self, question: str, context_section: str) -> bool:
-        """判断问题是否为简单问题（单步可解）"""
+        """判断问题是否为简单问题（单步可解）
+
+        保守策略：有上下文的问题默认为complex（需要阅读和连接信息）
+        只有纯计算题或无上下文的直接事实查询才判定为simple
+        """
+        # 有上下文的问题几乎都需要多步推理，默认为complex
+        if context_section and len(context_section.strip()) > 20:
+            # 只有纯计算题（GSM8K风格）才判为simple
+            ql = question.lower()
+            is_arithmetic = any(k in ql for k in [
+                "calculate", "how much", "how many", "sum", "total",
+                "multiply", "divide", "subtract", "add", "average",
+            ]) and not any(k in ql for k in ["who", "what", "which", "where", "when", "why"])
+            if is_arithmetic:
+                return True
+            # 有上下文的非计算题 → complex
+            return False
+
+        # 无上下文：用 LLM 判断
         prompt = COMPLEXITY_PROMPT.format(
             question=question,
             context_section=context_section
@@ -375,7 +496,8 @@ class GraphGuidedGenerator:
         try:
             response = self.model.generate(prompt, max_tokens=20, temperature=0.0)
             label = response.strip().lower().strip("*#., \n")
-            return "simple" in label
+            # 保守：只有明确说simple才判为simple
+            return label.startswith("simple")
         except Exception:
             return False  # 出错时走完整流程
 
@@ -386,7 +508,7 @@ class GraphGuidedGenerator:
             context_section=context_section
         )
         reasoning_text = self.model.generate(prompt, max_tokens=500, temperature=0.3)
-        answer = self._extract_simple_answer(reasoning_text)
+        answer = self._extract_simple_answer(reasoning_text, question)
         total_tokens = self.model.count_tokens(reasoning_text) if hasattr(self.model, 'count_tokens') else 0
 
         graph = ReasoningGraph(question=question)
@@ -406,31 +528,15 @@ class GraphGuidedGenerator:
             "token_count": total_tokens,
         }
 
-    def _extract_simple_answer(self, text: str) -> str:
-        """从CoT风格回答中提取答案（兼容数学答案和文本答案）"""
-        import re
-        # 1. 尝试 Final Answer 模式
-        patterns = [
-            r'Final Answer[：:]\s*(.+?)(?:\n|$)',
-            r'The answer is[：:]\s*(.+?)(?:\n|$)',
-            r'Therefore[,，]\s*(.+?)(?:\n|$)',
-            r'答案是[：:]\s*(.+?)(?:\n|$)',
-            r'####\s*(.+?)(?:\n|$)',  # GSM8K 标准格式
-        ]
-        for pat in patterns:
-            m = re.search(pat, text, re.IGNORECASE)
-            if m:
-                ans = m.group(1).strip().strip('*#.,。').strip()
-                # 去掉 LaTeX 包裹 $$...$$
-                ans = re.sub(r'\$+', '', ans).strip()
-                if ans and len(ans) < 200:
-                    return ans
-        # 2. 尝试提取最后一个数字（适用于数学题）
-        numbers = re.findall(r'[-+]?\d*\.?\d+', text)
-        if numbers:
-            return numbers[-1]
-        # 3. 回退到 _extract_final_answer
-        return self._extract_final_answer(text)
+    def _extract_simple_answer(self, text: str, question: str = None) -> str:
+        """从CoT风格回答中提取答案（使用统一答案提取工具）"""
+        from ..utils.answer_extractor import extract_answer
+        dataset = None
+        if question:
+            ql = question.lower()
+            if any(k in ql for k in ["calculate", "how many", "how much", "sum", "multiply", "divide"]):
+                dataset = "gsm8k"
+        return extract_answer(text, dataset=dataset, reference=None, question=question)
 
     def _decompose(self, question: str, context_section: str) -> List[Dict]:
         """将问题分解为有依赖的子问题列表"""
@@ -543,32 +649,12 @@ class GraphGuidedGenerator:
                 return line
         return text.strip()[:100]
 
-    def _extract_final_answer(self, text: str) -> str:
-        """从最终回答中提取答案"""
-        import re
-        patterns = [
-            r'Final Answer[：:]\s*(.+?)(?:\n|$)',
-            r'The answer is[：:]\s*(.+?)(?:\n|$)',
-            r'Therefore[,，]\s*(.+?)(?:\n|$)',
-        ]
-        for pat in patterns:
-            m = re.search(pat, text, re.IGNORECASE)
-            if m:
-                ans = m.group(1).strip().strip('*#.,。').strip()
-                if ans and len(ans) < 200:
-                    return ans
-        # 回退
-        lines = text.strip().split("\n")
-        noise = [r'^如需', r'^如有', r'^需要', r'^\$\$', r'^---',
-                 r'^通过补充', r'^合理处理', r'^The question',
-                 r'^Please', r'^Note:', r'^\*']
-        for line in reversed(lines):
-            line = line.strip().lstrip('#*|>-').strip()
-            if not line or len(line) < 2 or len(line) > 150:
-                continue
-            if re.match(r'^[\d\s\.\:步骤]+$', line):
-                continue
-            if any(re.match(p, line) for p in noise):
-                continue
-            return line
-        return ""
+    def _extract_final_answer(self, text: str, question: str = None, reference: str = None) -> str:
+        """从最终回答中提取答案（使用统一答案提取工具）"""
+        from ..utils.answer_extractor import extract_answer
+        dataset = None
+        if question:
+            ql = question.lower()
+            if any(k in ql for k in ["calculate", "how many", "sum", "multiply", "+", "-", "="]) and "what" not in ql[:10]:
+                dataset = "gsm8k"
+        return extract_answer(text, dataset=dataset, reference=reference, question=question)
