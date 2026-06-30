@@ -1,30 +1,34 @@
 # 图约束推理链与图级自一致性：面向依赖密集型多跳推理的大模型方法
 
-**作者**：*（作者单位、邮箱待补充）*
+**作者**：zhouduomu
 
 **摘要** 大语言模型（LLM）在多跳推理任务上常出现错误累积与逻辑幻觉问题。标准 Chain-of-Thought（CoT）以线性文本组织推理过程，难以表达子问题间的非线性依赖；CoT-SC 通过多次采样等权投票提升稳健性，但未区分各候选推理路径的质量。本文提出 GERS（Graph-Enhanced Reasoning System），将推理过程显式建模为推理依赖图（DAG），并引入**图级自一致性（Graph-level Self-Consistency, GERS-SC）**：对同一问题生成 K 条不同推理 DAG，用基于图论结构性质计算的 Consistency Score 给每条图打分，选得分最高的作为最终答案——以"结构化质量信号"替代 CoT-SC 的"等权多数投票"。在 HotpotQA 与 2WikiMultiHopQA 两个多跳问答数据集上与 Zero-Shot、Standard CoT、CoT-SC、CoT-SC+GERS 重排四种基线对比。实验表明：在 HotpotQA 上 GERS-SC 取得 EM=0.270、F1=0.395，相比 CoT-SC 的 EM=0.200、F1=0.284，EM 提升 7pt、F1 提升 11pt，显著优于所有基线；Consistency Score 经温度多样性修复后具备区分度（0.62~0.67）。本文同时诚实呈现方法的适用边界：在 2WikiMultiHopQA 的深度桥接复合题（bridge_comparison）上，GERS 的子问题错误传播导致其落后于线性 CoT，揭示了图结构分解在深度多跳上的局限。此外，本文通过指标修复、答案类型回扣与提取公平性三项工程改进，精确量化了"表面失败"与"真实推理差距"的边界。
 
+**Abstract** Large language models (LLMs) suffer from error accumulation and logical hallucination on multi-hop reasoning tasks. Standard Chain-of-Thought (CoT) organizes reasoning as linear text and cannot express the non-linear dependencies among sub-questions; CoT-SC improves robustness via equal-weight majority voting over multiple samples, but treats all candidate reasoning paths equally regardless of their structural quality. We propose GERS (Graph-Enhanced Reasoning System), which explicitly models the reasoning process as a reasoning dependency graph (DAG) and introduces **Graph-level Self-Consistency (GERS-SC)**: it generates K distinct reasoning DAGs for the same question, scores each with a Consistency Score computed from graph-theoretic structural properties, and selects the highest-scoring one as the final answer—replacing CoT-SC's equal-weight voting with a "structured quality signal". Experiments on HotpotQA and 2WikiMultiHopQA against four baselines show that on HotpotQA, GERS-SC achieves EM=0.270 and F1=0.395, outperforming CoT-SC (EM=0.200, F1=0.284) by 7pt EM and 11pt F1, with a discriminative Consistency Score (0.62–0.67). We also honestly characterize the method's boundary: on 2WikiMultiHopQA's deep bridging-comparison questions, GERS's error propagation along the DAG causes it to lag behind linear CoT. Three engineering contributions—metric bug fixing, answer-type alignment, and extraction fairness—precisely delimit the boundary between "superficial failures" and the "true reasoning gap".
+
 **关键词** 大语言模型；多跳推理；思维链；图结构表征；自一致性；一致性校验
+
+**Keywords** Large Language Models; Multi-hop Reasoning; Chain-of-Thought; Graph Representation; Self-Consistency; Consistency Verification
 
 ---
 
 ## 1 引言
 
-大语言模型（LLM）通过 Chain-of-Thought（CoT）提示在各类推理任务上展现出强大能力[1]。然而，面对需要多个子问题协作推导的复杂任务（如多跳问答），标准 CoT 存在两类核心不足：
+多跳推理（multi-hop reasoning）要求模型跨多个证据片段组合推导出答案，是衡量大语言模型（LLM）复杂推理能力的核心任务之一。Chain-of-Thought（CoT）提示[1] 通过引导模型输出中间推理步骤，显著提升了 LLM 在此类任务上的表现。然而，标准 CoT 以**线性文本**串接推理步骤，存在两类核心不足：
 
-1. **非线性依赖缺失**：CoT 以线性文本串接推理步骤，无法表达子问题间的分支、合流与并行依赖。当推理路径本应是有向无环图（DAG）而非链时，线性化导致结构信息丢失。
-2. **质量无差别投票**：CoT-SC[7] 通过多次采样取众数答案提升稳健性，但其投票是"等权"的——每条候选推理路径无论质量高低都计一票，无法利用推理路径本身的结构完整性信息。
+1. **非线性依赖缺失**：CoT 以线性文本串接推理步骤，无法表达子问题间的分支、合流与并行依赖。当推理路径本应是有向无环图（DAG）而非链时——例如"对比型"问题需要先分别求解两条子链再汇合比较——线性化会导致结构信息丢失，模型易在汇合点出错。
+2. **质量无差别投票**：CoT-SC[7] 通过多次采样取众数答案提升稳健性，但其投票是"等权"的——每条候选推理路径无论结构完整性如何都计一票，无法利用推理路径本身的质量信息。一条结构断裂、逻辑跳步的推理路径，与一条证据充分、依赖完整的路径，在投票时权重相同。
 
-近期工作尝试用图结构增强推理：GoT[2] 提出思维图支持合并与蒸馏，但不保证执行顺序；RwG[3] 将上下文隐式知识结构化为实体关系图，但未逐步执行；MoDeGraph[4] 引导 LLM 提取实体关系构建多跳依赖图，但仍属 prompt 方法，未实现拓扑排序执行与一致性校验；GoV[5] 将推理建模为 DAG 进行验证，但侧重语义验证而非图论结构校验。这些方法普遍将图结构作为 Prompt 装饰或事后验证工具，而非真正参与推理执行与质量评估。
+近期工作尝试用图结构增强推理：GoT[2] 提出思维图支持合并与蒸馏，但不保证执行顺序；RwG[3] 将上下文隐式知识结构化为实体关系图，但未逐步执行；MoDeGraph[4] 引导 LLM 提取实体关系构建多跳依赖图，但仍属 prompt 方法，未实现拓扑排序执行与一致性校验；GoV[5] 将推理建模为 DAG 进行验证，但侧重语义验证而非图论结构校验。这些方法普遍将图结构作为 Prompt 装饰或事后验证工具，而非真正参与推理执行与质量评估——更关键的是，**它们都没有利用图结构质量来指导答案选择**。
 
-针对上述问题，本文提出 **GERS**（Graph-Enhanced Reasoning System），其核心思想是：**让推理依赖图既参与执行，又参与答案选择**。GERS 将问题分解为有依赖关系的子问题并构建推理 DAG，按拓扑序逐步执行；在此基础上，本文进一步提出 **图级自一致性（GERS-SC）**：生成 K 条不同推理 DAG，用基于图论结构性质（连通性、无环性、证据覆盖度）计算的 Consistency Score 给每条图打分，选得分最高的 DAG 的答案作为最终输出。这一机制将 Consistency Score 从"事后报告"转化为"生成时的选择信号"，直接对标并以结构化质量信号改进 CoT-SC 的等权投票。
+针对上述问题，本文提出 **GERS**（Graph-Enhanced Reasoning System），其核心思想是：**让推理依赖图既参与执行，又参与答案选择**。GERS 将问题分解为有依赖关系的子问题并构建推理 DAG，按拓扑序逐步执行；在此基础上，本文进一步提出 **图级自一致性（GERS-SC）**：生成 K 条不同推理 DAG，用基于图论结构性质（连通性、无环性、证据覆盖度）计算的 Consistency Score 给每条图打分，选得分最高的 DAG 的答案作为最终输出。这一机制将 Consistency Score 从"事后报告"转化为"生成时的选择信号"，直接对标并以结构化质量信号改进 CoT-SC 的等权投票——在依赖密集的多跳问题上，结构更完整的推理图天然对应更可靠的推理，理应获得更高的选择权重。
 
-本文的主要贡献：
+本文的主要贡献如下：
 
-1. **GERS-SC 方法**：提出图级自一致性机制，用 Consistency Score（图结构质量）做加权选择，替代 CoT-SC 的等权多数投票，使一致性校验从装饰性指标变为影响输出的核心信号。
-2. **主打实验结果**：在 HotpotQA 上 GERS-SC 取得 F1=0.395 vs CoT-SC 0.284（+11pt）、EM 0.270 vs 0.200（+7pt），在公平提取条件下显著优于所有基线。
-3. **诚实的适用边界**：在 2WikiMultiHopQA 上系统分析分题型表现，诚实揭示 GERS 在深度桥接复合题（bridge_comparison）上的错误传播局限，并定位其为未来工作方向，而非掩盖。
-4. **工程贡献**：通过 EM 指标 bug 修复、答案类型回扣、答案提取公平性三项改进，量化了方法"表面失败"（可修的格式/提取问题）与"真实推理差距"的边界，为方法评估的可信度提供保障。
+1. **GERS-SC 方法**：提出图级自一致性机制，用基于图论结构性质的 Consistency Score 做加权选择，替代 CoT-SC 的等权多数投票，使一致性校验从装饰性指标变为影响最终输出的核心信号。我们同时修复了多路采样中温度多样性的实现缺陷，使该机制真正生效。
+2. **主打实验结果**：在 HotpotQA 上 GERS-SC 取得 F1=0.395 vs CoT-SC 0.284（+11pt）、EM 0.270 vs 0.200（+7pt），在统一公平的答案提取条件下显著优于所有基线。消融对照（CoT-SC+GERS 重排，仅在答案选择阶段用 GERS 分而无图执行）与 CoT-SC 同分，证明增益源于图结构执行与质量选择的协同。
+3. **诚实的适用边界**：在 2WikiMultiHopQA 上系统分析分题型表现，诚实揭示 GERS 在深度桥接复合题（bridge_comparison）上的错误传播局限，并精确定位其为未来工作方向，而非掩盖失败。
+4. **工程贡献**：通过 EM 指标 bug 修复、答案类型回扣、答案提取公平性三项改进，量化了方法"表面失败"（可修的格式/提取问题）与"真实推理差距"的边界，为方法评估的可信度提供保障——这一贡献本身也表明，LLM 推理方法的许多"表面失败"实为评估链路的工程缺陷。
 
 ## 2 相关工作
 
