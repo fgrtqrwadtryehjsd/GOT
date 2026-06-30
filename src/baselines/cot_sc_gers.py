@@ -76,7 +76,8 @@ class CoTSCWithGERS:
 
     def __init__(self, model=None, num_samples: int = 3,
                  gers_lambda: float = 1.0,
-                 enable_gers_rerank: bool = True):
+                 enable_gers_rerank: bool = True,
+                 dataset: str = None):
         """
         Args:
             model: LLM 模型实例
@@ -84,12 +85,14 @@ class CoTSCWithGERS:
             gers_lambda: GERS 质量分权重 λ。combined = count + λ·gers_score。
                          λ=1.0：GERS 仅在票数并列时翻盘；调大可让高质量少数答案胜出。
             enable_gers_rerank: 是否启用 GERS 重排（False 时退化为归一化后的标准 CoT-SC）
+            dataset: 数据集名称（透传给 StandardCoT 的答案提取）
         """
         self.model = model
         self.num_samples = num_samples
         self.gers_lambda = gers_lambda
         self.enable_gers_rerank = enable_gers_rerank
-        self.cot = StandardCoT(model=model)
+        self.dataset = dataset
+        self.cot = StandardCoT(model=model, dataset=dataset)
 
     def reason(self, question: str, context: str = "") -> Dict:
         if self.model is None:

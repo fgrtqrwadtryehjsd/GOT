@@ -82,7 +82,7 @@ def save_results(result_path: Path, results: list, summary: dict):
 def process_one(method_name: str, model, sample: dict, idx: int,
                 dataset: str, normalizer):
     """运行单条样本（在工作线程内执行）。每样本新建 method 实例，避免共享可变状态。"""
-    method = create_method(method_name, model)
+    method = create_method(method_name, model, dataset=dataset)
     start = time.time()
     try:
         result = method.reason(
@@ -128,6 +128,11 @@ def process_one(method_name: str, model, sample: dict, idx: int,
         "method": method_name,
         "error": error,
     }
+    # 保存推理文本（截断）便于离线复检答案提取/重排，无需重跑 LLM
+    if result:
+        rt = result.get("reasoning_text", "")
+        if rt:
+            record["reasoning_text"] = rt[:600]
     # GERS 专有字段
     if result and method_name in ("gers", "gers_adaptive", "gers_sc", "gers_nli", "gers_feedback"):
         record["iterations"] = result.get("iterations", 0)

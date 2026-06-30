@@ -70,24 +70,25 @@ def run_one_sample(method, sample, timeout_sec=120):
         return None, latency, str(e)
 
 
-def create_method(method_name: str, model):
+def create_method(method_name: str, model, dataset: str = None):
     from src.chain_generation import GraphGuidedGenerator
     from src.baselines import StandardCoT, CoTSC, CoTSCWithGERS, TreeOfThoughts, ZeroShot, MoDeGraphBaseline
 
     methods = {
         # GERS 核心配置：_no_constraint=True（消融证明约束解码负贡献，已砍掉）
-        "gers":             lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=False, adaptive=False, consistency_threshold=0.75, _no_constraint=True),
-        "gers_adaptive":    lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=False, adaptive=True, consistency_threshold=0.75, _no_constraint=True),
+        "gers":             lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=False, adaptive=False, consistency_threshold=0.75, _no_constraint=True, dataset=dataset),
+        "gers_adaptive":    lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=False, adaptive=True, consistency_threshold=0.75, _no_constraint=True, dataset=dataset),
         # 图级 Self-Consistency：生成K条DAG，用Consistency Score选优
-        "gers_sc":          lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=True, adaptive=True, consistency_threshold=0.75, _no_constraint=True, self_consistency_k=3),
-        "gers_nli":         lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=True, adaptive=False, consistency_threshold=0.75, _no_constraint=True),
-        "gers_feedback":    lambda: GraphGuidedGenerator(model=model, max_iterations=2, enable_nli=False, adaptive=False, consistency_threshold=0.75, _no_constraint=True),
-        "standard_cot":     lambda: StandardCoT(model=model),
-        "cot_sc":           lambda: CoTSC(model=model, num_samples=3),
+        "gers_sc":          lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=True, adaptive=True, consistency_threshold=0.75, _no_constraint=True, self_consistency_k=3, dataset=dataset),
+        "gers_nli":         lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=True, adaptive=False, consistency_threshold=0.75, _no_constraint=True, dataset=dataset),
+        "gers_feedback":    lambda: GraphGuidedGenerator(model=model, max_iterations=2, enable_nli=False, adaptive=False, consistency_threshold=0.75, _no_constraint=True, dataset=dataset),
+        # CoT 系基线：透传 dataset 给答案提取（公平性，修复空答案/长句问题）
+        "standard_cot":     lambda: StandardCoT(model=model, dataset=dataset),
+        "cot_sc":           lambda: CoTSC(model=model, num_samples=3, dataset=dataset),
         # CoT-SC + GERS 加权重排：N次CoT采样 → 归一化投票 → GERS质量分加权 → 选优
-        "cot_sc_gers":      lambda: CoTSCWithGERS(model=model, num_samples=3, gers_lambda=1.0, enable_gers_rerank=True),
+        "cot_sc_gers":      lambda: CoTSCWithGERS(model=model, num_samples=3, gers_lambda=1.0, enable_gers_rerank=True, dataset=dataset),
         "tot":              lambda: TreeOfThoughts(model=model, max_depth=3, beam_width=2),
-        "zero_shot":        lambda: ZeroShot(model=model),
+        "zero_shot":        lambda: ZeroShot(model=model, dataset=dataset),
         "modegraph":        lambda: MoDeGraphBaseline(model=model),
     }
     return methods[method_name]()

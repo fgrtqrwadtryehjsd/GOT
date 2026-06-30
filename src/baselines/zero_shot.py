@@ -1,10 +1,13 @@
 """Zero-Shot / Few-Shot基线"""
 from typing import Dict
 
-ZERO_SHOT_PROMPT = """Answer the following question.
+ZERO_SHOT_PROMPT = """Answer the following question concisely.
 
 Question: {question}
 {context_section}
+
+- For yes/no questions, answer "yes" or "no".
+- Otherwise, give just the answer (a name, number, or short phrase), not a full sentence.
 
 Answer: """
 
@@ -27,13 +30,15 @@ FEW_SHOT_PROMPT = """请参考以下示例回答问题。
 class ZeroShot:
     """Zero-Shot / Few-Shot基线"""
 
-    def __init__(self, model=None, mode: str = "zero_shot", examples: list = None):
+    def __init__(self, model=None, mode: str = "zero_shot", examples: list = None,
+                 dataset: str = None):
         self.model = model
         self.mode = mode
         self.examples = examples or []
+        self.dataset = dataset
 
     def reason(self, question: str, context: str = "") -> Dict:
-        context_section = f"\n参考信息：{context}" if context else ""
+        context_section = f"\nContext: {context}" if context else ""
 
         if self.mode == "few_shot" and len(self.examples) >= 2:
             prompt = FEW_SHOT_PROMPT.format(
@@ -55,7 +60,7 @@ class ZeroShot:
 
         response = self.model.generate(prompt)
         from ..utils.answer_extractor import extract_answer
-        answer = extract_answer(response, question=question)
+        answer = extract_answer(response, dataset=self.dataset, question=question)
         return {
             "answer": answer,
             "reasoning_text": response,

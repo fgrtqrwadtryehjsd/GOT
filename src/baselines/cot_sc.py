@@ -13,11 +13,13 @@ from ..utils.answer_normalizer import normalize_for_vote
 class CoTSC:
     """Self-Consistency基线"""
 
-    def __init__(self, model=None, num_samples: int = 5, temperature: float = 0.7):
+    def __init__(self, model=None, num_samples: int = 5, temperature: float = 0.7,
+                 dataset: str = None):
         self.model = model
         self.num_samples = num_samples
         self.temperature = temperature
-        self.cot = StandardCoT(model=model)
+        self.dataset = dataset
+        self.cot = StandardCoT(model=model, dataset=dataset)
 
     def reason(self, question: str, context: str = "") -> Dict:
         if self.model is None:

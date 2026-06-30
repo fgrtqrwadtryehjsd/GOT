@@ -306,3 +306,57 @@
 
 4 worker 为该 API QPM 下的稳定甜点：速度约 2.5-3x，几乎不限流。`DashScopeModel` 缓存单例 client + 指数退避重试是并发稳定性的关键。
 
+---
+
+## 十二、答案提取公平性修复 + 2WikiMultiHopQA 实验（2026-06-29）
+
+> 本轮：(1) 修 CoT 系答案提取（保命/公平）；(2) 上 2WikiMultiHopQA 验证论文核心论点；
+> (3) 重排降级为消融对照，论文主推 GERS-SC。
+
+### 12.1 答案提取公平性修复（CoT 系 + GERS 系对称修复）
+
+上一轮诊断发现 CoT 系（StandardCoT/CoT-SC/Zero-Shot）答案提取严重不力：42% 是 >40 字符长句 + 8% 空串，而 GERS 系提取较好。这导致基线被不公平拖低。本轮对称修复：
+
+- StandardCoT/ZeroShot prompt：强制「yes/no 问题答 yes/no，否则只给实体名/数字/短词，不要整句」；中文 `参考信息：` 改英文 `Context:`
+- CoT-SC / CoT-SC+GERS / GERS 系：透传 `dataset` 参数到 `extract_answer`
+- GERS `FINAL_ANSWER_PROMPT`：同样强制简洁答案（comparison 题输出实体名而非整句）
+- `answer_extractor._clean_answer`：加 comparison 句式剥离兜底（"X came out first" → "X"）
+
+**修复效果（HotpotQA 30 条验证）**：空答案 8%→0%，长答案(>40字) 42%→7~10%，
+EM：standard_cot 0.17→0.20，cot_sc 0.20→0.27，zero_shot 0.16→0.27。
+**公平性达成**——基线更强了，GERS 必须靠真实结构优势赢。
+
+### 12.2 2WikiMultiHopQA 主对比（n=100, model=qwen3-8b, 4 worker, 修复后）
+
+| 方法 | comparison | bridge_comp | compositional | inference | **ALL** | F1 |
+|------|:-:|:-:|:-:|:-:|:-:|:-:|
+| Standard CoT | 0.80 | 0.90 | 0.18 | 0.13 | **0.48** | 0.56 |
+| Zero-Shot | 0.80 | 0.57 | 0.26 | 0.07 | 0.43 | 0.52 |
+| CoT-SC | 0.64 | 0.81 | 0.15 | 0.13 | 0.41 | 0.52 |
+| CoT-SC+GERS（消融对照） | 0.64 | 0.81 | 0.15 | 0.13 | 0.41 | 0.52 |
+| GERS+自适应 | 0.80 | 0.24 | 0.21 | 0.13 | 0.35 | 0.42 |
+| GERS-SC (K=3) | 0.80 | 0.24 | 0.21 | 0.13 | 0.35 | 0.41 |
+
+> 前 100 条类型分布：comparison 25 / bridge_comparison 21 / compositional 39 / inference 15。
+
+### 12.3 关键结论（诚实记录）
+
+**结论 1：提取修复成功，comparison 类 GERS 真实推理能力达标。**
+GERS-SC 在 comparison 类 EM=0.80，与 CoT 持平。修复前为 0.24（惨败），全是答案提取 bug——GERS 推理正确（分解出 A/B 年份、正确比较），但 final answer 输出整句 "X came out first" 而参考答案是实体名 "X"。修复后证明**图结构分解对纯对比题的推理能力是顶级的**。
+
+**结论 2：但 2Wiki 上 GERS 整体仍输 CoT（0.35 vs 0.48）。核心瓶颈是 bridge_comparison（GERS 0.24 vs CoT 0.90）。**
+bridge_comparison 是「先桥接（找导演）→ 比较（出生/死亡先后）→ 回到原实体（哪部电影）」的复合题。GERS 的子问题分解倾向于把中间桥接结果（导演名）当最终答案，而题问的是"哪部电影"——这是**真·方法局限（分解/汇总的语义偏差）**，非提取问题。诊断证据：失败案例中 GERS 输出 "Elio Petri"（导演）而参考答案 "The Working Class Goes To Heaven"（电影）。
+
+**结论 3：HotpotQA 上「comparison +17.7pt」的优势在 2Wiki 上不存在。**
+两个数据集的 comparison 类 GERS 与 CoT 持平（均 0.80），无显著领先。2Wiki 的整体差距由 bridge_comparison 拖累。
+
+### 12.4 战略含义
+
+- **论文叙事须调整**：不能宣称「GERS 在对比型推理上全面优于 CoT」。可诚实的表述是：
+  - GERS 在纯 comparison 类达到与 CoT 同等水平（0.80），结构分解有效但不构成压倒性优势；
+  - GERS 的真正价值在 HotpotQA（见第十一节，n=100 GERS-SC 0.270 vs CoT-SC 0.200，+7pt）；
+  - bridge_comparison 暴露 GERS 复合题分解的语义偏差，是明确的改进方向（汇总时强制回扣原问题实体类型）。
+- **GERS-SC 仍为方法主线**：Consistency Score 有区分度（2Wiki CS=0.615，HotpotQA CS=0.669），图级自一致性选择机制成立。
+- **CoT-SC+GERS 重排降级为消融对照**：与 CoT-SC 同分（0.41），重排无净增益，仅作对照保留。
+
+

@@ -1,0 +1,4914 @@
+{
+  "summary": {
+    "method": "gers_adaptive",
+    "dataset": "2wikimultihopqa",
+    "num_samples": 100,
+    "avg_em": 0.35,
+    "avg_f1": 0.4169,
+    "avg_latency": 5.1701,
+    "error_count": 0,
+    "workers": 4
+  },
+  "results": [
+    {
+      "sample_id": 0,
+      "question": "Who is the mother of the director of film Polish-Russian War (Film)?",
+      "prediction": "Zofia Żuławska",
+      "reference": "Małgorzata Braunek",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 46,
+        "latency": 4.006146192550659,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who directed the film Polish-Russian War?\nAnswer: Xawery Żuławski\nStep 2: Who is the mother of the director of the film Polish-Russian War?\nAnswer: Zofia Żuławska\n\nZofia Żuławska",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "5670fe31": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 61,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 1,
+      "question": "Which film came out first, Blind Shaft or The Mask Of Fu Manchu?",
+      "prediction": "The Mask Of Fu Manchu",
+      "reference": "The Mask Of Fu Manchu",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 36,
+        "latency": 3.079495906829834,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: What year was Blind Shaft released?\nAnswer: 2003\nStep 2: What year was The Mask of Fu Manchu released?\nAnswer: 1932\n\nThe Mask Of Fu Manchu",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "0b982e7b": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 33,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 2,
+      "question": "When did John V, Prince Of Anhalt-Zerbst's father die?",
+      "prediction": "1 March 1570",
+      "reference": "12 June 1516",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 51,
+        "latency": 4.6652991771698,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who was John V, Prince of Anhalt-Zerbst's father?\nAnswer: Bernhard VII, Prince of Anhalt-Zerbst\nStep 2: When did the father of John V, Prince of Anhalt-Zerbst die?\nAnswer: 1 March 1570\n\n1 March 1570",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "0289964f": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 86,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 3,
+      "question": "What is the award that the director of film Wearing Velvet Slippers Under A Golden Umbrella won?",
+      "prediction": "Myanmar Motion Picture Academy Awards",
+      "reference": "Myanmar Motion Picture Academy Awards",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 72,
+        "latency": 4.314356803894043,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who directed the film 'Wearing Velvet Slippers under a Golden Umbrella'?\nAnswer: Maung Wunna\nStep 2: What award did the director of the film 'Wearing Velvet Slippers under a Golden Umbrella' win?\nAnswer: Myanmar Motion Picture Academy Awards\n\nMyanmar Motion Picture Academy Awards",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "2e327110": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 84,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 4,
+      "question": "Where was the director of film Ronnie Rocket born?",
+      "prediction": "The context does not specify Jason Moore's place of birth",
+      "reference": "Missoula, Montana",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 62,
+        "latency": 5.034003257751465,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who directed the film 'Ronnie Rocket'?\nAnswer: Jason Moore\nStep 2: Where was the director of 'Ronnie Rocket' born?\nAnswer: The context does not specify Jason Moore's place of birth\n\nThe context does not specify Jason Moore's place of birth.",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "cc1d1903": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 95,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 5,
+      "question": "Who is Charles Bretagne Marie De La Trémoille's paternal grandfather?",
+      "prediction": "Charles Armand René de La Trémoille",
+      "reference": "Charles Armand René de La Trémoille",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 68,
+        "latency": 5.315423965454102,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who is Charles Bretagne Marie de La Trémoille's father?\nAnswer: Jean Bretagne Charles de La Trémoille\nStep 2: Who is the paternal grandfather of Jean Bretagne Charles de La Trémoille?\nAnswer: Charles Armand René de La Trémoille\n\nCharles Armand René de La Trémoille",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "0a172d7a": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 100,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 6,
+      "question": "Where was the father of Ștefan I. Nenițescu born?",
+      "prediction": "t provide information about the father of Ștefan I",
+      "reference": "Galați",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 96,
+        "latency": 5.250595808029175,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who is the father of Ștefan I. Nenițescu?\nAnswer: The context does not provide information about the father of Ștefan I. Nenițescu\nStep 2: Where was the father of Ștefan I. Nenițescu born?\nAnswer: The context does not provide information about the birthplace of the father of Ștefan I. Nenițescu\n\nThe context does not provide information about the father of Ștefan I. Nenițescu.",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "18da8766": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 140,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 7,
+      "question": "Are North Marion High School (Oregon) and Seoul High School both located in the same country?",
+      "prediction": "no",
+      "reference": "no",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 42,
+        "latency": 3.4581499099731445,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: In which country is North Marion High School (Oregon) located?\nAnswer: United States\nStep 2: In which country is Seoul High School located?\nAnswer: South Korea\n\nno",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "e38a84c2": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 59,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 8,
+      "question": "Which film has the director who was born later, El Extraño Viaje or Love In Pawn?",
+      "prediction": "unknown",
+      "reference": "El Extraño Viaje",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 158,
+        "latency": 9.761018514633179,
+        "consistency_score": 0.88
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who directed the film 'El Extraño Viaje'?\nAnswer: Fernando Fernán Gómez\nStep 2: Who directed the film 'Love In Pawn'?\nAnswer: Charles Saunders\nStep 3: What is the birth year of the director of 'El Extraño Viaje'?\nAnswer: The birth year of the director of 'El Extraño Viaje' is not specified in the provided context\nStep 4: What is the birth year of the director of 'Love In Pawn'?\nAnswer: <birth year not provided>\nStep 5: Which director was born later, the one who directed 'El Extraño Viaje' or the one who directed 'Love In Pawn'?\nAnswer: <birth year of director of 'El Extraño Viaje' not ",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 0.88,
+        "structural_score": 0.8,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "f856c063": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 301,
+      "num_sub_questions": 5
+    },
+    {
+      "sample_id": 9,
+      "question": "Who is the maternal grandfather of Antiochus X Eusebes?",
+      "prediction": "Ptolemy X Alexander I",
+      "reference": "Ptolemy IX Lathyros",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.28571428571428575,
+        "token_count": 45,
+        "latency": 4.7624711990356445,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who was the mother of Antiochus X Eusebes?\nAnswer: Cleopatra IV\nStep 2: Who was the father of Antiochus X Eusebes' mother?\nAnswer: Ptolemy X Alexander I\n\nPtolemy X Alexander I",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "f9d57d1f": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 125,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 10,
+      "question": "Which film has the director died first, Crimen A Las Tres or The Working Class Goes To Heaven?",
+      "prediction": "Elio Petri",
+      "reference": "The Working Class Goes To Heaven",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 127,
+        "latency": 9.652690649032593,
+        "consistency_score": 0.88
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who directed the film 'Crimen a las Tres'?\nAnswer: Luis Saslavsky\nStep 2: Who directed the film 'The Working Class Goes to Heaven'?\nAnswer: Elio Petri\nStep 3: When did the director of 'Crimen a las Tres' die?\nAnswer: March 20, 1995\nStep 4: When did the director of 'The Working Class Goes to Heaven' die?\nAnswer: April 29, 1982\nStep 5: Which director died first between the director of 'Crimen a las Tres' and the director of 'The Working Class Goes to Heaven'?\nAnswer: Elio Petri died first\n\nElio Petri",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 0.88,
+        "structural_score": 0.8,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "abfb5c41": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 161,
+      "num_sub_questions": 5
+    },
+    {
+      "sample_id": 11,
+      "question": "Which film has the director born first, Once A Gentleman or The Girl In White?",
+      "prediction": "Once A Gentleman",
+      "reference": "Once A Gentleman",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 50,
+        "latency": 4.443084239959717,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: What is the birth date of the director of Once A Gentleman?\nAnswer: March 27, 1884\nStep 2: What is the birth date of the director of The Girl In White?\nAnswer: April 19, 1894\n\nOnce A Gentleman",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "5807cff5": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 58,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 12,
+      "question": "Which film has the director who died earlier, Il Seduttore or The Trial Of Joan Of Arc?",
+      "prediction": "Robert Bresson",
+      "reference": "The Trial Of Joan Of Arc",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 123,
+        "latency": 8.679522037506104,
+        "consistency_score": 0.88
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who directed the film 'Il Seduttore'?\nAnswer: Franco Rossi\nStep 2: Who directed the film 'The Trial Of Joan Of Arc'?\nAnswer: Robert Bresson\nStep 3: When did the director of 'Il Seduttore' die?\nAnswer: 5 June 2000\nStep 4: When did the director of 'The Trial Of Joan Of Arc' die?\nAnswer: 1999\nStep 5: Which director died earlier, the director of 'Il Seduttore' or the director of 'The Trial Of Joan Of Arc'?\nAnswer: The director of 'The Trial Of Joan Of Arc' died earlier\n\nRobert Bresson",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 0.88,
+        "structural_score": 0.8,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "58149172": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 172,
+      "num_sub_questions": 5
+    },
+    {
+      "sample_id": 13,
+      "question": "Where was the director of film Thomas Jefferson (Film) born?",
+      "prediction": "1953",
+      "reference": "Brooklyn",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 36,
+        "latency": 3.2806522846221924,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who directed the film 'Thomas Jefferson'?\nAnswer: Ken Burns\nStep 2: Where was the director of 'Thomas Jefferson' born?\nAnswer: 1953\n\n1953",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "6cafbd59": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 46,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 14,
+      "question": "Why did Grand Duke Kirill Vladimirovich Of Russia's wife die?",
+      "prediction": "Typhoid fever complications",
+      "reference": "stroke",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 67,
+        "latency": 5.15713357925415,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who was Grand Duke Kirill Vladimirovich of Russia's wife?\nAnswer: Grand Duchess Maria Kirillovna of Russia\nStep 2: What was the cause of death of Grand Duke Kirill Vladimirovich of Russia's wife?\nAnswer: Typhoid fever complications\n\nTyphoid fever complications",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "b85ffbc8": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 128,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 15,
+      "question": "Where was the place of death of the director of film Beat Girl?",
+      "prediction": "France",
+      "reference": "Nice",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 35,
+        "latency": 4.012664318084717,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who directed the film 'Beat Girl'?\nAnswer: Edmond T. Gréville\nStep 2: Where did the director of 'Beat Girl' die?\nAnswer: France\n\nFrance",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "60fae865": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 62,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 16,
+      "question": "Who died first, Fleetwood Sheppard or George William Whitaker?",
+      "prediction": "Fleetwood Sheppard",
+      "reference": "Fleetwood Sheppard",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 44,
+        "latency": 3.845073938369751,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: What is the death date of Fleetwood Sheppard?\nAnswer: 25 August 1698\nStep 2: What is the death date of George William Whitaker?\nAnswer: March 6, 1916\n\nFleetwood Sheppard",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "5ae0126b": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 39,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 17,
+      "question": "Which film has the director born first, The Raven'S Dance or Keïta! L'Héritage Du Griot?",
+      "prediction": "Markku Lehmuskallio",
+      "reference": "The Raven'S Dance",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 44,
+        "latency": 4.199246406555176,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who is the director of The Raven's Dance?\nAnswer: Markku Lehmuskallio\nStep 2: Who is the director of Keïta! L'Héritage Du Griot?\nAnswer: Dani Kouyaté\n\nMarkku Lehmuskallio",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "8b8b9092": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 81,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 18,
+      "question": "When did Jean Martin (Singer)'s husband die?",
+      "prediction": "The context does not provide information about Jean Martin (Singer)'s husband's",
+      "reference": "1983",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 91,
+        "latency": 5.247141122817993,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who is Jean Martin (Singer)?\nAnswer: The context does not provide information about Jean Martin (Singer)'s husband's death\nStep 2: When did Jean Martin (Singer)'s husband die?\nAnswer: The context does not provide information about Jean Martin (Singer)'s husband's death\n\nThe context does not provide information about Jean Martin (Singer)'s husband's death.",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "256ba1f7": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 169,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 19,
+      "question": "Which film has the director who died earlier, Tangled Destinies or The Daltons' Women?",
+      "prediction": "Frank R. Strayer",
+      "reference": "Tangled Destinies",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 122,
+        "latency": 8.471023797988892,
+        "consistency_score": 0.88
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who directed the film Tangled Destinies?\nAnswer: Frank R. Strayer\nStep 2: Who directed the film The Daltons' Women?\nAnswer: Ray Taylor\nStep 3: When did the director of Tangled Destinies die?\nAnswer: February 3, 1964\nStep 4: When did the director of The Daltons' Women die?\nAnswer: <concise answer>\nStep 5: Which director died earlier, the director of Tangled Destinies or the director of The Daltons' Women?\nAnswer: The director of Tangled Destinies died earlier\n\nFrank R. Strayer",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 0.88,
+        "structural_score": 0.8,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "685757ef": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 180,
+      "num_sub_questions": 5
+    },
+    {
+      "sample_id": 20,
+      "question": "Which film was released earlier, Moment Of Danger or The Ballad Of Josie?",
+      "prediction": "Moment Of Danger",
+      "reference": "Moment Of Danger",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 37,
+        "latency": 4.0539186000823975,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: What year was 'Moment Of Danger' released?\nAnswer: 1960\nStep 2: What year was 'The Ballad Of Josie' released?\nAnswer: 1967\n\nMoment Of Danger",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "4f17a9ec": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 61,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 21,
+      "question": "What nationality is the director of film World And Time Enough?",
+      "prediction": "American",
+      "reference": "United States",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 37,
+        "latency": 4.176615238189697,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who directed the film 'World and Time Enough'?\nAnswer: Eric Mueller\nStep 2: What is the nationality of Eric Mueller?\nAnswer: American\n\nAmerican",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "aa0c35ba": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 67,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 22,
+      "question": "Which film has the director died earlier, Poker In Bed or The Machine To Kill Bad People?",
+      "prediction": "Luigi Torchi",
+      "reference": "The Machine To Kill Bad People",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 124,
+        "latency": 10.653635740280151,
+        "consistency_score": 0.88
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who directed the film 'Poker In Bed'?\nAnswer: Giuliano Carnimeo\nStep 2: Who directed the film 'The Machine To Kill Bad People'?\nAnswer: <concise answer>\nStep 3: When did the director of 'Poker In Bed' die?\nAnswer: April 13, 1987\nStep 4: When did the director of 'The Machine To Kill Bad People' die?\nAnswer: Luigi Torchi died in 1876\nStep 5: Which director died earlier, the director of 'Poker In Bed' or the director of 'The Machine To Kill Bad People'?\nAnswer: Luigi Torchi\n\nLuigi Torchi",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 0.88,
+        "structural_score": 0.8,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "8b16092a": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 181,
+      "num_sub_questions": 5
+    },
+    {
+      "sample_id": 23,
+      "question": "Which film whose director is younger, Heads I Win, Tails You Lose or The Incredible Sarah?",
+      "prediction": "Nanni Loy",
+      "reference": "Heads I Win, Tails You Lose",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 65,
+        "latency": 5.566889762878418,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: What is the birth year of the director of Heads I Win, Tails You Lose?\nAnswer: 1923\nStep 2: What is the birth year of the director of The Incredible Sarah?\nAnswer: 1916\nStep 3: Which director was born in a more recent year?\nAnswer: Nanni Loy\n\nNanni Loy",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "f91ebf80": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 109,
+      "num_sub_questions": 3
+    },
+    {
+      "sample_id": 24,
+      "question": "Who is Catherine Of Pomerania, Countess Palatine Of Neumarkt's father-in-law?",
+      "prediction": "John, Count Palatine of Neumarkt",
+      "reference": "Rupert",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 63,
+        "latency": 5.269500017166138,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who was John, Count Palatine of Neumarkt's wife?\nAnswer: Catherine of Pomerania\nStep 2: Who is the father-in-law of Catherine of Pomerania, Countess Palatine of Neumarkt?\nAnswer: John, Count Palatine of Neumarkt\n\nJohn, Count Palatine of Neumarkt",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "8a80d5a7": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 108,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 25,
+      "question": "Who is Marie Zéphyrine Of France's paternal grandmother?",
+      "prediction": "Queen Marie Leszczyńska",
+      "reference": "Marie Leszczyńska",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.8,
+        "token_count": 52,
+        "latency": 4.227352142333984,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who is Marie Zéphyrine of France's father?\nAnswer: Louis, Dauphin of France\nStep 2: Who is the paternal grandmother of Louis, Dauphin of France?\nAnswer: Queen Marie Leszczyńska\n\nQueen Marie Leszczyńska",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "ba110717": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 94,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 26,
+      "question": "Which film has the director died earlier, Condemned Women or Faces In The Dark?",
+      "prediction": "Faces In The Dark",
+      "reference": "Condemned Women",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 97,
+        "latency": 8.60994029045105,
+        "consistency_score": 0.854
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who directed the film 'Condemned Women'?\nAnswer: Lew Landers\nStep 2: Who directed the film 'Faces In The Dark'?\nAnswer: David Eady\nStep 3: When did the director of 'Condemned Women' die?\nAnswer: Unknown\nStep 4: When did the director of 'Faces In The Dark' die?\nAnswer: April 5, 2009\nStep 5: Which film has the director who died earlier?\nAnswer: Faces In The Dark\n\nFaces In The Dark",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 0.854,
+        "structural_score": 0.7966,
+        "semantic_score": 0.94,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "812b61d6": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 0.94,
+          "coverage_score": 0.988
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 160,
+      "num_sub_questions": 5
+    },
+    {
+      "sample_id": 27,
+      "question": "Who is the spouse of the director of film Eden And After?",
+      "prediction": "Catherine Robbe-Grillet",
+      "reference": "Catherine Robbe-Grillet",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 48,
+        "latency": 4.024516344070435,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who directed the film 'Eden and After'?\nAnswer: Alain Robbe-Grillet\nStep 2: Who is the spouse of the director of 'Eden and After'?\nAnswer: Catherine Robbe-Grillet\n\nCatherine Robbe-Grillet",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "99ffe03c": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 60,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 28,
+      "question": "Where was the place of death of Anastasia Of Serbia's husband?",
+      "prediction": "Šuplja Rijeka, near Kovačica, Serbia",
+      "reference": "Hilandar",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 52,
+        "latency": 4.830975294113159,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who was Anastasia Of Serbia's husband?\nAnswer: Stefan Nemanja\nStep 2: Where did the husband of Anastasia Of Serbia die?\nAnswer: Šuplja Rijeka, near Kovačica, Serbia\n\nŠuplja Rijeka, near Kovačica, Serbia",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "a965b22a": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 104,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 29,
+      "question": "Are Fire In Hell and The Tiger: An Old Hunter'S Tale from the same country?",
+      "prediction": "yes",
+      "reference": "yes",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 37,
+        "latency": 4.830738306045532,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: What country is The Tiger: An Old Hunter's Tale from?\nAnswer: South Korea\nStep 2: What country is Fire in Hell from?\nAnswer: South Korea\n\nyes",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "81a4dbd9": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 60,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 30,
+      "question": "Which film was released more recently, Lo Zappatore or Placer Sangriento?",
+      "prediction": "Placer Sangriento",
+      "reference": "Placer Sangriento",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 40,
+        "latency": 3.326781749725342,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: What year was Lo Zappatore released?\nAnswer: <release year not specified>\nStep 2: What year was Placer Sangriento released?\nAnswer: 1967\n\nPlacer Sangriento",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "89a3e04d": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 66,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 31,
+      "question": "Was Şemsettin Baş or Gwenc'Hlan Le Scouëzec born first?",
+      "prediction": "Gwenc'Hlan Le Scouëzec",
+      "reference": "Gwenc'Hlan Le Scouëzec",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 59,
+        "latency": 4.397886753082275,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: What is the birth date of Şemsettin Baş?\nAnswer: The birth date of Şemsettin Baş is not mentioned in the provided context\nStep 2: What is the birth date of Gwenc'Hlan Le Scouëzec?\nAnswer: 11 November 1929\n\nGwenc'Hlan Le Scouëzec",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "2a0c8d40": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 90,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 32,
+      "question": "Which film has the director born later, Bhoomiyude Avakashikal or The Majesty Of The Law?",
+      "prediction": "T. V. Chandran",
+      "reference": "Bhoomiyude Avakashikal",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 136,
+        "latency": 10.246018648147583,
+        "consistency_score": 0.88
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who is the director of the film 'Bhoomiyude Avakashikal'?\nAnswer: T. V. Chandran\nStep 2: Who is the director of the film 'The Majesty Of The Law'?\nAnswer: Julia Crawford Ivers\nStep 3: What is the birth year of the director of 'Bhoomiyude Avakashikal'?\nAnswer: 1950\nStep 4: What is the birth year of the director of 'The Majesty Of The Law'?\nAnswer: 1869\nStep 5: Which director was born later, the one of 'Bhoomiyude Avakashikal' or 'The Majesty Of The Law'?\nAnswer: The director of 'Bhoomiyude Avakashikal' was born later\n\nT. V. Chandran",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 0.88,
+        "structural_score": 0.8,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "ab6367e7": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 175,
+      "num_sub_questions": 5
+    },
+    {
+      "sample_id": 33,
+      "question": "Who is Cornelia (Wife Of Caesar)'s child-in-law?",
+      "prediction": "Pompey the Great",
+      "reference": "Pompey",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5,
+        "token_count": 64,
+        "latency": 4.534670114517212,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who is Cornelia (wife of Caesar)?\nAnswer: Cornelia (wife of Caesar) was Julius Caesar's first or second wife and the mother of his daughter Julia\nStep 2: Who is the child-in-law of Cornelia (wife of Caesar)?\nAnswer: Pompey the Great\n\nPompey the Great",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "a827ecea": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 113,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 34,
+      "question": "Why did John Middleton Murry's wife die?",
+      "prediction": "9 October 1923",
+      "reference": "tuberculosis",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 38,
+        "latency": 4.852268218994141,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who was John Middleton Murry's wife?\nAnswer: Katherine Mansfield\nStep 2: When did Katherine Mansfield die?\nAnswer: 9 October 1923\n\n9 October 1923",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "fadd71ab": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 82,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 35,
+      "question": "Who is the paternal grandfather of Taj Al-Dawla?",
+      "prediction": "Unknown",
+      "reference": "Rukn al-Dawla",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 43,
+        "latency": 3.9812350273132324,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who is Taj al-Dawla's father?\nAnswer: Ashraf ibn Taj al-Dawla\nStep 2: Who is the father of Taj al-Dawla's father?\nAnswer: Not specified in the given context\n\nUnknown",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "e34b5286": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 75,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 36,
+      "question": "Do both films Payment On Demand and My Cousin From Warsaw have the directors from the same country?",
+      "prediction": "no",
+      "reference": "yes",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 35,
+        "latency": 3.6759138107299805,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Which country was Curtis Bernhardt born in?\nAnswer: Germany\nStep 2: Which country was Mieczysław Krawicz born in?\nAnswer: Poland\n\nno",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "f2e63412": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 58,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 37,
+      "question": "What is the place of birth of the director of film And The Spring Comes?",
+      "prediction": "Xi'an, Shaanxi",
+      "reference": "Xi'an",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.6666666666666666,
+        "token_count": 48,
+        "latency": 4.202542781829834,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who directed the film 'And The Spring Comes'?\nAnswer: Gu Changwei\nStep 2: What is the place of birth of the director identified in sub-question 1?\nAnswer: Xi'an, Shaanxi\n\nXi'an, Shaanxi",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "bcaa52ea": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 63,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 38,
+      "question": "Who died first, Madame Pasca or James A. Donohoe?",
+      "prediction": "Madame Pasca",
+      "reference": "Madame Pasca",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 40,
+        "latency": 3.870457649230957,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: What is the death date of Madame Pasca?\nAnswer: May 25, 1914\nStep 2: What is the death date of James A. Donohoe?\nAnswer: February 26, 1956\n\nMadame Pasca",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "fbdda791": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 49,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 39,
+      "question": "Who was born later, D'Arcy Coulson or Thomas William Adams?",
+      "prediction": "D'Arcy Coulson",
+      "reference": "D'Arcy Coulson",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 53,
+        "latency": 4.33795952796936,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: What is the birth date of Thomas William Adams?\nAnswer: 24 June 1842\nStep 2: What is the birth date of D'Arcy Coulson?\nAnswer: The birth date of D'Arcy Coulson is not provided in the context\n\nD'Arcy Coulson",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "be9876e4": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 85,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 40,
+      "question": "Are Simonds Catholic College and Saginaw High School (Texas) both located in the same country?",
+      "prediction": "no",
+      "reference": "no",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 41,
+        "latency": 4.527225732803345,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Where is Simonds Catholic College located?\nAnswer: Melbourne, Australia\nStep 2: Where is Saginaw High School (Texas) located?\nAnswer: Saginaw, Texas, USA\n\nno",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "371df946": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 80,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 41,
+      "question": "Which country Prince Nikolaus Wilhelm Of Nassau's mother is from?",
+      "prediction": "The Kingdom of Württemberg",
+      "reference": "German",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 60,
+        "latency": 4.9276604652404785,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who is Prince Nikolaus Wilhelm of Nassau's mother?\nAnswer: Princess Pauline of Württemberg\nStep 2: Which country is the mother of Prince Nikolaus Wilhelm of Nassau from?\nAnswer: The Kingdom of Württemberg\n\nThe Kingdom of Württemberg",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "6d9c0e4e": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 77,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 42,
+      "question": "Which film whose director was born first, 45 Fathers or The Intended?",
+      "prediction": "45 Fathers",
+      "reference": "45 Fathers",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 40,
+        "latency": 3.736882209777832,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: What is the birth year of the director of 45 Fathers?\nAnswer: 1902\nStep 2: What is the birth year of the director of The Intended?\nAnswer: 1957\n\n45 Fathers",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "b2d7c388": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 80,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 43,
+      "question": "Who is the paternal grandfather of Alexandre Berthier, 3Rd Prince Of Wagram?",
+      "prediction": "Alexandre Louis Étienne Berthier",
+      "reference": "Louis-Alexandre Berthier",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3333333333333333,
+        "token_count": 80,
+        "latency": 5.709967374801636,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who is the father of Alexandre Berthier, 3rd Prince of Wagram?\nAnswer: Louis Philippe Marie Alexandre Berthier\nStep 2: Who is the father of the father of Alexandre Berthier, 3rd Prince of Wagram?\nAnswer: Alexandre Louis Étienne Berthier, 2nd Prince of Wagram\n\nAlexandre Louis Étienne Berthier, 2nd Prince of Wagram",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "c480e110": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 102,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 44,
+      "question": "Where was the husband of Caterina Visconti born?",
+      "prediction": "Pavia",
+      "reference": "Pavia",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 39,
+        "latency": 5.948073148727417,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who is the husband of Caterina Visconti?\nAnswer: Gian Galeazzo Visconti\nStep 2: Where was the husband of Caterina Visconti born?\nAnswer: Pavia\n\nPavia",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "9570e77c": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 85,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 45,
+      "question": "Which film has the director who was born later, A Quiet Place In The Country or When Were You Born?",
+      "prediction": "When Were You Born",
+      "reference": "A Quiet Place In The Country",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 48,
+        "latency": 4.2731335163116455,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: What is the birth year of the director of A Quiet Place In The Country?\nAnswer: 1929\nStep 2: What is the birth year of the director of When Were You Born?\nAnswer: 1897\n\nWhen Were You Born",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "15d2f42a": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 73,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 46,
+      "question": "Who was born first, John Beach or Gordon Persons?",
+      "prediction": "John Beach",
+      "reference": "John Beach",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 39,
+        "latency": 3.5669193267822266,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: What is the birth date of John Beach?\nAnswer: January 1, 1812\nStep 2: What is the birth date of Gordon Persons?\nAnswer: February 5, 1902\n\nJohn Beach",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "5bff2281": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 37,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 47,
+      "question": "Which film has the director born earlier, The House By The Cemetery or Charlie Chan In Honolulu?",
+      "prediction": "H. Bruce Humberstone",
+      "reference": "Charlie Chan In Honolulu",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 61,
+        "latency": 3.884714365005493,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: What is the birth date of the director of The House By The Cemetery?\nAnswer: April 16, 1927\nStep 2: What is the birth date of H. Bruce Humberstone, the director of Charlie Chan In Honolulu?\nAnswer: November 18, 1901\n\nH. Bruce Humberstone",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "dd0d60f9": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 53,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 48,
+      "question": "Who is the child of the director of film La Leona (Film)?",
+      "prediction": "Víctor Bó",
+      "reference": "Víctor Bó",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 34,
+        "latency": 4.232664585113525,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who directed the film La Leona?\nAnswer: Armando Bó\nStep 2: Who is the son of the director of La Leona?\nAnswer: Víctor Bó\n\nVíctor Bó",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "c59a1500": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 50,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 49,
+      "question": "Who is Blanche Of Portugal (1259–1321)'s paternal grandmother?",
+      "prediction": "Maria of Guimarães",
+      "reference": "Urraca of Castile",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3333333333333333,
+        "token_count": 57,
+        "latency": 4.727893352508545,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who were the parents of Blanche of Portugal (1259–1321)?\nAnswer: King Afonso III of Portugal and Beatrice of Castile\nStep 2: Who was the mother of King Afonso III of Portugal?\nAnswer: Maria of Guimarães\n\nMaria of Guimarães",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "06854316": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 103,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 50,
+      "question": "Who lived longer, Giuseppe Cesari or Nicos Poulantzas?",
+      "prediction": "Giuseppe Cesari",
+      "reference": "Giuseppe Cesari",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 93,
+        "latency": 9.442850112915039,
+        "consistency_score": 0.88
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: What is the birth year of Giuseppe Cesari?\nAnswer: 1568\nStep 2: What is the death year of Giuseppe Cesari?\nAnswer: 1640\nStep 3: What is the birth year of Nicos Poulantzas?\nAnswer: 1936\nStep 4: What is the death year of Nicos Poulantzas?\nAnswer: 1979\nStep 5: Who lived longer, Giuseppe Cesari or Nicos Poulantzas?\nAnswer: Giuseppe Cesari lived longer\n\nGiuseppe Cesari",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 0.88,
+        "structural_score": 0.8,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "af75e9a1": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 134,
+      "num_sub_questions": 5
+    },
+    {
+      "sample_id": 51,
+      "question": "Are director of film Nights On The Road and director of film Swann In Love (Film) from the same coun",
+      "prediction": "yes",
+      "reference": "yes",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 113,
+        "latency": 11.287093877792358,
+        "consistency_score": 0.88
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who directed the film 'Nights On The Road'?\nAnswer: Rudolf Jugert\nStep 2: Who directed the film 'Swann In Love (Film)'?\nAnswer: Volker Schlöndorff\nStep 3: What country is the director of 'Nights On The Road' from?\nAnswer: Germany\nStep 4: What country is the director of 'Swann In Love (Film)' from?\nAnswer: Germany\nStep 5: Are the countries of origin of the directors of 'Nights On The Road' and 'Swann In Love (Film)' the same?\nAnswer: Yes\n\nyes",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 0.88,
+        "structural_score": 0.8,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "cb63acef": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 132,
+      "num_sub_questions": 5
+    },
+    {
+      "sample_id": 52,
+      "question": "Who is older, Aryeh Ben-Eliezer or Jason Pociask?",
+      "prediction": "Jason Pociask",
+      "reference": "Aryeh Ben-Eliezer",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 49,
+        "latency": 4.086568355560303,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: What is Aryeh Ben-Eliezer's birth date?\nAnswer: The context does not provide Aryeh Ben-Eliezer's birth date\nStep 2: What is Jason Pociask's birth date?\nAnswer: <concise answer>\n\nJason Pociask",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "353cd4a9": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 106,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 53,
+      "question": "Where does the director of film Man At Bath work at?",
+      "prediction": "unknown",
+      "reference": "Cahiers du cinéma",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 118,
+        "latency": 6.696039438247681,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: What is the name of the director of the film 'Man At Bath'?\nAnswer: The name of the director of the film 'Man At Bath' is not specified in the provided context\nStep 2: Where does the director of 'Man At Bath' work at?\nAnswer: The context does not provide information about where the director of 'Man At Bath' works\n\nThe information provided does not specify the director of the film 'Man At Bath' or their workplace. Therefore, the answer is:\n\nFinal Answer: unknown",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "673d0593": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 207,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 54,
+      "question": "Who is Arthur Gore, 2Nd Earl Of Arran's paternal grandfather?",
+      "prediction": "Paul Annesley Gore",
+      "reference": "Sir Arthur Gore, 2nd Baronet",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.25,
+        "token_count": 58,
+        "latency": 4.986529350280762,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who was Sir Arthur Gore, 2nd Baronet's father?\nAnswer: Paul Gore\nStep 2: Who was the father of Paul Annesley Gore, who was the brother of Arthur Gore, 1st Earl of Arran?\nAnswer: Sir Arthur Gore, 2nd Baronet\n\nPaul Annesley Gore",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "639a817d": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 62,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 55,
+      "question": "Are both Kaufland and Otrag located in the same country?",
+      "prediction": "yes",
+      "reference": "yes",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 24,
+        "latency": 3.154334545135498,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Where is Kaufland based?\nAnswer: Germany\nStep 2: Where is OTRAG based?\nAnswer: Germany\n\nyes",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "7bde5aff": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 51,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 56,
+      "question": "Which film came out earlier, Aanaval Mothiram or Heroes Of The Street?",
+      "prediction": "Heroes Of The Street",
+      "reference": "Heroes Of The Street",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 37,
+        "latency": 2.9985857009887695,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: What year was Aanaval Mothiram released?\nAnswer: 1991\nStep 2: What year was Heroes Of The Street released?\nAnswer: 1922\n\nHeroes Of The Street",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "e17c1ba6": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 34,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 57,
+      "question": "Where was the father of Lord Patrick Crichton-Stuart born?",
+      "prediction": "Scotland",
+      "reference": "London",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 47,
+        "latency": 3.7252182960510254,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who is the father of Lord Patrick Crichton-Stuart?\nAnswer: John Stuart, Lord Mount Stuart\nStep 2: Where was the father of Lord Patrick Crichton-Stuart born?\nAnswer: Scotland\n\nScotland",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "89d195f9": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 79,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 58,
+      "question": "Which country the director of film Daadagiri is from?",
+      "prediction": "Pakistan",
+      "reference": "Pakistan",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 36,
+        "latency": 4.209113597869873,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who directed the film Daadagiri?\nAnswer: Arshad Khan\nStep 2: Which country is the director of Daadagiri from?\nAnswer: Pakistan\n\nPakistan",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "ef0ae29a": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 86,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 59,
+      "question": "Where was the wife of Douglas Leiterman born?",
+      "prediction": "South Porcupine, Ontario",
+      "reference": "Winnipeg, Manitoba",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 57,
+        "latency": 5.231929779052734,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who is Douglas Leiterman?\nAnswer: Douglas Leiterman was a Canadian television producer born in South Porcupine, Ontario\nStep 2: Where was Douglas Leiterman born?\nAnswer: South Porcupine, Ontario\n\nSouth Porcupine, Ontario",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "f289c604": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 128,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 60,
+      "question": "What is the place of birth of the performer of song Who...?",
+      "prediction": "The performer of the song \"Who...\"",
+      "reference": "Fukuoka",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 78,
+        "latency": 4.651146173477173,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who is the performer of the song 'Who...'? \nAnswer: The performer of the song \"Who...\" is not specified in the given context\nStep 2: What is the place of birth of the performer identified in sub-question #1?\nAnswer: <not specified>\n\nThe performer of the song \"Who...\" is not specified in the given context.",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "30d1a682": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 148,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 61,
+      "question": "Where was the place of death of the director of film Mole Men Against The Son Of Hercules?",
+      "prediction": "Italy",
+      "reference": "Roma",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 53,
+        "latency": 4.506102085113525,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who directed the film 'Mole Men Against The Son Of Hercules'?\nAnswer: Antonio Leonviola\nStep 2: Where was Antonio Leonviola, the director of 'Mole Men Against The Son Of Hercules', born?\nAnswer: Italy\n\nItaly",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "216fe3a5": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 74,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 62,
+      "question": "Where was the father of Alexandre Gaydamak born?",
+      "prediction": "Ukraine",
+      "reference": "Moscow, USSR",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 38,
+        "latency": 3.9031758308410645,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who is the father of Alexandre Gaydamak?\nAnswer: Arcadi Gaydamak\nStep 2: Where was the father of Alexandre Gaydamak born?\nAnswer: Ukraine\n\nUkraine",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "671f6475": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 61,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 63,
+      "question": "Which film has the director who died earlier, Toen 'T Licht Verdween or Boum Sur Paris?",
+      "prediction": "Toen 't Licht Verdween",
+      "reference": "Toen 'T Licht Verdween",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 126,
+        "latency": 10.873780965805054,
+        "consistency_score": 0.88
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who directed the film 'Toen 't Licht Verdween'?\nAnswer: Maurits Binger\nStep 2: Who directed the film 'Boum Sur Paris'?\nAnswer: Jean Boyer\nStep 3: When did the director of 'Toen 't Licht Verdween' die?\nAnswer: 9 April 1923\nStep 4: When did the director of 'Boum Sur Paris' die?\nAnswer: 2017\nStep 5: Which director died earlier between the director of 'Toen 't Licht Verdween' and the director of 'Boum Sur Paris'?\nAnswer: The director of 'Toen 't Licht Verdween' died earlier\n\nToen 't Licht Verdween",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 0.88,
+        "structural_score": 0.8,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "047d17f0": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 159,
+      "num_sub_questions": 5
+    },
+    {
+      "sample_id": 64,
+      "question": "Who is Gaston, Duke Of Orléans's paternal grandmother?",
+      "prediction": "Marie de' Medici",
+      "reference": "Jeanne d'Albret",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 72,
+        "latency": 6.7918689250946045,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who was the father of Gaston, Duke of Orléans?\nAnswer: Louis XIII of France\nStep 2: Who was the mother of Gaston, Duke of Orléans?\nAnswer: Marie de' Medici\nStep 3: What was the name of the paternal grandmother of Gaston, Duke of Orléans?\nAnswer: Marie de' Medici\n\nMarie de' Medici",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "d68fac48": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 129,
+      "num_sub_questions": 3
+    },
+    {
+      "sample_id": 65,
+      "question": "Where was the director of film The Half-Way Girl born?",
+      "prediction": "The information about the director of The Half-Way Girl is not provided in the",
+      "reference": "New York",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 100,
+        "latency": 5.314525365829468,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who is the director of the film The Half-Way Girl?\nAnswer: The information about the director of *The Half-Way Girl* is not provided in the given context\nStep 2: Where was the director of The Half-Way Girl born?\nAnswer: The information about the director's birthplace is not provided in the context\n\nThe information about the director of *The Half-Way Girl* is not provided in the given context.",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "96fd21a9": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 173,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 66,
+      "question": "Who is the father-in-law of Sophia Of Wittelsbach?",
+      "prediction": "Ludwig von Westphalen",
+      "reference": "Louis II",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 42,
+        "latency": 4.102151393890381,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who is the father-in-law of Karl Marx?\nAnswer: Ludwig von Westphalen\nStep 2: Who is the spouse of Sophia of Wittelsbach?\nAnswer: Karl Marx\n\nLudwig von Westphalen",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "a63ed7c2": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 68,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 67,
+      "question": "Where was the place of death of Lambert I, Count Of Louvain's father?",
+      "prediction": "<insufficient information>",
+      "reference": "Bohemia",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 58,
+        "latency": 4.667593240737915,
+        "consistency_score": 0.94
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who was the father of Henry III, Count of Louvain?\nAnswer: Lambert II, Count of Louvain\nStep 2: What was the place of death of Lambert I, Count of Louvain's father?\nAnswer: <insufficient information>\n\n<insufficient information>",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 0.94,
+        "structural_score": 1.0,
+        "semantic_score": 0.85,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "a7131927": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 117,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 68,
+      "question": "Where was the director of film Highway Dragnet born?",
+      "prediction": "Palos Verdes Estates, California, USA",
+      "reference": "Gura Humorului",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 52,
+        "latency": 3.280287742614746,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who directed the film Highway Dragnet?\nAnswer: Nathan Juran\nStep 2: Where was the director of Highway Dragnet born?\nAnswer: Palos Verdes Estates, California, USA\n\nPalos Verdes Estates, California, USA",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "52dc45cb": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 58,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 69,
+      "question": "Where did Prince Gustav Of Thurn And Taxis (1848–1914)'s mother die?",
+      "prediction": "Obermais, Meran, County of Tyrol, Austria-Hungary",
+      "reference": "Meran",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.2857142857142857,
+        "token_count": 86,
+        "latency": 5.3218748569488525,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who was the mother of Prince Gustav Of Thurn And Taxis (1848–1914)?\nAnswer: Princess Mathilde Sophie of Oettingen-Oettingen and Oettingen-Spielberg\nStep 2: Where did the mother of Prince Gustav Of Thurn And Taxis (1848–1914) die?\nAnswer: Obermais, Meran, County of Tyrol, Austria-Hungary\n\nObermais, Meran, County of Tyrol, Austria-Hungary",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "b8c0e9a8": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 130,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 70,
+      "question": "What is the award that the performer of song Sunday Papers earned?",
+      "prediction": "Grammy Award for Best New Artist",
+      "reference": "Grammy",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.2857142857142857,
+        "token_count": 56,
+        "latency": 4.041887044906616,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who is the performer of the song 'Sunday Papers'?\nAnswer: Joe Jackson\nStep 2: What award did the performer of the song 'Sunday Papers' earn?\nAnswer: A Grammy Award for Best New Artist\n\nGrammy Award for Best New Artist",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "f2204507": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 86,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 71,
+      "question": "Which film has the director born first, Antonieta or Dodging The Dole?",
+      "prediction": "Carlos Saura",
+      "reference": "Dodging The Dole",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 120,
+        "latency": 9.626445531845093,
+        "consistency_score": 0.88
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who is the director of the film 'Dodging The Dole'?\nAnswer: Ricardo Trogi\nStep 2: Who is the director of the film 'Antonieta'?\nAnswer: Carlos Saura\nStep 3: What is the birth date of the director of 'Dodging The Dole'?\nAnswer: <birth date not specified>\nStep 4: What is the birth date of the director of 'Antonieta'?\nAnswer: 4 January 1932\nStep 5: Which director was born earlier, based on their birth dates?\nAnswer: The director of 'Antonieta' was born earlier\n\nCarlos Saura",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 0.88,
+        "structural_score": 0.8,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "a9268eb0": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 177,
+      "num_sub_questions": 5
+    },
+    {
+      "sample_id": 72,
+      "question": "Are both Nikolsk Airport and Svobodny Airport located in the same country?",
+      "prediction": "yes",
+      "reference": "yes",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 29,
+        "latency": 4.007011890411377,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Where is Nikolsk Airport located?\nAnswer: Russia\nStep 2: Where is Svobodny Airport located?\nAnswer: Russia\n\nyes",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "53114ea4": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 42,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 73,
+      "question": "Who is the maternal grandfather of Amadeus Vii, Count Of Savoy?",
+      "prediction": "Thomas I, Count of Savoy",
+      "reference": "Peter I",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.28571428571428575,
+        "token_count": 52,
+        "latency": 5.006083965301514,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who was the father of Amadeus VII, Count of Savoy?\nAnswer: Amadeus VI, Count of Savoy\nStep 2: Who was the father of Amadeus VI, Count of Savoy?\nAnswer: Thomas I, Count of Savoy\n\nThomas I, Count of Savoy",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "0ffd523e": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 97,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 74,
+      "question": "Are both businesses, Telus and Ztr Control Systems, located in the same country?",
+      "prediction": "no",
+      "reference": "yes",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 41,
+        "latency": 4.338323593139648,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Where is Telus based?\nAnswer: Canada\nStep 2: Where is Ztr Control Systems based?\nAnswer: The context does not specify where Ztr Control Systems is based\n\nno",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "1bb0efba": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 119,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 75,
+      "question": "Do both films, Dial M For Murder and Marius (1931 Film), have the directors who are from the same co",
+      "prediction": "no",
+      "reference": "yes",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 84,
+        "latency": 7.694368362426758,
+        "consistency_score": 0.94
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: What country is Alfred Hitchcock from?\nAnswer: England\nStep 2: Who directed the film Marius (1931 Film)?\nAnswer: Carl Theodor Dreyer\nStep 3: What country is the director of Marius (1931 Film) from?\nAnswer: Denmark\nStep 4: Do Alfred Hitchcock and the director of Marius (1931 Film) share the same country of origin?\nAnswer: No\n\nno",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 0.94,
+        "structural_score": 0.9,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "ad40a443": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 133,
+      "num_sub_questions": 4
+    },
+    {
+      "sample_id": 76,
+      "question": "Who is older, Dyson Parody or Gene Watson?",
+      "prediction": "Gene Watson",
+      "reference": "Gene Watson",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 36,
+        "latency": 3.651972770690918,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: What is Dyson Parody's birth date?\nAnswer: <concise answer>\nStep 2: What is Gene Watson's birth date?\nAnswer: October 11, 1943\n\nGene Watson",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "a1336df3": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 74,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 77,
+      "question": "Are both directors of films The Princess Bride (Film) and I Never Sang For My Father from the same c",
+      "prediction": "no",
+      "reference": "yes",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 40,
+        "latency": 3.471102714538574,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who is the director of The Princess Bride (Film)?\nAnswer: Rob Reiner\nStep 2: Who is the director of I Never Sang For My Father?\nAnswer: Robert Anderson\n\nno",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "544f4816": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 59,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 78,
+      "question": "When did Prince John Konstantinovich Of Russia's mother die?",
+      "prediction": "24 March 1927",
+      "reference": "24 March 1927",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 56,
+        "latency": 4.474522352218628,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who was the mother of Prince Igor Constantinovich of Russia?\nAnswer: Princess Elisabeth of Saxe-Altenburg\nStep 2: When did the mother of Prince Igor Constantinovich of Russia die?\nAnswer: 24 March 1927\n\n24 March 1927",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "13eb8313": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 103,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 79,
+      "question": "Which country Audofleda's husband is from?",
+      "prediction": "The Ostrogothic Kingdom",
+      "reference": "Ostrogothic Kingdom",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.8,
+        "token_count": 50,
+        "latency": 5.067645072937012,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who is Audofleda's husband?\nAnswer: Theodoric the Great, from the Ostrogothic Kingdom\nStep 2: Which country is Audofleda's husband from?\nAnswer: The Ostrogothic Kingdom\n\nThe Ostrogothic Kingdom",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "bd087e54": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 103,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 80,
+      "question": "What is the place of birth of the director of film Letter To The King?",
+      "prediction": "Norway",
+      "reference": "Kurdish",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 43,
+        "latency": 4.477835655212402,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who directed the film 'Letter to the King'?\nAnswer: Hisham Zaman\nStep 2: What is the place of birth of Hisham Zaman?\nAnswer: Hisham Zaman was born in Norway\n\nNorway",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "f43d19b1": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 50,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 81,
+      "question": "Are both bands, Snowman (Band) and Jessamine (Band), from the same country?",
+      "prediction": "no",
+      "reference": "no",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 41,
+        "latency": 3.4183902740478516,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Where is Snowman (band) originally from?\nAnswer: Perth, Western Australia\nStep 2: Where is Jessamine (band) originally from?\nAnswer: Seattle, Washington\n\nno",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "6e798285": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 82,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 82,
+      "question": "Where was the performer of song God (John Lennon Song) born?",
+      "prediction": "Liverpool, England",
+      "reference": "Liverpool",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.6666666666666666,
+        "token_count": 50,
+        "latency": 4.186568021774292,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who is the performer of the song 'God' by John Lennon?\nAnswer: John Lennon\nStep 2: Where was the performer of the song 'God' by John Lennon born?\nAnswer: Liverpool, England\n\nLiverpool, England",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "9fe0c6aa": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 76,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 83,
+      "question": "Which film has the director who died earlier, Captain Kidd And The Slave Girl or Relax Freddie?",
+      "prediction": "Captain Kidd And The Slave Girl",
+      "reference": "Captain Kidd And The Slave Girl",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 139,
+        "latency": 11.518320322036743,
+        "consistency_score": 0.88
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who directed the film 'Captain Kidd and the Slave Girl'?\nAnswer: Lew Landers\nStep 2: Who directed the film 'Relax Freddie'?\nAnswer: <not specified>\nStep 3: When did the director of 'Captain Kidd and the Slave Girl' die?\nAnswer: December 16, 1962\nStep 4: When did the director of 'Relax Freddie' die?\nAnswer: <not specified>\nStep 5: Which director died earlier, the director of 'Captain Kidd and the Slave Girl' or the director of 'Relax Freddie'?\nAnswer: The director of 'Captain Kidd and the Slave Girl' died earlier\n\nCaptain Kidd And The Slave Girl",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 0.88,
+        "structural_score": 0.8,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "cf382396": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 194,
+      "num_sub_questions": 5
+    },
+    {
+      "sample_id": 84,
+      "question": "Which song was released more recently, Go Ahead And Break My Heart or Knee Deep In My Heart?",
+      "prediction": "Knee Deep In My Heart",
+      "reference": "Go Ahead And Break My Heart",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3636363636363636,
+        "token_count": 66,
+        "latency": 4.35167121887207,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: What is the release date of 'Go Ahead And Break My Heart'?\nAnswer: The release date of 'Go Ahead And Break My Heart' is not provided in the context\nStep 2: What is the release date of 'Knee Deep In My Heart'?\nAnswer: 29 November 2013\n\nKnee Deep In My Heart",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "4b449afa": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 103,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 85,
+      "question": "Which film has the director who died later, The Fatal Mistake or The Devil'S Hairpin?",
+      "prediction": "no",
+      "reference": "The Devil'S Hairpin",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 9.112261295318604,
+        "consistency_score": 0.88
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who directed The Fatal Mistake?\nAnswer: Scott R. Dunlap\nStep 2: Who directed The Devil's Hairpin?\nAnswer: Scott R. Dunlap\nStep 3: When did the director of The Fatal Mistake die?\nAnswer: March 30, 1970\nStep 4: When did the director of The Devil's Hairpin die?\nAnswer: March 30, 1970\nStep 5: Which film has the director who died later, The Fatal Mistake or The Devil's Hairpin?\nAnswer: Neither; both directors died on the same date\n\nNeither",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 0.88,
+        "structural_score": 0.8,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "9318ea84": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 165,
+      "num_sub_questions": 5
+    },
+    {
+      "sample_id": 86,
+      "question": "Who is Maria Luisa Of Savoy's father-in-law?",
+      "prediction": "Charles IV of Spain",
+      "reference": "Louis, Grand Dauphin",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 57,
+        "latency": 4.268757104873657,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who is Maria Luisa of Savoy?\nAnswer: Maria Luisa of Savoy was a princess of Savoy, born in 1729 and died in 1767\nStep 2: Who was the father of Maria Luisa of Savoy's spouse?\nAnswer: Charles IV of Spain\n\nCharles IV of Spain",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "4c47beea": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 114,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 87,
+      "question": "Who is the paternal grandfather of Kujō Yoritsugu?",
+      "prediction": "Kujō Michiie",
+      "reference": "Kujō Michiie",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 37,
+        "latency": 3.5776779651641846,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who is Kujō Yoritsugu's father?\nAnswer: Kujō Yoritsune\nStep 2: Who is the father of Kujō Yoritsugu's father?\nAnswer: Kujō Michiie\n\nKujō Michiie",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "412ea06d": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 68,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 88,
+      "question": "What is the place of birth of the director of film Marianela (1940 Film)?",
+      "prediction": "Madrid",
+      "reference": "Madrid",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 50,
+        "latency": 3.981205463409424,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who is the director of the film 'Marianela' (1940)?\nAnswer: Benito Perojo, born in Madrid\nStep 2: What is the place of birth of the person identified in sub-question #1?\nAnswer: Madrid\n\nMadrid",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "41fcd164": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 80,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 89,
+      "question": "Which film came out first, Repeated Absences or She Wore A Yellow Ribbon?",
+      "prediction": "She Wore A Yellow Ribbon",
+      "reference": "She Wore A Yellow Ribbon",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 39,
+        "latency": 3.0210890769958496,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: What year was 'Fort Apache' released?\nAnswer: 1948\nStep 2: What year was 'She Wore a Yellow Ribbon' released?\nAnswer: 1949\n\nShe Wore A Yellow Ribbon",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "d2123a2c": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 35,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 90,
+      "question": "Who lived longer, Edward Dearle or Michael Doeberl?",
+      "prediction": "Edward Dearle",
+      "reference": "Edward Dearle",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 110,
+        "latency": 9.44744610786438,
+        "consistency_score": 0.88
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: What is the birth date of Edward Dearle?\nAnswer: 2 March 1806\nStep 2: What is the death date of Edward Dearle?\nAnswer: 20 March 1891\nStep 3: What is the birth date of Michael Doeberl?\nAnswer: 15 January 1861\nStep 4: What is the death date of Michael Doeberl?\nAnswer: 24 March 1928\nStep 5: Who lived longer between Edward Dearle and Michael Doeberl based on their birth and death dates?\nAnswer: Edward Dearle lived longer\n\nEdward Dearle",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 0.88,
+        "structural_score": 0.8,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "8b90e156": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 145,
+      "num_sub_questions": 5
+    },
+    {
+      "sample_id": 91,
+      "question": "Where does Karin Stoltenberg's husband work at?",
+      "prediction": "Norwegian politician and former foreign minister",
+      "reference": "United Nations",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 60,
+        "latency": 3.9850544929504395,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who is Karin Stoltenberg's husband?\nAnswer: Thorvald Stoltenberg\nStep 2: What is the profession of Karin Stoltenberg's husband?\nAnswer: Norwegian politician and former foreign minister\n\nNorwegian politician and former foreign minister",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "c763e3de": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 95,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 92,
+      "question": "Where was the director of film Lettre Ouverte born?",
+      "prediction": "Alexandria, Egypt",
+      "reference": "Paris",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 42,
+        "latency": 4.760019302368164,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who directed the film 'Lettre Ouverte'?\nAnswer: Alex Joffé\nStep 2: Where was the director of 'Lettre Ouverte' born?\nAnswer: Alexandria, Egypt\n\nAlexandria, Egypt",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "95a70f1a": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 50,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 93,
+      "question": "Who is William Ii, Count Of Flanders's paternal grandmother?",
+      "prediction": "Marie of Hohenstaufen",
+      "reference": "Mathilde of Bourbon",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3333333333333333,
+        "token_count": 47,
+        "latency": 4.4195497035980225,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who was William II, Count of Flanders's mother?\nAnswer: Margaret II of Flanders\nStep 2: Who was Margaret II of Flanders's mother?\nAnswer: Marie of Hohenstaufen\n\nMarie of Hohenstaufen",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "0d3edb42": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 94,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 94,
+      "question": "What is the place of birth of Clara Novello's father?",
+      "prediction": "London",
+      "reference": "London",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 33,
+        "latency": 3.7226805686950684,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who is Clara Novello's father?\nAnswer: Vincent Novello\nStep 2: Where was Clara Novello's father born?\nAnswer: London\n\nLondon",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "3b1e73e5": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 71,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 95,
+      "question": "Which film came out earlier, Emmy Of Stork'S Nest or Indira Vizha?",
+      "prediction": "Indira Vizha",
+      "reference": "Emmy Of Stork'S Nest",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 41,
+        "latency": 3.960712432861328,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: What year was 'Emmy Of Stork'S Nest' released?\nAnswer: <not specified in the context>\nStep 2: What year was 'Indira Vizha' released?\nAnswer: 2009\n\nIndira Vizha",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "657d350f": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 72,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 96,
+      "question": "Which film came out first, Celine: Through The Eyes Of The World or Dilan 1991?",
+      "prediction": "Celine: Through The Eyes Of The World",
+      "reference": "Celine: Through The Eyes Of The World",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 49,
+        "latency": 3.502715826034546,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: What year was the film 'Celine: Through The Eyes Of The World' released?\nAnswer: 2007\nStep 2: What year was the film 'Dilan 1991' released?\nAnswer: 2019\n\nCeline: Through The Eyes Of The World",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "f217bf6d": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 46,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 97,
+      "question": "Who was born earlier, Silas Hardy or Lee Mantle?",
+      "prediction": "Silas Hardy",
+      "reference": "Lee Mantle",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 38,
+        "latency": 4.061474561691284,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: What is the birth date of Silas Hardy?\nAnswer: August 13, 1847\nStep 2: What is the birth date of Lee Mantle?\nAnswer: December 13, 1851\n\nSilas Hardy",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "60d5e996": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 47,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 98,
+      "question": "Where was the place of burial of Albert Frederick, Duke Of Prussia's mother?",
+      "prediction": "Gurievsk near Königsberg",
+      "reference": "Königsberg",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5,
+        "token_count": 63,
+        "latency": 4.9121129512786865,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who was the mother of Albert Frederick, Duke of Prussia?\nAnswer: Anna Marie of Brunswick-Lüneburg\nStep 2: Where was the place of burial of the mother of Albert Frederick, Duke of Prussia?\nAnswer: Gurievsk near Königsberg\n\nGurievsk near Königsberg",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "1445e1cc": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 101,
+      "num_sub_questions": 2
+    },
+    {
+      "sample_id": 99,
+      "question": "Where was the place of death of Juan Carlos Gumucio's wife?",
+      "prediction": "Unknown",
+      "reference": "Homs",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 80,
+        "latency": 5.8692238330841064,
+        "consistency_score": 1.0
+      },
+      "method": "gers_adaptive",
+      "error": null,
+      "reasoning_text": "Step 1: Who is Juan Carlos Gumucio?\nAnswer: The context does not provide information about Juan Carlos Gumucio or the place of death of his wife\nStep 2: What is the name of Juan Carlos Gumucio's wife?\nAnswer: <concise answer>\nStep 3: Where did Juan Carlos Gumucio's wife die?\nAnswer: <concise answer>\n\nFinal Answer: Unknown",
+      "iterations": 0,
+      "consistency_detail": {
+        "consistency_score": 1.0,
+        "structural_score": 1.0,
+        "semantic_score": 1.0,
+        "connectivity": {
+          "num_components": 1,
+          "is_connected": true,
+          "isolated_nodes": [],
+          "unreachable_conclusions": [],
+          "connectivity_score": 1.0
+        },
+        "cycle": {
+          "has_cycle": false,
+          "cycles": [],
+          "involved_nodes": [],
+          "cycle_score": 1.0
+        },
+        "coverage": {
+          "global_coverage": 1.0,
+          "per_conclusion_coverage": {
+            "dc9f9e0f": 1.0
+          },
+          "uncovered_conclusions": [],
+          "answer_quality": 1.0,
+          "coverage_score": 1.0
+        },
+        "nli": null,
+        "issues": [],
+        "passed": true
+      },
+      "token_count": 182,
+      "num_sub_questions": 3
+    }
+  ]
+}

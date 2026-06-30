@@ -123,6 +123,7 @@ def _clean_answer(answer: str, dataset: str = None, reference: str = None) -> st
     if not answer:
         return ""
 
+    original = answer  # 保存原始值，供非空兜底使用
     answer = answer.strip()
 
     # 去掉引号包裹
@@ -149,16 +150,41 @@ def _clean_answer(answer: str, dataset: str = None, reference: str = None) -> st
     # 去掉 LaTeX 包裹
     answer = re.sub(r'\$+', '', answer).strip()
 
-    # 如果仍然很长，取第一个逗号/分号前的部分
+    # 对比题句式剥离：GERS final answer 常输出整句 "X came out first"，
+    # 参考答案是实体名 "X"。剥离末尾比较短语，保留前面的实体（不依赖 reference）。
+    comparison_tails = [
+        r'\s+(?:came|comes)\s+out\s+(?:first|earliest|earlier|later|last|more recently|most recently)\s*$',
+        r'\s+(?:was|were|is|are|been)\s+(?:released|born|published|founded|created|made)\s+(?:first|earliest|earlier|later|more recently|most recently)\s*$',
+        r'\s+(?:died|dies|was born|were born)\s+(?:first|earliest|earlier|later)\s*$',
+        r'\s+(?:is|was|are|were)\s+(?:older|younger|taller|shorter|larger|smaller|greater|first|earlier|later)\s*$',
+        r',?\s+(?:who|which)\s+.+?(?:first|earlier|later|older|younger)\s*$',
+    ]
+    for p in comparison_tails:
+        new = re.sub(p, '', answer, flags=re.IGNORECASE).strip()
+        if new and new != answer and len(new) >= 2:
+            answer = new
+            break
+
+    # 如果仍然很长，取第一个分隔符前的部分（答案通常是首个短语）
     if len(answer) > 50:
-        for sep in [',', '，', ';', '；', ' - ', ' is ', ' was ', ' are ']:
-            idx = answer.lower().find(sep)
-            if 5 < idx < 50:
-                answer = answer[:idx].strip()
-                break
+        # 先尝试句号断句："The Mask Of Fu Manchu. Because..." → "The Mask Of Fu Manchu"
+        # 仅当结果≥3字符且不以单个大写字母结尾（避免误切 "Dr." "Mr."）
+        m = re.search(r'(.{3,50}?)\.\s', answer)
+        if m and not re.search(r'\b[A-Z]\.$', m.group(1)):
+            answer = m.group(1).strip()
+        else:
+            for sep in [',', '，', ';', '；', ' - ', ' is ', ' was ', ' are ']:
+                idx = answer.lower().find(sep)
+                if 5 < idx < 50:
+                    answer = answer[:idx].strip()
+                    break
 
     # 最终截断
     if len(answer) > 80:
         answer = answer[:80].strip()
+
+    # 非空兜底：清理后若为空（如全是标点），回退原文截断，避免空答案
+    if not answer:
+        answer = original.strip()[:80]
 
     return answer

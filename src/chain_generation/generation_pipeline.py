@@ -87,8 +87,12 @@ Original question: {original_question}
 Step-by-step reasoning:
 {reasoning_chain}
 
-Now answer the original question directly and concisely.
-Final Answer: <your answer>"""
+Now answer the original question. Output ONLY the concise answer:
+- For yes/no questions, output "yes" or "no".
+- For comparison questions (who/which came first, who is older, etc.), output ONLY the entity name, NOT a full sentence.
+- Otherwise output just the answer (a name, number, or short phrase).
+
+Final Answer: """
 
 
 # ─── 自适应复杂度判断 Prompt ──────────────────────────────────────────────────
@@ -143,7 +147,8 @@ class GraphGuidedGenerator:
                  self_consistency_k: int = 0,
                  _no_context: bool = False,
                  _no_constraint: bool = False,
-                 _no_feedback: bool = False):
+                 _no_feedback: bool = False,
+                 dataset: str = None):
         """
         Args:
             model: LLM 模型实例
@@ -156,6 +161,7 @@ class GraphGuidedGenerator:
             _no_context: 消融-不传递前驱答案
             _no_constraint: 消融-不使用约束解码器（消融证明约束解码负贡献，默认True）
             _no_feedback: 消融-不使用闭环修正
+            dataset: 数据集名称（gsm8k/hotpotqa/2wikimultihopqa），透传给答案提取
         """
         self.model = model
         self.path_planner = PathPlanner()
@@ -179,6 +185,7 @@ class GraphGuidedGenerator:
         self._no_context = _no_context
         self._no_constraint = _no_constraint
         self._no_feedback = _no_feedback
+        self.dataset = dataset
         # Self-Consistency 时每条 DAG 的分解温度（None=用默认 0.2）。
         # 注意：generate() 用的是参数 temperature，不读 model.temperature，
         # 所以必须在这里显式传给 _decompose，否则 K 条 DAG 无温度多样性。
@@ -533,8 +540,8 @@ class GraphGuidedGenerator:
     def _extract_simple_answer(self, text: str, question: str = None) -> str:
         """从CoT风格回答中提取答案（使用统一答案提取工具）"""
         from ..utils.answer_extractor import extract_answer
-        dataset = None
-        if question:
+        dataset = self.dataset
+        if not dataset and question:
             ql = question.lower()
             if any(k in ql for k in ["calculate", "how many", "how much", "sum", "multiply", "divide"]):
                 dataset = "gsm8k"
@@ -656,8 +663,8 @@ class GraphGuidedGenerator:
     def _extract_final_answer(self, text: str, question: str = None, reference: str = None) -> str:
         """从最终回答中提取答案（使用统一答案提取工具）"""
         from ..utils.answer_extractor import extract_answer
-        dataset = None
-        if question:
+        dataset = self.dataset
+        if not dataset and question:
             ql = question.lower()
             if any(k in ql for k in ["calculate", "how many", "sum", "multiply", "+", "-", "="]) and "what" not in ql[:10]:
                 dataset = "gsm8k"

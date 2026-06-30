@@ -11,15 +11,19 @@ COT_PROMPT = """Answer the following question step by step.
 Question: {question}
 {context_section}
 
-Think step by step, then give the final answer.
+Think step by step, then give a concise final answer.
+- For yes/no questions, answer "yes" or "no".
+- Otherwise, give just the answer (a name, number, or short phrase), not a full sentence.
+
 Final Answer: """
 
 
 class StandardCoT:
     """标准思维链推理基线"""
 
-    def __init__(self, model=None):
+    def __init__(self, model=None, dataset: str = None):
         self.model = model
+        self.dataset = dataset
 
     def reason(self, question: str, context: str = "") -> Dict:
         context_section = f"\nContext: {context}" if context else ""
@@ -30,7 +34,7 @@ class StandardCoT:
 
         reasoning_text = self.model.generate(prompt)
         from ..utils.answer_extractor import extract_answer
-        answer = extract_answer(reasoning_text, question=question)
+        answer = extract_answer(reasoning_text, dataset=self.dataset, question=question)
 
         return {
             "answer": answer,

@@ -1,0 +1,1514 @@
+{
+  "summary": {
+    "method": "zero_shot",
+    "dataset": "2wikimultihopqa",
+    "num_samples": 100,
+    "avg_em": 0.43,
+    "avg_f1": 0.5157,
+    "avg_latency": 0.4318,
+    "error_count": 0,
+    "workers": 4
+  },
+  "results": [
+    {
+      "sample_id": 0,
+      "question": "Who is the mother of the director of film Polish-Russian War (Film)?",
+      "prediction": "Xawery Żuławski's mother",
+      "reference": "Małgorzata Braunek",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 16,
+        "latency": 0.5275757312774658
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Xawery Żuławski's mother is not mentioned in the provided context."
+    },
+    {
+      "sample_id": 1,
+      "question": "Which film came out first, Blind Shaft or The Mask Of Fu Manchu?",
+      "prediction": "The Mask Of Fu Manchu",
+      "reference": "The Mask Of Fu Manchu",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 5,
+        "latency": 0.356311559677124
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "The Mask Of Fu Manchu"
+    },
+    {
+      "sample_id": 2,
+      "question": "When did John V, Prince Of Anhalt-Zerbst's father die?",
+      "prediction": "1382",
+      "reference": "12 June 1516",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 1,
+        "latency": 0.37699389457702637
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "1382"
+    },
+    {
+      "sample_id": 3,
+      "question": "What is the award that the director of film Wearing Velvet Slippers Under A Golden Umbrella won?",
+      "prediction": "Myat Mon",
+      "reference": "Myanmar Motion Picture Academy Awards",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 2,
+        "latency": 0.3203420639038086
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Myat Mon"
+    },
+    {
+      "sample_id": 4,
+      "question": "Where was the director of film Ronnie Rocket born?",
+      "prediction": "Jason Moore was born in New York City",
+      "reference": "Missoula, Montana",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 9,
+        "latency": 0.4050140380859375
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Jason Moore was born in New York City."
+    },
+    {
+      "sample_id": 5,
+      "question": "Who is Charles Bretagne Marie De La Trémoille's paternal grandfather?",
+      "prediction": "Emmanuel-Théodose de La Tour d'Auvergne",
+      "reference": "Charles Armand René de La Trémoille",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3636363636363636,
+        "token_count": 14,
+        "latency": 0.5955860614776611
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Emmanuel-Théodose de La Tour d'Auvergne, duc de Bouillon"
+    },
+    {
+      "sample_id": 6,
+      "question": "Where was the father of Ștefan I. Nenițescu born?",
+      "prediction": "Norway",
+      "reference": "Galați",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 1,
+        "latency": 0.37892818450927734
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Norway"
+    },
+    {
+      "sample_id": 7,
+      "question": "Are North Marion High School (Oregon) and Seoul High School both located in the same country?",
+      "prediction": "no",
+      "reference": "no",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 0.2926602363586426
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "no"
+    },
+    {
+      "sample_id": 8,
+      "question": "Which film has the director who was born later, El Extraño Viaje or Love In Pawn?",
+      "prediction": "El Extraño Viaje",
+      "reference": "El Extraño Viaje",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 4,
+        "latency": 0.41113972663879395
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "El Extraño Viaje"
+    },
+    {
+      "sample_id": 9,
+      "question": "Who is the maternal grandfather of Antiochus X Eusebes?",
+      "prediction": "Cleopatra IV",
+      "reference": "Ptolemy IX Lathyros",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 3,
+        "latency": 0.3590240478515625
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Cleopatra IV"
+    },
+    {
+      "sample_id": 10,
+      "question": "Which film has the director died first, Crimen A Las Tres or The Working Class Goes To Heaven?",
+      "prediction": "Crimen a las tres",
+      "reference": "The Working Class Goes To Heaven",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 4,
+        "latency": 0.3778257369995117
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Crimen a las tres"
+    },
+    {
+      "sample_id": 11,
+      "question": "Which film has the director born first, Once A Gentleman or The Girl In White?",
+      "prediction": "Once A Gentleman",
+      "reference": "Once A Gentleman",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 4,
+        "latency": 0.33542490005493164
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Once A Gentleman"
+    },
+    {
+      "sample_id": 12,
+      "question": "Which film has the director who died earlier, Il Seduttore or The Trial Of Joan Of Arc?",
+      "prediction": "Il Seduttore",
+      "reference": "The Trial Of Joan Of Arc",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 3,
+        "latency": 0.3445470333099365
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Il Seduttore"
+    },
+    {
+      "sample_id": 13,
+      "question": "Where was the director of film Thomas Jefferson (Film) born?",
+      "prediction": "Ken Burns",
+      "reference": "Brooklyn",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 2,
+        "latency": 0.2862887382507324
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Ken Burns"
+    },
+    {
+      "sample_id": 14,
+      "question": "Why did Grand Duke Kirill Vladimirovich Of Russia's wife die?",
+      "prediction": "Heart failure",
+      "reference": "stroke",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 3,
+        "latency": 0.3105456829071045
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Heart failure"
+    },
+    {
+      "sample_id": 15,
+      "question": "Where was the place of death of the director of film Beat Girl?",
+      "prediction": "Nice",
+      "reference": "Nice",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 1,
+        "latency": 0.2749216556549072
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Nice"
+    },
+    {
+      "sample_id": 16,
+      "question": "Who died first, Fleetwood Sheppard or George William Whitaker?",
+      "prediction": "Fleetwood Sheppard",
+      "reference": "Fleetwood Sheppard",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 4,
+        "latency": 0.33721423149108887
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Fleetwood Sheppard"
+    },
+    {
+      "sample_id": 17,
+      "question": "Which film has the director born first, The Raven'S Dance or Keïta! L'Héritage Du Griot?",
+      "prediction": "The Raven's Dance",
+      "reference": "The Raven'S Dance",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 4,
+        "latency": 0.3276693820953369
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "The Raven's Dance"
+    },
+    {
+      "sample_id": 18,
+      "question": "When did Jean Martin (Singer)'s husband die?",
+      "prediction": "March 7, 1983",
+      "reference": "1983",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5,
+        "token_count": 3,
+        "latency": 0.38399267196655273
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "March 7, 1983"
+    },
+    {
+      "sample_id": 19,
+      "question": "Which film has the director who died earlier, Tangled Destinies or The Daltons' Women?",
+      "prediction": "Tangled Destinies",
+      "reference": "Tangled Destinies",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 4,
+        "latency": 0.349445104598999
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Tangled Destinies"
+    },
+    {
+      "sample_id": 20,
+      "question": "Which film was released earlier, Moment Of Danger or The Ballad Of Josie?",
+      "prediction": "Moment Of Danger",
+      "reference": "Moment Of Danger",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 4,
+        "latency": 0.2828841209411621
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Moment Of Danger"
+    },
+    {
+      "sample_id": 21,
+      "question": "What nationality is the director of film World And Time Enough?",
+      "prediction": "Eric Mueller",
+      "reference": "United States",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 3,
+        "latency": 0.3155496120452881
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Eric Mueller"
+    },
+    {
+      "sample_id": 22,
+      "question": "Which film has the director died earlier, Poker In Bed or The Machine To Kill Bad People?",
+      "prediction": "The Machine to Kill Bad People",
+      "reference": "The Machine To Kill Bad People",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 7,
+        "latency": 0.3835179805755615
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "The Machine to Kill Bad People"
+    },
+    {
+      "sample_id": 23,
+      "question": "Which film whose director is younger, Heads I Win, Tails You Lose or The Incredible Sarah?",
+      "prediction": "Heads I Win, Tails You Lose",
+      "reference": "Heads I Win, Tails You Lose",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 6,
+        "latency": 0.42876696586608887
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Heads I Win, Tails You Lose"
+    },
+    {
+      "sample_id": 24,
+      "question": "Who is Catherine Of Pomerania, Countess Palatine Of Neumarkt's father-in-law?",
+      "prediction": "Rupert III of the Palatinate",
+      "reference": "Rupert",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.33333333333333337,
+        "token_count": 7,
+        "latency": 0.4249897003173828
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Rupert III of the Palatinate"
+    },
+    {
+      "sample_id": 25,
+      "question": "Who is Marie Zéphyrine Of France's paternal grandmother?",
+      "prediction": "Maria Josepha of Saxony",
+      "reference": "Marie Leszczyńska",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 5,
+        "latency": 0.32988405227661133
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Maria Josepha of Saxony"
+    },
+    {
+      "sample_id": 26,
+      "question": "Which film has the director died earlier, Condemned Women or Faces In The Dark?",
+      "prediction": "Condemned Women",
+      "reference": "Condemned Women",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 3,
+        "latency": 1.4093620777130127
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Condemned Women"
+    },
+    {
+      "sample_id": 27,
+      "question": "Who is the spouse of the director of film Eden And After?",
+      "prediction": "Catherine Robbe-Grillet",
+      "reference": "Catherine Robbe-Grillet",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 5,
+        "latency": 1.4585902690887451
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Catherine Robbe-Grillet"
+    },
+    {
+      "sample_id": 28,
+      "question": "Where was the place of death of Anastasia Of Serbia's husband?",
+      "prediction": "Mount Athos",
+      "reference": "Hilandar",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 2,
+        "latency": 0.3075835704803467
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Mount Athos"
+    },
+    {
+      "sample_id": 29,
+      "question": "Are Fire In Hell and The Tiger: An Old Hunter'S Tale from the same country?",
+      "prediction": "yes",
+      "reference": "yes",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 0.2685270309448242
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "yes"
+    },
+    {
+      "sample_id": 30,
+      "question": "Which film was released more recently, Lo Zappatore or Placer Sangriento?",
+      "prediction": "Placer Sangriento",
+      "reference": "Placer Sangriento",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 4,
+        "latency": 0.3437681198120117
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Placer Sangriento"
+    },
+    {
+      "sample_id": 31,
+      "question": "Was Şemsettin Baş or Gwenc'Hlan Le Scouëzec born first?",
+      "prediction": "Gwenc'hlan Le Scouëzec",
+      "reference": "Gwenc'Hlan Le Scouëzec",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 5,
+        "latency": 0.46288323402404785
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Gwenc'hlan Le Scouëzec"
+    },
+    {
+      "sample_id": 32,
+      "question": "Which film has the director born later, Bhoomiyude Avakashikal or The Majesty Of The Law?",
+      "prediction": "Bhoomiyude Avakashikal",
+      "reference": "Bhoomiyude Avakashikal",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 5,
+        "latency": 0.35459256172180176
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Bhoomiyude Avakashikal"
+    },
+    {
+      "sample_id": 33,
+      "question": "Who is Cornelia (Wife Of Caesar)'s child-in-law?",
+      "prediction": "Pompey the Great",
+      "reference": "Pompey",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5,
+        "token_count": 4,
+        "latency": 0.39076709747314453
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Pompey the Great"
+    },
+    {
+      "sample_id": 34,
+      "question": "Why did John Middleton Murry's wife die?",
+      "prediction": "Heart failure",
+      "reference": "tuberculosis",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 3,
+        "latency": 0.33368515968322754
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Heart failure."
+    },
+    {
+      "sample_id": 35,
+      "question": "Who is the paternal grandfather of Taj Al-Dawla?",
+      "prediction": "Taj al-Dawla's paternal grandfather",
+      "reference": "Rukn al-Dawla",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 15,
+        "latency": 0.5913290977478027
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Taj al-Dawla's paternal grandfather is Ashraf ibn Taj al-Dawla."
+    },
+    {
+      "sample_id": 36,
+      "question": "Do both films Payment On Demand and My Cousin From Warsaw have the directors from the same country?",
+      "prediction": "no",
+      "reference": "yes",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 0.2619454860687256
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "no"
+    },
+    {
+      "sample_id": 37,
+      "question": "What is the place of birth of the director of film And The Spring Comes?",
+      "prediction": "Xi'an, Shaanxi",
+      "reference": "Xi'an",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.6666666666666666,
+        "token_count": 3,
+        "latency": 0.4273841381072998
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Xi'an, Shaanxi"
+    },
+    {
+      "sample_id": 38,
+      "question": "Who died first, Madame Pasca or James A. Donohoe?",
+      "prediction": "Madame Pasca",
+      "reference": "Madame Pasca",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 3,
+        "latency": 0.3387129306793213
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Madame Pasca"
+    },
+    {
+      "sample_id": 39,
+      "question": "Who was born later, D'Arcy Coulson or Thomas William Adams?",
+      "prediction": "Thomas William Adams",
+      "reference": "D'Arcy Coulson",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 5,
+        "latency": 0.32530975341796875
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Thomas William Adams"
+    },
+    {
+      "sample_id": 40,
+      "question": "Are Simonds Catholic College and Saginaw High School (Texas) both located in the same country?",
+      "prediction": "no",
+      "reference": "no",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 0.2799241542816162
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "no"
+    },
+    {
+      "sample_id": 41,
+      "question": "Which country Prince Nikolaus Wilhelm Of Nassau's mother is from?",
+      "prediction": "Württemberg",
+      "reference": "German",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 2,
+        "latency": 0.3990919589996338
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Württemberg"
+    },
+    {
+      "sample_id": 42,
+      "question": "Which film whose director was born first, 45 Fathers or The Intended?",
+      "prediction": "45 Fathers",
+      "reference": "45 Fathers",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 2,
+        "latency": 0.32320594787597656
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "45 Fathers"
+    },
+    {
+      "sample_id": 43,
+      "question": "Who is the paternal grandfather of Alexandre Berthier, 3Rd Prince Of Wagram?",
+      "prediction": "Louis-Alexandre Berthier, 1st Prince of Wagram",
+      "reference": "Louis-Alexandre Berthier",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5,
+        "token_count": 11,
+        "latency": 0.4764842987060547
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Louis-Alexandre Berthier, 1st Prince of Wagram"
+    },
+    {
+      "sample_id": 44,
+      "question": "Where was the husband of Caterina Visconti born?",
+      "prediction": "Pavia",
+      "reference": "Pavia",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 1,
+        "latency": 1.3811407089233398
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Pavia"
+    },
+    {
+      "sample_id": 45,
+      "question": "Which film has the director who was born later, A Quiet Place In The Country or When Were You Born?",
+      "prediction": "A Quiet Place in the Country",
+      "reference": "A Quiet Place In The Country",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 7,
+        "latency": 0.3875141143798828
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "A Quiet Place in the Country"
+    },
+    {
+      "sample_id": 46,
+      "question": "Who was born first, John Beach or Gordon Persons?",
+      "prediction": "John Beach",
+      "reference": "John Beach",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 2,
+        "latency": 0.3152153491973877
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "John Beach"
+    },
+    {
+      "sample_id": 47,
+      "question": "Which film has the director born earlier, The House By The Cemetery or Charlie Chan In Honolulu?",
+      "prediction": "Lucio Fulci",
+      "reference": "Charlie Chan In Honolulu",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 2,
+        "latency": 0.32907938957214355
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Lucio Fulci"
+    },
+    {
+      "sample_id": 48,
+      "question": "Who is the child of the director of film La Leona (Film)?",
+      "prediction": "Víctor Bó",
+      "reference": "Víctor Bó",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 2,
+        "latency": 0.35934972763061523
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Víctor Bó"
+    },
+    {
+      "sample_id": 49,
+      "question": "Who is Blanche Of Portugal (1259–1321)'s paternal grandmother?",
+      "prediction": "Beatrice of Castile",
+      "reference": "Urraca of Castile",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.6666666666666666,
+        "token_count": 4,
+        "latency": 0.3623847961425781
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Beatrice of Castile"
+    },
+    {
+      "sample_id": 50,
+      "question": "Who lived longer, Giuseppe Cesari or Nicos Poulantzas?",
+      "prediction": "Giuseppe Cesari",
+      "reference": "Giuseppe Cesari",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 3,
+        "latency": 0.4562819004058838
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Giuseppe Cesari"
+    },
+    {
+      "sample_id": 51,
+      "question": "Are director of film Nights On The Road and director of film Swann In Love (Film) from the same coun",
+      "prediction": "no",
+      "reference": "yes",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 0.3304462432861328
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "no"
+    },
+    {
+      "sample_id": 52,
+      "question": "Who is older, Aryeh Ben-Eliezer or Jason Pociask?",
+      "prediction": "Aryeh Ben-Eliezer",
+      "reference": "Aryeh Ben-Eliezer",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 4,
+        "latency": 0.36024999618530273
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Aryeh Ben-Eliezer"
+    },
+    {
+      "sample_id": 53,
+      "question": "Where does the director of film Man At Bath work at?",
+      "prediction": "Christophe Honoré",
+      "reference": "Cahiers du cinéma",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 4,
+        "latency": 0.3821141719818115
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Christophe Honoré"
+    },
+    {
+      "sample_id": 54,
+      "question": "Who is Arthur Gore, 2Nd Earl Of Arran's paternal grandfather?",
+      "prediction": "Sir Arthur Gore, 1st Baronet",
+      "reference": "Sir Arthur Gore, 2nd Baronet",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.8000000000000002,
+        "token_count": 7,
+        "latency": 0.43872785568237305
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Sir Arthur Gore, 1st Baronet"
+    },
+    {
+      "sample_id": 55,
+      "question": "Are both Kaufland and Otrag located in the same country?",
+      "prediction": "yes",
+      "reference": "yes",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 0.2750248908996582
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "yes"
+    },
+    {
+      "sample_id": 56,
+      "question": "Which film came out earlier, Aanaval Mothiram or Heroes Of The Street?",
+      "prediction": "Aanaval Mothiram",
+      "reference": "Heroes Of The Street",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 4,
+        "latency": 0.34844970703125
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Aanaval Mothiram"
+    },
+    {
+      "sample_id": 57,
+      "question": "Where was the father of Lord Patrick Crichton-Stuart born?",
+      "prediction": "Edinburgh",
+      "reference": "London",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 2,
+        "latency": 0.33182573318481445
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Edinburgh"
+    },
+    {
+      "sample_id": 58,
+      "question": "Which country the director of film Daadagiri is from?",
+      "prediction": "Arshad Khan",
+      "reference": "Pakistan",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 2,
+        "latency": 0.3493783473968506
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Arshad Khan"
+    },
+    {
+      "sample_id": 59,
+      "question": "Where was the wife of Douglas Leiterman born?",
+      "prediction": "Winnipeg, Manitoba",
+      "reference": "Winnipeg, Manitoba",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 4,
+        "latency": 0.3677787780761719
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Winnipeg, Manitoba"
+    },
+    {
+      "sample_id": 60,
+      "question": "What is the place of birth of the performer of song Who...?",
+      "prediction": "Fukuoka, Fukuoka Prefecture",
+      "reference": "Fukuoka",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.6666666666666666,
+        "token_count": 6,
+        "latency": 0.3825185298919678
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Fukuoka, Fukuoka Prefecture"
+    },
+    {
+      "sample_id": 61,
+      "question": "Where was the place of death of the director of film Mole Men Against The Son Of Hercules?",
+      "prediction": "Antonio Leonviola",
+      "reference": "Roma",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 4,
+        "latency": 0.3248262405395508
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Antonio Leonviola"
+    },
+    {
+      "sample_id": 62,
+      "question": "Where was the father of Alexandre Gaydamak born?",
+      "prediction": "France",
+      "reference": "Moscow, USSR",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 1,
+        "latency": 1.3402478694915771
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "France"
+    },
+    {
+      "sample_id": 63,
+      "question": "Which film has the director who died earlier, Toen 'T Licht Verdween or Boum Sur Paris?",
+      "prediction": "Toen 't Licht Verdween",
+      "reference": "Toen 'T Licht Verdween",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 5,
+        "latency": 1.4458417892456055
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Toen 't Licht Verdween"
+    },
+    {
+      "sample_id": 64,
+      "question": "Who is Gaston, Duke Of Orléans's paternal grandmother?",
+      "prediction": "Jeanne d'Albret",
+      "reference": "Jeanne d'Albret",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 3,
+        "latency": 0.3715047836303711
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Jeanne d'Albret"
+    },
+    {
+      "sample_id": 65,
+      "question": "Where was the director of film The Half-Way Girl born?",
+      "prediction": "New York, New York",
+      "reference": "New York",
+      "metrics": {
+        "em": 0.0,
+        "f1": 1.0,
+        "token_count": 4,
+        "latency": 0.34116458892822266
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "New York, New York"
+    },
+    {
+      "sample_id": 66,
+      "question": "Who is the father-in-law of Sophia Of Wittelsbach?",
+      "prediction": "Ludwig von Westphalen",
+      "reference": "Louis II",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 5,
+        "latency": 0.40107226371765137
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Ludwig von Westphalen"
+    },
+    {
+      "sample_id": 67,
+      "question": "Where was the place of death of Lambert I, Count Of Louvain's father?",
+      "prediction": "Peronne",
+      "reference": "Bohemia",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 1,
+        "latency": 0.312619686126709
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Peronne"
+    },
+    {
+      "sample_id": 68,
+      "question": "Where was the director of film Highway Dragnet born?",
+      "prediction": "Palos Verdes Estates, California, USA",
+      "reference": "Gura Humorului",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 9,
+        "latency": 0.36634016036987305
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Palos Verdes Estates, California, USA"
+    },
+    {
+      "sample_id": 69,
+      "question": "Where did Prince Gustav Of Thurn And Taxis (1848–1914)'s mother die?",
+      "prediction": "Obermais, Meran, County of Tyrol, Austria–Hungary",
+      "reference": "Meran",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.2857142857142857,
+        "token_count": 12,
+        "latency": 0.5136251449584961
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Obermais, Meran, County of Tyrol, Austria–Hungary"
+    },
+    {
+      "sample_id": 70,
+      "question": "What is the award that the performer of song Sunday Papers earned?",
+      "prediction": "Grammy Award",
+      "reference": "Grammy",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.6666666666666666,
+        "token_count": 3,
+        "latency": 0.31774067878723145
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Grammy Award"
+    },
+    {
+      "sample_id": 71,
+      "question": "Which film has the director born first, Antonieta or Dodging The Dole?",
+      "prediction": "Carlos Saura",
+      "reference": "Dodging The Dole",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 3,
+        "latency": 0.3250253200531006
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Carlos Saura"
+    },
+    {
+      "sample_id": 72,
+      "question": "Are both Nikolsk Airport and Svobodny Airport located in the same country?",
+      "prediction": "yes",
+      "reference": "yes",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 0.28424978256225586
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "yes"
+    },
+    {
+      "sample_id": 73,
+      "question": "Who is the maternal grandfather of Amadeus Vii, Count Of Savoy?",
+      "prediction": "Amadeus VI, Count of Savoy",
+      "reference": "Peter I",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 6,
+        "latency": 0.3679502010345459
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Amadeus VI, Count of Savoy"
+    },
+    {
+      "sample_id": 74,
+      "question": "Are both businesses, Telus and Ztr Control Systems, located in the same country?",
+      "prediction": "no",
+      "reference": "yes",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 0.2727522850036621
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "no"
+    },
+    {
+      "sample_id": 75,
+      "question": "Do both films, Dial M For Murder and Marius (1931 Film), have the directors who are from the same co",
+      "prediction": "no",
+      "reference": "yes",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 0.27508544921875
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "no"
+    },
+    {
+      "sample_id": 76,
+      "question": "Who is older, Dyson Parody or Gene Watson?",
+      "prediction": "Gene Watson",
+      "reference": "Gene Watson",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 2,
+        "latency": 0.3271002769470215
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Gene Watson"
+    },
+    {
+      "sample_id": 77,
+      "question": "Are both directors of films The Princess Bride (Film) and I Never Sang For My Father from the same c",
+      "prediction": "no",
+      "reference": "yes",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 0.3018677234649658
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "no"
+    },
+    {
+      "sample_id": 78,
+      "question": "When did Prince John Konstantinovich Of Russia's mother die?",
+      "prediction": "24 March 1927",
+      "reference": "24 March 1927",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 3,
+        "latency": 0.35896897315979004
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "24 March 1927"
+    },
+    {
+      "sample_id": 79,
+      "question": "Which country Audofleda's husband is from?",
+      "prediction": "Italy",
+      "reference": "Ostrogothic Kingdom",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 1,
+        "latency": 1.3316519260406494
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Italy"
+    },
+    {
+      "sample_id": 80,
+      "question": "What is the place of birth of the director of film Letter To The King?",
+      "prediction": "Norway",
+      "reference": "Kurdish",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 1,
+        "latency": 0.284287691116333
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Norway"
+    },
+    {
+      "sample_id": 81,
+      "question": "Are both bands, Snowman (Band) and Jessamine (Band), from the same country?",
+      "prediction": "no",
+      "reference": "no",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 0,
+        "latency": 0.30504465103149414
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "no"
+    },
+    {
+      "sample_id": 82,
+      "question": "Where was the performer of song God (John Lennon Song) born?",
+      "prediction": "Liverpool",
+      "reference": "Liverpool",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 2,
+        "latency": 0.3150811195373535
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Liverpool"
+    },
+    {
+      "sample_id": 83,
+      "question": "Which film has the director who died earlier, Captain Kidd And The Slave Girl or Relax Freddie?",
+      "prediction": "Captain Kidd and the Slave Girl",
+      "reference": "Captain Kidd And The Slave Girl",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 7,
+        "latency": 0.3666651248931885
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Captain Kidd and the Slave Girl"
+    },
+    {
+      "sample_id": 84,
+      "question": "Which song was released more recently, Go Ahead And Break My Heart or Knee Deep In My Heart?",
+      "prediction": "Go Ahead And Break My Heart",
+      "reference": "Go Ahead And Break My Heart",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 6,
+        "latency": 0.33307504653930664
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Go Ahead And Break My Heart"
+    },
+    {
+      "sample_id": 85,
+      "question": "Which film has the director who died later, The Fatal Mistake or The Devil'S Hairpin?",
+      "prediction": "The Fatal Mistake",
+      "reference": "The Devil'S Hairpin",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3333333333333333,
+        "token_count": 4,
+        "latency": 0.3384053707122803
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "The Fatal Mistake"
+    },
+    {
+      "sample_id": 86,
+      "question": "Who is Maria Luisa Of Savoy's father-in-law?",
+      "prediction": "King Charles IV of Spain",
+      "reference": "Louis, Grand Dauphin",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 6,
+        "latency": 0.32094764709472656
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "King Charles IV of Spain"
+    },
+    {
+      "sample_id": 87,
+      "question": "Who is the paternal grandfather of Kujō Yoritsugu?",
+      "prediction": "Kujō Yoritsune",
+      "reference": "Kujō Michiie",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5,
+        "token_count": 3,
+        "latency": 0.3946564197540283
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Kujō Yoritsune"
+    },
+    {
+      "sample_id": 88,
+      "question": "What is the place of birth of the director of film Marianela (1940 Film)?",
+      "prediction": "Madrid",
+      "reference": "Madrid",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 1,
+        "latency": 0.31743955612182617
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Madrid"
+    },
+    {
+      "sample_id": 89,
+      "question": "Which film came out first, Repeated Absences or She Wore A Yellow Ribbon?",
+      "prediction": "Fort Apache",
+      "reference": "She Wore A Yellow Ribbon",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 2,
+        "latency": 1.4202942848205566
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Fort Apache"
+    },
+    {
+      "sample_id": 90,
+      "question": "Who lived longer, Edward Dearle or Michael Doeberl?",
+      "prediction": "Edward Dearle",
+      "reference": "Edward Dearle",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 3,
+        "latency": 0.33134937286376953
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Edward Dearle"
+    },
+    {
+      "sample_id": 91,
+      "question": "Where does Karin Stoltenberg's husband work at?",
+      "prediction": "United Nations High Commissioner for Refugees",
+      "reference": "United Nations",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5,
+        "token_count": 11,
+        "latency": 0.3760857582092285
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "United Nations High Commissioner for Refugees"
+    },
+    {
+      "sample_id": 92,
+      "question": "Where was the director of film Lettre Ouverte born?",
+      "prediction": "Alexandria, Egypt",
+      "reference": "Paris",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 4,
+        "latency": 0.3543267250061035
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Alexandria, Egypt"
+    },
+    {
+      "sample_id": 93,
+      "question": "Who is William Ii, Count Of Flanders's paternal grandmother?",
+      "prediction": "Richilde, Countess of Hainaut",
+      "reference": "Mathilde of Bourbon",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.28571428571428575,
+        "token_count": 7,
+        "latency": 0.4020979404449463
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Richilde, Countess of Hainaut"
+    },
+    {
+      "sample_id": 94,
+      "question": "What is the place of birth of Clara Novello's father?",
+      "prediction": "London",
+      "reference": "London",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 1,
+        "latency": 0.302509069442749
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "London"
+    },
+    {
+      "sample_id": 95,
+      "question": "Which film came out earlier, Emmy Of Stork'S Nest or Indira Vizha?",
+      "prediction": "Emmy of Stork's Nest",
+      "reference": "Emmy Of Stork'S Nest",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 5,
+        "latency": 0.3586244583129883
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Emmy of Stork's Nest"
+    },
+    {
+      "sample_id": 96,
+      "question": "Which film came out first, Celine: Through The Eyes Of The World or Dilan 1991?",
+      "prediction": "Celine: Through The Eyes Of The World",
+      "reference": "Celine: Through The Eyes Of The World",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 9,
+        "latency": 0.46582508087158203
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Celine: Through The Eyes Of The World"
+    },
+    {
+      "sample_id": 97,
+      "question": "Who was born earlier, Silas Hardy or Lee Mantle?",
+      "prediction": "Arthur Sherburne Hardy",
+      "reference": "Lee Mantle",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 5,
+        "latency": 0.5560097694396973
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Arthur Sherburne Hardy"
+    },
+    {
+      "sample_id": 98,
+      "question": "Where was the place of burial of Albert Frederick, Duke Of Prussia's mother?",
+      "prediction": "Königsberg",
+      "reference": "Königsberg",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 2,
+        "latency": 0.33248162269592285
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Königsberg"
+    },
+    {
+      "sample_id": 99,
+      "question": "Where was the place of death of Juan Carlos Gumucio's wife?",
+      "prediction": "Rome",
+      "reference": "Homs",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 1,
+        "latency": 0.3010129928588867
+      },
+      "method": "zero_shot",
+      "error": null,
+      "reasoning_text": "Rome"
+    }
+  ]
+}
