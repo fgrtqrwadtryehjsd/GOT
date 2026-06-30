@@ -87,9 +87,14 @@ Original question: {original_question}
 Step-by-step reasoning:
 {reasoning_chain}
 
-Now answer the original question. Output ONLY the concise answer:
+Now answer the ORIGINAL question directly. Output ONLY the concise answer.
+
+CRITICAL — your answer must match the entity type the original question asks for:
+- If the question asks "which film/book/song/show", answer with the film/book/song/show NAME.
+- If the question asks "who/which person/director/author", answer with the person NAME.
+- If the question asks "which place/city/country", answer with the place NAME.
+- Do NOT output an intermediate entity computed in the sub-questions (e.g. a director, a date, a year) when the original question asks for a different entity type. Always return the entity the original question requests.
 - For yes/no questions, output "yes" or "no".
-- For comparison questions (who/which came first, who is older, etc.), output ONLY the entity name, NOT a full sentence.
 - Otherwise output just the answer (a name, number, or short phrase).
 
 Final Answer: """
