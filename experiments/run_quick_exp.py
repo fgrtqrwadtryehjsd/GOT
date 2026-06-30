@@ -80,6 +80,14 @@ def create_method(method_name: str, model, dataset: str = None):
         "gers_adaptive":    lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=False, adaptive=True, consistency_threshold=0.75, _no_constraint=True, dataset=dataset),
         # 图级 Self-Consistency：生成K条DAG，用Consistency Score选优
         "gers_sc":          lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=True, adaptive=True, consistency_threshold=0.75, _no_constraint=True, self_consistency_k=3, dataset=dataset),
+        # GERS-SC + 子答案双向交叉验证（方向1创新点：修复CS区分度）
+        "gers_sc_cv":       lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=True, adaptive=True, consistency_threshold=0.75, _no_constraint=True, self_consistency_k=3, dataset=dataset, enable_backward_verify=True, enable_llm_match=False),
+        # GERS-SC + 方向1(反向验证) + 方向2(置信度加权汇总) 叠加
+        "gers_sc_cv2":      lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=True, adaptive=True, consistency_threshold=0.75, _no_constraint=True, self_consistency_k=3, dataset=dataset, enable_backward_verify=True, enable_llm_match=False, enable_confidence_weighting=True),
+        # GERS+自适应 + 反向验证（消融：单路DAG+交叉验证，隔离反向验证本身贡献）
+        "gers_adaptive_cv": lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=True, adaptive=True, consistency_threshold=0.75, _no_constraint=True, dataset=dataset, enable_backward_verify=True, enable_llm_match=False),
+        # GERS+自适应 + 方向1 + 方向2 叠加
+        "gers_adaptive_cv2":lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=True, adaptive=True, consistency_threshold=0.75, _no_constraint=True, dataset=dataset, enable_backward_verify=True, enable_llm_match=False, enable_confidence_weighting=True),
         "gers_nli":         lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=True, adaptive=False, consistency_threshold=0.75, _no_constraint=True, dataset=dataset),
         "gers_feedback":    lambda: GraphGuidedGenerator(model=model, max_iterations=2, enable_nli=False, adaptive=False, consistency_threshold=0.75, _no_constraint=True, dataset=dataset),
         # CoT 系基线：透传 dataset 给答案提取（公平性，修复空答案/长句问题）

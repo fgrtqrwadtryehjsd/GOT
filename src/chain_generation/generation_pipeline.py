@@ -100,6 +100,22 @@ CRITICAL — your answer must match the entity type the original question asks f
 Final Answer: """
 
 
+# ─── 反向验证 Prompt（方向1：子答案双向交叉验证）──────────────────────────────
+
+BACKWARD_VERIFY_PROMPT = """You are verifying one reasoning step in reverse.
+
+Original question: {original_question}
+{context_section}
+The final answer to the original question is known to be: {final_answer}
+
+Now, independently re-derive the answer to this specific sub-question, based ONLY on the context above. Do NOT simply copy the final answer — derive the sub-answer from the context. If the final answer is correct, your sub-answer should be consistent with it; if the final answer is wrong, your independent sub-answer may legitimately differ.
+
+Sub-question (Step {step_index}): {sub_question}
+
+Answer this sub-question concisely from the context. End with:
+Sub-answer: <your answer>"""
+
+
 # ─── 自适应复杂度判断 Prompt ──────────────────────────────────────────────────
 
 COMPLEXITY_PROMPT = """Analyze the complexity of the following question.
@@ -153,7 +169,13 @@ class GraphGuidedGenerator:
                  _no_context: bool = False,
                  _no_constraint: bool = False,
                  _no_feedback: bool = False,
-                 dataset: str = None):
+                 dataset: str = None,
+                 enable_backward_verify: bool = False,
+                 enable_llm_match: bool = False,
+                 cs_struct_weight: float = 0.3,
+                 cs_crossval_weight: float = 0.7,
+                 enable_confidence_weighting: bool = False,
+                 confidence_threshold: float = 0.5):
         """
         Args:
             model: LLM 模型实例
@@ -167,6 +189,11 @@ class GraphGuidedGenerator:
             _no_constraint: 消融-不使用约束解码器（消融证明约束解码负贡献，默认True）
             _no_feedback: 消融-不使用闭环修正
             dataset: 数据集名称（gsm8k/hotpotqa/2wikimultihopqa），透传给答案提取
+            enable_backward_verify: 是否启用子答案双向交叉验证（方向1创新点）。
+                以最终答案+上下文反向重答子问题，对比正反向一致性，修复 CS 区分度。
+            enable_llm_match: 一致性判断中，字符串/数值匹配失败时是否再用 LLM 语义判断（成本敏感默认关）
+            cs_struct_weight: 新 CS 中结构分权重（默认0.3）
+            cs_crossval_weight: 新 CS 中正反向一致性分权重（默认0.7）
         """
         self.model = model
         self.path_planner = PathPlanner()
@@ -191,6 +218,14 @@ class GraphGuidedGenerator:
         self._no_constraint = _no_constraint
         self._no_feedback = _no_feedback
         self.dataset = dataset
+        # 方向1：子答案双向交叉验证
+        self.enable_backward_verify = enable_backward_verify
+        self.enable_llm_match = enable_llm_match
+        self.cs_struct_weight = cs_struct_weight
+        self.cs_crossval_weight = cs_crossval_weight
+        # 方向2：子答案置信度加权汇总（低置信子答案标注 uncertain，降低错误传播）
+        self.enable_confidence_weighting = enable_confidence_weighting
+        self.confidence_threshold = confidence_threshold
         # Self-Consistency 时每条 DAG 的分解温度（None=用默认 0.2）。
         # 注意：generate() 用的是参数 temperature，不读 model.temperature，
         # 所以必须在这里显式传给 _decompose，否则 K 条 DAG 无温度多样性。
@@ -329,18 +364,28 @@ class GraphGuidedGenerator:
 
             sub_answers[node_id] = sub_ans
             node.metadata["answer"] = sub_ans
-            node.confidence = 0.8 if sub_ans else 0.2
+            # 方向2：估计子答案置信度（轻量启发式，零额外LLM调用）
+            if self.enable_confidence_weighting:
+                conf = self._estimate_sub_answer_confidence(sub_ans, raw_response, context)
+            else:
+                conf = 0.8 if sub_ans else 0.2
+            node.confidence = conf
 
             sub_qa_chain.append({
                 "node_id": node_id,
                 "sub_question": sub_q_text,
                 "sub_answer": sub_ans,
                 "raw_response": raw_response,
+                "confidence": conf,
             })
 
         # ── ⑤ 汇总最终答案 ─────────────────────────────────────────────────
         logger.debug("GERS: ⑤ 汇总最终答案...")
-        reasoning_chain_text = self._format_reasoning_chain(sub_qa_chain)
+        # 方向2：置信度加权汇总——低置信子答案在汇总时标注 uncertain，降低错误传播
+        if self.enable_confidence_weighting:
+            reasoning_chain_text = self._format_reasoning_chain_weighted(sub_qa_chain)
+        else:
+            reasoning_chain_text = self._format_reasoning_chain(sub_qa_chain)
         final_prompt = FINAL_ANSWER_PROMPT.format(
             original_question=question,
             reasoning_chain=reasoning_chain_text,
@@ -353,7 +398,21 @@ class GraphGuidedGenerator:
         # ── ⑥ 一致性校验 ──────────────────────────────────────────────────
         logger.debug("GERS: ⑥ ConsistencyChecker 校验...")
         check_result = self.consistency_checker.check(graph, reasoning_text)
+        struct_score = check_result["structural_score"]
         score = check_result["consistency_score"]
+
+        # ── ⑥.5 子答案双向交叉验证（方向1：内容层 CS，修复区分度）────────
+        if self.enable_backward_verify and sub_qa_chain:
+            cv = self._backward_verify(question, context, answer, sub_qa_chain)
+            crossval_score = cv["crossval_score"]
+            # 新 CS = w_struct·结构分 + w_crossval·正反向一致性分
+            score = self.cs_struct_weight * struct_score + self.cs_crossval_weight * crossval_score
+            score = round(max(0.0, min(1.0, score)), 4)
+            check_result["crossval_score"] = crossval_score
+            check_result["crossval_detail"] = cv["verifications"]
+            check_result["consistency_score"] = score
+            check_result["struct_score"] = struct_score
+            logger.debug(f"GERS: ⑥.5 反向验证 crossval={crossval_score:.3f}, 新CS={score:.3f}")
 
         iterations = 0
 
@@ -650,6 +709,179 @@ class GraphGuidedGenerator:
             lines.append(f"Step {i}: {item['sub_question']}")
             lines.append(f"Answer: {item['sub_answer']}")
         return "\n".join(lines)
+
+    def _format_reasoning_chain_weighted(self, sub_qa_chain: List[Dict]) -> str:
+        """方向2：置信度加权汇总。
+        低置信子答案标注 [LOW CONFIDENCE]，提示汇总时不要过度依赖该步，
+        降低错误传播。"""
+        if not sub_qa_chain:
+            return ""
+        lines = []
+        low_conf_count = 0
+        for i, item in enumerate(sub_qa_chain, 1):
+            conf = item.get("confidence", 0.8)
+            tag = " [LOW CONFIDENCE - may be unreliable, verify before relying on it]" \
+                if conf < self.confidence_threshold else ""
+            if conf < self.confidence_threshold:
+                low_conf_count += 1
+            lines.append(f"Step {i}: {item['sub_question']}")
+            lines.append(f"Answer: {item['sub_answer']}{tag}")
+        if low_conf_count > 0:
+            lines.append(f"\n[Note: {low_conf_count} step(s) above have LOW confidence. "
+                         f"Cross-check these before finalizing your answer; if a low-confidence "
+                         f"step is a prerequisite for later steps, the later steps may also be unreliable.]")
+        return "\n".join(lines)
+
+    # ─── 方向2：子答案置信度估计 ────────────────────────────────────────────
+
+    def _estimate_sub_answer_confidence(self, sub_answer: str, raw_response: str,
+                                        context: str = "") -> float:
+        """
+        轻量启发式估计子答案置信度（零额外 LLM 调用）。
+
+        考量维度：
+        1. 答案非空且长度合理（2~80字符）→ 高
+        2. 含不确定信号（uncertain/unknown/cannot/无法）→ 大幅降权
+        3. 答案核心词出现在上下文中（实体落地）→ 加分
+        4. 纯数字答案 → 中性偏高（算术题通常确定）
+
+        Returns: [0, 1] 置信度
+        """
+        import re
+        if not sub_answer or len(sub_answer.strip()) < 2:
+            return 0.2
+        ans = sub_answer.strip()
+        score = 0.6  # 基线
+
+        # 长度合理性
+        if 2 <= len(ans) <= 80:
+            score += 0.15
+        elif len(ans) > 150:
+            score -= 0.2  # 过长多为啰嗦/不确定
+
+        # 不确定信号
+        low_conf_kw = ["uncertain", "unknown", "cannot", "can't", "not sure",
+                       "unclear", "无法", "不确定", "不清楚", "可能", "maybe",
+                       "perhaps", "might be", "not specified", "not mentioned"]
+        ans_lower = ans.lower()
+        if any(k in ans_lower for k in low_conf_kw):
+            score -= 0.35
+
+        # 答案核心词在上下文中出现（实体落地，有据可查）
+        if context:
+            # 取答案前几个词作为核心实体
+            core_words = re.findall(r'[A-Za-z]+', ans)
+            if core_words:
+                core = " ".join(core_words[:3])
+                if core.lower() in context.lower():
+                    score += 0.15
+
+        # 纯数字（算术题，通常确定）
+        if re.fullmatch(r'-?\d+\.?\d*', ans.replace(',', '')):
+            score += 0.1
+
+        return max(0.1, min(1.0, score))
+
+    # ─── 方向1：子答案双向交叉验证 ────────────────────────────────────────────
+
+    def _backward_verify(self, question: str, context: str,
+                         final_answer: str, sub_qa_chain: list) -> Dict:
+        """
+        反向验证：以最终答案 A + 上下文 C 为锚，反向逐个重答子问题，
+        对比正向子答案 a_i 与反向子答案 a'_i 的一致性，输出正反向一致性分。
+
+        创新点：DAG 结构独有，线性 CoT 无法实现。让 CS 从"图是否合法"
+        升级为"推理内容是否自洽"，修复 CS 区分度。
+
+        Returns:
+            {"crossval_score": float, "verifications": [...]}
+        """
+        if not sub_qa_chain or not final_answer:
+            return {"crossval_score": 0.5, "verifications": []}
+
+        context_section = f"\nContext: {context[:1500]}" if context else ""
+        verifications = []
+        weighted_match = 0.0
+        total_weight = 0.0
+        n = len(sub_qa_chain)
+
+        for i, item in enumerate(sub_qa_chain):
+            sub_q = item.get("sub_question", "")
+            forward_ans = item.get("sub_answer", "")
+            # 下游子问题权重更高（错误传播影响更大）
+            weight = 0.5 + 0.5 * (i + 1) / n
+
+            prompt = BACKWARD_VERIFY_PROMPT.format(
+                original_question=question[:400],
+                context_section=context_section,
+                final_answer=str(final_answer)[:200],
+                step_index=i + 1,
+                sub_question=sub_q[:300],
+            )
+            try:
+                resp = self.model.generate(prompt, max_tokens=150, temperature=0.0)
+                backward_ans = self._extract_sub_answer(resp)
+            except Exception:
+                backward_ans = ""
+
+            matched = self._answers_match(forward_ans, backward_ans)
+            if matched:
+                weighted_match += weight
+            total_weight += weight
+            verifications.append({
+                "sub_question": sub_q,
+                "forward_answer": forward_ans,
+                "backward_answer": backward_ans,
+                "match": matched,
+            })
+
+        crossval_score = weighted_match / total_weight if total_weight > 0 else 0.5
+        return {"crossval_score": round(crossval_score, 4), "verifications": verifications}
+
+    def _answers_match(self, a: str, b: str) -> bool:
+        """判断正反向子答案是否语义一致。
+        分级策略：字符串归一化匹配 → 包含关系 → 数值相等 → (可选)LLM 语义判断。
+        """
+        if not a or not b:
+            return False
+        from ..utils.answer_normalizer import normalize_for_vote
+        import re
+
+        na = normalize_for_vote(a)
+        nb = normalize_for_vote(b)
+        if na and na == nb:
+            return True
+        # 包含关系（短答案是长答案的子串，或反之）
+        if na and nb and (na in nb or nb in na):
+            return True
+        # yes/no 归一后一致
+        if na in ("yes", "no") and na == nb:
+            return True
+        # 数值相等
+        nums_a = re.findall(r'-?\d+\.?\d*', a.replace(',', ''))
+        nums_b = re.findall(r'-?\d+\.?\d*', b.replace(',', ''))
+        if nums_a and nums_b:
+            try:
+                if abs(float(nums_a[-1]) - float(nums_b[-1])) < 1e-6:
+                    return True
+            except ValueError:
+                pass
+        # 仍不匹配：可选 LLM 语义判断（成本敏感默认关）
+        if self.enable_llm_match and self.model is not None:
+            return self._llm_answers_match(a, b)
+        return False
+
+    def _llm_answers_match(self, a: str, b: str) -> bool:
+        """用 LLM 判断两个答案是否语义一致（仅在 enable_llm_match=True 时调用）。"""
+        prompt = (f"Determine if the two answers are semantically equivalent "
+                  f"(same meaning, possibly different wording/format).\n"
+                  f"Answer A: {a[:100]}\nAnswer B: {b[:100]}\n"
+                  f"Reply with ONLY 'YES' or 'NO'.")
+        try:
+            resp = self.model.generate(prompt, max_tokens=5, temperature=0.0)
+            return resp.strip().upper().startswith("YES")
+        except Exception:
+            return False
 
     def _extract_sub_answer(self, text: str) -> str:
         """从子问题回答中提取简洁答案"""

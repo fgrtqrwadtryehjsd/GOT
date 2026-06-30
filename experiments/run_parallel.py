@@ -134,11 +134,17 @@ def process_one(method_name: str, model, sample: dict, idx: int,
         if rt:
             record["reasoning_text"] = rt[:600]
     # GERS 专有字段
-    if result and method_name in ("gers", "gers_adaptive", "gers_sc", "gers_nli", "gers_feedback"):
+    if result and method_name in ("gers", "gers_adaptive", "gers_sc", "gers_nli",
+                                  "gers_feedback", "gers_sc_cv", "gers_adaptive_cv"):
         record["iterations"] = result.get("iterations", 0)
         record["consistency_detail"] = result.get("consistency_detail")
         record["token_count"] = result.get("token_count", 0)
         record["num_sub_questions"] = len(result.get("sub_qa_chain", []))
+        # 方向1：单独存 crossval_score 便于区分度分析
+        cd = result.get("consistency_detail") or {}
+        if isinstance(cd, dict) and "crossval_score" in cd:
+            record["crossval_score"] = cd["crossval_score"]
+            record["struct_score"] = cd.get("struct_score")
     if result and method_name == "cot_sc_gers":
         record["gers_rerank_triggered"] = result.get("gers_rerank_triggered", False)
         record["gers_scores"] = result.get("gers_scores")
