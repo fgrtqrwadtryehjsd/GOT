@@ -35,9 +35,15 @@
 
 ### 2. Graph of Verification (GoV)（验证机制重叠）
 
+> ⚠️ **2026-06-30 核实结论：此论文查无此文，已从论文正文删除。**
+> 经 11 次网络搜索（含 arXiv、AAAI 2026 列表），"Graph of Verification" (Fang et al., AAAI 2026)
+> 在外部互联网查不到任何独立来源，既非已发表会议论文也非可检索预印本，疑似杜撰。
+> 本节调研内容保留作历史记录，但**不可用于论文引用或对比**。论文相关工作已改用
+> Let's Verify Step by Step (Lightman et al., ICLR 2024) 等真实文献替代"验证机制"对比点。
+
 | 项目 | 信息 |
 |------|------|
-| 发表 | AAAI 2026 (Jiwei Fang 等) |
+| 发表 | AAAI 2026 (Jiwei Fang 等) — ⚠️ 查无此文 |
 | 核心 | 将推理建模为 DAG，用 "node block" 架构做 training-free 验证 |
 
 **重叠点**：GoV 也用 DAG 建模推理并做验证。

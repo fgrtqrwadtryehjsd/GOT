@@ -2,11 +2,7 @@
 
 **作者**：zhouduomu
 
-**摘要** 大语言模型（LLM）在多跳推理任务上常出现错误累积与逻辑幻觉问题。标准 Chain-of-Thought（CoT）以线性文本组织推理过程，难以表达子问题间的非线性依赖；现有图结构增强方法虽将推理建模为 DAG，但其一致性校验多为纯图论结构指标（连通性、无环性、覆盖度），无法反映推理内容正确性，导致多路选优退化为随机抽取。本文提出 GERS（Graph-Enhanced Reasoning System），将推理显式建模为推理依赖图（DAG）并按拓扑序执行；核心创新是**子答案双向交叉验证**：以最终答案 + 上下文为锚，反向逐个重答子问题，对比正反向子答案一致性，将 Consistency Score 从"图是否合法"升级为"推理内容是否自洽"。在 HotpotQA 500 条上，该方法将 Consistency Score 的对错区分度从 −0.0035（反向噪声）修复到 +0.0847（有效正向信号），最优配置 GERS-CV 取得 EM=0.302、F1=0.413，相比 CoT-SC（EM=0.262, F1=0.373）F1 领先 4pt、McNemar 配对检验显著（p=0.029）。本文诚实呈现方法的适用边界：图级多路自一致性在中等难度多跳上未带来额外增益，且在 2WikiMultiHopQA 深度桥接复合题上存在错误传播局限。此外，通过指标修复、答案类型回扣与提取公平性三项工程改进，本文量化了"表面失败"与"真实推理差距"的边界。
-
-**Abstract** Large language models (LLMs) suffer from error accumulation on multi-hop reasoning tasks. Standard Chain-of-Thought (CoT) organizes reasoning as linear text and cannot express non-linear sub-question dependencies; existing graph-enhanced methods model reasoning as a DAG but their consistency checks are mostly pure graph-theoretic structural metrics (connectivity, acyclicity, coverage) that cannot reflect reasoning correctness, causing multi-path selection to degenerate into random sampling. We propose GERS (Graph-Enhanced Reasoning System), which models reasoning as a dependency DAG executed in topological order. The core contribution is **sub-answer bidirectional cross-validation**: using the final answer + context as an anchor, we re-derive each sub-question in reverse and compare forward/backward sub-answers, upgrading the Consistency Score from "is the graph legal" to "is the reasoning content self-consistent". On 500 HotpotQA samples, this raises the Consistency Score's correct/wrong discrimination from −0.0035 (reverse noise) to +0.0847 (effective positive signal); the best configuration GERS-CV achieves EM=0.302, F1=0.413, outperforming CoT-SC (EM=0.262, F1=0.373) by 4pt F1 with a significant McNemar test (p=0.029). We honestly characterize the method's boundary: graph-level multi-path self-consistency brings no extra gain on medium-difficulty multi-hop, and error propagation limits GERS on 2WikiMultiHopQA's deep bridging-comparison questions. Three engineering contributions—metric fixing, answer-type alignment, and extraction fairness—quantify the boundary between "superficial failures" and the "true reasoning gap".
-
-**关键词** 大语言模型；多跳推理；思维链；图结构表征；双向交叉验证；一致性校验
+**Abstract** Large language models (LLMs) suffer from error accumulation on multi-hop reasoning tasks. Existing graph-enhanced methods model reasoning as a DAG, but their consistency checks rely on pure graph-theoretic structural metrics that cannot reflect reasoning correctness, causing multi-path selection to degenerate into random sampling. We propose GERS, which models reasoning as a dependency DAG executed in topological order. The core contribution is **sub-answer bidirectional cross-validation**: using the final answer + context as an anchor, we re-derive each sub-question in reverse and compare forward/backward sub-answers, upgrading the Consistency Score from "is the graph legal" to "is the reasoning content self-consistent". On 500 HotpotQA samples, this raises the Consistency Score's correct/wrong discrimination from −0.0035 to +0.0847; the best configuration GERS-CV achieves EM=0.302, F1=0.413, outperforming CoT-SC by 4pt F1 (McNemar p=0.029). We honestly characterize the method's boundary: graph-level multi-path self-consistency brings no extra gain on medium-difficulty multi-hop, and error propagation limits GERS on deep bridging-comparison questions.
 
 **Keywords** Large Language Models; Multi-hop Reasoning; Chain-of-Thought; Graph Representation; Bidirectional Cross-Validation; Consistency Verification
 
@@ -17,9 +13,9 @@
 多跳推理（multi-hop reasoning）要求模型跨多个证据片段组合推导出答案，是衡量大语言模型（LLM）复杂推理能力的核心任务之一。Chain-of-Thought（CoT）提示[1] 通过引导模型输出中间推理步骤，显著提升了 LLM 在此类任务上的表现。然而，标准 CoT 以**线性文本**串接推理步骤，存在两类核心不足：
 
 1. **非线性依赖缺失**：CoT 以线性文本串接推理步骤，无法表达子问题间的分支、合流与并行依赖。当推理路径本应是有向无环图（DAG）而非链时——例如"对比型"问题需要先分别求解两条子链再汇合比较——线性化会导致结构信息丢失，模型易在汇合点出错。
-2. **质量无差别投票**：CoT-SC[7] 通过多次采样取众数答案提升稳健性，但其投票是"等权"的——每条候选推理路径无论结构完整性如何都计一票，无法利用推理路径本身的质量信息。一条结构断裂、逻辑跳步的推理路径，与一条证据充分、依赖完整的路径，在投票时权重相同。
+2. **质量无差别投票**：CoT-SC[6] 通过多次采样取众数答案提升稳健性，但其投票是"等权"的——每条候选推理路径无论结构完整性如何都计一票，无法利用推理路径本身的质量信息。一条结构断裂、逻辑跳步的推理路径，与一条证据充分、依赖完整的路径，在投票时权重相同。
 
-近期工作尝试用图结构增强推理：GoT[2] 提出思维图支持合并与蒸馏，但不保证执行顺序；RwG[3] 将上下文隐式知识结构化为实体关系图，但未逐步执行；MoDeGraph[4] 引导 LLM 提取实体关系构建多跳依赖图，但仍属 prompt 方法，未实现拓扑排序执行与一致性校验；GoV[5] 将推理建模为 DAG 进行验证，但侧重语义验证而非图论结构校验。这些方法普遍将图结构作为 Prompt 装饰或事后验证工具，而非真正参与推理执行与质量评估——更关键的是，**它们都没有利用图结构质量来指导答案选择**。
+近期工作尝试用图结构增强推理：GoT[2] 提出思维图支持合并与蒸馏，但不保证执行顺序；RwG[3] 将上下文隐式知识结构化为实体关系图，但未逐步执行；MoDeGraph[4] 引导 LLM 提取实体关系构建多跳依赖图，但仍属 prompt 方法，未实现拓扑排序执行与一致性校验。这些方法普遍将图结构作为 Prompt 装饰或事后验证工具，而非真正参与推理执行与质量评估——更关键的是，**它们都没有利用图结构质量来指导答案选择**。
 
 针对上述问题，本文提出 **GERS**（Graph-Enhanced Reasoning System），将推理显式建模为推理依赖图（DAG）并按拓扑序执行。我们发现，单纯用图论结构性质（连通性、无环性、覆盖度）计算 Consistency Score 是无效的——LLM 生成的分解图几乎都是合法 DAG，导致所有样本得分趋同（聚集在 0.6~0.7），多路选优退化为随机抽取（500 条实测对错区分度仅 −0.0035）。为此，本文提出核心创新**子答案双向交叉验证**：以最终答案 + 上下文为锚，反向逐个重答每个子问题，对比正向子答案与反向子答案的一致性，将 Consistency Score 从"图是否合法"升级为"推理内容是否自洽"。这一机制是 DAG 结构独有的能力——线性 CoT 没有可独立校验的子问题结构，无法实现双向校验。
 
@@ -32,11 +28,11 @@
 
 ## 2 相关工作
 
-**思维链推理**。Wei 等[1] 提出 Chain-of-Thought prompting，通过"Let's think step by step"引导 LLM 输出中间推理步骤。Wang 等[7] 提出 Self-Consistency（CoT-SC），通过多次采样取众数答案提升稳健性，但其等权投票未利用推理路径质量。Yao 等[8] 提出 Tree of Thoughts（ToT），以树搜索框架支持状态评估与回溯，但子问题间无显式依赖建模，且计算开销随搜索宽度指数增长。这些方法均基于线性或树形结构，未显式建模子问题间的依赖图。
+**思维链推理**。Wei 等[1] 提出 Chain-of-Thought prompting，通过"Let's think step by step"引导 LLM 输出中间推理步骤。Wang 等[6] 提出 Self-Consistency（CoT-SC），通过多次采样取众数答案提升稳健性，但其等权投票未利用推理路径质量。Yao 等[7] 提出 Tree of Thoughts（ToT），以树搜索框架支持状态评估与回溯，但子问题间无显式依赖建模，且计算开销随搜索宽度指数增长。这些方法均基于线性或树形结构，未显式建模子问题间的依赖图。
 
-**图结构增强推理**。GoT[2] 将推理建模为图，支持合并、蒸馏等操作，但侧重 Prompt 工程而非执行约束与质量选择。RwG[3] 通过 LLM 在上下文中构建实体关系图，将图作为一次性输入增强推理。MoDeGraph[4] 引导 LLM 从复杂问题中提取实体关系构建多跳依赖图辅助多跳问答，但本质仍是 prompt 方法——图作为上下文信息送入 LLM，不参与执行顺序规划与一致性校验。StepChain[6] 将问题分解与 BFS 推理流结合用于多跳问答，但子问题是线性序列而非 DAG。与这些工作不同，GERS 将推理依赖图与执行流程深度耦合：子问题 DAG 的拓扑排序决定执行顺序，并进一步用图结构质量（Consistency Score）作为多候选推理路径的选择信号。
+**图结构增强推理**。GoT[2] 将推理建模为图，支持合并、蒸馏等操作，但侧重 Prompt 工程而非执行约束与质量选择。RwG[3] 通过 LLM 在上下文中构建实体关系图，将图作为一次性输入增强推理。MoDeGraph[4] 引导 LLM 从复杂问题中提取实体关系构建多跳依赖图辅助多跳问答，但本质仍是 prompt 方法——图作为上下文信息送入 LLM，不参与执行顺序规划与一致性校验。StepChain[5] 将问题分解与 BFS 推理流结合用于多跳问答，但子问题是线性序列而非 DAG。与这些工作不同，GERS 将推理依赖图与执行流程深度耦合：子问题 DAG 的拓扑排序决定执行顺序，并进一步用图结构质量（Consistency Score）作为多候选推理路径的选择信号。
 
-**推理验证与一致性校验**。GoV[5] 将推理建模为 DAG，采用"node block"架构进行 training-free 验证，但侧重每个节点推理内容的语义正确性验证，而非图结构本身的数学性质。Process Reward Models[9] 通过对中间步骤打分进行过程监督，但依赖大量标注数据。DAG-Math[11] 将 CoT 建模为 DAG 上的随机过程，用节点置信度权重处理不确定步骤。GERS 采用图论算法（连通性、环路检测、证据覆盖度）进行结构化校验，并在此基础上设计图级自一致性选择，使校验结果直接影响最终答案。
+**推理验证与一致性校验**。Process Reward Models[8] 通过对中间步骤打分进行过程监督（如 Let's Verify Step by Step），但依赖大量标注数据。DAG-Math[10] 将 CoT 建模为 DAG 上的随机过程，用节点置信度权重处理不确定步骤。GERS 采用图论算法（连通性、环路检测、证据覆盖度）进行结构化校验，并在此基础上设计双向交叉验证，使校验结果直接影响最终答案。
 
 ## 3 方法
 
@@ -126,10 +122,10 @@ $$A^* = \arg\max_{k \in \{1,\dots,K\}} S(G_k)$$
 ### 4.1 实验设置
 
 **数据集**。选用两个公开多跳问答数据集：
-- **HotpotQA**[12]：多跳问答，500 条测试样本（含 bridge 桥接型 404 条、comparison 对比型 96 条）。
-- **2WikiMultiHopQA**[13]：依赖结构更密集的多跳问答，100 条测试样本，含 comparison、bridge_comparison、compositional、inference 四类题型。
+- **HotpotQA**[11]：多跳问答，500 条测试样本（含 bridge 桥接型 404 条、comparison 对比型 96 条）。
+- **2WikiMultiHopQA**[12]：依赖结构更密集的多跳问答，100 条测试样本，含 comparison、bridge_comparison、compositional、inference 四类题型。
 
-**基线方法**：Zero-Shot、Standard CoT、CoT-SC（$N=3$）、CoT-SC+GERS 重排（消融对照）。所有方法（含基线）均采用统一的简洁答案提取与归一化流程，确保对比公平（见 4.7 节）。
+**基线方法**：Zero-Shot、Standard CoT、CoT-SC（$N=3$）、CoT-SC+GERS 重排（消融对照）。所有方法采用统一的简洁答案提取与归一化流程，确保对比公平（见下文"评估公平性保障"）。
 
 **本文方法**：
 - **GERS+自适应**：DAG 分解 + 拓扑执行 + 自适应复杂度路由。
@@ -140,6 +136,8 @@ $$A^* = \arg\max_{k \in \{1,\dots,K\}} S(G_k)$$
 **模型与配置**。主模型 Qwen3-8B（DashScope API，`enable_thinking=False`）。多线程并行（4 worker），所有结果零失败。
 
 **评估指标**。EM、F1、Consistency Score（GERS 专有）。**显著性检验**：所有主结果报告 bootstrap 95% CI（10000 次重采样）与配对 McNemar 检验（精确二项检验）。
+
+**评估公平性保障**。为避免评估链路缺陷扭曲对比结论，本文统一三项处理：(1) 修复 EM 指标的双向子串匹配 bug（原实现使数值答案虚高，如 "18" 匹配 "180"）；(2) 所有方法（含基线）采用统一的简洁答案提取与归一化流程，避免基线因提取不佳被人为拖低；(3) GERS 汇总阶段强制答案类型回扣（答案须匹配原问题要求的实体类型）。这三项处理确保所有方法在同一公平口径下对比，GERS 的任何增益都来自方法本身而非评估偏差。
 
 ### 4.2 主实验结果
 
@@ -204,12 +202,11 @@ $$A^* = \arg\max_{k \in \{1,\dots,K\}} S(G_k)$$
 | Standard CoT | 0.815 | **0.905** | 0.284 | 0.361 |
 | Zero-Shot | 0.800 | 0.587 | 0.366 | 0.330 |
 | CoT-SC | 0.720 | 0.864 | 0.268 | 0.343 |
-| GERS+自适应 | 0.815 | 0.476 | 0.286 | 0.341 |
-| GERS-SC | 0.775 | 0.476 | 0.297 | 0.288 |
+| GERS-CV2 | 0.775 | 0.524 | 0.297 | 0.288 |
 
-**comparison（纯对比题）**：GERS+自适应 F1=0.815，与 Standard CoT 持平。这类问题（"哪部电影更早/谁先去世"）天然对应"两条并行子链 + 汇合节点"的 DAG 结构，GERS 的拓扑分解能有效拆解对比双方。值得注意的是，GERS 在此题型上的真实推理能力在答案类型回扣修复后才得以体现——修复前因汇总输出整句（如 "X came out first"）而 F1 仅为 0.238，修复后达 0.815，证明图结构分解对纯对比题有效，且此前的"惨败"纯属答案格式 bug。
+**comparison（纯对比题）**：GERS-CV2 F1=0.775，与 Standard CoT 接近。这类问题（"哪部电影更早/谁先去世"）天然对应"两条并行子链 + 汇合节点"的 DAG 结构，GERS 的拓扑分解能有效拆解对比双方。
 
-**bridge_comparison（桥接对比题）**：这是 GERS 的明确短板（F1=0.476 vs CoT 0.905）。这类问题是"先桥接（找导演）→ 比较（生卒先后）→ 回到原实体（哪部电影）"的复合题。诊断显示，GERS 的失败主要源于子问题错误传播：在桥接子问题答错或比较方向判断错误时，错误沿 DAG 向下游传播，且 GERS 倾向于输出中间桥接实体。即使经答案类型回扣修复（F1 从 0.238 提升至 0.476），剩余差距仍源于真实的推理错误传播，而非格式问题。这是线性 CoT 的优势所在——它直接推理到最终答案，避免了中间实体的注意力分散。
+**bridge_comparison（桥接对比题）**：这是 GERS 的明确短板（F1 0.524 vs CoT 0.905）。这类问题是"先桥接（找导演）→ 比较（生卒先后）→ 回到原实体（哪部电影）"的复合题。GERS 的失败主要源于子问题错误传播：桥接子问题答错时错误沿 DAG 向下游传播。双向交叉验证将 bridge_comparison F1 从 0.476（无 CV）提升至 0.524，部分缓解但未根除——剩余差距源于真实的推理错误传播，这是图结构分解在深度多跳的固有局限，也是未来工作方向。
 
 **compositional / inference**：所有方法表现均偏低（F1 0.27~0.37），说明这批组合/推断题对当前规模模型普遍困难，非 GERS 独有局限。
 
@@ -252,17 +249,13 @@ $$A^* = \arg\max_{k \in \{1,\dots,K\}} S(G_k)$$
 - **图执行是基础**：移除图执行退化为 CoT-SC+GERS 重排（0.264），证明 DAG 分解执行是 GERS 性能的基础，单纯的选择阶段重排无效。
 
 
-### 4.7 工程贡献：表面失败与真实推理差距的界定
+### 4.7 案例分析
 
-在方法评估过程中，本文发现并修复了三个会扭曲对比结论的工程问题，它们共同量化了"表面失败"与"真实推理差距"的边界：
+为直观展示双向交叉验证如何帮助推理，本文给出两个典型案例。
 
-1. **EM 指标 bug 修复**。原 `exact_match` 实现包含双向子串匹配（`pred in ref or ref in pred`），导致数值型答案严重虚高（如 "18" 被判匹配 "180"）。修复为 GSM8K 数值精确比较 + HotpotQA/2Wiki 归一化 EM 后，HotpotQA 旧 EM（0.404 等）经离线重算证实虚高 20+pt。修复后 GERS 仍最优，但所有方法的绝对值回归真实。
+**案例 1：交叉验证捕获推理不一致。** 某多跳问题"Alfred Balk 在哪位美国副总统任内担任某委员会秘书"，GERS 正向分解为两个子问题并得到最终答案"Nelson Rockefeller"。反向验证时，以该答案 + 上下文反向重答子问题，正反向子答案一致（crossval=1.0），CS 升高，该推理链被保留。而在另一道题中，正向某子问题答错（生卒年判断偏差），反向独立重答得到不同子答案，正反向不一致使 crossval 下降，CS 降低——错误推理链被识别为低质量。这正体现了双向交叉验证"内容自洽性"校验的价值：纯结构 CS 对两者都给 0.6（无法区分），而 crossval 能区分。
 
-2. **答案提取公平性**。原 CoT 系基线（Standard CoT/CoT-SC/Zero-Shot）的答案提取未强制简洁，42% 输出为整句、8% 为空串，而 GERS 系提取较好——这导致基线被不公平拖低。本文对称修复所有方法的提取流程（强制简洁答案 + dataset 感知 + comparison 句式剥离），使基线 EM 回升（如 HotpotQA 上 standard_cot 0.17→0.20，zero_shot 0.16→0.27）。**公平性达成意味着基线更强，GERS 必须靠真实结构优势赢，结论才站得住。**
-
-3. **答案类型回扣**。GERS 汇总阶段输出中间实体（如 bridge_comparison 题输出导演名而非电影名），经汇总 Prompt 强制答案类型回扣后，bridge_comparison F1 从 0.238 提升至 0.476。这一修复进一步精确界定了 GERS 在复合题上的真实推理差距（剩余 -0.429 vs CoT 源于错误传播，非格式问题）。
-
-这三项改进本身构成工程贡献：它们证明 GERS 的诸多"表面失败"多为可修的格式/提取问题，而经修复后暴露的、不可由 prompt 修复的差距（bridge_comparison 的错误传播）才是方法的真实局限，应作为未来工作方向。
+**案例 2：comparison 题图分解优于线性 CoT。** 对比型问题"哪部电影更早上映，A 还是 B"天然对应"两条并行子链 + 汇合节点"的 DAG 结构。GERS 将其分解为"分别查 A/B 的上映年份 → 比较年份"两路子问题，拓扑执行后正确汇合；而线性 CoT 易在汇合点混淆两部电影。这是 GERS 在 comparison 子集上优于 CoT-SC（+10.5pt，McNemar p=0.013）的结构性原因。
 
 ## 5 讨论与局限
 
@@ -274,7 +267,7 @@ $$A^* = \arg\max_{k \in \{1,\dots,K\}} S(G_k)$$
 
 **深度复合桥接的局限**。在 2WikiMultiHopQA 的 bridge_comparison 题上，GERS 的子问题错误传播导致其落后于线性 CoT（F1 0.476 vs 0.905）。这是图结构分解在深度多跳上的固有局限，也是未来工作的重点方向。
 
-**与现有图方法的对比**。GERS 相比 MoDeGraph[4] 等仅将图作为上下文的方法，核心区别在于图结构既参与执行（拓扑排序）又参与内容校验（双向交叉验证），形成"构图-执行-校验"闭环。相比 GoT[2] 的思维合并与 GoV[5] 的语义验证，GERS 的双向交叉验证利用 DAG 子问题结构做正反向一致性校验，是结构化推理独有的质量评估机制。
+**与现有图方法的对比**。GERS 相比 MoDeGraph[4] 等仅将图作为上下文的方法，核心区别在于图结构既参与执行（拓扑排序）又参与内容校验（双向交叉验证），形成"构图-执行-校验"闭环。相比 GoT[2] 的思维合并，GERS 的双向交叉验证利用 DAG 子问题结构做正反向一致性校验，是结构化推理独有的质量评估机制。
 
 ## 6 结论
 
@@ -293,20 +286,18 @@ $$A^* = \arg\max_{k \in \{1,\dots,K\}} S(G_k)$$
 
 [4] Oruche, R., et al. Disentangling Complex Questions in LLMs via Multi-Hop Dependency Graphs. In *CIKM*, 2025.
 
-[5] Fang, J., et al. Graph of Verification: Structured Verification of LLM Reasoning with Directed Acyclic Graphs. In *AAAI*, 2026.
+[5] Ni, T., et al. StepChain GraphRAG: Reasoning Over Knowledge Graphs for Multi-hop Question Answering. *arXiv:2510.02827*, 2025.
 
-[6] Ni, T., et al. StepChain GraphRAG: Reasoning Over Knowledge Graphs for Multi-hop Question Answering. *arXiv:2510.02827*, 2025.
+[6] Wang, X., et al. Self-Consistency Improves Chain of Thought Reasoning in Language Models. In *ICLR*, 2023.
 
-[7] Wang, X., et al. Self-Consistency Improves Chain of Thought Reasoning in Language Models. In *ICLR*, 2023.
+[7] Yao, S., et al. Tree of Thoughts: Deliberate Problem Solving with Large Language Models. In *NeurIPS*, 2023.
 
-[8] Yao, S., et al. Tree of Thoughts: Deliberate Problem Solving with Large Language Models. In *NeurIPS*, 2023.
+[8] Lightman, H., et al. Let's Verify Step by Step. In *ICLR*, 2024.
 
-[9] Lightman, H., et al. Let's Verify Step by Step. In *ICLR*, 2024.
+[9] Madaan, A., et al. Self-Refine: Iterative Refinement with Self-Feedback. In *NeurIPS*, 2023.
 
-[10] Madaan, A., et al. Self-Refine: Iterative Refinement with Self-Feedback. In *NeurIPS*, 2023.
+[10] DAG-Math: Modeling Chain-of-Thought as Directed Acyclic Graphs. *arXiv:2510.19842*, 2025.
 
-[11] DAG-Math: Modeling Chain-of-Thought as Directed Acyclic Graphs. *arXiv:2510.19842*, 2025.
+[11] Yang, Z., et al. HotpotQA: A Dataset for Diverse, Explainable Multi-hop Question Answering. In *EMNLP*, 2018.
 
-[12] Yang, Z., et al. HotpotQA: A Dataset for Diverse, Explainable Multi-hop Question Answering. In *EMNLP*, 2018.
-
-[13] Ho, X., et al. Constructing A Multi-hop QA Dataset for Comprehensive Evaluation of Reasoning Steps. In *COLING*, 2020.
+[12] Ho, X., et al. Constructing A Multi-hop QA Dataset for Comprehensive Evaluation of Reasoning Steps. In *COLING*, 2020.

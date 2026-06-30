@@ -25,13 +25,8 @@
 % ===== 摘要 =====
 \begin{abstract}
 \noindent
-大语言模型（LLM）在多跳推理任务上常出现错误累积与逻辑幻觉问题。标准 Chain-of-Thought（CoT）以线性文本组织推理过程，难以表达子问题间的非线性依赖；现有图结构增强方法虽将推理建模为 DAG，但其一致性校验多为纯图论结构指标（连通性、无环性、覆盖度），无法反映推理内容正确性，导致多路选优退化为随机抽取。本文提出 GERS（Graph-Enhanced Reasoning System），将推理显式建模为推理依赖图（DAG）并按拓扑序执行；核心创新是\textbf{子答案双向交叉验证}：以最终答案 + 上下文为锚，反向逐个重答子问题，对比正反向子答案一致性，将 Consistency Score 从``图是否合法''升级为``推理内容是否自洽''。在 HotpotQA 500 条上，该方法将 Consistency Score 的对错区分度从 $-0.0035$（反向噪声）修复到 $+0.0847$（有效正向信号），最优配置 GERS-CV 取得 EM=0.302、F1=0.413，相比 CoT-SC（EM=0.262, F1=0.373）F1 领先 4pt、McNemar 配对检验显著（$p=0.029$）。本文诚实呈现方法的适用边界：图级多路自一致性在中等难度多跳上未带来额外增益，且在 2WikiMultiHopQA 深度桥接复合题上存在错误传播局限。此外，通过指标修复、答案类型回扣与提取公平性三项工程改进，本文量化了``表面失败''与``真实推理差距''的边界。
+Large language models (LLMs) suffer from error accumulation on multi-hop reasoning tasks. Existing graph-enhanced methods model reasoning as a DAG, but their consistency checks rely on pure graph-theoretic structural metrics that cannot reflect reasoning correctness, causing multi-path selection to degenerate into random sampling. We propose GERS, which models reasoning as a dependency DAG executed in topological order. The core contribution is \textbf{sub-answer bidirectional cross-validation}: using the final answer + context as an anchor, we re-derive each sub-question in reverse and compare forward/backward sub-answers, upgrading the Consistency Score from ``is the graph legal'' to ``is the reasoning content self-consistent''. On 500 HotpotQA samples, this raises the Consistency Score's correct/wrong discrimination from $-0.0035$ to $+0.0847$; the best configuration GERS-CV achieves EM=0.302, F1=0.413, outperforming CoT-SC by 4pt F1 (McNemar $p=0.029$). We honestly characterize the method's boundary: graph-level multi-path self-consistency brings no extra gain on medium-difficulty multi-hop, and error propagation limits GERS on deep bridging-comparison questions.
 \end{abstract}
-
-\noindent\textbf{关键词：} 大语言模型；多跳推理；思维链；图结构表征；双向交叉验证；一致性校验
-
-\vspace{1em}
-\noindent\textbf{Abstract:} Large language models (LLMs) suffer from error accumulation on multi-hop reasoning tasks. Standard Chain-of-Thought (CoT) organizes reasoning as linear text and cannot express non-linear sub-question dependencies; existing graph-enhanced methods model reasoning as a DAG but their consistency checks are mostly pure graph-theoretic structural metrics that cannot reflect reasoning correctness, causing multi-path selection to degenerate into random sampling. We propose GERS, which models reasoning as a dependency DAG executed in topological order. The core contribution is \textbf{sub-answer bidirectional cross-validation}: using the final answer + context as an anchor, we re-derive each sub-question in reverse and compare forward/backward sub-answers, upgrading the Consistency Score from ``is the graph legal'' to ``is the reasoning content self-consistent''. On 500 HotpotQA samples, this raises the Consistency Score's discrimination from $-0.0035$ to $+0.0847$; the best configuration GERS-CV achieves EM=0.302, F1=0.413, outperforming CoT-SC by 4pt F1 with a significant McNemar test ($p=0.029$). We honestly characterize the method's boundary and quantify the boundary between ``superficial failures'' and the ``true reasoning gap''.
 
 \noindent\textbf{Keywords:} Large Language Models; Multi-hop Reasoning; Chain-of-Thought; Graph Representation; Bidirectional Cross-Validation; Consistency Verification
 
@@ -45,7 +40,7 @@
 \item \textbf{质量无差别投票}：CoT-SC~\cite{wang2023sc} 通过多次采样取众数答案提升稳健性，但其投票是``等权''的——每条候选推理路径无论结构完整性如何都计一票，无法利用推理路径本身的质量信息。
 \end{enumerate}
 
-近期工作尝试用图结构增强推理：GoT~\cite{besta2024got} 提出思维图支持合并与蒸馏，但不保证执行顺序；RwG~\cite{han2025rwg} 将上下文隐式知识结构化为实体关系图，但未逐步执行；MoDeGraph~\cite{oruche2025modegraph} 引导 LLM 提取实体关系构建多跳依赖图，但仍属 prompt 方法，未实现拓扑排序执行与一致性校验；GoV~\cite{fang2026gov} 将推理建模为 DAG 进行验证，但侧重语义验证而非图论结构校验。这些方法普遍将图结构作为 Prompt 装饰或事后验证工具，而非真正参与推理执行与质量评估——更关键的是，\textbf{它们都没有利用图结构质量来指导答案选择}。
+近期工作尝试用图结构增强推理：GoT~\cite{besta2024got} 提出思维图支持合并与蒸馏，但不保证执行顺序；RwG~\cite{han2025rwg} 将上下文隐式知识结构化为实体关系图，但未逐步执行；MoDeGraph~\cite{oruche2025modegraph} 引导 LLM 提取实体关系构建多跳依赖图，但仍属 prompt 方法，未实现拓扑排序执行与一致性校验。这些方法普遍将图结构作为 Prompt 装饰或事后验证工具，而非真正参与推理执行与质量评估——更关键的是，\textbf{它们都没有利用图结构质量来指导答案选择}。
 
 针对上述问题，本文提出 \textbf{GERS}（Graph-Enhanced Reasoning System），将推理显式建模为推理依赖图（DAG）并按拓扑序执行。我们发现，单纯用图论结构性质（连通性、无环性、覆盖度）计算 Consistency Score 是无效的——LLM 生成的分解图几乎都是合法 DAG，导致所有样本得分趋同（聚集在 0.6$\sim$0.7），多路选优退化为随机抽取（500 条实测对错区分度仅 $-0.0035$）。为此，本文提出核心创新\textbf{子答案双向交叉验证}：以最终答案 + 上下文为锚，反向逐个重答每个子问题，对比正向子答案与反向子答案的一致性，将 Consistency Score 从``图是否合法''升级为``推理内容是否自洽''。这一机制是 DAG 结构独有的能力——线性 CoT 没有可独立校验的子问题结构，无法实现双向校验。
 
@@ -64,7 +59,7 @@
 
 \noindent\textbf{图结构增强推理。}GoT~\cite{besta2024got} 将推理建模为图，支持合并、蒸馏等操作，但侧重 Prompt 工程而非执行约束。RwG~\cite{han2025rwg} 通过 LLM 在上下文中构建实体关系图。MoDeGraph~\cite{oruche2025modegraph} 引导 LLM 构建多跳依赖图辅助多跳问答，但本质仍是 prompt 方法。StepChain~\cite{ni2025stepchain} 将问题分解与 BFS 推理流结合，但子问题是线性序列而非 DAG。与这些工作不同，GERS 将推理依赖图与执行流程深度耦合，并进一步用图结构质量作为多候选推理路径的选择信号。
 
-\noindent\textbf{推理验证与一致性校验。}GoV~\cite{fang2026gov} 将推理建模为 DAG 进行 training-free 验证，但侧重语义正确性而非图结构数学性质。Process Reward Models~\cite{lightman2024verify} 通过对中间步骤打分进行过程监督，但依赖大量标注数据。DAG-Math~\cite{dagmath2025} 将 CoT 建模为 DAG 上的随机过程。GERS 采用图论算法进行结构化校验，并在此基础上设计双向交叉验证，使校验结果直接影响最终答案。
+\noindent\textbf{推理验证与一致性校验。}Process Reward Models~\cite{lightman2024verify} 通过对中间步骤打分进行过程监督，但依赖大量标注数据。DAG-Math~\cite{dagmath2025} 将 CoT 建模为 DAG 上的随机过程。GERS 采用图论算法进行结构化校验，并在此基础上设计双向交叉验证，使校验结果直接影响最终答案。
 
 % ===== 3 方法 =====
 \section{方法}
@@ -293,7 +288,6 @@ w/o 图执行（= CoT-SC+GERS 重排） & 0.264 & 0.372 & 无 DAG 执行 \\
 \bibitem{besta2024got} Besta, M., et al. Graph of Thoughts: Solving Elaborate Problems with Large Language Models. In \emph{AAAI}, 2024.
 \bibitem{han2025rwg} Han, H., et al. Reasoning with Graphs: Structuring Implicit Knowledge to Enhance LLMs Reasoning. In \emph{Findings of ACL}, 2025.
 \bibitem{oruche2025modegraph} Oruche, R., et al. Disentangling Complex Questions in LLMs via Multi-Hop Dependency Graphs. In \emph{CIKM}, 2025.
-\bibitem{fang2026gov} Fang, J., et al. Graph of Verification: Structured Verification of LLM Reasoning with Directed Acyclic Graphs. In \emph{AAAI}, 2026.
 \bibitem{ni2025stepchain} Ni, T., et al. StepChain GraphRAG: Reasoning Over Knowledge Graphs for Multi-hop Question Answering. \emph{arXiv:2510.02827}, 2025.
 \bibitem{wang2023sc} Wang, X., et al. Self-Consistency Improves Chain of Thought Reasoning in Language Models. In \emph{ICLR}, 2023.
 \bibitem{yao2023tot} Yao, S., et al. Tree of Thoughts: Deliberate Problem Solving with Large Language Models. In \emph{NeurIPS}, 2023.
