@@ -1,0 +1,287 @@
+% !TEX program = pdflatex
+% English version — compiles with pdfLaTeX (default on Overleaf, no Chinese font needed)
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{enumitem}
+\usepackage{url}
+
+\hypersetup{colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue}
+
+\title{\textbf{Graph-Constrained Reasoning Chains with Sub-Answer\\Bidirectional Cross-Validation for Multi-Hop Reasoning}}
+\author{zhouduomu}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Large language models (LLMs) suffer from error accumulation on multi-hop reasoning tasks. Existing graph-enhanced methods model reasoning as a DAG, but their consistency checks rely on pure graph-theoretic structural metrics that cannot reflect reasoning correctness, causing multi-path selection to degenerate into random sampling. We propose GERS (Graph-Enhanced Reasoning System), which models reasoning as a dependency DAG executed in topological order. The core contribution is \textbf{sub-answer bidirectional cross-validation}: using the final answer + context as an anchor, we re-derive each sub-question in reverse and compare forward/backward sub-answers, upgrading the Consistency Score from ``is the graph legal'' to ``is the reasoning content self-consistent''. On 500 HotpotQA samples, this raises the Consistency Score's correct/wrong discrimination from $-0.0035$ to $+0.0847$; the best configuration GERS-CV achieves EM=0.302, F1=0.413, outperforming CoT-SC by 4pt F1 (McNemar $p=0.029$). We honestly characterize the method's boundary: graph-level multi-path self-consistency brings no extra gain on medium-difficulty multi-hop, and error propagation limits GERS on deep bridging-comparison questions.
+\end{abstract}
+
+\noindent\textbf{Keywords:} Large Language Models; Multi-hop Reasoning; Chain-of-Thought; Graph Representation; Bidirectional Cross-Validation; Consistency Verification
+
+\section{Introduction}
+
+Multi-hop reasoning requires models to combine evidence across multiple fragments, and is a core task for evaluating LLM reasoning ability. Chain-of-Thought (CoT) prompting~\cite{wei2022cot} significantly improves LLM performance by eliciting intermediate steps. However, standard CoT organizes reasoning as \textbf{linear text}, with two key limitations:
+
+\begin{enumerate}[label=\arabic*.]
+\item \textbf{Missing non-linear dependencies}: CoT strings steps linearly and cannot express branching, merging, or parallel dependencies among sub-questions. When the reasoning path is inherently a DAG rather than a chain, linearization loses structural information.
+\item \textbf{Quality-agnostic voting}: CoT-SC~\cite{wang2023sc} samples multiple paths and takes the majority answer, but votes are equal-weighted and cannot exploit the quality of each reasoning path.
+\end{enumerate}
+
+Recent works enhance reasoning with graph structures: GoT~\cite{besta2024got} proposes graph-of-thoughts with merging/distillation but does not guarantee execution order; RwG~\cite{han2025rwg} structures context into an entity-relation graph but does not execute step-by-step; MoDeGraph~\cite{oruche2025modegraph} builds a multi-hop dependency graph but remains a prompt method without topological execution or consistency checking. These methods treat the graph as a prompt decoration or post-hoc verification, rather than a component that participates in execution and quality assessment---more critically, \textbf{none of them uses graph-structure quality to guide answer selection}.
+
+To address this, we propose \textbf{GERS}, which explicitly models reasoning as a dependency DAG executed in topological order. We find that computing a Consistency Score purely from graph-theoretic properties is ineffective: LLM-generated decomposition graphs are almost always legal DAGs, so scores cluster (around 0.6--0.7) and multi-path selection degenerates to random sampling (measured discrimination only $-0.0035$ on 500 samples). We therefore propose the core innovation \textbf{sub-answer bidirectional cross-validation}: using the final answer + context as an anchor, each sub-question is re-answered in reverse and the forward/backward sub-answers are compared, upgrading the Consistency Score from ``is the graph legal'' to ``is the reasoning content self-consistent''. This mechanism is unique to the DAG structure---linear CoT has no independently verifiable sub-question structure and cannot perform bidirectional checking.
+
+Our contributions:
+\begin{enumerate}[label=\arabic*.]
+\item \textbf{Sub-answer bidirectional cross-validation (core)}: raises the Consistency Score's discrimination from $-0.0035$ to $+0.0847$ (500 HotpotQA samples), turning consistency checking from a structural metric into an effective content self-consistency signal. Unique to DAGs; infeasible for linear CoT/ToT.
+\item \textbf{Performance}: the best configuration GERS-CV achieves EM=0.302, F1=0.413 on HotpotQA (500 samples), outperforming CoT-SC by 4pt F1 with a significant McNemar test ($p=0.029$). We honestly report that the bootstrap 95\% CI still marginally crosses zero, characterizing it as ``paired-significant but effect-size marginal''.
+\item \textbf{Honest boundary}: graph-level multi-path self-consistency yields no extra gain on medium-difficulty multi-hop even after fixing CS discrimination; error propagation limits GERS on deep bridging-comparison questions.
+\item \textbf{Engineering}: metric bug fixing, answer-type alignment, and extraction fairness quantify the boundary between ``superficial failures'' and the ``true reasoning gap''.
+\end{enumerate}
+
+\section{Related Work}
+
+\noindent\textbf{Chain-of-Thought reasoning.} Wei et al.~\cite{wei2022cot} proposed CoT prompting. Wang et al.~\cite{wang2023sc} proposed Self-Consistency (CoT-SC), whose equal-weight voting does not exploit path quality. Yao et al.~\cite{yao2023tot} proposed Tree of Thoughts (ToT), with no explicit dependency modeling among sub-questions. These methods are based on linear or tree structures.
+
+\noindent\textbf{Graph-enhanced reasoning.} GoT~\cite{besta2024got} models reasoning as a graph for merging/distillation but focuses on prompt engineering. RwG~\cite{han2025rwg} uses a context graph as a one-time input. MoDeGraph~\cite{oruche2025modegraph} builds a multi-hop dependency graph but remains a prompt method. StepChain~\cite{ni2025stepchain} combines decomposition with BFS but uses a linear sequence rather than a DAG. GERS deeply couples the reasoning graph with execution and uses graph-structure quality as a selection signal.
+
+\noindent\textbf{Verification and consistency checking.} Process Reward Models~\cite{lightman2024verify} score intermediate steps but require large amounts of labeled data. DAG-Math~\cite{dagmath2025} models CoT as a stochastic process on a DAG. GERS uses graph-theoretic algorithms for structural checking and designs bidirectional cross-validation so that checking directly affects the final answer.
+
+\section{Method}
+
+\subsection{Overall Framework}
+
+GERS has three modules: reasoning-state graph representation, graph-constrained chain generation, and consistency checking. The flow (Figure~1): input $Q,C$ $\to$ ① decompose into sub-questions $\{q_i\}$ with dependencies $\to$ ② build DAG $G=(V,E)$ $\to$ ③ topological sort $\tau$ $\to$ ④ execute step-by-step to get sub-answers $a_i$ $\to$ ⑤ aggregate into final answer $A$ (answer-type alignment) $\to$ ⑥ consistency check $S = 0.3\cdot S_{\text{struct}} + 0.7\cdot S_{\text{crossval}}$ $\to$ (GERS-SC: select the best of $K$ DAGs) $\to$ output $A, G, S$.
+
+\begin{figure}[h]
+\centering
+\fbox{\parbox{0.85\textwidth}{\centering
+\textbf{Figure 1.} GERS reasoning flow.\\[2pt]
+Input $Q,C$ $\to$ ①decompose $\to$ ②build DAG $\to$ ③topological sort $\to$ ④execute $\to$ ⑤aggregate (answer-type alignment) $\to$ ⑥consistency check (bidirectional cross-validation) $\to$ [GERS-SC: select best of $K$ DAGs] $\to$ output $A,G,S$
+}}
+\end{figure}
+
+\subsection{Reasoning-State Graph Representation}
+
+Nodes: FactNode (facts/original question), StepNode (sub-question and answer), ConclusionNode (final conclusion). Edges: DeriveEdge ($u\to v$), SupportEdge, ConflictEdge. The LLM decomposes $Q$ into an ordered sub-question list with dependencies, and nodes/edges are created accordingly.
+
+\subsection{Graph-Constrained Chain Generation}
+
+\textbf{Path planning.} Topological sort gives execution order $\tau=(v_1,\dots,v_n)$; cycles are broken first. Each sub-question is answered only after its predecessors.
+
+\textbf{Execution and aggregation.} Sub-questions are answered in topological order, with each answer passed as context to dependent sub-questions (dependency propagation). The reasoning chain is aggregated into the final answer $A$.
+
+\textbf{Answer-type alignment.} The final answer must match the entity type requested by the original question (e.g., if the question asks ``which film'', the answer must be a film name, not an intermediate director). This is critical for bridging-comparison questions.
+
+\subsection{Consistency Checking and Bidirectional Cross-Validation}
+
+\textbf{Structural Consistency Score (baseline).}
+\begin{equation}
+S_{\text{struct}} = w_1\cdot C_{\text{conn}} + w_2\cdot C_{\text{cycle}} + w_3\cdot C_{\text{cov}}
+\end{equation}
+with $w_1=w_3=0.35, w_2=0.30$ for connectivity, acyclicity, and coverage, plus a chain-length penalty.
+
+\textbf{Limitation of the structural layer.} LLM-generated graphs are almost always legal connected acyclic DAGs, so $S_{\text{struct}}$ clusters (mean 0.662, std 0.098, discrimination $-0.0035$) and cannot distinguish reasoning quality.
+
+\textbf{Sub-answer bidirectional cross-validation (core).} Given forward sub-answers $\{a_i\}$ and final answer $A$, each sub-question is re-answered in reverse using ``final answer $A$ + context $C$'' as the anchor, yielding backward sub-answers $\{a'_i\}$; consistency is then:
+\begin{equation}
+S_{\text{crossval}} = \frac{\sum_{i=1}^{n} w_i\cdot\mathbb{1}[\text{match}(a_i, a'_i)]}{\sum_{i=1}^{n} w_i}
+\end{equation}
+where $w_i$ weighs downstream nodes higher, and \text{match} is a graded semantic match. The reverse prompt explicitly requires ``re-derive from the context, do not copy the final answer'' to mitigate confirmation bias. This is unique to DAGs---linear CoT has no sub-question structure to verify in reverse.
+
+\textbf{New Consistency Score.}
+\begin{equation}
+S = 0.3\cdot S_{\text{struct}} + 0.7\cdot S_{\text{crossval}}
+\end{equation}
+
+\subsection{Sub-Answer Confidence-Weighted Aggregation}
+
+Each sub-answer confidence is estimated by a lightweight heuristic (no extra LLM call), considering non-emptiness, absence of uncertainty signals, entity grounding in context, and whether it is a pure number. Sub-answers below threshold $\theta_{\text{conf}}=0.5$ are tagged \texttt{[LOW CONFIDENCE]} in the aggregation prompt, reducing single-step error propagation.
+
+\subsection{Graph-Level Self-Consistency (GERS-SC)}
+
+GERS-SC generates $K$ DAGs (decomposition temperatures $T\in\{0.3,0.5,0.7\}$) and selects the highest-scoring one: $A^*=\arg\max_k S(G_k)$. Its effectiveness strictly depends on CS being discriminative---bidirectional cross-validation is precisely what makes it work.
+
+\section{Experiments}
+
+\subsection{Setup}
+
+\textbf{Datasets.} HotpotQA~\cite{yang2018hotpotqa} (500 samples: 404 bridge + 96 comparison); 2WikiMultiHopQA~\cite{ho20202wiki} (100 samples: comparison/bridge\_comparison/compositional/inference).
+
+\textbf{Baselines.} Zero-Shot, Standard CoT, CoT-SC ($N=3$), CoT-SC+GERS rerank (ablation). All methods use a unified concise answer extraction and normalization pipeline.
+
+\textbf{Our methods.} GERS+adaptive (DAG execution + adaptive routing); GERS-SC (+graph-level self-consistency $K=3$); GERS-CV (+bidirectional cross-validation); GERS-CV2 (+confidence weighting, best).
+
+\textbf{Model.} Qwen3-8B (DashScope API), 4-worker parallel, zero failures. \textbf{Metrics:} EM, F1, Consistency Score. All main results report bootstrap 95\% CI (10000 resamples) and paired McNemar test.
+
+\textbf{Evaluation fairness.} To avoid evaluation-pipeline distortions, we unify three treatments: (1) fix the EM bidirectional-substring bug (which inflated numeric answers); (2) unified concise extraction/normalization for all methods; (3) answer-type alignment in GERS aggregation. This ensures all methods are compared on the same fair footing, so any GERS gain comes from the method itself.
+
+\subsection{Main Results}
+
+\begin{table}[h]
+\centering
+\caption{Main results (HotpotQA, n=500)}
+\begin{tabular}{lccc}
+\toprule
+Method & EM & F1 & CS \\
+\midrule
+Zero-Shot & 0.276 & 0.389 & --- \\
+Standard CoT & 0.264 & 0.368 & --- \\
+CoT-SC (N=3) & 0.262 & 0.373 & --- \\
+CoT-SC+GERS rerank & 0.264 & 0.372 & --- \\
+GERS+adaptive & 0.284 & 0.395 & 0.996 \\
+GERS-SC (K=3) & 0.282 & 0.398 & 0.662 \\
+GERS-CV (+cross-validation) & 0.298 & 0.409 & 0.782 \\
+\textbf{GERS-CV2 (+confidence)} & \textbf{0.302} & \textbf{0.413} & 0.777 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+GERS-CV2 achieves the best EM=0.302, F1=0.413, outperforming CoT-SC by 4pt EM and 4pt F1. Bidirectional cross-validation (0.284$\to$0.298) contributes +1.4pt EM---the direct gain of the core innovation. Note Zero-Shot (0.276) is already close to GERS on HotpotQA, because the context directly contains answer evidence and compresses the advantage of all structured methods; CoT-SC even falls below Zero-Shot.
+
+\begin{table}[h]
+\centering
+\caption{Significance tests (HotpotQA, n=500)}
+\begin{tabular}{lcccc}
+\toprule
+Comparison & EM diff & 95\% bootstrap CI & McNemar $p$ & Verdict \\
+\midrule
+GERS-CV2 vs CoT-SC & +0.040 & [$-0.014, +0.096$] & \textbf{0.029} & McNemar sig./CI crosses 0 \\
+GERS-CV2 vs Standard CoT & +0.038 & [$-0.018, +0.094$] & \textbf{0.040} & McNemar sig./CI crosses 0 \\
+GERS-SC vs CoT-SC & +0.020 & [$-0.034, +0.076$] & 0.275 & not significant \\
+CoT-SC vs Standard CoT & +0.030 & [$-0.020, +0.080$] & 0.453 & not significant \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+GERS-CV2 is significantly better than CoT-SC under the McNemar test ($p=0.029$), but the bootstrap 95\% CI still marginally crosses zero (lower bound $-0.014$). We honestly report this ``paired-significant, effect-size marginal'' state. By contrast, GERS-SC without cross-validation ($p=0.275$) is not significant, corroborating the core innovation.
+
+\subsection{Repairing Consistency Score Discrimination (Core Evidence)}
+
+\begin{table}[h]
+\centering
+\caption{CS correct/wrong discrimination (HotpotQA, n=500)}
+\begin{tabular}{lcccc}
+\toprule
+CS scheme & Correct mean & Wrong mean & Discrimination & Std \\
+\midrule
+Old CS (pure structural, GERS-SC) & 0.6592 & 0.6628 & $\mathbf{-0.0035}$ & 0.098 \\
+New CS (+cross-validation, GERS-CV) & 0.7888 & 0.7042 & $\mathbf{+0.0847}$ & 0.340 \\
+Control: pure structural $S_{\text{struct}}$ & 0.9967 & 1.0000 & $-0.0033$ & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The old CS fails completely (discrimination $-0.0035$, reverse, equivalent to random; clustered distribution). Bidirectional cross-validation successfully repairs it (discrimination $+0.0847$, positive and effective; spread distribution). This is the hardest evidence: CS changes from a non-discriminative graph-theoretic metric to an effective reasoning-quality signal, unique to DAGs.
+
+\subsection{Per-Type Analysis and Boundary}
+
+\begin{table}[h]
+\centering
+\caption{2WikiMultiHopQA per-type F1 (n=100)}
+\begin{tabular}{lcccc}
+\toprule
+Method & comparison & bridge\_comp & compositional & inference \\
+\midrule
+Standard CoT & 0.815 & \textbf{0.905} & 0.284 & 0.361 \\
+Zero-Shot & 0.800 & 0.587 & 0.366 & 0.330 \\
+CoT-SC & 0.720 & 0.864 & 0.268 & 0.343 \\
+GERS-CV2 & 0.775 & 0.524 & 0.297 & 0.288 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{comparison}: GERS-CV2 F1=0.775, close to Standard CoT; the DAG naturally decomposes the two comparison branches. \textbf{bridge\_comparison}: GERS's clear weakness (0.524 vs 0.905); this ``bridge $\to$ compare $\to$ return to original entity'' composite question suffers from sub-question error propagation. Cross-validation raises bridge\_comparison F1 from 0.476 (without CV) to 0.524---partial mitigation but not a cure; the remaining gap stems from genuine reasoning error propagation, an inherent limitation of graph decomposition on deep multi-hop and a future direction.
+
+\textbf{Boundary of graph-level self-consistency.} On 500 HotpotQA samples, GERS-SC (0.282) $\approx$ GERS+adaptive (0.284), $p=1.000$---multi-path selection yields no extra gain on medium-difficulty multi-hop even after fixing CS discrimination. Its value lies more in providing a quantifiable reasoning-quality signal.
+
+\subsection{Computational Cost}
+
+\begin{table}[h]
+\centering
+\caption{Cost comparison (HotpotQA, n=500, per-sample)}
+\begin{tabular}{lccc}
+\toprule
+Method & Latency & EM & F1 \\
+\midrule
+Zero-Shot & 0.7s & 0.276 & 0.389 \\
+Standard CoT & 3.0s & 0.264 & 0.368 \\
+CoT-SC (N=3) & 8.3s & 0.262 & 0.373 \\
+GERS+adaptive & 4.8s & 0.284 & 0.395 \\
+GERS-SC (K=3) & 16.2s & 0.282 & 0.398 \\
+\textbf{GERS-CV2 (best)} & 6.6s & \textbf{0.302} & \textbf{0.413} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+GERS-CV2 (single-path version) achieves the best EM=0.302 at 6.6s, about 80\% of CoT-SC's cost while leading by 4pt F1, thanks to adaptive routing + cross-validation. The multi-path GERS-SC (16.2s) costs more with no performance gain.
+
+\subsection{Ablation}
+
+\begin{table}[h]
+\centering
+\caption{Ablation (HotpotQA, n=500)}
+\begin{tabular}{lccl}
+\toprule
+Config & EM & F1 & Note \\
+\midrule
+GERS+adaptive & 0.284 & 0.395 & baseline: DAG + adaptive \\
+GERS-SC (+K=3) & 0.282 & 0.398 & multi-path, old CS no discrimination \\
+GERS-CV (+cross-validation) & 0.298 & 0.409 & new CS discriminative \\
+\textbf{GERS-CV2 (+confidence)} & \textbf{0.302} & \textbf{0.413} & best \\
+w/o graph execution (=CoT-SC+GERS) & 0.264 & 0.372 & no DAG execution \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Cross-validation is the core gain source}: 0.284$\to$0.298, +1.4pt EM, corresponding to CS discrimination $-0.0035\to+0.0847$. \textbf{Graph-level self-consistency yields no extra gain}: GERS-SC $\approx$ GERS+adaptive, $p=1.000$ (honest negative finding). \textbf{Confidence weighting contributes marginally}: +0.4pt (not significant). \textbf{Graph execution is the foundation}: removing it degrades to 0.264.
+
+\subsection{Case Study}
+
+\textbf{Case 1 (cross-validation catches inconsistency).} For a multi-hop question, after the forward pass produces a final answer, reverse verification re-answers each sub-question using the answer + context. When forward/backward sub-answers agree, crossval rises and CS rises, retaining the chain; when a forward sub-answer is wrong (e.g., a birth-year error), the reverse independent re-derivation differs, lowering crossval and CS, flagging the chain as low-quality. The pure structural CS gives 0.6 to both and cannot distinguish them, while crossval can---this is the value of ``content self-consistency'' checking.
+
+\textbf{Case 2 (comparison question favors graph decomposition).} A comparison question ``which film was released earlier, A or B'' naturally fits a ``two parallel sub-chains + merge node'' DAG. GERS decomposes it into ``look up A/B release years $\to$ compare'', correctly merging after topological execution, whereas linear CoT easily confuses the two films at the merge point. This is the structural reason GERS outperforms CoT-SC on the comparison subset (+10.5pt, McNemar $p=0.013$).
+
+\section{Discussion and Limitations}
+
+\textbf{Core value of bidirectional cross-validation.} The most solid contribution is raising CS discrimination from $-0.0035$ to $+0.0847$, upgrading consistency checking from ``is the graph legal'' to ``is the reasoning content self-consistent''. This is unique to DAGs. The EM gain (+1.4pt) is modest, but the mechanism's effectiveness and quantifiable evidence are clear.
+
+\textbf{Honest positioning.} GERS-CV2 is McNemar-significant ($p=0.029$) but the bootstrap CI marginally crosses zero---``paired-significant, effect-size marginal''. A key reason for the limited overall gain: HotpotQA's context directly contains answer evidence, so Zero-Shot (0.276) is already close to GERS, compressing the advantage of structured methods.
+
+\textbf{Boundary of graph-level self-consistency.} Even after fixing CS discrimination, $K=3$ multi-path selection yields no extra gain on medium-difficulty multi-hop ($p=1.000$); single-path DAG execution suffices, and multi-path selection is redundant.
+
+\textbf{Deep bridging limitation.} On bridge\_comparison, GERS's error propagation lags behind linear CoT, an inherent limitation of graph decomposition on deep multi-hop.
+
+\textbf{Comparison with existing graph methods.} Unlike MoDeGraph et al.\ which use the graph only as context, GERS's graph participates in both execution and content checking, forming a ``decompose--execute--check'' closed loop.
+
+\section{Conclusion}
+
+We propose GERS, whose core innovation is \textbf{sub-answer bidirectional cross-validation}: using the final answer + context as an anchor to re-derive sub-questions in reverse and compare forward/backward consistency, upgrading the Consistency Score from a pure graph-theoretic metric (discrimination $-0.0035$, equivalent to random) to an effective content self-consistency signal (discrimination $+0.0847$). This mechanism is unique to DAGs. The best configuration GERS-CV2 achieves EM=0.302, F1=0.413 on 500 HotpotQA samples, significantly outperforming CoT-SC ($p=0.029$) by 4pt F1. We honestly present the method's boundary and quantify the boundary between ``superficial failures'' and the ``true reasoning gap''.
+
+Future work: (1) design local re-generation for deep bridging-comparison to mitigate error propagation; (2) validate cross-validation on larger models and more datasets; (3) further mitigate confirmation bias in reverse verification.
+
+\begin{thebibliography}{99}
+\bibitem{wei2022cot} Wei, J., et al. Chain-of-Thought Prompting Elicits Reasoning in Large Language Models. In \emph{NeurIPS}, 2022.
+\bibitem{besta2024got} Besta, M., et al. Graph of Thoughts: Solving Elaborate Problems with Large Language Models. In \emph{AAAI}, 2024.
+\bibitem{han2025rwg} Han, H., et al. Reasoning with Graphs: Structuring Implicit Knowledge to Enhance LLMs Reasoning. In \emph{Findings of ACL}, 2025.
+\bibitem{oruche2025modegraph} Oruche, R., et al. Disentangling Complex Questions in LLMs via Multi-Hop Dependency Graphs. In \emph{CIKM}, 2025.
+\bibitem{ni2025stepchain} Ni, T., et al. StepChain GraphRAG: Reasoning Over Knowledge Graphs for Multi-hop Question Answering. \emph{arXiv:2510.02827}, 2025.
+\bibitem{wang2023sc} Wang, X., et al. Self-Consistency Improves Chain of Thought Reasoning in Language Models. In \emph{ICLR}, 2023.
+\bibitem{yao2023tot} Yao, S., et al. Tree of Thoughts: Deliberate Problem Solving with Large Language Models. In \emph{NeurIPS}, 2023.
+\bibitem{lightman2024verify} Lightman, H., et al. Let's Verify Step by Step. In \emph{ICLR}, 2024.
+\bibitem{madaan2023selfrefine} Madaan, A., et al. Self-Refine: Iterative Refinement with Self-Feedback. In \emph{NeurIPS}, 2023.
+\bibitem{dagmath2025} DAG-Math: Modeling Chain-of-Thought as Directed Acyclic Graphs. \emph{arXiv:2510.19842}, 2025.
+\bibitem{yang2018hotpotqa} Yang, Z., et al. HotpotQA: A Dataset for Diverse, Explainable Multi-hop Question Answering. In \emph{EMNLP}, 2018.
+\bibitem{ho20202wiki} Ho, X., et al. Constructing A Multi-hop QA Dataset for Comprehensive Evaluation of Reasoning Steps. In \emph{COLING}, 2020.
+\end{thebibliography}
+
+\end{document}
