@@ -70,10 +70,8 @@ GERS 的推理流程分为推理状态图表示、图约束链路生成、一致
 
 \begin{figure}[h]
 \centering
-\fbox{\parbox{0.85\textwidth}{\centering
-\textbf{图 1.} GERS 推理流程。\\[2pt]
-输入 $Q,C$ $\to$ ①分解 $\to$ ②构图DAG $\to$ ③拓扑排序 $\to$ ④逐步执行 $\to$ ⑤汇总(答案类型回扣) $\to$ ⑥一致性校验(双向交叉验证) $\to$ [GERS-SC: K条DAG选优] $\to$ 输出 $A,G,S$
-}}
+\includegraphics[width=0.85\textwidth]{figures/image1.png}
+\caption{GERS 推理框架。}
 \end{figure}
 
 \subsection{推理状态图表示}
@@ -99,6 +97,12 @@ S_{\text{struct}} = w_1 \cdot C_{\text{conn}} + w_2 \cdot C_{\text{cycle}} + w_3
 \textbf{结构层的局限。}实测发现，LLM 生成的分解图几乎都是合法连通无环 DAG，导致 $S_{\text{struct}}$ 高度聚集（500 条均值 0.662，标准差 0.098，对错区分度 $-0.0035$），完全无法区分推理好坏。
 
 \textbf{子答案双向交叉验证（核心创新）。}给定正向子答案 $\{a_i\}$ 与最终答案 $A$，以``最终答案 $A$ + 上下文 $C$''为锚反向逐个重答子问题，得反向子答案 $\{a'_i\}$，对比一致性：
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/image3.png}
+\caption{双向交叉验证机制示意图。}
+\end{figure}
 \begin{equation}
 S_{\text{crossval}} = \frac{\sum_{i=1}^{n} w_i \cdot \mathbb{1}[\text{match}(a_i, a'_i)]}{\sum_{i=1}^{n} w_i}
 \end{equation}
@@ -131,6 +135,12 @@ GERS-SC 生成 K 条不同推理 DAG（分解温度 $T \in \{0.3, 0.5, 0.7\}$）
 \textbf{模型与配置。}Qwen3-8B（DashScope API），多线程并行（4 worker），零失败。\textbf{评估指标：}EM、F1、Consistency Score。所有主结果报告 bootstrap 95\% CI（10000 次重采样）与配对 McNemar 检验。
 
 \subsection{主实验结果}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/image4.png}
+\caption{主实验结果对比（EM/F1）。}
+\end{figure}
 
 \begin{table}[h]
 \centering
@@ -172,6 +182,12 @@ GERS-CV2 在 McNemar 配对检验下显著优于 CoT-SC（$p=0.029$），但 boo
 
 \subsection{Consistency Score 区分度的修复（核心证据）}
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/image2.png}
+\caption{Consistency Score 区分度对比：旧 CS（纯结构）与新 CS（+双向交叉验证）。}
+\end{figure}
+
 \begin{table}[h]
 \centering
 \caption{Consistency Score 对错区分度（HotpotQA, n=500）}
@@ -189,6 +205,12 @@ CS 计算方式 & 答对 CS 均值 & 答错 CS 均值 & 区分度 & 分布 stdev
 旧 CS 完全失效：纯图论结构指标区分度为 $-0.0035$（反向，等价随机），分布高度聚集（stdev 0.098）。双向交叉验证成功修复：新 CS 区分度跃升至 $+0.0847$（正向有效信号），分布拉开（stdev 0.340）。这是本文最硬的贡献证据——CS 从``无区分的图论指标''变为``有效的推理质量信号''，且为 DAG 独有。
 
 \subsection{分题型分析与适用边界}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/image5.png}
+\caption{2WikiMultiHopQA 分题型 F1 对比。}
+\end{figure}
 
 \begin{table}[h]
 \centering

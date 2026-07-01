@@ -64,10 +64,8 @@ GERS has three modules: reasoning-state graph representation, graph-constrained 
 
 \begin{figure}[h]
 \centering
-\fbox{\parbox{0.85\textwidth}{\centering
-\textbf{Figure 1.} GERS reasoning flow.\\[2pt]
-Input $Q,C$ $\to$ ①decompose $\to$ ②build DAG $\to$ ③topological sort $\to$ ④execute $\to$ ⑤aggregate (answer-type alignment) $\to$ ⑥consistency check (bidirectional cross-validation) $\to$ [GERS-SC: select best of $K$ DAGs] $\to$ output $A,G,S$
-}}
+\includegraphics[width=0.85\textwidth]{figures/image1.png}
+\caption{GERS reasoning framework.}
 \end{figure}
 
 \subsection{Reasoning-State Graph Representation}
@@ -93,6 +91,12 @@ with $w_1=w_3=0.35, w_2=0.30$ for connectivity, acyclicity, and coverage, plus a
 \textbf{Limitation of the structural layer.} LLM-generated graphs are almost always legal connected acyclic DAGs, so $S_{\text{struct}}$ clusters (mean 0.662, std 0.098, discrimination $-0.0035$) and cannot distinguish reasoning quality.
 
 \textbf{Sub-answer bidirectional cross-validation (core).} Given forward sub-answers $\{a_i\}$ and final answer $A$, each sub-question is re-answered in reverse using ``final answer $A$ + context $C$'' as the anchor, yielding backward sub-answers $\{a'_i\}$; consistency is then:
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/image3.png}
+\caption{Bidirectional cross-validation mechanism.}
+\end{figure}
 \begin{equation}
 S_{\text{crossval}} = \frac{\sum_{i=1}^{n} w_i\cdot\mathbb{1}[\text{match}(a_i, a'_i)]}{\sum_{i=1}^{n} w_i}
 \end{equation}
@@ -126,6 +130,12 @@ GERS-SC generates $K$ DAGs (decomposition temperatures $T\in\{0.3,0.5,0.7\}$) an
 \textbf{Evaluation fairness.} To avoid evaluation-pipeline distortions, we unify three treatments: (1) fix the EM bidirectional-substring bug (which inflated numeric answers); (2) unified concise extraction/normalization for all methods; (3) answer-type alignment in GERS aggregation. This ensures all methods are compared on the same fair footing, so any GERS gain comes from the method itself.
 
 \subsection{Main Results}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/image4.png}
+\caption{Main experiment results (EM/F1 comparison).}
+\end{figure}
 
 \begin{table}[h]
 \centering
@@ -167,6 +177,12 @@ GERS-CV2 is significantly better than CoT-SC under the McNemar test ($p=0.029$),
 
 \subsection{Repairing Consistency Score Discrimination (Core Evidence)}
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/image2.png}
+\caption{Consistency Score discrimination: old CS (pure structural) vs.\ new CS (with cross-validation).}
+\end{figure}
+
 \begin{table}[h]
 \centering
 \caption{CS correct/wrong discrimination (HotpotQA, n=500)}
@@ -184,6 +200,12 @@ Control: pure structural $S_{\text{struct}}$ & 0.9967 & 1.0000 & $-0.0033$ & ---
 The old CS fails completely (discrimination $-0.0035$, reverse, equivalent to random; clustered distribution). Bidirectional cross-validation successfully repairs it (discrimination $+0.0847$, positive and effective; spread distribution). This is the hardest evidence: CS changes from a non-discriminative graph-theoretic metric to an effective reasoning-quality signal, unique to DAGs.
 
 \subsection{Per-Type Analysis and Boundary}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/image5.png}
+\caption{2WikiMultiHopQA per-type F1 comparison.}
+\end{figure}
 
 \begin{table}[h]
 \centering
