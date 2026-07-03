@@ -15,7 +15,7 @@
 
 \hypersetup{colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue}
 
-\title{\textbf{图约束推理链与子答案双向交叉验证：\\面向多跳推理的大模型方法}}
+\title{\textbf{基于子答案双向验证的图约束多跳推理方法}}
 \author{zhouduomu}
 \date{}
 
@@ -25,7 +25,7 @@
 % ===== 摘要 =====
 \begin{abstract}
 \noindent
-大语言模型在多跳推理任务上常出现错误累积问题。现有图结构增强方法将推理建模为 DAG，但其一致性校验多为纯图论结构指标，无法反映推理内容正确性，导致多路选优退化为随机抽取。本文提出 GERS，将推理显式建模为推理依赖图（DAG）并按拓扑序执行；核心创新是\textbf{子答案双向交叉验证}：以最终答案+上下文为锚，反向逐个重答子问题，对比正反向子答案一致性，将 Consistency Score 从``图是否合法''升级为``推理内容是否自洽''。在 HotpotQA 500 条上，该方法将对错区分度从 $-0.0035$ 修复到 $+0.0847$，最优配置 GERS-CV 取得 EM=0.302、F1=0.413，相比 CoT-SC 的 F1 领先 4pt，McNemar 配对检验显著（$p=0.029$）。本文诚实呈现方法的适用边界：图级多路自一致性在中等难度多跳上未带来额外增益，深度桥接复合题存在错误传播局限。
+现有图结构增强推理方法将推理建模为 DAG，但其一致性校验多为纯图论结构指标（连通性、无环性、覆盖度），无法反映推理内容正确性，导致 Consistency Score 几乎不具备对错区分能力，多路选优退化为随机抽取。本文提出 GERS，将推理显式建模为推理依赖图（DAG）并按拓扑序执行；核心创新是\textbf{子答案双向验证}：以最终答案与上下文为锚，反向逐个重答子问题，对比正反向子答案一致性，将 Consistency Score 从结构合法性指标升级为内容自洽信号。在 HotpotQA 500 条上，该方法将对错区分度从 $-0.0035$ 修复到 $+0.0847$；最优配置 GERS-CV2 取得 EM=0.302、F1=0.413，相比 CoT-SC 的 F1 领先 4pt，McNemar 配对检验显著（$p=0.029$），但 bootstrap 效应量区间仍微跨零。本文进一步在 2WikiMultiHopQA 上给出边界分析：方法适用于对比型分解，但在深桥接对比题上因上游实体错误传播而失效。
 \end{abstract}
 
 \noindent\textbf{关键词：} 大语言模型；多跳推理；思维链；图结构表征；双向交叉验证；一致性校验
@@ -44,12 +44,11 @@
 
 针对上述问题，本文提出 \textbf{GERS}（Graph-Enhanced Reasoning System），将推理显式建模为推理依赖图（DAG）并按拓扑序执行。我们发现，单纯用图论结构性质（连通性、无环性、覆盖度）计算 Consistency Score 是无效的——LLM 生成的分解图几乎都是合法 DAG，导致所有样本得分趋同（聚集在 0.6$\sim$0.7），多路选优退化为随机抽取（500 条实测对错区分度仅 $-0.0035$）。为此，本文提出核心创新\textbf{子答案双向交叉验证}：以最终答案 + 上下文为锚，反向逐个重答每个子问题，对比正向子答案与反向子答案的一致性，将 Consistency Score 从``图是否合法''升级为``推理内容是否自洽''。这一机制是 DAG 结构独有的能力——线性 CoT 没有可独立校验的子问题结构，无法实现双向校验。
 
-本文的主要贡献如下：
+本文不声称图约束推理在所有多跳任务上全面超越 CoT，而是指出图推理方法中一个被忽视的问题：图结构合法性并不等于推理内容正确性。贡献分三层：
 \begin{enumerate}[label=\arabic*.]
-\item \textbf{子答案双向交叉验证（核心创新）}：提出以``最终答案 + 上下文''反向重答子问题、对比正反向一致性的校验机制，将 Consistency Score 的对错区分度从 $-0.0035$ 修复到 $+0.0847$（500 条 HotpotQA 实测），使一致性校验从纯结构指标升级为有效的内容自洽信号。该机制为 DAG 独有，线性 CoT/ToT 无法实现。
-\item \textbf{性能验证}：最优配置 GERS-CV 在 HotpotQA 500 条上取得 EM=0.302、F1=0.413，相比 CoT-SC F1 领先 4pt，McNemar 配对检验显著（$p=0.029$）。同时诚实报告 bootstrap 95\% CI 仍微跨零，界定其为``配对显著但效应量临界''的状态。
-\item \textbf{诚实的适用边界}：系统分析发现，图级多路自一致性即便修复 CS 区分度后，在中等难度多跳上仍未带来额外增益；且在 2WikiMultiHopQA 深度桥接复合题上存在错误传播局限。
-\item \textbf{工程贡献}：通过 EM 指标 bug 修复、答案类型回扣、答案提取公平性三项改进，量化了方法``表面失败''与``真实推理差距''的边界。
+\item \textbf{机制贡献（核心）}：子答案双向验证将 Consistency Score 的对错区分度从 $-0.0035$ 修复到 $+0.0847$（500 条 HotpotQA），使一致性校验从结构指标升级为有效的内容自洽信号。该验证由显式 DAG 分解自然支持。
+\item \textbf{经验贡献}：最优配置 GERS-CV2 在 HotpotQA 500 条上取得 EM=0.302、F1=0.413，相比 CoT-SC 为配对显著提升（McNemar $p=0.029$，F1 +4pt），但 bootstrap 效应量区间仍微跨零，本文如实报告。
+\item \textbf{诊断贡献}：在 2WikiMultiHopQA 上给出边界分析，方法适用于对比型分解，但在深桥接对比题上因上游实体错误传播而失效；并报告图级多路自一致性即便修复 CS 区分度后仍无额外增益。
 \end{enumerate}
 
 % ===== 2 相关工作 =====
@@ -59,7 +58,7 @@
 
 \noindent\textbf{图结构增强推理。}GoT~\cite{besta2024got} 将推理建模为图，支持合并、蒸馏等操作，但侧重 Prompt 工程而非执行约束。RwG~\cite{han2025rwg} 通过 LLM 在上下文中构建实体关系图。MoDeGraph~\cite{oruche2025modegraph} 引导 LLM 构建多跳依赖图辅助多跳问答，但本质仍是 prompt 方法。StepChain~\cite{ni2025stepchain} 将问题分解与 BFS 推理流结合，但子问题是线性序列而非 DAG。与这些工作不同，GERS 将推理依赖图与执行流程深度耦合，并进一步用图结构质量作为多候选推理路径的选择信号。
 
-\noindent\textbf{推理验证与一致性校验。}Process Reward Models~\cite{lightman2024verify} 通过对中间步骤打分进行过程监督，但依赖大量标注数据。DAG-Math~\cite{dagmath2025} 将 CoT 建模为 DAG 上的随机过程。GERS 采用图论算法进行结构化校验，并在此基础上设计双向交叉验证，使校验结果直接影响最终答案。
+\noindent\textbf{推理验证与一致性校验。}Process Reward Models~\cite{lightman2024verify} 通过对中间步骤打分进行过程监督，但依赖大量标注数据。Self-Refine~\cite{madaan2023selfrefine} 通过自我反馈迭代修正答案，但作用于线性文本、无可验证的子问题结构。GERS 采用图论算法进行结构化校验，并在此基础上设计子答案双向验证，使校验结果直接影响最终答案。
 
 % ===== 3 方法 =====
 \section{方法}
@@ -106,7 +105,7 @@ S_{\text{struct}} = w_1 \cdot C_{\text{conn}} + w_2 \cdot C_{\text{cycle}} + w_3
 \begin{equation}
 S_{\text{crossval}} = \frac{\sum_{i=1}^{n} w_i \cdot \mathbb{1}[\text{match}(a_i, a'_i)]}{\sum_{i=1}^{n} w_i}
 \end{equation}
-其中 $w_i$ 为子问题权重（下游节点更高），$\text{match}$ 为分级语义匹配。反向重答 Prompt 显式要求``基于上下文独立重答，勿照抄最终答案''，缓解 confirmation bias。该机制为 DAG 独有——线性 CoT 无子问题结构可反向校验。
+其中权重 $w_i = 0.5 + 0.5\cdot(i+1)/n$ 使下游子问题（拓扑序靠后）权重更高，因其错误传播更远。$\text{match}$ 为三级启发式：(i) 归一化后精确匹配（小写、去标点、yes/no 与数值统一）返回 1；(ii) 包含关系或数值相等返回 1；(iii) 否则 0。可启用 LLM 判断（默认关闭以控成本）处理残余语义情形。反向重答 Prompt 显式要求``基于上下文独立重答，勿照抄最终答案''，缓解 confirmation bias。该验证由显式 DAG 分解（提供命名子问题单元与依赖边）自然支持，比应用于非结构化 CoT 文本更直接、更可解释。
 
 \textbf{新 Consistency Score。}
 \begin{equation}
@@ -202,7 +201,7 @@ CS 计算方式 & 答对 CS 均值 & 答错 CS 均值 & 区分度 & 分布 stdev
 \end{tabular}
 \end{table}
 
-旧 CS 完全失效：纯图论结构指标区分度为 $-0.0035$（反向，等价随机），分布高度聚集（stdev 0.098）。双向交叉验证成功修复：新 CS 区分度跃升至 $+0.0847$（正向有效信号），分布拉开（stdev 0.340）。这是本文最硬的贡献证据——CS 从``无区分的图论指标''变为``有效的推理质量信号''，且为 DAG 独有。
+旧 CS 几乎无区分能力：纯图论结构指标区分度为 $-0.0035$（反向），分布高度聚集（stdev 0.098）。双向验证成功修复：新 CS 区分度跃升至 $+0.0847$（正向有效），分布拉开（stdev 0.340）。这是直接经验证据——CS 从``无区分的图论指标''变为``有效的推理质量信号''，该验证由显式 DAG 分解自然支持（区分度在 GERS-CV 变体上测得，以 EM 判定对错）。
 
 \subsection{分题型分析与适用边界}
 
@@ -275,14 +274,29 @@ w/o 图执行（= CoT-SC+GERS 重排） & 0.264 & 0.372 & 无 DAG 执行 \\
 
 \textbf{双向交叉验证是核心增益来源}：GERS+自适应（0.284）$\to$ GERS-CV（0.298），+1.4pt EM，对应 CS 区分度从 $-0.0035$ 修复到 $+0.0847$。\textbf{图级自一致性无额外增益}：GERS-SC（0.282）$\approx$ GERS+自适应（0.284），$p=1.000$，重要诚实负面发现。\textbf{置信度加权贡献有限}：+0.4pt 不显著。\textbf{图执行是基础}：移除后退化为 0.264。
 
-\subsection{工程贡献：表面失败与真实推理差距}
+\subsection{案例分析}
 
-\begin{enumerate}[label=\arabic*.]
-\item \textbf{EM 指标 bug 修复}：原 \texttt{exact\_match} 双向子串匹配导致数值答案虚高（``18'' 匹配 ``180''），修复后 HotpotQA 旧 EM 虚高 20+pt。
-\item \textbf{答案提取公平性}：原 CoT 系基线 42\% 输出整句、8\% 空串，对称修复后基线 EM 回升，公平性达成。
-\item \textbf{答案类型回扣}：GERS 汇总输出中间实体，修复后 bridge\_comparison F1 从 0.238 提升至 0.476。
-\end{enumerate}
-这三项改进证明 GERS 的诸多``表面失败''多为可修的格式/提取问题，经修复后暴露的不可修差距（bridge\_comparison 错误传播）才是真实局限。
+用两个真实 HotpotQA 样本说明双向验证如何区分推理质量。
+
+\textbf{案例 A（自洽，正确）}。问题``Were Scott Derrickson and Ed Wood of the same nationality?''。正向分解为两个子问题（各导演国籍），均得``American''，推出正确答案``yes''。反向验证以``yes''+上下文为锚，独立重答两个子问题亦得``American''，与正向一致，crossval=1.0，推理链保留。
+
+\textbf{案例 B（不自洽，捕获幻觉）}。问题``Which director had the longest career, Alain Resnais or Scott Sidney?''（gold: Scott Sidney）。正向``自信''地算出出生/死亡年份（1922、2014、1902、1975）与职业生涯长度（92 vs 73 年），结论``Alain Resnais''——但这些数字\emph{上下文中根本不存在}（模型幻觉）。反向验证从上下文重答各子问题时，反复返回``上下文未提供该信息''，7 个子问题全部不一致，crossval 降至 0.0，暴露了无依据的推理。关键在于：旧结构 CS 仍为 0.7（DAG 合法连通无环），未能发现问题；而新 CS 反映了内容不自洽。
+
+\begin{table}[h]
+\centering
+\caption{真实案例：正向 vs.\ 反向子答案。}
+\small
+\begin{tabular}{p{2.2cm}p{3.2cm}p{3.2cm}p{1.3cm}p{1.1cm}p{1.1cm}}
+\toprule
+案例 & 正向 $a_i$（节选） & 反向 $a'_i$（节选） & Match & 旧CS & 新CS \\
+\midrule
+A：国籍 & American / American & American / American & \checkmark & 1.0 & 1.0 \\
+B：7个子问题 & 1922, 2014, 92yr, ... & ``上下文未提供''（全部） & $\times$ & 0.7 & 0.0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+对比是直接经验证据：推理有据时正反向一致（新 CS 高）；正向幻觉了上下文中不存在的事实时，反向验证检出不一致（新 CS 崩塌），而旧结构 CS 仍无反应。
 
 % ===== 5 讨论与局限 =====
 \section{讨论与局限}
@@ -315,7 +329,6 @@ w/o 图执行（= CoT-SC+GERS 重排） & 0.264 & 0.372 & 无 DAG 执行 \\
 \bibitem{yao2023tot} Yao, S., et al. Tree of Thoughts: Deliberate Problem Solving with Large Language Models. In \emph{NeurIPS}, 2023.
 \bibitem{lightman2024verify} Lightman, H., et al. Let's Verify Step by Step. In \emph{ICLR}, 2024.
 \bibitem{madaan2023selfrefine} Madaan, A., et al. Self-Refine: Iterative Refinement with Self-Feedback. In \emph{NeurIPS}, 2023.
-\bibitem{dagmath2025} DAG-Math: Modeling Chain-of-Thought as Directed Acyclic Graphs. \emph{arXiv:2510.19842}, 2025.
 \bibitem{yang2018hotpotqa} Yang, Z., et al. HotpotQA: A Dataset for Diverse, Explainable Multi-hop Question Answering. In \emph{EMNLP}, 2018.
 \bibitem{ho20202wiki} Ho, X., et al. Constructing A Multi-hop QA Dataset for Comprehensive Evaluation of Reasoning Steps. In \emph{COLING}, 2020.
 \end{thebibliography}
