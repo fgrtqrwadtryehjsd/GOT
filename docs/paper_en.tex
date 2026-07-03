@@ -310,11 +310,21 @@ B: 7 sub-questions & 1922, 2014, 92yr, ... & ``not in context'' (all) & $\times$
 
 The contrast is direct empirical evidence: when reasoning is grounded, forward and backward agree (New CS high); when the forward pass hallucinates facts absent from the context, backward verification detects the mismatch (New CS collapses) while the old structural CS stays inert.
 
+\subsection{Generalization and Additional Ablations}
+
+\textbf{Second model (generalization).} To check that the method is not specific to Qwen3-8B, we re-run on Qwen-Plus (a different, stronger model family) on 300 HotpotQA samples. GERS-CV2 (EM 0.363, F1 0.496) is on par with CoT-SC (EM 0.367, F1 0.494), diff $-0.004$, $p=1.000$. This indicates a generalization boundary: on a stronger base model, where Zero-Shot/CoT-SC already perform well, the structured method's advantage disappears. The gain is thus concentrated on medium-capability models where explicit decomposition matters.
+
+\textbf{Weight design (P2.3).} Replacing the downstream-weighted $w_i$ with uniform weights yields EM 0.300 / F1 0.411 (vs.\ 0.302 / 0.413), indistinguishable. The weighting design does not affect end performance; it is kept for interpretability.
+
+\textbf{Anchor ablation (P2.4).} A context-only backward verification (no final-answer anchor) achieves EM 0.300 / F1 0.414---matching the default---while the CS drops to 0.646 (vs.\ 0.777), showing the verification is stricter without the anchor and the performance does not rely on the final answer as an anchor.
+
+\textbf{2Wiki at larger scale (P2.1).} Extending 2WikiMultiHopQA to 300 samples confirms the boundary: GERS-CV2 EM 0.390 remains below Standard CoT 0.443, with the gap concentrated on bridge\_comparison. The larger sample makes the diagnostic boundary more reliable.
+
 \section{Discussion and Limitations}
 
 \textbf{Core value of bidirectional verification.} The main contribution is raising CS discrimination from $-0.0035$ to $+0.0847$, upgrading consistency checking from ``is the graph legal'' to ``is the reasoning content self-consistent''. This verification is naturally supported by explicit DAG decomposition. The EM gain (+1.4pt) is modest, but the mechanism's effectiveness and quantifiable evidence are clear.
 
-\textbf{Confirmation bias of reverse verification.} Anchoring backward re-derivation on the final answer $A$ can bias the model toward explanations consistent with $A$, risking spurious agreement. We mitigate this by instructing the model to derive from the context rather than copy $A$. We did not run a full ablation of anchor vs.\ context-only backward verification or adversarial-answer perturbation; this remains a limitation, and future work will use adversarial anchors or external verifiers to further reduce the bias.
+\textbf{Confirmation bias of reverse verification.} Anchoring backward re-derivation on the final answer $A$ can bias the model toward explanations consistent with $A$, risking spurious agreement. We mitigate this by instructing the model to derive from the context rather than copy $A$. We also ran a context-only control (Section~4.8) where backward verification uses no final answer: performance is unchanged (EM 0.300) while the CS drops to 0.646 (stricter), indicating the gain does not depend on the $A$-anchor and the bias is limited. Adversarial-answer perturbation remains future work.
 
 \textbf{Honest positioning.} GERS-CV2 is McNemar-significant ($p=0.029$) but the bootstrap CI marginally crosses zero---``paired-significant, effect-size marginal''. A key reason for the limited overall gain: HotpotQA's context directly contains answer evidence, so Zero-Shot (0.276) is already close to GERS, compressing the advantage of structured methods.
 

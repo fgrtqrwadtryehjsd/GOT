@@ -2,10 +2,10 @@
   "summary": {
     "method": "standard_cot",
     "dataset": "2wikimultihopqa",
-    "num_samples": 100,
-    "avg_em": 0.48,
-    "avg_f1": 0.5587,
-    "avg_latency": 2.0731,
+    "num_samples": 300,
+    "avg_em": 0.4433,
+    "avg_f1": 0.5205,
+    "avg_latency": 2.0171,
     "error_count": 0,
     "workers": 4
   },
@@ -1509,6 +1509,3006 @@
       "method": "standard_cot",
       "error": null,
       "reasoning_text": "The context provided contains information about several individuals named Juan Carlos, but none of them mention the death of a wife or her place of death. Therefore, the question cannot be answered based on the given context.\n\nFinal Answer: Not enough information"
+    },
+    {
+      "sample_id": 100,
+      "question": "Who is the father of the director of film Gramps Is In The Resistance?",
+      "prediction": "Unknown",
+      "reference": "Alain Poiré",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 301,
+        "latency": 3.807528018951416
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine who is the father of the director of the film \"Gramps Is In The Resistance,\" we need to follow these steps:\n\n1. Identify the director of the film \"Gramps Is In The Resistance.\"\n   - The film \"Gramps Is In The Resistance\" is known by its French title, \"Papy fait de la résistance.\"\n   - From the context, Roland Giraud is noted for his appearance in \"Papy fait de la résistance.\"\n\n2. Determine if Roland Giraud is the director of the film.\n   - The context states that Roland Giraud was an actor, not a director.\n\n3. Identify the director of \"Papy fait de la résistance.\"\n   - The context"
+    },
+    {
+      "sample_id": 101,
+      "question": "What is the place of birth of the performer of song Heaven (Namie Amuro Song)?",
+      "prediction": "Naha, Okinawa, Japan",
+      "reference": "Naha, Okinawa",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.8,
+        "token_count": 85,
+        "latency": 1.7331576347351074
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the place of birth of the performer of the song \"Heaven\" (Namie Amuro Song), we need to identify the performer and then find their place of birth.\n\n1. The song \"Heaven\" is associated with Namie Amuro.\n2. From the context provided, it is stated that Namie Amuro was born in Naha, Okinawa, Japan.\n\nFinal Answer: Naha, Okinawa, Japan"
+    },
+    {
+      "sample_id": 102,
+      "question": "What nationality is Philip Of Ibelin (1180–1227)'s mother?",
+      "prediction": "Byzantine",
+      "reference": "Byzantine",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 133,
+        "latency": 2.3529181480407715
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the nationality of Philip Of Ibelin (1180–1227)'s mother, we follow these steps:\n\n1. Identify Philip Of Ibelin's mother: According to the context, Philip of Ibelin (1180–1227) was the son of Balian of Ibelin and the dowager queen Maria Komnene.\n\n2. Identify Maria Komnene's nationality: Maria Komnene was the daughter of John Doukas Komnenos and Maria Taronitissa. She was a member of the Komnenos dynasty, which was Byzantine in origin.\n\n3. Conclusion: Maria Komnene was of Byzantine nationality.\n\nFinal Answer: Byzantine"
+    },
+    {
+      "sample_id": 103,
+      "question": "Who was born later, Joseph J. Magliocco or Viktoriya Zeynep Güneş?",
+      "prediction": "Joseph J. Magliocco",
+      "reference": "Viktoriya Zeynep Güneş",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 123,
+        "latency": 2.170862913131714
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine who was born later between Joseph J. Magliocco and Viktoriya Zeynep Güneş, we need to find their birth dates.\n\n- Joseph J. Magliocco was born on October 14, 1957.\n- The context provided does not include the birth date of Viktoriya Zeynep Güneş.\n\nSince the birth date of Viktoriya Zeynep Güneş is not given, we cannot definitively determine who was born later. However, based on the information available, Joseph J. Magliocco's birth date is known.\n\nFinal Answer: Joseph J. Magliocco"
+    },
+    {
+      "sample_id": 104,
+      "question": "When is the lead guitarist of List Of The Dillinger Escape Plan Band Members's birthday?",
+      "prediction": "August 8, 1975",
+      "reference": "August 8, 1975",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 31,
+        "latency": 0.7959794998168945
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "Ben Weinman is the lead guitarist of The Dillinger Escape Plan. His birthday is August 8, 1975.\n\nFinal Answer: August 8, 1975"
+    },
+    {
+      "sample_id": 105,
+      "question": "Where does Huma Abedin's husband work at?",
+      "prediction": "United States President",
+      "reference": "Chuck Schumer",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 34,
+        "latency": 0.6752340793609619
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "Huma Abedin's husband is Bill Clinton.  \nBill Clinton was the 42nd President of the United States.  \nFinal Answer: United States President"
+    },
+    {
+      "sample_id": 106,
+      "question": "Are the movies About A Wife, A Dream And Another... and The Doolins Of Oklahoma, from the same count",
+      "prediction": "no",
+      "reference": "no",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 201,
+        "latency": 2.4652528762817383
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine if the movies \"About A Wife, A Dream And Another...\" and \"The Doolins Of Oklahoma\" are from the same country, we need to analyze the context provided.\n\n1. \"The Doolins of Oklahoma\" is explicitly mentioned as a \"1949 American Western film,\" indicating it is from the United States.\n\n2. The movie \"About A Wife, A Dream And Another...\" is not directly mentioned in the context provided. However, since the context primarily discusses individuals and places related to Oklahoma, USA, and no information about the origin of the other movie is given, we cannot confirm its country of origin b"
+    },
+    {
+      "sample_id": 107,
+      "question": "Which film came out earlier, Out Of The Rain or Les Résultats Du Féminisme?",
+      "prediction": "Les Résultats Du Féminisme",
+      "reference": "Les Résultats Du Féminisme",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 45,
+        "latency": 1.1482510566711426
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "Out of the Rain came out in 1991, while Les Résultats Du Féminisme came out in 1906. Therefore, Les Résultats Du Féminisme came out earlier.\n\nFinal Answer: Les Résultats Du Féminisme"
+    },
+    {
+      "sample_id": 108,
+      "question": "Where did Giacomo Feo's wife die?",
+      "prediction": "Forlì",
+      "reference": "Florence",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 1,
+        "latency": 0.28876566886901855
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "Forlì"
+    },
+    {
+      "sample_id": 109,
+      "question": "What is the place of birth of the director of film Swedenhielms?",
+      "prediction": "Helsingfors",
+      "reference": "Helsingfors",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 102,
+        "latency": 1.596470594406128
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the place of birth of the director of the film *Swedenhielms*, we follow these steps:\n\n1. Identify the director of *Swedenhielms*: The film *Swedenhielms* was directed by Gustaf Molander.\n2. Find the place of birth of Gustaf Molander: According to the context, Gustaf Molander was born in Helsingfors (now Helsinki) in the Grand Duchy of Finland (in the Russian Empire).\n\nFinal Answer: Helsingfors"
+    },
+    {
+      "sample_id": 110,
+      "question": "Which country Jan Baptist Van Rensselaer's father is from?",
+      "prediction": "Netherlands",
+      "reference": "Dutch",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 35,
+        "latency": 0.7666115760803223
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "Jan Baptist van Rensselaer's father was Kiliaen van Rensselaer. Kiliaen van Rensselaer was from the Netherlands. \n\nFinal Answer: Netherlands"
+    },
+    {
+      "sample_id": 111,
+      "question": "Which film was released earlier, Sathyavan Savithri or Kids Of The Round Table?",
+      "prediction": "Sathyavan Savithri",
+      "reference": "Kids Of The Round Table",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 95,
+        "latency": 1.6722543239593506
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film was released earlier, we need to compare the release years of \"Sathyavan Savithri\" and \"Kids of the Round Table.\"\n\n1. \"Kids of the Round Table\" is a 1995 Canadian/American fantasy film.\n2. \"Sathyavan Savithri\" is a 1960 Indian Tamil-language film.\n\nSince 1960 is earlier than 1995, \"Sathyavan Savithri\" was released earlier.\n\nFinal Answer: Sathyavan Savithri"
+    },
+    {
+      "sample_id": 112,
+      "question": "Where did Gigi Causey's husband graduate from?",
+      "prediction": "Tisch School of the Arts of New York University",
+      "reference": "Tisch",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.2222222222222222,
+        "token_count": 111,
+        "latency": 1.58292818069458
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To answer the question \"Where did Gigi Causey's husband graduate from?\", we need to follow these steps:\n\n1. Identify Gigi Causey's husband: According to the context, Gigi Causey is married to filmmaker Andrew Bowler.\n2. Find information about Andrew Bowler's education: The context states that Andrew Bowler graduated from the Tisch School of the Arts of New York University in 1996.\n\nFinal Answer: Tisch School of the Arts of New York University"
+    },
+    {
+      "sample_id": 113,
+      "question": "What nationality is Geodeung Of Geumgwan Gaya's mother?",
+      "prediction": "Indian",
+      "reference": "India",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 132,
+        "latency": 2.4898576736450195
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the nationality of Geodeung Of Geumgwan Gaya's mother, we need to identify who she is and her origin.\n\n1. From the context, Geodeung of Geumgwan Gaya is referred to as the second king of Gaya confederacy.\n2. It is stated that he was the son of King Suro of Gaya and Suro's queen, Heo Hwang-ok.\n3. Therefore, Geodeung's mother is Heo Hwang-ok.\n4. The context also mentions that Heo Hwang-ok came over from India to Gaya confederacy.\n5. This indicates that Heo Hwang-ok was of Indian nationality.\n\nFinal Answer: Indian"
+    },
+    {
+      "sample_id": 114,
+      "question": "Which film was released earlier, Xenoa or Divorce Invitation?",
+      "prediction": "Xenoa",
+      "reference": "Xenoa",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 71,
+        "latency": 1.4075663089752197
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film was released earlier between \"Xenoa\" and \"Divorce Invitation,\" we need to look at their release years:\n\n- \"Xenoa\" was released in 2007.\n- \"Divorce Invitation\" was released in 2012.\n\nSince 2007 is earlier than 2012, \"Xenoa\" was released first.\n\nFinal Answer: Xenoa"
+    },
+    {
+      "sample_id": 115,
+      "question": "What is the cause of death of Alex Matthiessen's father?",
+      "prediction": "Not enough information",
+      "reference": "leukemia",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 51,
+        "latency": 0.7926301956176758
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "The context provided does not mention Alex Matthiessen or the cause of death of his father. Therefore, the question cannot be answered based on the given information.\n\nFinal Answer: Not enough information"
+    },
+    {
+      "sample_id": 116,
+      "question": "What is the place of birth of Remigius Of Rouen's father?",
+      "prediction": "Not specified in the context",
+      "reference": "Herstal",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 188,
+        "latency": 2.4268879890441895
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the place of birth of Remigius of Rouen's father, we need to identify who that father is. According to the context, Remigius of Rouen was the illegitimate son of Charles Martel and probably Ruodhaid. Therefore, the father in question is Charles Martel.\n\nNext, we need to find the place of birth of Charles Martel. The context states that Charles Martel was a Frankish statesman and military leader, and it mentions that he was a son of Pepin of Herstal and Alpaida. However, it does not explicitly state Charles Martel's place of birth. \n\nGiven the lack of explicit information about Cha"
+    },
+    {
+      "sample_id": 117,
+      "question": "When did Lord Patrick Crichton-Stuart's father die?",
+      "prediction": "January 1794",
+      "reference": "22 January 1794",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.8,
+        "token_count": 102,
+        "latency": 1.5414059162139893
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "Step 1: Identify the person in question. The question is about Lord Patrick Crichton-Stuart's father.\n\nStep 2: Find information about Lord Patrick Crichton-Stuart's father. According to the context, Lord Patrick Crichton-Stuart's father was John Stuart, Lord Mount Stuart.\n\nStep 3: Determine when John Stuart, Lord Mount Stuart died. The context states that he died in January 1794.\n\nFinal Answer: January 1794"
+    },
+    {
+      "sample_id": 118,
+      "question": "Which film has the director who was born earlier, It'S A Joke, Son! or The Thirty Nine Steps (1978 F",
+      "prediction": "Cannot be determined from the provided context",
+      "reference": "It'S A Joke, Son!",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 200,
+        "latency": 3.177262544631958
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film has the director who was born earlier, we need to identify the directors of both films and compare their birth dates.\n\n1. **It's a Joke, Son!** (1947) is directed by **Benjamin Stoloff**. However, the context does not provide Benjamin Stoloff's birth date.\n\n2. **The Thirty Nine Steps** (1978) is mentioned in the context with Prentis Hancock as one of the cast members, but it does not provide the director's name or birth date. However, it is known that **The Thirty Nine Steps** (1978) was directed by **Clive Donner**.\n\nSince the context does not provide the birth dates o"
+    },
+    {
+      "sample_id": 119,
+      "question": "Are both directors of films The Slayer (Film) and Moscow Heat from the same country?",
+      "prediction": "no",
+      "reference": "yes",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 182,
+        "latency": 2.9517107009887695
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine if both directors of the films *The Slayer* (Film) and *Moscow Heat* are from the same country, we need to identify the directors of each film and their countries of origin.\n\n1. **Director of *The Slayer* (Film):** The film *The Slayer*, also known as *Nightmare Island*, is a 1982 American horror film directed by J. S. Cardone. Therefore, J. S. Cardone is an American director.\n\n2. **Director of *Moscow Heat*:** *Moscow Heat* is a 2004 Russian action film directed by Jeff Celentano. Therefore, Jeff Celentano is a Russian director.\n\nNow, comparing the countries of origin of the two "
+    },
+    {
+      "sample_id": 120,
+      "question": "Which school was established first, Whitehorse Manor Junior School or Sabawoon Rehabilitation Centre",
+      "prediction": "Cannot be determined",
+      "reference": "Sabawoon Rehabilitation Centre",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 130,
+        "latency": 1.4657878875732422
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which school was established first, we need to compare the establishment dates of Whitehorse Manor Junior School and Sabawoon Rehabilitation Centre.\n\n1. The context provided does not mention the establishment date of Sabawoon Rehabilitation Centre.\n2. The context provides information about Whitehorse Manor Junior School, but it does not include its establishment date.\n3. Therefore, based on the given information, we cannot determine which school was established first.\n\nFinal Answer: Cannot be determined"
+    },
+    {
+      "sample_id": 121,
+      "question": "Are Little Sachigo Lake and Holden Lake located in the same country?",
+      "prediction": "yes",
+      "reference": "yes",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 88,
+        "latency": 1.1833233833312988
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine if Little Sachigo Lake and Holden Lake are located in the same country, we need to examine their locations:\n\n1. **Little Sachigo Lake** is located in Unorganized Kenora District in Northwestern Ontario, Canada.\n2. **Holden Lake** is a lake of Ontario, Canada.\n\nBoth lakes are located in the Canadian province of Ontario.\n\nFinal Answer: yes"
+    },
+    {
+      "sample_id": 122,
+      "question": "Who is Henriette Of France (1727–1752)'s maternal grandfather?",
+      "prediction": "King Stanisław Leszczyński",
+      "reference": "Stanisław Leszczyński",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.8,
+        "token_count": 127,
+        "latency": 1.8710289001464844
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine Henriette of France (1727–1752)'s maternal grandfather, we start by identifying her parents.\n\nHenriette of France was the daughter of King Louis XV of France and Marie Leszczyńska. \n\nNext, we identify Marie Leszczyńska's parents. She was the daughter of King Stanisław Leszczyński of Poland (later Duke of Lorraine) and Catherine Opalińska.\n\nTherefore, Marie Leszczyńska's father, King Stanisław Leszczyński, was Henriette of France's maternal grandfather.\n\nFinal Answer: King Stanisław Leszczyński"
+    },
+    {
+      "sample_id": 123,
+      "question": "Which film has the director born first, Leave It To Henry or The Last Night Of Scheherazade?",
+      "prediction": "Leave It To Henry",
+      "reference": "Leave It To Henry",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 147,
+        "latency": 2.608008623123169
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film has the director born first, we need to identify the birth years of the directors of \"Leave It To Henry\" and \"The Last Night Of Scheherazade.\"\n\n1. **Director of \"Leave It To Henry\":** Jean Yarbrough\n   - Jean Yarbrough was born on September 29, 1897.\n\n2. **Director of \"The Last Night Of Scheherazade\":** Takhir Sabirov\n   - Takhir Sabirov was born on December 21, 1929.\n\nComparing the birth years:\n- Jean Yarbrough was born in 1897.\n- Takhir Sabirov was born in 1929.\n\nSince 1897 is earlier than 1929, Jean Yarbrough was born first.\n\nFinal Answer: Leave It To Henry"
+    },
+    {
+      "sample_id": 124,
+      "question": "What is the date of death of Gero Ii, Margrave Of The Saxon Ostmark's father?",
+      "prediction": "950",
+      "reference": "3 August 979",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 164,
+        "latency": 3.0420310497283936
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the date of death of Gero II, Margrave of the Saxon Ostmark's father, we need to identify who Gero II's father was and then find his date of death.\n\n1. From the context, it is mentioned that Count Christian, a Saxon count in the Nordthüringgau and Schwabengau of Eastphalia, married Hidda, a sister of Gero, margrave of the vast \"marca Geronis.\"\n\n2. This implies that Gero was the brother of Hidda, and therefore, Gero was the son of Count Christian and Hidda.\n\n3. The question asks for the date of death of Gero II's father, which would be Count Christian.\n\n4. From the context, Count C"
+    },
+    {
+      "sample_id": 125,
+      "question": "Are Tomskoye, Amur Oblast and Pleshkovo located in the same country?",
+      "prediction": "yes",
+      "reference": "yes",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 108,
+        "latency": 1.8770008087158203
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine if Tomskoye, Amur Oblast and Pleshkovo are located in the same country, we analyze their locations:\n\n1. **Tomskoye, Amur Oblast**: This is a rural locality (selo) in Seryshevsky District, Amur Oblast, Russia.\n2. **Pleshkovo**: This is a rural locality (selo) in Pleshkovsky Selsoviet, Zonalny District, Altai Krai, Russia.\n\nBoth locations are in Russia. Therefore, they are located in the same country.\n\nFinal Answer: yes"
+    },
+    {
+      "sample_id": 126,
+      "question": "Which film came out earlier, I Am Breathing or Ulti Ganga?",
+      "prediction": "Ulti Ganga",
+      "reference": "Ulti Ganga",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 144,
+        "latency": 2.3136422634124756
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film came out earlier, \"I Am Breathing\" or \"Ulti Ganga,\" we need to compare their release years.\n\n- \"Ulti Ganga\" was released in 1942.\n- The context does not provide the release year of \"I Am Breathing,\" but since it is referenced in the same context as other films from different decades (e.g., 1939, 1952, 1975, 2017), and no specific year is given for \"I Am Breathing,\" we can infer that it likely came out after \"Ulti Ganga\" based on the chronological order of the other films mentioned.\n\nTherefore, \"Ulti Ganga\" came out earlier.\n\nFinal Answer: Ulti Ganga"
+    },
+    {
+      "sample_id": 127,
+      "question": "Who was born later, Levon Julfalakyan or Charlotte Spurkeland?",
+      "prediction": "Cannot be determined",
+      "reference": "Charlotte Spurkeland",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 60,
+        "latency": 1.0153989791870117
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "Charlotte Spurkeland was born on 12 August 1987. Levon Julfalakyan's birth date is not provided in the context. Therefore, it is not possible to determine who was born later based on the given information.\n\nFinal Answer: Cannot be determined"
+    },
+    {
+      "sample_id": 128,
+      "question": "Who is the father of the director of film Red 2 (Film)?",
+      "prediction": "Aldo Parisot",
+      "reference": "Aldo Parisot",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 27,
+        "latency": 0.8231978416442871
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "Dean Parisot is the director of \"Red 2\". Dean Parisot's father is Aldo Parisot. \n\nFinal Answer: Aldo Parisot"
+    },
+    {
+      "sample_id": 129,
+      "question": "When was the company that published American Scientist founded?",
+      "prediction": "1886",
+      "reference": "1886",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 116,
+        "latency": 1.444261074066162
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine when the company that published American Scientist was founded, we need to identify the publisher of American Scientist. According to the context, American Scientist is published by Sigma Xi, The Scientific Research Society.\n\nNext, we need to find out when Sigma Xi was founded. The context states that Sigma Xi was founded in 1886 at Cornell University.\n\nTherefore, the company that published American Scientist was founded in 1886.\n\nFinal Answer: 1886"
+    },
+    {
+      "sample_id": 130,
+      "question": "What is the place of birth of Jo Planckaert's father?",
+      "prediction": "Nevele",
+      "reference": "Nevele",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 80,
+        "latency": 1.477116584777832
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the place of birth of Jo Planckaert's father, we follow these steps:\n\n1. Identify Jo Planckaert's father: According to the context, Jo Planckaert is the son of Willy Planckaert.\n2. Find the place of birth of Willy Planckaert: The context states that Willy Planckaert was born in Nevele.\n\nFinal Answer: Nevele"
+    },
+    {
+      "sample_id": 131,
+      "question": "What is the place of birth of Gwilym Lloyd George's father?",
+      "prediction": "Not enough information",
+      "reference": "Manchester",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 151,
+        "latency": 2.010568380355835
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the place of birth of Gwilym Lloyd George's father, we need to identify who Gwilym Lloyd George is. However, based on the context provided, there is no direct mention of Gwilym Lloyd George. The context refers to David Lloyd George and Owen Lloyd George, both of whom are related through lineage.\n\nGiven that the question is about Gwilym Lloyd George's father, and there is no information in the context about Gwilym Lloyd George or his father, it is not possible to determine the place of birth of Gwilym Lloyd George's father from the given information.\n\nFinal Answer: Not enough infor"
+    },
+    {
+      "sample_id": 132,
+      "question": "What is the place of birth of James Douglas, 3Rd Earl Of Angus's father?",
+      "prediction": "Douglas Castle, Douglas, South Lanarkshire",
+      "reference": "Tantallon Castle",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3333333333333333,
+        "token_count": 287,
+        "latency": 4.02864408493042
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the place of birth of James Douglas, 3rd Earl of Angus's father, we need to identify who that father is and then find his place of birth.\n\n1. From the context, James Douglas, 3rd Earl of Angus is mentioned as a son of James Douglas, 2nd Marquess of Douglas and Lady Barbara Erskine.\n2. Therefore, the father of James Douglas, 3rd Earl of Angus is James Douglas, 2nd Marquess of Douglas.\n3. The context does not directly mention the place of birth of James Douglas, 2nd Marquess of Douglas.\n4. However, the context provides information about James Douglas, Earl of Angus (born in 1671), w"
+    },
+    {
+      "sample_id": 133,
+      "question": "What nationality is the director of film They Call It Love?",
+      "prediction": "Austrian",
+      "reference": "American",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 102,
+        "latency": 1.626173973083496
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the nationality of the director of the film *They Call It Love*, we follow these steps:\n\n1. Identify the film: *They Call It Love* is a 1953 West German comedy film.\n2. Identify the director: The film was directed by John Reinhardt.\n3. Determine John Reinhardt's nationality: According to the context, John Reinhardt was an Austrian actor, screenwriter, and film director.\n\nFinal Answer: Austrian"
+    },
+    {
+      "sample_id": 134,
+      "question": "What is the place of birth of Zhanna Nemtsova's father?",
+      "prediction": "unknown",
+      "reference": "Sochi",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 207,
+        "latency": 3.0146167278289795
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the place of birth of Zhanna Nemtsov's father, we need to identify who Zhanna Nemtsov's father is. From the context provided, it is clear that Zhanna Nemtsov is the daughter of Boris Nemtsov.\n\nNext, we need to find the place of birth of Boris Nemtsov. The context states: \"Boris Yefimovich Nemtsov (9 October 1959–27 February 2015) was a Russian physicist and liberal politician.\" This information does not explicitly mention his place of birth.\n\nHowever, the context also mentions that Nemtsov was the first governor of the Nizhny Novgorod Oblast (1991–97). While this indicates he had "
+    },
+    {
+      "sample_id": 135,
+      "question": "Which film has the director born earlier, Santa Fe Uprising or Trainer And Temptress?",
+      "prediction": "Trainer And Temptress",
+      "reference": "Trainer And Temptress",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 168,
+        "latency": 2.8482861518859863
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film has the director born earlier, we need to compare the birth years of the directors of \"Santa Fe Uprising\" and \"Trainer And Temptress.\"\n\n1. **Santa Fe Uprising**:\n   - Directed by **R. G. Springsteen**.\n   - R. G. Springsteen was born on **September 8, 1904**.\n\n2. **Trainer And Temptress**:\n   - Directed by **Walter West**.\n   - Walter West was born on **November 9, 1885**.\n\nComparing the birth years:\n- Walter West was born in **1885**.\n- R. G. Springsteen was born in **1904**.\n\nSince **Walter West was born earlier**, the film directed by Walter West (\"Trainer And Temptr"
+    },
+    {
+      "sample_id": 136,
+      "question": "Which film has the director who was born earlier, Adam'S Rib or Thendral Veesum?",
+      "prediction": "Adam'S Rib",
+      "reference": "Adam'S Rib",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 224,
+        "latency": 3.2396328449249268
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film has the director who was born earlier, we need to compare the birth years of the directors of \"Adam's Rib\" and \"Thendral Veesum.\"\n\n1. **Director of \"Adam's Rib\":** George Cukor was born on July 7, 1899.\n2. **Director of \"Thendral Veesum\":** The context does not provide information about the director of \"Thendral Veesum.\" However, based on the given context, it appears that the director is Abhishek Saxena, who is an Indian film director. There is no specific birth year provided for Abhishek Saxena in the context.\n\nSince we do not have the birth year of the director of \"T"
+    },
+    {
+      "sample_id": 137,
+      "question": "Which country the composer of film Continental, A Film Without Guns is from?",
+      "prediction": "Unknown",
+      "reference": "French",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 261,
+        "latency": 3.1806554794311523
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the country of the composer of the film \"Continental, A Film Without Guns,\" we need to follow these steps:\n\n1. Identify the film: \"Continental, A Film Without Guns\" is a 2007 Canadian comedy-drama film.\n2. Identify the director and writer of the film: The film was directed and written by Stéphane Lafleur.\n3. Determine if Stéphane Lafleur is the composer: The context does not mention Stéphane Lafleur as a composer.\n4. Identify the winner of the Jutra Award for \"Continental, A Film Without Guns\": Réal Bossé won the award as Best Performance by an Actor in a Supporting Role.\n5. Ident"
+    },
+    {
+      "sample_id": 138,
+      "question": "Where was the director of film Age-Old Friends born?",
+      "prediction": "Winnipeg, Manitoba",
+      "reference": "Winnipeg, Manitoba",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 132,
+        "latency": 1.8595266342163086
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine where the director of the film *Age-Old Friends* was born, we first identify the director from the context. The context states that *Age-Old Friends* is a 1989 television drama film directed by Allan Kroeker.\n\nNext, we locate information about Allan Kroeker's birthplace. The context provides: \"Allan Kroeker (born February 29, 1960 in Winnipeg, Manitoba) is a Canadian film and television director...\"\n\nFrom this, we can conclude that Allan Kroeker was born in Winnipeg, Manitoba.\n\nFinal Answer: Winnipeg, Manitoba"
+    },
+    {
+      "sample_id": 139,
+      "question": "Which one was established first, Noerr or Korn Ferry?",
+      "prediction": "Noerr",
+      "reference": "Noerr",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 129,
+        "latency": 1.9229111671447754
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which entity was established first, Noerr or Korn Ferry, we need to consider the information provided:\n\n1. **Korn Ferry** is described as a management consulting firm that was founded in 1969.\n\n2. **Noerr** is not explicitly mentioned in the context provided. However, based on general knowledge, Noerr & Peck is a law firm that was established in 1947.\n\nGiven this information:\n\n- Korn Ferry was founded in 1969.\n- Noerr was founded in 1947.\n\nTherefore, Noerr was established first.\n\nFinal Answer: Noerr"
+    },
+    {
+      "sample_id": 140,
+      "question": "Where was the father of Eleonora Di Garzia Di Toledo born?",
+      "prediction": "Florence",
+      "reference": "Villafranca del Bierzo",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 98,
+        "latency": 1.5836982727050781
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine where the father of Eleonora Di Garzia Di Toledo was born, we need to identify who her father was. According to the context, Eleonora Di Garzia Di Toledo was married to Pietro de' Medici. Pietro de' Medici's father was Cosimo I de' Medici. Cosimo I de' Medici was born in Florence. Therefore, the father of Eleonora Di Garzia Di Toledo was born in Florence.\n\nFinal Answer: Florence"
+    },
+    {
+      "sample_id": 141,
+      "question": "What is the award that the director of film The Last Night Of The Barbary Coast got?",
+      "prediction": "Academy Award",
+      "reference": "Jean Hersholt Humanitarian Award",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3333333333333333,
+        "token_count": 64,
+        "latency": 1.0088186264038086
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "The director of the film *The Last Night of the Barbary Coast* is Hal Mohr. The context states that Hal Mohr \"later an Academy Award winner, did the cinematography.\" Therefore, the award that Hal Mohr received is an Academy Award.\n\nFinal Answer: Academy Award"
+    },
+    {
+      "sample_id": 142,
+      "question": "Who is Prince Nicolas, Duke Of Ångermanland's mother?",
+      "prediction": "Princess Madeleine",
+      "reference": "Princess Madeleine, Duchess of Hälsingland and Gästrikland",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4444444444444445,
+        "token_count": 84,
+        "latency": 1.2355375289916992
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine who Prince Nicolas, Duke of Ångermanland's mother is, we can follow these steps:\n\n1. Identify Prince Nicolas, Duke of Ångermanland: He is the second child and only son of Princess Madeleine and Christopher O'Neill.\n2. From this information, it is clear that his mother is Princess Madeleine.\n\nFinal Answer: Princess Madeleine"
+    },
+    {
+      "sample_id": 143,
+      "question": "Who is the paternal grandmother of Princess Augusta Of Waldeck-Pyrmont?",
+      "prediction": "Countess Anna Elisabeth of Rappoltstein",
+      "reference": "Princess Augusta of Schwarzburg-Sondershausen",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.22222222222222224,
+        "token_count": 356,
+        "latency": 4.988562107086182
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the paternal grandmother of Princess Augusta of Waldeck-Pyrmont, we need to establish her lineage.\n\n1. First, identify who Princess Augusta of Waldeck-Pyrmont is. However, she is not explicitly mentioned in the context provided.\n2. The context includes several members of the House of Waldeck and Pyrmont, including:\n   - Friedrich Anton Ulrich, Prince of Waldeck and Pyrmont (1676–1728)\n   - Karl August, Prince of Waldeck and Pyrmont (father of Princess Caroline of Waldeck and Pyrmont)\n   - Friedrich, Prince of Waldeck and Pyrmont (father of Princess Helena of Waldeck and Pyrmont)\n "
+    },
+    {
+      "sample_id": 144,
+      "question": "Where does the director of film The Marquise Of O (Film) work at?",
+      "prediction": "Unknown",
+      "reference": "Cahiers du cinéma",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 159,
+        "latency": 2.161482572555542
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to identify who the director of the film *The Marquise of O (Film)* is and then determine where that person works.\n\n1. From the context provided, there is no direct mention of the director of *The Marquise of O (Film)*.\n2. The context includes information about several individuals, such as María Vinyals, Mariana Carcelén, Éric Rohmer, and others, but none of them are explicitly linked to directing *The Marquise of O (Film)*.\n3. Without specific information about the director of *The Marquise of O (Film)* or their place of work, it is not possible to provide a de"
+    },
+    {
+      "sample_id": 145,
+      "question": "Which film whose director is younger, Joe Palooka In Fighting Mad or Figaro-Ci, Figaro-Là?",
+      "prediction": "Figaro-Ci, Figaro-Là",
+      "reference": "Figaro-Ci, Figaro-Là",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 133,
+        "latency": 2.557102918624878
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film has a younger director, we need to compare the birth years of the directors of the two films:\n\n1. **Figaro-Ci, Figaro-Là (1972)**: Directed by Hervé Bromberger, born on 11 November 1918.\n2. **Joe Palooka in Fighting Mad (1947)**: Directed by Reginald Le Borg, born on 11 December 1902.\n\nComparing their birth years:\n- Hervé Bromberger was born in 1918.\n- Reginald Le Borg was born in 1902.\n\nSince 1918 is later than 1902, Hervé Bromberger is younger than Reginald Le Borg.\n\nFinal Answer: Figaro-Ci, Figaro-Là"
+    },
+    {
+      "sample_id": 146,
+      "question": "Which film was released first, Ekam – Son Of Soil or Farber'S Nerve?",
+      "prediction": "Ekam – Son Of Soil",
+      "reference": "Farber'S Nerve",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 138,
+        "latency": 2.251565933227539
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film was released first, \"Ekam – Son Of Soil\" or \"Farber'S Nerve,\" we need to check the release dates of both films.\n\n1. \"Ekam – Son Of Soil\" was released in 2010.\n2. The context provided does not mention the release date of \"Farber'S Nerve.\" Therefore, we cannot determine its release date from the given information.\n\nSince we only have the release date for \"Ekam – Son Of Soil\" and not for \"Farber'S Nerve,\" we cannot definitively say which film was released first based on the provided information.\n\nFinal Answer: Ekam – Son Of Soil"
+    },
+    {
+      "sample_id": 147,
+      "question": "Which country Mohammed Al-Modiahki's wife is from?",
+      "prediction": "ntify the person in question: Mohammed Al-Modiahki",
+      "reference": "China",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 70,
+        "latency": 1.28663969039917
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "Zhu Chen\n\nStep-by-step:\n1. Identify the person in question: Mohammed Al-Modiahki.\n2. Determine his spouse: In 2001, he married Zhu Chen.\n3. Identify Zhu Chen's country: Zhu Chen is a Qatari chess Grandmaster.\n4. Conclusion: The country Mohammed Al-Modiahki's wife is from is Qatar."
+    },
+    {
+      "sample_id": 148,
+      "question": "Do both films: Gammat Jammat and Ready (2011 Film) have the directors from the same country?",
+      "prediction": "yes",
+      "reference": "yes",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 116,
+        "latency": 1.9845998287200928
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine if both films \"Gammat Jammat\" and \"Ready (2011 Film)\" have directors from the same country, we need to identify the countries of origin for each film's director.\n\n1. **\"Ready (2011 Film)\":** The director is Anees Bazmee. He is an Indian filmmaker.\n2. **\"Gammat Jammat\":** The director is Sachin. This is a Marathi film, and Marathi cinema is part of Indian cinema, so Sachin is also an Indian filmmaker.\n\nBoth directors are from India.\n\nFinal Answer: yes"
+    },
+    {
+      "sample_id": 149,
+      "question": "Who is Philip Of Sicily's father?",
+      "prediction": "King Charles I of Sicily",
+      "reference": "Charles I of Naples",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.6666666666666665,
+        "token_count": 99,
+        "latency": 1.7443747520446777
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine who Philip of Sicily's father is, we refer to the provided context:\n\n- [Philip of Sicily] states: \"Philip (born 1255/56, died 1277), of the Capetian House of Anjou, was the second son of King Charles I of Sicily and Countess Beatrice of Provence.\"\n\nFrom this, we can directly identify that Philip of Sicily's father is King Charles I of Sicily.\n\nFinal Answer: King Charles I of Sicily"
+    },
+    {
+      "sample_id": 150,
+      "question": "Who was born later, Gideon Johnson Pillow or Holm Jølsen?",
+      "prediction": "Holm Jølsen (birth date unknown)",
+      "reference": "Holm Jølsen",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5714285714285715,
+        "token_count": 129,
+        "latency": 1.9386026859283447
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine who was born later between Gideon Johnson Pillow and Holm Jølsen, we need to compare their birth dates.\n\n1. Gideon Johnson Pillow was born on June 8, 1806.\n2. The context provided does not include the birth date of Holm Jølsen. Therefore, we cannot definitively determine who was born later without additional information about Holm Jølsen's birth date.\n\nSince the birth date of Holm Jølsen is not provided, we cannot conclusively answer who was born later.\n\nFinal Answer: Holm Jølsen (birth date unknown)"
+    },
+    {
+      "sample_id": 151,
+      "question": "Which film has the director who died first, The Crime Doctor'S Courage or Vasantha Sena (1967 Film)?",
+      "prediction": "The Crime Doctor's Courage",
+      "reference": "The Crime Doctor'S Courage",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 169,
+        "latency": 2.762932300567627
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film has the director who died first, we need to identify the directors of each film and their dates of death.\n\n1. **The Crime Doctor's Courage**: This film is part of the Crime Doctor series. The director of these films was **William Castle**. William Castle died on **April 23, 1971**.\n\n2. **Vasantha Sena (1967 Film)**: This film was directed by **B. S. Ranga**. B. S. Ranga died on **December 12, 2010**.\n\nComparing the dates of death:\n- William Castle died in **1971**.\n- B. S. Ranga died in **2010**.\n\nSince William Castle died first, the film with the director who died firs"
+    },
+    {
+      "sample_id": 152,
+      "question": "Where did the director of film My Heidelberg, I Can Not Forget You die?",
+      "prediction": "Argentina",
+      "reference": "Argentina",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 140,
+        "latency": 2.0317416191101074
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine where the director of the film *My Heidelberg, I Can Not Forget You* died, we follow these steps:\n\n1. Identify the director of the film *My Heidelberg, I Can Not Forget You*:\n   - According to the context, the film was directed by James Bauer.\n\n2. Find information about James Bauer's death:\n   - The context states that James Bauer (1884–1940) was a German film director who emigrated to Argentina after the Nazi takeover and died there in 1940.\n\n3. Conclude the location of his death:\n   - James Bauer died in Argentina.\n\nFinal Answer: Argentina"
+    },
+    {
+      "sample_id": 153,
+      "question": "Which film was released earlier, Tiger Of The Seven Seas or My Wife'S Lodger?",
+      "prediction": "My Wife'S Lodger",
+      "reference": "My Wife'S Lodger",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 83,
+        "latency": 1.5441136360168457
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film was released earlier, \"Tiger Of The Seven Seas\" or \"My Wife'S Lodger,\" we need to compare their release years.\n\n- \"Tiger of the Seven Seas\" was released in 1962.\n- \"My Wife's Lodger\" was released in 1952.\n\nSince 1952 is earlier than 1962, \"My Wife's Lodger\" was released first.\n\nFinal Answer: My Wife'S Lodger"
+    },
+    {
+      "sample_id": 154,
+      "question": "Do Alice Mary Dowd and Richard N. Palmer have the same nationality?",
+      "prediction": "no",
+      "reference": "yes",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 241,
+        "latency": 2.7983996868133545
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine if Alice Mary Dowd and Richard N. Palmer have the same nationality, we need to examine the provided context for information about their nationalities.\n\n1. **Richard N. Palmer**: The context states that he was born in Hartford, Connecticut, and received his education in Connecticut. There is no explicit mention of his nationality, but since he was born in the United States, it is reasonable to infer that he is American.\n\n2. **Alice Mary Dowd**: There is no direct mention of Alice Mary Dowd in the provided context. However, there are mentions of \"Alice Mary Smith\" and \"Alice Mary Ha"
+    },
+    {
+      "sample_id": 155,
+      "question": "Who is the father of the director of film Wonders Of The Sea 3D?",
+      "prediction": "Jacques Cousteau",
+      "reference": "Jacques Cousteau",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 82,
+        "latency": 1.3402678966522217
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the father of the director of *Wonders of the Sea 3D*, we follow these steps:\n\n1. Identify the director(s) of *Wonders of the Sea 3D*: The film is co-directed by Jean-Michel Cousteau.\n2. Identify Jean-Michel Cousteau's father: Jean-Michel Cousteau is the first son of Jacques Cousteau.\n\nFinal Answer: Jacques Cousteau"
+    },
+    {
+      "sample_id": 156,
+      "question": "Which film has the director died first, Le Guignolo or Knights Of The Range?",
+      "prediction": "Knights Of The Range",
+      "reference": "Knights Of The Range",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 141,
+        "latency": 2.475750207901001
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film has the director who died first, we need to identify the directors of each film and their respective death dates.\n\n1. **Le Guignolo** (1980) - Directed by **Georges Lautner**.\n   - Georges Lautner died on **22 November 2013**.\n\n2. **Knights Of The Range** (1940) - Directed by **Lesley Selander**.\n   - Lesley Selander died on **5 December 1979**.\n\nComparing the death dates:\n- Lesley Selander died in **1979**.\n- Georges Lautner died in **2013**.\n\nThus, the director of **Knights Of The Range** died first.\n\nFinal Answer: Knights Of The Range"
+    },
+    {
+      "sample_id": 157,
+      "question": "Who died later, Narcís Ventalló or H. Verlan Andersen?",
+      "prediction": "H. Verlan Andersen",
+      "reference": "Narcís Ventalló",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 130,
+        "latency": 1.957613229751587
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine who died later between Narcís Ventalló and H. Verlan Andersen, we need to compare their dates of death.\n\n1. H. Verlan Andersen died on July 16, 1992.\n2. The context provided does not include the date of death for Narcís Ventalló.\n\nSince the date of death for Narcís Ventalló is not given, we cannot definitively determine who died later. However, based on the information available, H. Verlan Andersen's death date is known, and no later date is provided for Narcís Ventalló.\n\nFinal Answer: H. Verlan Andersen"
+    },
+    {
+      "sample_id": 158,
+      "question": "Which film was released first, The Beginning Or The End or Hold Back The Night?",
+      "prediction": "The Beginning Or The End",
+      "reference": "The Beginning Or The End",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 106,
+        "latency": 1.6919302940368652
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film was released first between \"The Beginning Or The End\" and \"Hold Back The Night,\" we examine the release years provided in the context:\n\n- \"The Beginning Or The End\" was released in 1947.\n- \"Hold Back The Night\" (referring to the 1956 film about the Korean War) was released in 1956.\n\nSince 1947 is earlier than 1956, \"The Beginning Or The End\" was released first.\n\nFinal Answer: The Beginning Or The End"
+    },
+    {
+      "sample_id": 159,
+      "question": "Who is younger, Aneta Hladíková or René Poupardin?",
+      "prediction": "Aneta Hladíková",
+      "reference": "Aneta Hladíková",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 73,
+        "latency": 1.5882236957550049
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine who is younger between Aneta Hladíková and René Poupardin, we need to compare their birth years.\n\n- Aneta Hladíková was born on 30 August 1984.\n- René Poupardin was born on 27 February 1874.\n\nSince 1984 is later than 1874, Aneta Hladíková is younger.\n\nFinal Answer: Aneta Hladíková"
+    },
+    {
+      "sample_id": 160,
+      "question": "Where was the place of death of Prince Christopher Of Greece And Denmark's father?",
+      "prediction": "Not specified in the context",
+      "reference": "Thessaloniki",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 198,
+        "latency": 2.3244049549102783
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the place of death of Prince Christopher of Greece and Denmark's father, we need to identify who that father was.\n\nFrom the context provided:\n- Princess Anastasia of Greece and Denmark was married to Prince Christopher of Greece and Denmark.\n- Prince Christopher of Greece and Denmark was the youngest child of King George I of Greece and his consort, Grand Duchess Olga Constantinovna of Russia.\n\nThus, the father of Prince Christopher of Greece and Denmark was King George I of Greece.\n\nNext, we need to find the place of death of King George I of Greece. However, the context provided"
+    },
+    {
+      "sample_id": 161,
+      "question": "What is the place of birth of the director of film Guilty Of Treason?",
+      "prediction": "Chicago, Illinois",
+      "reference": "New York",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 1.7116053104400635
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the place of birth of the director of the film *Guilty of Treason*, we follow these steps:\n\n1. Identify the director of *Guilty of Treason*: The film was directed by Felix E. Feist.\n2. Determine Felix E. Feist's place of birth: The context does not explicitly mention Felix E. Feist's place of birth. However, based on external knowledge, Felix E. Feist was born in Chicago, Illinois, United States.\n\nFinal Answer: Chicago, Illinois"
+    },
+    {
+      "sample_id": 162,
+      "question": "Where did Charles Stewart, 3Rd Duke Of Richmond's father graduate from?",
+      "prediction": "No information provided",
+      "reference": "University of Paris",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 138,
+        "latency": 2.0071358680725098
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine where Charles Stewart, 3rd Duke of Richmond's father graduated from, we need to identify who his father was.\n\nFrom the context provided:\n- Charles Stewart, 3rd Duke of Richmond, was the son of Bernard's elder brother George Stewart, 9th Seigneur d'Aubigny.\n- George Stewart, 9th Seigneur d'Aubigny, is mentioned in the context but no information about his education or graduation is provided.\n\nTherefore, there is no information given about where George Stewart, 9th Seigneur d'Aubigny, graduated from.\n\nFinal Answer: No information provided."
+    },
+    {
+      "sample_id": 163,
+      "question": "What is the place of birth of the performer of song I Wish (Gabrielle Song)?",
+      "prediction": "Hackney, London",
+      "reference": "Hackney",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.6666666666666666,
+        "token_count": 6,
+        "latency": 0.44291257858276367
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "Gabrielle  \nHackney, London"
+    },
+    {
+      "sample_id": 164,
+      "question": "When was the director of film Jinpa born?",
+      "prediction": "December 1969",
+      "reference": "1969",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.6666666666666666,
+        "token_count": 35,
+        "latency": 0.8842532634735107
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "The director of the film *Jinpa* is Pema Tseden. According to the context, Pema Tseden was born in December 1969.\n\nFinal Answer: December 1969"
+    },
+    {
+      "sample_id": 165,
+      "question": "Which film whose director is younger, Kalippava or A Couch In New York?",
+      "prediction": "Kalippava",
+      "reference": "A Couch In New York",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 216,
+        "latency": 3.2065377235412598
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film has a director who is younger, we need to compare the birth years of the directors of \"Kalippava\" and \"A Couch In New York.\"\n\n1. **Kalippava**: Directed by A. B. Raj, who was born on 21 April 1925.\n2. **A Couch In New York**: The context does not explicitly mention the director of this film. However, based on the information provided, it seems that the question may be referring to a film directed by Frank H. Fleet, who was born in 1848. This assumption is based on the lack of other relevant information about the director of \"A Couch In New York\" and the presence of Fran"
+    },
+    {
+      "sample_id": 166,
+      "question": "Which film has the director who died earlier, The Love Charm or The Constant Woman?",
+      "prediction": "The Constant Woman",
+      "reference": "The Constant Woman",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 150,
+        "latency": 2.3962225914001465
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film has the director who died earlier, we need to compare the death dates of the directors of \"The Love Charm\" and \"The Constant Woman.\"\n\n1. **Director of \"The Love Charm\":** Thomas N. Heffron, who died on May 24, 1951.\n2. **Director of \"The Constant Woman\":** Victor Schertzinger, who died on October 26, 1941.\n\nComparing the two death dates:\n- Thomas N. Heffron died in 1951.\n- Victor Schertzinger died in 1941.\n\nSince Victor Schertzinger died earlier than Thomas N. Heffron, the film with the director who died earlier is \"The Constant Woman.\"\n\nFinal Answer: The Constant Woman"
+    },
+    {
+      "sample_id": 167,
+      "question": "Which film came out earlier, Dis-Moi Qui Tuer or Under The Hawthorn Tree (Film)?",
+      "prediction": "Dis-moi qui tuer",
+      "reference": "Dis-Moi Qui Tuer",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 4,
+        "latency": 0.3679783344268799
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "Dis-moi qui tuer"
+    },
+    {
+      "sample_id": 168,
+      "question": "Where was the place of death of Tamatoa Vi's father?",
+      "prediction": "unknown",
+      "reference": "Huahine",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 118,
+        "latency": 1.6799101829528809
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the place of death of Tamatoa Vi's father, we need to identify who Tamatoa Vi's father is. From the context provided, we know that Tamatoa VI was a member of the Tahitian royal family, the \"House of Teururai.\" However, there is no direct mention of his father's name or place of death.\n\nGiven the lack of specific information about Tamatoa VI's father in the context, we cannot definitively state the place of death of Tamatoa Vi's father.\n\nFinal Answer: unknown"
+    },
+    {
+      "sample_id": 169,
+      "question": "Where did the director of film Old Man Drinking A Glass Of Beer die?",
+      "prediction": "Félix Máriássy",
+      "reference": "Brighton",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 48,
+        "latency": 1.0292954444885254
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "The director of the film \"A Glass of Beer\" is Félix Máriássy. The context does not provide information about where he died. Therefore, the answer is:\n\nFélix Máriássy\n\nFinal Answer: Félix Máriássy"
+    },
+    {
+      "sample_id": 170,
+      "question": "What is the date of death of Henry St John, 18Th Baron St John Of Bletso's father?",
+      "prediction": "1912",
+      "reference": "10 May 1912",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5,
+        "token_count": 125,
+        "latency": 2.2144153118133545
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the date of death of Henry St John, 18th Baron St John of Bletso's father, we need to identify who his father was and then find his date of death.\n\n1. Henry St John, 18th Baron St John of Bletso, was the eldest son of Beauchamp St John, 17th Baron St John of Bletso, and his wife Helen Thornton.\n2. The context provides the date of death of Beauchamp St John, 17th Baron St John of Bletso, as 1912.\n\nThus, the date of death of Henry St John, 18th Baron St John of Bletso's father is:\n\n1912"
+    },
+    {
+      "sample_id": 171,
+      "question": "Who is younger, Justin Paul or Helly Shah?",
+      "prediction": "Helly Shah",
+      "reference": "Helly Shah",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 70,
+        "latency": 1.2608697414398193
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine who is younger between Justin Paul and Helly Shah, we need to compare their birth dates.\n\n- Justin Paul was born on January 3, 1985.\n- Helly Shah was born on January 7, 1996.\n\nComparing these dates, Helly Shah was born later, so she is younger.\n\nFinal Answer: Helly Shah"
+    },
+    {
+      "sample_id": 172,
+      "question": "Who was born first out of Marco De Luigi and Fabio Maistro?",
+      "prediction": "Marco De Luigi",
+      "reference": "Marco De Luigi",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 71,
+        "latency": 1.2527446746826172
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine who was born first between Marco De Luigi and Fabio Maistro, we need to compare their birth dates:\n\n- Marco De Luigi was born on 21 March 1978.\n- Fabio Maistro was born on 5 April 1998.\n\nComparing the two dates, Marco De Luigi was born earlier.\n\nFinal Answer: Marco De Luigi"
+    },
+    {
+      "sample_id": 173,
+      "question": "Which film has the director who died earlier, Guns And Guitars or To The Victor?",
+      "prediction": "Guns And Guitars",
+      "reference": "Guns And Guitars",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 101,
+        "latency": 1.7421774864196777
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film has the director who died earlier, we need to compare the death dates of the directors of \"Guns And Guitars\" and \"To The Victor.\"\n\n1. **Director of \"Guns And Guitars\":** Joseph Kane died on August 25, 1975.\n2. **Director of \"To The Victor\":** Delmer Daves died on August 17, 1977.\n\nComparing the two dates, Delmer Daves died later than Joseph Kane.\n\nFinal Answer: Guns And Guitars"
+    },
+    {
+      "sample_id": 174,
+      "question": "Which film has the director who died later, His Last Haul or The Falcon In San Francisco?",
+      "prediction": "His Last Haul",
+      "reference": "The Falcon In San Francisco",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 128,
+        "latency": 1.9428985118865967
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film has the director who died later, we need to identify the directors of \"His Last Haul\" and \"The Falcon In San Francisco\" and compare their dates of death.\n\n1. Identify the directors of each film:\n   - \"His Last Haul\" is directed by Joseph H. Lewis, who died on August 30, 2000.\n   - \"The Falcon In San Francisco\" is directed by William Clemens, who died on October 27, 1958.\n\n2. Compare the dates of death:\n   - Joseph H. Lewis died later than William Clemens.\n\nFinal Answer: His Last Haul"
+    },
+    {
+      "sample_id": 175,
+      "question": "Who is Edward De Vere, 17Th Earl Of Oxford's paternal grandfather?",
+      "prediction": "John de Vere, 13th Earl of Oxford",
+      "reference": "John de Vere, 15th Earl of Oxford",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.8571428571428571,
+        "token_count": 207,
+        "latency": 3.4040253162384033
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine Edward De Vere, 17th Earl of Oxford's paternal grandfather, we need to trace his lineage.\n\n1. Edward De Vere, 17th Earl of Oxford, was the son of Henry de Vere, 16th Earl of Oxford, and Anne Browne.\n2. Henry de Vere, 16th Earl of Oxford, was the son of John de Vere, 15th Earl of Oxford, and Elizabeth Trussell.\n3. Therefore, John de Vere, 15th Earl of Oxford, was Edward De Vere, 17th Earl of Oxford's father.\n4. To find the paternal grandfather, we look at John de Vere, 15th Earl of Oxford's father, which is John de Vere, 14th Earl of Oxford.\n5. John de Vere, 14th Earl of Oxford, wa"
+    },
+    {
+      "sample_id": 176,
+      "question": "Where was the place of death of Alexander Carl Otto Westphal's father?",
+      "prediction": "based on the given information",
+      "reference": "Kreuzlingen",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 147,
+        "latency": 1.9622225761413574
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the place of death of Alexander Carl Otto Westphal's father, we need to identify who his father was and then find the place of his death.\n\n1. From the context, Alexander Carl Otto Westphal's father is identified as Carl Friedrich Otto Westphal.\n2. The context states that Carl Friedrich Otto Westphal was a psychiatrist and that he died in 1890.\n3. The place of death for Carl Friedrich Otto Westphal is not explicitly stated in the context provided.\n\nTherefore, based on the given information, the place of death of Alexander Carl Otto Westphal's father cannot be determined."
+    },
+    {
+      "sample_id": 177,
+      "question": "Which film has the director born earlier, Jayam Manade or Bulldog Drummond'S Revenge?",
+      "prediction": "Bulldog Drummond'S Revenge",
+      "reference": "Bulldog Drummond'S Revenge",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 293,
+        "latency": 3.974370241165161
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film has the director born earlier, we need to identify the birth dates of the directors of each film.\n\n1. **Jayam Manade**:\n   - Directed by Tatineni Prakash Rao.\n   - No specific birth date provided for Tatineni Prakash Rao in the context.\n\n2. **Bulldog Drummond's Revenge**:\n   - This film is not explicitly mentioned in the context. However, based on the information given about the \"Bulldog Drummond\" series, it is likely referring to one of the films in the series. The most relevant information is about the 1929 film \"Bulldog Drummond,\" directed by F. Richard Jones.\n   - N"
+    },
+    {
+      "sample_id": 178,
+      "question": "Which film has the director who is older, The Gamecock (Film) or Monster A Go-Go?",
+      "prediction": "The Gamecock (Film)",
+      "reference": "Monster A Go-Go",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 134,
+        "latency": 1.9111542701721191
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film has the director who is older, we need to identify the directors of \"The Gamecock (Film)\" and \"Monster A Go-Go,\" and then compare their ages.\n\n1. **Identify the directors**:\n   - \"Monster A Go-Go\" was directed by Bill Rebane and Herschell Gordon Lewis.\n   - \"The Gamecock (Film)\" is not mentioned in the context provided, so its director is unknown.\n\nSince the director of \"The Gamecock (Film)\" is not identified in the given context, we cannot determine which director is older. \n\nFinal Answer: The Gamecock (Film)"
+    },
+    {
+      "sample_id": 179,
+      "question": "Where was the place of death of Alessandro Vitelli's father?",
+      "prediction": "Parma",
+      "reference": "Florence",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 6,
+        "latency": 0.37163352966308594
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "Paolo II Vitelli  \nParma"
+    },
+    {
+      "sample_id": 180,
+      "question": "Where was the performer of song Bag Skyerne born?",
+      "prediction": "Århus",
+      "reference": "Århus",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 44,
+        "latency": 0.990351676940918
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "Anne Gadegaard was born in Århus, Region Midtjylland, Denmark. Since \"Bag Skyerne\" is a song by Anne Gadegaard, the performer of the song was born in Århus.\n\nFinal Answer: Århus"
+    },
+    {
+      "sample_id": 181,
+      "question": "Are both directors of films 16 To Life and Saved By The Belles from the same country?",
+      "prediction": "yes",
+      "reference": "yes",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 154,
+        "latency": 2.085967779159546
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine if both directors of films \"16 To Life\" and \"Saved By The Belles\" are from the same country, we need to identify the directors of each film and their countries of origin.\n\n1. **Directors of \"16 To Life\":** The film is directed by Becky Smith.\n   - Becky Smith is a Canadian former swimmer and teacher, as indicated in the context.\n\n2. **Directors of \"Saved By The Belles\":** The film is directed by Ziad Touma.\n   - Ziad Touma is described as a Lebanese Canadian film director and producer residing in Montreal, Quebec, Canada.\n\nBoth directors, Becky Smith and Ziad Touma, are Canadian.\n"
+    },
+    {
+      "sample_id": 182,
+      "question": "Where was the mother of Francis Ii Of France born?",
+      "prediction": "Florence",
+      "reference": "Florence",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 7,
+        "latency": 0.3777618408203125
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "Catherine de' Medici  \nFlorence"
+    },
+    {
+      "sample_id": 183,
+      "question": "Who was born later, Marc De Clerck or Wiesław Perszke?",
+      "prediction": "Wiesław Perszke",
+      "reference": "Wiesław Perszke",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 86,
+        "latency": 1.5267846584320068
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine who was born later between Marc De Clerck and Wiesław Perszke, we need to check their birth years.\n\n1. Marc De Clerck was born on 27 December 1949.\n2. The context provided does not mention Wiesław Perszke's birth year. Therefore, we cannot determine who was born later based on the given information.\n\nFinal Answer: Wiesław Perszke"
+    },
+    {
+      "sample_id": 184,
+      "question": "Which film has the director born later, Jesse James' Women or Ride Lonesome?",
+      "prediction": "Jesse James' Women",
+      "reference": "Ride Lonesome",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 175,
+        "latency": 3.159342050552368
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film has the director born later, we need to identify the directors of \"Jesse James' Women\" and \"Ride Lonesome.\"\n\n1. **Identify the directors:**\n   - \"Jesse James' Women\" (1962) was directed by **Don Siegel**.\n   - \"Ride Lonesome\" (1950) was directed by **Andrew V. McLaglen**.\n\n2. **Find the birth years of the directors:**\n   - Don Siegel was born on **July 27, 1912**.\n   - Andrew V. McLaglen was born on **April 23, 1909**.\n\n3. **Compare the birth years:**\n   - Andrew V. McLaglen was born earlier (1909) than Don Siegel (1912).\n\n4. **Conclusion:**\n   - The director of \"Ride L"
+    },
+    {
+      "sample_id": 185,
+      "question": "What nationality is the director of film Madeleine (1950 Film)?",
+      "prediction": "British",
+      "reference": "British",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 8,
+        "latency": 0.5242960453033447
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "David Lean\n\nFinal Answer: British"
+    },
+    {
+      "sample_id": 186,
+      "question": "Which film has the director died first, Edge Of Doom or A Mother'S Secret?",
+      "prediction": "A Mother's Secret",
+      "reference": "A Mother'S Secret",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 144,
+        "latency": 2.0567660331726074
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film has the director who died first, we need to examine the directors of both films and their dates of death.\n\n1. **Edge Of Doom**: Directed by Mark Robson. There is no information provided about when Mark Robson died.\n2. **A Mother's Secret**: Directed by Douglas Gerrard, who died on 5 June 1950.\n\nSince there is no information about Mark Robson's death date, we cannot compare it with Douglas Gerrard's death date. However, we know Douglas Gerrard died in 1950, and there is no indication that Mark Robson died before that.\n\nFinal Answer: A Mother's Secret"
+    },
+    {
+      "sample_id": 187,
+      "question": "Which song was released earlier, 1990-Sick (Get 'Em All) or Who'S Laughing Now (Song)?",
+      "prediction": "1990-Sick (Get 'Em All)",
+      "reference": "1990-Sick (Get 'Em All)",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 101,
+        "latency": 2.1743569374084473
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which song was released earlier, we compare the release dates of \"1990-Sick (Get 'Em All)\" and \"Who's Laughing Now (Song).\"\n\n- \"1990-Sick (Get 'Em All)\" was released on October 30, 1995.\n- \"Who's Laughing Now (Song)\" was released on August 26, 2011.\n\nSince October 30, 1995, is earlier than August 26, 2011, \"1990-Sick (Get 'Em All)\" was released first.\n\nFinal Answer: 1990-Sick (Get 'Em All)"
+    },
+    {
+      "sample_id": 188,
+      "question": "Where did the director of film Desolation Angels (1995 Film) graduate from?",
+      "prediction": "State University of New York at Purchase",
+      "reference": "State University of New York at Purchase",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 122,
+        "latency": 1.6440558433532715
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine where the director of *Desolation Angels* (1995 film) graduated from, we first identify the director. According to the context, *Desolation Angels* is a 1995 independent film written and directed by Tim McCann.\n\nNext, we look for information about Tim McCann's educational background. The context states that Tim McCann is a professor of film at his alma mater, the State University of New York at Purchase.\n\nTherefore, the answer is:\n\nState University of New York at Purchase"
+    },
+    {
+      "sample_id": 189,
+      "question": "When did Richard Annesley, 2Nd Earl Annesley's father die?",
+      "prediction": "Not specified",
+      "reference": "2 September 1770",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 227,
+        "latency": 3.5276341438293457
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine when Richard Annesley, 2nd Earl Annesley's father died, we need to identify who Richard Annesley, 2nd Earl Annesley's father was. \n\nFrom the context provided, Richard Annesley, 3rd Baron Altham, was the son of Arthur Annesley, 1st Earl of Anglesey. This suggests that Arthur Annesley, 1st Earl of Anglesey, was the father of Richard Annesley, 3rd Baron Altham. However, the question refers to Richard Annesley, 2nd Earl Annesley, not Richard Annesley, 3rd Baron Altham. There is no direct information about Richard Annesley, 2nd Earl Annesley's father in the given context.\n\nHowever, it "
+    },
+    {
+      "sample_id": 190,
+      "question": "Which film has the director died earlier, Lemonade Joe or Bountiful Summer?",
+      "prediction": "Bountiful Summer",
+      "reference": "Bountiful Summer",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 138,
+        "latency": 2.3299953937530518
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film has the director who died earlier, we need to compare the death dates of the directors of \"Lemonade Joe\" and \"Bountiful Summer.\"\n\n1. **Lemonade Joe**:\n   - Directed by Květa Fialová.\n   - Květa Fialová died on 26 September 2017.\n\n2. **Bountiful Summer**:\n   - Directed by Boris Barnet.\n   - There is no information provided about when Boris Barnet died.\n\nSince there is no information about the death date of Boris Barnet, we cannot compare the two directors' death dates. Therefore, the answer is:\n\nFinal Answer: Bountiful Summer"
+    },
+    {
+      "sample_id": 191,
+      "question": "What is the date of death of Conan Ii, Duke Of Brittany's mother?",
+      "prediction": "Cannot be determined",
+      "reference": "1080",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 165,
+        "latency": 2.2870419025421143
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the date of death of Conan II, Duke of Brittany's mother, we need to identify who Conan II's mother was.\n\n1. Conan II, Duke of Brittany, ruled from 988 to 992.\n2. His father was Guerech, Duke of Brittany.\n3. His mother is not explicitly mentioned in the provided context.\n4. However, we can infer that his mother was likely a wife of Guerech, Duke of Brittany.\n5. The only person mentioned as being married to Guerech is not specified in the context, so we cannot directly identify her.\n6. Therefore, based on the given information, the date of death of Conan II, Duke of Brittany's moth"
+    },
+    {
+      "sample_id": 192,
+      "question": "When was the director of film Reykjavík-Rotterdam born?",
+      "prediction": "30 June 1963",
+      "reference": "30 June 1963",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 53,
+        "latency": 1.3425681591033936
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "Óskar Jónasson was born on 30 June 1963. The film \"Reykjavík-Rotterdam\" was directed by Óskar Jónasson. Therefore, the director of the film \"Reykjavík-Rotterdam\" was born on 30 June 1963.\n\nFinal Answer: 30 June 1963"
+    },
+    {
+      "sample_id": 193,
+      "question": "What is the place of birth of Eiludd Powys's father?",
+      "prediction": "Powys",
+      "reference": "Wales",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 139,
+        "latency": 2.324383020401001
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the place of birth of Eiludd Powys's father, we need to examine the context provided:\n\n1. Eiludd Powys was an early 7th-century King of Powys.\n2. It is mentioned that he was \"more likely the son or younger brother of Selyf 'Sarffgadau' ap Cynan Garwyn.\"\n3. Cynan Garwyn was king of Powys in the north-east and east of Wales, flourishing in the second half of the 6th century.\n\nFrom this, we can infer that Cynan Garwyn, the likely father of Eiludd Powys, was a king of Powys. Therefore, his place of birth would be in Powys.\n\nFinal Answer: Powys"
+    },
+    {
+      "sample_id": 194,
+      "question": "Where was the director of film At The End Of The Tunnel born?",
+      "prediction": "Argentina",
+      "reference": "Rosario",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 120,
+        "latency": 1.800536870956421
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To answer the question \"Where was the director of film *At The End Of The Tunnel* born?\", we need to follow these steps:\n\n1. Identify the director of the film *At The End Of The Tunnel*.  \n   - According to the context, the film was directed by Rodrigo Grande.\n\n2. Determine where Rodrigo Grande was born.  \n   - The context does not explicitly state Rodrigo Grande's place of birth. However, based on general knowledge, Rodrigo Grande was born in Argentina.\n\nFinal Answer: Argentina"
+    },
+    {
+      "sample_id": 195,
+      "question": "When was Ferdinand Iii Of Limburg Stirum's father born?",
+      "prediction": "1701",
+      "reference": "1701",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 143,
+        "latency": 2.642408847808838
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine when Ferdinand Iii Of Limburg Stirum's father was born, we need to identify who Ferdinand Iii Of Limburg Stirum's father is. \n\nFrom the context, we learn that Ferdinand I of Limburg Stirum had a son named Ferdinand III, who died young. This suggests that Ferdinand III is the son of Ferdinand I of Limburg Stirum.\n\nNext, we look for the birth date of Ferdinand I of Limburg Stirum. The context states: \"Ferdinand Gotthard Meinrad of Limburg Stirum... was born in 1701.\"\n\nThus, the father of Ferdinand III of Limburg Stirum was born in 1701.\n\nFinal Answer: 1701"
+    },
+    {
+      "sample_id": 196,
+      "question": "Which country the director of film Ulzhan is from?",
+      "prediction": "Unable to determine",
+      "reference": "German",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 58,
+        "latency": 0.9416391849517822
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "The context provided does not mention a director named \"Ulzhan.\" Therefore, it is not possible to determine the country of origin of the director of the film \"Ulzhan\" based on the given information.\n\nFinal Answer: Unable to determine"
+    },
+    {
+      "sample_id": 197,
+      "question": "Who is Prince Franz De Paula Of Liechtenstein's paternal grandfather?",
+      "prediction": "Johann I Joseph, Prince of Liechtenstein",
+      "reference": "Franz Joseph I",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4444444444444444,
+        "token_count": 96,
+        "latency": 1.3684391975402832
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine Prince Franz De Paula Of Liechtenstein's paternal grandfather, we need to trace his lineage:\n\n1. Prince Franz De Paula of Liechtenstein was the son of Johann I Joseph, Prince of Liechtenstein, and Landgravine Josepha of Fürstenberg.\n2. Therefore, his paternal grandfather is Johann I Joseph, Prince of Liechtenstein.\n\nFinal Answer: Johann I Joseph, Prince of Liechtenstein"
+    },
+    {
+      "sample_id": 198,
+      "question": "What is the place of birth of Samir Rifai's father?",
+      "prediction": "Amman, Jordan",
+      "reference": "Amman",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.6666666666666666,
+        "token_count": 153,
+        "latency": 2.6932783126831055
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the place of birth of Samir Rifai's father, we first identify who Samir Rifai's father is. From the context provided:\n\n- [Samir Rifai] Samir Zaid al-Rifai (born 1 July 1966) is a Jordanian politician who was Prime Minister of Jordan from 14 December 2009 to 9 February 2011.\n\nFrom this, we know that Samir Rifai's father is Zaid al-Rifai. \n\nNext, we find the place of birth of Zaid al-Rifai:\n\n- [Zaid Rifai] Zaid al-Rifai (born 27 November 1936 in Amman, Jordan) is a former Prime Minister of Jordan.\n\nTherefore, the place of birth of Samir Rifai's father is Amman, Jordan.\n\nFinal Answer"
+    },
+    {
+      "sample_id": 199,
+      "question": "Who is the paternal grandmother of Archduchess Dolores Of Austria?",
+      "prediction": "Princess Maria Immaculata of Bourbon-Two Sicilies",
+      "reference": "Princess Maria Immaculata of Bourbon-Two Sicilies",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 132,
+        "latency": 1.9514923095703125
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the paternal grandmother of Archduchess Dolores of Austria, we need to trace her lineage.\n\n1. Archduchess Dolores of Austria was the daughter of Archduke Leopold Salvator of Austria.\n2. Archduke Leopold Salvator of Austria was the son of Archduke Karl Salvator of Austria and Princess Maria Immaculata of Bourbon-Two Sicilies.\n3. Therefore, the paternal grandmother of Archduchess Dolores of Austria is Princess Maria Immaculata of Bourbon-Two Sicilies.\n\nFinal Answer: Princess Maria Immaculata of Bourbon-Two Sicilies"
+    },
+    {
+      "sample_id": 200,
+      "question": "Which film has the director died first, Two For Tonight or Light Over Russia?",
+      "prediction": "Two For Tonight",
+      "reference": "Two For Tonight",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 146,
+        "latency": 2.708911418914795
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film has the director who died first, we need to compare the directors of \"Two For Tonight\" and \"Light Over Russia.\"\n\n1. **Two For Tonight** (1935) was directed by **Frank Tuttle**.\n   - Frank Tuttle was born on August 6, 1892, and died on January 6, 1963.\n\n2. **Light Over Russia** (1947) was directed by **Sergei Yutkevich**.\n   - Sergei Yutkevich was born on December 28, 1904, and died on April 24, 1985.\n\nComparing the death dates:\n- Frank Tuttle died in 1963.\n- Sergei Yutkevich died in 1985.\n\nTherefore, Frank Tuttle died first.\n\nFinal Answer: Two For Tonight"
+    },
+    {
+      "sample_id": 201,
+      "question": "What is the place of birth of the director of film Peter'S Friends?",
+      "prediction": "Cannot be determined from the given context",
+      "reference": "Belfast",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 87,
+        "latency": 1.1757614612579346
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the place of birth of the director of the film *Peter's Friends*, we need to identify who directed that film. However, the provided context does not mention *Peter's Friends* or its director. Therefore, it is not possible to answer the question based on the given information.\n\nFinal Answer: Cannot be determined from the given context."
+    },
+    {
+      "sample_id": 202,
+      "question": "Where was the composer of film Love Story 1999 born?",
+      "prediction": "Chennai, India",
+      "reference": "Tamil",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 184,
+        "latency": 2.7126176357269287
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine where the composer of the film *Love Story 1999* was born, we need to identify the composer of that film. \n\nFrom the context provided:\n- *Love Story 1999* is a 1998 Indian Telugu-language film.\n- The context does not explicitly mention the composer of *Love Story 1999*.\n- However, it does mention Deva (Devanesan Chokkalingam), an Indian film composer who composed music for many films, including \"Manasukkeththa Maharaasa\" in 1989. Given that Deva is a prominent composer in the Tamil film industry and the context does not specify another composer for *Love Story 1999*, it is reasona"
+    },
+    {
+      "sample_id": 203,
+      "question": "Who is the father of Beltrán Vélez De Guevara, Marquis Of Campo Real?",
+      "prediction": "Íñigo Vélez de Guevara, 7th Count of Oñate",
+      "reference": "Íñigo Vélez de Guevara, 7th Count of Oñate",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 165,
+        "latency": 3.1658315658569336
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the father of Beltrán Vélez De Guevara, Marquis Of Campo Real, we need to identify the relevant family relationships from the provided context.\n\n1. The context mentions \"Íñigo Vélez de Guevara, 8th Count of Oñate\" who was the son of \"Íñigo Vélez de Guevara, 7th Count of Oñate and Catalina Vélez.\"\n2. It also states that \"His younger brother was Beltrán, Viceroy of Sardinia.\"\n\nFrom this, we can infer that Beltrán Vélez De Guevara is the younger brother of Íñigo Vélez de Guevara, 8th Count of Oñate. Therefore, their father is the same person: Íñigo Vélez de Guevara, 7th Count of Oñat"
+    },
+    {
+      "sample_id": 204,
+      "question": "Which film whose director is younger, Jeedar or The Rebel Set?",
+      "prediction": "The Rebel Set",
+      "reference": "Jeedar",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 204,
+        "latency": 2.8493077754974365
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film has a director who is younger, we need to compare the birth years of the directors of \"Jeedar\" and \"The Rebel Set.\"\n\n1. **Director of \"Jeedar\":** Kaifee (Kifayat Hussain Bhatti) was born on 13 March 1943.\n2. **Director of \"The Rebel Set\":** The context does not provide the birth year of the director of \"The Rebel Set.\" However, based on the given information about \"Oryn the Rebel,\" it appears that \"The Rebel Set\" might be related to Oryn the Rebel, who is referred to as an American rapper, not a film director. There is no clear information about the director of \"The Reb"
+    },
+    {
+      "sample_id": 205,
+      "question": "Where was the mother of Antonio Flores born?",
+      "prediction": "Jerez de la Frontera",
+      "reference": "Jerez de la Frontera",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 159,
+        "latency": 2.1122474670410156
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine where the mother of Antonio Flores was born, we need to identify which Antonio Flores is being referred to and then find information about his mother's birthplace.\n\n1. There are multiple individuals named Antonio Flores in the context provided.\n2. The most relevant one appears to be Antonio González Flores, who is mentioned as the son of Antonio González (musician) 'El_Pescaílla' and Lola Flores.\n3. Lola Flores is explicitly stated to have been born and raised in Jerez de la Frontera.\n\nTherefore, the mother of Antonio González Flores, Lola Flores, was born in Jerez de la Frontera."
+    },
+    {
+      "sample_id": 206,
+      "question": "What is the place of birth of the performer of song Down Ass Bitch?",
+      "prediction": "Hollis, Queens",
+      "reference": "Queens",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.6666666666666666,
+        "token_count": 104,
+        "latency": 1.936312198638916
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the place of birth of the performer of the song \"Down Ass Bitch,\" we need to identify who performed the song and then find their place of birth.\n\n1. Identify the performer of the song \"Down Ass Bitch\":\n   - The song \"Down Ass Bitch\" is performed by the rapper Ja Rule.\n\n2. Find the place of birth of Ja Rule:\n   - According to the context, Ja Rule was born in Hollis, Queens.\n\nFinal Answer: Hollis, Queens"
+    },
+    {
+      "sample_id": 207,
+      "question": "What is the place of birth of Empress Xu (Ming Dynasty)'s husband?",
+      "prediction": "Beijing",
+      "reference": "Nanjing",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 129,
+        "latency": 1.8019213676452637
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the place of birth of Empress Xu (Ming Dynasty)'s husband, we need to identify who that husband was. From the context, Empress Xu was the empress consort to the Yongle Emperor.\n\nNext, we need to find the place of birth of the Yongle Emperor. The context states that Zhu Di, the Yongle Emperor, was originally enfeoffed as the Prince of Yan with the capital of his princedom at Beiping (modern Beijing). This indicates that his place of birth was Beiping, which is modern-day Beijing.\n\nFinal Answer: Beijing"
+    },
+    {
+      "sample_id": 208,
+      "question": "Which film came out earlier, Niyoti or Angali Pangali?",
+      "prediction": "Angali Pangali",
+      "reference": "Niyoti",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 135,
+        "latency": 2.0611119270324707
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film came out earlier, \"Niyoti\" or \"Angali Pangali,\" we need to check the release dates of both films.\n\n1. \"Angali Pangali\" is an Indian Tamil romantic comedy film that was released on 17 June 2016.\n\n2. \"Niyoti\" is not mentioned in the provided context, so its release date is unknown.\n\nSince the release date of \"Niyoti\" is not given, we cannot definitively determine which film came out earlier. However, based on the information provided, \"Angali Pangali\" is known to have come out in 2016.\n\nFinal Answer: Angali Pangali"
+    },
+    {
+      "sample_id": 209,
+      "question": "Which country Aleksandra Marianna Wiesiołowska's father is from?",
+      "prediction": "Aleksandra Marianna Wiesiołowska's father",
+      "reference": "Polish–Lithuanian Commonwealth",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 14,
+        "latency": 0.5648071765899658
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "Aleksandra Marianna Wiesiołowska's father is from Poland."
+    },
+    {
+      "sample_id": 210,
+      "question": "Which country Tivala's father is from?",
+      "prediction": "India",
+      "reference": "Maurya dynasty",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 24,
+        "latency": 0.8031888008117676
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "Tivala's father is Ashoka, who was the Maurya Emperor. Ashoka was from India.\n\nFinal Answer: India"
+    },
+    {
+      "sample_id": 211,
+      "question": "Who is the paternal grandmother of King Kang Of Zhou?",
+      "prediction": "Lady Tai",
+      "reference": "Yi Jiang",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 163,
+        "latency": 2.2405741214752197
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the paternal grandmother of King Kang of Zhou, we need to trace the lineage of King Kang of Zhou.\n\n1. **Identify King Kang of Zhou**: King Kang of Zhou was the second king of the Zhou Dynasty, reigning from approximately 1020–1016 BC.\n2. **Determine his father**: King Kang of Zhou's father was King Wu of Zhou, who founded the Zhou Dynasty.\n3. **Identify King Wu of Zhou's parents**: King Wu of Zhou's father was Duke of Zhou (Ji Fa), and his mother was Lady Tai (太姒).\n4. **Determine the paternal grandmother**: The paternal grandmother of King Kang of Zhou would be the mother of King "
+    },
+    {
+      "sample_id": 212,
+      "question": "Which film has the director who died first, The Face Of Fu Manchu or The Hidden One?",
+      "prediction": "The Hidden One",
+      "reference": "The Hidden One",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 186,
+        "latency": 2.5145633220672607
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film has the director who died first, we need to compare the death dates of the directors of \"The Face of Fu Manchu\" and \"The Hidden One.\"\n\n1. **Director of \"The Face of Fu Manchu\":** Don Sharp, who died on 14 December 2011.\n2. **Director of \"The Hidden One\":** The context does not provide information about the director of \"The Hidden One.\" However, since the question is comparing two films and one of them is \"The Face of Fu Manchu,\" we can infer that \"The Hidden One\" is likely referring to another film in the Fu Manchu series or a different film.\n\nSince there is no informat"
+    },
+    {
+      "sample_id": 213,
+      "question": "What is the place of birth of the director of film Double Or Nothing (1940 Film)?",
+      "prediction": "Unknown",
+      "reference": "New Brunswick, New Jersey",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 123,
+        "latency": 1.7288198471069336
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the place of birth of the director of the film *Double Or Nothing (1940 Film)*, we follow these steps:\n\n1. Identify the director of *Double Or Nothing (1940 Film)*: The context states that the film was directed by **Roy Mack**.\n2. Find Roy Mack's place of birth: The context does not provide information about Roy Mack's place of birth.\n\nSince the context does not include Roy Mack's place of birth, the answer cannot be determined from the given information.\n\nFinal Answer: Unknown"
+    },
+    {
+      "sample_id": 214,
+      "question": "Which film whose director was born first, The Great Flamarion or The Hollars?",
+      "prediction": "The Hollars",
+      "reference": "The Great Flamarion",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4,
+        "token_count": 204,
+        "latency": 2.793952703475952
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film's director was born first, we need to identify the birth years of the directors of \"The Great Flamarion\" and \"The Hollars.\"\n\n1. **Identify the director of \"The Hollars\":**  \n   - John Krasinski directed \"The Hollars.\"  \n   - John Krasinski was born on October 20, 1979.\n\n2. **Identify the director of \"The Great Flamarion\":**  \n   - The context provided does not mention the director of \"The Great Flamarion.\"  \n   - Therefore, we cannot determine the birth year of its director from the given information.\n\nSince we lack the birth year of the director of \"The Great Flamarion"
+    },
+    {
+      "sample_id": 215,
+      "question": "Do both directors of films Dangerous To Know and Les Côtelettes have the same nationality?",
+      "prediction": "no",
+      "reference": "yes",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 158,
+        "latency": 1.9702472686767578
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine if both directors of the films \"Dangerous To Know\" and \"Les Côtelettes\" have the same nationality, we need to identify the directors of each film and their nationalities.\n\n1. Identify the directors of \"Dangerous To Know\":\n   - The context provided does not mention the directors of \"Dangerous To Know.\"\n\n2. Identify the directors of \"Les Côtelettes\":\n   - The context provided does not mention the directors of \"Les Côtelettes.\"\n\nSince the context does not provide information about the directors of either film, it is not possible to determine if they share the same nationality.\n\nFinal"
+    },
+    {
+      "sample_id": 216,
+      "question": "Are both villages, Mavrolithari and Ampelakia, Evros, located in the same country?",
+      "prediction": "yes",
+      "reference": "yes",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 150,
+        "latency": 2.198559045791626
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine if both villages, Mavrolithari and Ampelakia, Evros, are located in the same country, we analyze their locations based on the provided context:\n\n1. **Ampelakia, Evros**: The context states that Ampelakia is a village in the municipality of Orestiada in the northern part of the Evros regional unit in Greece.\n\n2. **Mavrolithari**: The context indicates that Mavrolithari is a village on Mount Oeta in northern Phocis, Greece, and since the 2011 local government reform, it is part of the municipality of Delphi.\n\nBoth villages are explicitly mentioned as being in Greece.\n\nFinal Answer: "
+    },
+    {
+      "sample_id": 217,
+      "question": "Where was the place of death of the director of film Kathputli (1971 Film)?",
+      "prediction": "Kolkata, India",
+      "reference": "Bombay",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 131,
+        "latency": 2.2282376289367676
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the place of death of the director of the film *Kathputli* (1971), we first need to identify who directed that film.\n\nFrom the given context, there is no direct mention of the director of *Kathputli* (1971). However, from external knowledge, it is known that *Kathputli* (1971) was directed by **Satyajit Ray**, a renowned Indian filmmaker.\n\nNext, we need to determine where Satyajit Ray died. Again, from external knowledge, Satyajit Ray died in **Kolkata, India** on 23 April 1992.\n\nFinal Answer: Kolkata, India"
+    },
+    {
+      "sample_id": 218,
+      "question": "Where did the director of film Ręce Do Góry study?",
+      "prediction": "Not enough information",
+      "reference": "National Film School in Łódź",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 205,
+        "latency": 2.7856340408325195
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To answer the question \"Where did the director of film Ręce Do Góry study?\", we need to identify who directed the film \"Ręce Do Góry\" and then determine where that person studied.\n\n1. From the context, we know that Krzysztof Grabowski is a Polish poet, singer, and author of lyrics for the band Ręce Do Góry.\n2. However, the context does not explicitly mention who directed the film \"Ręce Do Góry.\"\n3. The context does mention Robert Lamoureux as the director of two films, but these are French-Italian and French comedies, not related to Ręce Do Góry.\n4. There is no information provided about the d"
+    },
+    {
+      "sample_id": 219,
+      "question": "Where was the place of death of Suzanne Farrington's mother?",
+      "prediction": "Unknown",
+      "reference": "London",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 114,
+        "latency": 1.8901095390319824
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "Step 1: Identify the subject of the question - Suzanne Farrington's mother.\nStep 2: Check the context for any information about Suzanne Farrington or her mother.\nStep 3: The context mentions Suzanne Aubert, a person from Saint-Symphorien-de-Lay, but there is no mention of Suzanne Farrington or her mother.\nStep 4: Since there is no information about Suzanne Farrington's mother in the context, the place of death cannot be determined.\n\nFinal Answer: Unknown"
+    },
+    {
+      "sample_id": 220,
+      "question": "What nationality is the director of film Name The Man?",
+      "prediction": "Swedish",
+      "reference": "Swedish",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 6,
+        "latency": 0.42154598236083984
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "Victor Sjöström  \nSwedish"
+    },
+    {
+      "sample_id": 221,
+      "question": "Do Kreesha Turner and Samantha Jo share the same nationality?",
+      "prediction": "yes",
+      "reference": "yes",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 152,
+        "latency": 1.8598518371582031
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine if Kreesha Turner and Samantha Jo share the same nationality, we need to examine the context provided:\n\n1. **Kreesha Turner**: The context states that Kreesha Turner is a \"Canadian/Jamaican singer.\" This indicates she holds dual nationality (Canadian and Jamaican).\n\n2. **Samantha Jo**: The context describes Samantha Jo as \"a Canadian actress and martial artist.\" This indicates she holds Canadian nationality.\n\nSince Kreesha Turner is Canadian/Jamaican and Samantha Jo is Canadian, they share the nationality of Canada, but not necessarily the same full set of nationalities.\n\nFinal An"
+    },
+    {
+      "sample_id": 222,
+      "question": "What is the place of birth of the director of film Aurora (2018 Film)?",
+      "prediction": "Davao City",
+      "reference": "Davao",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.6666666666666666,
+        "token_count": 89,
+        "latency": 1.5500071048736572
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the place of birth of the director of the film *Aurora* (2018 Film), we follow these steps:\n\n1. Identify the director of *Aurora* (2018 Film): The context states that the film was written and directed by Yam Laranas.\n2. Find Yam Laranas's place of birth: The context indicates that Yam Laranas was born in Davao City.\n\nFinal Answer: Davao City"
+    },
+    {
+      "sample_id": 223,
+      "question": "Which film has the director born later, Befikre or American Sniper?",
+      "prediction": "American Sniper",
+      "reference": "Befikre",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 113,
+        "latency": 1.8137354850769043
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film has the director born later, we need to identify the directors of each film and their birth years.\n\n1. **Befikre**: The director is Sepideh Farsi, born in 1965.\n2. **American Sniper**: The director is Clint Eastwood, born on May 30, 1930.\n\nComparing the birth years, Clint Eastwood was born in 1930, while Sepideh Farsi was born in 1965. Therefore, the director of *American Sniper* was born earlier.\n\nFinal Answer: American Sniper"
+    },
+    {
+      "sample_id": 224,
+      "question": "When is Prince Napoléon Bonaparte's father's birthday?",
+      "prediction": "unknown",
+      "reference": "15 November 1784",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 176,
+        "latency": 2.4552392959594727
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine Prince Napoléon Bonaparte's father's birthday, we need to identify who his father was.\n\nFrom the context, we learn that Princess Maria Clotilde of Savoy was the wife of Napoléon Joseph Charles Paul Bonaparte. This means Napoléon Joseph Charles Paul Bonaparte was the father of Prince Napoléon Bonaparte.\n\nNext, we need to find the birthday of Napoléon Joseph Charles Paul Bonaparte. From the context, we are told that he was the illegitimate son of Napoleon I. However, there is no specific date provided for his birthday in the given context.\n\nTherefore, based on the information provid"
+    },
+    {
+      "sample_id": 225,
+      "question": "Which film was released more recently, Toolbox Murders or I Met You In Naples?",
+      "prediction": "Toolbox Murders",
+      "reference": "Toolbox Murders",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 42,
+        "latency": 0.8114473819732666
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "Toolbox Murders was released in 2004, while I Met You In Naples was released in 1946. Therefore, Toolbox Murders was released more recently.\n\nFinal Answer: Toolbox Murders"
+    },
+    {
+      "sample_id": 226,
+      "question": "Where was the place of death of the composer of song How Long Has This Been Going On??",
+      "prediction": "Hollywood",
+      "reference": "Hollywood",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 122,
+        "latency": 1.8094878196716309
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the place of death of the composer of the song \"How Long Has This Been Going On,\" we need to identify who composed the song.\n\n1. The song \"How Long Has This Been Going On\" was composed by George Gershwin.\n2. According to the context, George Gershwin died in 1937 of a malignant brain tumor.\n3. The context also states that he died in Hollywood.\n\nTherefore, the place of death of the composer of the song \"How Long Has This Been Going On\" is Hollywood.\n\nFinal Answer: Hollywood"
+    },
+    {
+      "sample_id": 227,
+      "question": "Which film has the director died earlier, Youngblood Hawke (Film) or Crook'S Tour?",
+      "prediction": "Youngblood Hawke (Film)",
+      "reference": "Crook'S Tour",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 203,
+        "latency": 2.9040639400482178
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film has the director who died earlier, we need to identify the directors of each film and their respective death dates.\n\n1. **Youngblood Hawke (Film)**:\n   - Directed by Delmer Daves.\n   - Delmer Daves died on August 17, 1977.\n\n2. **Crook's Tour**:\n   - Directed by John Baxter.\n   - There is no information provided about the death date of John Baxter.\n\nSince the death date of John Baxter is not provided, we cannot compare it with Delmer Daves' death date. However, based on the given information, Delmer Daves died in 1977, while there is no record of John Baxter's death.\n\nTh"
+    },
+    {
+      "sample_id": 228,
+      "question": "Where did William S. Burroughs Jr.'s father study?",
+      "prediction": "Not specified in the context",
+      "reference": "Harvard",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 69,
+        "latency": 1.0380094051361084
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "William S. Burroughs Jr.'s father was William Seward Burroughs I, who invented the Burroughs adding machine. The context does not provide specific information about where William Seward Burroughs I studied. Therefore, the answer is:\n\nFinal Answer: Not specified in the context."
+    },
+    {
+      "sample_id": 229,
+      "question": "Which film has the director who was born earlier, Circus Beely or Tom, Dick And Harry 2?",
+      "prediction": "Circus Beely",
+      "reference": "Circus Beely",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 107,
+        "latency": 1.8663744926452637
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film has the director who was born earlier, we need to identify the directors of each film and their birth dates.\n\n1. **Tom, Dick And Harry 2** is directed by **Deepak Tijori**, who was born on **28 August 1961**.\n2. **Circus Beely** is directed by **Harry Piel**, who was born on **12 July 1892**.\n\nComparing the birth dates, **Harry Piel** was born earlier than **Deepak Tijori**.\n\nFinal Answer: Circus Beely"
+    },
+    {
+      "sample_id": 230,
+      "question": "Who is the maternal grandmother of Felipe De Marichalar Y Borbón?",
+      "prediction": "Queen Sofía of Spain",
+      "reference": "Queen Sofía of Spain",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 116,
+        "latency": 1.7905848026275635
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the maternal grandmother of Felipe De Marichalar Y Borbón, we need to trace his family lineage:\n\n1. **Felipe de Marichalar y Borbón** is the son of **Infanta Elena, Duchess of Lugo** and **Don Jaime de Marichalar**.\n2. **Infanta Elena** is the daughter of **King Juan Carlos I of Spain** and **Queen Sofía of Spain**.\n\nTherefore, the maternal grandmother of Felipe de Marichalar y Borbón is **Queen Sofía of Spain**.\n\nFinal Answer: Queen Sofía of Spain"
+    },
+    {
+      "sample_id": 231,
+      "question": "Are the directors of both films The Fall Of A Saint and Fighting Through from the same country?",
+      "prediction": "no",
+      "reference": "no",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 193,
+        "latency": 2.407564878463745
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine if the directors of both films \"The Fall Of A Saint\" and \"Fighting Through\" are from the same country, we need to identify the directors of each film and their countries of origin.\n\n1. Identify the director of \"Fighting Through\":\n   - \"Fighting Through\" is a 1919 silent American drama film directed by Christy Cabanne.\n   - Christy Cabanne was an American director.\n\n2. Identify the director of \"The Fall Of A Saint\":\n   - The context provided does not mention \"The Fall Of A Saint.\" Therefore, we cannot determine the director or their country of origin based on the given information."
+    },
+    {
+      "sample_id": 232,
+      "question": "Which country Natalie Portman's husband is from?",
+      "prediction": "Israel",
+      "reference": "French",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 108,
+        "latency": 1.3617408275604248
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which country Natalie Portman's husband is from, we need to identify her husband and his nationality.\n\nFrom the context provided:\n- Neta Riskin coached Natalie Portman to speak Hebrew with an Israeli accent.\n- Natalie Portman is an actress with dual Israeli and American citizenship.\n- Neta Riskin is an Israeli actress.\n\nTherefore, Natalie Portman's husband is Neta Riskin, and he is from Israel.\n\nFinal Answer: Israel"
+    },
+    {
+      "sample_id": 233,
+      "question": "Who is the father-in-law of Tsandzile Ndwandwe?",
+      "prediction": "Sobhuza I",
+      "reference": "Ndvungunye",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 140,
+        "latency": 3.392098903656006
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the father-in-law of Tsandzile Ndwandwe, we need to analyze the given context:\n\n1. **Tsandzile Ndwandwe** is identified as the daughter of Zwide kaLanga and the senior wife of Sobhuza I of Swaziland.\n2. She is also noted as the mother of Mswati II of Swaziland.\n3. The context does not directly mention her father-in-law, but it provides information about Sobhuza I's family.\n\nFrom this, we can infer that Sobhuza I was married to Tsandzile Ndwandwe, making him her husband. Therefore, Sobhuza I would be her father-in-law.\n\nFinal Answer: Sobhuza I"
+    },
+    {
+      "sample_id": 234,
+      "question": "Which film has the director born earlier, Mister Scarface or Waking Sleeping Beauty?",
+      "prediction": "Not enough information",
+      "reference": "Mister Scarface",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 194,
+        "latency": 2.7565197944641113
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film has the director born earlier, we need to identify the directors of the films \"Mister Scarface\" and \"Waking Sleeping Beauty,\" and then compare their birth dates.\n\n1. **Identify the director of \"Waking Sleeping Beauty\":**  \n   The film \"Waking Sleeping Beauty\" is directed by Don Hahn. However, no birth date for Don Hahn is provided in the context.\n\n2. **Identify the director of \"Mister Scarface\":**  \n   The context does not mention a film titled \"Mister Scarface\" or its director.\n\n3. **Conclusion:**  \n   Since the context does not provide the necessary information about "
+    },
+    {
+      "sample_id": 235,
+      "question": "What is the place of birth of the performer of song Hunter (Björk Song)?",
+      "prediction": "Reykjavík",
+      "reference": "Reykjavík",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 84,
+        "latency": 1.5631163120269775
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the place of birth of the performer of the song \"Hunter\" (Björk Song), we need to identify who the performer is and then find their place of birth.\n\n1. The song \"Hunter\" is associated with Björk.\n2. Björk's full name is Björk Guðmundsdóttir.\n3. According to the context, Björk was born in Reykjavík.\n\nFinal Answer: Reykjavík"
+    },
+    {
+      "sample_id": 236,
+      "question": "Who is the paternal grandfather of Richard Beauchamp, 1St Earl Of Worcester?",
+      "prediction": "Roger de Beauchamp",
+      "reference": "Thomas de Beauchamp",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.6666666666666666,
+        "token_count": 167,
+        "latency": 2.422504186630249
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the paternal grandfather of Richard Beauchamp, 1st Earl of Worcester, we need to trace his lineage:\n\n1. Richard Beauchamp, 1st Earl of Worcester, was the only son of William de Beauchamp, 1st Baron Bergavenny.\n2. Therefore, William de Beauchamp, 1st Baron Bergavenny, was Richard's father.\n3. To find Richard's paternal grandfather, we need to identify William de Beauchamp's father.\n\nFrom the context provided, there is no direct mention of William de Beauchamp's father. However, based on historical records not included in the given context, William de Beauchamp's father was Roger de"
+    },
+    {
+      "sample_id": 237,
+      "question": "Who is the spouse of the director of film Carol'S Journey?",
+      "prediction": "María Barranco",
+      "reference": "María Barranco",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 79,
+        "latency": 1.2674484252929688
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the spouse of the director of the film *Carol's Journey*, follow these steps:\n\n1. Identify the director of *Carol's Journey*: The film was directed by Imanol Uribe.\n2. Determine the spouse of Imanol Uribe: According to the context, Imanol Uribe was married to María Barranco.\n\nFinal Answer: María Barranco"
+    },
+    {
+      "sample_id": 238,
+      "question": "Which film has the director born later, Diary Of A Maniac or Return Of The Hero?",
+      "prediction": "Return Of The Hero",
+      "reference": "Return Of The Hero",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 108,
+        "latency": 1.6894114017486572
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film has the director born later, we need to compare the birth years of the directors of \"Diary Of A Maniac\" and \"Return Of The Hero.\"\n\n- \"Diary Of A Maniac\" is directed by Marco Ferreri, who was born on 11 May 1928.\n- \"Return Of The Hero\" is directed by Laurent Tirard, who was born on 18 February 1967.\n\nComparing the birth years, Laurent Tirard was born later than Marco Ferreri.\n\nFinal Answer: Return Of The Hero"
+    },
+    {
+      "sample_id": 239,
+      "question": "Where was the father of Augustus William, Duke Of Brunswick-Bevern born?",
+      "prediction": "England",
+      "reference": "Osterholz",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 249,
+        "latency": 4.2879252433776855
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine where the father of Augustus William, Duke of Brunswick-Bevern was born, we need to identify who that father was and then find his place of birth.\n\n1. **Identify Augustus William, Duke of Brunswick-Bevern**: The context mentions Augustus William Lumley-Savile, who was renamed Augustus William Savile in 1881. He is referred to as the \"Duke of Brunswick-Bevern.\"\n\n2. **Identify the father of Augustus William Lumley-Savile**: The context states that John Lumley-Savile, 8th Earl of Scarbrough, was Augustus William Lumley-Savile's father.\n\n3. **Find the birthplace of John Lumley-Savile,"
+    },
+    {
+      "sample_id": 240,
+      "question": "Who is the mother-in-law of Lollia Paulina?",
+      "prediction": "Agrippina the Elder",
+      "reference": "Agrippina the Elder",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 95,
+        "latency": 1.5591413974761963
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the mother-in-law of Lollia Paulina, we need to identify her spouse and then find the mother of that spouse.\n\n1. Lollia Paulina was the wife of Caligula (Gaius Caesar).\n2. Caligula's father was Germanicus.\n3. Therefore, the mother of Caligula was Agrippina the Elder.\n\nThus, Agrippina the Elder is the mother-in-law of Lollia Paulina.\n\nFinal Answer: Agrippina the Elder"
+    },
+    {
+      "sample_id": 241,
+      "question": "Which film was released more recently, Gaza Ghetto or Kull The Conqueror?",
+      "prediction": "Gaza Ghetto",
+      "reference": "Kull The Conqueror",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 186,
+        "latency": 2.9987263679504395
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film was released more recently between \"Gaza Ghetto\" and \"Kull The Conqueror,\" we need to examine the release dates of both films.\n\n1. **Gaza Ghetto**: The context states that \"Gaza Ghetto: Portrait of a Family, 1948 – 1984\" is a documentary film created in 1984.\n\n2. **Kull The Conqueror**: There is no specific information provided about the release date of \"Kull The Conqueror\" in the given context. However, based on common knowledge, \"Kull the Conqueror\" (also known as \"The Conqueror\") is a 1983 Italian film directed by Tonino Ricci.\n\nComparing the two:\n- \"Gaza Ghetto\" was"
+    },
+    {
+      "sample_id": 242,
+      "question": "Who was born earlier, Raúl Osorio or James B. Harris?",
+      "prediction": "James B. Harris",
+      "reference": "James B. Harris",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 199,
+        "latency": 3.1847143173217773
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine who was born earlier between Raúl Osorio and James B. Harris, we need to find their birth dates from the context provided.\n\n1. **Raúl Osorio**: The context mentions Rebeca Ghigliotto had three daughters with Raúl Osorio, but it does not provide Raúl Osorio's birth date directly. However, since Rebeca Ghigliotto was born in 1955 and died in 2003, and she had children with Raúl Osorio, we can infer that Raúl Osorio was likely born before 1955.\n\n2. **James B. Harris**: The context states that James B. Harris was born on August 3, 1928.\n\nFrom this information:\n- Raúl Osorio's birth da"
+    },
+    {
+      "sample_id": 243,
+      "question": "When was the company that published Woman'S Century founded?",
+      "prediction": "Unable to determine",
+      "reference": "October 27, 1893",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 265,
+        "latency": 3.182875633239746
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine when the company that published *Woman's Century* was founded, we need to identify the publisher of *Woman's Century* and then find the founding date of that company.\n\n1. From the context, *Woman's Century* was the official organ of the National Council of Women of Canada (NCWC), published in Toronto between 1913 and 1921.\n2. The context does not explicitly state which company published *Woman's Century*, but it is implied that the NCWC itself may have been responsible for its publication, or it may have been published by a specific publishing company.\n3. However, the context also"
+    },
+    {
+      "sample_id": 244,
+      "question": "Who is Charles Willoughby, 10Th Baron Willoughby Of Parham's paternal grandmother?",
+      "prediction": "Frances Manners",
+      "reference": "Lady Frances Manners",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.8,
+        "token_count": 339,
+        "latency": 4.989608287811279
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine who Charles Willoughby, 10th Baron Willoughby of Parham's paternal grandmother was, we need to trace his family lineage.\n\n1. **Charles Willoughby, 10th Baron Willoughby of Parham** succeeded the title in 1678 upon the death of his father, John Willoughby, 9th Baron Willoughby of Parham.\n2. Therefore, his father was John Willoughby, 9th Baron Willoughby of Parham.\n3. To find Charles's paternal grandmother, we must identify John Willoughby's mother.\n4. The context does not directly mention John Willoughby's mother, but it provides information about earlier generations of the Willoug"
+    },
+    {
+      "sample_id": 245,
+      "question": "Which film has the director who died earlier, Deuce High or The King Is The Best Mayor?",
+      "prediction": "Cannot be determined",
+      "reference": "The King Is The Best Mayor",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 244,
+        "latency": 3.3089070320129395
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film has the director who died earlier, we need to compare the death dates of the directors of \"Deuce High\" and \"The King Is The Best Mayor.\"\n\n1. **Director of \"Deuce High\":** Richard Thorpe  \n   - No information about his death date is provided in the context.\n\n2. **Director of \"The King Is The Best Mayor\":** Rafael Gil  \n   - Rafael Gil died on 10 July 1986.\n\nSince no death date is given for Richard Thorpe, we cannot definitively compare the two. However, based on the information provided, Rafael Gil's death date is known, and it is later than the release year of \"Deuce Hi"
+    },
+    {
+      "sample_id": 246,
+      "question": "Which film was released earlier, Premium (Film) or Week-End With Father?",
+      "prediction": "Week-End With Father",
+      "reference": "Week-End With Father",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 82,
+        "latency": 1.539710283279419
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film was released earlier between \"Premium (Film)\" and \"Week-End With Father,\" we compare their release years:\n\n- \"Premium (Film)\" was released in 2006.\n- \"Week-End With Father\" was released in 1951.\n\nSince 1951 is earlier than 2006, \"Week-End With Father\" was released first.\n\nFinal Answer: Week-End With Father"
+    },
+    {
+      "sample_id": 247,
+      "question": "What nationality is Gevherhan Sultan (Daughter Of Selim Ii)'s father?",
+      "prediction": "is:",
+      "reference": "Ottoman Empire",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 49,
+        "latency": 0.9130167961120605
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "Gevherhan Sultan (Daughter Of Selim Ii) is a historical figure, and her father is Selim II. Selim II was the Sultan of the Ottoman Empire, so his nationality is Ottoman. The final answer is:\n\nOttoman"
+    },
+    {
+      "sample_id": 248,
+      "question": "Are both Țerova and Slava (River) located in the same country?",
+      "prediction": "yes",
+      "reference": "yes",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 75,
+        "latency": 1.3094689846038818
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine if both Țerova and Slava (River) are located in the same country, we analyze their locations:\n\n1. Țerova is a right tributary of the river Bârzava in Romania.\n2. Slava (River) is a river in Tulcea County, Romania.\n\nBoth Țerova and Slava (River) are located in Romania.\n\nFinal Answer: yes"
+    },
+    {
+      "sample_id": 249,
+      "question": "Are Graduate University Of Advanced Technology and Fruita Schoolhouse located in the same country?",
+      "prediction": "no",
+      "reference": "no",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 138,
+        "latency": 1.8456809520721436
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine if Graduate University Of Advanced Technology and Fruita Schoolhouse are located in the same country, we need to identify the countries where each is located.\n\n1. **Graduate University of Advanced Technology (GUAT)**: According to the context, GUAT is located in Kerman, Iran. Therefore, it is in Iran.\n\n2. **Fruita Schoolhouse**: The context states that the Fruita Schoolhouse is located in Fruita, Utah, United States. Therefore, it is in the United States.\n\nSince Iran and the United States are two different countries, the answer is:\n\nno"
+    },
+    {
+      "sample_id": 250,
+      "question": "Who is the paternal grandmother of Prince William Of Hesse-Kassel?",
+      "prediction": "Queen Caroline of Ansbach",
+      "reference": "Princess Mary of Great Britain",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.22222222222222224,
+        "token_count": 258,
+        "latency": 3.254572868347168
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the paternal grandmother of Prince William of Hesse-Kassel, we need to trace his family tree.\n\n1. **Identify Prince William of Hesse-Kassel's parents**:  \n   - Prince William of Hesse-Kassel was the first son of Prince Frederick of Hesse-Kassel and Princess Caroline of Nassau-Usingen.\n\n2. **Identify Prince Frederick of Hesse-Kassel's parents**:  \n   - Prince Frederick of Hesse-Kassel was the youngest son of Hereditary Prince Frederick of Hesse-Kassel (the future Landgrave Frederick II) and Princess Mary of Great Britain.\n\n3. **Identify Princess Mary of Great Britain's parents**:  "
+    },
+    {
+      "sample_id": 251,
+      "question": "Where did the presenter of Tim Russert (Talk Show) die?",
+      "prediction": "Unknown",
+      "reference": "Washington",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 105,
+        "latency": 1.51802659034729
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "Step 1: Identify the question. The question is asking where Tim Russert (the presenter of a talk show) died.\n\nStep 2: Analyze the context. The context provides information about Tim Russert, including his death date (June 13, 2008), but it does not specify the location of his death.\n\nStep 3: Determine if the information is present. The context does not mention the location of Tim Russert's death.\n\nFinal Answer: Unknown"
+    },
+    {
+      "sample_id": 252,
+      "question": "Which film has the director who died earlier, 11 Harrowhouse or A Little Sister Of Everybody?",
+      "prediction": "11 Harrowhouse",
+      "reference": "A Little Sister Of Everybody",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 207,
+        "latency": 2.9818716049194336
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film has the director who died earlier, we need to compare the death dates of the directors of \"11 Harrowhouse\" and \"A Little Sister Of Everybody.\"\n\n1. **Director of \"11 Harrowhouse\":** Aram Avakian  \n   - Died on January 17, 1987.\n\n2. **Director of \"A Little Sister Of Everybody\":** Robert Jan Westdijk  \n   - There is no information provided about his death date.\n\nSince we only have the death date for the director of \"11 Harrowhouse\" and no information about the death date of the director of \"A Little Sister Of Everybody,\" we cannot definitively determine which director died"
+    },
+    {
+      "sample_id": 253,
+      "question": "What is the place of birth of the director of film The Last Horror Movie?",
+      "prediction": "Newport, South Wales, Monmouthshire",
+      "reference": "Newport",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4,
+        "token_count": 204,
+        "latency": 2.5624704360961914
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the place of birth of the director of *The Last Horror Movie*, we need to identify who directed the film and then find their place of birth.\n\n1. The context states that *The Last Horror Movie* is a 2003 British found footage horror film.\n2. It does not explicitly name the director in the provided context.\n3. However, from the context, we know that Ian Barry is an Australian director of film and TV.\n4. The context also mentions Julian Richards, a Welsh film director born in Newport, South Wales, Monmouthshire.\n5. Since *The Last Horror Movie* is a British film and Julian Richards i"
+    },
+    {
+      "sample_id": 254,
+      "question": "Which film has the director who is older, The Woman In The Fifth or End Of Winter?",
+      "prediction": "End Of Winter",
+      "reference": "The Woman In The Fifth",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 130,
+        "latency": 1.8186235427856445
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film has the director who is older, we need to compare the ages of the directors of \"The Woman In The Fifth\" and \"End Of Winter.\"\n\n1. **Identify the directors:**\n   - \"The Woman In The Fifth\" is directed by Paweł Pawlikowski.\n   - \"End Of Winter\" is not explicitly mentioned in the context provided, so we cannot determine its director's age from the given information.\n\nSince the director of \"End Of Winter\" is not identified in the context, we cannot make a comparison. \n\nFinal Answer: End Of Winter"
+    },
+    {
+      "sample_id": 255,
+      "question": "Which film has the director who is older, The Girl King or Happy As The Grass Was Green?",
+      "prediction": "Happy as the Grass Was Green",
+      "reference": "Happy As The Grass Was Green",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 184,
+        "latency": 2.62359356880188
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film has the director who is older, we need to compare the ages of the directors of \"The Girl King\" and \"Happy as the Grass Was Green.\"\n\n1. **Director of \"The Girl King\":** Mika Kaurismäki\n   - No specific birth year is provided for Mika Kaurismäki in the context.\n\n2. **Director of \"Happy as the Grass Was Green\":** Charles Davis\n   - Charles Davis was born on 31 August 1925.\n\nSince no birth year is given for Mika Kaurismäki, we cannot definitively compare their ages. However, based on the information provided, Charles Davis's birth year (1925) is known, and without any confl"
+    },
+    {
+      "sample_id": 256,
+      "question": "Who is George Fitzroy, 1St Duke Of Northumberland's stepmother?",
+      "prediction": "Catherine of Braganza",
+      "reference": "Catherine of Braganza",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 87,
+        "latency": 1.2525153160095215
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine who George Fitzroy, 1st Duke of Northumberland's stepmother was, we need to identify his parents.\n\nGeorge FitzRoy, 1st Duke of Northumberland, was the illegitimate son of King Charles II of England and Catherine of Braganza. Catherine of Braganza was the wife of Charles II and thus his stepmother.\n\nFinal Answer: Catherine of Braganza"
+    },
+    {
+      "sample_id": 257,
+      "question": "Where does the director of film Ghost In The Machine (Film) work at?",
+      "prediction": "University of British Columbia",
+      "reference": "University of British Columbia",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 15,
+        "latency": 0.4658818244934082
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "Rachel Talalay  \nFinal Answer: University of British Columbia"
+    },
+    {
+      "sample_id": 258,
+      "question": "Are Elsah, Illinois and Chah-E Puzeh, Tabas both located in the same country?",
+      "prediction": "no",
+      "reference": "no",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 129,
+        "latency": 2.102841854095459
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine if Elsah, Illinois and Chah-E Puzeh, Tabas are both located in the same country, we need to identify the countries of each location.\n\n1. Elsah is a village in Illinois, which is a state in the United States. Therefore, Elsah is located in the United States.\n\n2. Chah-E Puzeh is mentioned as being in Tabas, which is a county in Iran. Therefore, Chah-E Puzeh is located in Iran.\n\nSince Elsah is in the United States and Chah-E Puzeh is in Iran, they are not located in the same country.\n\nFinal Answer: no"
+    },
+    {
+      "sample_id": 259,
+      "question": "Who is the paternal grandmother of Louis, Count Of Verdun?",
+      "prediction": "Hannah Arnold",
+      "reference": "Gerberge of Lorraine",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 248,
+        "latency": 3.3348939418792725
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the paternal grandmother of Louis, Count of Verdun, we need to identify the lineage leading to him.\n\n1. **Identify Louis, Count of Verdun**: The context does not directly mention \"Louis, Count of Verdun,\" but it refers to \"Louis V, successor Count of Chiny,\" who was hosted by Isabelle, referred to as Madame de Florenville, in 1285. This suggests a connection to the Counts of Chiny lineage.\n\n2. **Trace the lineage**: From the context:\n   - Louis IV, Count of Chiny, had a daughter named Jeanne.\n   - Jeanne married Arnold IV, making him the first Count of Chiny of the second dynasty "
+    },
+    {
+      "sample_id": 260,
+      "question": "What nationality is Anne Of Burgundy's father?",
+      "prediction": "French",
+      "reference": "France",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 51,
+        "latency": 0.8858067989349365
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "Anne of Burgundy's father was John the Fearless.  \nJohn the Fearless was a Duke of Burgundy and a scion of the royal house of France.  \nTherefore, Anne of Burgundy's father was French.\n\nFinal Answer: French"
+    },
+    {
+      "sample_id": 261,
+      "question": "Which film has the director who was born later, All The Gold In The World or The Crowning Touch?",
+      "prediction": "David Eady",
+      "reference": "The Crowning Touch",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 186,
+        "latency": 2.6439154148101807
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film has the director who was born later, we need to compare the birth years of the directors of \"All The Gold In The World\" and \"The Crowning Touch.\"\n\n1. **Director of \"All The Gold In The World\":** René Clair  \n   - Born: 11 November 1898  \n   - Died: 15 March 1981  \n\n2. **Director of \"The Crowning Touch\":** David Eady  \n   - No specific birth year is provided in the context, but we can infer from other information.  \n   - However, there is no direct mention of David Eady's birth year in the given context.  \n\nSince no birth year is provided for David Eady, we cannot direct"
+    },
+    {
+      "sample_id": 262,
+      "question": "Who lived longer, Csaba Pálinkás or Henry Scheffé?",
+      "prediction": "Henry Scheffé",
+      "reference": "Henry Scheffé",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 57,
+        "latency": 1.276242971420288
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "Csaba Pálinkás was born in 1959 and died in 2004, giving him a lifespan of 45 years.  \nHenry Scheffé was born in 1907 and died in 1977, giving him a lifespan of 70 years.  \nHenry Scheffé lived longer.  \n\nFinal Answer: Henry Scheffé"
+    },
+    {
+      "sample_id": 263,
+      "question": "Which film was released more recently, Pirates Of The Prairie or Alien Origin?",
+      "prediction": "Alien Origin",
+      "reference": "Alien Origin",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 80,
+        "latency": 1.4256963729858398
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film was released more recently, we compare the release dates of \"Pirates Of The Prairie\" and \"Alien Origin.\"\n\n- \"Pirates Of The Prairie\" was released in 1942.\n- \"Alien Origin\" was released in 2012.\n\nSince 2012 is later than 1942, \"Alien Origin\" was released more recently.\n\nFinal Answer: Alien Origin"
+    },
+    {
+      "sample_id": 264,
+      "question": "Who is the mother of Edward I Of England?",
+      "prediction": "Isabella of Angoulême",
+      "reference": "Eleanor of Provence",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3333333333333333,
+        "token_count": 66,
+        "latency": 1.057953119277954
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the mother of Edward I of England, we need to look at historical records. Edward I was the son of King John of England and Isabella of Angoulême. Therefore, the mother of Edward I of England is Isabella of Angoulême.\n\nFinal Answer: Isabella of Angoulême"
+    },
+    {
+      "sample_id": 265,
+      "question": "What is the date of death of Joan, Countess Of Blois's mother?",
+      "prediction": "8 March 1137",
+      "reference": "2 August 1288",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 237,
+        "latency": 3.3125529289245605
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the date of death of Joan, Countess Of Blois's mother, we need to identify who Joan's mother was and then find her date of death.\n\n1. **Identify Joan, Countess of Blois**: The context does not directly mention Joan, Countess of Blois. However, it does mention several notable figures related to the House of Blois, including Adela of Normandy, Alix of Brittany, and Theobald III of Blois.\n\n2. **Determine Joan's mother**: Since the name \"Joan\" is not explicitly mentioned in the provided context, we must infer based on the information given. The most likely candidate for Joan's mother "
+    },
+    {
+      "sample_id": 266,
+      "question": "Which album came out first, Issa Album or 3.2.1.?",
+      "prediction": "2.1",
+      "reference": "3.2.1.",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 73,
+        "latency": 1.725592851638794
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which album came out first, \"Issa Album\" or \"3.2.1.\", we need to compare their release dates.\n\n- \"Issa Album\" was released on July 7, 2017.\n- \"3.2.1.\" was released on July 23, 1998.\n\nSince July 23, 1998, is earlier than July 7, 2017, \"3.2.1.\" came out first.\n\nFinal Answer: 3.2.1."
+    },
+    {
+      "sample_id": 267,
+      "question": "Who is Sancho Ramírez's maternal grandfather?",
+      "prediction": "Bernard-Roger, Count of Bigorre",
+      "reference": "Bernard-Roger, Count of Bigorre",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 210,
+        "latency": 3.649127721786499
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine Sancho Ramírez's maternal grandfather, we need to identify his mother and then trace her lineage.\n\n1. There are two individuals named Sancho Ramírez in the context:\n   - Sancho Ramírez (before 1043–November 1110), an illegitimate son of King Ramiro I of Aragon and Amuña.\n   - Sancho Ramírez (1042–4 June 1094), King of Aragon and Navarre, who was the eldest son of Ramiro I and Ermesinda of Bigorre.\n\n2. The question refers to Sancho Ramírez (1042–4 June 1094), as he is the one who became king and had a notable lineage.\n\n3. His mother is Ermesinda of Bigorre.\n\n4. Ermesinda of Bigorre"
+    },
+    {
+      "sample_id": 268,
+      "question": "Which film was released earlier, New Jersey Drive or It Happened At The World'S Fair?",
+      "prediction": "The Middleton Family at the New York World's Fair",
+      "reference": "It Happened At The World'S Fair",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5714285714285715,
+        "token_count": 110,
+        "latency": 1.9268739223480225
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film was released earlier, \"New Jersey Drive\" or \"It Happened At The World'S Fair,\" we need to identify the release years of both films.\n\n1. \"New Jersey Drive\" is a 1995 film.\n2. \"It Happened At The World'S Fair\" refers to \"The Middleton Family at the New York World's Fair,\" which is a 1939 film.\n\nComparing the two release years, 1939 is earlier than 1995.\n\nFinal Answer: The Middleton Family at the New York World's Fair"
+    },
+    {
+      "sample_id": 269,
+      "question": "Who is the spouse of the performer of song Lolita (Leah Labelle Song)?",
+      "prediction": "Unknown",
+      "reference": "Rasual Butler",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 98,
+        "latency": 1.5714383125305176
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to identify the performer of the song \"Lolita\" (Leah LaBelle Song) and then find out who their spouse is.\n\n1. From the context, the song \"Lolita\" is recorded by Leah LaBelle.\n2. The context does not provide any information about Leah LaBelle's spouse.\n\nTherefore, based on the given context, we cannot determine the spouse of Leah LaBelle.\n\nFinal Answer: Unknown"
+    },
+    {
+      "sample_id": 270,
+      "question": "Do director of film Winter Meeting and director of film Year Of The Horse have the same nationality?",
+      "prediction": "yes",
+      "reference": "no",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 130,
+        "latency": 2.3108952045440674
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine if the directors of \"Winter Meeting\" and \"Year Of The Horse\" have the same nationality, we need to identify the directors of each film and their nationalities.\n\n1. **\"Winter Meeting\"** is directed by **Bretaigne Windust**, who was born in France but worked in the United States. His nationality is **American** (as he was based in the U.S. and worked there).\n\n2. **\"Year Of The Horse\"** is directed by **Jim Jarmusch**, who is an **American** film director.\n\nBoth directors are American. \n\nFinal Answer: yes"
+    },
+    {
+      "sample_id": 271,
+      "question": "Where does Chris Warren (Rugby League)'s father work at?",
+      "prediction": "Ray Warren",
+      "reference": "Nine Network",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 2,
+        "latency": 0.29202723503112793
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "Ray Warren"
+    },
+    {
+      "sample_id": 272,
+      "question": "Where did Davey Boy Smith Jr.'s mother study?",
+      "prediction": "Not enough information",
+      "reference": "Stampede Wrestling",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 136,
+        "latency": 1.7233774662017822
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To answer the question \"Where did Davey Boy Smith Jr.'s mother study?\", we need to identify who Davey Boy Smith Jr.'s mother is and then determine where she studied.\n\nFrom the context, Davey Boy Smith Jr. is the son of \"The British Bulldog\" Davey Boy Smith and Diana Hart. Diana Hart is described as the youngest daughter of promoters Stu and Helen Hart.\n\nThere is no specific information provided about where Diana Hart studied. Therefore, we cannot determine where she studied based on the given context.\n\nFinal Answer: Not enough information"
+    },
+    {
+      "sample_id": 273,
+      "question": "Which country Thomas Lyon-Bowes, Lord Glamis's father is from?",
+      "prediction": "Scotland",
+      "reference": "British",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 89,
+        "latency": 1.4490330219268799
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "Thomas Lyon-Bowes, Lord Glamis's father is Thomas Lyon-Bowes, 11th Earl of Strathmore and Kinghorne. The context does not explicitly state the country of origin of Thomas Lyon-Bowes, 11th Earl of Strathmore and Kinghorne. However, the title \"Earl of Strathmore and Kinghorne\" is a Scottish title, indicating that he was from Scotland.\n\nFinal Answer: Scotland"
+    },
+    {
+      "sample_id": 274,
+      "question": "What nationality is the performer of song Adore You (Jessie Ware Song)?",
+      "prediction": "English",
+      "reference": "United Kingdom",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 106,
+        "latency": 1.482072114944458
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the nationality of the performer of the song \"Adore You\" by Jessie Ware, we first identify the performer. The song \"Adore You\" is by Jessie Ware.\n\nNext, we examine the context provided about Jessie Ware. It states that Jessica Lois Ware, known as Jessie Ware, is an English singer-songwriter.\n\nBased on this information, the nationality of the performer of the song \"Adore You\" is English.\n\nFinal Answer: English"
+    },
+    {
+      "sample_id": 275,
+      "question": "Which film whose director is younger, Dallas 362 or Revenge Of The Barbarians?",
+      "prediction": "Dallas 362",
+      "reference": "Dallas 362",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 106,
+        "latency": 2.2361443042755127
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film has a younger director, we need to compare the birth years of the directors of \"Dallas 362\" and \"Revenge of the Barbarians.\"\n\n1. **Director of \"Dallas 362\":** Scott Caan was born on August 23, 1976.\n2. **Director of \"Revenge of the Barbarians\":** Giuseppe Vari was born on March 9, 1924.\n\nComparing the two birth years:\n- Scott Caan (1976) is younger than Giuseppe Vari (1924).\n\nFinal Answer: Dallas 362"
+    },
+    {
+      "sample_id": 276,
+      "question": "Which film has the director born earlier, Spring Storms or Fun In The Barracks?",
+      "prediction": "Fun In The Barracks",
+      "reference": "Fun In The Barracks",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 132,
+        "latency": 3.4663150310516357
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film has the director born earlier, we need to identify the birth years of the directors of \"Spring Storms\" and \"Fun In The Barracks.\"\n\n1. **\"Spring Storms\"** is directed by **Fern Andra**, who was born on **November 24, 1893**.\n2. **\"Fun In The Barracks\"** is directed by **Maurice Tourneur**, who was born on **February 2, 1876**.\n\nComparing the birth years:\n- Fern Andra: 1893\n- Maurice Tourneur: 1876\n\nSince 1876 is earlier than 1893, **Maurice Tourneur** was born earlier.\n\nFinal Answer: Fun In The Barracks"
+    },
+    {
+      "sample_id": 277,
+      "question": "Where was the father of Andrew Balding born?",
+      "prediction": "Unknown",
+      "reference": "US",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 133,
+        "latency": 1.6546831130981445
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine where the father of Andrew Balding was born, we need to identify who the father of Andrew Balding is. \n\nFrom the context provided, we know that Ian Balding is the son of Gerald Matthews Balding and the younger brother of Toby Balding. Therefore, Gerald Matthews Balding is the father of Ian Balding.\n\nHowever, the question asks about the father of Andrew Balding, not Ian Balding. There is no information in the context that directly identifies Andrew Balding's father. \n\nTherefore, the answer is:\n\nFinal Answer: Unknown"
+    },
+    {
+      "sample_id": 278,
+      "question": "Which film was released earlier, Anna-Liisa or Children Underground?",
+      "prediction": "Children Underground",
+      "reference": "Anna-Liisa",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 153,
+        "latency": 2.4206035137176514
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film was released earlier, we need to compare the release years of \"Anna-Liisa\" and \"Children Underground.\"\n\n- \"Children Underground\" was released in 2001.\n- The release year of \"Anna-Liisa\" is not provided in the context.\n\nSince the release year of \"Anna-Liisa\" is unknown, we cannot definitively determine which film was released earlier. However, based on the information given, \"Children Underground\" was released in 2001, and if \"Anna-Liisa\" was released after that year, it would be later. If \"Anna-Liisa\" was released before 2001, it would be earlier.\n\nFinal Answer: Childre"
+    },
+    {
+      "sample_id": 279,
+      "question": "Are Arnold Palmer Regional Airport and Luis Muñoz Marín International Airport located in the same co",
+      "prediction": "yes",
+      "reference": "yes",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 185,
+        "latency": 2.1878244876861572
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine if Arnold Palmer Regional Airport and Luis Muñoz Marín International Airport are located in the same country, we need to identify the countries where each airport is located.\n\n1. **Arnold Palmer Regional Airport**: According to the context, it is located in Westmoreland County, Pennsylvania, which is in the United States.\n\n2. **Luis Muñoz Marín International Airport**: The context mentions that Dorado Airport was served by Dorado Wings, a small airline that operated charter flights between Dorado Airport and Luis Muñoz Marín International Airport in San Juan. San Juan is the capit"
+    },
+    {
+      "sample_id": 280,
+      "question": "Which award the composer of film Pataakha won?",
+      "prediction": "National Film Award for Best Music Direction",
+      "reference": "National Film Award for Best Music Direction",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 116,
+        "latency": 1.9546992778778076
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to identify the composer of the film \"Pataakha\" and then determine which award they won.\n\n1. Identify the composer of \"Pataakha\": The film \"Pataakha\" (2010) was composed by Vishal Bhardwaj.\n2. Determine the award won by Vishal Bhardwaj: According to the context, Vishal Bhardwaj received the National Film Award for Best Music Direction for his work on \"Godmother\" (1999).\n\nFinal Answer: National Film Award for Best Music Direction"
+    },
+    {
+      "sample_id": 281,
+      "question": "What is the place of birth of the performer of song Damage (Pharoahe Monch Song)?",
+      "prediction": "Bronx, New York",
+      "reference": "Queens",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 109,
+        "latency": 1.6906623840332031
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the place of birth of the performer of the song \"Damage\" by Pharoahe Monch, we need to identify who the performer is. According to the context provided, \"Damage\" is a song by Pharoahe Monch.\n\nNext, we need to find the place of birth of Pharoahe Monch. The context does not explicitly state his place of birth. However, based on general knowledge, Pharoahe Monch was born in the Bronx, New York.\n\nFinal Answer: Bronx, New York"
+    },
+    {
+      "sample_id": 282,
+      "question": "Where did Henry C. Lord's father graduate from?",
+      "prediction": "Dartmouth College",
+      "reference": "Bowdoin College",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5,
+        "token_count": 223,
+        "latency": 2.542536735534668
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To answer the question about where Henry C. Lord's father graduated from, we need to identify Henry C. Lord's father from the context provided.\n\nFrom the context: \"Henry Clark Lord ... was born in Amherst, Massachusetts, the son of Dartmouth College president Nathan Lord.\"\n\nThis indicates that Henry C. Lord's father was Nathan Lord.\n\nNext, we need to determine where Nathan Lord graduated from. The context states: \"the son of Dartmouth College president Nathan Lord.\" This implies that Nathan Lord was a president of Dartmouth College, but it does not explicitly state where he graduated from.\n\nHo"
+    },
+    {
+      "sample_id": 283,
+      "question": "Which film whose director is younger, Uncharted Seas or Something Of Value?",
+      "prediction": "Something of Value",
+      "reference": "Something Of Value",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 126,
+        "latency": 2.2294540405273438
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film has a younger director, we need to compare the birth years of the directors of \"Uncharted Seas\" and \"Something of Value.\"\n\n1. **Director of \"Something of Value\":** Richard Brooks was born on May 18, 1912.\n2. **Director of \"Uncharted Seas\":** Wesley Ruggles was born on April 16, 1889.\n\nComparing the birth years:\n- Richard Brooks (1912) is younger than Wesley Ruggles (1889).\n\nTherefore, the film with the younger director is \"Something of Value.\"\n\nFinal Answer: Something of Value"
+    },
+    {
+      "sample_id": 284,
+      "question": "Which film has the director born later, My Own Private Idaho or Lucignolo?",
+      "prediction": "Lucignolo",
+      "reference": "Lucignolo",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 107,
+        "latency": 1.8614983558654785
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film has the director born later, we need to identify the directors of each film and their birth years.\n\n1. **My Own Private Idaho** is directed by Gus Van Sant, who was born on July 24, 1952.\n2. **Lucignolo** is directed by Massimo Ceccherini, who was born on September 27, 1962.\n\nComparing the birth years, Massimo Ceccherini (born 1962) was born later than Gus Van Sant (born 1952).\n\nFinal Answer: Lucignolo"
+    },
+    {
+      "sample_id": 285,
+      "question": "What is the date of birth of Prince Bernhard Of Orange-Nassau, Van Vollenhoven's father?",
+      "prediction": "26 August 1872",
+      "reference": "April 30, 1939",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 3,
+        "latency": 0.3918271064758301
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "26 August 1872"
+    },
+    {
+      "sample_id": 286,
+      "question": "Are the bands The Catheters and Dark At Dawn, from the same country?",
+      "prediction": "no",
+      "reference": "no",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 86,
+        "latency": 1.311049222946167
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine if The Catheters and Dark At Dawn are from the same country, we need to examine their origins:\n\n1. **Dark At Dawn**: The band is described as being from Germany.\n2. **The Catheters**: The band is described as being from Bellevue, Washington.\n\nSince Germany and Washington (United States) are different countries, the answer is:\n\nno"
+    },
+    {
+      "sample_id": 287,
+      "question": "Who is the paternal grandmother of Ingegerd Olofsdotter Of Sweden?",
+      "prediction": "Sigrid the Haughty",
+      "reference": "Sigrid the Haughty",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 147,
+        "latency": 2.338045597076416
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the paternal grandmother of Ingegerd Olofsdotter of Sweden, we need to identify her father and then his mother.\n\n1. Ingegerd Olofsdotter of Sweden was the daughter of Olof Skötkonung and Estrid of the Obotrites.\n2. Therefore, her father was Olof Skötkonung.\n3. The paternal grandmother would be the mother of Olof Skötkonung.\n\nFrom the context:\n- Olof Skötkonung was the son of Eric the Victorious and, according to Icelandic sources, Sigrid the Haughty.\n\nThus, the paternal grandmother of Ingegerd Olofsdotter of Sweden is Sigrid the Haughty.\n\nFinal Answer: Sigrid the Haughty"
+    },
+    {
+      "sample_id": 288,
+      "question": "Where was the place of death of the creator of Conan The Adventurer (1992 Tv Series)?",
+      "prediction": "Unknown",
+      "reference": "Cross Plains",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 166,
+        "latency": 2.1855483055114746
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the place of death of the creator of *Conan the Adventurer* (1992 TV series), we need to identify who the creator was. The context mentions Robert E. Howard as the creator of Conan the Cimmerian, which is closely associated with the character Conan the Barbarian. \n\nNext, we look for information about Robert E. Howard's place of death. The context states that Robert E. Howard died on June 11, 1936. However, it does not explicitly mention the location of his death. \n\nGiven that the question is about the place of death and the context does not provide this information, the answer can"
+    },
+    {
+      "sample_id": 289,
+      "question": "Are the directors of films The Swordsman (Upcoming Film) and Shopworn both from the same country?",
+      "prediction": "no",
+      "reference": "no",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 132,
+        "latency": 1.9917213916778564
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine if the directors of \"The Swordsman (Upcoming Film)\" and \"Shopworn\" are from the same country, we need to identify the directors of each film.\n\n1. **The Swordsman (Upcoming Film)**: Directed by Choi Jae-hoon, who is a South Korean writer and director.\n2. **Shopworn**: Directed by Nick Grinde, who was an American film director.\n\nBased on this information, the directors of \"The Swordsman (Upcoming Film)\" and \"Shopworn\" are from different countries (South Korea and the United States, respectively).\n\nFinal Answer: no"
+    },
+    {
+      "sample_id": 290,
+      "question": "Are The Man Who Knew Too Much (1956 Film) and Man On Wire both from the same country?",
+      "prediction": "no",
+      "reference": "yes",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 180,
+        "latency": 2.599968433380127
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine if \"The Man Who Knew Too Much (1956 Film)\" and \"Man On Wire\" are from the same country, we need to identify the country of origin for each.\n\n1. **The Man Who Knew Too Much (1956 Film)**: This film is an American suspense thriller directed by Alfred Hitchcock. It was produced in the United States.\n\n2. **Man On Wire**: This is a 2008 documentary film directed by James Marsh. It is based on the true story of Philippe Petit's tightrope walk between the Twin Towers of the World Trade Center. The film was produced in the United Kingdom.\n\nSince \"The Man Who Knew Too Much (1956 Film)\" is "
+    },
+    {
+      "sample_id": 291,
+      "question": "What is the place of birth of the director of film The Fj Holden?",
+      "prediction": "Sydney, Australia",
+      "reference": "Sydney, Australia",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 91,
+        "latency": 1.3716351985931396
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the place of birth of the director of the film *The FJ Holden*, we follow these steps:\n\n1. Identify the director of *The FJ Holden*: According to the context, the film was directed by Michael Thornhill.\n2. Find Michael Thornhill's place of birth: The context states that Michael Thornhill was born in Sydney, Australia.\n\nFinal Answer: Sydney, Australia"
+    },
+    {
+      "sample_id": 292,
+      "question": "Who was born later, Lisbeth Cathrine Amalie Rose or Princess Raiyah Bint Hussein?",
+      "prediction": "Princess Raiyah Bint Hussein",
+      "reference": "Princess Raiyah Bint Hussein",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 95,
+        "latency": 1.6402060985565186
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine who was born later between Lisbeth Cathrine Amalie Rose and Princess Raiyah Bint Hussein, we need to compare their birth dates:\n\n- Lisbeth Cathrine Amalie Rose was born on 25 September 1738.\n- Princess Raiyah Bint Hussein was born on 9 February 1986.\n\nComparing these dates, 9 February 1986 is later than 25 September 1738.\n\nFinal Answer: Princess Raiyah Bint Hussein"
+    },
+    {
+      "sample_id": 293,
+      "question": "Where was the performer of song Step Into The Light (Myra Song) born?",
+      "prediction": "Los Angeles, California",
+      "reference": "California",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5,
+        "token_count": 139,
+        "latency": 1.901916265487671
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to identify the performer of the song \"Step Into The Light\" and then determine their place of birth.\n\n1. From the context, the song \"Step Into The Light\" is described as a single by Mexican-American singer Myra.\n2. Further information identifies Myra as Mayra Caról Ambriz Quintana.\n3. The context states that Mayra Caról Ambriz Quintana was born in Los Angeles, California.\n\nBased on this information, the performer of the song \"Step Into The Light\" was born in Los Angeles, California.\n\nFinal Answer: Los Angeles, California"
+    },
+    {
+      "sample_id": 294,
+      "question": "Which country the director of film One Night At Mccool'S is from?",
+      "prediction": "Dutch-Norwegian",
+      "reference": "Norwegian",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 72,
+        "latency": 1.1489853858947754
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the country of the director of the film \"One Night at McCool's,\" we follow these steps:\n\n1. Identify the director of \"One Night at McCool's\" from the context: Harald Zwart.\n2. Determine Harald Zwart's nationality from the context: Dutch-Norwegian.\n\nFinal Answer: Dutch-Norwegian"
+    },
+    {
+      "sample_id": 295,
+      "question": "Who is the paternal grandfather of Beatrice I, Abbess Of Quedlinburg?",
+      "prediction": "Emperor Conrad II of Germany",
+      "reference": "Conrad II",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5714285714285715,
+        "token_count": 125,
+        "latency": 1.6931450366973877
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the paternal grandfather of Beatrice I, Abbess of Quedlinburg, we start by identifying her parents.\n\nFrom the context:\n- Beatrice I was born as the only child of the Holy Roman Emperor Henry III and his first wife, Gunhilda of Denmark.\n\nNext, we identify Henry III's father:\n- Henry III was the eldest son of Emperor Conrad II of Germany and Gisela of Swabia.\n\nTherefore, the paternal grandfather of Beatrice I is Emperor Conrad II of Germany.\n\nFinal Answer: Emperor Conrad II of Germany"
+    },
+    {
+      "sample_id": 296,
+      "question": "Who is the paternal grandmother of John Iii, Duke Of Cleves?",
+      "prediction": "Elizabeth of Nevers",
+      "reference": "Elizabeth of Nevers",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 95,
+        "latency": 1.5632915496826172
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the paternal grandmother of John III, Duke of Cleves, we follow these steps:\n\n1. Identify John III, Duke of Cleves's father: John II, Duke of Cleves.\n2. Identify John II, Duke of Cleves's parents: John I, Duke of Cleves and Elizabeth of Nevers.\n3. Therefore, the paternal grandmother of John III, Duke of Cleves is Elizabeth of Nevers.\n\nFinal Answer: Elizabeth of Nevers"
+    },
+    {
+      "sample_id": 297,
+      "question": "Where was the place of death of George Thomas Orlando Bridgeman's father?",
+      "prediction": "Not specified",
+      "reference": "Weston Park",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 133,
+        "latency": 2.047410249710083
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine the place of death of George Thomas Orlando Bridgeman's father, we need to identify who that father is and then find his place of death.\n\n1. George Thomas Orlando Bridgeman's father is George Bridgeman, 2nd Earl of Bradford.\n2. According to the context, George Bridgeman, 2nd Earl of Bradford, died on 22 March 1865.\n3. The context does not explicitly state the place of death for George Bridgeman, 2nd Earl of Bradford.\n\nTherefore, the place of death is not provided in the given context. \n\nFinal Answer: Not specified"
+    },
+    {
+      "sample_id": 298,
+      "question": "What nationality is Imperial Noble Consort Chunhui's husband?",
+      "prediction": "Manchu",
+      "reference": "Qing dynasty",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 34,
+        "latency": 0.7193136215209961
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "Imperial Noble Consort Chunhui's husband was the Tongzhi Emperor.  \nThe Tongzhi Emperor was of Manchu nationality.  \nFinal Answer: Manchu"
+    },
+    {
+      "sample_id": 299,
+      "question": "Which film has the director who died later, Say It With Flowers or Boot Hill Bandits?",
+      "prediction": "Boot Hill Bandits",
+      "reference": "Boot Hill Bandits",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 295,
+        "latency": 4.010987281799316
+      },
+      "method": "standard_cot",
+      "error": null,
+      "reasoning_text": "To determine which film has the director who died later, we need to compare the directors of \"Say It With Flowers\" and \"Boot Hill Bandits.\"\n\n1. **Identify the directors:**\n   - \"Boot Hill Bandits\" is directed by S. Roy Luby.\n   - \"Say It With Flowers\" is not explicitly mentioned in the context provided, but it is referenced in the context of \"Mammy,\" which is a 1930 film starring Al Jolson. \"Say It With Flowers\" is likely a different film, possibly from the same era, given the context.\n\n2. **Find the death dates of the directors:**\n   - S. Roy Luby died on 19 August 1976.\n   - The director of "
     }
   ]
 }

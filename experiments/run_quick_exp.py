@@ -88,6 +88,10 @@ def create_method(method_name: str, model, dataset: str = None):
         "gers_adaptive_cv": lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=True, adaptive=True, consistency_threshold=0.75, _no_constraint=True, dataset=dataset, enable_backward_verify=True, enable_llm_match=False),
         # GERS+自适应 + 方向1 + 方向2 叠加
         "gers_adaptive_cv2":lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=True, adaptive=True, consistency_threshold=0.75, _no_constraint=True, dataset=dataset, enable_backward_verify=True, enable_llm_match=False, enable_confidence_weighting=True),
+        # P2.3 消融：crossval 权重均匀(uniform) vs 默认下游加权
+        "gers_cv2_uniform": lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=True, adaptive=True, consistency_threshold=0.75, _no_constraint=True, dataset=dataset, enable_backward_verify=True, enable_llm_match=False, enable_confidence_weighting=True, uniform_crossval_weight=True),
+        # P2.4 控制：反向验证仅用context(不用最终答案A)
+        "gers_cv2_ctxonly": lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=True, adaptive=True, consistency_threshold=0.75, _no_constraint=True, dataset=dataset, enable_backward_verify=True, enable_llm_match=False, enable_confidence_weighting=True, backward_anchor_mode="context_only"),
         "gers_nli":         lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=True, adaptive=False, consistency_threshold=0.75, _no_constraint=True, dataset=dataset),
         "gers_feedback":    lambda: GraphGuidedGenerator(model=model, max_iterations=2, enable_nli=False, adaptive=False, consistency_threshold=0.75, _no_constraint=True, dataset=dataset),
         # CoT 系基线：透传 dataset 给答案提取（公平性，修复空答案/长句问题）

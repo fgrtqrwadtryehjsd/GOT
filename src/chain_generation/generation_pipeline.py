@@ -116,6 +116,21 @@ Answer this sub-question concisely from the context. End with:
 Sub-answer: <your answer>"""
 
 
+# ─── 反向验证 Prompt（P2.4 控制：仅用上下文，不用最终答案）─────────────────────
+
+BACKWARD_VERIFY_PROMPT_CONTEXT_ONLY = """You are independently verifying one reasoning step.
+
+Original question: {original_question}
+{context_section}
+
+Independently answer this specific sub-question based ONLY on the context above. Do not assume any final answer; derive the sub-answer purely from the context. If the context does not provide the information, say so explicitly.
+
+Sub-question (Step {step_index}): {sub_question}
+
+Answer concisely from the context. End with:
+Sub-answer: <your answer>"""
+
+
 # ─── 自适应复杂度判断 Prompt ──────────────────────────────────────────────────
 
 COMPLEXITY_PROMPT = """Analyze the complexity of the following question.
@@ -175,7 +190,9 @@ class GraphGuidedGenerator:
                  cs_struct_weight: float = 0.3,
                  cs_crossval_weight: float = 0.7,
                  enable_confidence_weighting: bool = False,
-                 confidence_threshold: float = 0.5):
+                 confidence_threshold: float = 0.5,
+                 uniform_crossval_weight: bool = False,
+                 backward_anchor_mode: str = "answer_context"):
         """
         Args:
             model: LLM 模型实例
@@ -226,6 +243,10 @@ class GraphGuidedGenerator:
         # 方向2：子答案置信度加权汇总（低置信子答案标注 uncertain，降低错误传播）
         self.enable_confidence_weighting = enable_confidence_weighting
         self.confidence_threshold = confidence_threshold
+        # P2.3 消融：crossval 权重均匀(uniform) vs 下游加权(downstream,默认)
+        self.uniform_crossval_weight = uniform_crossval_weight
+        # P2.4 控制：反向验证锚点 answer_context(默认,用A+context) vs context_only(仅context)
+        self.backward_anchor_mode = backward_anchor_mode
         # Self-Consistency 时每条 DAG 的分解温度（None=用默认 0.2）。
         # 注意：generate() 用的是参数 temperature，不读 model.temperature，
         # 所以必须在这里显式传给 _decompose，否则 K 条 DAG 无温度多样性。
@@ -808,16 +829,28 @@ class GraphGuidedGenerator:
         for i, item in enumerate(sub_qa_chain):
             sub_q = item.get("sub_question", "")
             forward_ans = item.get("sub_answer", "")
-            # 下游子问题权重更高（错误传播影响更大）
-            weight = 0.5 + 0.5 * (i + 1) / n
+            # P2.3 消融：下游加权(默认) vs 均匀权重
+            if self.uniform_crossval_weight:
+                weight = 1.0
+            else:
+                weight = 0.5 + 0.5 * (i + 1) / n
 
-            prompt = BACKWARD_VERIFY_PROMPT.format(
-                original_question=question[:400],
-                context_section=context_section,
-                final_answer=str(final_answer)[:200],
-                step_index=i + 1,
-                sub_question=sub_q[:300],
-            )
+            # P2.4 控制：answer_context(默认,用A+context) vs context_only(仅context,不用A)
+            if self.backward_anchor_mode == "context_only":
+                prompt = BACKWARD_VERIFY_PROMPT_CONTEXT_ONLY.format(
+                    original_question=question[:400],
+                    context_section=context_section,
+                    step_index=i + 1,
+                    sub_question=sub_q[:300],
+                )
+            else:
+                prompt = BACKWARD_VERIFY_PROMPT.format(
+                    original_question=question[:400],
+                    context_section=context_section,
+                    final_answer=str(final_answer)[:200],
+                    step_index=i + 1,
+                    sub_question=sub_q[:300],
+                )
             try:
                 resp = self.model.generate(prompt, max_tokens=150, temperature=0.0)
                 backward_ans = self._extract_sub_answer(resp)

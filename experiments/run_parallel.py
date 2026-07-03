@@ -135,7 +135,8 @@ def process_one(method_name: str, model, sample: dict, idx: int,
             record["reasoning_text"] = rt[:600]
     # GERS 专有字段
     if result and method_name in ("gers", "gers_adaptive", "gers_sc", "gers_nli",
-                                  "gers_feedback", "gers_sc_cv", "gers_adaptive_cv"):
+                                  "gers_feedback", "gers_sc_cv", "gers_adaptive_cv",
+                                  "gers_cv2_uniform", "gers_cv2_ctxonly"):
         record["iterations"] = result.get("iterations", 0)
         record["consistency_detail"] = result.get("consistency_detail")
         record["token_count"] = result.get("token_count", 0)
