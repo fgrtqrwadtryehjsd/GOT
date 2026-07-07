@@ -135,7 +135,10 @@ def process_one(method_name: str, model, sample: dict, idx: int,
             record["reasoning_text"] = rt[:600]
     # GERS 专有字段
     if result and method_name in ("gers", "gers_adaptive", "gers_sc", "gers_nli",
-                                  "gers_feedback", "gers_sc_cv", "gers_adaptive_cv",
+                                  "gers_feedback", "gers_sc_cv", "gers_sc_cv2",
+                                  "gers_adaptive_cv", "gers_adaptive_cv2",
+                                  "gers_grounded", "gers_grounded_soft",
+                                  "gers_repair", "gers_repair_soft",
                                   "gers_cv2_uniform", "gers_cv2_ctxonly"):
         record["iterations"] = result.get("iterations", 0)
         record["consistency_detail"] = result.get("consistency_detail")
@@ -146,6 +149,8 @@ def process_one(method_name: str, model, sample: dict, idx: int,
         if isinstance(cd, dict) and "crossval_score" in cd:
             record["crossval_score"] = cd["crossval_score"]
             record["struct_score"] = cd.get("struct_score")
+        if isinstance(cd, dict) and "repair_detail" in cd:
+            record["repair_detail"] = cd["repair_detail"]
     if result and method_name == "cot_sc_gers":
         record["gers_rerank_triggered"] = result.get("gers_rerank_triggered", False)
         record["gers_scores"] = result.get("gers_scores")

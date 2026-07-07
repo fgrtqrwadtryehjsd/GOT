@@ -25,7 +25,7 @@
 % ===== 摘要 =====
 \begin{abstract}
 \noindent
-现有图结构增强推理方法将推理建模为 DAG，但其一致性校验多为纯图论结构指标（连通性、无环性、覆盖度），无法反映推理内容正确性，导致 Consistency Score 几乎不具备对错区分能力，多路选优退化为随机抽取。本文提出 GERS，将推理显式建模为推理依赖图（DAG）并按拓扑序执行；核心创新是\textbf{子答案双向验证}：以最终答案与上下文为锚，反向逐个重答子问题，对比正反向子答案一致性，将 Consistency Score 从结构合法性指标升级为内容自洽信号。在 HotpotQA 500 条上，该方法将对错区分度从 $-0.0035$ 修复到 $+0.0847$；最优配置 GERS-CV2 取得 EM=0.302、F1=0.413，相比 CoT-SC 的 F1 领先 4pt，McNemar 配对检验显著（$p=0.029$），但 bootstrap 效应量区间仍微跨零。本文进一步在 2WikiMultiHopQA 上给出边界分析：方法适用于对比型分解，但在深桥接对比题上因上游实体错误传播而失效。
+现有图结构增强推理方法将推理建模为 DAG，但其一致性校验多为纯图论结构指标（连通性、无环性、覆盖度），无法反映推理内容正确性，导致 Consistency Score 几乎不具备对错区分能力，多路选优退化为随机抽取。本文提出 GERS，将推理显式建模为推理依赖图（DAG）并按拓扑序执行；核心创新是\textbf{子答案双向验证}：以最终答案与上下文为锚，反向逐个重答子问题，对比正反向子答案一致性，将 Consistency Score 从结构合法性指标升级为内容自洽信号。在 HotpotQA 500 条上，该方法将对错区分度从 $-0.0035$ 修复到 $+0.0847$；最优配置 GERS-CV2 取得 EM=0.302、F1=0.413，相比 CoT-SC 的 F1 领先 4pt，EM 对错的 McNemar 检验显著（$p=0.029$），但配对 bootstrap 效应量区间仍微跨零。本文进一步在 2WikiMultiHopQA 上给出边界分析：方法适用于对比型分解，但在深桥接对比题上因上游实体错误传播而失效。
 \end{abstract}
 
 \noindent\textbf{关键词：} 大语言模型；多跳推理；思维链；图结构表征；双向交叉验证；一致性校验
@@ -47,7 +47,7 @@
 本文不声称图约束推理在所有多跳任务上全面超越 CoT，而是指出图推理方法中一个被忽视的问题：图结构合法性并不等于推理内容正确性。贡献分三层：
 \begin{enumerate}[label=\arabic*.]
 \item \textbf{机制贡献（核心）}：子答案双向验证将 Consistency Score 的对错区分度从 $-0.0035$ 修复到 $+0.0847$（500 条 HotpotQA），使一致性校验从结构指标升级为有效的内容自洽信号。该验证由显式 DAG 分解自然支持。
-\item \textbf{经验贡献}：最优配置 GERS-CV2 在 HotpotQA 500 条上取得 EM=0.302、F1=0.413，相比 CoT-SC 为配对显著提升（McNemar $p=0.029$，F1 +4pt），但 bootstrap 效应量区间仍微跨零，本文如实报告。
+\item \textbf{经验贡献}：最优配置 GERS-CV2 在 HotpotQA 500 条上取得 EM=0.302、F1=0.413，相比 CoT-SC 的 F1 高 4pt，且 EM 对错的 McNemar 检验显著（$p=0.029$），但配对 bootstrap 效应量区间仍微跨零，本文如实报告。
 \item \textbf{诊断贡献}：在 2WikiMultiHopQA 上给出边界分析，方法适用于对比型分解，但在深桥接对比题上因上游实体错误传播而失效；并报告图级多路自一致性即便修复 CS 区分度后仍无额外增益。
 \end{enumerate}
 
@@ -69,7 +69,7 @@ GERS 的推理流程分为推理状态图表示、图约束链路生成、一致
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.85\textwidth]{figures/image1.png}
+\includegraphics[width=0.85\textwidth]{figures/image1}
 \caption{GERS 推理框架。}
 \end{figure}
 
@@ -99,7 +99,7 @@ S_{\text{struct}} = w_1 \cdot C_{\text{conn}} + w_2 \cdot C_{\text{cycle}} + w_3
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.85\textwidth]{figures/image3.png}
+\includegraphics[width=0.85\textwidth]{figures/image3}
 \caption{双向交叉验证机制示意图。}
 \end{figure}
 \begin{equation}
@@ -118,7 +118,7 @@ S = 0.3 \cdot S_{\text{struct}} + 0.7 \cdot S_{\text{crossval}}
 
 \subsection{图级自一致性（GERS-SC）}
 
-GERS-SC 生成 K 条不同推理 DAG（分解温度 $T \in \{0.3, 0.5, 0.7\}$），用 Consistency Score 选得分最高者：$A^* = \arg\max_{k} S(G_k)$。其有效性严格依赖于 CS 具备区分度——双向交叉验证正是使其生效的前提。
+GERS-SC 生成 K 条不同推理 DAG（分解温度 $T \in \{0.3, 0.5, 0.7\}$），用 Consistency Score 选得分最高者：$A^* = \arg\max_{k} S(G_k)$。双向交叉验证旨在提升 CS 区分度，使基于得分的选优更有意义；但后续实验也显示，多路选优对最终任务性能的额外收益仍然有限。
 
 % ===== 4 实验 =====
 \section{实验}
@@ -131,14 +131,14 @@ GERS-SC 生成 K 条不同推理 DAG（分解温度 $T \in \{0.3, 0.5, 0.7\}$）
 
 \textbf{本文方法。}GERS+自适应（DAG 执行 + 自适应路由）；GERS-SC（+图级自一致性 K=3）；GERS-CV（+双向交叉验证）；GERS-CV2（+置信度加权汇总，最优配置）。
 
-\textbf{模型与配置。}Qwen3-8B（DashScope API），多线程并行（4 worker），零失败。\textbf{评估指标：}EM、F1、Consistency Score。所有主结果报告 bootstrap 95\% CI（10000 次重采样）与配对 McNemar 检验。
+\textbf{模型与配置。}Qwen3-8B（DashScope API），多线程并行（4 worker），零失败。\textbf{评估指标：}EM、F1、Consistency Score。主对比报告 EM/F1 差值的配对 bootstrap 95\% CI（10000 次重采样），并对 EM 对错进行配对 McNemar 检验。
 
 \subsection{主实验结果}
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.85\textwidth]{figures/image4.png}
-\caption{主实验结果对比（EM/F1）。}
+\includegraphics[width=0.85\textwidth]{figures/image4}
+\caption{HotpotQA 主实验 F1 对比（n=500）。图中标注的是 GERS-CV2 相对 CoT-SC 的 F1 差值及配对 bootstrap 区间。}
 \end{figure}
 
 \begin{table}[h]
@@ -160,30 +160,29 @@ GERS-CV（+双向交叉验证） & 0.298 & 0.409 & 0.782 \\
 \end{tabular}
 \end{table}
 
-GERS-CV2 取得最优 EM=0.302、F1=0.413，相比 CoT-SC EM +4pt、F1 +4pt。双向交叉验证（GERS+自适应 0.284 $\to$ GERS-CV 0.298）带来 +1.4pt EM 增益，是本文核心创新的直接贡献。HotpotQA 上 Zero-Shot（0.276）已接近 GERS——该数据集上下文直接包含答案证据，压缩了所有``高级''方法的优势空间；CoT-SC 甚至低于 Zero-Shot。
+GERS-CV2 取得最优 EM=0.302、F1=0.413，相比 CoT-SC EM +4pt、F1 +4pt，且 EM 对错的 McNemar 检验达到配对显著。双向交叉验证（GERS+自适应 0.284 $\to$ GERS-CV 0.298）带来 +1.4pt EM 增益，是本文核心创新的直接贡献。HotpotQA 上 Zero-Shot（0.276）已接近 GERS——该数据集上下文直接包含答案证据，压缩了所有``高级''方法的优势空间；CoT-SC 甚至低于 Zero-Shot。
 
 \begin{table}[h]
 \centering
-\caption{显著性检验（HotpotQA, n=500）}
-\begin{tabular}{lcccc}
+\caption{显著性检验（HotpotQA, n=500）。EM/F1 差值报告配对 bootstrap 95\% CI；McNemar $p$ 基于 EM 对错。}
+\begin{tabular}{lccccc}
 \toprule
-对比 & EM 差值 & 95\% bootstrap CI & McNemar $p$ & 判定 \\
+对比 & EM差值 & EM 95\% CI & F1差值 & F1 95\% CI & McNemar $p$ \\
 \midrule
-GERS-CV2 vs CoT-SC & +0.040 & [$-0.014, +0.096$] & \textbf{0.029} & McNemar显著/CI微跨0 \\
-GERS-CV2 vs Standard CoT & +0.038 & [$-0.018, +0.094$] & \textbf{0.040} & McNemar显著/CI微跨0 \\
-GERS-SC vs CoT-SC & +0.020 & [$-0.034, +0.076$] & 0.275 & 不显著 \\
-CoT-SC vs Standard CoT & +0.030 & [$-0.020, +0.080$] & 0.453 & 不显著 \\
+GERS-CV2 vs CoT-SC & +0.040 & [$-0.014, +0.096$] & +0.041 & [$-0.014, +0.095$] & \textbf{0.029} \\
+GERS-CV2 vs Standard CoT & +0.038 & [$-0.018, +0.094$] & +0.045 & [$-0.009, +0.099$] & \textbf{0.040} \\
+GERS-SC vs CoT-SC & +0.020 & [$-0.034, +0.076$] & +0.025 & [$-0.029, +0.079$] & 0.275 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-GERS-CV2 在 McNemar 配对检验下显著优于 CoT-SC（$p=0.029$），但 bootstrap 95\% CI 仍微跨零（下限 $-0.014$）。本文如实报告这一``配对显著、效应量临界''状态。相比之下，未引入双向交叉验证的 GERS-SC（$p=0.275$）不显著，反向印证核心创新的有效性。
+GERS-CV2 在 EM 对错的 McNemar 配对检验下显著优于 CoT-SC（$p=0.029$），但 EM 与 F1 的配对 bootstrap 95\% CI 均微跨零（下限约 $-0.014$）。本文如实报告这一``对错配对显著、效应量临界''状态。相比之下，未引入双向交叉验证的 GERS-SC（$p=0.275$）不显著，反向印证核心创新的有效性。
 
 \subsection{Consistency Score 区分度的修复（核心证据）}
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.8\textwidth]{figures/image2.png}
+\includegraphics[width=0.8\textwidth]{figures/image2}
 \caption{Consistency Score 区分度对比：旧 CS（纯结构）与新 CS（+双向交叉验证）。}
 \end{figure}
 
@@ -207,8 +206,8 @@ CS 计算方式 & 答对 CS 均值 & 答错 CS 均值 & 区分度 & 分布 stdev
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.85\textwidth]{figures/image5.png}
-\caption{2WikiMultiHopQA 分题型 F1 对比。}
+\includegraphics[width=0.85\textwidth]{figures/image5}
+\caption{2WikiMultiHopQA 分题型 F1 对比（诊断性实验，n=100）。横轴标出各题型样本数。}
 \end{figure}
 
 \begin{table}[h]
@@ -221,15 +220,14 @@ CS 计算方式 & 答对 CS 均值 & 答错 CS 均值 & 区分度 & 分布 stdev
 Standard CoT & 0.815 & \textbf{0.905} & 0.284 & 0.361 \\
 Zero-Shot & 0.800 & 0.587 & 0.366 & 0.330 \\
 CoT-SC & 0.720 & 0.864 & 0.268 & 0.343 \\
-GERS+自适应 & 0.815 & 0.476 & 0.286 & 0.341 \\
-GERS-SC & 0.775 & 0.476 & 0.297 & 0.288 \\
+GERS-CV2 & 0.775 & 0.524 & 0.297 & 0.288 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\textbf{comparison（纯对比题）}：GERS F1=0.815 与 Standard CoT 持平，DAG 拓扑分解能有效拆解对比双方。修复前因答案格式 bug 仅 0.238，修复后达 0.815。
+\textbf{comparison（纯对比题）}：GERS-CV2 F1=0.775，接近 Standard CoT；DAG 拓扑分解能有效拆解对比双方。
 
-\textbf{bridge\_comparison（桥接对比题）}：GERS 的明确短板（F1 0.476 vs CoT 0.905）。这是``先桥接 $\to$ 比较 $\to$ 回到原实体''的复合题，GERS 子问题错误传播导致失败，即便答案类型回扣修复后剩余差距仍源于真实推理错误传播。
+\textbf{bridge\_comparison（桥接对比题）}：GERS-CV2 的明确短板（F1 0.524 vs CoT 0.905）。这是``先桥接 $\to$ 比较 $\to$ 回到原实体''的复合题，GERS 子问题错误传播导致失败。双向交叉验证将该类 F1 从无 CV 的 0.476 提升到 0.524，但只能部分缓解，不能根治深桥接错误传播。
 
 \textbf{图级自一致性的适用边界。}500 条 HotpotQA 显示 GERS-SC（0.282）$\approx$ GERS+自适应（0.284），$p=1.000$——多路选优在中等难度多跳上无额外增益。其价值更多在于提供可量化的推理质量信号。
 
@@ -237,22 +235,22 @@ GERS-SC & 0.775 & 0.476 & 0.297 & 0.288 \\
 
 \begin{table}[h]
 \centering
-\caption{计算成本对比（HotpotQA, n=500, 单题平均）}
-\begin{tabular}{lccc}
+\caption{计算成本对比（HotpotQA, n=500, 单题平均）。LLM 调用次数为按流程估计值。}
+\begin{tabular}{lcccc}
 \toprule
-方法 & 单题延迟 & EM & F1 \\
+方法 & 估计LLM调用/题 & 单题延迟 & EM & F1 \\
 \midrule
-Zero-Shot & 0.7s & 0.276 & 0.389 \\
-Standard CoT & 3.0s & 0.264 & 0.368 \\
-CoT-SC (N=3) & 8.3s & 0.262 & 0.373 \\
-GERS+自适应 & 4.8s & 0.284 & 0.395 \\
-GERS-SC (K=3) & 16.2s & 0.282 & 0.398 \\
-\textbf{GERS-CV2（最优）} & 6.6s & \textbf{0.302} & \textbf{0.413} \\
+Zero-Shot & 1 & 0.7s & 0.276 & 0.389 \\
+Standard CoT & 1 & 3.0s & 0.264 & 0.368 \\
+CoT-SC (N=3) & 3 & 8.3s & 0.262 & 0.373 \\
+GERS+自适应 & 1--4 & 4.8s & 0.284 & 0.395 \\
+GERS-SC (K=3) & $\sim$12--15 & 16.2s & 0.282 & 0.398 \\
+\textbf{GERS-CV2（最优）} & $\sim$6--8 & 6.6s & \textbf{0.302} & \textbf{0.413} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-GERS-CV2 单路版以 6.6s 延迟取得最优 EM=0.302，成本约为 CoT-SC 的 80\% 却领先 4pt F1，得益于自适应路由 + 双向交叉验证。多路版 GERS-SC（16.2s）成本更高却无性能增益。
+GERS-CV2 单路版约需 6--8 次 LLM 调用，多于 CoT-SC 的 3 次采样，但在并行 API 设置下 wall-clock 延迟仍为 6.6s，且取得最优 EM=0.302、F1=0.413。其实用成本由自适应路由、较短的验证 Prompt、以及仅对复杂题执行反向验证共同控制。多路版 GERS-SC（约 12--15 次调用，16.2s）成本更高却无性能增益。
 
 \subsection{消融实验}
 
@@ -298,8 +296,6 @@ B：7个子问题 & 1922, 2014, 92yr, ... & ``上下文未提供''（全部） &
 
 对比是直接经验证据：推理有据时正反向一致（新 CS 高）；正向幻觉了上下文中不存在的事实时，反向验证检出不一致（新 CS 崩塌），而旧结构 CS 仍无反应。
 
-对比是直接经验证据：推理有据时正反向一致（新 CS 高）；正向幻觉了上下文中不存在的事实时，反向验证检出不一致（新 CS 崩塌），而旧结构 CS 仍无反应。
-
 \subsection{泛化与补充消融}
 
 \textbf{第二模型（泛化）}。为验证方法非 Qwen3-8B 专属，在 Qwen-Plus（不同且更强的模型系列）上重跑 300 条 HotpotQA。GERS-CV2（EM 0.363，F1 0.496）与 CoT-SC（EM 0.367，F1 0.494）持平，差 $-0.004$，$p=1.000$。这表明泛化边界：在更强的基座模型上，Zero-Shot/CoT-SC 本身已很强，结构化方法的优势消失；增益集中在需显式分解的中等能力模型上。
@@ -315,7 +311,9 @@ B：7个子问题 & 1922, 2014, 92yr, ... & ``上下文未提供''（全部） &
 
 \textbf{双向交叉验证的核心价值。}本文最扎实的贡献是将 CS 对错区分度从 $-0.0035$ 修复到 $+0.0847$，使一致性校验从``图是否合法''升级为``推理内容是否自洽''。该机制为 DAG 独有。EM 提升（+1.4pt）虽不大，但机制有效性与可量化证据明确。
 
-\textbf{性能的诚实定位。}GERS-CV2 McNemar 显著（$p=0.029$）但 bootstrap CI 微跨零，处于``配对显著、效应量临界''状态。整体增益有限的重要原因：HotpotQA 上下文直接含答案证据，Zero-Shot（0.276）已接近 GERS，压缩了结构化方法的优势空间。
+\textbf{性能的诚实定位。}GERS-CV2 在 EM 对错的 McNemar 检验上显著（$p=0.029$），但 EM/F1 的配对 bootstrap 效应量区间微跨零，处于``对错配对显著、效应量临界''状态。整体增益有限的重要原因：HotpotQA 上下文直接含答案证据，Zero-Shot（0.276）已接近 GERS，压缩了结构化方法的优势空间。
+
+\textbf{自洽不等于正确。}验证驱动局部修复的负面实验暴露了一个更深层问题：提高 crossval 分数可以让推理链更内部自洽，但不必然让答案更接近 gold。换言之，双向验证应被理解为内容一致性信号，而不是完整正确性判别器。当前缺失的关键环节是\emph{证据落地}：每个正向/反向子答案都应绑定上下文中的显式证据片段。否则，模型仍可能生成内部一致但上下文无依据的推理链。因此，证据约束验证是将 GERS-CV 从诊断信号推进到可靠修复机制的下一步。
 
 \textbf{图级自一致性的边界。}即便修复 CS 区分度后，K=3 多路选优在中等难度多跳上仍无额外增益（$p=1.000$）。单路 DAG 执行已足够，多路选优冗余。
 
@@ -326,9 +324,9 @@ B：7个子问题 & 1922, 2014, 92yr, ... & ``上下文未提供''（全部） &
 % ===== 6 结论 =====
 \section{结论}
 
-本文提出 GERS，核心创新是\textbf{子答案双向交叉验证}：以最终答案 + 上下文为锚反向重答子问题，对比正反向一致性，将 Consistency Score 从纯图论结构指标（区分度 $-0.0035$，等价随机）升级为有效的内容自洽信号（区分度 $+0.0847$）。该机制为 DAG 独有。最优配置 GERS-CV2 在 HotpotQA 500 条上取得 EM=0.302、F1=0.413，McNemar 显著优于 CoT-SC（$p=0.029$），F1 领先 4pt。本文诚实呈现方法适用边界，并通过三项工程改进量化了``表面失败''与``真实推理差距''的边界。
+本文提出 GERS，核心创新是\textbf{子答案双向交叉验证}：以最终答案 + 上下文为锚反向重答子问题，对比正反向一致性，将 Consistency Score 从纯图论结构指标（区分度 $-0.0035$，几乎无区分信号）升级为有效的内容自洽信号（区分度 $+0.0847$）。该机制由显式 DAG 分解自然支持。最优配置 GERS-CV2 在 HotpotQA 500 条上取得 EM=0.302、F1=0.413，EM 对错的 McNemar 检验显著优于 CoT-SC（$p=0.029$），F1 领先 4pt，但效应量区间仍临界。本文诚实呈现方法适用边界，并通过三项工程改进量化了``格式诱导错误''与``真实推理差距''的边界。
 
-未来工作：(1) 针对深度复合桥接题设计局部重生成机制；(2) 在更大规模模型与更多数据集上验证双向交叉验证的泛化性；(3) 探索反向验证对 confirmation bias 的进一步缓解策略。
+未来工作：(1) 引入证据约束验证，使每个子答案不仅正反向一致，还必须被上下文显式证据支持；(2) 针对深度复合桥接题设计更保守的局部重生成机制，避免覆盖原本正确的中间答案；(3) 在更大规模模型与更多数据集上验证双向交叉验证的泛化性。
 
 % ===== 参考文献 =====
 \begin{thebibliography}{99}

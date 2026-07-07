@@ -131,6 +131,43 @@ Answer concisely from the context. End with:
 Sub-answer: <your answer>"""
 
 
+# ─── 证据约束反向验证 Prompt（默认关闭，供后续实验）──────────────────────────
+
+BACKWARD_VERIFY_WITH_EVIDENCE_PROMPT = """You are verifying one reasoning step with evidence grounding.
+
+Original question: {original_question}
+{context_section}
+The final answer to the original question is known to be: {final_answer}
+
+Independently re-derive the answer to this specific sub-question using ONLY the context above. Do not copy the final answer. In addition to the answer, quote the shortest evidence span from the context that supports it. If the context does not support an answer, say so explicitly.
+
+Sub-question (Step {step_index}): {sub_question}
+
+End with exactly:
+Sub-answer: <your answer>
+Evidence: <short quote from context, or "not supported">"""
+
+
+# ─── 验证驱动局部修复 Prompt（默认关闭，供后续实验）──────────────────────────
+
+REPAIR_SUBQ_PROMPT = """You are repairing one unreliable reasoning step.
+
+Original question: {original_question}
+{context_section}
+
+Previous reliable answers:
+{previous_answers}
+
+The original answer to this sub-question may be unreliable because forward and backward verification disagreed.
+
+Sub-question (Step {step_index}): {sub_question}
+Original forward answer: {forward_answer}
+Backward verification answer: {backward_answer}
+
+Re-answer this sub-question using ONLY the context and reliable previous answers. If the context does not support the answer, say so explicitly. End with:
+Sub-answer: <repaired answer>"""
+
+
 # ─── 自适应复杂度判断 Prompt ──────────────────────────────────────────────────
 
 COMPLEXITY_PROMPT = """Analyze the complexity of the following question.
@@ -187,12 +224,16 @@ class GraphGuidedGenerator:
                  dataset: str = None,
                  enable_backward_verify: bool = False,
                  enable_llm_match: bool = False,
-                 cs_struct_weight: float = 0.3,
-                 cs_crossval_weight: float = 0.7,
-                 enable_confidence_weighting: bool = False,
-                 confidence_threshold: float = 0.5,
-                 uniform_crossval_weight: bool = False,
-                 backward_anchor_mode: str = "answer_context"):
+                  cs_struct_weight: float = 0.3,
+                  cs_crossval_weight: float = 0.7,
+                  enable_confidence_weighting: bool = False,
+                  confidence_threshold: float = 0.5,
+                  uniform_crossval_weight: bool = False,
+                  enable_soft_match: bool = False,
+                  enable_evidence_grounding: bool = False,
+                  enable_verification_repair: bool = False,
+                  repair_threshold: float = 0.75,
+                  backward_anchor_mode: str = "answer_context"):
         """
         Args:
             model: LLM 模型实例
@@ -211,6 +252,12 @@ class GraphGuidedGenerator:
             enable_llm_match: 一致性判断中，字符串/数值匹配失败时是否再用 LLM 语义判断（成本敏感默认关）
             cs_struct_weight: 新 CS 中结构分权重（默认0.3）
             cs_crossval_weight: 新 CS 中正反向一致性分权重（默认0.7）
+            enable_soft_match: 是否启用软匹配分数（默认关闭，保持论文实验口径）。
+                开启后，高 token-F1 的近似答案可获得部分分数，缓解字符串匹配过硬。
+            enable_evidence_grounding: 是否要求反向验证同时给出上下文证据（默认关闭）。
+                开启后，crossval 会乘以 evidence grounding 分数，避免“自洽但无依据”。
+            enable_verification_repair: 是否启用验证驱动局部修复（默认关闭）。
+            repair_threshold: 低于该 match_score 的子问题会触发局部重答及下游重汇总。
         """
         self.model = model
         self.path_planner = PathPlanner()
@@ -245,6 +292,10 @@ class GraphGuidedGenerator:
         self.confidence_threshold = confidence_threshold
         # P2.3 消融：crossval 权重均匀(uniform) vs 下游加权(downstream,默认)
         self.uniform_crossval_weight = uniform_crossval_weight
+        self.enable_soft_match = enable_soft_match
+        self.enable_evidence_grounding = enable_evidence_grounding
+        self.enable_verification_repair = enable_verification_repair
+        self.repair_threshold = repair_threshold
         # P2.4 控制：反向验证锚点 answer_context(默认,用A+context) vs context_only(仅context)
         self.backward_anchor_mode = backward_anchor_mode
         # Self-Consistency 时每条 DAG 的分解温度（None=用默认 0.2）。
@@ -434,6 +485,27 @@ class GraphGuidedGenerator:
             check_result["consistency_score"] = score
             check_result["struct_score"] = struct_score
             logger.debug(f"GERS: ⑥.5 反向验证 crossval={crossval_score:.3f}, 新CS={score:.3f}")
+
+            if self.enable_verification_repair:
+                repair = self._repair_inconsistent_steps(
+                    question=question,
+                    context=context,
+                    graph=graph,
+                    execution_plan=execution_plan,
+                    sub_qa_chain=sub_qa_chain,
+                    verification=cv,
+                )
+                if repair and repair.get("repaired"):
+                    answer = repair["answer"]
+                    reasoning_text = repair["reasoning_text"]
+                    sub_qa_chain = repair["sub_qa_chain"]
+                    total_tokens += repair.get("token_count", 0)
+                    check_result = repair["consistency_detail"]
+                    score = check_result["consistency_score"]
+                    check_result["repair_detail"] = repair["repair_detail"]
+                    logger.debug(
+                        f"GERS: ⑥.6 局部修复完成 repaired={repair['repair_detail']['repaired_nodes']}, CS={score:.3f}"
+                    )
 
         iterations = 0
 
@@ -836,7 +908,15 @@ class GraphGuidedGenerator:
                 weight = 0.5 + 0.5 * (i + 1) / n
 
             # P2.4 控制：answer_context(默认,用A+context) vs context_only(仅context,不用A)
-            if self.backward_anchor_mode == "context_only":
+            if self.enable_evidence_grounding and self.backward_anchor_mode != "context_only":
+                prompt = BACKWARD_VERIFY_WITH_EVIDENCE_PROMPT.format(
+                    original_question=question[:400],
+                    context_section=context_section,
+                    final_answer=str(final_answer)[:200],
+                    step_index=i + 1,
+                    sub_question=sub_q[:300],
+                )
+            elif self.backward_anchor_mode == "context_only":
                 prompt = BACKWARD_VERIFY_PROMPT_CONTEXT_ONLY.format(
                     original_question=question[:400],
                     context_section=context_section,
@@ -854,22 +934,154 @@ class GraphGuidedGenerator:
             try:
                 resp = self.model.generate(prompt, max_tokens=150, temperature=0.0)
                 backward_ans = self._extract_sub_answer(resp)
+                evidence = self._extract_evidence(resp) if self.enable_evidence_grounding else ""
             except Exception:
                 backward_ans = ""
+                evidence = ""
 
-            matched = self._answers_match(forward_ans, backward_ans)
-            if matched:
-                weighted_match += weight
+            match_score = self._answer_match_score(forward_ans, backward_ans) \
+                if self.enable_soft_match else float(self._answers_match(forward_ans, backward_ans))
+            grounding_score = self._evidence_grounding_score(evidence, context) \
+                if self.enable_evidence_grounding else 1.0
+            combined_score = match_score * grounding_score
+            matched = match_score >= 1.0
+            weighted_match += weight * combined_score
             total_weight += weight
             verifications.append({
+                "node_id": item.get("node_id"),
                 "sub_question": sub_q,
                 "forward_answer": forward_ans,
                 "backward_answer": backward_ans,
                 "match": matched,
+                "match_score": match_score,
+                "evidence": evidence,
+                "grounding_score": grounding_score,
+                "combined_score": combined_score,
             })
 
         crossval_score = weighted_match / total_weight if total_weight > 0 else 0.5
         return {"crossval_score": round(crossval_score, 4), "verifications": verifications}
+
+    def _repair_inconsistent_steps(self, question: str, context: str, graph: ReasoningGraph,
+                                   execution_plan: Dict, sub_qa_chain: list,
+                                   verification: Dict) -> Optional[Dict]:
+        """验证驱动局部修复：重答低 crossval 节点及其下游节点，然后重新汇总。
+
+        默认不启用；用于后续实验验证“CS 不仅可诊断，还可定位并修复错误传播”。
+        """
+        verifications = verification.get("verifications", []) if verification else []
+        if not verifications or not sub_qa_chain:
+            return None
+
+        low_nodes = {
+            v.get("node_id")
+            for v in verifications
+            if v.get("node_id") and v.get("combined_score", v.get("match_score", float(v.get("match", False)))) < self.repair_threshold
+        }
+        if not low_nodes:
+            return None
+
+        affected = set(low_nodes)
+        stack = list(low_nodes)
+        while stack:
+            nid = stack.pop()
+            for succ in graph.get_neighbors(nid):
+                if succ not in affected:
+                    affected.add(succ)
+                    stack.append(succ)
+
+        chain_by_node = {item.get("node_id"): dict(item) for item in sub_qa_chain}
+        sub_answers = {
+            item.get("node_id"): item.get("sub_answer", "")
+            for item in sub_qa_chain
+            if item.get("node_id")
+        }
+        verify_by_node = {v.get("node_id"): v for v in verifications if v.get("node_id")}
+        context_section = f"\nContext: {context[:1500]}" if context else ""
+        repaired_nodes = []
+        added_tokens = 0
+
+        for node_id in execution_plan.get("execution_order", []):
+            if node_id not in affected or node_id not in chain_by_node:
+                continue
+            node = graph.get_node(node_id)
+            if node is None:
+                continue
+            item = chain_by_node[node_id]
+            v = verify_by_node.get(node_id, {})
+            prev_answers = self._format_previous_answers(node_id, graph, sub_answers)
+            prompt = REPAIR_SUBQ_PROMPT.format(
+                original_question=question[:400],
+                context_section=context_section,
+                previous_answers=prev_answers or "(none)",
+                step_index=len(repaired_nodes) + 1,
+                sub_question=node.content[:300],
+                forward_answer=str(item.get("sub_answer", ""))[:200],
+                backward_answer=str(v.get("backward_answer", ""))[:200],
+            )
+            try:
+                raw = self.model.generate(prompt, max_tokens=200, temperature=0.1)
+                repaired_answer = self._extract_sub_answer(raw)
+            except Exception:
+                continue
+
+            old_answer = item.get("sub_answer", "")
+            item["sub_answer"] = repaired_answer
+            item["raw_response"] = raw
+            item["repaired"] = True
+            item["old_sub_answer"] = old_answer
+            item["repair_reason"] = "forward/backward mismatch"
+            chain_by_node[node_id] = item
+            sub_answers[node_id] = repaired_answer
+            node.metadata["answer"] = repaired_answer
+            repaired_nodes.append(node_id)
+            if hasattr(self.model, "count_tokens"):
+                added_tokens += self.model.count_tokens(raw)
+
+        if not repaired_nodes:
+            return None
+
+        repaired_chain = [chain_by_node.get(item.get("node_id"), item) for item in sub_qa_chain]
+        if self.enable_confidence_weighting:
+            reasoning_chain_text = self._format_reasoning_chain_weighted(repaired_chain)
+        else:
+            reasoning_chain_text = self._format_reasoning_chain(repaired_chain)
+        final_prompt = FINAL_ANSWER_PROMPT.format(
+            original_question=question,
+            reasoning_chain=reasoning_chain_text,
+        )
+        final_response = self.model.generate(final_prompt, max_tokens=200, temperature=0.1)
+        answer = self._extract_final_answer(final_response, question=question)
+        reasoning_text = reasoning_chain_text + "\n\n" + final_response
+        if hasattr(self.model, "count_tokens"):
+            added_tokens += self.model.count_tokens(final_response)
+
+        check_result = self.consistency_checker.check(graph, reasoning_text)
+        repair_cv = self._backward_verify(question, context, answer, repaired_chain) \
+            if self.enable_backward_verify else None
+        if repair_cv:
+            struct_score = check_result["structural_score"]
+            crossval_score = repair_cv["crossval_score"]
+            score = self.cs_struct_weight * struct_score + self.cs_crossval_weight * crossval_score
+            score = round(max(0.0, min(1.0, score)), 4)
+            check_result["crossval_score"] = crossval_score
+            check_result["crossval_detail"] = repair_cv["verifications"]
+            check_result["consistency_score"] = score
+            check_result["struct_score"] = struct_score
+
+        return {
+            "repaired": True,
+            "answer": answer,
+            "reasoning_text": reasoning_text,
+            "sub_qa_chain": repaired_chain,
+            "consistency_detail": check_result,
+            "token_count": added_tokens,
+            "repair_detail": {
+                "trigger_nodes": sorted(low_nodes),
+                "repaired_nodes": repaired_nodes,
+                "repair_threshold": self.repair_threshold,
+            },
+        }
 
     def _answers_match(self, a: str, b: str) -> bool:
         """判断正反向子答案是否语义一致。
@@ -903,6 +1115,80 @@ class GraphGuidedGenerator:
         if self.enable_llm_match and self.model is not None:
             return self._llm_answers_match(a, b)
         return False
+
+    def _extract_evidence(self, text: str) -> str:
+        """从 evidence-grounded verification 输出中提取证据片段。"""
+        import re
+        m = re.search(r'Evidence[：:]\s*(.+?)(?:\n|$)', text, re.IGNORECASE)
+        if m:
+            return m.group(1).strip().strip('"').strip()
+        return ""
+
+    def _evidence_grounding_score(self, evidence: str, context: str) -> float:
+        """轻量证据落地分数，避免自洽但上下文无依据的答案得高分。
+
+        1.0: 证据片段直接出现在上下文，或核心词高度重叠
+        0.5: 证据部分词落在上下文中
+        0.0: 明确 not supported / unknown，或无证据
+        """
+        if not evidence or not context:
+            return 0.0
+        ev = evidence.strip().lower().strip('"')
+        ctx = context.lower()
+        unsupported = [
+            "not supported", "not in context", "not provided", "not mentioned",
+            "unknown", "cannot determine", "no evidence", "context does not",
+        ]
+        if any(k in ev for k in unsupported):
+            return 0.0
+        if len(ev) >= 8 and ev in ctx:
+            return 1.0
+
+        import re
+        words = [w for w in re.findall(r"[a-z0-9]+", ev) if len(w) > 2]
+        if not words:
+            return 0.0
+        hit = sum(1 for w in set(words) if w in ctx)
+        ratio = hit / max(len(set(words)), 1)
+        if ratio >= 0.7:
+            return 1.0
+        if ratio >= 0.4:
+            return 0.5
+        return 0.0
+
+    def _answer_match_score(self, a: str, b: str) -> float:
+        """软匹配分数，供后续实验开启；默认实验仍使用二值 `_answers_match`。
+
+        Returns:
+            1.0: 明确等价（复用二值匹配）
+            0.5/0.75: token-F1 较高但未达到严格等价
+            0.0: 不匹配
+        """
+        if self._answers_match(a, b):
+            return 1.0
+        if not a or not b:
+            return 0.0
+
+        import re
+        from ..utils.answer_normalizer import normalize_for_vote
+
+        na = normalize_for_vote(a)
+        nb = normalize_for_vote(b)
+        ta = re.findall(r"[a-z0-9]+", na.lower())
+        tb = re.findall(r"[a-z0-9]+", nb.lower())
+        if not ta or not tb:
+            return 0.0
+        common = len(set(ta) & set(tb))
+        if common == 0:
+            return 0.0
+        precision = common / len(set(ta))
+        recall = common / len(set(tb))
+        f1 = 2 * precision * recall / max(precision + recall, 1e-9)
+        if f1 >= 0.85:
+            return 0.75
+        if f1 >= 0.65:
+            return 0.5
+        return 0.0
 
     def _llm_answers_match(self, a: str, b: str) -> bool:
         """用 LLM 判断两个答案是否语义一致（仅在 enable_llm_match=True 时调用）。"""

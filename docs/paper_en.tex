@@ -22,7 +22,7 @@
 \maketitle
 
 \begin{abstract}
-Existing graph-enhanced reasoning methods model inference as a DAG, yet their consistency checks rely on pure graph-theoretic structural metrics (connectivity, acyclicity, coverage) that cannot reflect reasoning correctness. As a result, the Consistency Score provides little discriminative signal between correct and incorrect reasoning, and multi-path selection degenerates into random sampling. We propose GERS, which models reasoning as a dependency DAG executed in topological order. The core contribution is \textbf{bidirectional sub-answer verification}: using the final answer and context as an anchor, each sub-question is re-derived in reverse and the forward/backward sub-answers are compared, upgrading the Consistency Score from a structural-validity metric into a content self-consistency signal. On 500 HotpotQA samples, this raises the score's correct/wrong discrimination from $-0.0035$ to $+0.0847$; the best configuration GERS-CV2 achieves EM=0.302, F1=0.413, improving over CoT-SC by 4 F1 points with a significant paired McNemar test ($p=0.029$) but a marginal bootstrap effect-size interval. We further provide a boundary analysis on 2WikiMultiHopQA, showing the method suits comparison-style decomposition but fails on deep bridge-comparison questions where upstream entity errors propagate.
+Existing graph-enhanced reasoning methods model inference as a DAG, yet their consistency checks rely on pure graph-theoretic structural metrics (connectivity, acyclicity, coverage) that cannot reflect reasoning correctness. As a result, the Consistency Score provides little discriminative signal between correct and incorrect reasoning, and multi-path selection degenerates into random sampling. We propose GERS, which models reasoning as a dependency DAG executed in topological order. The core contribution is \textbf{bidirectional sub-answer verification}: using the final answer and context as an anchor, each sub-question is re-derived in reverse and the forward/backward sub-answers are compared, upgrading the Consistency Score from a structural-validity metric into a content self-consistency signal. On 500 HotpotQA samples, this raises the score's correct/wrong discrimination from $-0.0035$ to $+0.0847$; the best configuration GERS-CV2 achieves EM=0.302, F1=0.413, improving over CoT-SC by 4 F1 points, with a significant McNemar test on EM correctness ($p=0.029$) but marginal paired bootstrap effect-size intervals. We further provide a boundary analysis on 2WikiMultiHopQA, showing the method suits comparison-style decomposition but fails on deep bridge-comparison questions where upstream entity errors propagate.
 \end{abstract}
 
 \noindent\textbf{Keywords:} Large Language Models; Multi-hop Reasoning; Chain-of-Thought; Graph Representation; Bidirectional Cross-Validation; Consistency Verification
@@ -43,7 +43,7 @@ To address this, we propose \textbf{GERS}, which explicitly models reasoning as 
 Rather than claiming uniform superiority over all prompting baselines, this work identifies and fixes a key bottleneck of graph-based reasoning: structural graph validity is not equivalent to reasoning correctness. Our contributions are organized in three layers:
 \begin{enumerate}[label=\arabic*.]
 \item \textbf{Mechanism contribution (core)}: Bidirectional sub-answer verification raises the Consistency Score's correct/wrong discrimination from $-0.0035$ to $+0.0847$ (500 HotpotQA samples), turning consistency checking from a structural metric into an effective content self-consistency signal.
-\item \textbf{Empirical contribution}: The best configuration GERS-CV2 achieves EM=0.302, F1=0.413 on HotpotQA (500 samples), a paired-significant improvement over CoT-SC (McNemar $p=0.029$; F1 +4pt), though with a marginal bootstrap effect-size interval that we report transparently.
+\item \textbf{Empirical contribution}: The best configuration GERS-CV2 achieves EM=0.302, F1=0.413 on HotpotQA (500 samples), with a significant McNemar test on EM correctness (McNemar $p=0.029$) and a +4pt F1 difference over CoT-SC, though with marginal paired bootstrap effect-size intervals that we report transparently.
 \item \textbf{Diagnostic contribution}: We provide a boundary analysis on 2WikiMultiHopQA, showing the method suits comparison-style decomposition but fails on deep bridge-comparison questions where upstream entity errors propagate. We also report that graph-level multi-path self-consistency yields no extra gain on medium-difficulty multi-hop even after fixing CS discrimination.
 \end{enumerate}
 
@@ -63,7 +63,7 @@ GERS has three modules: reasoning-state graph representation, graph-constrained 
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.85\textwidth]{figures/image1.png}
+\includegraphics[width=0.85\textwidth]{figures/image1}
 \caption{GERS reasoning framework. The model decomposes a question into a dependency DAG, executes sub-questions in topological order, aggregates a final answer, and performs bidirectional sub-answer verification anchored by the final answer and context.}
 \end{figure}
 
@@ -93,7 +93,7 @@ with $w_1=w_3=0.35, w_2=0.30$ for connectivity, acyclicity, and coverage, plus a
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.85\textwidth]{figures/image3.png}
+\includegraphics[width=0.85\textwidth]{figures/image3}
 \caption{Bidirectional sub-answer verification. Given forward sub-answers and the final answer, each sub-question is re-derived in reverse from the answer+context; forward/backward agreement yields a content self-consistency score that replaces the non-discriminative structural score.}
 \end{figure}
 \begin{equation}
@@ -112,7 +112,7 @@ Each sub-answer confidence is estimated by a lightweight heuristic (no extra LLM
 
 \subsection{Graph-Level Self-Consistency (GERS-SC)}
 
-GERS-SC generates $K$ DAGs (decomposition temperatures $T\in\{0.3,0.5,0.7\}$) and selects the highest-scoring one: $A^*=\arg\max_k S(G_k)$. Its effectiveness strictly depends on CS being discriminative---bidirectional cross-validation is precisely what makes it work.
+GERS-SC generates $K$ DAGs (decomposition temperatures $T\in\{0.3,0.5,0.7\}$) and selects the highest-scoring one: $A^*=\arg\max_k S(G_k)$. Bidirectional cross-validation is designed to make this score-based selection meaningful by improving CS discrimination, although experiments below show that multi-path selection still yields limited end-task gains.
 
 \section{Experiments}
 
@@ -124,7 +124,7 @@ GERS-SC generates $K$ DAGs (decomposition temperatures $T\in\{0.3,0.5,0.7\}$) an
 
 \textbf{Our methods.} GERS+adaptive (DAG execution + adaptive routing); GERS-SC (+graph-level self-consistency $K=3$); GERS-CV (+bidirectional cross-validation); GERS-CV2 (+confidence weighting, best).
 
-\textbf{Model.} Qwen3-8B (DashScope API), 4-worker parallel, zero failures. \textbf{Metrics:} EM, F1, Consistency Score. All main results report bootstrap 95\% CI (10000 resamples) and paired McNemar test.
+\textbf{Model.} Qwen3-8B (DashScope API), 4-worker parallel, zero failures. \textbf{Metrics:} EM, F1, Consistency Score. Main comparisons report paired bootstrap 95\% CIs (10000 resamples) for EM/F1 differences and McNemar tests for paired EM correctness.
 
 \textbf{Evaluation fairness.} To avoid evaluation-pipeline distortions, we unify three treatments: (1) fix the EM bidirectional-substring bug (which inflated numeric answers); (2) unified concise extraction/normalization for all methods; (3) answer-type alignment in GERS aggregation. This ensures all methods are compared on the same fair footing, so any GERS gain comes from the method itself.
 
@@ -132,8 +132,8 @@ GERS-SC generates $K$ DAGs (decomposition temperatures $T\in\{0.3,0.5,0.7\}$) an
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.85\textwidth]{figures/image4.png}
-\caption{Main results on HotpotQA (n=500). GERS-CV2 achieves the best EM/F1; the CoT-SC+GERS rerank variant stays on par with CoT-SC, indicating graph scores must participate in generation and verification rather than post-hoc reranking.}
+\includegraphics[width=0.85\textwidth]{figures/image4}
+\caption{Main F1 results on HotpotQA (n=500). GERS-CV2 achieves the highest F1; the annotation reports the paired bootstrap interval for the F1 difference against CoT-SC.}
 \end{figure}
 
 \begin{table}[h]
@@ -156,11 +156,11 @@ GERS-CV (+verification) & 0.298 & 0.409 & 0.782 \\
 \end{tabular}}
 \end{table}
 
-GERS-CV2 achieves the best EM=0.302, F1=0.413, a paired-significant improvement over CoT-SC (F1 +4pt). Bidirectional verification (0.284$\to$0.298) contributes +1.4pt EM---the direct gain of the core innovation. The CoT-SC+GERS rerank variant (0.372) is on par with CoT-SC (0.373), indicating that applying graph scores post hoc to already-generated linear CoT answers is insufficient; the graph must participate in generation and verification rather than merely reranking. Note Zero-Shot (0.276) is already close to GERS on HotpotQA; we analyze this in Section~4.4.
+GERS-CV2 achieves the best EM=0.302 and F1=0.413, with a +4pt F1 difference over CoT-SC and a paired-significant McNemar test on EM correctness. Bidirectional verification (0.284$\to$0.298) contributes +1.4pt EM---the direct gain of the core innovation. The CoT-SC+GERS rerank variant (0.372) is on par with CoT-SC (0.373), indicating that applying graph scores post hoc to already-generated linear CoT answers is insufficient; the graph must participate in generation and verification rather than merely reranking. Note Zero-Shot (0.276) is already close to GERS on HotpotQA; we analyze this in Section~4.4.
 
 \begin{table}[h]
 \centering
-\caption{Significance tests (HotpotQA, n=500). Both EM and F1 report paired bootstrap 95\% CI (10000 resamples) and McNemar $p$.}
+\caption{Significance tests (HotpotQA, n=500). EM/F1 differences report paired bootstrap 95\% CIs (10000 resamples); McNemar $p$ is computed on paired EM correctness.}
 \resizebox{\linewidth}{!}{%
 \begin{tabular}{lccccc}
 \toprule
@@ -173,13 +173,13 @@ GERS-SC vs CoT-SC & +0.020 & [$-0.034, +0.076$] & +0.025 & [$-0.029, +0.079$] & 
 \end{tabular}}
 \end{table}
 
-GERS-CV2 yields a significant paired McNemar test against CoT-SC ($p=0.029$) for both EM and F1, but both bootstrap 95\% CIs marginally cross zero (lower bound $\approx -0.014$). We transparently report this as a ``paired-significant, effect-size marginal'' result rather than claiming strong significance. By contrast, GERS-SC without verification ($p=0.275$) is not significant, corroborating that the gain stems from bidirectional verification.
+GERS-CV2 yields a significant paired McNemar test against CoT-SC on EM correctness ($p=0.029$), but the paired bootstrap 95\% CIs for the EM and F1 differences marginally cross zero (lower bound $\approx -0.014$). We transparently report this as a ``paired-significant on correctness, effect-size marginal'' result rather than claiming strong significance. By contrast, GERS-SC without verification ($p=0.275$) is not significant, corroborating that the gain stems from bidirectional verification.
 
 \subsection{Repairing Consistency Score Discrimination (Core Evidence)}
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.8\textwidth]{figures/image2.png}
+\includegraphics[width=0.8\textwidth]{figures/image2}
 \caption{Consistency Score discrimination (HotpotQA, n=500). The old structural CS clusters around 0.66 for both correct and wrong answers (discrimination $-0.0035$); the new CS with bidirectional verification separates them (discrimination $+0.0847$), measured on the GERS-CV variant.}
 \end{figure}
 
@@ -203,8 +203,8 @@ The old CS provides little discriminative signal (discrimination $-0.0035$, reve
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.85\textwidth]{figures/image5.png}
-\caption{2WikiMultiHopQA per-type F1 (n=100, diagnostic). GERS-CV2 matches CoT on comparison but lags on bridge\_comparison due to upstream entity error propagation.}
+\includegraphics[width=0.85\textwidth]{figures/image5}
+\caption{2WikiMultiHopQA per-type F1 (n=100, diagnostic). GERS-CV2 is close to CoT on comparison but lags on bridge\_comparison due to upstream entity error propagation; per-type sample counts are shown on the x-axis.}
 \end{figure}
 
 \begin{table}[h]
@@ -263,7 +263,7 @@ GERS-SC (K=3) & $\sim$12--15 & 16.2s & 0.282 & 0.398 \\
 \end{tabular}}
 \end{table}
 
-GERS-CV2 (single-path version) achieves the best EM=0.302 with $\sim$6--8 LLM calls and 6.6s latency---fewer calls than CoT-SC's 3$\times$ sampling at comparable wall-clock, while leading by 4pt F1---thanks to adaptive routing (simple questions skip decomposition) plus backward verification (only on complex questions). The multi-path GERS-SC ($\sim$12--15 calls) costs more with no performance gain, reinforcing the limited value of multi-path selection here.
+GERS-CV2 (single-path version) achieves the best EM=0.302 with $\sim$6--8 LLM calls and 6.6s latency. This uses more calls than CoT-SC's three samples, but remains comparable in wall-clock time under the parallel API setting, while leading by 4pt F1. The practical cost is moderated by adaptive routing (simple questions skip decomposition), shorter verification prompts, and backward verification only on complex questions. The multi-path GERS-SC ($\sim$12--15 calls) costs more with no performance gain, reinforcing the limited value of multi-path selection here.
 
 \subsection{Ablation}
 
@@ -326,7 +326,9 @@ The contrast is direct empirical evidence: when reasoning is grounded, forward a
 
 \textbf{Confirmation bias of reverse verification.} Anchoring backward re-derivation on the final answer $A$ can bias the model toward explanations consistent with $A$, risking spurious agreement. We mitigate this by instructing the model to derive from the context rather than copy $A$. We also ran a context-only control (Section~4.8) where backward verification uses no final answer: performance is unchanged (EM 0.300) while the CS drops to 0.646 (stricter), indicating the gain does not depend on the $A$-anchor and the bias is limited. Adversarial-answer perturbation remains future work.
 
-\textbf{Honest positioning.} GERS-CV2 is McNemar-significant ($p=0.029$) but the bootstrap CI marginally crosses zero---``paired-significant, effect-size marginal''. A key reason for the limited overall gain: HotpotQA's context directly contains answer evidence, so Zero-Shot (0.276) is already close to GERS, compressing the advantage of structured methods.
+\textbf{Self-consistency is not correctness.} A key limitation exposed by our negative repair experiments is that raising the cross-validation score can make a reasoning chain more internally self-consistent without necessarily making it more correct. This suggests that bidirectional verification should be interpreted as a content-consistency signal, not as a complete correctness verifier. The missing ingredient is \emph{evidence grounding}: each forward/backward sub-answer should be supported by an explicit context span. Without this external grounding, a model can still produce a coherent but unsupported reasoning chain. We therefore view evidence-grounded verification as the next step toward turning GERS-CV from a diagnostic signal into a reliable repair mechanism.
+
+\textbf{Honest positioning.} GERS-CV2 is McNemar-significant on EM correctness ($p=0.029$) but the paired bootstrap effect-size CIs marginally cross zero---``paired-significant on correctness, effect-size marginal''. A key reason for the limited overall gain: HotpotQA's context directly contains answer evidence, so Zero-Shot (0.276) is already close to GERS, compressing the advantage of structured methods.
 
 \textbf{Boundary of graph-level self-consistency.} Even after fixing CS discrimination, $K=3$ multi-path selection yields no extra gain on medium-difficulty multi-hop ($p=1.000$); single-path DAG execution suffices, and multi-path selection is redundant.
 
@@ -336,9 +338,9 @@ The contrast is direct empirical evidence: when reasoning is grounded, forward a
 
 \section{Conclusion}
 
-We propose GERS, whose core innovation is \textbf{bidirectional sub-answer verification}: using the final answer and context as an anchor to re-derive sub-questions in reverse and compare forward/backward consistency, upgrading the Consistency Score from a pure graph-theoretic metric (discrimination $-0.0035$, providing little discriminative signal) to an effective content self-consistency signal (discrimination $+0.0847$). This verification is naturally supported by explicit DAG decomposition. The best configuration GERS-CV2 achieves EM=0.302, F1=0.413 on 500 HotpotQA samples, a paired-significant improvement over CoT-SC ($p=0.029$, F1 +4pt), with a marginal bootstrap effect-size interval that we report transparently. We also provide a boundary analysis showing the method suits comparison-style decomposition but fails on deep bridge-comparison questions, and note that engineering fixes (metric, extraction, answer-type) are necessary to avoid format-induced errors being mistaken for reasoning errors.
+We propose GERS, whose core innovation is \textbf{bidirectional sub-answer verification}: using the final answer and context as an anchor to re-derive sub-questions in reverse and compare forward/backward consistency, upgrading the Consistency Score from a pure graph-theoretic metric (discrimination $-0.0035$, providing little discriminative signal) to an effective content self-consistency signal (discrimination $+0.0847$). This verification is naturally supported by explicit DAG decomposition. The best configuration GERS-CV2 achieves EM=0.302, F1=0.413 on 500 HotpotQA samples, with a significant McNemar test on EM correctness against CoT-SC ($p=0.029$) and a +4pt F1 difference, but marginal paired bootstrap effect-size intervals that we report transparently. We also provide a boundary analysis showing the method suits comparison-style decomposition but fails on deep bridge-comparison questions, and note that engineering fixes (metric, extraction, answer-type) are necessary to avoid format-induced errors being mistaken for reasoning errors.
 
-Future work: (1) design local re-generation for deep bridging-comparison to mitigate error propagation; (2) validate cross-validation on larger models and more datasets; (3) further mitigate confirmation bias in reverse verification.
+Future work: (1) incorporate evidence-grounded verification so that each sub-answer is checked against explicit context spans, not only against reverse self-consistency; (2) design conservative local re-generation for deep bridging-comparison to mitigate error propagation without overwriting correct intermediate answers; (3) validate cross-validation on larger models and more datasets.
 
 \begin{thebibliography}{99}
 \bibitem{wei2022cot} Wei, J., et al. Chain-of-Thought Prompting Elicits Reasoning in Large Language Models. In \emph{NeurIPS}, 2022.

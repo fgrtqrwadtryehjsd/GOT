@@ -88,6 +88,13 @@ def create_method(method_name: str, model, dataset: str = None):
         "gers_adaptive_cv": lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=True, adaptive=True, consistency_threshold=0.75, _no_constraint=True, dataset=dataset, enable_backward_verify=True, enable_llm_match=False),
         # GERS+自适应 + 方向1 + 方向2 叠加
         "gers_adaptive_cv2":lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=True, adaptive=True, consistency_threshold=0.75, _no_constraint=True, dataset=dataset, enable_backward_verify=True, enable_llm_match=False, enable_confidence_weighting=True),
+        # 证据约束反向验证：crossval 同时要求答案一致且证据落在上下文中
+        "gers_grounded":    lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=True, adaptive=True, consistency_threshold=0.75, _no_constraint=True, dataset=dataset, enable_backward_verify=True, enable_llm_match=False, enable_confidence_weighting=True, enable_evidence_grounding=True),
+        "gers_grounded_soft": lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=True, adaptive=True, consistency_threshold=0.75, _no_constraint=True, dataset=dataset, enable_backward_verify=True, enable_llm_match=False, enable_confidence_weighting=True, enable_evidence_grounding=True, enable_soft_match=True),
+        # 验证驱动局部修复：用 crossval mismatch 定位不可靠子问题，重答该节点及其下游后重新汇总
+        "gers_repair":      lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=True, adaptive=True, consistency_threshold=0.75, _no_constraint=True, dataset=dataset, enable_backward_verify=True, enable_llm_match=False, enable_confidence_weighting=True, enable_verification_repair=True),
+        # 软匹配版本：用于验证 token-F1 部分匹配能否改善 CS 校准
+        "gers_repair_soft": lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=True, adaptive=True, consistency_threshold=0.75, _no_constraint=True, dataset=dataset, enable_backward_verify=True, enable_llm_match=False, enable_confidence_weighting=True, enable_verification_repair=True, enable_soft_match=True),
         # P2.3 消融：crossval 权重均匀(uniform) vs 默认下游加权
         "gers_cv2_uniform": lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=True, adaptive=True, consistency_threshold=0.75, _no_constraint=True, dataset=dataset, enable_backward_verify=True, enable_llm_match=False, enable_confidence_weighting=True, uniform_crossval_weight=True),
         # P2.4 控制：反向验证仅用context(不用最终答案A)
@@ -111,7 +118,7 @@ def main():
     parser.add_argument("--dataset", type=str, default="gsm8k",
                         choices=["gsm8k", "hotpotqa", "2wikimultihopqa"])
     parser.add_argument("--method", type=str, default="gers",
-                        choices=["gers", "gers_adaptive", "gers_sc", "gers_nli", "gers_feedback", "standard_cot", "cot_sc", "cot_sc_gers", "tot", "zero_shot", "modegraph"])
+                        choices=["gers", "gers_adaptive", "gers_sc", "gers_sc_cv", "gers_sc_cv2", "gers_adaptive_cv", "gers_adaptive_cv2", "gers_grounded", "gers_grounded_soft", "gers_repair", "gers_repair_soft", "gers_cv2_uniform", "gers_cv2_ctxonly", "gers_nli", "gers_feedback", "standard_cot", "cot_sc", "cot_sc_gers", "tot", "zero_shot", "modegraph"])
     parser.add_argument("--model", type=str, default="qwen3-8b")
     parser.add_argument("--num_samples", type=int, default=50)
     parser.add_argument("--timeout", type=int, default=120,
