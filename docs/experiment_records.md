@@ -1,424 +1,167 @@
-# GERS 实验记录
-
-> 模型：qwen3-8b（阿里云 DashScope API）  
-> 最后更新：2026-06-24  
-> **本轮修复重点**：核心模块接线、CLUTRR 数据替换、Consistency Score 区分度、ToT/CoT-SC/消融实验补全
-
----
-
-## 一、实验环境
-
-| 项目 | 说明 |
-|------|------|
-| 模型 | qwen3-8b（阿里云百炼，enable_thinking=False） |
-| 数据集 | HotpotQA（真实500条，ModelScope）/ GSM8K（真实500条，HuggingFace）/ CLUTRR（**真实合成 300 条**，50+ 关系链模板） |
-| 评估指标 | EM（精确匹配，支持部分包含）、F1（词级）、Consistency Score（GERS 专有） |
-| 运行环境 | Windows 11, Python 3.x |
-| **GERS 配置** | `max_iterations=1, enable_nli=False`（启用 ConstrainedDecoder + GraphPromptBuilder；关闭 FeedbackLoop 触发，避免引入额外噪声） |
-
----
-
-## 二、本轮修复（2026-06-24）
-
-| # | 问题 | 修复 |
-|---|------|------|
-| 1 | CLUTRR 500 条实际只有 5 条硬编码样例循环 | 重写为 50+ 真实家庭关系链模板，生成 300 条唯一样本 |
-| 2 | ConstrainedDecoder / GraphPromptBuilder / FeedbackLoop 三个核心模块完全未接入 | 全部接入：`GraphPromptBuilder` 生成路径描述注入到子问题 Prompt；`ConstrainedDecoder` 增强约束；`FeedbackLoop` 闭环修正（默认 `max_iterations=1` 不触发） |
-| 3 | Consistency Score 恒为 0.80（NLI 关闭 + 线性链覆盖度恒为 1.0） | 增强结构层覆盖度（加入子答案置信度因子），语义层使用 LLM-based NLI（备用 HuggingFace NLI） |
-| 4 | ToT 基线从未运行 | GSM8K 100 条 / HotpotQA 100 条完成 |
-| 5 | CoT-SC 样本量不足（GSM8K 100 / HotpotQA 71） | 全部补到 500 条（CLUTRR 300 条） |
-| 6 | 消融实验仅 20 条 + 仅 3 个配置 | 扩充到 5 个配置 × 100 条 × 2 个数据集 |
-| 7 | 评估指标缺失 | 增加 `token_count`、`iterations`、`num_sub_questions` 采集 |
-
----
-
-## 三、主要对比实验结果
-
-### 3.1 GSM8K（数学推理，n=500）
-
-| 方法 | **EM** | F1 | Consistency | 平均耗时 |
-|------|--------|-----|-------------|---------|
-| Zero-Shot | 0.5560 | 0.5280 | — | 3.9s |
-| Standard CoT | 0.7400 | 0.7140 | — | 6.1s |
-| CoT-SC（N=3） | **0.7621** | **0.7379** | — | 83.8s |
-| ToT（BFS, depth=3, beam=2） | 0.2000 | 0.0900 | — | 29.6s |
-| **GERS（本文）** | 0.6020 | 0.5450 | 0.7949 | 5.8s |
-
-**结论**：
-- **CoT-SC 在 GSM8K 上达到最佳 EM=0.7621**（自一致性投票对算术推理有提升）
-- GERS（EM=0.602）在所有多模块方法中优于 ToT（EM=0.20），但低于 Standard CoT（0.74）和 CoT-SC（0.76）
-- 原因分析：GSM8K 主要是单步算术推理，GERS 的多步分解 + 闭环校验对简单算术题增加错误传播链；CoT-SC 的多采样投票更适合单步题
-- GERS 适合多跳推理（见 HotpotQA 结果）
-
-### 3.2 HotpotQA（多跳问答，n=500）
-
-| 方法 | **EM** | F1 | Consistency | 平均耗时 |
-|------|--------|-----|-------------|---------|
-| Zero-Shot | 0.3560 | 0.2587 | — | 1.7s |
-| Standard CoT | 0.3140 | 0.2274 | — | 8.6s |
-| CoT-SC（N=3） | 0.3140 | 0.2255 | — | 28.3s |
-| ToT（BFS, depth=3, beam=2） | 0.0200 | 0.0101 | — | 25.7s |
-| **GERS（本文）** | **0.4040** | **0.3146** | **0.7999** | **8.8s** |
-
-**结论**：
-- **GERS 在 HotpotQA 上达到最佳 EM=0.4040**
-- vs Standard CoT：EM +28.7%
-- vs CoT-SC：EM +28.7%（自一致性投票对多跳推理有副作用）
-- ToT 在 HotpotQA 上几乎完全失败（EM=0.02）——其树搜索生成"研究方向"而非基于上下文的答案
-- GERS 的多步 DAG 分解对多跳推理是必要的
-
-### 3.3 HotpotQA 分题型分析（n=500）
-
-| 方法 | bridge EM (n=404) | comparison EM (n=96) | Total EM |
-|------|------------------|---------------------|---------|
-| Zero-Shot | 0.3267 | 0.4792 | 0.3560 |
-| Standard CoT | 0.2698 | 0.5000 | 0.3140 |
-| **GERS（本文）** | **0.3366** | **0.6771** | **0.4040** |
-
-**关键发现：**
-- bridge 题型：GERS +6.7% vs CoT
-- **comparison 题型：GERS +17.7% vs CoT（0.677 vs 0.500）**
-- GERS 对"对比型"多跳推理有显著优势，因为子问题 DAG 能自然地将对比双方拆解为独立子问题
-
-### 3.4 CLUTRR（逻辑归纳，n=300）
-
-| 方法 | EM | F1 | Consistency | 备注 |
-|------|-----|-----|------------|------|
-| Zero-Shot | 0.0000 | 0.0000 | — | |
-| Standard CoT | 0.1933 | — | — | |
-| CoT-SC（N=3） | 0.1733 | 0.1300 | — | |
-| **GERS（本文）** | **0.1833** | **0.1533** | 0.7999 | |
-
-**CLUTRR 任务说明**：
-- 原始 CLUTRR/v1 HuggingFace 数据集下载失败
-- 改进方案：使用 50+ 真实家庭关系链模板（2-hop/3-hop）程序化生成 300 条唯一样本
-- 答案标签为中文家庭关系词（"叔叔"、"祖父"、"继母"等共 29 种）
-- **本数据集上 GERS > CoT-SC**（0.183 vs 0.173），证明图结构对多跳亲属推理有帮助
+# GERS Experiment Records
 
----
-
-## 四、案例分析（HotpotQA，n=500）
-
-| 类别 | 数量 | 比例 |
-|------|------|------|
-| GERS 独对（CoT 错） | **74条** | **14.8%** |
-| CoT 独对（GERS 错） | 30条 | 6.0% |
-| 两者均对 | 127条 | 25.4% |
-| 两者均错 | 269条 | 53.8% |
-| **净优势** | **+44条** | **+8.8%** |
-
-**GERS 在 74/500 个案例中答对了 CoT 答错的题，净优势为 44 题。**
-
----
+> Last updated: 2026-07-07  
+> Current paper target: AAAI-style submission draft  
+> Active datasets: HotpotQA, 2WikiMultiHopQA, GSM8K diagnostics  
+> Deprecated: CLUTRR and all pre-fix HotpotQA numbers are historical only and must not be used as paper claims.
 
-## 五、消融实验
+## 1. Current Trustworthy Results
 
-### 5.1 GSM8K 消融（各 100 条）
+These are the results aligned with the current implementation and paper draft. Earlier records that used the old EM substring bug, unstable baseline extraction, or CLUTRR synthetic data are intentionally excluded from the main narrative.
 
-| 配置 | EM | Consistency | 说明 |
-|------|----|------------|------|
-| **Full GERS** | 0.6100 | 0.6116 | 完整方法 |
-| w/o Decompose | 0.7400 | 0.0000 | 退化为 CoT，**+13%**（GSM8K 简单题不需分解） |
-| w/o Context | 0.6400 | 0.6113 | -3%（影响较小，因 GSM8K 子问题独立） |
-| w/o Constraint | 0.8000 | 0.6097 | **+19%**（ConstrainedDecoder 在简单题引入噪声） |
-| w/o Feedback | 0.6100 | 0.6113 | = Full（max_iterations=1 实际未触发反馈） |
-
-**结论**：
-- GSM8K 主要是单步算术推理，模块化设计对其 **负向**：
-  - 分解成多步反而增加错误传播
-  - ConstrainedDecoder 增加的 Prompt 约束对简单题是噪音
-- 这是 GERS 在简单任务上的局限，论文应明确说明方法适用场景
-
-### 5.2 HotpotQA 消融（各 100 条）
-
-| 配置 | EM | Consistency | 说明 |
-|------|----|------------|------|
-| **Full GERS** | **0.4300** | 0.6526 | 完整方法 |
-| w/o Decompose | 0.3500 | 0.0000 | 退化为 CoT，**-8%**（多跳题需要分解） |
-| w/o Context | 0.4000 | 0.6527 | -3%（Context 传递有小幅帮助） |
-| w/o Constraint | 0.4300 | 0.6548 | = Full（影响较小） |
-| w/o Feedback | 0.4300 | 0.6539 | = Full（max_iterations=1 实际未触发反馈） |
-
-**结论**：
-- **HotpotQA 上 GERS 的图结构分解对多跳推理有显著贡献**（+8% vs CoT）
-- ConstrainedDecoder 和 FeedbackLoop 在 max_iterations=1 时作用有限
-- w/o Decompose 显著降低 EM 验证了图分解的必要性
-
----
-
-## 六、与近期相关工作对比
-
-| 方法 | 来源 | 核心差异 |
-|------|------|---------|
-| GoT（AAAI 2024） | Prompt Engineering | 思维合并/蒸馏，不保证执行顺序 |
-| RwG（ACL 2025 Findings） | 上下文构图 | 图结构一次性送入 LLM，不逐步执行 |
-| DAGR（arxiv 2025.06） | KG 子图检索 | 关注检索侧，不涉及推理执行 |
-| **GERS（本文）** | — | **子问题 DAG + 拓扑排序逐步执行 + Consistency Score + 闭环修正** |
+### 1.1 HotpotQA Main Results (n=500, qwen3-8b)
 
----
-
-## 七、数据完整性
+| Method | EM | F1 | CS | Notes |
+|---|---:|---:|---:|---|
+| Zero-Shot | 0.276 | 0.389 | - | unified extraction |
+| Standard CoT | 0.264 | 0.368 | - | unified extraction |
+| CoT-SC (N=3) | 0.262 | 0.373 | - | majority voting |
+| CoT-SC+GERS rerank | 0.264 | 0.372 | - | post-hoc graph rerank only |
+| MoDeGraph-style prompt | 0.252 | 0.366 | - | graph-prompt baseline, v4 |
+| GERS-Adaptive | 0.284 | 0.395 | 0.996 | single-path DAG execution |
+| GERS-SC (K=3) | 0.282 | 0.398 | 0.662 | graph-level self-consistency with original structural CS |
+| GERS-CV | 0.298 | 0.409 | 0.782 | bidirectional sub-answer cross-checking |
+| GERS-CV2 | 0.302 | 0.413 | 0.777 | confidence-weighted aggregation |
 
-| 数据集 | 原始 | Zero-Shot | CoT-SC | CoT | ToT | GERS |
-|--------|------|-----------|--------|-----|-----|------|
-| GSM8K | 500 条 ✅ | 500 条 ✅ | **500 条 ✅** | 500 条 ✅ | **100 条 ✅** | 500 条 ✅ |
-| HotpotQA | 500 条 ✅ | 500 条 ✅ | **500 条 ✅** | 500 条 ✅ | **100 条 ✅** | **500 条 ✅** |
-| CLUTRR | 300 条 ✅ | 300 条 ✅ | **300 条 ✅** | 300 条 ✅ | — | **300 条 ✅** |
-
-**消融实验**：
-- GSM8K：5 配置 × 100 条 = 500 条 ✅
-- HotpotQA：5 配置 × 100 条 = 500 条 ✅
-
----
-
-## 八、Consistency Score 分析
-
-修复后 Consistency Score 范围：
-
-| 数据集 | Full GERS | 说明 |
-|--------|-----------|------|
-| GSM8K | 0.7949 | 较高（推理链相对清晰） |
-| HotpotQA | 0.7999 | 较高 |
-| CLUTRR | 0.7999 | 较高 |
-
-修复前（恒为 0.80，无区分度）→ 修复后（具有基于推理质量的区分度，但因 enable_nli=False + 线性链主导，集中在 0.79 附近）。
+Statistical interpretation:
 
-**后续改进方向**：
-- 启用 NLI 模型（`enable_nli=True`）后 Semantic Score 将有实际区分
-- 在多跳推理题中，分支/合流节点的覆盖度会低于 1.0
-
----
-
-## 九、后续计划
-
-- [x] 修复 GERS 核心模块接线（ConstrainedDecoder、GraphPromptBuilder、FeedbackLoop）
-- [x] 替换 CLUTRR 真实数据集
-- [x] CoT-SC 三个数据集 500 条
-- [x] ToT GSM8K + HotpotQA 基线
-- [x] 5 种消融配置 × 100 条 × 2 个数据集
-- [x] Consistency Score 区分度增强
-- [x] 论文初稿撰写（会议格式）
-- [x] 相关工作调研（MoDeGraph、GoV、StepChain 等）
-- [x] MoDeGraph prompt 基线对比实验（HotpotQA 500 条）
-- [x] GERS+NLI 变体实验（HotpotQA 100 条）
-- [x] GERS+Feedback 变体实验（HotpotQA 100 条）
-- [x] **自适应分解策略实现与验证**（GSM8K 500条 + HotpotQA 500条）
-- [x] **效率分析**（Token/耗时对比）
-- [ ] 后续可考虑：提升复杂度判断准确率
-- [ ] 后续可考虑：提升 Consistency Score 区分度
-- [ ] 后续可考虑：多模型泛化性验证
-
----
+| Comparison | EM diff | EM 95% CI | F1 diff | F1 95% CI | McNemar p |
+|---|---:|---|---:|---|---:|
+| GERS-CV2 vs CoT-SC | +0.040 | [-0.014, +0.096] | +0.041 | [-0.014, +0.095] | 0.029 |
+| GERS-CV2 vs Standard CoT | +0.038 | [-0.018, +0.094] | +0.045 | [-0.009, +0.099] | 0.040 |
+| GERS-SC vs CoT-SC | +0.020 | [-0.034, +0.076] | +0.025 | [-0.029, +0.079] | 0.275 |
 
-## 十、MoDeGraph 对比与 GERS 变体实验（2026-06-26）
+Conclusion: the strongest defensible claim is not broad statistically significant QA superiority. The defensible claim is that bidirectional cross-checking improves the graph consistency signal and yields a modest HotpotQA gain that is paired-significant on EM correctness but effect-size marginal under bootstrap intervals.
 
-### 10.1 主实验完整结果（n=500）
+Graph-prompt baseline status:
 
-| 方法 | GSM8K EM | HotpotQA EM | CLUTRR EM |
-|------|----------|-------------|-----------|
-| Zero-Shot | 0.556 | 0.356 | 0.000 |
-| Standard CoT | 0.740 | 0.314 | 0.193 |
-| CoT-SC (N=3) | 0.762 | 0.314 | 0.173 |
-| ToT | 0.200(100条) | 0.020(100条) | — |
-| MoDeGraph | — | 0.256 | — |
-| GERS（无自适应） | 0.602 | 0.404 | 0.183 |
-| **GERS+自适应** | **0.670** | **0.412** | 0.183 |
+| Item | Status | Path | Notes |
+|---|---|---|---|
+| MoDeGraph-style v1 | deprecated | `experiments/results/graph_baseline/` | completed n=500, but the final-answer prompt did not receive the graph/reasoning/context in the stateless API call, so it underestimates the baseline and must not be cited |
+| MoDeGraph-style v2 | superseded intermediate | `experiments/results/graph_baseline_v2/` | completed n=500, EM 0.216 / F1 0.328; final-answer prompt receives context, graph, and reasoning, but current code has a further concise-output prompt fix |
+| MoDeGraph-style v3 | superseded | `experiments/results/graph_baseline_v3/` | same as v2 plus stricter concise final-answer instruction, but still used truncated context |
+| MoDeGraph-style v4 | current | `experiments/results/graph_baseline_v4/` | completed n=500, EM 0.252 / F1 0.366; full context, graph/reasoning carried into final answer, concise final-answer instruction |
 
-### 10.2 效率分析（HotpotQA 500条）
+### 1.2 Consistency Score Diagnostics (HotpotQA, n=500)
 
-| 方法 | 平均耗时 | LLM调用次数 | EM |
-|------|---------|------------|-----|
-| Zero-Shot | 1.7s | 1 | 0.356 |
-| Standard CoT | 8.6s | 1 | 0.314 |
-| CoT-SC (N=3) | 28.3s | 3 | 0.314 |
-| ToT | 25.7s | 6 | 0.020 |
-| MoDeGraph | 9.3s | 3 | 0.256 |
-| **GERS+自适应** | **9.4s** | **1~5** | **0.412** |
+| CS scheme | Correct mean | Wrong mean | Discrimination | AUROC |
+|---|---:|---:|---:|---:|
+| Old structural CS (GERS-SC) | 0.6592 | 0.6628 | -0.0035 | 0.498 |
+| New cross-validated CS (GERS-CV) | 0.7888 | 0.7042 | +0.0847 | 0.581 |
+| New cross-validated CS + confidence (GERS-CV2) | - | - | - | 0.589 |
 
-### 10.3 GERS 变体实验（HotpotQA, n=100）
+High-score caveat for GERS-CV2:
 
-| 配置 | EM | F1 | Consistency | 说明 |
-|------|-----|-----|------------|------|
-| GERS（默认） | **0.430** | **0.315** | 0.653 | NLI=False, max_iter=1 |
-| GERS + NLI | 0.410 | 0.300 | 0.654 | 启用 NLI 语义校验 |
-| GERS + Feedback | 0.420 | 0.307 | 0.800 | max_iter=2, 启用闭环修正 |
+| Bucket | Samples | EM accuracy | Mean F1 |
+|---|---:|---:|---:|
+| CS < 0.5 | 75 | 0.200 | 0.278 |
+| 0.5 <= CS < 0.7 | 86 | 0.244 | 0.333 |
+| 0.7 <= CS < 0.9 | 85 | 0.247 | 0.375 |
+| CS = 1.0 | 250 | 0.376 | 0.499 |
 
-### 10.4 自适应分解效果
+Important limitation: CS=1.0 is not correctness. In GERS-CV2, 250/500 samples receive CS=1.0, but 156 of those are EM-wrong. The score is a weak ranking/diagnostic signal, not a verifier of factual correctness.
 
-| 数据集 | GERS（无自适应） | GERS+自适应 | 提升 |
-|--------|-----------------|-------------|------|
-| GSM8K (500条) | 0.602 | 0.670 | +11.3% |
-| HotpotQA (500条) | 0.404 | 0.412 | +2.0% |
+### 1.3 HotpotQA Type Analysis (n=500)
 
----
+| Method | bridge EM (n=404) | comparison EM (n=96) |
+|---|---:|---:|
+| Zero-Shot | 0.218 | 0.521 |
+| CoT-SC | 0.218 | 0.448 |
+| GERS-CV2 | 0.240 | 0.562 |
 
-## 十一、指标修复 + 多线程重测（2026-06-29）
+Interpretation: the gain is concentrated on comparison/branch-merge questions. HotpotQA bridge questions often contain extractable evidence in context, so strong zero-shot reading already performs close to structured methods.
 
-> 本轮：修复 EM 指标 bug（双向子串虚高）+ 砍 ConstrainedDecoder + 实现图级 Self-Consistency +
-> **多线程并行 runner（4 worker，零失败，仅 3 次 429 重试兜住）**。
-> 旧 HotpotQA EM（0.404 等）经离线重算证实虚高 20+pt，本节为**真实口径、新代码**结果。
+### 1.4 2WikiMultiHopQA Boundary Analysis
 
-### 11.1 主对比实验（HotpotQA, n=100, model=qwen3-8b, 新指标）
+Small diagnostic split (n=100):
 
-| 方法 | EM | F1 | CS | 耗时(并行) |
-|------|-----|-----|-----|-----------|
-| **GERS-SC (K=3)** | **0.270** | **0.395** | 0.669 | 436s |
-| GERS+自适应 | 0.260 | 0.382 | 0.997 | 134s |
-| CoT-SC (N=3) | 0.200 | 0.284 | — | 508s |
-| CoT-SC+GERS重排 | 0.190 | 0.284 | — | 578s |
-| Standard CoT | 0.170 | 0.260 | — | 155s |
-| Zero-Shot | 0.160 | 0.253 | — | 45s |
+| Method | comparison | bridge_comp | compositional | inference |
+|---|---:|---:|---:|---:|
+| Standard CoT | 0.815 | 0.905 | 0.284 | 0.361 |
+| Zero-Shot | 0.800 | 0.587 | 0.366 | 0.330 |
+| CoT-SC | 0.720 | 0.864 | 0.268 | 0.343 |
+| GERS-CV2 | 0.775 | 0.524 | 0.297 | 0.288 |
 
-**关键结论：**
-- ✅ **GERS 系显著领先 CoT 系**：GERS-SC(0.270) / GERS+自适应(0.260) 比 CoT-SC(0.200) 高 3~7pt，比 Standard CoT(0.170) 高 9~10pt。验证文献支撑版核心论点——图结构分解在多跳推理上有效。
-- ✅ **图级 Self-Consistency (GERS-SC) 是当前最优**：K=3 生成多条 DAG 用 Consistency Score 选优，EM 0.270、F1 0.395 均最高。Consistency Score 修复温度 bug 后有区分度（0.669）。
-- ⚠️ **CoT-SC+GERS 重排未达预期**：0.190 < CoT-SC 0.200，且耗时更高。详见 11.2 根因分析。
+Larger diagnostic run (n=300): GERS-CV2 EM 0.390 / F1 0.462, below Standard CoT EM 0.443 / F1 0.521. This is a real generalization boundary, not a result to hide.
 
-### 11.2 CoT-SC+GERS 重排失败根因分析（重要负面结论）
+Interpretation: GERS is close on comparison-style decomposition but suffers on deep bridge-comparison questions because early entity errors propagate through the graph.
 
-加权投票 `combined = count + λ·gers_score` 在 HotpotQA 上**净负贡献**：
-- 100 条中重排触发 10 次（改写多数票答案），其中**改对 1 次、改错 9 次**。
-- vs 纯 CoT-SC 同题一致 99/100，仅 1 例改错，差距主要来自采样随机性。
+### 1.5 Second-Model Check
 
-**根因诊断（两层）：**
+Qwen-Plus on HotpotQA n=300: GERS-CV2 EM 0.363 / F1 0.496; CoT-SC EM 0.367 / F1 0.494; paired difference is effectively zero. The method's advantage is therefore concentrated on medium-capability settings where explicit decomposition helps.
 
-1. **GERS-lite 校验分本身方向正确，有区分度：**
-   - 正确答案 gers_score 均值 **0.669**
-   - 错误答案 gers_score 均值 **0.427**
-   - 差距 0.24，GERS 打分能区分对错，**不是噪声信号**。
+## 2. Negative and Diagnostic Experiments
 
-2. **真正的失败源 = 答案提取质量 + 空串钻空子：**
-   - CoT 系（StandardCoT/CoT-SC）答案提取对 HotpotQA 严重不力：**42% 是 >40 字符的长句 + 8% 空串**。
-   - GERS 系（gers_adaptive）提取质量好得多：**0 空串，79% 短答案**（因 GERS 有专门 final-answer 汇总 prompt）。
-   - 投票归一化把残缺/空答案聚拢成空串 `''`，成为强候选；空串 gers_score 非零，在多数票答案本身也低分时长句时翻盘 → 而**空串答案 100% 错**。
+### 2.1 Repair Variants Are Not Main Methods
 
-**改进方向（下一轮）：**
-- 治本：给 StandardCoT/CoT-SC 的 `extract_answer` 传 `dataset="hotpotqa"`，并强化短答案提取，消除空串/长句。
-- 治标+增益：加权投票**丢弃空串候选**；并利用"GERS 分方向正确"这一发现，把重排限定在「票数并列或仅差 1 票」的窄区间，让高质量分在有把握时才翻盘。
+HotpotQA first 100 samples:
 
-### 11.3 多线程加速效果
+| Method | EM | F1 | CS | Repair triggers |
+|---|---:|---:|---:|---:|
+| GERS-CV2 | 0.330 | 0.451 | 0.781 | 0/100 |
+| gers_repair | 0.300 | 0.401 | 0.847 | 51/100 |
+| gers_repair_soft | 0.320 | 0.411 | 0.874 | 47/100 |
 
-| 配置 | cot_sc_gers 100条耗时 | 429 限流 | 失败 |
-|------|----------------------|---------|------|
-| 旧单进程串行（估） | ~1500s+ | 0 | — |
-| **4 worker 并行** | 578s | 3次（重试兜住） | 0 |
-| 6 worker（smoke 测试） | 触发频繁 429 | 多次 | 0 |
+2Wiki first 100 samples:
 
-4 worker 为该 API QPM 下的稳定甜点：速度约 2.5-3x，几乎不限流。`DashScopeModel` 缓存单例 client + 指数退避重试是并发稳定性的关键。
+| Method | EM | F1 | CS | Repair triggers |
+|---|---:|---:|---:|---:|
+| GERS-CV2 | 0.400 | 0.469 | 0.745 | 0/100 |
+| gers_repair_soft | 0.340 | 0.403 | 0.851 | 53/100 |
 
----
+Conclusion: repair increases CS while reducing EM/F1. It should remain a negative result and must not be included as a main method.
 
-## 十二、答案提取公平性修复 + 2WikiMultiHopQA 实验（2026-06-29）
+### 2.2 Evidence-Grounded Checking Is Diagnostic
 
-> 本轮：(1) 修 CoT 系答案提取（保命/公平）；(2) 上 2WikiMultiHopQA 验证论文核心论点；
-> (3) 重排降级为消融对照，论文主推 GERS-SC。
+HotpotQA first 100 samples:
 
-### 12.1 答案提取公平性修复（CoT 系 + GERS 系对称修复）
+| Method | EM | F1 | CS | Paired change vs GERS-CV2 |
+|---|---:|---:|---:|---|
+| GERS-CV2 | 0.330 | 0.451 | 0.781 | - |
+| gers_grounded | 0.330 | 0.455 | 0.730 | wc=0 / cw=0 / dF1=+0.004 |
+| gers_grounded_soft | 0.330 | 0.452 | 0.735 | wc=0 / cw=0 / dF1=+0.001 |
 
-上一轮诊断发现 CoT 系（StandardCoT/CoT-SC/Zero-Shot）答案提取严重不力：42% 是 >40 字符长句 + 8% 空串，而 GERS 系提取较好。这导致基线被不公平拖低。本轮对称修复：
+2Wiki first 100 samples:
 
-- StandardCoT/ZeroShot prompt：强制「yes/no 问题答 yes/no，否则只给实体名/数字/短词，不要整句」；中文 `参考信息：` 改英文 `Context:`
-- CoT-SC / CoT-SC+GERS / GERS 系：透传 `dataset` 参数到 `extract_answer`
-- GERS `FINAL_ANSWER_PROMPT`：同样强制简洁答案（comparison 题输出实体名而非整句）
-- `answer_extractor._clean_answer`：加 comparison 句式剥离兜底（"X came out first" → "X"）
+| Method | EM | F1 | CS | Paired change vs GERS-CV2 |
+|---|---:|---:|---:|---|
+| GERS-CV2 | 0.400 | 0.469 | 0.745 | - |
+| gers_grounded | 0.400 | 0.463 | 0.766 | wc=1 / cw=1 / dF1=-0.007 |
+| gers_grounded_soft | 0.400 | 0.467 | 0.767 | wc=0 / cw=0 / dF1=-0.003 |
 
-**修复效果（HotpotQA 30 条验证）**：空答案 8%→0%，长答案(>40字) 42%→7~10%，
-EM：standard_cot 0.17→0.20，cot_sc 0.20→0.27，zero_shot 0.16→0.27。
-**公平性达成**——基线更强了，GERS 必须靠真实结构优势赢。
+Per-type 2Wiki first 100 samples from the grounded diagnostic rerun:
 
-### 12.2 2WikiMultiHopQA 主对比（n=100, model=qwen3-8b, 4 worker）
+This is a separate diagnostic rerun. Compare `gers_grounded` and `gers_grounded_soft` against the same-table GERS-CV2 row only; do not mix these per-type numbers with the earlier n=100 boundary table, which came from the main run.
 
-> 经两轮修复：(1) 答案提取公平性修复；(2) FINAL_ANSWER_PROMPT 答案类型回扣（修 bridge_comparison 把导演名当电影名的 bug）。下表为最终结果。
+| Method | comparison | bridge_comp | compositional | inference |
+|---|---:|---:|---:|---:|
+| GERS-CV2 | 0.775 | 0.524 | 0.286 | 0.360 |
+| gers_grounded | 0.735 | 0.571 | 0.297 | 0.288 |
+| gers_grounded_soft | 0.775 | 0.524 | 0.286 | 0.341 |
 
-| 方法 | comparison | bridge_comp | compositional | inference | **ALL EM** | **ALL F1** |
-|------|:-:|:-:|:-:|:-:|:-:|:-:|
-| Standard CoT | 0.80 | 0.90 | 0.18 | 0.13 | **0.48** | **0.56** |
-| Zero-Shot | 0.80 | 0.57 | 0.26 | 0.07 | 0.43 | 0.52 |
-| CoT-SC | 0.64 | 0.81 | 0.15 | 0.13 | 0.41 | 0.52 |
-| CoT-SC+GERS（消融对照） | 0.64 | 0.81 | 0.15 | 0.13 | 0.41 | 0.52 |
-| GERS+自适应 | 0.80 | 0.43 | 0.21 | 0.20 | 0.40 | 0.47 |
-| GERS-SC (K=3) | 0.78 | 0.43 | 0.21 | 0.13 | 0.39 | 0.45 |
+Conclusion: evidence grounding suppresses inflated CS and locally helps bridge_comparison, but it is not yet a robust overall improvement.
 
-> 前 100 条类型分布：comparison 25 / bridge_comparison 21 / compositional 39 / inference 15。
-> 表中数值为 EM；分题型 F1 见 12.3。
+## 3. Deprecated Results and Non-Claims
 
-### 12.3 答案类型回扣修复的效果（bridge_comparison 专项）
+The following must not be used as current paper evidence:
 
-FINAL_ANSWER_PROMPT 加「答案必须匹配原问题要求的实体类型（问 film 答 film 名，不要中间子问题的导演/日期）」后，GERS 分题型 F1 变化：
+| Item | Status | Reason |
+|---|---|---|
+| HotpotQA GERS EM=0.404 | deprecated | old EM bidirectional-substring bug and older extraction pipeline inflated results |
+| CLUTRR synthetic dataset | removed | synthetic Chinese kinship labels produced low, noisy, non-standard results; active code raises NotImplementedError |
+| Early ToT/CoT-SC comparisons | deprecated | generated before answer extraction and metric fixes |
+| MoDeGraph-style v1 HotpotQA | deprecated | final-answer prompt omitted graph/reasoning/context under stateless model calls; v4 supersedes it |
+| Repair as improvement | rejected | raises CS but hurts EM/F1 |
 
-| 方法\类型 | comparison | bridge_comparison | compositional | inference | ALL F1 |
-|----------|:-:|:-:|:-:|:-:|:-:|
-| GERS+自适应（修复前） | 0.815 | **0.238** | 0.287 | 0.341 | 0.417 |
-| GERS+自适应（修复后） | 0.815 | **0.476** | 0.286 | 0.341 | **0.467** |
-| GERS-SC（修复前） | 0.815 | **0.238** | 0.287 | 0.288 | 0.409 |
-| GERS-SC（修复后） | 0.775 | **0.476** | 0.297 | 0.288 | **0.453** |
-| Standard CoT（参照） | 0.815 | 0.905 | 0.284 | 0.361 | 0.559 |
+If these numbers appear in older logs or draft files, treat them as historical debugging records only.
 
-**修复效果：bridge_comparison F1 0.238→0.476（翻倍），GERS 整体 F1 从 0.41→0.46，与 CoT 差距从 -0.15 缩小到 -0.09。**
+## 4. Current Paper Positioning
 
-### 12.4 关键结论（诚实记录）
+Best defensible framing:
 
-**结论 1：答案类型回扣修复成功，解决了"格式 bug"层。**
-修复前 bridge_comparison 崩盘（0.238）有两个原因：(a) 答案提取 bug（整句→实体名，已在 12.1 修）；(b) 汇总 prompt 没回扣原问题实体类型，GERS 输出中间桥接结果（导演名）当最终答案。本轮修 (b)，bridge_comparison 0.238→0.476。comparison 类 GERS 与 CoT 持平（0.815）。
-
-**结论 2：剩余 bridge_comparison 差距（0.476 vs CoT 0.905）是真·推理局限，非 prompt 可解。**
-修复后失败案例归因（11 个失败）：仅 2 个仍输出导演名（prompt 未完全纠正），6 个是「输出正确电影名格式但选错」（比较方向/桥接子问题错误传播），1 个 "Cannot be determined"（信息不足放弃），1 个 yes/no 判断错。**9/11 已不是格式问题，而是 GERS 在复合桥接题上的错误传播 + 比较方向易错**。这是方法在深度多跳上的真实局限。
-
-**结论 3：HotpotQA 上「comparison +17.7pt」的优势在 2Wiki 上不存在。**
-两个数据集 comparison 类 GERS 与 CoT 均持平（0.78~0.82），无压倒优势。HotpotQA 的整体 +7pt 优势真实（见第十一节），但「comparison 类专长」叙事在 2Wiki 不成立。
-
-**结论 4：GERS-SC 在难题数据集上不如 GERS+自适应。**
-2Wiki 上 gers_adaptive（F1 0.467）> gers_sc（0.453）；而 HotpotQA 上 gers_sc（0.270）> gers_adaptive（0.260）。说明图级 Self-Consistency（K=3 多采样选优）在简单题为主的 HotpotQA 有效，但在 2Wiki 这种复合难题上，多次采样反而放大错误传播。**GERS-SC 的适用边界：简单/中等难度多跳 > 深度复合多跳。**
-
-### 12.5 战略含义（论文叙事）
-
-- **主表用 HotpotQA**：GERS-SC 0.270 vs CoT-SC 0.200（+7pt），GERS 系稳赢，这是 GERS 最硬的证据。
-- **2Wiki 作为"适用边界"诚实呈现**，不回避：
-  - comparison 类：GERS 与 CoT 持平（结构分解有效）；
-  - bridge_comparison：诚实承认 GERS 复合题错误传播局限（修复 prompt 后仍输 CoT，剩余是真推理差距）；
-  - 这界定了 GERS 的适用范围：中等跳数多跳推理，而非深度复合桥接。
-- **答案类型回扣 + 提取公平性修复**本身是工程贡献：证明 GERS 的"表面失败"多为可修的格式/提取问题，真实推理差距被精确界定。
-- **GERS-SC 仍为方法主线**（HotpotQA 最优 + CS 有区分度），但论文须说明其在深度复合题上的适用边界。
-- **CoT-SC+GERS 重排降级为消融对照**（与 CoT-SC 同分，无净增益）。
-
-
----
-
-## 十三、验证驱动局部修复实验（2026-07-06）
-
-> 本轮验证新实现的 `gers_repair` / `gers_repair_soft`：利用 crossval mismatch 定位低可信子问题，重答该节点及其下游后重新汇总。实验结论是**当前 repair 策略为负贡献，不应写入论文主方法**。
-
-### 13.1 HotpotQA（前100条，model=qwen3-8b，4 worker）
-
-| 方法 | EM | F1 | CS | repair触发 | 平均修复节点数 |
-|------|----|----|----|-----------|---------------|
-| GERS-CV2（同批重跑） | **0.330** | **0.451** | 0.781 | 0/100 | — |
-| gers_repair | 0.300 | 0.401 | 0.847 | 51/100 | 1.67 |
-| gers_repair_soft | 0.320 | 0.411 | 0.874 | 47/100 | 1.68 |
-
-配对比较（`gers_repair_soft` vs GERS-CV2）：wrong→correct = 3，correct→wrong = 4，平均 F1 差值 -0.039。虽然 CS 更高，但答案质量下降，说明当前修复 prompt/触发阈值会把部分原本正确或可用的子答案扰乱。
-
-### 13.2 2WikiMultiHopQA（前100条，model=qwen3-8b，4 worker）
-
-| 方法 | EM | F1 | CS | repair触发 | 平均修复节点数 |
-|------|----|----|----|-----------|---------------|
-| GERS-CV2（同批重跑） | **0.400** | **0.469** | 0.745 | 0/100 | — |
-| gers_repair_soft | 0.340 | 0.403 | 0.851 | 53/100 | 1.81 |
-
-配对比较：wrong→correct = 3，correct→wrong = 9，平均 F1 差值 -0.067。
-
-分题型 F1：
-
-| 方法 | comparison | bridge_comp | compositional | inference |
-|------|------------|-------------|---------------|-----------|
-| GERS-CV2 | 0.775 | **0.524** | 0.286 | **0.360** |
-| gers_repair_soft | 0.735 | 0.393 | 0.297 | 0.139 |
-
-### 13.3 结论
-
-- 当前 repair 策略触发过频（约半数样本），且修复节点平均 1.7~1.8 个，容易引入新错误。
-- `gers_repair_soft` 的 CS 高于 GERS-CV2，但 EM/F1 更低，说明“提高自洽分”不等价于“提高答案正确率”。
-- 这进一步支持当前论文主线：双向验证适合作为诊断和质量信号，但直接用其驱动局部重生成需要更严格的触发条件。
-- 后续若继续探索 repair，应先补 evidence grounding：每个反向子答案必须给出上下文证据，CS 使用 `match_score * grounding_score`，避免“内部自洽但上下文无依据”的推理链得高分。
-- 代码层已准备默认关闭的 `gers_grounded` / `gers_grounded_soft` 实验入口，待后续真实跑数验证；未跑前不要写入主表。
-
+1. Structural graph validity is almost useless as a reasoning-quality signal because generated DAGs are usually legal.
+2. Bidirectional sub-answer cross-checking turns CS into a more informative content-consistency signal, improving AUROC from roughly random (0.498) to weakly useful (0.58-0.59).
+3. The resulting HotpotQA improvement is modest and statistically mixed: McNemar-significant on paired EM correctness, but bootstrap effect-size intervals cross zero.
+4. CS is not correctness. High CS wrong answers remain common, so evidence grounding and conservative repair are future work.
+5. The method has a real boundary on 2Wiki bridge-comparison and stronger models.
+6. The fixed MoDeGraph-style v4 graph-prompt baseline is below GERS-CV2 on HotpotQA (F1 0.366 vs 0.413), but this covers one near-neighbor prompt baseline rather than all graph-reasoning systems.

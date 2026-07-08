@@ -1,0 +1,57 @@
+{
+  "summary": {
+    "method": "modegraph",
+    "dataset": "hotpotqa",
+    "model": "qwen3-8b",
+    "num_samples": 3,
+    "avg_em": 0.3333,
+    "avg_f1": 0.4762,
+    "avg_latency": 9.3146,
+    "timeout_count": 0,
+    "error_count": 0
+  },
+  "results": [
+    {
+      "sample_id": 0,
+      "question": "Were Scott Derrickson and Ed Wood of the same nationality?",
+      "prediction": "yes",
+      "reference": "yes",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 254,
+        "latency": 5.977071046829224
+      },
+      "method": "modegraph",
+      "error": null
+    },
+    {
+      "sample_id": 1,
+      "question": "What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tel",
+      "prediction": "United States Ambassador to Ghana and Czechoslovakia, and Chief of Protocol of t",
+      "reference": "Chief of Protocol",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.42857142857142855,
+        "token_count": 548,
+        "latency": 8.856806993484497
+      },
+      "method": "modegraph",
+      "error": null
+    },
+    {
+      "sample_id": 2,
+      "question": "What science fantasy young adult series, told in first person, has a set of companion books narratin",
+      "prediction": "The Hork-Bajir Chronicles",
+      "reference": "Animorphs",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 689,
+        "latency": 13.109972476959229
+      },
+      "method": "modegraph",
+      "error": null
+    }
+  ]
+}

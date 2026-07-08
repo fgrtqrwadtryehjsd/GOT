@@ -1,7 +1,7 @@
 """
 MoDeGraph 基线 —— 基于 Multi-Hop Dependency Graphs 的 prompt 方法
 
-复现 MoDeGraph (CIKM 2025, Oruche et al.) 的核心思想：
+复现 MoDeGraph-style graph prompting 的核心思想：
 1. 引导 LLM 从复杂问题中提取实体及其关系
 2. 构建实体关系依赖图（entity relationships as multi-hop dependency graph）
 3. 基于图引导 LLM 逐步推理回答
@@ -55,11 +55,20 @@ Each step should use the relationship between connected entities.
 Reasoning:
 """
 
-MODEGRAPH_FINAL_PROMPT = """Based on the reasoning above, provide the final answer.
+MODEGRAPH_FINAL_PROMPT = """Based on the dependency graph and reasoning below, provide the final answer.
 
 Question: {question}
+{context_section}
 
-Final Answer: <your concise answer>"""
+Entity-Relationship Dependency Graph:
+{dependency_graph}
+
+Reasoning:
+{reasoning_text}
+
+Return only one concise final answer after "Final Answer:".
+
+Final Answer: """
 
 
 class MoDeGraphBaseline:
@@ -75,14 +84,15 @@ class MoDeGraphBaseline:
     用于与 GERS（子问题 DAG + 拓扑排序执行 + 一致性校验）对比。
     """
 
-    def __init__(self, model=None):
+    def __init__(self, model=None, dataset: str = None):
         self.model = model
+        self.dataset = dataset
 
     def reason(self, question: str, context: str = "") -> Dict:
         if self.model is None:
             return {"answer": "", "reasoning_text": "[需要配置模型]", "method": "MoDeGraph"}
 
-        context_section = f"\nContext: {context[:1500]}" if context else ""
+        context_section = f"\nContext: {context}" if context else ""
 
         # Step 1: 提取实体关系依赖图
         extract_prompt = MODEGRAPH_EXTRACT_PROMPT.format(
@@ -101,11 +111,16 @@ class MoDeGraphBaseline:
         )
         reasoning_text = self.model.generate(answer_prompt, max_tokens=500, temperature=0.3)
 
-        # Step 3: 提取最终答案
-        final_prompt = MODEGRAPH_FINAL_PROMPT.format(question=question)
+        # Step 3: 提取最终答案。模型调用是无状态的，必须显式带入上一步推理。
+        final_prompt = MODEGRAPH_FINAL_PROMPT.format(
+            question=question,
+            context_section=context_section,
+            dependency_graph=graph_text,
+            reasoning_text=reasoning_text[:2000],
+        )
         final_response = self.model.generate(final_prompt, max_tokens=200, temperature=0.1)
         from ..utils.answer_extractor import extract_answer
-        answer = extract_answer(final_response, question=question)
+        answer = extract_answer(final_response, dataset=self.dataset, question=question)
 
         full_reasoning = f"[Dependency Graph]\n{graph_text}\n\n[Reasoning]\n{reasoning_text}\n\n{final_response}"
 

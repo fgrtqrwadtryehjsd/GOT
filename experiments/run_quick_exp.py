@@ -108,7 +108,7 @@ def create_method(method_name: str, model, dataset: str = None):
         "cot_sc_gers":      lambda: CoTSCWithGERS(model=model, num_samples=3, gers_lambda=1.0, enable_gers_rerank=True, dataset=dataset),
         "tot":              lambda: TreeOfThoughts(model=model, max_depth=3, beam_width=2),
         "zero_shot":        lambda: ZeroShot(model=model, dataset=dataset),
-        "modegraph":        lambda: MoDeGraphBaseline(model=model),
+        "modegraph":        lambda: MoDeGraphBaseline(model=model, dataset=dataset),
     }
     return methods[method_name]()
 

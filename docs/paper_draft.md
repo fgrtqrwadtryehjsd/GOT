@@ -1,3 +1,7 @@
+# Deprecated Draft Snapshot
+
+This file is a historical draft snapshot and is not the current paper source. Use `docs/paper_en.tex`, `docs/paper_cn.tex`, and `docs/experiment_records.md` for current AAAI-oriented claims and results. Some claims below predate the CS calibration update and may be stronger than the currently supported framing.
+
 # 图约束推理链与子答案双向交叉验证：面向多跳推理的大模型方法
 
 **作者**：zhouduomu
