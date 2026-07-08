@@ -78,6 +78,25 @@ Answer in 1-3 sentences. End with:
 Sub-answer: <concise answer>"""
 
 
+# ─── GF-GERS：证据锚定正向子问题 Prompt（前向 grounding-as-routing）────────────
+
+ANSWER_SUBQ_GROUNDED_PROMPT = """Answer this specific sub-question using ONLY the provided context.
+
+Original question: {original_question}
+{context_section}
+
+{reasoning_path_hint}
+{previous_answers}
+
+Current sub-question (Step {step_index}): {sub_question}
+
+Answer in 1-3 sentences, and quote the shortest evidence span from the context that supports it. If the context does not support an answer, say so explicitly.
+
+End with exactly:
+Sub-answer: <concise answer>
+Evidence: <short quote from context, or "not supported">"""
+
+
 # ─── 最终汇总 Prompt ──────────────────────────────────────────────────────────
 
 FINAL_ANSWER_PROMPT = """Based on the step-by-step reasoning below, give the final answer.
@@ -233,7 +252,12 @@ class GraphGuidedGenerator:
                   enable_evidence_grounding: bool = False,
                   enable_verification_repair: bool = False,
                   repair_threshold: float = 0.75,
-                  backward_anchor_mode: str = "answer_context"):
+                  backward_anchor_mode: str = "answer_context",
+                  enable_forward_grounding: bool = False,
+                  forward_grounding_threshold: float = 0.5,
+                  enable_subq_retrieval: bool = False,
+                  subq_retrieval_k: int = 2,
+                  context_char_limit: int = 1500):
         """
         Args:
             model: LLM 模型实例
@@ -298,6 +322,15 @@ class GraphGuidedGenerator:
         self.repair_threshold = repair_threshold
         # P2.4 控制：反向验证锚点 answer_context(默认,用A+context) vs context_only(仅context)
         self.backward_anchor_mode = backward_anchor_mode
+        # GF-GERS：前向证据落地 + grounding-as-routing（任一子答案未落地→回退free-form CoT-SC）
+        self.enable_forward_grounding = enable_forward_grounding
+        self.forward_grounding_threshold = forward_grounding_threshold
+        # B：逐子问题 BM25 检索——为每个子问题只保留 top-k 相关段落，减少干扰段落误导
+        self.enable_subq_retrieval = enable_subq_retrieval
+        self.subq_retrieval_k = subq_retrieval_k
+        self._subq_retriever = None
+        # 前向 context 截断字符数（默认1500；baselines 用全量context，设大值对齐公平）
+        self.context_char_limit = context_char_limit
         # Self-Consistency 时每条 DAG 的分解温度（None=用默认 0.2）。
         # 注意：generate() 用的是参数 temperature，不读 model.temperature，
         # 所以必须在这里显式传给 _decompose，否则 K 条 DAG 无温度多样性。
@@ -335,8 +368,14 @@ class GraphGuidedGenerator:
                 "token_count": 0,
             }
 
-        context_section = f"\nContext: {context[:1500]}" if context else ""
+        context_section = f"\nContext: {context[:self.context_char_limit]}" if context else ""
         total_tokens = 0
+        # B: 逐子问题 BM25 检索——为每个子问题只保留 top-k 相关段落，减少干扰段落误导
+        if self.enable_subq_retrieval and context:
+            from .bm25_retriever import BM25Retriever
+            self._subq_retriever = BM25Retriever(context)
+        else:
+            self._subq_retriever = None
 
         # ── ⓪ 自适应复杂度判断 ─────────────────────────────────────────────
         if self.adaptive:
@@ -411,14 +450,23 @@ class GraphGuidedGenerator:
                 self._format_previous_answers(node_id, graph, sub_answers)
 
             sub_q_text = node.content
-            base_prompt = ANSWER_SUBQ_PROMPT.format(
+            if self._subq_retriever is not None:
+                local_ctx = self._subq_retriever.retrieve_context(sub_q_text, k=self.subq_retrieval_k)
+                context_section_local = f"\nContext: {local_ctx}" if local_ctx else context_section
+            else:
+                context_section_local = context_section
+            prompt_kwargs = dict(
                 original_question=question,
-                context_section=context_section,
+                context_section=context_section_local,
                 reasoning_path_hint=f"[Reasoning Path]\n{reasoning_path_hint}" if reasoning_path_hint else "",
                 previous_answers=prev_answers_text,
                 sub_question=sub_q_text,
                 step_index=step_index,
             )
+            if self.enable_forward_grounding:
+                base_prompt = ANSWER_SUBQ_GROUNDED_PROMPT.format(**prompt_kwargs)
+            else:
+                base_prompt = ANSWER_SUBQ_PROMPT.format(**prompt_kwargs)
 
             # ConstrainedDecoder 增强约束
             if not self._no_constraint:
@@ -434,8 +482,16 @@ class GraphGuidedGenerator:
             # Token 计数
             total_tokens += self.model.count_tokens(raw_response) if hasattr(self.model, 'count_tokens') else 0
 
+            # GF-GERS：前向证据落地评分（grounding-as-routing 信号）
+            # 直接检查子答案本身是否在 context 中有依据（实体级），而非仅检查
+            # 模型引用的 evidence 片段——后者可被 fluent 模型用无关上下文句子绕过。
+            grounding_score = 1.0
+            if self.enable_forward_grounding:
+                grounding_score = self._evidence_grounding_score(sub_ans, context)
+
             sub_answers[node_id] = sub_ans
             node.metadata["answer"] = sub_ans
+            node.metadata["grounding_score"] = grounding_score
             # 方向2：估计子答案置信度（轻量启发式，零额外LLM调用）
             if self.enable_confidence_weighting:
                 conf = self._estimate_sub_answer_confidence(sub_ans, raw_response, context)
@@ -449,7 +505,22 @@ class GraphGuidedGenerator:
                 "sub_answer": sub_ans,
                 "raw_response": raw_response,
                 "confidence": conf,
+                "grounding_score": grounding_score,
             })
+
+        # ── GF-GERS：grounding-as-routing（任一子答案未落地→回退free-form CoT-SC）──
+        if self.enable_forward_grounding and sub_qa_chain:
+            n_ungrounded = sum(
+                1 for it in sub_qa_chain
+                if it.get("grounding_score", 1.0) < self.forward_grounding_threshold
+            )
+            if n_ungrounded > 0:
+                logger.debug(f"GF-GERS: {n_ungrounded}/{len(sub_qa_chain)} 子答案证据未落地，回退 free-form CoT-SC")
+                fb = self._free_form_cot_sc(question, context, context_section)
+                fb["fallback"] = "free_form_cot_sc"
+                fb["n_ungrounded"] = n_ungrounded
+                fb["n_sub_questions"] = len(sub_qa_chain)
+                return fb
 
         # ── ⑤ 汇总最终答案 ─────────────────────────────────────────────────
         logger.debug("GERS: ⑤ 汇总最终答案...")
@@ -684,6 +755,54 @@ class GraphGuidedGenerator:
         return {
             "answer": answer,
             "reasoning_text": reasoning_text,
+            "graph": graph,
+            "consistency_score": 1.0,
+            "consistency_detail": None,
+            "iterations": 0,
+            "execution_plan": {"execution_order": [], "key_paths": [],
+                               "branch_points": [], "merge_points": []},
+            "sub_qa_chain": [],
+            "token_count": total_tokens,
+        }
+
+    def _free_form_cot_sc(self, question: str, context: str,
+                          context_section: str, k: int = 3) -> Dict:
+        """GF-GERS fallback：DAG 链证据未落地时，回退 free-form CoT-SC（K 采样投票）。
+
+        grounding-as-routing 的回退支：当任一前向子答案无法在 context 中找到证据支撑时，
+        DAG 结构链已不可信（典型为 early-entity 幻觉），改用 free-form CoT 多数投票。
+        这保证 GF-GERS 不会因 DAG 幻觉而劣于 CoT-SC。
+        """
+        from collections import Counter
+        from ..utils.answer_normalizer import normalize_for_vote
+
+        answers = []
+        reasoning_texts = []
+        total_tokens = 0
+        for _ in range(k):
+            prompt = SIMPLE_ANSWER_PROMPT.format(
+                question=question, context_section=context_section
+            )
+            resp = self.model.generate(prompt, max_tokens=500, temperature=0.7)
+            ans = self._extract_simple_answer(resp, question)
+            answers.append(ans)
+            reasoning_texts.append(resp)
+            total_tokens += self.model.count_tokens(resp) if hasattr(self.model, 'count_tokens') else 0
+
+        normed = [normalize_for_vote(a) for a in answers]
+        valid = [n for n in normed if n]
+        if valid:
+            best_norm = Counter(valid).most_common(1)[0][0]
+            answer = next((a for a, n in zip(answers, normed) if n == best_norm), answers[0])
+        else:
+            answer = answers[0] if answers else ""
+
+        graph = ReasoningGraph(question=question)
+        graph.add_fact(content=f"Question: {question}", source="question")
+        graph.add_conclusion(content=f"Final answer to: {question}")
+        return {
+            "answer": answer,
+            "reasoning_text": "\n---\n".join(reasoning_texts),
             "graph": graph,
             "consistency_score": 1.0,
             "consistency_detail": None,

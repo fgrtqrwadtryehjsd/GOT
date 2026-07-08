@@ -56,10 +56,12 @@ def prepare_hotpotqa(output_dir: Path, num_samples: int = 500, split: str = "val
             context_parts = []
             for title, sentences in item.get("context", []):
                 context_parts.append(f"[{title}] " + " ".join(sentences))
+            context_full = " | ".join(context_parts)
             samples.append({
                 "id": item["_id"],
                 "question": item["question"],
-                "context": " | ".join(context_parts)[:2000],
+                "context": context_full[:2000],
+                "context_full": context_full,
                 "answer": item["answer"],
                 "type": item.get("type", ""),
                 "supporting_facts": [f[0] for f in item.get("supporting_facts", [])],
@@ -92,10 +94,12 @@ def prepare_hotpotqa(output_dir: Path, num_samples: int = 500, split: str = "val
             item["context"]["title"], item["context"]["sentences"]
         ):
             context_parts.append(f"[{title}] " + " ".join(sentences))
+        context_full = " | ".join(context_parts)
         samples.append({
             "id": item.get("id", str(i)),
             "question": item["question"],
-            "context": " | ".join(context_parts)[:2000],
+            "context": context_full[:2000],
+            "context_full": context_full,
             "answer": item["answer"],
             "type": item.get("type", ""),
             "supporting_facts": item.get("supporting_facts", {}).get("title", []),

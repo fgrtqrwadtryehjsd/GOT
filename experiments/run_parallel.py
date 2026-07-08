@@ -274,6 +274,7 @@ def main():
     parser.add_argument("--workers", type=int, default=8, help="并发线程数")
     parser.add_argument("--timeout", type=int, default=300, help="单样本最大等待秒数")
     parser.add_argument("--output_dir", type=str, default="experiments/results/")
+    parser.add_argument("--context_field", type=str, default="context", help="样本中用作 context 的字段(context/context_full)")
     parser.add_argument("--no_resume", action="store_true", help="不读取已有结果，从头跑")
     args = parser.parse_args()
 
@@ -281,6 +282,11 @@ def main():
     output_dir.mkdir(parents=True, exist_ok=True)
 
     samples = load_samples(args.dataset, args.num_samples)
+    if args.context_field != "context":
+        for s in samples:
+            if args.context_field in s:
+                s["context"] = s[args.context_field]
+        print(f"[数据] context 字段映射为 {args.context_field}")
     normalizer = NORMALIZERS.get(args.dataset, lambda x: x)
     print(f"[数据] {args.dataset}: {len(samples)} 条样本")
 

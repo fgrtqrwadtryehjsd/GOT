@@ -235,15 +235,6 @@ def figure4_main_results():
     ax.text(3.0, 0.3745, "CoT-SC baseline", va="bottom", ha="left", fontsize=6.4, color=GRAY)
     for xi, yi in zip(x, f1):
         ax.text(xi, yi + 0.0024, f"{yi:.3f}", ha="center", va="bottom", fontsize=6.6)
-    ax.annotate(
-        "+0.041 F1 vs CoT-SC\n95% CI [+0.006, +0.075]",
-        xy=(7, 0.413),
-        xytext=(5.25, 0.427),
-        ha="left",
-        fontsize=6.8,
-        color=ORANGE,
-        arrowprops=dict(arrowstyle="->", color=ORANGE, lw=0.75),
-    )
     ax.set_ylabel("F1")
     ax.set_ylim(0.34, 0.44)
     ax.set_xticks(x)

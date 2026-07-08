@@ -90,6 +90,12 @@ def create_method(method_name: str, model, dataset: str = None):
         "gers_adaptive_cv2":lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=True, adaptive=True, consistency_threshold=0.75, _no_constraint=True, dataset=dataset, enable_backward_verify=True, enable_llm_match=False, enable_confidence_weighting=True),
         # 证据约束反向验证：crossval 同时要求答案一致且证据落在上下文中
         "gers_grounded":    lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=True, adaptive=True, consistency_threshold=0.75, _no_constraint=True, dataset=dataset, enable_backward_verify=True, enable_llm_match=False, enable_confidence_weighting=True, enable_evidence_grounding=True),
+        # GF-GERS：前向证据落地 + grounding-as-routing（任一子答案未落地→回退free-form CoT-SC）
+        "gf_gers":          lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=True, adaptive=True, consistency_threshold=0.75, _no_constraint=True, dataset=dataset, enable_backward_verify=True, enable_llm_match=False, enable_confidence_weighting=True, enable_evidence_grounding=True, enable_forward_grounding=True, forward_grounding_threshold=0.5),
+        # B：CV2 + 逐子问题 BM25 检索（每个子问题只看 top-k 相关段落，减少干扰）
+        "gers_cv2_retr":    lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=True, adaptive=True, consistency_threshold=0.75, _no_constraint=True, dataset=dataset, enable_backward_verify=True, enable_llm_match=False, enable_confidence_weighting=True, enable_subq_retrieval=True, subq_retrieval_k=2),
+        # 公平对照：CV2 用全量 context（不截断1500，对齐 baselines）
+        "gers_cv2_fullctx": lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=True, adaptive=True, consistency_threshold=0.75, _no_constraint=True, dataset=dataset, enable_backward_verify=True, enable_llm_match=False, enable_confidence_weighting=True, context_char_limit=8000),
         "gers_grounded_soft": lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=True, adaptive=True, consistency_threshold=0.75, _no_constraint=True, dataset=dataset, enable_backward_verify=True, enable_llm_match=False, enable_confidence_weighting=True, enable_evidence_grounding=True, enable_soft_match=True),
         # 验证驱动局部修复：用 crossval mismatch 定位不可靠子问题，重答该节点及其下游后重新汇总
         "gers_repair":      lambda: GraphGuidedGenerator(model=model, max_iterations=1, enable_nli=True, adaptive=True, consistency_threshold=0.75, _no_constraint=True, dataset=dataset, enable_backward_verify=True, enable_llm_match=False, enable_confidence_weighting=True, enable_verification_repair=True),
@@ -118,7 +124,7 @@ def main():
     parser.add_argument("--dataset", type=str, default="gsm8k",
                         choices=["gsm8k", "hotpotqa", "2wikimultihopqa"])
     parser.add_argument("--method", type=str, default="gers",
-                        choices=["gers", "gers_adaptive", "gers_sc", "gers_sc_cv", "gers_sc_cv2", "gers_adaptive_cv", "gers_adaptive_cv2", "gers_grounded", "gers_grounded_soft", "gers_repair", "gers_repair_soft", "gers_cv2_uniform", "gers_cv2_ctxonly", "gers_nli", "gers_feedback", "standard_cot", "cot_sc", "cot_sc_gers", "tot", "zero_shot", "modegraph"])
+                        choices=["gers", "gers_adaptive", "gers_sc", "gers_sc_cv", "gers_sc_cv2", "gers_adaptive_cv", "gers_adaptive_cv2", "gers_grounded", "gers_grounded_soft", "gf_gers", "gers_cv2_retr", "gers_cv2_fullctx", "gers_repair", "gers_repair_soft", "gers_cv2_uniform", "gers_cv2_ctxonly", "gers_nli", "gers_feedback", "standard_cot", "cot_sc", "cot_sc_gers", "tot", "zero_shot", "modegraph"])
     parser.add_argument("--model", type=str, default="qwen3-8b")
     parser.add_argument("--num_samples", type=int, default=50)
     parser.add_argument("--timeout", type=int, default=120,

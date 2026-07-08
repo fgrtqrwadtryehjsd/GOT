@@ -31,7 +31,7 @@
 \maketitle
 
 \begin{abstract}
-Some graph-enhanced reasoning variants use structural graph-validity metrics (connectivity, acyclicity, coverage) as consistency checks, but such metrics may not reflect reasoning correctness. In our structural-CS variant, the Consistency Score is weakly discriminative between correct and incorrect reasoning, and multi-path selection can degenerate toward random sampling. We propose GERS, which models reasoning as a dependency DAG executed in topological order. The core contribution is \textbf{bidirectional sub-answer cross-checking}: using the final answer and context as an anchor, each sub-question is re-derived in reverse and the forward/backward sub-answers are compared, upgrading the Consistency Score from a structural-validity metric into a content self-consistency signal. On 500 HotpotQA samples, this raises the score's correct/wrong discrimination from $-0.0035$ to $+0.0847$ and AUROC from 0.498 to about 0.58--0.59. The highest point-estimate configuration GERS-CV2 achieves EM=0.302, F1=0.413, improving over CoT-SC by 4 F1 points; this gain is significant under both a paired McNemar test on EM correctness ($p=0.029$) and paired bootstrap 95\% CIs that exclude zero, and GERS-CV2 also significantly outperforms a MoDeGraph-style graph-prompt baseline ($p=0.010$). We explicitly show that self-consistency is not correctness: many high-CS answers remain wrong, and 2WikiMultiHopQA exposes a boundary on deep bridge-comparison questions where upstream entity errors propagate.
+Some graph-enhanced reasoning variants use structural graph-validity metrics (connectivity, acyclicity, coverage) as consistency checks, but such metrics may not reflect reasoning correctness. In our structural-CS variant, the Consistency Score is weakly discriminative between correct and incorrect reasoning, and multi-path selection can degenerate toward random sampling. We propose GERS, which models reasoning as a dependency DAG executed in topological order. The core contribution is \textbf{bidirectional sub-answer cross-checking}: using the final answer and context as an anchor, each sub-question is re-derived in reverse and the forward/backward sub-answers are compared, upgrading the Consistency Score from a structural-validity metric into a content self-consistency signal. On 500 HotpotQA samples, the highest point-estimate configuration GERS-CV2 achieves EM=0.302, F1=0.413, improving over CoT-SC by 4 F1 points; this gain is significant under both a paired McNemar test on EM correctness ($p=0.029$) and paired bootstrap 95\% CIs that exclude zero, and GERS-CV2 also significantly outperforms a MoDeGraph-style graph-prompt baseline ($p=0.010$). Behind this end-to-end gain, bidirectional cross-checking raises the score's correct/wrong discrimination from $-0.0035$ to $+0.0847$ and AUROC from 0.498 to about 0.58--0.59---a supporting diagnostic signal rather than the contribution itself. We explicitly show that self-consistency is not correctness: many high-CS answers remain wrong, and 2WikiMultiHopQA exposes a boundary on deep bridge-comparison questions where upstream entity errors propagate.
 \end{abstract}
 
 \section{Introduction}
@@ -43,8 +43,8 @@ Recent works enhance reasoning with graph structures: GoT \citep{besta2024got} p
 We propose \textbf{GERS}, which models reasoning as a dependency DAG executed in topological order. We find that a Consistency Score computed purely from graph-theoretic properties is ineffective: LLM-generated decomposition graphs are almost always legal DAGs, so scores cluster (around 0.6--0.7) and multi-path selection degenerates to random sampling (discrimination only $-0.0035$ on 500 samples). We therefore propose the core innovation \textbf{bidirectional sub-answer cross-checking}: using the final answer and context as an anchor, each sub-question is re-derived in reverse and the forward/backward sub-answers are compared, upgrading the Consistency Score from a structural-validity metric into a content self-consistency signal. This cross-check is naturally supported by explicit DAG decomposition---which provides named sub-question units and dependency edges---and is less straightforward to apply to unstructured linear CoT. Rather than claiming uniform superiority, this work identifies and fixes a key bottleneck: structural graph validity is not equivalent to reasoning correctness. Our contributions:
 
 \begin{enumerate}
-\item \textbf{Mechanism (core)}: Bidirectional cross-checking raises the Consistency Score's correct/wrong discrimination from $-0.0035$ to $+0.0847$ and AUROC from 0.498 to about 0.58--0.59, turning consistency checking from a structural metric into a weak but useful content self-consistency signal.
-\item \textbf{Empirical}: The highest point-estimate configuration GERS-CV2 achieves EM=0.302, F1=0.413 on HotpotQA (500 samples), a +4pt F1 difference over CoT-SC that is significant under both a paired McNemar test ($p=0.029$) and paired bootstrap CIs excluding zero; it also significantly outperforms a MoDeGraph-style baseline ($p=0.010$).
+\item \textbf{Empirical (end-to-end)}: The highest point-estimate configuration GERS-CV2 achieves EM=0.302, F1=0.413 on HotpotQA (500 samples), a +4pt F1 difference over CoT-SC that is significant under both a paired McNemar test ($p=0.029$) and paired bootstrap CIs excluding zero, and also significantly outperforms a MoDeGraph-style baseline ($p=0.010$).
+\item \textbf{Mechanism (supporting diagnostic)}: Bidirectional cross-checking raises the Consistency Score's correct/wrong discrimination from $-0.0035$ to $+0.0847$ and AUROC from 0.498 to about 0.58--0.59---evidence that the end-to-end gain above is driven by a content self-consistency signal rather than a non-discriminative structural metric.
 \item \textbf{Diagnostic}: A boundary analysis on 2WikiMultiHopQA shows the method suits comparison-style decomposition but fails on deep bridge-comparison questions where upstream errors propagate. The tested structural-score graph-level self-consistency yields no extra gain.
 \end{enumerate}
 
@@ -120,7 +120,7 @@ HotpotQA \citep{yang2018hotpotqa} (500 samples: 404 bridge + 96 comparison) is t
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.95\columnwidth]{figures/image4}
-\caption{Main F1 results on HotpotQA (n=500). GERS-CV2 has the highest point-estimate F1; the annotation reports the paired bootstrap interval for the F1 difference against CoT-SC.}
+\caption{Main F1 results on HotpotQA (n=500). GERS-CV2 has the highest point-estimate F1; the difference vs.\ CoT-SC is $+0.041$ F1 (paired bootstrap 95\% CI $[+0.006,+0.075]$, McNemar $p=0.029$).}
 \end{figure}
 
 \begin{table*}[t]
@@ -242,26 +242,11 @@ Cross-checking is the main observed gain source (0.284$\to$0.298, +1.4pt EM; CS 
 
 \textbf{Case A (self-consistent, correct).} ``Were Scott Derrickson and Ed Wood of the same nationality?'' Forward decomposes into two nationality sub-questions, both ``American'' $\to$ ``yes''. Reverse verification, anchored on ``yes''+context, independently re-derives ``American''/``American'', matching forward; crossval=1.0.
 
-\textbf{Case B (inconsistent, hallucination caught).} ``Which director had the longest career, Alain Resnais or Scott Sidney?'' (gold: Scott Sidney). Forward hallucinates birth/death years (1922, 2014, 1902, 1975) absent from the context and concludes ``Alain Resnais''. Reverse verification, re-deriving from context, returns ``not in context'' for all 7 sub-questions; crossval drops to 0.0. The old structural CS stays 0.7 (legal DAG) and detects nothing; the new CS reflects the content inconsistency.
-
-\begin{table}[t]
-\centering
-\caption{Real case study: evidence cue and forward/backward agreement (abbreviated).}
-\small
-\setlength{\tabcolsep}{2pt}
-\begin{tabular}{p{1.0cm}p{1.8cm}p{1.7cm}p{1.7cm}p{0.6cm}p{0.6cm}}
-\toprule
-Case & Evidence cue & Forward $a_i$ & Backward $a'_i$ & Match & New CS \\
-\midrule
-A & Derrickson/Wood: American & American/American & American/American & \checkmark & 1.0 \\
-B & context lacks claimed years & 1922, 2014, ... & ``not in context'' & $\times$ & 0.0 \\
-\bottomrule
-\end{tabular}
-\end{table}
+\textbf{Case B (inconsistent, hallucination caught).} ``Which director had the longest career, Alain Resnais or Scott Sidney?'' (gold: Scott Sidney). Forward hallucinates birth/death years (1922, 2014, 1902, 1975) absent from the context and concludes ``Alain Resnais''; backward verification, re-deriving from context, returns ``not in context'' for all 7 sub-questions, so forward/backward disagree and crossval drops to 0.0. The old structural CS stays 0.7 (legal DAG) and detects nothing; the new CS reflects the content inconsistency. By contrast, Case A's forward/backward both yield ``American'' and agree, giving crossval=1.0.
 
 \section{Discussion and Limitations}
 
-\noindent\textbf{Core value.} The main contribution is raising CS discrimination from $-0.0035$ to $+0.0847$ (AUROC 0.498$\to$0.58--0.59), upgrading consistency checking from ``is the graph legal'' to ``is the reasoning content self-consistent''. The EM gain is modest and the score is still a weak correctness predictor; its value is diagnostic and ranking-oriented.
+\noindent\textbf{Core value.} The end-to-end result is a small but significant HotpotQA gain (F1 +4pt, paired CI excluding zero). The supporting mechanism is raising CS discrimination from $-0.0035$ to $+0.0847$ (AUROC 0.498$\to$0.58--0.59), upgrading consistency checking from ``is the graph legal'' to ``is the reasoning content self-consistent''; the score remains a weak correctness predictor, valuable as a diagnostic and ranking signal rather than a verifier.
 
 \noindent\textbf{Self-consistency is not correctness.} Raising the cross-validation score can make a chain more internally self-consistent without making it more correct: CS=1.0 still contains many EM-wrong answers, and repair variants raise CS while reducing EM/F1 (supplement). Bidirectional cross-checking is a content-consistency signal, not a complete correctness verifier.
 

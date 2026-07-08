@@ -1,15 +1,19 @@
 # GERS Experiment Records
 
-> Last updated: 2026-07-07  
+> Last updated: 2026-07-08  
 > Current paper target: AAAI-style submission draft  
 > Active datasets: HotpotQA, 2WikiMultiHopQA, GSM8K diagnostics  
 > Deprecated: CLUTRR and all pre-fix HotpotQA numbers are historical only and must not be used as paper claims.
+
+> ⚠️ **CRITICAL (2026-07-08): the headline HotpotQA result in §1.1 is a context-truncation artifact.** Under a fair full-context comparison (n=500, qwen3-8b), plain CoT-SC beats every GERS variant; the "GERS-CV2 > CoT-SC, +0.041 F1, p=0.029" claim reverses sign. See §1.6 for the definitive numbers and §4 (updated) for the re-positioned paper framing. §1.1 is retained as the *truncated-context* record for the confound audit only.
 
 ## 1. Current Trustworthy Results
 
 These are the results aligned with the current implementation and paper draft. Earlier records that used the old EM substring bug, unstable baseline extraction, or CLUTRR synthetic data are intentionally excluded from the main narrative.
 
-### 1.1 HotpotQA Main Results (n=500, qwen3-8b)
+### 1.1 HotpotQA Main Results (n=500, qwen3-8b) — TRUNCATED-CONTEXT (artifact-prone)
+
+> ⚠️ These numbers use the standard preprocessed `context` field (truncated to 2000 chars in `prepare_data.py`) and the GERS pipeline's internal 1500-char cap (`generation_pipeline.py` reason()). Both methods are therefore context-starved, and CoT-SC (2000 chars) is starved less than GERS-CV2 (1500 chars). The apparent GERS-CV2 gain **does not survive** a fair full-context comparison (§1.6). Treat §1.1 as the truncated-context arm of the confound audit, NOT as a paper claim.
 
 | Method | EM | F1 | CS | Notes |
 |---|---:|---:|---:|---|
@@ -93,6 +97,33 @@ Interpretation: GERS is close on comparison-style decomposition but suffers on d
 
 Qwen-Plus on HotpotQA n=300: GERS-CV2 EM 0.363 / F1 0.496; CoT-SC EM 0.367 / F1 0.494; paired difference is effectively zero. The method's advantage is therefore concentrated on medium-capability settings where explicit decomposition helps.
 
+### 1.6 Full-Context Fair Comparison (n=500, qwen3-8b) — DEFINITIVE, overturns §1.1
+
+Setup: regenerated `hotpotqa_test.json` with an untruncated `context_full` field (mean ~4675 chars, 10 paragraphs vs the 2000-char `context`). Ran `run_parallel.py --context_field context_full` so CoT-SC and all GERS variants see the *same* full context. Added a `context_char_limit` param (default 1500) so GERS's internal cap can be relaxed; `gers_cv2_fullctx` sets it to 8000 (effectively no cap).
+
+| Method | EM | F1 | CS | n | context seen |
+|---|---:|---:|---:|---:|---|
+| CoT-SC (N=3) | **0.5560** | **0.7155** | - | 500 | full (~4675) |
+| GERS-CV2-fullctx | 0.5360 | 0.6833 | 0.664 | 500 | full (~4675) |
+| GERS-CV2-retr (BM25 top-2/sub-q) | 0.4228 | 0.5629 | 0.691 | 499 | 2 paras/sub-q |
+
+Paired statistics (paired bootstrap, B=10000, seed=42; McNemar χ²-cc; reproducer `experiments/_paired_stats.py`):
+
+| Comparison | EM diff | EM 95% CI | F1 diff | F1 95% CI | McNemar p |
+|---|---:|---|---:|---|---:|
+| CoT-SC vs GERS-CV2-fullctx | +0.020 | [-0.016, +0.056] (n.s.) | +0.032 | [+0.002, +0.063] | 0.314 |
+| CoT-SC vs GERS-CV2-retr | +0.134 | [+0.092, +0.178] | +0.154 | [+0.113, +0.196] | <0.001 |
+| GERS-CV2-fullctx vs GERS-CV2-retr | +0.114 | [+0.074, +0.152] | +0.121 | [+0.083, +0.159] | <0.001 |
+
+Interpretation:
+1. **The §1.1 headline gain is a truncation artifact.** The +0.041 F1 / +0.040 EM advantage of GERS-CV2 over CoT-SC (n=500, truncated) reverses sign under fair full context: CoT-SC is now +0.032 F1 (barely significant, CI [+0.002, +0.063]) and +0.020 EM (not significant, p=0.314). Both methods gain a lot from full context, but CoT-SC gains more (F1 0.373→0.715, +0.342) than CV2 (0.413→0.683, +0.270) — when the full evidence is available, plain reading beats decompose-then-cross-check.
+2. **Honest nuance: not a collapse.** Under fair conditions CV2 is *statistically tied* with CoT-SC on EM (p=0.314) and only marginally behind on F1, at higher cost. So the defensible claim is "the gain vanishes and slightly reverses," not "the method is broken."
+3. **Direction B (per-sub-question BM25 retrieval) is refuted.** `gers_cv2_retr` is the *worst* variant — 0.121 F1 below CV2-fullctx (p<0.001). Top-2 retrieval per sub-question is too aggressive and drops gold paragraphs. Retrieve-then-reason does not rescue decomposition here.
+
+Why the artifact exists: in the truncated regime, CoT-SC sees 2000 chars and CV2 sees 1500 (its internal cap), so both are starved but CoT-SC less so; decomposition's value is largest exactly when the context is too short to read directly. This is a methodological caution for the graph-decomposition-for-multi-hop-QA subfield: apparent gains over CoT-SC can be an artifact of unequal/greater context truncation rather than of the decomposition itself.
+
+Note: GERS-SC (graph-level self-consistency, K=3 DAGs) has *not* yet been run under full-context. Under truncated context it was already non-significant vs CoT-SC (+0.020 EM, CI [-0.012, +0.052], p=0.275), so it is unlikely to recover under fair conditions, but the ablation is not yet closed.
+
 ## 2. Negative and Diagnostic Experiments
 
 ### 2.1 Repair Variants Are Not Main Methods
@@ -144,6 +175,44 @@ This is a separate diagnostic rerun. Compare `gers_grounded` and `gers_grounded_
 
 Conclusion: evidence grounding suppresses inflated CS and locally helps bridge_comparison, but it is not yet a robust overall improvement.
 
+### 2.3 GF-GERS (Grounded-Forward + CoT-SC Fallback) — REJECTED
+
+Motivation: force each sub-answer to be *grounded* in the context before it is trusted, and fall back to free-form CoT-SC if any sub-answer is ungrounded (routing around unreliable decomposition). Two versions: v1 checks evidence-grounding (lexical, bypassable); v2 checks the sub-answer directly.
+
+HotpotQA smoke (qwen3-8b, n=20):
+
+| Method | EM | F1 | context |
+|---|---:|---:|---|
+| GERS-CV2 (reference, truncated) | 0.250 | 0.395 | 1500-cap |
+| GF-GERS v1 (evidence-grounding check) | 0.250 | 0.348 | 1500-cap |
+| GF-GERS v2 (sub-answer check) | 0.250 | 0.318 | 1500-cap |
+| GF-GERS v2 (qwen3-14b) | 0.200 | 0.346 | 1500-cap |
+
+Conclusion: both GF-GERS versions underperform GERS-CV2 at n=20. Root causes: (1) lexical grounding is bypassable (model rephrases evidence); (2) the fallback-to-CoT-SC path is structurally weaker than CV2 on 8b, so routing *away* from decomposition hurts. Grounded-forward gating does not improve over plain CV2. Not pursued to n=500.
+
+### 2.4 Cross-Model Inversion (qwen3-14b) and Retrieval Smoke — DIAGNOSTIC
+
+qwen3-14b smoke (n=20), full context via `context_full`:
+
+| Method | EM | F1 |
+|---|---:|---:|
+| CoT-SC | 0.500 | 0.731 |
+| GERS-CV2-retr | 0.400 | 0.657 |
+| GERS-CV2 (1500-cap, truncated) | 0.250 | 0.446 |
+
+qwen3-8b smoke (n=20), full context:
+
+| Method | EM | F1 |
+|---|---:|---:|
+| CoT-SC | 0.500 | 0.697 |
+| GERS-CV2-retr | 0.450 | 0.640 |
+| GERS-CV2-fullctx | 0.400 | 0.599 |
+| GERS-CV2 (1500-cap, truncated) | 0.250 | 0.395 |
+
+Diagnosis (code-verified at `generation_pipeline.py:944-945`): the cross-validation consistency score is pure *self-agreement* — when `enable_evidence_grounding=False` (the default), `grounding_score=1.0` unconditionally, so the score measures whether K decompositions agree with each other, not whether they are correct. On a fluent model (14b) the decompositions agree fluently whether or not they are right, so the signal inverts: CoT-SC (0.731 F1) >> CV2 (0.446) on 14b, whereas on 8b the truncated-context CV2 "win" was driven by the same fluency producing coincidentally-correct agreement. The CV2 advantage is fluency-indexed, not correctness-indexed, and does not transfer to stronger models or fair context.
+
+qwen2.5-7b-instruct smoke (n=20): all 20 samples returned HTTP 403 (model not activated on the DashScope account). This model is unavailable; the second-model generalization check remains Qwen-Plus only.
+
 ## 3. Deprecated Results and Non-Claims
 
 The following must not be used as current paper evidence:
@@ -151,20 +220,26 @@ The following must not be used as current paper evidence:
 | Item | Status | Reason |
 |---|---|---|
 | HotpotQA GERS EM=0.404 | deprecated | old EM bidirectional-substring bug and older extraction pipeline inflated results |
+| HotpotQA "GERS-CV2 > CoT-SC" (§1.1, truncated) | artifact | context-truncation confound: the +0.041 F1 gain reverses sign under fair full context (§1.6); retain only as the truncated arm of the confound audit |
 | CLUTRR synthetic dataset | removed | synthetic Chinese kinship labels produced low, noisy, non-standard results; active code raises NotImplementedError |
 | Early ToT/CoT-SC comparisons | deprecated | generated before answer extraction and metric fixes |
 | MoDeGraph-style v1 HotpotQA | deprecated | final-answer prompt omitted graph/reasoning/context under stateless model calls; v4 supersedes it |
 | Repair as improvement | rejected | raises CS but hurts EM/F1 |
+| GF-GERS (grounded-forward) | rejected | both v1/v2 underperform CV2 at n=20 (§2.3); lexical grounding bypassable + fallback structurally weaker |
+| Per-sub-question BM25 retrieval (CV2-retr) | rejected | worst variant under full context, -0.121 F1 vs CV2-fullctx (§1.6); top-2 drops gold paragraphs |
 
 If these numbers appear in older logs or draft files, treat them as historical debugging records only.
 
-## 4. Current Paper Positioning
+## 4. Current Paper Positioning (updated 2026-07-08)
 
-Best defensible framing:
+> The previous framing (small-but-significant HotpotQA gain, p=0.029) is **retired**: it does not survive the fair full-context comparison in §1.6. Positioning is under review. The honest, defensible assets currently on hand are:
 
-1. Structural graph validity is almost useless as a reasoning-quality signal because generated DAGs are usually legal.
-2. Bidirectional sub-answer cross-checking turns CS into a more informative content-consistency signal, improving AUROC from roughly random (0.498) to weakly useful (0.58-0.59).
-3. The resulting HotpotQA improvement is small but statistically significant: paired McNemar-significant on EM correctness (p <= 0.040) with paired bootstrap CIs excluding zero, including over the MoDeGraph-style baseline (p=0.010).
-4. CS is not correctness. High CS wrong answers remain common, so evidence grounding and conservative repair are future work.
-5. The method has a real boundary on 2Wiki bridge-comparison and stronger models.
-6. The fixed MoDeGraph-style v4 graph-prompt baseline is below GERS-CV2 on HotpotQA (F1 0.366 vs 0.413; paired-significant p=0.010), but this covers one near-neighbor prompt baseline rather than all graph-reasoning systems.
+1. **Confound audit (primary candidate contribution).** Graph-decomposition methods' apparent gains over CoT-SC on HotpotQA can be entirely explained by unequal context access: GERS caps context at 1500 chars while baselines read more, so the decomposition advantage appears only under context starvation and reverses under fair full context (§1.1 vs §1.6). This is a methodological caution for the subfield, not a method win.
+2. **Mechanism diagnosis.** The bidirectional cross-validation consistency score is *self-agreement*, not correctness: with `enable_evidence_grounding=False` (default), `grounding_score=1.0` unconditionally (`generation_pipeline.py:944-945`). It raises CS AUROC from ~0.498 (random) to ~0.58-0.59, but the signal is *fluency-indexed* and inverts on the stronger qwen3-14b (CoT-SC 0.731 F1 >> CV2 0.446; §2.4). The 8b "gain" was fluency-accidental.
+3. **CS is not correctness.** 250/500 samples receive CS=1.0 yet 156 are EM-wrong (§1.2). High-CS-wrong answers remain common.
+4. **Negative results on two natural fixes.** Grounded-forward gating (GF-GERS, §2.3) and per-sub-question BM25 retrieval (§2.4/§1.6) both fail — retrieval is in fact the *worst* variant (drops gold paragraphs).
+5. **Honest boundary.** 2Wiki bridge-comparison and stronger models (Qwen-Plus n=300: paired diff ≈ 0) are real generalization boundaries.
+
+What is NOT defensible anymore: any claim that GERS-CV2 *beats* CoT-SC on HotpotQA. Under fair full context, CoT-SC is at least tied (EM p=0.314) and marginally ahead (F1 +0.032, CI [+0.002, +0.063]) at lower cost. The MoDeGraph comparison (p=0.010) is also under the truncated regime and needs re-running under full context before it can be cited.
+
+Open ablation: GERS-SC (graph-level self-consistency) and GERS-SC-CV2 have not been run under full context. Under truncated context GERS-SC was already non-significant vs CoT-SC (p=0.275), so recovery is unlikely, but the "all variants lose under fair context" picture is not yet closed.

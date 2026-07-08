@@ -34,11 +34,21 @@ FILES = {
     "cot_sc": R / "hotpotqa_cot_sc_results.json",
     "std_cot": R / "hotpotqa_standard_cot_results.json",
     "modegraph": R / "graph_baseline_v4" / "hotpotqa_modegraph_results.json",
+    # n=500 full-context definitive test (qwen3-8b, --context_field context_full)
+    # Tests whether the "CV2 > CoT-SC" main result survives fair full-context
+    # conditions (both methods see the FULL ~4675-char context, not truncated).
+    "fc_cot_sc": R / "n500_fullctx_8b" / "hotpotqa_cot_sc_results.json",
+    "fc_cv2_fullctx": R / "n500_fullctx_8b" / "hotpotqa_gers_cv2_fullctx_results.json",
+    "fc_cv2_retr": R / "n500_fullctx_8b" / "hotpotqa_gers_cv2_retr_results.json",
 }
 
 
 def load(path):
-    data = json.loads(Path(path).read_text(encoding="utf-8"))
+    p = Path(path)
+    if not p.exists():
+        print(f"  [warn] missing: {p}")
+        return {}
+    data = json.loads(p.read_text(encoding="utf-8"))
     by_id = {}
     for r in data["results"]:
         by_id[r["sample_id"]] = (float(r["metrics"]["em"]), float(r["metrics"]["f1"]))
@@ -106,6 +116,25 @@ def main():
 
     print("\n=== NEW: GERS-CV2 vs MoDeGraph-style (v4) ===")
     paired_test(data["cv2"], data["modegraph"], "GERS-CV2", "MoDeGraph")
+
+    # ---- n=500 full-context definitive test ----
+    # The CRITICAL test: under fair full-context conditions, does any GERS
+    # variant still beat CoT-SC? (existing main result used truncated context,
+    # which may be a confound.)
+    print("\n=== DEFINITIVE: n=500 full-context (qwen3-8b) ===")
+    fc = {k: v for k, v in data.items() if k.startswith("fc_") and v}
+    if len(fc) == 3:
+        # CoT-SC vs CV2-fullctx (the main claim, fair conditions)
+        paired_test(data["fc_cot_sc"], data["fc_cv2_fullctx"],
+                    "CoT-SC(fullctx)", "GERS-CV2(fullctx)")
+        # CoT-SC vs CV2-retr (does BM25 retrieval help?)
+        paired_test(data["fc_cot_sc"], data["fc_cv2_retr"],
+                    "CoT-SC(fullctx)", "GERS-CV2-retr(fullctx)")
+        # CV2-fullctx vs CV2-retr (does retrieval hurt vs just full context?)
+        paired_test(data["fc_cv2_fullctx"], data["fc_cv2_retr"],
+                    "GERS-CV2(fullctx)", "GERS-CV2-retr(fullctx)")
+    else:
+        print(f"  (missing full-ctx files: have {list(fc)}, skipping)")
 
     # ---- Diagnose the CI discrepancy: was the paper's CI unpaired? ----
     print("\n=== Diagnosis: UNPAIRED bootstrap (resample each method independently) ===")
