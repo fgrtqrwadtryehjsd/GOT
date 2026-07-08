@@ -13,7 +13,7 @@ This repository currently contains an AAAI-oriented draft, not a ready-to-upload
 ## Scientific Risks To Address If Time Allows
 
 - A fair MoDeGraph-style graph-prompt baseline has been added under the current fixed extraction/evaluation pipeline; still avoid claiming coverage of all graph-reasoning systems.
-- Increase HotpotQA sample size or add another model if API budget allows; current end-task gains are modest and bootstrap intervals cross zero.
+- Increase HotpotQA sample size or add another model if API budget allows; end-task gains are already paired-significant (CIs exclude zero), so more samples would tighten already-significant intervals rather than rescue a null result.
 - Add a stronger CS-correctness analysis if claiming calibration; current results support a weak diagnostic/ranking signal, not probability calibration.
 - Keep 2Wiki and evidence-grounded checking results framed as boundary/diagnostic analyses, not main wins.
 - Treat `docs/paper.docx` as an internal preview only; it is not an AAAI submission source.
@@ -30,5 +30,5 @@ This repository currently contains an AAAI-oriented draft, not a ready-to-upload
 
 - Structural graph validity is a poor reasoning-quality signal.
 - Bidirectional sub-answer cross-checking improves CS association with correctness from near-random to weakly useful.
-- HotpotQA gains are modest and statistically mixed.
+- HotpotQA gains are small but statistically significant: paired McNemar p <= 0.040 with paired bootstrap CIs excluding zero, including over the MoDeGraph-style baseline (p=0.010).
 - Self-consistency is not correctness; high-CS wrong answers remain common.

@@ -27,11 +27,14 @@ Statistical interpretation:
 
 | Comparison | EM diff | EM 95% CI | F1 diff | F1 95% CI | McNemar p |
 |---|---:|---|---:|---|---:|
-| GERS-CV2 vs CoT-SC | +0.040 | [-0.014, +0.096] | +0.041 | [-0.014, +0.095] | 0.029 |
-| GERS-CV2 vs Standard CoT | +0.038 | [-0.018, +0.094] | +0.045 | [-0.009, +0.099] | 0.040 |
-| GERS-SC vs CoT-SC | +0.020 | [-0.034, +0.076] | +0.025 | [-0.029, +0.079] | 0.275 |
+| GERS-CV2 vs CoT-SC | +0.040 | [+0.006, +0.074] | +0.041 | [+0.006, +0.075] | 0.029 |
+| GERS-CV2 vs Standard CoT | +0.038 | [+0.004, +0.072] | +0.045 | [+0.010, +0.081] | 0.040 |
+| GERS-CV2 vs MoDeGraph-style | +0.050 | [+0.014, +0.086] | +0.047 | [+0.012, +0.083] | 0.010 |
+| GERS-SC vs CoT-SC | +0.020 | [-0.012, +0.052] | +0.025 | [-0.009, +0.060] | 0.275 |
 
-Conclusion: the strongest defensible claim is not broad statistically significant QA superiority. The defensible claim is that bidirectional cross-checking improves the graph consistency signal and yields a modest HotpotQA gain that is paired-significant on EM correctness but effect-size marginal under bootstrap intervals.
+Conclusion: bidirectional cross-checking improves the graph consistency signal and yields a small but statistically significant HotpotQA gain. GERS-CV2 is paired-significant over CoT-SC, Standard CoT, and the MoDeGraph-style baseline (McNemar p <= 0.040; paired bootstrap CIs exclude zero), while GERS-SC without cross-checking is not significant (p=0.275, CI crosses zero) --- corroborating that the gain stems from cross-checking.
+
+Stats correction (2026-07-08): an earlier version of these CIs was computed with an unpaired bootstrap (resampling each method independently) yet labeled "paired", producing wider zero-crossing intervals (e.g., CV2 vs CoT-SC EM [-0.014,+0.096]). The correct paired bootstrap (resampling per-sample differences, 10000 resamples, seed=42) gives [+0.006,+0.074] and is what the paper now reports. Reproducer: `experiments/_paired_stats.py`. McNemar uses chi-square with Edwards' continuity correction (matches prior 0.029/0.040/0.275); the MoDeGraph row is new (p=0.010).
 
 Graph-prompt baseline status:
 
@@ -161,7 +164,7 @@ Best defensible framing:
 
 1. Structural graph validity is almost useless as a reasoning-quality signal because generated DAGs are usually legal.
 2. Bidirectional sub-answer cross-checking turns CS into a more informative content-consistency signal, improving AUROC from roughly random (0.498) to weakly useful (0.58-0.59).
-3. The resulting HotpotQA improvement is modest and statistically mixed: McNemar-significant on paired EM correctness, but bootstrap effect-size intervals cross zero.
+3. The resulting HotpotQA improvement is small but statistically significant: paired McNemar-significant on EM correctness (p <= 0.040) with paired bootstrap CIs excluding zero, including over the MoDeGraph-style baseline (p=0.010).
 4. CS is not correctness. High CS wrong answers remain common, so evidence grounding and conservative repair are future work.
 5. The method has a real boundary on 2Wiki bridge-comparison and stronger models.
-6. The fixed MoDeGraph-style v4 graph-prompt baseline is below GERS-CV2 on HotpotQA (F1 0.366 vs 0.413), but this covers one near-neighbor prompt baseline rather than all graph-reasoning systems.
+6. The fixed MoDeGraph-style v4 graph-prompt baseline is below GERS-CV2 on HotpotQA (F1 0.366 vs 0.413; paired-significant p=0.010), but this covers one near-neighbor prompt baseline rather than all graph-reasoning systems.

@@ -1,0 +1,128 @@
+% !TEX program = pdflatex
+% Supplementary material for the AAAI-27 anonymous submission.
+% Standalone PDF; does not count toward the 7+2 page limit. Anonymous.
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage[utf8]{inputenc}
+
+\title{Supplementary Material:\\Graph-Constrained Reasoning with Bidirectional\\Sub-Answer Cross-Checking for Multi-Hop QA}
+\author{Anonymous Submission}
+\date{}
+
+\begin{document}
+\maketitle
+
+This document collects supporting analyses referenced in the main paper. Reviewers are not obligated to examine it; all core claims and evidence appear in the main text.
+
+\section{Qualitative Positioning}
+
+Table~\ref{tab:position} clarifies the scope of GERS relative to representative reasoning paradigms; it is intended to clarify scope rather than claim full empirical dominance over every family.
+
+\begin{table}[h]
+\centering
+\caption{Qualitative positioning.}
+\label{tab:position}
+\small
+\begin{tabular}{lccc}
+\toprule
+Method family & Structure & Execution & Checkable sub-ans. \\
+\midrule
+CoT & linear text & implicit & no \\
+CoT-SC & linear samples & implicit & no \\
+ToT / GoT & tree or graph thoughts & search/flexible & state nodes \\
+RwG / graph prompts & entity/context graph & prompt-cond. & usually no \\
+MoDeGraph-style & dependency prompt & prompt-cond. & entity level \\
+GERS & sub-question DAG & topological & yes, forward/backward \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Consistency Score Bucket Diagnostics}
+
+Table~\ref{tab:buckets} reports the CS--correctness breakdown for GERS-CV2 (HotpotQA, n=500). AUROC uses EM correctness as the binary label. Although higher CS buckets have higher EM accuracy, 156 of the 250 samples with CS=1.0 are still EM-wrong: internal agreement is not factual correctness.
+
+\begin{table}[h]
+\centering
+\caption{CS--correctness diagnostics (HotpotQA, n=500).}
+\label{tab:buckets}
+\small
+\begin{tabular}{lccc}
+\toprule
+Score variant or bucket & Samples & EM & F1 \\
+\midrule
+Old structural CS AUROC & 500 & \multicolumn{2}{c}{AUROC 0.498} \\
+New CS (GERS-CV) AUROC & 500 & \multicolumn{2}{c}{AUROC 0.581} \\
+New CS (GERS-CV2) AUROC & 500 & \multicolumn{2}{c}{AUROC 0.589} \\
+\midrule
+GERS-CV2, CS $<0.5$ & 75 & 0.200 & 0.278 \\
+GERS-CV2, $0.5\le$ CS $<0.7$ & 86 & 0.244 & 0.333 \\
+GERS-CV2, $0.7\le$ CS $<0.9$ & 85 & 0.247 & 0.375 \\
+GERS-CV2, CS $=1.0$ & 250 & 0.376 & 0.499 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{HotpotQA Per-Type EM}
+
+Table~\ref{tab:hpqa_type} shows that the gain concentrates on comparison/branch-merge samples; on bridge questions all methods are close because the context directly contains extractable evidence.
+
+\begin{table}[h]
+\centering
+\caption{HotpotQA per-type EM (n=500).}
+\label{tab:hpqa_type}
+\small
+\begin{tabular}{lcc}
+\toprule
+Method & bridge (n=404) & comparison (n=96) \\
+\midrule
+Zero-Shot & 0.218 & 0.521 \\
+CoT-SC & 0.218 & 0.448 \\
+\textbf{GERS-CV2} & \textbf{0.240} & \textbf{0.562} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Computational Cost}
+
+Table~\ref{tab:cost} compares per-sample cost. GERS-CV2 (single-path) uses $\sim$6--8 LLM calls and 6.6s latency---more calls than CoT-SC's three samples, but comparable wall-clock time under the parallel API setting. The practical cost is moderated by adaptive routing, shorter verification prompts, and backward verification only on complex questions. The tested GERS-SC ($\sim$12--15 calls) costs more with no performance gain under the original structural score.
+
+\begin{table}[h]
+\centering
+\caption{Cost comparison (HotpotQA, n=500, per-sample). LLM calls estimated from the pipeline (1 decomposition + $n$ sub-steps + 1 aggregation, avg $n\approx2$; GERS-CV2 adds $n$ backward calls).}
+\label{tab:cost}
+\small
+\begin{tabular}{lcccc}
+\toprule
+Method & LLM calls/q & Latency & EM & F1 \\
+\midrule
+Zero-Shot & 1 & 0.7s & 0.276 & 0.389 \\
+Std CoT & 1 & 3.0s & 0.264 & 0.368 \\
+CoT-SC (N=3) & 3 & 8.3s & 0.262 & 0.373 \\
+MoDeGraph-style & 3 & 8.7s & 0.252 & 0.366 \\
+GERS-Adap. & 1--4 & 4.8s & 0.284 & 0.395 \\
+GERS-SC (K=3) & $\sim$12--15 & 16.2s & 0.282 & 0.398 \\
+\textbf{GERS-CV2} & $\sim$6--8 & 6.6s & \textbf{0.302} & \textbf{0.413} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Generalization and Additional Ablations}
+
+\textbf{Second model (generalization).} To check that the method is not specific to Qwen3-8B, we re-run on Qwen-Plus (a different, stronger model family) on 300 HotpotQA samples. GERS-CV2 (EM 0.363, F1 0.496) is on par with CoT-SC (EM 0.367, F1 0.494), diff $-0.004$, $p=1.000$. This indicates a generalization boundary: on a stronger base model, where Zero-Shot/CoT-SC already perform well, the structured method's advantage disappears. The gain is concentrated on medium-capability models where explicit decomposition matters.
+
+\textbf{Weight design.} Replacing the downstream-weighted $w_i$ with uniform weights yields EM 0.300 / F1 0.411 (vs.\ 0.302 / 0.413), indistinguishable. The weighting design does not affect end performance; it is kept for interpretability.
+
+\textbf{2Wiki at larger scale.} Extending 2WikiMultiHopQA to 300 samples confirms the boundary: GERS-CV2 EM 0.390 / F1 0.462 remains below Standard CoT EM 0.443 / F1 0.521, with the gap concentrated on bridge\_comparison. The larger sample makes the diagnostic boundary more reliable.
+
+\textbf{Evidence-grounded verification (diagnostic).} We test an evidence-grounded variant on the first 100 samples, where each backward sub-answer must quote a supporting context span and the score multiplies an evidence-grounding heuristic. On HotpotQA it preserves EM and slightly changes F1 (GERS-CV2 0.451 vs.\ grounded 0.455) while lowering CS from 0.781 to 0.730. On 2Wiki it preserves EM and stays close in F1 (0.469 vs.\ 0.463), and improves bridge\_comparison F1 from 0.524 to 0.571 within the same diagnostic rerun, but loses on other types. Because this was a separate diagnostic rerun, its per-type numbers should be compared only against the same-run GERS-CV2 row. Evidence grounding suppresses inflated self-consistency scores and helps some bridge cases, but is not yet a robust end-task improvement.
+
+\textbf{Repair variants (negative result).} Repair variants regenerate low-confidence sub-answers. On HotpotQA first-100, \texttt{gers\_repair} reaches EM 0.300 / F1 0.401 / CS 0.847 (51 repair triggers) and \texttt{gers\_repair\_soft} EM 0.320 / F1 0.411 / CS 0.874 (47 triggers), versus GERS-CV2 EM 0.330 / F1 0.451 / CS 0.781 (0 triggers). On 2Wiki first-100, \texttt{gers\_repair\_soft} EM 0.340 / F1 0.403 / CS 0.851 (53 triggers) vs.\ GERS-CV2 EM 0.400 / F1 0.469 / CS 0.745. Repair raises CS while reducing EM/F1, so it remains a negative result and is not a main method.
+
+\section{Implementation and Reproducibility}
+
+\textbf{Model and API.} Qwen3-8B via DashScope (OpenAI-compatible) with \texttt{enable\_thinking=False}; Qwen-Plus for the generalization run. \textbf{Parallelism:} ThreadPoolExecutor with 4 workers (4 is the stable sweet spot; 6+ workers trigger DashScope QPM 429, handled by exponential-backoff retry at 1/2/4s on RateLimitError/APITimeoutError/APIConnectionError/InternalServerError; \texttt{max\_retries=0}, \texttt{timeout=60}). \textbf{Seeds:} bootstrap uses \texttt{numpy.random.default\_rng(42)} with $B=10000$; the result is stable across seeds 0/1/42/123/2024. \textbf{Statistics:} paired bootstrap resamples per-sample differences (not unpaired); McNemar uses chi-square with Edwards' continuity correction. Reproducer: \texttt{experiments/\_paired\_stats.py}. \textbf{Datasets:} HotpotQA and 2WikiMultiHopQA are publicly available with the cited references. \textbf{Code:} the implementation, experiment runner, figure/Word generators, and the stats reproducer are provided in the code archive accompanying this submission.
+
+\end{document}

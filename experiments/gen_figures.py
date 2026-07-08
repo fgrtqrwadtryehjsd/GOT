@@ -236,7 +236,7 @@ def figure4_main_results():
     for xi, yi in zip(x, f1):
         ax.text(xi, yi + 0.0024, f"{yi:.3f}", ha="center", va="bottom", fontsize=6.6)
     ax.annotate(
-        "+0.041 F1 vs CoT-SC\n95% CI [-0.014, 0.095]",
+        "+0.041 F1 vs CoT-SC\n95% CI [+0.006, +0.075]",
         xy=(7, 0.413),
         xytext=(5.25, 0.427),
         ha="left",

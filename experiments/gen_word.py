@@ -124,7 +124,7 @@ def main():
     p.paragraph_format.space_after = Pt(4)
     run = p.add_run('Abstract: ')
     set_font(run, size=10.5, bold=True)
-    run = p.add_run('Large language models (LLMs) suffer from error accumulation on multi-hop reasoning tasks. Some graph-enhanced variants use structural graph-validity metrics as consistency checks, but such metrics may not reflect reasoning correctness. We propose GERS, which models reasoning as a dependency DAG executed in topological order. The core contribution is bidirectional sub-answer cross-checking: using the final answer + context as an anchor, we re-derive each sub-question in reverse and compare forward/backward sub-answers, upgrading the Consistency Score from structural validity to content self-consistency. On 500 HotpotQA samples, this raises the score\'s correct/wrong discrimination from -0.0035 to +0.0847 and AUROC from 0.498 to about 0.58-0.59; the highest point-estimate configuration GERS-CV2 achieves EM=0.302, F1=0.413, with a +4pt F1 difference over CoT-SC and a significant McNemar test on EM correctness (p=0.029), though paired bootstrap intervals remain marginal. We explicitly show that self-consistency is not correctness: many high-CS answers remain wrong, and 2WikiMultiHopQA exposes a boundary on deep bridge-comparison questions.')
+    run = p.add_run('Large language models (LLMs) suffer from error accumulation on multi-hop reasoning tasks. Some graph-enhanced variants use structural graph-validity metrics as consistency checks, but such metrics may not reflect reasoning correctness. We propose GERS, which models reasoning as a dependency DAG executed in topological order. The core contribution is bidirectional sub-answer cross-checking: using the final answer + context as an anchor, we re-derive each sub-question in reverse and compare forward/backward sub-answers, upgrading the Consistency Score from structural validity to content self-consistency. On 500 HotpotQA samples, this raises the score\'s correct/wrong discrimination from -0.0035 to +0.0847 and AUROC from 0.498 to about 0.58-0.59; the highest point-estimate configuration GERS-CV2 achieves EM=0.302, F1=0.413, with a +4pt F1 difference over CoT-SC that is significant under both a paired McNemar test on EM correctness (p=0.029) and paired bootstrap CIs excluding zero (EM [+0.006,+0.074], F1 [+0.006,+0.075]); GERS-CV2 also significantly outperforms a MoDeGraph-style graph-prompt baseline (p=0.010). We explicitly show that self-consistency is not correctness: many high-CS answers remain wrong, and 2WikiMultiHopQA exposes a boundary on deep bridge-comparison questions.')
     set_font(run, size=10)
 
     p = doc.add_paragraph()
@@ -141,7 +141,7 @@ def main():
     add_para(doc, '2. 质量无差别投票：CoT-SC 通过多次采样取众数答案，但投票是"等权"的，无法利用推理路径本身的质量信息。')
     add_para(doc, '近期工作尝试用图结构增强推理：GoT 提出思维图支持合并与蒸馏，但不采用本文的子问题拓扑执行；RwG 将上下文结构化为实体关系图；MoDeGraph 构建多跳依赖图，属于 prompt 方法。GERS 关注当图结构参与子问题执行与校验时，图派生一致性分数是否能作为诊断与弱候选质量信号。')
     add_para(doc, '针对上述问题，本文提出 GERS，将推理显式建模为推理依赖图（DAG）并按拓扑序执行。我们发现，单纯用图论结构性质计算 Consistency Score 是无效的——LLM 生成的分解图几乎都是合法 DAG，导致所有样本得分趋同（聚集在 0.6~0.7），多路选优退化为随机抽取（500 条实测对错区分度仅 -0.0035）。为此，本文提出核心创新子答案双向交叉核验：以最终答案 + 上下文为锚，反向逐个重答每个子问题，对比正向与反向子答案的一致性，将 Consistency Score 从"图是否合法"升级为"推理内容是否自洽"。显式 DAG 分解提供了命名子问题单元和依赖边，使该核验比应用于非结构化 CoT 文本更直接、更可解释。')
-    add_para(doc, '本文的主要贡献：（1）子答案双向交叉核验：将 CS 对错区分度从 -0.0035 修复到 +0.0847，AUROC 从 0.498 提升到约 0.58-0.59，使 CS 成为弱但有用的内容自洽诊断信号；（2）性能验证：点估计最高配置 GERS-CV2 在 HotpotQA 500 条上 EM=0.302、F1=0.413，EM 对错的 McNemar 检验显著（p=0.029），F1 相比 CoT-SC 高 4pt，但效应量区间仍临界；（3）诚实的适用边界：旧结构分图级多路选优无额外增益，bridge_comparison 存在错误传播局限；（4）工程贡献：指标修复、答案类型回扣、提取公平性。')
+    add_para(doc, '本文的主要贡献：（1）子答案双向交叉核验：将 CS 对错区分度从 -0.0035 修复到 +0.0847，AUROC 从 0.498 提升到约 0.58-0.59，使 CS 成为弱但有用的内容自洽诊断信号；（2）性能验证：点估计最高配置 GERS-CV2 在 HotpotQA 500 条上 EM=0.302、F1=0.413，F1 相比 CoT-SC 高 4pt，且在配对 McNemar 检验（p=0.029）与配对 bootstrap CI（不跨零）下均显著，并对 MoDeGraph-style 基线显著（p=0.010）；（3）诚实的适用边界：旧结构分图级多路选优无额外增益，bridge_comparison 存在错误传播局限；（4）工程贡献：指标修复、答案类型回扣、提取公平性。')
 
     # 2 相关工作
     add_heading(doc, '2 相关工作', 1)
@@ -199,14 +199,15 @@ def main():
         ['GERS-CV（+双向交叉核验）', '0.298', '0.409', '0.782'],
         ['GERS-CV2（+置信度加权）', '0.302', '0.413', '0.777'],
     ], caption='表 1  主实验结果（HotpotQA, n=500）')
-    add_para(doc, 'GERS-CV2 在本次运行中取得点估计最高 EM=0.302、F1=0.413，相比 CoT-SC EM +4pt、F1 +4pt，且 EM 对错的 McNemar 检验达到配对显著。它也高于本文非官方 MoDeGraph-style 图提示基线（F1 0.366），说明该 prompt-only 图实现是当前设置下的较弱基线，但不能外推到官方 MoDeGraph 或所有图推理系统。双向交叉核验（0.284→0.298）对应 +1.4pt EM 变化，是主要观察到的增益来源。HotpotQA 上 Zero-Shot（0.276）已接近 GERS，因上下文直接含答案证据压缩了结构化方法优势空间。')
+    add_para(doc, 'GERS-CV2 在本次运行中取得点估计最高 EM=0.302、F1=0.413，相比 CoT-SC EM +4pt、F1 +4pt，且 EM 对错的 McNemar 检验达到配对显著。它也显著高于本文非官方 MoDeGraph-style 图提示基线（F1 0.366；McNemar p=0.010，配对 F1 CI [+0.012,+0.083]），说明该 prompt-only 图实现是当前设置下的较弱基线，但不能外推到官方 MoDeGraph 或所有图推理系统。双向交叉核验（0.284→0.298）对应 +1.4pt EM 变化，是主要观察到的增益来源。HotpotQA 上 Zero-Shot（0.276）已接近 GERS，因上下文直接含答案证据压缩了结构化方法优势空间。')
 
     add_table(doc, ['对比', 'EM差值', 'EM 95% CI', 'F1差值', 'F1 95% CI', 'McNemar p'], [
-        ['GERS-CV2 vs CoT-SC', '+0.040', '[-0.014,+0.096]', '+0.041', '[-0.014,+0.095]', '0.029'],
-        ['GERS-CV2 vs StdCoT', '+0.038', '[-0.018,+0.094]', '+0.045', '[-0.009,+0.099]', '0.040'],
-        ['GERS-SC vs CoT-SC', '+0.020', '[-0.034,+0.076]', '+0.025', '[-0.029,+0.079]', '0.275'],
+        ['GERS-CV2 vs CoT-SC', '+0.040', '[+0.006,+0.074]', '+0.041', '[+0.006,+0.075]', '0.029'],
+        ['GERS-CV2 vs StdCoT', '+0.038', '[+0.004,+0.072]', '+0.045', '[+0.010,+0.081]', '0.040'],
+        ['GERS-CV2 vs MoDeGraph', '+0.050', '[+0.014,+0.086]', '+0.047', '[+0.012,+0.083]', '0.010'],
+        ['GERS-SC vs CoT-SC', '+0.020', '[-0.012,+0.052]', '+0.025', '[-0.009,+0.060]', '0.275'],
     ], caption='表 2  显著性检验（HotpotQA, n=500）')
-    add_para(doc, 'GERS-CV2 在 EM 对错的 McNemar 检验上显著优于 CoT-SC（p=0.029），但 EM 与 F1 的配对 bootstrap 95% CI 均微跨零。本文如实报告"对错配对显著、效应量临界"状态。未引入双向交叉核验的 GERS-SC（p=0.275）不显著，与核心机制的贡献方向一致。')
+    add_para(doc, 'GERS-CV2 在 EM 对错的配对 McNemar 检验下显著优于 CoT-SC（p=0.029），且 EM/F1 差值的配对 bootstrap 95% CI 均不跨零（EM [+0.006,+0.074]、F1 [+0.006,+0.075]），即增益幅度虽小但配对显著。对 StdCoT（p=0.040）与 MoDeGraph-style 基线（p=0.010）同样显著。未引入双向交叉核验的 GERS-SC（p=0.275，CI 跨零）不显著，与核心机制的贡献方向一致。')
 
     add_heading(doc, '4.3 Consistency Score 区分度的修复（核心证据）', 2)
     add_table(doc, ['CS计算方式', '答对CS', '答错CS', '区分度', 'stdev'], [
@@ -259,7 +260,7 @@ def main():
     # 5 讨论
     add_heading(doc, '5 讨论与局限', 1)
     add_para(doc, '双向交叉核验的核心价值：将 CS 区分度从 -0.0035 修复到 +0.0847，并将 AUROC 从 0.498 提升到约 0.58-0.59，使校验从"图是否合法"升级为"推理内容是否自洽"。该分数的价值主要是诊断与候选选择，而非完整事实验证。')
-    add_para(doc, '性能的诚实定位：GERS-CV2 在 EM 对错的 McNemar 检验上显著（p=0.029），但 EM/F1 的配对 bootstrap 效应量区间微跨零，处于"对错配对显著、效应量临界"状态。整体增益有限因 HotpotQA 上下文直接含答案，Zero-Shot 已接近 GERS。')
+    add_para(doc, '性能的诚实定位：在配对评价下 GERS-CV2 显著优于 CoT-SC、StdCoT 与 MoDeGraph-style 基线（McNemar p≤0.040；配对 bootstrap CI 不跨零），但增益幅度较小（+4pt F1）。幅度有限因 HotpotQA 上下文直接含答案，Zero-Shot 已接近 GERS。')
     add_para(doc, '自洽不等于正确：CS 诊断与验证驱动局部修复的负面实验说明，提高 crossval 分数可以让推理链更内部自洽，但不必然提高 EM/F1。CS=1.0 仍包含大量错误答案，repair 变体也表现为 CS 上升而 EM/F1 下降。证据约束检查部分缓解了这一问题：它降低了虚高 CS，并提升了 2Wiki bridge_comparison，但仍未带来整体 F1 提升。')
     add_para(doc, '图级自一致性的边界：当前测试的 K=3 多路 selector 使用旧结构分，在中等难度多跳上无额外增益（p=1.000）。本文实验中的最佳成本--效果点是单路 DAG 执行加双向交叉核验；使用新 cross-validated score 扩展多路选优仍是未来工作。')
     add_para(doc, '深度复合桥接的局限：bridge_comparison 上 GERS 错误传播落后于线性 CoT，是图结构分解在深度多跳的固有局限。')
@@ -267,7 +268,7 @@ def main():
 
     # 6 结论
     add_heading(doc, '6 结论', 1)
-    add_para(doc, '本文提出 GERS，核心创新是子答案双向交叉核验：以最终答案+上下文为锚反向重答子问题，对比正反向一致性，将 Consistency Score 从纯图论结构指标（区分度 -0.0035，AUROC 0.498）升级为更有信息量的内容自洽信号（区分度 +0.0847，AUROC 约 0.58-0.59）。该机制由显式 DAG 分解自然支持。点估计最高配置 GERS-CV2 在 HotpotQA 500 条上取得 EM=0.302、F1=0.413，EM 对错的 McNemar 检验显著优于 CoT-SC（p=0.029），F1 高 4pt，但效应量区间仍临界。本文诚实呈现方法适用边界，并通过三项工程改进量化了"格式诱导错误"与"真实推理差距"的边界。总体而言，GERS 更应被视为可解释图推理诊断的一步，而非已经解决事实正确性验证。')
+    add_para(doc, '本文提出 GERS，核心创新是子答案双向交叉核验：以最终答案+上下文为锚反向重答子问题，对比正反向一致性，将 Consistency Score 从纯图论结构指标（区分度 -0.0035，AUROC 0.498）升级为更有信息量的内容自洽信号（区分度 +0.0847，AUROC 约 0.58-0.59）。该机制由显式 DAG 分解自然支持。点估计最高配置 GERS-CV2 在 HotpotQA 500 条上取得 EM=0.302、F1=0.413，F1 相比 CoT-SC 高 4pt，且在配对 McNemar 检验（p=0.029）与配对 bootstrap CI（不跨零）下均显著，并对 MoDeGraph-style 基线显著（p=0.010）。本文诚实呈现方法适用边界，并通过三项工程改进量化了"格式诱导错误"与"真实推理差距"的边界。总体而言，GERS 更应被视为可解释图推理诊断的一步，而非已经解决事实正确性验证。')
     add_para(doc, '未来工作：(1) 改进证据约束验证，引入更可靠的 span 抽取或外部检索信号；(2) 针对深度复合桥接题设计更保守的局部重生成机制，避免覆盖原本正确的中间答案；(3) 在更大规模模型与更多数据集上验证双向交叉核验的泛化性。')
 
     # 参考文献
