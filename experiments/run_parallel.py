@@ -275,6 +275,8 @@ def main():
     parser.add_argument("--timeout", type=int, default=300, help="单样本最大等待秒数")
     parser.add_argument("--output_dir", type=str, default="experiments/results/")
     parser.add_argument("--context_field", type=str, default="context", help="样本中用作 context 的字段(context/context_full)")
+    parser.add_argument("--context_budget", type=int, default=0,
+                        help="context 字符预算(>0 截断到前N字符；0=不截断全量)。用于 budget-curve 对称公平对照")
     parser.add_argument("--no_resume", action="store_true", help="不读取已有结果，从头跑")
     args = parser.parse_args()
 
@@ -287,6 +289,10 @@ def main():
             if args.context_field in s:
                 s["context"] = s[args.context_field]
         print(f"[数据] context 字段映射为 {args.context_field}")
+    if args.context_budget and args.context_budget > 0:
+        for s in samples:
+            s["context"] = s["context"][:args.context_budget]
+        print(f"[数据] context 对称截断到前 {args.context_budget} 字符（budget-curve 公平对照）")
     normalizer = NORMALIZERS.get(args.dataset, lambda x: x)
     print(f"[数据] {args.dataset}: {len(samples)} 条样本")
 

@@ -124,6 +124,29 @@ Why the artifact exists: in the truncated regime, CoT-SC sees 2000 chars and CV2
 
 Note: GERS-SC (graph-level self-consistency, K=3 DAGs) has *not* yet been run under full-context. Under truncated context it was already non-significant vs CoT-SC (+0.020 EM, CI [-0.012, +0.052], p=0.275), so it is unlikely to recover under fair conditions, but the ablation is not yet closed.
 
+### 1.7 Budget Curve — Symmetric Crossover Test (n=200, qwen3-8b) — NO STABLE CROSSOVER
+
+Setup: tests whether the §1.1 truncated-context "CV2 lead" is a real, stable crossover (decomposition wins under context scarcity, loses under abundance) or an asymmetric artifact. **Symmetric**: at each budget N, both CoT-SC (`--context_budget N`) and GERS-CV2-fullctx (internal cap relaxed to 8000) see the *same* first-N chars of `context_full`. 7 budgets × 2 methods × n=200.
+
+| budget | CoT-SC EM/F1 | CV2 EM/F1 | dF1 (CV2−CoT) | F1 95% CI | McNemar p |
+|---:|---|---|---:|---|---:|
+| 800 | 0.230 / 0.310 | 0.230 / 0.323 | +0.013 | [-0.033, +0.061] | 0.831 |
+| 1500 | 0.285 / 0.383 | 0.285 / 0.401 | +0.018 | crosses zero | 0.823 |
+| 2000 | 0.260 / 0.366 | 0.315 / 0.426 | **+0.060** | **[+0.005, +0.105]** | 0.054 |
+| 2500 | 0.325 / 0.433 | 0.335 / 0.470 | +0.037 | crosses zero | 0.838 |
+| 3000 | 0.365 / 0.475 | 0.350 / 0.458 | −0.017 | crosses zero | 0.677 |
+| 4000 | 0.430 / 0.561 | 0.385 / 0.523 | −0.038 | crosses zero | 0.137 |
+| full | 0.540 / 0.687 | 0.540 / 0.678 | −0.009 | crosses zero | 0.860 |
+
+Verdict: **a crossover *shape* exists (sign flips between 2500 and 3000: CV2 leads at 800–2500, CoT-SC leads at 3000–full) but it is not statistically stable.**
+- Of 7 points, only ONE (budget 2000) has an F1 CI excluding zero (+0.060), and its McNemar p=0.054 sits right on the 0.05 line. EM is significant at 2000 (+0.055, CI [+0.005,+0.105]) but nowhere else.
+- The CV2 lead is **non-monotone**: +0.013 → +0.018 → +0.060 (peak) → +0.037 → crosses zero. A stable crossover would be monotone-then-flip; this is a single-point spike at 2000.
+- The CV2 low-budget lead (+0.013~+0.060) is far smaller than the old *asymmetric* truncated lead (+0.041) — confirming that asymmetric truncation (CoT@2000 vs CV2@1500) manufactured most of the apparent advantage.
+
+Conclusion: on HotpotQA with **artificial** truncation, decomposition shows a weak, non-monotone, mostly non-significant tendency to help under scarcity. This does not meet the "stable crossover" bar and does **not** justify a Figure-1 claim on its own. Per the SOP, artificial truncation is a toy setting anyway; H1 (decomposition = noise-isolation) must be re-tested on **natural** long-context data (LongBench 4k–64k) where the crossover, if real, should be far stronger and monotone.
+
+Reproducer: `experiments/_budget_curve.py` (paired bootstrap B=10000, seed=42; McNemar χ²-cc). Results: `experiments/results/budget_curve_8b/ctx{800,1500,2000,2500,3000,4000,full}/`.
+
 ## 2. Negative and Diagnostic Experiments
 
 ### 2.1 Repair Variants Are Not Main Methods
