@@ -1,0 +1,962 @@
+[
+  {
+    "sample": 0,
+    "step": 0,
+    "sub_answer": "Laos",
+    "gold_answer": "Laos",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 0,
+    "step": 1,
+    "sub_answer": "The Mekong River",
+    "gold_answer": "Myanmar",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 0,
+    "step": 2,
+    "sub_answer": "The Portuguese",
+    "gold_answer": "the Portuguese",
+    "correct": true,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 0,
+    "step": 3,
+    "sub_answer": "The Ajuran Empire expelled the Portuguese by using new coina",
+    "gold_answer": "The dynasty regrouped and defeated the Portuguese",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 1,
+    "step": 0,
+    "sub_answer": "Koerner, Ray & Glover",
+    "gold_answer": "Koerner, Ray & Glover",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 1,
+    "step": 1,
+    "sub_answer": "Southward",
+    "gold_answer": "Minneapolis",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 1,
+    "step": 2,
+    "sub_answer": "Mississippi River",
+    "gold_answer": "Mississippi River",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 1,
+    "step": 3,
+    "sub_answer": "North",
+    "gold_answer": "rises in northern Minnesota and meanders slowly southwards",
+    "correct": true,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 2,
+    "step": 0,
+    "sub_answer": "Middle East",
+    "gold_answer": "\"Middle East\"",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 2,
+    "step": 1,
+    "sub_answer": "Persian Gulf",
+    "gold_answer": "Persian Gulf",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 2,
+    "step": 2,
+    "sub_answer": "Saudi Arabia",
+    "gold_answer": "Kingdom of Saudi Arabia",
+    "correct": true,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 2,
+    "step": 3,
+    "sub_answer": "1932",
+    "gold_answer": "1932",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 3,
+    "step": 0,
+    "sub_answer": "The NFL is in charge of the Super Bowl halftime show",
+    "gold_answer": "The NFL",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 3,
+    "step": 1,
+    "sub_answer": "Nintendo's limit was five games per developer per year on th",
+    "gold_answer": "Nintendo Entertainment System",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 3,
+    "step": 2,
+    "sub_answer": "NES",
+    "gold_answer": "NES",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 3,
+    "step": 3,
+    "sub_answer": "Five games",
+    "gold_answer": "five",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 4,
+    "step": 0,
+    "sub_answer": "1839",
+    "gold_answer": "Eric Johnson",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 4,
+    "step": 1,
+    "sub_answer": "1839",
+    "gold_answer": "Austin",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 4,
+    "step": 2,
+    "sub_answer": "Texas",
+    "gold_answer": "Texas,",
+    "correct": true,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 4,
+    "step": 3,
+    "sub_answer": "1839",
+    "gold_answer": "1839",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 5,
+    "step": 0,
+    "sub_answer": "The People's Socialist Republic of Albania was a member of t",
+    "gold_answer": "Warsaw Pact",
+    "correct": true,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 5,
+    "step": 1,
+    "sub_answer": "The Soviet Union",
+    "gold_answer": "the USSR",
+    "correct": false,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 5,
+    "step": 2,
+    "sub_answer": "NATO",
+    "gold_answer": "NATO",
+    "correct": true,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 5,
+    "step": 3,
+    "sub_answer": "May 1990",
+    "gold_answer": "May 1990",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 6,
+    "step": 0,
+    "sub_answer": "Charles Edmund Nugent participated in the Napoleonic Wars, n",
+    "gold_answer": "Revolutionary War",
+    "correct": false,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 6,
+    "step": 1,
+    "sub_answer": "The United States gained control of Florida after the conclu",
+    "gold_answer": "Spain",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 6,
+    "step": 2,
+    "sub_answer": "Spain",
+    "gold_answer": "Barcelona",
+    "correct": false,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 6,
+    "step": 3,
+    "sub_answer": "Hostafrancs is a neighborhood in Barcelona, and its associat",
+    "gold_answer": "two cities",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 7,
+    "step": 0,
+    "sub_answer": "Belgrade",
+    "gold_answer": "Belgrade",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 7,
+    "step": 1,
+    "sub_answer": "Serbian",
+    "gold_answer": "Serbian",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 7,
+    "step": 2,
+    "sub_answer": "Bosnia and Herzegovina",
+    "gold_answer": "Kosovo",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 7,
+    "step": 3,
+    "sub_answer": "1992",
+    "gold_answer": "2016",
+    "correct": false,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 8,
+    "step": 0,
+    "sub_answer": "The district is Wittenberg, Germany, where a sermon on Maria",
+    "gold_answer": "Catholic Church",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 8,
+    "step": 1,
+    "sub_answer": "Pope Paul VI",
+    "gold_answer": "Martin Luther",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 8,
+    "step": 2,
+    "sub_answer": "Wittenberg, Germany",
+    "gold_answer": "Wittenberg",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 8,
+    "step": 3,
+    "sub_answer": "Ghana",
+    "gold_answer": "Saxony-Anhalt",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 9,
+    "step": 0,
+    "sub_answer": "Middle East",
+    "gold_answer": "\"Middle East\"",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 9,
+    "step": 1,
+    "sub_answer": "Highly populated areas such as Singapore or California",
+    "gold_answer": "Persian Gulf",
+    "correct": false,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 9,
+    "step": 2,
+    "sub_answer": "The Arabian Peninsula, specifically Saudi Arabia",
+    "gold_answer": "Kingdom of Saudi Arabia",
+    "correct": false,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 9,
+    "step": 3,
+    "sub_answer": "1930",
+    "gold_answer": "1930",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 10,
+    "step": 0,
+    "sub_answer": "1839",
+    "gold_answer": "Eric Johnson",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 10,
+    "step": 1,
+    "sub_answer": "1839",
+    "gold_answer": "Austin",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 10,
+    "step": 2,
+    "sub_answer": "Texas",
+    "gold_answer": "Texas,",
+    "correct": true,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 10,
+    "step": 3,
+    "sub_answer": "1839",
+    "gold_answer": "1839",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 11,
+    "step": 0,
+    "sub_answer": "The Middle East",
+    "gold_answer": "Middle East,",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 11,
+    "step": 1,
+    "sub_answer": "The Persian Gulf",
+    "gold_answer": "Persian Gulf",
+    "correct": true,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 11,
+    "step": 2,
+    "sub_answer": "The Persian Gulf",
+    "gold_answer": "Kingdom of Saudi Arabia",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 11,
+    "step": 3,
+    "sub_answer": "1993",
+    "gold_answer": "1932",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 12,
+    "step": 0,
+    "sub_answer": "Czechoslovakia",
+    "gold_answer": "Czechoslovakia",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 12,
+    "step": 1,
+    "sub_answer": "United States Army",
+    "gold_answer": "the Army",
+    "correct": false,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 12,
+    "step": 2,
+    "sub_answer": "Yugoslavia was unprepared for the Soviet invasion",
+    "gold_answer": "Yugoslavia",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 12,
+    "step": 3,
+    "sub_answer": "1943–1992",
+    "gold_answer": "1943–1992",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 13,
+    "step": 0,
+    "sub_answer": "The NFL owners choose where the Super Bowl is held",
+    "gold_answer": "the NFL",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 13,
+    "step": 1,
+    "sub_answer": "Five games per developer per year",
+    "gold_answer": "Nintendo Entertainment System",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 13,
+    "step": 2,
+    "sub_answer": "Five-game limit",
+    "gold_answer": "NES",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 13,
+    "step": 3,
+    "sub_answer": "Five games per developer per year",
+    "gold_answer": "five",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 14,
+    "step": 0,
+    "sub_answer": "Middle East",
+    "gold_answer": "\"Middle East\"",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 14,
+    "step": 1,
+    "sub_answer": "The shamal wind is located on the terrain of Iraq and the Pe",
+    "gold_answer": "Persian Gulf",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 14,
+    "step": 2,
+    "sub_answer": "The Near East",
+    "gold_answer": "Kingdom of Saudi Arabia",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 14,
+    "step": 3,
+    "sub_answer": "1932",
+    "gold_answer": "1932",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 15,
+    "step": 0,
+    "sub_answer": "Appleton, Wisconsin",
+    "gold_answer": "Appleton",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 15,
+    "step": 1,
+    "sub_answer": "Neenah, Wisconsin",
+    "gold_answer": "Outagamie County",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 15,
+    "step": 2,
+    "sub_answer": "Neenah, Wisconsin",
+    "gold_answer": "Brown County",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 15,
+    "step": 3,
+    "sub_answer": "Pulaski, Wisconsin",
+    "gold_answer": "Green Bay",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 16,
+    "step": 0,
+    "sub_answer": "Guadalajara, Jalisco, Mexico",
+    "gold_answer": "Guadalajara",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 16,
+    "step": 1,
+    "sub_answer": "North America",
+    "gold_answer": "North America",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 16,
+    "step": 2,
+    "sub_answer": "John Cabot",
+    "gold_answer": "John Cabot",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 16,
+    "step": 3,
+    "sub_answer": "No specific navigator father is mentioned in the context as ",
+    "gold_answer": "Sebastian Cabot",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 17,
+    "step": 0,
+    "sub_answer": "Cleveland, North Carolina",
+    "gold_answer": "Robert Abel",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 17,
+    "step": 1,
+    "sub_answer": "Rowan County",
+    "gold_answer": "Cleveland",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 17,
+    "step": 2,
+    "sub_answer": "Rowan County",
+    "gold_answer": "Rowan County",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 17,
+    "step": 3,
+    "sub_answer": "Cabarrus County",
+    "gold_answer": "Cabarrus County",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 18,
+    "step": 0,
+    "sub_answer": "Si Phan Don is in southern Laos, part of the Mekong River's ",
+    "gold_answer": "Laos",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 18,
+    "step": 1,
+    "sub_answer": "The Mekong River serves as the natural boundary between Thai",
+    "gold_answer": "Myanmar",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 18,
+    "step": 2,
+    "sub_answer": "The Portuguese",
+    "gold_answer": "the Portuguese",
+    "correct": true,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 18,
+    "step": 3,
+    "sub_answer": "The Ajuran Empire expelled those opposing their economic ind",
+    "gold_answer": "The dynasty regrouped and defeated the Portuguese",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 19,
+    "step": 0,
+    "sub_answer": "Czechoslovakia",
+    "gold_answer": "Czechoslovakia",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 19,
+    "step": 1,
+    "sub_answer": "United States Army",
+    "gold_answer": "the Army",
+    "correct": false,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 19,
+    "step": 2,
+    "sub_answer": "The Air Defense Artillery was unprepared for the invasion of",
+    "gold_answer": "Yugoslavia",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 19,
+    "step": 3,
+    "sub_answer": "Paraguay",
+    "gold_answer": "Alfredo Stroessner's Paraguay",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 20,
+    "step": 0,
+    "sub_answer": "Georgia",
+    "gold_answer": "Georgia",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 20,
+    "step": 1,
+    "sub_answer": "South Carolina",
+    "gold_answer": "South Carolina",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 20,
+    "step": 2,
+    "sub_answer": "South Carolina",
+    "gold_answer": "Clemson",
+    "correct": false,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 20,
+    "step": 3,
+    "sub_answer": "University of South Carolina has more national championships",
+    "gold_answer": "University of South Carolina",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 21,
+    "step": 0,
+    "sub_answer": "After the World Series, typically in early October",
+    "gold_answer": "after the World Series",
+    "correct": true,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 21,
+    "step": 1,
+    "sub_answer": "New York Yankees",
+    "gold_answer": "the New York Yankees",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 21,
+    "step": 2,
+    "sub_answer": "American League",
+    "gold_answer": "Major League Baseball",
+    "correct": false,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 21,
+    "step": 3,
+    "sub_answer": "Bill Bergen",
+    "gold_answer": "Bill Bergen",
+    "correct": true,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 22,
+    "step": 0,
+    "sub_answer": "Appleton, Wisconsin",
+    "gold_answer": "Appleton",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 22,
+    "step": 1,
+    "sub_answer": "Green Bay",
+    "gold_answer": "Outagamie County",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 22,
+    "step": 2,
+    "sub_answer": "Neillsville",
+    "gold_answer": "Brown County",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 22,
+    "step": 3,
+    "sub_answer": "Neillsville",
+    "gold_answer": "Green Bay",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 23,
+    "step": 0,
+    "sub_answer": "Sony Music Entertainment",
+    "gold_answer": "Sony Music Entertainment",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 23,
+    "step": 1,
+    "sub_answer": "August 3, 1769",
+    "gold_answer": "Universal Music Group.",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 23,
+    "step": 2,
+    "sub_answer": "Santa Monica, California",
+    "gold_answer": "Santa Monica",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 23,
+    "step": 3,
+    "sub_answer": "August 3, 1769",
+    "gold_answer": "August 3, 1769",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 24,
+    "step": 0,
+    "sub_answer": "Burning Heart Records",
+    "gold_answer": "Shawty Lo",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 24,
+    "step": 1,
+    "sub_answer": "Atlanta, Georgia",
+    "gold_answer": "Atlanta",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 24,
+    "step": 2,
+    "sub_answer": "The Civil War",
+    "gold_answer": "the Civil War",
+    "correct": true,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 24,
+    "step": 3,
+    "sub_answer": "Union forces under General William Sherman",
+    "gold_answer": "Confederate Gen. John Bell Hood",
+    "correct": false,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 25,
+    "step": 0,
+    "sub_answer": "Myanmar",
+    "gold_answer": "Thailand",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 25,
+    "step": 1,
+    "sub_answer": "Vietnam",
+    "gold_answer": "Laos",
+    "correct": false,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 25,
+    "step": 2,
+    "sub_answer": "The Mekong River",
+    "gold_answer": "Myanmar",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 25,
+    "step": 3,
+    "sub_answer": "2014",
+    "gold_answer": "hosted the summit in 2014",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 26,
+    "step": 0,
+    "sub_answer": "Sony Music Entertainment",
+    "gold_answer": "Sony Music Entertainment",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 26,
+    "step": 1,
+    "sub_answer": "Universal Music Group",
+    "gold_answer": "Universal Music Group.",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 26,
+    "step": 2,
+    "sub_answer": "2",
+    "gold_answer": "Santa Monica",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 26,
+    "step": 3,
+    "sub_answer": "2",
+    "gold_answer": "two",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 27,
+    "step": 0,
+    "sub_answer": "Georgia",
+    "gold_answer": "Georgia",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 27,
+    "step": 1,
+    "sub_answer": "Atlanta",
+    "gold_answer": "Atlanta",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 27,
+    "step": 2,
+    "sub_answer": "DeKalb County",
+    "gold_answer": "Montmorency County",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 27,
+    "step": 3,
+    "sub_answer": "DeKalb County",
+    "gold_answer": "Presque Isle County",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 28,
+    "step": 0,
+    "sub_answer": "Sony Music Entertainment",
+    "gold_answer": "Sony Music Entertainment",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 28,
+    "step": 1,
+    "sub_answer": "New York City",
+    "gold_answer": "Universal Music Group.",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 28,
+    "step": 2,
+    "sub_answer": "New York City",
+    "gold_answer": "Santa Monica",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 28,
+    "step": 3,
+    "sub_answer": "August 3, 1769",
+    "gold_answer": "August 3, 1769",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 29,
+    "step": 0,
+    "sub_answer": "1839",
+    "gold_answer": "Margaret Mayo",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 29,
+    "step": 1,
+    "sub_answer": "1839",
+    "gold_answer": "Illinois",
+    "correct": false,
+    "nli_label": "neutral"
+  },
+  {
+    "sample": 29,
+    "step": 2,
+    "sub_answer": "Springfield, Illinois",
+    "gold_answer": "Springfield",
+    "correct": true,
+    "nli_label": "entail"
+  },
+  {
+    "sample": 29,
+    "step": 3,
+    "sub_answer": "1839",
+    "gold_answer": "1839",
+    "correct": true,
+    "nli_label": "entail"
+  }
+]

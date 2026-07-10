@@ -147,6 +147,74 @@ Conclusion: on HotpotQA with **artificial** truncation, decomposition shows a we
 
 Reproducer: `experiments/_budget_curve.py` (paired bootstrap B=10000, seed=42; McNemar χ²-cc). Results: `experiments/results/budget_curve_8b/ctx{800,1500,2000,2500,3000,4000,full}/`.
 
+### 1.8 MuSiQue Hop-Axis Curve (n=500, qwen3-8b, full context) — WALL-1 HOLDS, NO CV2 CROSSOVER
+
+Setup: SOP Stage-1 reasoning-depth curve. MuSiQue (`musique_ans_v1.0_dev`, shuffle seed=42), hop_count from id prefix, full context via `context_full` (median ~11.4k tok). Both methods see the **same** full context — fixed the `gers_cv2_fullctx` internal cap from 8000→100000 chars so MuSiQue's ~45k-char context is not truncated (the 8000 cap was invisible on HotpotQA's 4.7k chars but would have unfairly starved CV2 on MuSiQue). Hop distribution: {2-hop:263, 3-hop:152, 4-hop:85}.
+
+| hop | n | CoT-SC EM/F1 | CV2 EM/F1 | dF1 (CV2−CoT) | McNemar p |
+|---:|---:|---|---|---:|---:|
+| 2 | 263 | 0.365 / 0.481 | 0.335 / 0.473 | −0.008 | 0.291 |
+| 3 | 152 | 0.316 / 0.445 | 0.257 / 0.383 | −0.062 | 0.081 |
+| 4 | 85 | 0.271 / 0.370 | 0.259 / 0.348 | −0.022 | 1.000 |
+
+**Two decisive findings:**
+
+1. **Wall-1 precondition HOLDS** (✅): flat CoT-SC F1 degrades monotonically with hops — 0.481 → 0.445 → 0.370 (2→3: −0.035; 3→4: −0.075). A single-pass model genuinely breaks on deep hops, so decomposition/verification has *room to help*. This is the necessary precondition for the entire H2 / EASV direction, and it is satisfied.
+
+2. **H2 crossover does NOT hold** (❌): the CV2−CoT gap is negative at all three hops (CV2 loses everywhere) and non-monotone (−0.008 → −0.062 → −0.022); no sign flip, no hop where CV2 catches up. At 3-hop CV2 loses near-significantly (p=0.081). **Current CV2 does not capture the space that CoT-SC gives up on deep hops** — it degrades even harder than CoT-SC (0.473→0.383→0.348).
+
+Interpretation: this is the most informative result so far. Combined with §1.6 (HotpotQA full-ctx: no room) and §1.7 (budget: no stable crossover), the three point to the same root cause — **the bottleneck is the verification signal, not the decomposition**. Decomposition has room on deep hops (Wall-1 fails), but CV2's self-agreement consistency check (proven fluency-indexed, §2.4 / H3) cannot catch deep-hop errors: intermediate steps are "fluently wrong" and self-agreement passes them, so errors propagate regardless. CV2's decomposition adds overhead + error points without a working verifier.
+
+**EASV entry ticket**: CoT-SC drops to 0.370 F1 at 4-hop (room to improve); current CV2 does not capture it (−0.022) because self-agreement verification is ineffective. Replacing self-agreement with an independent NLI-anchored stepwise verifier (EASV) targets exactly this gap. Falsifiable target: can external-NLI-anchored verification push decomposition above 0.370 at 4-hop? Per SOP "No Oracle, No Design", Stage-2 Oracle decomposition should confirm the bottleneck is reasoner-error-propagation (not graph generation) before committing to EASV.
+
+Reproducer: `experiments/_hop_curve.py`. Results: `experiments/results/musique_n500_8b/`.
+
+### 1.9 Oracle Decomposition — Bottleneck Localization (SOP Stage-2, MuSiQue 4-hop, n=85)
+
+Setup: inject MuSiQue's gold `question_decomposition` annotations into the GERS pipeline to quantify each module's recoverable F1 ("罪值"). Three injection hooks added to `GraphGuidedGenerator` (`oracle_decomposition` / `oracle_subanswers` / `oracle_context_paragraphs`), all default None so production is unaffected. Oracle-2 paragraph reconstruction verified aligned (paragraph_support_idx correctly indexes gold paragraphs, no out-of-bounds). qwen3-8b, full context.
+
+| Config | EM | F1 | ΔF1 (this step) | share of recoverable |
+|---|---:|---:|---:|---:|
+| Baseline (model self) | 0.247 | 0.344 | — | — |
+| Oracle-1 (gold DAG) | 0.329 | 0.426 | +0.082 | 17% |
+| Oracle-1+2 (+gold retrieval) | 0.376 | 0.484 | +0.059 | 12% |
+| Oracle-1+3 (+gold intermediate answers) | 0.776 | 0.831 | **+0.346** | **71%** |
+
+**Bottleneck localized (Oracle-confirmed, not guessed):** the reasoner / error-propagation module accounts for **71%** of recoverable F1 at 4-hop — 4.2× the graph-generation module (17%) and 5.9× the retrieval module (12%). This directly confirms SOP hypothesis H2: the bottleneck on deep multi-hop is single-node error propagation downstream, *not* graph-structure generation error.
+
+Implications:
+1. **High ceiling.** Baseline 0.344 → Oracle-1+3 ceiling 0.831: +0.487 F1 recoverable. The method is not out of room — it is blocked by reasoner error.
+2. **Graph generation is NOT the bottleneck** (+0.082, 17%). Model-decomposed DAGs are reasonably good. Do not optimize decomposition (SOP: One Bottleneck One Fix).
+3. **Retrieval is NOT the bottleneck** (+0.059, 12%). Explains why Direction-B BM25 retrieval failed — retrieval was never the pain point.
+4. **Aggregation has minimal residual罪值** (O1+3 → ceiling leaves ~0.17 for aggregation + answer extraction).
+
+This is the SOP Stage-2 deliverable. The waterfall (71/17/12) is the paper's core localization figure. The Minimal Fix (Stage-3, EASV) targets the reasoner-error-propagation module ONLY — external NLI-anchored stepwise verification to catch sub-answer errors before they propagate, motivated directly by this Oracle data (not by intuition). Current self-agreement verification (H3, fluency-indexed) cannot catch these errors — that is the gap EASV fills.
+
+Reproducer: `experiments/run_oracle.py`. Results: `experiments/results/oracle_musique_8b/`.
+
+### 1.10 EASV Prototype — Stepwise NLI Verification + Re-answer (SOP Stage-3, MuSiQue 4-hop, n=85)
+
+Setup: Minimal Fix targeting the reasoner-error-propagation bottleneck. Each sub-answer is NLI-verified (supporting paragraph ⊨ sub-answer?); if not entail, re-answer that node only (no full-chain rerun). Mechanism tested in ISOLATION via Oracle-1 (gold decomposition injected, decomposition quality held fixed). Verifier probe first confirmed the signal: LLM-as-NLI AUROC 0.799 vs self-agreement 0.58, gap +0.598 (n=30, 120 sub-answers). qwen3-8b, full context.
+
+| Config | EM | F1 | vs CoT-SC 0.370 |
+|---|---:|---:|---:|
+| baseline (Oracle-1 gold decomp, no verify) | 0.341 | **0.450** | +0.080 |
+| easv_o1 (+ stepwise verify + re-answer ×1) | 0.341 | 0.454 | +0.084 |
+| easv_o1_r2 (+ re-answer ×2) | 0.318 | 0.431 | +0.061 |
+
+**Three findings:**
+
+1. **Hidden good news (decomposition has real value on deep hops):** the Oracle-1 gold-decomposition baseline ALREADY beats CoT-SC (0.450 vs 0.370, +0.080 F1). The Stage-1 result where CV2 lost everywhere (0.348 < 0.370) was because CV2 used *model* decomposition (which often compresses 4-hop → 2-hop). With gold decomposition, the decomposition's value on deep hops emerges. **The H2 crossover exists — it was masked by decomposition quality.**
+
+2. **EASV verify+re-answer mechanism is weak (+0.004 F1):** easv_o1 barely beats the Oracle-1 baseline. In the isolation setting the baseline is already near-ceiling (gold decomp), so there is little reasoner error left for the verifier to catch. r2 (re-answer twice) is *worse* (0.431 < 0.454) — temperature-raised re-answering introduces noise and flips some correct answers wrong.
+
+3. **The bigger target may be decomposition quality:** gold vs model decomposition differs by 0.102 F1 (0.450 vs 0.348) — an order of magnitude larger than what EASV's verify+re-answer can recover (+0.004). The largest untapped space may be "getting the model to decompose into gold-like 4-hop structures," not "verifying/re-answering reasoner outputs."
+
+Reconciling with Stage-2 Oracle (71/17/12): not contradictory. Oracle-1's +0.082 measures "swap model→gold decomposition" (decomposition-quality contribution); Oracle-3's +0.346 measures "swap model→gold intermediate answers *given gold decomposition*" (reasoner-error contribution). Both hold but in different regimes. EASV targets reasoner error, but near-ceiling (reasoner already mostly correct under gold decomp) its gain is small; decomposition quality is the larger unexploited space. Verifier probe: `experiments/_verify_probe.py`. EASV runner: `experiments/run_easv.py`. Results: `experiments/results/easv_musique_8b/`.
+
+
+
+
 ## 2. Negative and Diagnostic Experiments
 
 ### 2.1 Repair Variants Are Not Main Methods

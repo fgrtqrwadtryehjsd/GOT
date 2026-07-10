@@ -107,6 +107,12 @@ def normalize_2wikimultihopqa_answer(raw: str) -> str:
     return normalize_hotpotqa_answer(raw)
 
 
+def normalize_musique_answer(raw: str) -> str:
+    """MuSiQue 专用：与 HotpotQA 类似的简洁实体/yes-no 答案"""
+    # MuSiQue 答案结构也是短实体/人名/日期，归一化逻辑与 HotpotQA 一致
+    return normalize_hotpotqa_answer(raw)
+
+
 def normalize_for_vote(answer: str) -> str:
     """投票前归一化：聚拢语义等价的简短答案（yes/no 聚合 + 小写 + 去标点）。
 

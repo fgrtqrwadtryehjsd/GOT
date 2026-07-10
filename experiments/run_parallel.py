@@ -44,7 +44,8 @@ load_dotenv()
 
 from src.utils.metrics import Metrics
 from src.utils.answer_normalizer import (
-    normalize_gsm8k_answer, normalize_hotpotqa_answer, normalize_2wikimultihopqa_answer
+    normalize_gsm8k_answer, normalize_hotpotqa_answer, normalize_2wikimultihopqa_answer,
+    normalize_musique_answer
 )
 from experiments.run_comparison import create_model
 from experiments.run_quick_exp import create_method
@@ -53,6 +54,7 @@ NORMALIZERS = {
     "gsm8k": normalize_gsm8k_answer,
     "hotpotqa": normalize_hotpotqa_answer,
     "2wikimultihopqa": normalize_2wikimultihopqa_answer,
+    "musique": normalize_musique_answer,
 }
 
 
@@ -266,7 +268,7 @@ def run_method(method_name: str, samples: list, model, dataset: str,
 def main():
     parser = argparse.ArgumentParser(description="多线程并行实验 runner")
     parser.add_argument("--dataset", type=str, default="hotpotqa",
-                        choices=["gsm8k", "hotpotqa", "2wikimultihopqa"])
+                        choices=["gsm8k", "hotpotqa", "2wikimultihopqa", "musique"])
     parser.add_argument("--methods", type=str, default="gers_adaptive,standard_cot,cot_sc,cot_sc_gers,zero_shot",
                         help="逗号分隔的方法名（见 run_quick_exp.create_method）")
     parser.add_argument("--model", type=str, default="qwen3-8b")

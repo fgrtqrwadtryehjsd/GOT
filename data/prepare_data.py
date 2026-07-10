@@ -285,6 +285,147 @@ def prepare_2wikimultihopqa(output_dir: Path, num_samples: int = 500,
     return samples
 
 
+# ─── MuSiQue ─────────────────────────────────────────────────────────────────
+
+def prepare_musique(output_dir: Path, num_samples: int = 500,
+                    split: str = "dev"):
+    """
+    下载并预处理 MuSiQue 多跳问答数据集（H2 假设验证用）
+
+    MuSiQue (Trivedi et al., TACL 2022) 是通过组合单跳问题构建的多跳问答数据集，
+    包含 2-4 跳问题，每条样本带有完整的分解标注（question_decomposition），
+    每跳子问题都有 gold answer——这对 SOP H2 假设的 Oracle 解剖实验至关重要：
+    - Oracle 1（完美 DAG）：用 question_decomposition 替换 GERS 的分解
+    - Oracle 3（完美中间答案）：用 question_decomposition[].answer 替换中间子答案
+
+    数据集来源：本地 data/musique_raw/data/musique_ans_v1.0_dev.jsonl
+    （Google Drive 官方 musique_v1.0.zip，gdown 下载）
+
+    两个版本：
+    - musique_ans（Answerable）：仅可回答的问题，用于主实验
+    - musique_full（Full）：含不可回答问题，用于 unanswerability 检测（本实验不用）
+
+    输出格式：
+    {
+        "id": str,                    # 含 hop 前缀，如 "2hop__460946_294723"
+        "question": str,              # 完整多跳问题
+        "context": str,               # 拼接段落（截断至 ~2000 字符）
+        "context_full": str,          # 完整拼接段落（不截断）
+        "answer": str,                # 最终答案
+        "answer_aliases": list,       # 答案别名
+        "hop_count": int,             # 跳数（2/3/4，从 id 前缀提取）
+        "question_decomposition": [   # 分解标注（Oracle 实验关键）
+            {"question": str, "answer": str, "paragraph_support_idx": int},
+            ...
+        ],
+        "supporting_paragraphs": list, # is_supporting=True 的段落 idx
+        "n_paragraphs": int           # 总段落数（含干扰段）
+    }
+    """
+    print(f"[MuSiQue] 正在准备 {split} 集...")
+
+    # 查找本地文件
+    local_candidates = [
+        Path("data/musique_raw/data/musique_ans_v1.0_dev.jsonl"),
+        Path("data/musique_raw/data/musique_ans_v1.0_test.jsonl"),
+        Path(__file__).parent / "musique_raw" / "data" / f"musique_ans_v1.0_{split}.jsonl",
+    ]
+    local_file = next((p for p in local_candidates if p.exists()), None)
+
+    if local_file is None:
+        raise FileNotFoundError(
+            "未找到 MuSiQue 本地文件。请先下载官方数据：\n"
+            "  pip install gdown\n"
+            "  python -m gdown \"https://drive.google.com/uc?id=1tGdADlNjWFaHLeZZGShh2IRcpO6Lv24h\" -O data/musique_v1.0.zip\n"
+            "  # 解压到 data/musique_raw/"
+        )
+
+    print(f"[MuSiQue] 使用本地文件: {local_file}")
+
+    # 先读取全部数据，再打乱（固定种子）后截取 num_samples，保证跳数多样性
+    import random
+    all_items = []
+    with open(local_file, encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            all_items.append(json.loads(line))
+
+    random.seed(42)
+    random.shuffle(all_items)
+
+    samples = []
+    for item in all_items:
+        if num_samples and len(samples) >= num_samples:
+            break
+
+        # 跳过不可回答的问题（musique_ans 版本应全是 answerable=True）
+        if not item.get("answerable", True):
+            continue
+
+        qid = item.get("id", str(len(samples)))
+        # 从 id 前缀提取跳数（如 "2hop__460946_294723" → 2）
+        hop_count = 2  # 默认
+        if qid.startswith("2hop"):
+            hop_count = 2
+        elif qid.startswith("3hop"):
+            hop_count = 3
+        elif qid.startswith("4hop"):
+            hop_count = 4
+
+        # 构建上下文：拼接所有段落（含干扰段），标记 supporting
+        paragraphs = item.get("paragraphs", [])
+        context_parts = []
+        supporting_indices = []
+        for para in paragraphs:
+            idx = para.get("idx", 0)
+            title = para.get("title", "")
+            text = para.get("paragraph_text", "")
+            context_parts.append(f"[{title}] {text}")
+            if para.get("is_supporting", False):
+                supporting_indices.append(idx)
+
+        context_full = " | ".join(context_parts)
+
+        # 提取分解标注
+        decomp = item.get("question_decomposition", [])
+        decomposition = []
+        for step in decomp:
+            decomposition.append({
+                "question": step.get("question", ""),
+                "answer": step.get("answer", ""),
+                "paragraph_support_idx": step.get("paragraph_support_idx", -1),
+            })
+
+        samples.append({
+            "id": qid,
+            "question": item.get("question", ""),
+            "context": context_full[:2000],
+            "context_full": context_full,
+            "answer": item.get("answer", ""),
+            "answer_aliases": item.get("answer_aliases", []),
+            "hop_count": hop_count,
+            "question_decomposition": decomposition,
+            "supporting_paragraphs": supporting_indices,
+            "n_paragraphs": len(paragraphs),
+        })
+
+    out_path = output_dir / "musique_test.json"
+    with open(out_path, "w", encoding="utf-8") as f:
+        json.dump(samples, f, ensure_ascii=False, indent=2)
+
+    # 统计跳数分布
+    hop_counts = {}
+    for s in samples:
+        h = s.get("hop_count", 0)
+        hop_counts[h] = hop_counts.get(h, 0) + 1
+
+    print(f"[MuSiQue] 已保存 {len(samples)} 条样本 → {out_path}")
+    print(f"[MuSiQue] 跳数分布: {hop_counts}")
+    return samples
+
+
 # ─── 验证数据集完整性 ─────────────────────────────────────────────────────────
 
 def validate_dataset(file_path: Path) -> bool:
@@ -332,6 +473,7 @@ def load_processed_dataset(dataset_name: str,
         "hotpotqa": "hotpotqa_test.json",
         "gsm8k": "gsm8k_test.json",
         "2wikimultihopqa": "2wikimultihopqa_test.json",
+        "musique": "musique_test.json",
     }
 
     fname = filename_map.get(dataset_name)
@@ -355,6 +497,8 @@ def load_processed_dataset(dataset_name: str,
         return prepare_gsm8k(data_dir, num_samples or 500)
     elif dataset_name == "2wikimultihopqa":
         return prepare_2wikimultihopqa(data_dir, num_samples or 500)
+    elif dataset_name == "musique":
+        return prepare_musique(data_dir, num_samples or 500)
 
 
 # ─── CLI 入口 ─────────────────────────────────────────────────────────────────
@@ -363,7 +507,7 @@ def main():
     parser = argparse.ArgumentParser(description="准备实验数据集")
     parser.add_argument(
         "--dataset", type=str, default="all",
-        choices=["all", "hotpotqa", "gsm8k", "2wikimultihopqa"],
+        choices=["all", "hotpotqa", "gsm8k", "2wikimultihopqa", "musique"],
         help="要准备的数据集名称，all=全部",
     )
     parser.add_argument(
@@ -384,7 +528,7 @@ def main():
     output_dir.mkdir(parents=True, exist_ok=True)
 
     datasets_to_prepare = (
-        ["hotpotqa", "gsm8k", "2wikimultihopqa"]
+        ["hotpotqa", "gsm8k", "2wikimultihopqa", "musique"]
         if args.dataset == "all"
         else [args.dataset]
     )
@@ -400,6 +544,8 @@ def main():
                 prepare_gsm8k(output_dir, args.num_samples)
             elif ds_name == "2wikimultihopqa":
                 prepare_2wikimultihopqa(output_dir, args.num_samples)
+            elif ds_name == "musique":
+                prepare_musique(output_dir, args.num_samples)
         except Exception as e:
             print(f"[错误] {ds_name} 准备失败: {e}")
             continue
@@ -409,6 +555,7 @@ def main():
                 "hotpotqa": "hotpotqa_test.json",
                 "gsm8k": "gsm8k_test.json",
                 "2wikimultihopqa": "2wikimultihopqa_test.json",
+                "musique": "musique_test.json",
             }
             validate_dataset(output_dir / fname_map[ds_name])
 

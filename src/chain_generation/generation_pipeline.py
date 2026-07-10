@@ -257,7 +257,13 @@ class GraphGuidedGenerator:
                   forward_grounding_threshold: float = 0.5,
                   enable_subq_retrieval: bool = False,
                   subq_retrieval_k: int = 2,
-                  context_char_limit: int = 1500):
+                  context_char_limit: int = 1500,
+                  oracle_decomposition: list = None,
+                  oracle_subanswers: bool = False,
+                  oracle_context_paragraphs: list = None,
+                  enable_stepwise_verify: bool = False,
+                  stepwise_verify_retries: int = 1,
+                  stepwise_verify_temperature: float = 0.5):
         """
         Args:
             model: LLM 模型实例
@@ -331,6 +337,21 @@ class GraphGuidedGenerator:
         self._subq_retriever = None
         # 前向 context 截断字符数（默认1500；baselines 用全量context，设大值对齐公平）
         self.context_char_limit = context_char_limit
+        # ── Oracle 解剖（SOP Stage-2）：注入 gold 标注量化各模块"罪恶值"──
+        # 以下三者默认 None/False，production 完全不受影响。仅 Oracle runner 设置。
+        # oracle_decomposition: gold 子问题 [{"question","answer"}]，跳过 _decompose 直接建图
+        # oracle_subanswers: 拓扑执行时用 gold answer 替换 LLM 子答案（需配合 oracle_decomposition）
+        # oracle_context_paragraphs: 每子问题的 gold 段落文本，替换检索/local context（Oracle-2）
+        self.oracle_decomposition = oracle_decomposition
+        self.oracle_subanswers = oracle_subanswers
+        self.oracle_context_paragraphs = oracle_context_paragraphs
+        # ── EASV 雏形（SOP Stage-3 Minimal Fix）：逐步 NLI 验证 + 不合格重答 ──
+        # 打 Oracle 定位的 reasoner 误差传播这一个靶点。每个子答案生成后做
+        # NLI 验证（支撑段落 ⊨ 子答案?），非 entail 则重答该节点（不重跑全链）。
+        # 雏形用 LLM-as-NLI（verifier 预验证 AUROC 0.799），最终版换独立小 NLI 模型。
+        self.enable_stepwise_verify = enable_stepwise_verify
+        self.stepwise_verify_retries = stepwise_verify_retries
+        self.stepwise_verify_temperature = stepwise_verify_temperature
         # Self-Consistency 时每条 DAG 的分解温度（None=用默认 0.2）。
         # 注意：generate() 用的是参数 temperature，不读 model.temperature，
         # 所以必须在这里显式传给 _decompose，否则 K 条 DAG 无温度多样性。
@@ -393,7 +414,20 @@ class GraphGuidedGenerator:
 
         # ── ① 分解问题为子问题 ──────────────────────────────────────────────
         logger.debug("GERS: ① 分解子问题...")
-        sub_questions = self._decompose(question, context_section)
+        if self.oracle_decomposition is not None:
+            # Oracle-1（完美 DAG）：用 gold 分解跳过 _decompose，转成 GERS 子问题格式
+            # MuSiQue 的 question_decomposition 是顺序依赖（第 i 跳依赖第 i-1 跳答案）
+            sub_questions = []
+            for i, step in enumerate(self.oracle_decomposition):
+                sub_questions.append({
+                    "id": i + 1,
+                    "question": step.get("question", ""),
+                    "depends_on": [i] if i > 0 else [],  # 顺序依赖前一跳
+                    "type": "inference",
+                })
+            logger.debug(f"ORACLE-1: 注入 gold 分解 ({len(sub_questions)} 子问题)")
+        else:
+            sub_questions = self._decompose(question, context_section)
         logger.debug(f"GERS: 分解出 {len(sub_questions)} 个子问题")
 
         # ── ② 构建推理依赖图 ───────────────────────────────────────────────
@@ -453,6 +487,11 @@ class GraphGuidedGenerator:
             if self._subq_retriever is not None:
                 local_ctx = self._subq_retriever.retrieve_context(sub_q_text, k=self.subq_retrieval_k)
                 context_section_local = f"\nContext: {local_ctx}" if local_ctx else context_section
+            elif self.oracle_context_paragraphs is not None:
+                # Oracle-2（完美检索）：用该子问题的 gold 段落替换 context（零干扰）
+                gold_para = self.oracle_context_paragraphs[step_index - 1] \
+                    if step_index - 1 < len(self.oracle_context_paragraphs) else ""
+                context_section_local = f"\nContext: {gold_para}" if gold_para else context_section
             else:
                 context_section_local = context_section
             prompt_kwargs = dict(
@@ -478,6 +517,29 @@ class GraphGuidedGenerator:
 
             raw_response = self.model.generate(sub_prompt, max_tokens=300, temperature=0.3)
             sub_ans = self._extract_sub_answer(raw_response)
+            # Oracle-3（完美中间答案）：用 gold 子答案替换 LLM 输出，跳过 reasoner 误差
+            if self.oracle_subanswers and self.oracle_decomposition is not None \
+                    and step_index - 1 < len(self.oracle_decomposition):
+                gold_ans = self.oracle_decomposition[step_index - 1].get("answer", "")
+                if gold_ans:
+                    sub_ans = gold_ans
+                    raw_response = f"[ORACLE] {gold_ans}"
+                    logger.debug(f"ORACLE-3: 子问题 {step_index} 注入 gold 答案: {gold_ans[:40]}")
+
+            # ── EASV 雏形：逐步 NLI 验证 + 不合格重答 ──
+            # 对每个子答案做 NLI 验证（支撑段 ⊨ 子答案?），非 entail 则升温重答该节点。
+            # 只重答当前节点（局部修复），不重跑全链——直接打 reasoner 误差传播靶点。
+            verify_attempts = 0
+            if self.enable_stepwise_verify and sub_ans:
+                nli_label = self._stepwise_verify(sub_ans, context_section_local)
+                while nli_label != "entail" and verify_attempts < self.stepwise_verify_retries:
+                    verify_attempts += 1
+                    logger.debug(f"EASV: 子问题 {step_index} 验证={nli_label}，重答(尝试{verify_attempts})")
+                    raw_response = self.model.generate(
+                        sub_prompt, max_tokens=300,
+                        temperature=self.stepwise_verify_temperature)
+                    sub_ans = self._extract_sub_answer(raw_response)
+                    nli_label = self._stepwise_verify(sub_ans, context_section_local)
 
             # Token 计数
             total_tokens += self.model.count_tokens(raw_response) if hasattr(self.model, 'count_tokens') else 0
@@ -1320,6 +1382,38 @@ class GraphGuidedGenerator:
             return resp.strip().upper().startswith("YES")
         except Exception:
             return False
+
+    def _stepwise_verify(self, sub_answer: str, context_section_local: str) -> str:
+        """EASV 雏形：用 LLM-as-NLI 判断 (支撑段 ⊨ 子答案) 的蕴含关系。
+
+        返回 entail/contradict/neutral。context_section_local 是该子问题的
+        检索/gold 段落（含 "\\nContext: " 前缀），剥前缀后作为 premise。
+        雏形用同一个 LLM 判 NLI（verifier 预验证 AUROC 0.799，gap +0.598），
+        最终 EASV 应换独立小 NLI 模型以压低 self-bias FP。
+        """
+        if not sub_answer or not context_section_local:
+            return "neutral"
+        # 剥 "Context: " 前缀，取段落正文作为 premise
+        premise = context_section_local
+        if premise.startswith("\nContext:"):
+            premise = premise[len("\nContext:"):].strip()
+        if not premise:
+            return "neutral"
+        nli_prompt = (
+            "You are a strict entailment judge. Given a CONTEXT paragraph and a "
+            "CLAIM (a sub-answer), decide whether the context supports the claim.\n\n"
+            f"Context: {premise[:2500]}\n\nClaim: {sub_answer[:300]}\n\n"
+            "Answer with exactly one label on the first line:\n"
+            "- entail  : the context explicitly supports the claim\n"
+            "- contradict : the context explicitly contradicts the claim\n"
+            "- neutral : the context does not state the claim (insufficient info)\n\n"
+            "Label:")
+        resp = self.model.generate(nli_prompt, max_tokens=60, temperature=0.0)
+        first = resp.strip().split("\n")[0].strip().lower()
+        for label in ("entail", "contradict", "neutral"):
+            if label in first:
+                return label
+        return "neutral"
 
     def _extract_sub_answer(self, text: str) -> str:
         """从子问题回答中提取简洁答案"""
