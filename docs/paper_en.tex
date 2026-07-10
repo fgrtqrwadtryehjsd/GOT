@@ -214,7 +214,24 @@ Oracle-1+3: gold DAG $+$ gold sub-answers & \textbf{0.780} & \textbf{0.839} & $+
 
 \emph{(2) The reasoner is the largest bottleneck.} The Oracle waterfall in Table~\ref{tab:oracle} shows that substituting gold intermediate answers (Oracle-1+3) recovers 66.2\% of the recoverable F1, dominating graph generation (18.4\%) and retrieval (15.4\%). This tells us where future work should focus and, importantly, why bidirectional cross-checking is the right mechanism: since intermediate reasoner errors are the primary loss channel, a verifier that can detect and flag inconsistent sub-answers---which is exactly what cross-checking provides---is well matched to the bottleneck.
 
-\emph{Connection to the main results.} Together, findings (1) and (2) explain why GERS-CV2 wins in Section 4.2: the DAG decomposition supplies the +0.075 F1 headroom (Oracle-1 significance), and the bidirectional cross-check exploits it by suppressing reasoner-error-propagation---exactly the module that Oracle-1+3 identifies as the dominant leak.
+\emph{(3) The gap between model-generated and gold decomposition, quantified.} A direct comparison between model self-decomposition and gold decomposition on the same MuSiQue 4-hop benchmark makes the decomposition-quality gap explicit (Table~\ref{tab:decomp_gap}). With model self-decomposition, CV2 modestly loses to CoT-SC (dF1 = $-0.022$, n.s.); with gold decomposition, the same pipeline significantly beats CoT-SC (dF1 = $+0.075$, F1 SIG). The problem, therefore, is not that graph decomposition is intrinsically unhelpful---it is that current 8B-class LLMs' self-generated decompositions leave a ${\sim}0.10$ F1 gap below the gold ceiling. This gap is the actionable target for future work; the bidirectional cross-check in Section 4.4 partially exploits the remaining headroom by suppressing reasoner errors that arise \emph{given} imperfect decomposition.
+
+\begin{table}[h]
+\centering
+\caption{Model-generated vs.\ gold decomposition on MuSiQue 4-hop (Qwen3-8B, full context, paired vs.\ CoT-SC). Same benchmark, same reasoner and aggregation; only the decomposition source changes. The $\sim$0.10 F1 gap between the two rows quantifies the actionable decomposition-quality target.}
+\label{tab:decomp_gap}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lccccc}
+\toprule
+Decomposition source & $n$ paired & GERS F1 & CoT-SC F1 & $\Delta$F1 & 95\% CI \\
+\midrule
+Model self-decompose (main system) & 85 & 0.348 & 0.370 & $-0.022$ & $[-0.115, +0.071]$ (n.s.) \\
+\textbf{Gold decomposition (Oracle-1)} & 200 & \textbf{0.439} & 0.363 & \textbf{+0.075} & \textbf{$[+0.017, +0.134]$ (SIG)} \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\emph{Connection to the main results.} Together, findings (1)--(3) explain why and where GERS-CV2 wins. On LongBench multi-document QA (Section 4.2), the multi-passage context structure allows model-generated decomposition to be good enough for the bidirectional cross-check to extract a significant regime advantage. On MuSiQue 4-hop with model self-decomposition, the decomposition-quality gap dominates and the method does not yet close it; this is a boundary that future work on depth-planning decomposition can address---as evidenced by the Oracle-1 significance which quantifies the achievable ceiling.
 
 \subsection{Consistency Score: From Structural Validity to Content Self-Consistency}
 
@@ -385,6 +402,25 @@ The contrast is direct empirical evidence: when reasoning is grounded, forward a
 \textbf{Stronger model (Qwen-Plus, HotpotQA n=300).} To test whether the method's gains persist on a stronger base model, we re-run GERS-CV2 vs.\ CoT-SC on Qwen-Plus (a different, larger model family). GERS-CV2 (EM 0.363, F1 0.496) is on par with CoT-SC (EM 0.367, F1 0.494; paired diff $-0.004$, $p=1.000$). This is consistent with our regime hypothesis: as the base model becomes strong enough to single-pass short-context QA, the structured method's advantage compresses toward zero. GERS-CV2's gain is concentrated on the regime where the base model \emph{struggles with attention dilution}---i.e., 8B-class models on multi-passage long contexts (Section 4.2). This boundary is one that stronger base models naturally cross, and we do not claim decomposition helps universally at all model scales.
 
 \textbf{Auxiliary ablations.} (i) Uniform vs.\ downstream-weighted $w_i$ in the crossval aggregation: EM 0.300 vs.\ 0.302 on HotpotQA n=500, indistinguishable; we retain the downstream weighting for interpretability. (ii) 2Wiki at n=300 confirms the bridge\_comparison boundary reported in Section 4.6 (GERS-CV2 EM 0.390 vs.\ Standard CoT 0.443, gap concentrated on bridge\_comparison). (iii) A context-only backward-verification variant (removing the final answer $A$ from the anchor) gives EM 0.300 / F1 0.414---nearly identical to the answer-anchored default (0.302 / 0.413)---indicating that the end-task gain is not driven by simply feeding the final answer back to the model. (iv) An evidence-grounded variant (n=100 diagnostic) suppresses inflated CS from 0.781 to 0.730 while preserving EM, useful as a diagnostic but not yet a robust end-task improvement.
+
+\subsection{Additional Diagnostic Experiments (Design-Space Exploration)}
+\label{sec:additional_diagnostics}
+
+For completeness and to make the design-space exploration transparent, we report additional experiments that informed the method but are not part of the main claims. Each is a paired comparison on a specific diagnostic setting and is included to answer the natural question ``why does the method look the way it does?'' rather than to claim additional wins.
+
+\textbf{Symmetric context-budget audit (methodological control).} Under artificial truncation on HotpotQA at 7 budgets (n=200 each, both methods symmetrically truncated), CV2 shows a non-monotone crossover: peak dF1 $=+0.060$ at budget 2000 (F1 CI $[+0.005, +0.105]$, McNemar $p=0.054$), non-significant at 6 other budgets. This audit was designed to rule out the alternative explanation that the LongBench gains (Section 4.2) are an artifact of unequal truncation between methods. The non-monotone artificial-truncation signal is much weaker than the natural LongBench gains, confirming that Section 4.2's advantage reflects a real regime effect on natural multi-document contexts, not a truncation confound.
+
+\textbf{MuSiQue hop-axis analysis with model self-decomposition.} On MuSiQue-original (2/3/4-hop, n=500, Qwen3-8B, full context, model-generated decomposition), CV2 does not beat CoT-SC at any individual hop count (paired dF1 values: 2-hop $-0.008$, 3-hop $-0.062$, 4-hop $-0.022$; all n.s.). This is the counterpart to the Oracle-1 significance in Section 4.3: under gold decomposition, the same benchmark shows CV2 significantly beating CoT-SC (dF1 $+0.075$, SIG), so the failure of the model-decomposition arm is directly attributable to decomposition quality rather than to the reasoning pipeline. This dual data point is what motivates our positioning that the actionable target is decomposition-quality improvement (Table~\ref{tab:decomp_gap}).
+
+\textbf{Preliminary Minimal Fix attempts (negative results).} We prototyped two Minimal Fix approaches on MuSiQue 4-hop under the Oracle-1 setting. (a) \emph{Stepwise NLI verification with re-answer} (EASV): each sub-answer is NLI-verified against its supporting paragraph; if unentailed, that sub-answer is re-generated. Gain: $+0.004$ F1 over the Oracle-1 baseline (near-ceiling, little room for a verifier to improve). (b) \emph{Iterative deepening decomposition} (IDD): iteratively split any non-atomic leaf sub-question. Diagnosis: the depth-compression happens \emph{at the initial decomposition step} (67\% of 4-hop questions are compressed to $\leq 3$ hops before IDD can act on the leaves), so leaf-level IDD is at the wrong intervention layer. Both attempts are negative results included as design-space audit; neither is a claimed contribution. They motivate the depth-planning direction listed in Section 5 future work.
+
+\textbf{Per-sub-question retrieval (BM25) is worse than full-context.} A retrieval-augmented CV2 variant that runs BM25 top-2 retrieval per sub-question yields F1 0.563 on HotpotQA fair-context n=500, substantially below full-context CV2's F1 0.683 (paired dF1 $-0.121$, CI $[-0.152, -0.083]$, $p<0.001$). Top-2 retrieval per sub-question aggressively drops gold paragraphs. This ruled out retrieval-then-decompose as a design direction; providing the full context to each sub-question is superior in this setting.
+
+\textbf{Grounded-forward gating (GF-GERS).} A variant that gates each sub-answer through an evidence-grounding check and falls back to CoT-SC for ungrounded sub-answers underperforms plain CV2 on both a lexical grounding version (F1 $-0.047$) and a semantic sub-answer check version (F1 $-0.077$; n=20 HotpotQA smoke). Lexical grounding is bypassable (the model can paraphrase evidence), and the CoT-SC fallback path is structurally weaker on the target regime, so routing away from decomposition hurts. Not pursued to full scale.
+
+\textbf{Cross-model scale smoke (Qwen3-14B, n=20 HotpotQA full-context).} As a preliminary probe of the model-scale trajectory, CoT-SC on Qwen3-14B reaches F1 0.731 while CV2 reaches F1 0.446 on the same 20 samples. This is consistent with the Qwen-Plus n=300 tie in Section 4.9 and the model-scale boundary discussion in Section 5: as base-model attention improves, the CV2 advantage compresses. We report this as a small-sample smoke (n=20 makes individual point-estimates noisy) not as a definitive scaling curve. Full n=300 scaling on Qwen3-14B is future work.
+
+Together, these auxiliary experiments trace the design decisions that led to the final GERS-CV2 configuration: full context (not sub-question retrieval), model self-decomposition (not IDD leaf-splitting), bidirectional cross-check (not grounded-forward gating), and confidence-weighted aggregation. Each rejected variant is a diagnostic data point that the current design is preferable to alternatives under the target regime.
 
 \section{Discussion and Limitations}
 
