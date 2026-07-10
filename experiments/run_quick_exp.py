@@ -37,6 +37,12 @@ NORMALIZERS = {
     "hotpotqa": normalize_hotpotqa_answer,
     "2wikimultihopqa": normalize_2wikimultihopqa_answer,
     "musique": normalize_musique_answer,
+    # LongBench 5 个英文 QA 子集：答案格式与 HotpotQA 类似（短实体/短语），复用其归一化
+    "longbench_narrativeqa": normalize_hotpotqa_answer,
+    "longbench_musique": normalize_hotpotqa_answer,
+    "longbench_multifieldqa_en": normalize_hotpotqa_answer,
+    "longbench_qasper": normalize_hotpotqa_answer,
+    "longbench_2wikimqa": normalize_hotpotqa_answer,
 }
 
 
@@ -125,7 +131,10 @@ def create_method(method_name: str, model, dataset: str = None):
 def main():
     parser = argparse.ArgumentParser(description="快速实验（带超时保护）")
     parser.add_argument("--dataset", type=str, default="gsm8k",
-                        choices=["gsm8k", "hotpotqa", "2wikimultihopqa", "musique"])
+                        choices=["gsm8k", "hotpotqa", "2wikimultihopqa", "musique",
+                                 "longbench_narrativeqa", "longbench_musique",
+                                 "longbench_multifieldqa_en", "longbench_qasper",
+                                 "longbench_2wikimqa"])
     parser.add_argument("--method", type=str, default="gers",
                         choices=["gers", "gers_adaptive", "gers_sc", "gers_sc_cv", "gers_sc_cv2", "gers_adaptive_cv", "gers_adaptive_cv2", "gers_grounded", "gers_grounded_soft", "gf_gers", "gers_cv2_retr", "gers_cv2_fullctx", "gers_repair", "gers_repair_soft", "gers_cv2_uniform", "gers_cv2_ctxonly", "gers_nli", "gers_feedback", "standard_cot", "cot_sc", "cot_sc_gers", "tot", "zero_shot", "modegraph"])
     parser.add_argument("--model", type=str, default="qwen3-8b")

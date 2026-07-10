@@ -426,6 +426,114 @@ def prepare_musique(output_dir: Path, num_samples: int = 500,
     return samples
 
 
+# ─── LongBench ──────────────────────────────────────────────────────────────
+
+def prepare_longbench(output_dir: Path, subset: str, num_samples: int = None):
+    """
+    预处理 LongBench 单个子集（H1 假设验证 —— 真实长文档 crossover 测试）
+
+    LongBench (Bai et al., ACL 2024) 是清华 THUDM 的双语长上下文评测基准，
+    共 21 个子集覆盖 QA/摘要/代码等任务，长度范围 4k-32k+ tokens。
+
+    本项目关注的 5 个英文 QA 子集（H1 验证战场）：
+    - narrativeqa    (n=200, 5-36k tok)   长篇叙事 QA（战场重点）
+    - musique        (n=200, 3-17k tok)   深层多跳 + 长文档
+    - multifieldqa_en(n=150, 0.5-10k tok) 中等长度多领域对照
+    - qasper         (n=200, 1-15k tok)   科学问答
+    - 2wikimqa       (n=200, 0.5-12k tok) 多跳短文（对齐 2Wiki）
+
+    数据来源：本地 data/longbench_raw/data/{subset}.jsonl
+    （HuggingFace THUDM/LongBench data.zip，2026-07-10 已下载）
+
+    输出格式（GERS 统一）：
+    {
+        "id": str,              # LongBench _id (48-char hash)
+        "question": str,        # input 字段
+        "context": str,         # 截断至 2000 chars（GERS 传统字段）
+        "context_full": str,    # 完整上下文（不截断，用于 fullctx 实验）
+        "answer": str,          # answers[0]（LongBench 是 list 但通常单答案）
+        "answers": list,        # 保留全部 gold 答案（LongBench eval 用）
+        "length_tokens": int,   # 官方标注的 token 数（用于分桶）
+        "length_bucket": str,   # "<=4k" / "4-8k" / "8-16k" / "16-32k" / ">32k"
+        "dataset": str,         # subset 名（narrativeqa/musique/...）
+    }
+    """
+    print(f"[LongBench:{subset}] 正在准备...")
+
+    src = Path(f"data/longbench_raw/data/{subset}.jsonl")
+    if not src.exists():
+        # 也尝试脚本相对路径
+        src = Path(__file__).parent / "longbench_raw" / "data" / f"{subset}.jsonl"
+
+    if not src.exists():
+        raise FileNotFoundError(
+            f"未找到 LongBench 子集 {subset}。请先下载：\n"
+            "  python data/download_longbench.py\n"
+            f"  # 期望文件位置: data/longbench_raw/data/{subset}.jsonl"
+        )
+
+    print(f"[LongBench:{subset}] 使用本地文件: {src}")
+
+    samples = []
+    with open(src, encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            item = json.loads(line)
+            if num_samples and len(samples) >= num_samples:
+                break
+
+            question = item.get("input", "")
+            context_full = item.get("context", "")
+            answers = item.get("answers", [])
+            if not answers:
+                continue
+            answer = answers[0] if isinstance(answers, list) else str(answers)
+            if not question or not answer:
+                continue
+
+            length_tok = item.get("length", 0)
+            if length_tok <= 4000:
+                bucket = "<=4k"
+            elif length_tok <= 8000:
+                bucket = "4-8k"
+            elif length_tok <= 16000:
+                bucket = "8-16k"
+            elif length_tok <= 32000:
+                bucket = "16-32k"
+            else:
+                bucket = ">32k"
+
+            samples.append({
+                "id": item.get("_id", str(len(samples))),
+                "question": question,
+                "context": context_full[:2000],
+                "context_full": context_full,
+                "answer": answer,
+                "answers": answers if isinstance(answers, list) else [answer],
+                "length_tokens": length_tok,
+                "length_bucket": bucket,
+                "dataset": subset,
+            })
+
+    out_path = output_dir / f"longbench_{subset}_test.json"
+    with open(out_path, "w", encoding="utf-8") as f:
+        json.dump(samples, f, ensure_ascii=False, indent=2)
+
+    # 统计分桶分布
+    buckets = {}
+    for s in samples:
+        b = s["length_bucket"]
+        buckets[b] = buckets.get(b, 0) + 1
+    order = ["<=4k", "4-8k", "8-16k", "16-32k", ">32k"]
+    buckets_ordered = {b: buckets[b] for b in order if b in buckets}
+
+    print(f"[LongBench:{subset}] 已保存 {len(samples)} 条样本 → {out_path}")
+    print(f"[LongBench:{subset}] 长度分桶: {buckets_ordered}")
+    return samples
+
+
 # ─── 验证数据集完整性 ─────────────────────────────────────────────────────────
 
 def validate_dataset(file_path: Path) -> bool:
@@ -474,6 +582,12 @@ def load_processed_dataset(dataset_name: str,
         "gsm8k": "gsm8k_test.json",
         "2wikimultihopqa": "2wikimultihopqa_test.json",
         "musique": "musique_test.json",
+        # LongBench 5 个英文 QA 子集
+        "longbench_narrativeqa": "longbench_narrativeqa_test.json",
+        "longbench_musique": "longbench_musique_test.json",
+        "longbench_multifieldqa_en": "longbench_multifieldqa_en_test.json",
+        "longbench_qasper": "longbench_qasper_test.json",
+        "longbench_2wikimqa": "longbench_2wikimqa_test.json",
     }
 
     fname = filename_map.get(dataset_name)
@@ -499,6 +613,9 @@ def load_processed_dataset(dataset_name: str,
         return prepare_2wikimultihopqa(data_dir, num_samples or 500)
     elif dataset_name == "musique":
         return prepare_musique(data_dir, num_samples or 500)
+    elif dataset_name.startswith("longbench_"):
+        subset = dataset_name[len("longbench_"):]
+        return prepare_longbench(data_dir, subset, num_samples)
 
 
 # ─── CLI 入口 ─────────────────────────────────────────────────────────────────
@@ -507,7 +624,9 @@ def main():
     parser = argparse.ArgumentParser(description="准备实验数据集")
     parser.add_argument(
         "--dataset", type=str, default="all",
-        choices=["all", "hotpotqa", "gsm8k", "2wikimultihopqa", "musique"],
+        choices=["all", "hotpotqa", "gsm8k", "2wikimultihopqa", "musique",
+                 "longbench_narrativeqa", "longbench_musique", "longbench_multifieldqa_en",
+                 "longbench_qasper", "longbench_2wikimqa", "longbench_all"],
         help="要准备的数据集名称，all=全部",
     )
     parser.add_argument(
@@ -527,11 +646,15 @@ def main():
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    datasets_to_prepare = (
-        ["hotpotqa", "gsm8k", "2wikimultihopqa", "musique"]
-        if args.dataset == "all"
-        else [args.dataset]
-    )
+    if args.dataset == "all":
+        datasets_to_prepare = ["hotpotqa", "gsm8k", "2wikimultihopqa", "musique"]
+    elif args.dataset == "longbench_all":
+        datasets_to_prepare = [
+            "longbench_narrativeqa", "longbench_musique",
+            "longbench_multifieldqa_en", "longbench_qasper", "longbench_2wikimqa"
+        ]
+    else:
+        datasets_to_prepare = [args.dataset]
 
     for ds_name in datasets_to_prepare:
         print(f"\n{'='*50}")
@@ -546,6 +669,10 @@ def main():
                 prepare_2wikimultihopqa(output_dir, args.num_samples)
             elif ds_name == "musique":
                 prepare_musique(output_dir, args.num_samples)
+            elif ds_name.startswith("longbench_"):
+                subset = ds_name[len("longbench_"):]
+                # LongBench 子集 n 较小（150-200），不强制截断
+                prepare_longbench(output_dir, subset, args.num_samples if args.num_samples < 200 else None)
         except Exception as e:
             print(f"[错误] {ds_name} 准备失败: {e}")
             continue
@@ -557,7 +684,11 @@ def main():
                 "2wikimultihopqa": "2wikimultihopqa_test.json",
                 "musique": "musique_test.json",
             }
-            validate_dataset(output_dir / fname_map[ds_name])
+            if ds_name.startswith("longbench_"):
+                subset = ds_name[len("longbench_"):]
+                validate_dataset(output_dir / f"longbench_{subset}_test.json")
+            elif ds_name in fname_map:
+                validate_dataset(output_dir / fname_map[ds_name])
 
     print("\n数据准备完成！")
 

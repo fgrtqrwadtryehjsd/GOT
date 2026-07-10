@@ -30,6 +30,26 @@ data/musique_raw/
 
 # 临时实验结果（smoke 验证用，不提交）
 experiments/results/smoke/
+experiments/results/*_smoke/
+experiments/results/*_smoke_*/
+experiments/results/b_smoke_*/
+experiments/results/gf_gers_*_smoke/
+experiments/results/gf_gers_smoke_*/
+experiments/results/musique_smoke_*/
+experiments/results/oracle_smoke/
+experiments/results/p3_qwen*_smoke/
+
+# 后台任务的运行时状态与日志（不入库，只是进程管理产物）
+experiments/results/_active_pids.json
+experiments/results/_wait_wrapper_*.txt
+experiments/results/**/_run_log*.txt
+experiments/results/**/_err_log*.txt
+experiments/results/**/_extend_cot_sc_hop4_*.txt
+experiments/results/**/_cot_sc_n200_*.txt
+experiments/results/**/_run_log_n200.txt
+
+# 本地临时改进笔记（用户手动维护，不入 CI）
+GOT_improve.md
 
 # 环境变量
 .env

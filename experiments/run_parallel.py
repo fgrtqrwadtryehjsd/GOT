@@ -55,6 +55,12 @@ NORMALIZERS = {
     "hotpotqa": normalize_hotpotqa_answer,
     "2wikimultihopqa": normalize_2wikimultihopqa_answer,
     "musique": normalize_musique_answer,
+    # LongBench 5 个英文 QA 子集：答案格式与 HotpotQA 类似（短实体/短语），复用其归一化
+    "longbench_narrativeqa": normalize_hotpotqa_answer,
+    "longbench_musique": normalize_hotpotqa_answer,
+    "longbench_multifieldqa_en": normalize_hotpotqa_answer,
+    "longbench_qasper": normalize_hotpotqa_answer,
+    "longbench_2wikimqa": normalize_hotpotqa_answer,
 }
 
 
@@ -268,7 +274,10 @@ def run_method(method_name: str, samples: list, model, dataset: str,
 def main():
     parser = argparse.ArgumentParser(description="多线程并行实验 runner")
     parser.add_argument("--dataset", type=str, default="hotpotqa",
-                        choices=["gsm8k", "hotpotqa", "2wikimultihopqa", "musique"])
+                        choices=["gsm8k", "hotpotqa", "2wikimultihopqa", "musique",
+                                 "longbench_narrativeqa", "longbench_musique",
+                                 "longbench_multifieldqa_en", "longbench_qasper",
+                                 "longbench_2wikimqa"])
     parser.add_argument("--methods", type=str, default="gers_adaptive,standard_cot,cot_sc,cot_sc_gers,zero_shot",
                         help="逗号分隔的方法名（见 run_quick_exp.create_method）")
     parser.add_argument("--model", type=str, default="qwen3-8b")
