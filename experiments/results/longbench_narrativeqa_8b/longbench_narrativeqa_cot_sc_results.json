@@ -1,0 +1,1493 @@
+{
+  "summary": {
+    "method": "cot_sc",
+    "dataset": "longbench_narrativeqa",
+    "num_samples": 100,
+    "avg_em": 0.0506,
+    "avg_f1": 0.2335,
+    "avg_latency": 19.9486,
+    "error_count": 21,
+    "workers": 4
+  },
+  "results": [
+    {
+      "sample_id": 0,
+      "question": "What is Saltram's living situation?",
+      "prediction": "ledon where he is cared for and supported by them",
+      "reference": "He is a guest in the home of the Mulvilles.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.2105263157894737,
+        "token_count": 189,
+        "latency": 26.643954038619995
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Frank Saltram's living situation involves him being a guest at the Mulvilles' home in Wimbledon, where he is cared for and supported by them. He does not have a stable or conventional living arrangement, as he is described as someone who relies on the kindness of others and is often in need of financial and emotional support. His presence at the Mulvilles' home is significant, as they provide him with shelter, meals, and a sense of belonging, despite his flaws and shortcomings. However, his living situation is also marked by a lack of independence, as he is dependent on their generosity and is"
+    },
+    {
+      "sample_id": 1,
+      "question": "Why does Ann not return Mary's feelings of affection?",
+      "prediction": "ann does not return mary s feelings of affection because she is devoted to her b",
+      "reference": "Because she is in unrequited love with someone else",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.24000000000000005,
+        "token_count": 49,
+        "latency": 16.841639757156372
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Final Answer: Ann does not return Mary's feelings of affection because she is devoted to her brother and does not reciprocate Mary's love, which is unrequited and ultimately leads to her heartbreak."
+    },
+    {
+      "sample_id": 2,
+      "question": "Where does the witch live?",
+      "prediction": "atlas mountain within a cavern",
+      "reference": "The Atlas Mountains",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.25,
+        "token_count": 36,
+        "latency": 5.746490001678467
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The witch lives on Atlas' mountain within a cavern, by a secret fountain. \n\nFinal Answer: Atlas' mountain within a cavern, by a secret fountain."
+    },
+    {
+      "sample_id": 3,
+      "question": "What was the purpose of Crito's visit?",
+      "prediction": "the purpose of crito s visit",
+      "reference": "To smuggle Socrates out of prison and into a life of exile.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.11764705882352942,
+        "token_count": 19,
+        "latency": 4.881123781204224
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The purpose of Crito's visit was to persuade Socrates to escape from prison."
+    },
+    {
+      "sample_id": 4,
+      "question": "Why didn't Baron Henry just kill Otto instead of cutting his hand off?",
+      "prediction": "otto of the silver hand",
+      "reference": "Otto was so young.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.22222222222222224,
+        "token_count": 370,
+        "latency": 29.616533756256104
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The story of Otto of the Silver Hand is a tale of bravery, resilience, and the triumph of good over evil. It begins with Otto, a young boy who is taken from his peaceful life at the monastery to live in the castle of Baron Conrad, a ruthless robber baron. Otto's life takes a dark turn when he is captured by Baron Henry of Trutz-Drachen, who seeks revenge for the death of his uncle at the hands of Baron Conrad. Otto is imprisoned and nearly dies, but is eventually rescued by One-eyed Hans, a loyal servant of Baron Conrad. With the help of Hans, Otto escapes and is reunited with his father, who "
+    },
+    {
+      "sample_id": 5,
+      "question": "How long had Mortimer Trefinnis' sister been dead when the doctor examined the body?",
+      "prediction": "six hours",
+      "reference": "Six hours.",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 69,
+        "latency": 13.6210196018219
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To determine how long Mortimer Tregennis' sister had been dead when the doctor examined the body, we need to look at the relevant part of the text:\n\n- The doctor said, \"Brenda must have been dead at least six hours.\"\n\nTherefore, the answer is:\n\nFinal Answer: at least six hours"
+    },
+    {
+      "sample_id": 6,
+      "question": "With whom does the entertainers' manager have an affair?",
+      "prediction": "the entertainers manager",
+      "reference": "Lisa, the blacksmith's wife.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.28571428571428575,
+        "token_count": 21,
+        "latency": 34.192559242248535
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The entertainers' manager, Jons, has an affair with the girl from the deserted village."
+    },
+    {
+      "sample_id": 7,
+      "question": "Who is the first person that falls under Vigo's spell?",
+      "prediction": "the first person to fall under vigo s spell",
+      "reference": "Dr. Janosz Poha",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 14,
+        "latency": 43.66496133804321
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The first person to fall under Vigo's spell is Janosz Poha."
+    },
+    {
+      "sample_id": 8,
+      "question": "What nationality is Ruth Anvoy?",
+      "prediction": "ruth anvoy",
+      "reference": "She is an American.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 2,
+        "latency": 22.648253917694092
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Ruth Anvoy"
+    },
+    {
+      "sample_id": 9,
+      "question": "Who did the Witch want to have reveal their own lies?",
+      "prediction": "human figures",
+      "reference": "The scribe.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 23,
+        "latency": 3.731214761734009
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The Witch wanted to have the human figures reveal their own lies. \n\nFinal Answer: human figures"
+    },
+    {
+      "sample_id": 10,
+      "question": "Why do the bosses of Wilma's gang believe that Anthony Rogers will be useful to them in the current ",
+      "prediction": "his knowledge of advanced technology and tactics from the 20th century along wi",
+      "reference": "Because he fought in the first world war.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.09523809523809525,
+        "token_count": 149,
+        "latency": 29.934640645980835
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The bosses of Wilma's gang believe that Anthony Rogers will be useful to them in the current conflict because he has knowledge of advanced technology and tactics from the 20th century, which can be used to counter the Han forces. His ability to destroy a Han airship using a rocket aimed at the repellor beam demonstrates his strategic thinking and technical skill, making him a valuable asset in their fight against the Hans.\n\nFinal Answer: His knowledge of advanced technology and tactics from the 20th century, along with his successful destruction of a Han airship, makes him a valuable asset."
+    },
+    {
+      "sample_id": 11,
+      "question": "Which descriptions of the future world does Soames provide upon his return?",
+      "prediction": "a sanitized",
+      "reference": "ones that are vague",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 152,
+        "latency": 18.717965602874756
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The descriptions of the future world that Soames provides upon his return include a detailed account of the British Museum's reading-room in the year 1997, where he observes people dressed in sanitary woolen uniforms, with numbers on their arms, and a utopian atmosphere filled with a strong smell of carbolic acid. He describes the people as hairless and well-cared for, and notes that they stare at him and follow him around, indicating a sense of fear or curiosity. Soames also mentions the presence of a \"Dictionary of National Biography\" and a book by T. K. Nupton, which references his existenc"
+    },
+    {
+      "sample_id": 12,
+      "question": "How long after Madame de Merret dies before people are allowed inter manor?",
+      "prediction": "fifty years",
+      "reference": "50 years",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5,
+        "token_count": 134,
+        "latency": 18.20696759223938
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To determine how long after Madame de Merret's death people are allowed to enter La Grande Breteche, we need to consider the terms of her will. \n\nMadame de Merret left instructions in her will that La Grande Breteche should remain in its state at the time of her death for fifty years. During this period, no one was allowed to enter the apartments, and no repairs were permitted. After fifty years, if the will's conditions were fulfilled, the house would become the property of the notary's heirs.\n\nTherefore, the answer is:\n\n50 years"
+    },
+    {
+      "sample_id": 13,
+      "question": "Who doe the Vervelle couple believe Grassou is the perfect match for?",
+      "prediction": "virginie vervelle",
+      "reference": "Their daughter, Virgine. ",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 30,
+        "latency": 5.902387857437134
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The Vervelle couple believe Grassou is the perfect match for their daughter, Virginie. \n\nFinal Answer: Virginie Vervelle"
+    },
+    {
+      "sample_id": 14,
+      "question": "Who does Vervelle want his daughter to marry?",
+      "prediction": "pierre grassou",
+      "reference": "Grassou",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.6666666666666666,
+        "token_count": 89,
+        "latency": 9.413279294967651
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The question asks who Vervelle wants his daughter to marry. From the context provided, it is clear that Vervelle is interested in Pierre Grassou as a potential son-in-law. The narrative details how Vervelle and his family are impressed by Grassou's talent and his financial stability, leading them to consider him for marriage.\n\nFinal Answer: Pierre Grassou"
+    },
+    {
+      "sample_id": 15,
+      "question": "How does the slime get into Dana's apartment?",
+      "prediction": "the slime enters dana s apartment through the sewer system after being disturbed",
+      "reference": "The slime gets into Dana's apartment from the bathtub.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3,
+        "token_count": 223,
+        "latency": 36.818819999694824
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The slime gets into Dana's apartment when it is accidentally released from the sewer system and flows through the city, eventually reaching her apartment. The slime is connected to the ancient and malevolent entity Vigo the Carpathian, who is trapped in a painting at the museum. The slime is psychoreactive and responds to human emotions, which allows it to move and spread throughout the city. When the Ghostbusters investigate, they discover that the slime is coming from the Van Horne Station, an old subway tunnel beneath the city. They trace the slime back to the museum, where it is connected "
+    },
+    {
+      "sample_id": 16,
+      "question": "What does Elder Childers argue?",
+      "prediction": "elieves he can law them from genesis to revelation",
+      "reference": "That a mule bone is very powerful and can be a weapon.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.09999999999999999,
+        "token_count": 89,
+        "latency": 14.757099628448486
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Elder Childers argues that the trial of Jim Weston for assault and battery on Dave Carter should be addressed through the Bible, from Genesis to Revelation, and he believes he can law them from Genesis to Revelation. He is confident in his ability to defend Jim and is determined to ensure justice is served according to his interpretation of religious texts."
+    },
+    {
+      "sample_id": 17,
+      "question": "Why do the bosses of Wilma's gang believe that Anthony Rogers will be useful to them in the current ",
+      "prediction": "his knowledge of advanced technology and tactics from the 20th century",
+      "reference": "Anthony Rogers has previous wartime and combatant experience.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.10526315789473685,
+        "token_count": 130,
+        "latency": 15.137178182601929
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The bosses of Wilma's gang believe that Anthony Rogers will be useful to them in the current conflict because he has knowledge of advanced technology and tactics from the 20th century, which can be applied to improve their strategies against the Hans. His unique perspective and experience with the disintegrator rays and rocket technology provide valuable insights that could help the gang in their fight for survival and independence.\n\nFinal Answer: His knowledge of advanced technology and tactics from the 20th century."
+    },
+    {
+      "sample_id": 18,
+      "question": "What does Reiko see in the photograph that her ex-husband takes of her after she has seen the tape?",
+      "prediction": "",
+      "reference": "Her face is blurry",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 13.252449750900269
+      },
+      "method": "cot_sc",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 19,
+      "question": "How many ethical arguments does Socrates propose?",
+      "prediction": "5",
+      "reference": "Two",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 279,
+        "latency": 19.160848140716553
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The text provides a detailed dialogue between Socrates and Crito, where Socrates discusses the ethical implications of escaping from prison. Socrates presents several ethical arguments, including the importance of following reason over the opinions of the many, the value of a just and honorable life over mere survival, and the moral obligation to adhere to agreements with the laws of the state.\n\nStep-by-step analysis:\n1. **Reason over opinion**: Socrates emphasizes that he should follow the dictates of reason rather than the opinions of the many.\n2. **Value of a good life**: He argues that a g"
+    },
+    {
+      "sample_id": 20,
+      "question": "Why was Mortimer Trefinnis once estranged from his siblings?",
+      "prediction": "he division of money from their tin mining venture",
+      "reference": "because of the division of proceeds from selling the family business.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3333333333333333,
+        "token_count": 107,
+        "latency": 9.35878610610962
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The reason Mortimer Tregennis was estranged from his siblings was due to a family quarrel over the division of money from their tin-mining venture. This dispute had caused tension within the family, though it was eventually forgiven and forgotten. However, the underlying bitterness may have contributed to the tragic events that followed. \n\nFinal Answer: A family quarrel over the division of money from their tin-mining venture."
+    },
+    {
+      "sample_id": 21,
+      "question": "What year is it when Anthony Rogers finally disembarks from the coal mine?",
+      "prediction": "",
+      "reference": "2419.",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 18.175731658935547
+      },
+      "method": "cot_sc",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 22,
+      "question": "Why did Bill run to Texas?",
+      "prediction": "bill ran to texas to escape the situation with chuck and to provide a better lif",
+      "reference": "he murdered someone",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 387,
+        "latency": 102.9942090511322
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question \"Why did Bill run to Texas?\" we need to analyze the context provided in the script of the film *Days of Heaven* by Terrence Malick.\n\n### Step-by-Step Analysis:\n\n1. **Setting**: The story is set in Texas just before World War I, which provides the backdrop for the narrative.\n\n2. **Characters**: Bill is a young man from Chicago who comes to Texas with other harvest workers. He is described as handsome and ambitious, and he has a close relationship with Abby, a woman he loves.\n\n3. **Conflict and Motivation**:\n   - Bill and Abby are both working on a ranch owned by Chuck, wh"
+    },
+    {
+      "sample_id": 23,
+      "question": "Who does Socrates compare going against the law to?",
+      "prediction": "socrates compares going against the law to injuring one s parents",
+      "reference": "Your parents",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.15384615384615385,
+        "token_count": 16,
+        "latency": 3.6546218395233154
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Socrates compares going against the law to injuring one's parents."
+    },
+    {
+      "sample_id": 24,
+      "question": "What relation to Ruth Anvoy is Lady Coxon?",
+      "prediction": "lady coxon is ruth anvoy s aunt",
+      "reference": "Lady Coxon is Ruth's aunt.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.6666666666666666,
+        "token_count": 8,
+        "latency": 22.697356700897217
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Lady Coxon is Ruth Anvoy's aunt."
+    },
+    {
+      "sample_id": 25,
+      "question": "What is Reiko's job?",
+      "prediction": "",
+      "reference": "Reiko is a reporter.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 12.871518611907959
+      },
+      "method": "cot_sc",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 26,
+      "question": "Why does Socrates ultimately decide it is unjust to escape?",
+      "prediction": "socrates believes escaping would be an act of injustice and a violation of the s",
+      "reference": "Because it violates his belief in the  laws of society.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.16666666666666666,
+        "token_count": 173,
+        "latency": 10.872484922409058
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Socrates ultimately decides it is unjust to escape because he believes in upholding the principles of justice and the agreements he made with the laws of Athens. He argues that escaping would be an act of injustice, as it would involve breaking the social contract and retaliating against the state that raised and educated him. Furthermore, he fears that escaping would harm his friends and children, and would make him an enemy of both the laws of Athens and the laws of the afterlife. Therefore, Socrates chooses to accept his fate and remain faithful to his principles.\n\nFinal Answer: Because he "
+    },
+    {
+      "sample_id": 27,
+      "question": "How is Drexl killed?",
+      "prediction": "",
+      "reference": "he is shot",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 40.1596314907074
+      },
+      "method": "cot_sc",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 28,
+      "question": "What did Anvoy do with the letter once she received it?",
+      "prediction": "anvoy kept the letter and eventually burned it unread after saltram s death",
+      "reference": "She declined to read it.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.1111111111111111,
+        "token_count": 19,
+        "latency": 13.672536134719849
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Anvoy kept the letter and eventually burned it unread after Saltram's death."
+    },
+    {
+      "sample_id": 29,
+      "question": "What was the description of the teens faces when they died?",
+      "prediction": "",
+      "reference": "Twisted in fear",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 12.243001699447632
+      },
+      "method": "cot_sc",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 30,
+      "question": "Why does Soames get upset with Beerbohm?",
+      "prediction": "because soames believes beerbohm s essay",
+      "reference": "Beerbohm wrote a fictional story about Soames.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.30769230769230765,
+        "token_count": 143,
+        "latency": 16.83105206489563
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Soames gets upset with Beerbohm because he believes that Beerbohm's essay about him, which is mentioned in the book by T. K. Nupton, is a mockery of his work and life, and it undermines his self-perception as a serious artist. Soames feels that Beerbohm, who he thinks is an unqualified critic, has portrayed him as a ridiculous figure, which deeply offends him. This leads to Soames expressing his anger and disappointment towards Beerbohm.\n\nFinal Answer: Because Soames believes Beerbohm's essay mocks his work and life, undermining his self-perception as a serious artist."
+    },
+    {
+      "sample_id": 31,
+      "question": "How many days do viewers of the tape have to live after they watch it?",
+      "prediction": "",
+      "reference": "Seven days",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 15.308748245239258
+      },
+      "method": "cot_sc",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 32,
+      "question": "Who does not see death in the end?",
+      "prediction": "is the knight",
+      "reference": "all but Jof and the Juggler",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.2222222222222222,
+        "token_count": 8,
+        "latency": 22.691527128219604
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The final answer is: The Knight."
+    },
+    {
+      "sample_id": 33,
+      "question": "When Mary was younger, how did her mother fill her free time?",
+      "prediction": "reading novels",
+      "reference": "she was obsessed with novels.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.28571428571428575,
+        "token_count": 130,
+        "latency": 19.94923710823059
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "When Mary was younger, her mother filled her free time by reading novels and engaging in idle activities like watching her dogs and attending to her appearance. She also had a habit of sending for new publications and reading them while dressing her hair. Her mother's free time was largely spent in a state of indolence and superficial entertainment, which contrasted with Mary's more introspective and studious nature. \n\nFinal Answer: Reading novels and idle activities like watching dogs and attending to her appearance."
+    },
+    {
+      "sample_id": 34,
+      "question": "What attratcs men to Anderson?",
+      "prediction": "the virus",
+      "reference": "HER BEAUTY",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 19,
+        "latency": 4.559428453445435
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Final Answer: The virus was neutralized by microorganisms from alien plants."
+    },
+    {
+      "sample_id": 35,
+      "question": "Why was Falder worried about Ruth?",
+      "prediction": "because he loved her and",
+      "reference": "Her husband abused her",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.25,
+        "token_count": 121,
+        "latency": 23.029176950454712
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Falder was worried about Ruth because he loved her and was afraid that she might leave him or be harmed by her abusive husband. He was also worried about their future together and the possibility of being separated due to his criminal record and her marital status. Additionally, Falder was concerned about the potential consequences of their relationship, including social stigma and legal issues.\n\nFinal Answer: Because he loved her and was worried about their future and her safety."
+    },
+    {
+      "sample_id": 36,
+      "question": "How did Bill die?",
+      "prediction": "bill was shot by benson",
+      "reference": "He is killed by police.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.20000000000000004,
+        "token_count": 347,
+        "latency": 102.32815718650818
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To determine how Bill died, we need to trace the events leading up to his death in the context of the film \"Days of Heaven\" by Terrence Malick.\n\n1. **Background and Conflict**: Bill is a young man from Chicago who comes to Texas to work on a wheat ranch. He meets Abby, and they fall in love. However, Bill is also in love with Abby's sister, Ursula, which creates tension in their relationship.\n\n2. **Conflict with Chuck**: Chuck, the owner of the ranch, becomes suspicious of Bill's relationship with Abby. Bill's actions, including his flirtation with Ursula, lead to increasing tension.\n\n3. **Esc"
+    },
+    {
+      "sample_id": 37,
+      "question": "Why are Holmes and Dr. Watson in Cornwall?",
+      "prediction": "cornwall",
+      "reference": "For Holmes' health.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 82,
+        "latency": 13.261136531829834
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The Adventure of the Devil's Foot is a Sherlock Holmes story. The story revolves around a mysterious and terrifying event in Cornwall, where a family is affected by a strange poison. The narrative explores the investigation led by Sherlock Holmes and Dr. Watson to uncover the truth behind the incident. \n\nFinal Answer: Cornwall"
+    },
+    {
+      "sample_id": 38,
+      "question": "What ghost emerged from a painting at Dana's workplace?",
+      "prediction": "vigo the carpathian",
+      "reference": "Vigo",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5,
+        "token_count": 30,
+        "latency": 45.4093873500824
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The ghost that emerged from the painting at Dana's workplace is Vigo the Carpathian. \n\nFinal Answer: Vigo the Carpathian"
+    },
+    {
+      "sample_id": 39,
+      "question": "How is Mary initially educated?",
+      "prediction": "tation of a large fortune becoming a mere machine",
+      "reference": "Nature and books",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 104,
+        "latency": 18.055452823638916
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Mary was initially educated with the expectation of a large fortune, becoming a mere machine. She received no substantial education and was raised in a superficial manner, focusing on appearances and social graces rather than intellectual or moral development. Her education was limited to what was expected of a fashionable young woman of her time, without any significant effort to cultivate her mind or character."
+    },
+    {
+      "sample_id": 40,
+      "question": "Where does the slime attack Dana and Oscar?",
+      "prediction": "the slime attacks dana and oscar at the museum",
+      "reference": "museum",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.2222222222222222,
+        "token_count": 11,
+        "latency": 23.03548002243042
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The slime attacks Dana and Oscar at the museum."
+    },
+    {
+      "sample_id": 41,
+      "question": "Who made the original cursed videotape?",
+      "prediction": "",
+      "reference": "Sadako Yamamura made the tape psionically.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 13.265450477600098
+      },
+      "method": "cot_sc",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 42,
+      "question": "Where does this story take place?",
+      "prediction": "the story takes place in the prison of socrates",
+      "reference": "In Socrates Cell?",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.36363636363636365,
+        "token_count": 22,
+        "latency": 3.70749831199646
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The story takes place in the prison of Socrates. \n\nFinal Answer: The prison of Socrates."
+    },
+    {
+      "sample_id": 43,
+      "question": "How did Shizuko Yamamura die?",
+      "prediction": "",
+      "reference": "She committed suicide.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 12.825284242630005
+      },
+      "method": "cot_sc",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 44,
+      "question": "Why did Bennett Landsmann need to defend Seth Lazurus in court?",
+      "prediction": "to combat the spread of chlorophage on altaira using microorganisms found in bot",
+      "reference": "because he's a lawyer",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 356,
+        "latency": 24.44521403312683
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The story revolves around the discovery of chlorophage, a deadly virus that can consume both plant chlorophyll and animal hemoglobin. Kathy Brand, a young girl, is revealed to have been kept in an aseptic environment on the planet Kamerun by her father, who was trying to survive the virus. She was later transported to Altaira and then aboard the spaceship *Star Queen*. \n\nDoctor Nordenfeld, the ship's doctor, becomes suspicious of Kathy after noticing signs of chlorophage in the air room plants. He isolates Kathy in a hospital compartment and sets up a sterilization system to protect himself an"
+    },
+    {
+      "sample_id": 45,
+      "question": "Which remarkable habit did Enoch Soames demonstrate with regard to choice of clothing?",
+      "prediction": "wearing a soft black hat and a gray waterproof cape",
+      "reference": "always wore a grey waterproof cape and a soft black hat",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.7368421052631577,
+        "token_count": 97,
+        "latency": 11.890757322311401
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The remarkable habit Enoch Soames demonstrated with regard to the choice of clothing was his consistent wearing of a soft black hat of clerical kind, but of Bohemian intention, and a gray waterproof cape. This attire was notable for its lack of romantic appeal and its association with his dim and unremarkable appearance. \n\nFinal Answer: Wearing a soft black hat and a gray waterproof cape."
+    },
+    {
+      "sample_id": 46,
+      "question": "Who did Baron Conrad kill?",
+      "prediction": "baron conrad killed baron frederick of trutz drachen",
+      "reference": "Baron Frederick",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4444444444444445,
+        "token_count": 13,
+        "latency": 16.917463064193726
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Baron Conrad killed Baron Frederick of Trutz-Drachen."
+    },
+    {
+      "sample_id": 47,
+      "question": "How is Mary initially educated?",
+      "prediction": "tation of a large fortune becoming a mere machine",
+      "reference": "She educates herself using books and the natural world.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 103,
+        "latency": 18.599831581115723
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Mary was initially educated with the expectation of a large fortune, becoming a mere machine. She received no substantial education and was raised in a superficial manner, focusing on appearances and social graces rather than intellectual or moral development. Her education was limited to what was expected of a fashionable young woman of her time, without any serious effort to cultivate her mind or character."
+    },
+    {
+      "sample_id": 48,
+      "question": "What religion supported Dave during Jim's trial?",
+      "prediction": "the religion that supported dave during jim s trial was the baptist",
+      "reference": "The Baptist's supported Dave. ",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.39999999999999997,
+        "token_count": 17,
+        "latency": 9.009261131286621
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The religion that supported Dave during Jim's trial was the Baptist."
+    },
+    {
+      "sample_id": 49,
+      "question": "Who does Vane write about in her letter?",
+      "prediction": "evelyn vane",
+      "reference": "Louis Leverett",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 7,
+        "latency": 7.057529926300049
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Vane\n\nFinal Answer: Evelyn Vane"
+    },
+    {
+      "sample_id": 50,
+      "question": "What are some important themes mentioned in this story?",
+      "prediction": "the important themes mentioned in the story include revenge the contrast betwee",
+      "reference": "Be responsible,keep your word and be wise and peaceful.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 52,
+        "latency": 20.84806728363037
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The important themes mentioned in the story include revenge, the contrast between good and evil, the power of kindness and mercy, the impact of war and violence, and the importance of faith and moral integrity."
+    },
+    {
+      "sample_id": 51,
+      "question": "What happens to Tomoko?",
+      "prediction": "",
+      "reference": "Tomoko reveals that they watched a video tape with several friends a week ago and received a strange call after watching it. Tomoko is killed while Masami watches.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 14.673862934112549
+      },
+      "method": "cot_sc",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 52,
+      "question": "What was the description of the teens faces when they died?",
+      "prediction": "",
+      "reference": "Their faces twisted in fear.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 1.8441662788391113
+      },
+      "method": "cot_sc",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 53,
+      "question": "Who was the final raid in the story on?",
+      "prediction": "the sinsings",
+      "reference": "The Sinsings",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 82,
+        "latency": 22.138272523880005
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The final raid in the story was the attack on the Sinsings, a traitorous gang that had been providing information to the Hans. This raid was a decisive action taken by the Wyomings and other American gangs to eliminate the Sinsings and prevent them from continuing their collaboration with the Hans.\n\nFinal Answer: The Sinsings."
+    },
+    {
+      "sample_id": 54,
+      "question": "Who leaves Chicago with him?",
+      "prediction": "abby",
+      "reference": "His girlfriend Abby and her sister Linda.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.25,
+        "token_count": 104,
+        "latency": 46.471059799194336
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question \"Who leaves Chicago with him?\" we need to identify who leaves Chicago with Bill. \n\nFrom the context, it is clear that Bill is a young man from Chicago who leaves with his brother Steve and others in search of work during harvest time. However, the key detail is that Bill leaves Chicago with his sister Abby. They both leave Chicago together as they travel to Texas for work.\n\nFinal Answer: Abby"
+    },
+    {
+      "sample_id": 55,
+      "question": "What do the Ghostbusters do to stop an argument between Ray and Winston?",
+      "prediction": "they use the slime to neutralize the psychic energy stopping the supernatural t",
+      "reference": "Take their clothes off",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 101,
+        "latency": 29.62601923942566
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The Ghostbusters stop the argument between Ray and Winston by using the slime to neutralize the psychic energy from Vigo's painting, which was causing the supernatural events. They manage to capture Vigo and save Dana's baby, thus resolving the conflict and restoring peace. \n\nFinal Answer: They use the slime to neutralize the psychic energy, stopping the supernatural events and resolving the conflict."
+    },
+    {
+      "sample_id": 56,
+      "question": "What does Frank Saltram do for work?",
+      "prediction": "and ability to captivate audiences with his talks",
+      "reference": "He does not work.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 88,
+        "latency": 18.163493871688843
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Frank Saltram is a philosopher and intellectual figure known for his extraordinary mind and ability to captivate audiences with his talks. He is portrayed as a man of great intellect but also one with personal flaws and a lack of conventional dignity. He is supported by the Mulvilles and others who are drawn to his brilliance, despite his shortcomings."
+    },
+    {
+      "sample_id": 57,
+      "question": "Who did Ruth Honeywill plan to escape with?",
+      "prediction": "william falder",
+      "reference": "Falder",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.6666666666666666,
+        "token_count": 212,
+        "latency": 38.416961669921875
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To determine who Ruth Honeywill planned to escape with, we need to look at the context provided in the play.\n\n1. **Contextual Clues**: The play revolves around William Falder, a clerk who alters a cheque and is later convicted of forgery. Ruth Honeywill is a woman who is involved with Falder.\n   \n2. **Relationship and Plans**: Ruth is described as being in a relationship with Falder. She is portrayed as being in a difficult marriage and seeks escape from her husband. She plans to leave with Falder to start a new life.\n\n3. **Escape Plan**: There are multiple references to their plan to escape. "
+    },
+    {
+      "sample_id": 58,
+      "question": "What Medical school does Laura attend?",
+      "prediction": "unknown",
+      "reference": "Laura attends Harvard Medical school.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 26,
+        "latency": 5.197820425033569
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The story does not explicitly state which medical school Laura attends. Therefore, the answer is:\n\nUnknown"
+    },
+    {
+      "sample_id": 59,
+      "question": "What gift did the mayor give to the Ghostbusters?",
+      "prediction": "a new statue of liberty",
+      "reference": "key to the city",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 26,
+        "latency": 26.831006288528442
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The mayor gave the Ghostbusters a gift of a new statue of liberty. \n\nFinal Answer: a new statue of liberty"
+    },
+    {
+      "sample_id": 60,
+      "question": "Who does the Witch create?",
+      "prediction": "a living image",
+      "reference": "Hermaphroditus.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 16,
+        "latency": 5.021046161651611
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The Witch creates a living Image. \n\nFinal Answer: A living Image."
+    },
+    {
+      "sample_id": 61,
+      "question": "Where did the lover hide?",
+      "prediction": "the closet of madame de merret s room",
+      "reference": "In a closet.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.18181818181818182,
+        "token_count": 27,
+        "latency": 8.702063798904419
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The lover hid in the closet of Madame de Merret's room. \n\nFinal Answer: the closet of Madame de Merret's room."
+    },
+    {
+      "sample_id": 62,
+      "question": "Who greeted Jacob in his apartment after Jacob finally came to terms with his military ordeal?",
+      "prediction": "",
+      "reference": "His son Gabe",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 39.57690215110779
+      },
+      "method": "cot_sc",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 63,
+      "question": "Where were Jim and Dave from?",
+      "prediction": "eatonville florida",
+      "reference": "Eatonville",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.6666666666666666,
+        "token_count": 8,
+        "latency": 8.670838832855225
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Jim and Dave were from Eatonville."
+    },
+    {
+      "sample_id": 64,
+      "question": "Who discovered the Tregennis siblings the morning after the tragedy?",
+      "prediction": "the tregennis siblings were discovered by dr",
+      "reference": "The housekeeper",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.22222222222222224,
+        "token_count": 22,
+        "latency": 5.802795648574829
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The Tregennis siblings were discovered by Dr. Leon Sterndale the morning after the tragedy."
+    },
+    {
+      "sample_id": 65,
+      "question": "Who killed Jacob?",
+      "prediction": "no one",
+      "reference": "One of his fellow soldiers.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.28571428571428575,
+        "token_count": 117,
+        "latency": 45.55672550201416
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The question is asking who killed Jacob. In the movie \"Jacob's Ladder,\" the narrative explores Jacob's experiences with demons and his eventual journey to a higher state of being. However, there is no explicit mention of anyone killing Jacob in a literal sense. The story focuses more on his psychological and spiritual journey rather than a physical murder.\n\nFinal Answer: No one kills Jacob; he dies as a result of his own internal struggle and the events of the film."
+    },
+    {
+      "sample_id": 66,
+      "question": "What is Landsmann's ultimate profession?",
+      "prediction": "doctor",
+      "reference": "A lawyer",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 5,
+        "latency": 4.367913722991943
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Final Answer: Doctor"
+    },
+    {
+      "sample_id": 67,
+      "question": "What does Gravener want Ruth to do with the money?",
+      "prediction": "use the money for frank saltram",
+      "reference": "Keep it to buy a house ",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 57,
+        "latency": 27.916799783706665
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The question is asking what Gravener wants Ruth to do with the money. From the context, it is clear that Gravener wants Ruth to use the money from The Coxon Fund for Frank Saltram. \n\nFinal Answer: Use the money for Frank Saltram."
+    },
+    {
+      "sample_id": 68,
+      "question": "To whom does Miranda write her letters?",
+      "prediction": "her mother",
+      "reference": "Her mother.",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 16,
+        "latency": 11.89529824256897
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To whom does Miranda write her letters?\n\nFinal Answer: Her mother"
+    },
+    {
+      "sample_id": 69,
+      "question": "How many days do viewers of the tape have to live after they watch it?",
+      "prediction": "",
+      "reference": "7 days",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 4.586644887924194
+      },
+      "method": "cot_sc",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 70,
+      "question": "What was Grassou's wife's name?",
+      "prediction": "virginie vervelle",
+      "reference": "Virginie.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.6666666666666666,
+        "token_count": 34,
+        "latency": 6.013458013534546
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The text provides information about Pierre Grassou's wife, stating that she is named Virginie Vervelle. \n\nFinal Answer: Virginie Vervelle"
+    },
+    {
+      "sample_id": 71,
+      "question": "What does Reiko do differently that causes her not to die like the others?",
+      "prediction": "",
+      "reference": "She made a copy of the tape and gives it to her husband to study.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 12.429219722747803
+      },
+      "method": "cot_sc",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 72,
+      "question": "What is death disguised as?",
+      "prediction": "death disguised as a chess opponent",
+      "reference": "A monk.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.25,
+        "token_count": 12,
+        "latency": 22.302371740341187
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Final Answer: Death disguised as a chess opponent."
+    },
+    {
+      "sample_id": 73,
+      "question": "What does a citizen willingly do if they agree to live in Athens?",
+      "prediction": "acknowledge and uphold the laws and agreements of the state",
+      "reference": "Comply with the laws",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3333333333333333,
+        "token_count": 107,
+        "latency": 8.516149997711182
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "A citizen willingly agrees to live in Athens by acknowledging and upholding the laws and agreements of the state, even when they are unjust. This is exemplified by Socrates in the dialogue Crito, where he chooses to accept his death sentence rather than escape, as doing so would violate the principles of justice and the social contract with the city. \n\nFinal Answer: Acknowledge and uphold the laws and agreements of the state."
+    },
+    {
+      "sample_id": 74,
+      "question": "How does Falder break his neck?",
+      "prediction": "jumping from a window",
+      "reference": "He throws himself down the stairs",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 38,
+        "latency": 19.691248178482056
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Falder breaks his neck by jumping from a window in a fit of desperation after being caught by the detective, Wister. \n\nFinal Answer: Jumping from a window."
+    },
+    {
+      "sample_id": 75,
+      "question": "What does Reiko discover saves viewers of the tape from their imminent death?",
+      "prediction": "",
+      "reference": "Making a copy and showing it to someone else",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 13.349621295928955
+      },
+      "method": "cot_sc",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 76,
+      "question": "What is the name of Mortimer Treginnis' sister?",
+      "prediction": "brenda tregennis",
+      "reference": "Brenda.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.6666666666666666,
+        "token_count": 4,
+        "latency": 4.539567708969116
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Brenda Tregennis"
+    },
+    {
+      "sample_id": 77,
+      "question": "What did Madam de Merret and her husband do after walling off the closet?",
+      "prediction": "they walled off the closet",
+      "reference": "They stayed in the bedroom for a few days with the sounds of her lover trapped. ",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.2,
+        "token_count": 102,
+        "latency": 10.001187562942505
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The story describes that after walling off the closet, Madam de Merret and her husband had a secret arrangement to keep the presence of the Spanish grandee hidden. They planned to wall up the closet door to conceal the secret, and they involved Rosalie and Gorenflot in the scheme to ensure the closet remained sealed.\n\nFinal Answer: They walled off the closet to conceal the presence of the Spanish grandee."
+    },
+    {
+      "sample_id": 78,
+      "question": "Prior to her brother's death, how did Mary spend most of her time outside of the home? ",
+      "prediction": "reading novels",
+      "reference": "With her charity",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 77,
+        "latency": 26.91119146347046
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Before her brother's death, Mary spent most of her time outside of the home reading novels, engaging in solitary walks, and interacting with nature. She also spent time with her dogs and occasionally visited the poor and helped those in need.\n\nFinal Answer: reading novels, solitary walks, and helping the poor"
+    },
+    {
+      "sample_id": 79,
+      "question": "What is Clifford's profession?",
+      "prediction": "",
+      "reference": "A security guard.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 38.79983329772949
+      },
+      "method": "cot_sc",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 80,
+      "question": "What was Rodgers exposed to while investigating?",
+      "prediction": "rodgers",
+      "reference": "Radioactive gas",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 40,
+        "latency": 18.021430730819702
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Rodgers was exposed to radioactive gases while investigating the abandoned coal mines near the Wyoming Valley in Pennsylvania. \n\nFinal Answer: radioactive gases"
+    },
+    {
+      "sample_id": 81,
+      "question": "Where is the rental cabin located that Reiko found the tape?",
+      "prediction": "",
+      "reference": "Izu Oshima Island",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 12.40409779548645
+      },
+      "method": "cot_sc",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 82,
+      "question": "What does Clarence take from the apartment? ",
+      "prediction": "",
+      "reference": "A bag that contains cocaine",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 39.4074764251709
+      },
+      "method": "cot_sc",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 83,
+      "question": "How many years into the future was Soames sent?",
+      "prediction": "97",
+      "reference": "100.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 100,
+        "latency": 13.768662691116333
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The context describes that Enoch Soames was sent into the future by the devil to the reading-room of the British Museum on June 3, 1997. This is explicitly stated in the text when it says, \"I wish to be projected now, at this moment, into that future, into that reading-room, just for this one afternoon!\" and later confirms that he was projected to the reading-room on June 3, 1997.\n\nFinal Answer: 97"
+    },
+    {
+      "sample_id": 84,
+      "question": "How did the housekeeper's feet get wet during Holmes' visit?",
+      "prediction": "holmes upset a watering pot",
+      "reference": "Holmes accidentally kicks over a water pot",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5,
+        "token_count": 59,
+        "latency": 10.838028192520142
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The housekeeper's feet got wet because Holmes upset a watering pot, which drenched both his and the housekeeper's feet as well as the garden path. \n\nFinal Answer: Holmes upset a watering pot, drenching both his and the housekeeper's feet."
+    },
+    {
+      "sample_id": 85,
+      "question": "What would Socrates turn into if he agreed to break out of prison?",
+      "prediction": "a just citizen",
+      "reference": "He would turn into an outlaw.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 7,
+        "latency": 3.1491153240203857
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Final Answer: A just citizen."
+    },
+    {
+      "sample_id": 86,
+      "question": "Who acts as Falder's lawyer?",
+      "prediction": "the person who acts as falder s lawyer",
+      "reference": "Frome",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 85,
+        "latency": 20.684056043624878
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To determine who acts as Falder's lawyer, we need to identify the character who represents Falder in the legal proceedings. \n\nIn Act II, during the trial, it is clear that Falder is being prosecuted for forgery. The character who acts as his lawyer is Hector Frome, the young advocate who represents the defense.\n\nFinal Answer: Hector Frome"
+    },
+    {
+      "sample_id": 87,
+      "question": "Who asks the Ghostbusters for help?",
+      "prediction": "",
+      "reference": "Dana",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 22.350141763687134
+      },
+      "method": "cot_sc",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 88,
+      "question": "What is Soames unhappy about?",
+      "prediction": "lack of recognition and failure of his work to make an impact",
+      "reference": "the his works are not recognized",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.11764705882352942,
+        "token_count": 89,
+        "latency": 11.938145160675049
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Soames was unhappy about his lack of recognition and the failure of his work to make an impact, leading to a sense of isolation and despair. His belief that he had made a bargain with the devil for posthumous recognition was ultimately unfulfilled, contributing to his unhappiness.\n\nFinal Answer: lack of recognition and failure of his work to make an impact"
+    },
+    {
+      "sample_id": 89,
+      "question": "What is Mary's mother's name?",
+      "prediction": "eliza",
+      "reference": "Eliza",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 176,
+        "latency": 35.12057590484619
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The context provided is a novel titled \"Mary\" by Mary Wollstonecraft. The narrative follows the life of Mary, detailing her personal struggles, relationships, and emotional journey.\n\nTo determine Mary's mother's name, we need to identify any direct references to her mother within the text.\n\nFrom the context:\n- In Chapter I, it is mentioned that Mary is the daughter of Edward, who married Eliza, a gentle, fashionable girl.\n- Eliza is described as having a kind of indolence in her temper and being a woman with certain virtues.\n- There are no other direct mentions of Mary's mother's name beyond E"
+    },
+    {
+      "sample_id": 90,
+      "question": "What gang did Rodgers and the other humans fight while he was at the camp?",
+      "prediction": "",
+      "reference": "The Hans",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 14.419918537139893
+      },
+      "method": "cot_sc",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 91,
+      "question": "Where does Alabama meet Clarence for the first time? ",
+      "prediction": "",
+      "reference": "At a Detroit theater. ",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 41.02491068840027
+      },
+      "method": "cot_sc",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 92,
+      "question": "How is Oscar related to Dana?",
+      "prediction": "dana s son",
+      "reference": "It's her son",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3333333333333333,
+        "token_count": 39,
+        "latency": 46.31914138793945
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Oscar is the baby that Dana has. The question is asking how Oscar is related to Dana, which is straightforward from the context. \n\nFinal Answer: Dana's son."
+    },
+    {
+      "sample_id": 93,
+      "question": "What does Socrates believe about being judged in the after life if he breaks out of prison?",
+      "prediction": "no",
+      "reference": "It would have a negative effect",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 4,
+        "latency": 2.976004123687744
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Final Answer: no"
+    },
+    {
+      "sample_id": 94,
+      "question": "Madame de Merret threatened to leave her husband if he did what?",
+      "prediction": "found no one in the closet",
+      "reference": "Opened the closet",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4444444444444444,
+        "token_count": 115,
+        "latency": 11.439575433731079
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The question asks what Madame de Merret threatened to leave her husband if he did. Based on the context provided, we need to identify the specific action that would cause her to leave.\n\nFrom the story, it is revealed that Madame de Merret had a secret in her closet. She made her husband swear on the crucifix that there was no one in the closet. If he found no one there, she would leave him. \n\nTherefore, the answer is:\n\nFinal Answer: found no one in the closet"
+    },
+    {
+      "sample_id": 95,
+      "question": "Who moved to Chicago to perform mercy killings?",
+      "prediction": "no one mentioned in the context moved to chicago to perform mercy killings",
+      "reference": "Seth Lazarus",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 105,
+        "latency": 10.151651620864868
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The question asks who moved to Chicago to perform mercy killings. However, the provided context is a science fiction story titled \"Doctor\" by Murray Leinster, which revolves around a virus called chlorophage and its impact on a spaceship and planet. There is no mention of Chicago or anyone moving there to perform mercy killings.\n\nFinal Answer: No one mentioned in the context moved to Chicago to perform mercy killings."
+    },
+    {
+      "sample_id": 96,
+      "question": "How does the art-dealer describe Grassou's skill level to Virginie's father?",
+      "prediction": "grassou s skill level",
+      "reference": "A grand master.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 92,
+        "latency": 10.630910396575928
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The art-dealer, Elie Magus, describes Grassou's skill level to Virginie's father as sufficient to paint the family portraits, implying that Grassou is competent but not exceptional. He mentions that Grassou's work is \"passable\" and that he can \"put them in the Salon,\" suggesting that Grassou's skill is adequate for the task but not remarkable.\n\nFinal Answer: passable"
+    },
+    {
+      "sample_id": 97,
+      "question": "What is Grassous biggest disappointment?",
+      "prediction": "the biggest disappointment for pierre grassou",
+      "reference": "He doesn't feel he is a true artist.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 32,
+        "latency": 5.732416868209839
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The biggest disappointment for Pierre Grassou is that artists laugh at his work and his name is a term of contempt in the studios."
+    },
+    {
+      "sample_id": 98,
+      "question": "Who does Don Vincenzo Coccotti work for? ",
+      "prediction": "",
+      "reference": "A mobster named \"Blue Lou Boyle\". ",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 36.10705280303955
+      },
+      "method": "cot_sc",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 99,
+      "question": "Why did the police come back for Falder after he left prison?",
+      "prediction": "because he committed a crime and",
+      "reference": "He failed to report",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.2,
+        "token_count": 81,
+        "latency": 27.748082399368286
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The police came back for Falder after he left prison because he had committed a crime (forgery) and was wanted by the authorities. His actions led to his imprisonment, and when he was released, he was still considered a criminal due to his past offense.\n\nFinal Answer: He committed forgery and was wanted by the authorities."
+    }
+  ]
+}

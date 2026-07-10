@@ -1,0 +1,1514 @@
+{
+  "summary": {
+    "method": "cot_sc",
+    "dataset": "longbench_multifieldqa_en",
+    "num_samples": 100,
+    "avg_em": 0.09,
+    "avg_f1": 0.3454,
+    "avg_latency": 6.8911,
+    "error_count": 0,
+    "workers": 4
+  },
+  "results": [
+    {
+      "sample_id": 0,
+      "question": "What is the name of the most active fan club?",
+      "prediction": "south west ultras",
+      "reference": "South West Ultras fan club.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.7499999999999999,
+        "token_count": 4,
+        "latency": 1.9599864482879639
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "South West Ultras"
+    },
+    {
+      "sample_id": 1,
+      "question": "Is the ISR necessary for transgene reactivation?",
+      "prediction": "no",
+      "reference": "No, it is not necessary.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.33333333333333337,
+        "token_count": 126,
+        "latency": 12.439486503601074
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The study demonstrates that the Integrated Stress Response (ISR) is neither necessary nor sufficient for transgene reactivation in response to essential amino acid (EAA) starvation. The findings indicate that while the ISR is activated during EAA deprivation, it does not directly induce transgene reactivation. Instead, the reactivation response is mediated by a novel nutrient-sensing and signaling pathway involving MEK/ERK and/or JNK activity, independent of the ISR and GCN2 kinase.\n\nFinal Answer: no"
+    },
+    {
+      "sample_id": 2,
+      "question": "What experimental techniques were used to study the quantum dot structures in this research?",
+      "prediction": "low temperature scanning tunneling microscopy and spectroscopy stm sts",
+      "reference": "Low temperature scanning tunneling microscopy and spectroscopy (STM/STS).",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.823529411764706,
+        "token_count": 21,
+        "latency": 3.432328939437866
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Final Answer: Low temperature scanning tunneling microscopy and spectroscopy (STM/STS)"
+    },
+    {
+      "sample_id": 3,
+      "question": "What is the purpose of an ICD?",
+      "prediction": "the purpose of an icd",
+      "reference": "Implantable Cardioverter Defibrillator (ICD) is a surgically implanted electronic device to treat life-threatening heartbeat irregularities.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.1,
+        "token_count": 19,
+        "latency": 5.802866697311401
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The purpose of an ICD is to treat life-threatening heartbeat irregularities."
+    },
+    {
+      "sample_id": 4,
+      "question": "Why is it important for the sides of the fuselage to be sloped (tumbled home)?",
+      "prediction": "to form a conical shape and ensure the longerons lie flat when the fuselage is b",
+      "reference": "The sides of the fuselage are sloped to create a conical section when the fuselage is formed.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4827586206896552,
+        "token_count": 247,
+        "latency": 17.6855411529541
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The sides of the fuselage are sloped (tumbled home) to form a conical shape, which results in the top longeron taking on an elliptical shape when built flat and bent into position. This slope is necessary to ensure that the fuselage box section can be formed correctly with the longerons lying flat. If the sides were not sloped, the section would be cylindrical, and the longerons would lie flat without the same curvature issues. The sloping allows for the proper development of the true distances and shape of the flat panel so that it can be curved into position without distortion. This is impor"
+    },
+    {
+      "sample_id": 5,
+      "question": "What is the effect of the proximity of superconductivity on the Kondo effect?",
+      "prediction": "enhances kondo screening through car exchange",
+      "reference": "It tends to suppress the Kondo effect.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.15384615384615383,
+        "token_count": 85,
+        "latency": 8.092860460281372
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The proximity of superconductivity enhances the CAR exchange, which can lead to Kondo screening even in the absence of direct exchange mechanisms. This results in a residual low-temperature conductance and modifies the Kondo effect by introducing a second stage of Kondo screening.\n\nFinal Answer: enhances Kondo screening through CAR exchange"
+    },
+    {
+      "sample_id": 6,
+      "question": "How is electricity used in everyday life?",
+      "prediction": "n transportation and powering electronic devices",
+      "reference": "Electricity is used for transport, heating, lighting, communications, and computation.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.125,
+        "token_count": 63,
+        "latency": 5.485277414321899
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Electricity is used in everyday life for various purposes such as lighting, heating, cooling, communication, transportation, and powering electronic devices. It enables the operation of appliances, tools, and systems that are essential for modern living."
+    },
+    {
+      "sample_id": 7,
+      "question": "What was Hugh H. Goodwin's rank in the United States Navy?",
+      "prediction": "vice admiral",
+      "reference": "Vice Admiral.",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 3,
+        "latency": 1.5791535377502441
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Vice Admiral"
+    },
+    {
+      "sample_id": 8,
+      "question": "What was the Buckeyes' record in their first game of the season?",
+      "prediction": "15 3",
+      "reference": "They won their first game with a score of 15-3.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 37,
+        "latency": 3.3613462448120117
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The first game of the season is listed as Game 1, which was played on March 16. The Buckeyes lost this game with a score of 15–3. \n\nFinal Answer: 15–3"
+    },
+    {
+      "sample_id": 9,
+      "question": "What are the three synthetic types of vitamin K?",
+      "prediction": "the three synthetic types of vitamin k",
+      "reference": "Vitamins K3, K4, and K5.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 16,
+        "latency": 9.262417793273926
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The three synthetic types of vitamin K are vitamins K3, K4, and K5."
+    },
+    {
+      "sample_id": 10,
+      "question": "Can individual molecules of indeno[1,2-a]fluorene switch between open-shell and closed-shell states?",
+      "prediction": "yes",
+      "reference": "Yes, individual molecules of indeno[1,2-a]fluorene can switch between open-shell and closed-shell states by changing their adsorption site on the surface.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.09523809523809523,
+        "token_count": 1,
+        "latency": 2.807020425796509
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Yes."
+    },
+    {
+      "sample_id": 11,
+      "question": "What field does Danny work in in Tennessee?",
+      "prediction": "danny works in the field of 3 d printing and software development",
+      "reference": "3-D printing and software development.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.47058823529411764,
+        "token_count": 16,
+        "latency": 3.8839786052703857
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Danny works in the field of 3-D printing and software development."
+    },
+    {
+      "sample_id": 12,
+      "question": "What is the recommended daily intake of vitamin K for adult women and men?",
+      "prediction": "the recommended daily intake of vitamin k for adult women is 90 μg and for adult",
+      "reference": "90 μg for women and 120 μg for men.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4761904761904762,
+        "token_count": 23,
+        "latency": 7.037259578704834
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The recommended daily intake of vitamin K for adult women is 90 μg and for adult men is 120 μg."
+    },
+    {
+      "sample_id": 13,
+      "question": "What is the SI unit of power?",
+      "prediction": "the si unit of power is the watt",
+      "reference": "Watt, one joule per second.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.16666666666666666,
+        "token_count": 8,
+        "latency": 2.8510758876800537
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The SI unit of power is the watt."
+    },
+    {
+      "sample_id": 14,
+      "question": "What is the main advantage of a horizontal business model for mobile devices?",
+      "prediction": "flexibility",
+      "reference": "Flexibility.",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 94,
+        "latency": 7.952985763549805
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The main advantage of a horizontal business model for mobile devices is flexibility. As costs drop and the market expands, it becomes increasingly necessary for vendors to offer a wide range of devices based on different SoCs. This allows for greater adaptability and responsiveness to market demands, which is crucial in a rapidly evolving industry. \n\nFinal Answer: Flexibility"
+    },
+    {
+      "sample_id": 15,
+      "question": "Who was Brooksley Elizabeth's first husband?",
+      "prediction": "jacob c landau",
+      "reference": "Jacob C. Landau.",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 3,
+        "latency": 1.686140775680542
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Jacob C. Landau"
+    },
+    {
+      "sample_id": 16,
+      "question": "What is the main methodology used in the research?",
+      "prediction": "the main methodology used in the research",
+      "reference": "An unsupervised method based on the information bottleneck and contrastive learning.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.11764705882352942,
+        "token_count": 27,
+        "latency": 3.3579013347625732
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The main methodology used in the research is contrastive learning combined with compositional communication."
+    },
+    {
+      "sample_id": 17,
+      "question": "How is the function beta(r) determined in the derivation?",
+      "prediction": "sqrt frac 2gm rc 2",
+      "reference": "Using the vacuum Einstein equation and the Baez-Bunn form.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 133,
+        "latency": 11.493071794509888
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The function $\\beta(r)$ is determined by applying the vacuum Einstein equations to a test ball of freely falling particles. This leads to a differential equation for $\\beta(r)$, which is solved using separation of variables. The solution is then fixed by physical conditions: the initial condition for infalling observers and the Newtonian limit at large distances. \n\nFinal Answer: By solving the differential equation derived from the vacuum Einstein equations using separation of variables and applying physical boundary conditions."
+    },
+    {
+      "sample_id": 18,
+      "question": "What is the water depth in the Greater Ekofisk Area?",
+      "prediction": "the water depth in the greater ekofisk area",
+      "reference": "The water depth in the Greater Ekofisk Area is 70-75 meters.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.8235294117647058,
+        "token_count": 15,
+        "latency": 5.534857511520386
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The water depth in the Greater Ekofisk Area is 70-75 metres."
+    },
+    {
+      "sample_id": 19,
+      "question": "What were the vaccines trialed against?",
+      "prediction": "the vaccines trialed against were other toxic products not genuine placebo",
+      "reference": "Other toxic products.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.42857142857142855,
+        "token_count": 19,
+        "latency": 2.206757068634033
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The vaccines trialed against were other toxic products, not genuine placebo."
+    },
+    {
+      "sample_id": 20,
+      "question": "Where was Margaret Way born and where did she die?",
+      "prediction": "cleveland queensland australia",
+      "reference": "Margaret Way was born in Brisbane and died in Cleveland, Queensland, Australia.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.42857142857142855,
+        "token_count": 10,
+        "latency": 1.5861680507659912
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Brisbane  \nCleveland, Queensland, Australia"
+    },
+    {
+      "sample_id": 21,
+      "question": "What size chains were used in the benchmarking?",
+      "prediction": "14",
+      "reference": "L = 8 and L = 14.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4,
+        "token_count": 131,
+        "latency": 11.192956447601318
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The question asks for the size of chains used in the benchmarking. From the context provided, we can find several mentions of chain sizes. Specifically, in FIG. 3 and FIG. 4, it is mentioned that the calculations are for a periodic L = 14 Heisenberg chain. Additionally, in FIG. 3, it is stated that the Trotter circuit is for a Heisenberg model with PBC of size L = 6. However, since the question is about the size chains used in the benchmarking, the most relevant mention is the L = 14 Heisenberg chain.\n\nFinal Answer: 14"
+    },
+    {
+      "sample_id": 22,
+      "question": "How many experiments were demonstrated to test the capabilities of the controller?",
+      "prediction": "5",
+      "reference": "5.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 175,
+        "latency": 10.256767988204956
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The context mentions five experiments in the \"Experiments\" section. These experiments are described as follows:\n\n1. The robot picks up a bottle, transports it, and places it down on the desk.\n2. The robot picks up the chips can, rotates it 90 degrees, and places it back down.\n3. The robot picks up the chips can, rotates it 90 degrees, and hands it over to a person.\n4. The robot picks up a foam brick, rotates it 180 degrees, and hands it over to a person using a pinch grasp.\n5. A person hands over a plastic cup to the robot, fills it with coins, and the robot hands it back to the person.\n\nThus,"
+    },
+    {
+      "sample_id": 23,
+      "question": "What are the three teams that used conflict optimization in the challenge?",
+      "prediction": "the three teams that used conflict optimization in the challenge are lasa gitas",
+      "reference": "Lasa, Gitastrophe, and Shadoks.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.125,
+        "token_count": 25,
+        "latency": 3.8981595039367676
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The three teams that used conflict optimization in the challenge are Lasa, Gitastrophe, and Shadoks."
+    },
+    {
+      "sample_id": 24,
+      "question": "What did the court in In re Ferguson conclude about the transformation prong of the Bilski test?",
+      "prediction": "failed the transformation prong of the bilski test",
+      "reference": "It required the transformation to be limited to specific data and a visual depiction representing specific objects or substances.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.16666666666666666,
+        "token_count": 76,
+        "latency": 7.861454248428345
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The court in In re Ferguson concluded that the method claims were neither tied to a particular machine nor did they transform a particular article into a different state or thing, thus failing the transformation prong of the Bilski test. \n\nFinal Answer: failed the transformation prong of the Bilski test"
+    },
+    {
+      "sample_id": 25,
+      "question": "How does the transition probability of the environment affect the learning rate in the static agent?",
+      "prediction": "the learning rate increases with the frequency of environmental change",
+      "reference": "As the transition probability increases, the learning rate initially rises and then declines.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.380952380952381,
+        "token_count": 159,
+        "latency": 8.674597024917603
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The transition probability of the environment (p tr) affects the learning rate (η p) in the static agent by causing it to increase with higher transition frequency. This is because a higher p tr means the agent needs to adapt more frequently, requiring a faster learning rate to keep up with environmental changes. Conversely, when the transition probability is low, the agent can afford a lower learning rate as it can maintain an optimal weight vector for a longer period. Thus, the learning rate grows with the frequency of environmental change. \n\nFinal Answer: The learning rate increases with th"
+    },
+    {
+      "sample_id": 26,
+      "question": "What kind of ultracold neutral plasmas does this study focus on?",
+      "prediction": "molecular ultracold plasmas formed from rydberg gases in a supersonic molecular",
+      "reference": "A subset that form via kinetic rate processes from state-selected Rydberg gases.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3636363636363636,
+        "token_count": 24,
+        "latency": 4.655765533447266
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Final Answer: molecular ultracold plasmas formed from Rydberg gases in a supersonic molecular beam"
+    },
+    {
+      "sample_id": 27,
+      "question": "What types of sensors are now capable of estimating physical activity levels and physiological outco",
+      "prediction": "wearable accelerometer acc",
+      "reference": "Wearable sensors.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4,
+        "token_count": 28,
+        "latency": 6.575538635253906
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Final Answer: Wearable accelerometer (ACC), Electrodermal Activity (EDA), and Photoplethysmography (PPG) sensors."
+    },
+    {
+      "sample_id": 28,
+      "question": "What did the decision to base the water rates on usage reflect?",
+      "prediction": "fairness",
+      "reference": "Fairness.",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 41,
+        "latency": 4.149544954299927
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The decision to base the water rates on usage reflected a consideration of fairness, ensuring that users pay according to their consumption. \n\nFinal Answer: fairness"
+    },
+    {
+      "sample_id": 29,
+      "question": "What did Mary tell the disciples?",
+      "prediction": "mary told the disciples that she had seen the lord and that he had said these th",
+      "reference": "\"I have seen the Lord.\".",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3157894736842105,
+        "token_count": 23,
+        "latency": 3.932039499282837
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Mary told the disciples that she had seen the Lord and that he had said these things to her."
+    },
+    {
+      "sample_id": 30,
+      "question": "What is the future direction mentioned in the conclusion?",
+      "prediction": "the future direction mentioned in the conclusion",
+      "reference": "Verifying other meta-information such as patient's gender, age, race, etc.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 42,
+        "latency": 3.278148651123047
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The future direction mentioned in the conclusion is the development of a robust and flexible research infrastructure to conduct a more large scale cross-sectional study."
+    },
+    {
+      "sample_id": 31,
+      "question": "What types of data did the authors use in their experiments?",
+      "prediction": "simulated and real data",
+      "reference": "The authors used simulated data and real data from a wireless MISO channel.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5,
+        "token_count": 25,
+        "latency": 2.9937326908111572
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The authors used simulated and real data in their experiments. \n\nFinal Answer: simulated and real data"
+    },
+    {
+      "sample_id": 32,
+      "question": "What is the purpose of the baseline in the layout procedure?",
+      "prediction": "the purpose of the baseline in the layout procedure is to serve as a reference f",
+      "reference": "The baseline is used as a reference for the mid point of the firewall for the developed side panel.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4827586206896552,
+        "token_count": 40,
+        "latency": 11.53719711303711
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The purpose of the baseline in the layout procedure is to serve as a reference for the mid-point of the firewall for the developed and true dimensioned side panel."
+    },
+    {
+      "sample_id": 33,
+      "question": "What does the new Iraqi Body Count organization do?",
+      "prediction": "the new iraqi body count organization provides cover for the war and allows supp",
+      "reference": "It provides cover for the war and allows supporters of the illegal war to point to it.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5384615384615384,
+        "token_count": 40,
+        "latency": 11.059187650680542
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The new Iraqi Body Count organization provides cover for the war and allows supporters of the illegal war to point to it and insist/slur \"Things aren't so bad!\""
+    },
+    {
+      "sample_id": 34,
+      "question": "What is the main advantage of the proposed method in terms of computation time?",
+      "prediction": "the main advantage of the proposed method in terms of computation time is that t",
+      "reference": "The time required to update the belief does not increase with the complexity of the environment.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.23076923076923078,
+        "token_count": 45,
+        "latency": 12.493861675262451
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The main advantage of the proposed method in terms of computation time is that the time required to update the robot's belief does not increase with the complexity of the environment."
+    },
+    {
+      "sample_id": 35,
+      "question": "When did the Tevatron Collider Run II start and when is it expected to end?",
+      "prediction": "march 2002 end of this decade",
+      "reference": "The Tevatron Collider Run II started in March 2002 and is expected to continue until the end of this decade.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4799999999999999,
+        "token_count": 38,
+        "latency": 13.20145320892334
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The Tevatron Collider Run II started in March 2002 and is expected to continue until the end of this decade. \n\nFinal Answer: March 2002, end of this decade"
+    },
+    {
+      "sample_id": 36,
+      "question": "How many brother does Njoroge have?",
+      "prediction": "4",
+      "reference": "Four.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 33,
+        "latency": 3.136814832687378
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Njoroge has four brothers: Boro, Kamau, Kori, and Mwangi. Mwangi is his only full brother, who died in World War II.\n\nFinal Answer: 4"
+    },
+    {
+      "sample_id": 37,
+      "question": "What are the stability conditions for a solution of $-\\Delta u = f(u)$?",
+      "prediction": "stability conditions for solutions of delta u f u are determined by the ine",
+      "reference": "$\\int f'(u) \\psi^2 \\le \\int | \\nabla \\psi|^2, \\forall \\psi \\in C_c^2$.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 259,
+        "latency": 34.3561589717865
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The stability conditions for a solution of $-\\Delta u = f(u)$ are determined by the inequality\n$$\n\\int f'(u) \\psi^2 \\le \\int |\\nabla \\psi|^2, \\quad \\forall \\psi \\in C_c^2.\n$$\nThis ensures that the second variation of the energy associated with the equation is non-negative. For equations of the form\n$$\n-\\text{div}(\\omega_1(x)\\nabla u) = \\omega_2(x)f(u),\n$$\nthe stability condition becomes\n$$\n\\int \\omega_2 f'(u) \\psi^2 \\le \\int \\omega_1 |\\nabla \\psi|^2, \\quad \\forall \\psi \\in C_c^2.\n$$\nThe specific stability conditions depend on the type of nonlinearity $f(u)$ and the weights $\\omega_1(x)$ and $\\"
+    },
+    {
+      "sample_id": 38,
+      "question": "What algorithm is engaged in the PLMS-PPIC method?",
+      "prediction": "the algorithm engaged in the plms ppic method",
+      "reference": "The normalized least mean square (NLMS) algorithm.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.2857142857142857,
+        "token_count": 24,
+        "latency": 3.080981731414795
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The algorithm engaged in the PLMS-PPIC method is the normalized least mean square (NLMS) algorithm."
+    },
+    {
+      "sample_id": 39,
+      "question": "Who compiled the 88-page letter to the HHS regarding vaccine safety?",
+      "prediction": "del bigtree",
+      "reference": "Del Bigtree and his team at ICAN.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4444444444444445,
+        "token_count": 2,
+        "latency": 1.7485160827636719
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Del Bigtree"
+    },
+    {
+      "sample_id": 40,
+      "question": "What molecule was the focus of the study?",
+      "prediction": "c_2h",
+      "reference": "The focus of the study was on the reactive radical ethynyl (C$_2$H).",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.18181818181818182,
+        "token_count": 1,
+        "latency": 1.7530395984649658
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "C$_2$H"
+    },
+    {
+      "sample_id": 41,
+      "question": "When was Weep Not, Child first published?",
+      "prediction": "1964",
+      "reference": "Weep Not, Child was first published in 1964.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.2222222222222222,
+        "token_count": 1,
+        "latency": 2.3059091567993164
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "1964"
+    },
+    {
+      "sample_id": 42,
+      "question": "What is the relationship between the maximum velocity and the amplitude of the blob or depletion?",
+      "prediction": "square root dependence",
+      "reference": "The maximum velocity scales with the square root of the amplitude.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3333333333333333,
+        "token_count": 101,
+        "latency": 7.113380670547485
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The relationship between the maximum velocity and the amplitude of the blob or depletion is described by a square root dependence, as given by the equation $\\frac{\\max |V|}{\\ensuremath{C_\\mathrm{s}}} = \\mathcal R \\left( \\frac{\\ell}{R_0}\\frac{|\\triangle n|}{n_0} \\right)^{1/2}$, which indicates that the maximum velocity scales with the square root of the amplitude. \n\nFinal Answer: square root dependence"
+    },
+    {
+      "sample_id": 43,
+      "question": "What do dendritic spines contain?",
+      "prediction": "r control of dendritic spine morphology and number",
+      "reference": "They are rich in actin and have been shown to be highly dynamic.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.09523809523809525,
+        "token_count": 128,
+        "latency": 10.19996452331543
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Dendritic spines contain a complex network of proteins that link extracellular signals with the actin cytoskeleton, allowing for control of dendritic spine morphology and number. They are rich in actin and are highly dynamic, capable of changing shape and number in response to Hebbian plasticity and neuromodulatory signals. These structures are the primary postsynaptic targets of excitatory inputs in the brain and are crucial for the refinement of neural circuits and the processing and storage of information."
+    },
+    {
+      "sample_id": 44,
+      "question": "How many people attend the 233rd ACS national meeting?",
+      "prediction": "14520",
+      "reference": "There are 14,520 attendees, including 7,152 chemical scientists, 5,059 students, 1,283 exhibitors, 119 precollege teachers, 573 exposition visitors, and 453 guests.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0909090909090909,
+        "token_count": 34,
+        "latency": 5.460297107696533
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The Committee on Meetings & Expositions (M&E) reported that the 233rd ACS national meeting hosted 14,520 attendees.\n\nFinal Answer: 14,520"
+    },
+    {
+      "sample_id": 45,
+      "question": "What did Justice Kennedy argue about Quill in Direct Marketing Ass'n v. Brohl?",
+      "prediction": "acknowledged the harm of quill s rule and wished to reexamine it",
+      "reference": "Quill harmed states more than anticipated due to the Internet.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.2727272727272727,
+        "token_count": 98,
+        "latency": 9.128974437713623
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "In Direct Marketing Ass'n v. Brohl, Justice Kennedy acknowledged that the Internet had caused significant changes in the economy and that Quill's physical presence rule now harmed states more than anticipated. He expressed a wish for the legal system to find an appropriate case to reexamine Quill and Bellas Hess.\n\nFinal Answer: acknowledged the harm of Quill's rule and wished to reexamine it."
+    },
+    {
+      "sample_id": 46,
+      "question": "What factors control the reliance of artificial organisms on plasticity?",
+      "prediction": "environmental fluctuation",
+      "reference": "Environmental fluctuation and uncertainty control the reliance of artificial organisms on plasticity.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.2857142857142857,
+        "token_count": 143,
+        "latency": 9.649405479431152
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The factors that control the reliance of artificial organisms on plasticity are environmental fluctuation, uncertainty, and task complexity. These factors influence the form and function of evolved plasticity mechanisms in both static and moving agents. Environmental variability and the frequency of environmental changes determine how much an agent relies on plasticity to adapt. Additionally, the nature of the task (e.g., prediction vs. decision) also affects the form of the plasticity rule.\n\nFinal Answer: Environmental fluctuation, uncertainty, and task complexity."
+    },
+    {
+      "sample_id": 47,
+      "question": "What is the problem encountered when building the fuselage sides?",
+      "prediction": "g in a conical shape rather than a cylindrical one",
+      "reference": "The longerons bow up from the building surface, forming a \"banana\" shape.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.19999999999999998,
+        "token_count": 212,
+        "latency": 13.295515060424805
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The problem encountered when building the fuselage sides is that the completed fuselage sides, when laid into position to form the fuselage box section, bow up and form a \"banana\" shape due to the sides being sloped (flared) outward, resulting in a conical shape rather than a cylindrical one. This causes the top longeron to take on an elliptical shape when bent and sloped, which is not acceptable for preformed fiberglass parts. The issue arises because the dimensions provided in the plans are foreshortened when viewed from the side, leading to an \"undevelopable\" shape that cannot be unrolled i"
+    },
+    {
+      "sample_id": 48,
+      "question": "When did Goodwin become a Naval aviator?",
+      "prediction": "december 11 1928",
+      "reference": "Goodwin became a Naval aviator in January 1929.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 4,
+        "latency": 1.6387910842895508
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "December 11, 1928"
+    },
+    {
+      "sample_id": 49,
+      "question": "对于PD3.0协议，FS312BH支持的最高诱骗电压是多少？",
+      "prediction": "48v",
+      "reference": "48V.",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 4,
+        "latency": 1.9808621406555176
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Final Answer: 48V"
+    },
+    {
+      "sample_id": 50,
+      "question": "When did Born resign as chairperson of the CFTC?",
+      "prediction": "june 1 1999",
+      "reference": "June 1, 1999.",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 3,
+        "latency": 1.6609246730804443
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "June 1, 1999"
+    },
+    {
+      "sample_id": 51,
+      "question": "Which orders did Mufti-e-Azam-e-Hind receive Khilafat from?",
+      "prediction": "qaderi",
+      "reference": "Mufti-e-Azam-e-Hind received Khilafat in the Qaderi, Chishti, Nakshbandi, Suharwardi, and Madaari Orders.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.15384615384615385,
+        "token_count": 85,
+        "latency": 12.906903505325317
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The orders from which Mufti-e-Azam-e-Hind received Khilafat are the Qaderi Silsila, Chishti, Nakshbandi, Suharwardi, and Madaari Orders. Additionally, he received Khilafat from his father, A'la Hazrat, Ash Shah Imam Ahmed Raza Khan Al Qaderi.\n\nFinal Answer: Qaderi, Chishti, Nakshbandi, Suharwardi, Madaari, and from his father A'la Hazrat."
+    },
+    {
+      "sample_id": 52,
+      "question": "What was the reason given by Governor Rick Scott for not implementing a prescription drug monitoring",
+      "prediction": "privacy concerns and skepticism about the program s effectiveness",
+      "reference": "Privacy concerns and skepticism about its effectiveness.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.75,
+        "token_count": 73,
+        "latency": 6.368630647659302
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Governor Rick Scott cited privacy concerns, expressed skepticism about the effectiveness of the monitoring program, and raised the possibility that taxpayers would be left with a $500,000-a-year operational cost. \n\nFinal Answer: Privacy concerns and skepticism about the program's effectiveness."
+    },
+    {
+      "sample_id": 53,
+      "question": "In which electorate was Simon English elected to the New Zealand Parliament?",
+      "prediction": "wallace electorate",
+      "reference": "The Wallace electorate.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.8,
+        "token_count": 4,
+        "latency": 1.8969109058380127
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Wallace electorate"
+    },
+    {
+      "sample_id": 54,
+      "question": "What was the population of McPherson County according to the 2020 census?",
+      "prediction": "30223",
+      "reference": "30,223.",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 1,
+        "latency": 1.4490704536437988
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "30,223"
+    },
+    {
+      "sample_id": 55,
+      "question": "When did Margaret Way start self-publishing her books as e-books?",
+      "prediction": "mid july 2013",
+      "reference": "Margaret Way started self-publishing her books as e-books in 2013.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.15384615384615383,
+        "token_count": 3,
+        "latency": 1.5199847221374512
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Mid-July 2013"
+    },
+    {
+      "sample_id": 56,
+      "question": "When did the 2017 general election be held?",
+      "prediction": "the 2017 general election in new zealand",
+      "reference": "23 September.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 17,
+        "latency": 2.8605034351348877
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The 2017 general election in New Zealand was held on 23 September 2017."
+    },
+    {
+      "sample_id": 57,
+      "question": "What hedge fund's collapse in 1998 highlighted the need for regulation of derivatives?",
+      "prediction": "long term capital management ltcm",
+      "reference": "Long Term Capital Management (LTCM).",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 8,
+        "latency": 1.5411157608032227
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Long Term Capital Management (LTCM)"
+    },
+    {
+      "sample_id": 58,
+      "question": "What is the dynamical behavior of the anisotropic order parameter following a quench to the critical",
+      "prediction": "o sim t 1 10 l_ parallel 1 2 for the equilibrium lattice gas",
+      "reference": "It is well described by the Gaussian theory.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.09523809523809525,
+        "token_count": 186,
+        "latency": 9.245433807373047
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The dynamical behavior of the anisotropic order parameter $ O $ following a quench to the critical point is characterized by a power-law dependence on time and system size, given by $ O \\sim t^{\\alpha} L_\\parallel^{-1/2} $, where the exponent $ \\alpha $ depends on the model. For the equilibrium lattice gas (LG), the exponent $ \\alpha $ is predicted to be $ 1/10 $ due to the non-Gaussian nature of higher fluctuating modes, which differ from the driven lattice gases (IDLG and RDLG) where $ \\alpha = 1/8 $. This distinction arises because the LG exhibits non-Gaussian behavior in its higher modes, "
+    },
+    {
+      "sample_id": 59,
+      "question": "What is the recommended space for using the VR headset?",
+      "prediction": "2 2 米",
+      "reference": "It is recommended to have at least a 2x2 meter space for using the VR headset.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 4,
+        "latency": 2.195634126663208
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Final Answer: 2×2 米"
+    },
+    {
+      "sample_id": 60,
+      "question": "How does the performance of the PLM with decimation compare to other methods?",
+      "prediction": "superior to plm l_2 and mean field methods",
+      "reference": "It outperforms mean-field methods and the PLM with $l_2$ regularization in terms of reconstruction error and true positive rate.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.30769230769230765,
+        "token_count": 84,
+        "latency": 8.772928476333618
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The performance of the PLM with decimation is superior to both the PLM with $l_2$ regularization and the mean-field method, particularly in cases with sparse interaction networks and small data sizes. It achieves lower reconstruction errors and more accurate network inference.\n\nFinal Answer: Superior to PLM-$l_2$ and mean-field methods."
+    },
+    {
+      "sample_id": 61,
+      "question": "What are the three phases of the author's preaching process?",
+      "prediction": "the three phases of the author s preaching process are exegetical theological",
+      "reference": "The three phases are exegetical, theological, and homiletical.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.631578947368421,
+        "token_count": 38,
+        "latency": 5.273934602737427
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The three phases of the author's preaching process are: \n\n1. Exegetical\n2. Theological\n3. Homiletical\n\nFinal Answer: Exegetical, Theological, Homiletical"
+    },
+    {
+      "sample_id": 62,
+      "question": "When did KSTP switch to a sports radio format?",
+      "prediction": "february 15 2010",
+      "reference": "KSTP switched to a sports radio format on February 15, 2010.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.42857142857142855,
+        "token_count": 4,
+        "latency": 2.043671131134033
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "February 15, 2010"
+    },
+    {
+      "sample_id": 63,
+      "question": "What was the best performing model for the Spanish language in Track-1?",
+      "prediction": "the best performing model for the spanish language in track 1 was spanish bert b",
+      "reference": "The best performing model for the Spanish language in Track-1 was Spanish BERT.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.8333333333333333,
+        "token_count": 21,
+        "latency": 2.4428863525390625
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The best performing model for the Spanish language in Track-1 was Spanish BERT base."
+    },
+    {
+      "sample_id": 64,
+      "question": "How does the infall rate and gas density in the magnetized model compare to non-magnetized accretion",
+      "prediction": "2 5 times smaller",
+      "reference": "Infall rate is 2-5 times smaller and gas density is 2-5 times smaller.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.30769230769230765,
+        "token_count": 59,
+        "latency": 3.553541898727417
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The infall rate in the magnetized model is 2-5 times smaller than in the non-magnetized accretion. The gas density in the magnetized model is also 2-5 times smaller in the region close to the black hole.\n\nFinal Answer: 2-5 times smaller"
+    },
+    {
+      "sample_id": 65,
+      "question": "According to the text, what is Toby Schindelbeck's observation about the police?",
+      "prediction": "small crowds",
+      "reference": "Toby Schindelbeck's observation is that the police say they aren't paid enough to enforce the laws in the streets.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 57,
+        "latency": 6.163049697875977
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Toby Schindelbeck has observed that issues like Corporate Personhood and the “single-use” plastic bag ban have drawn fairly small crowds – he estimates 25 – 30 people, and I’d say he’s being generous. \n\nFinal Answer: small crowds"
+    },
+    {
+      "sample_id": 66,
+      "question": "Who is the program chair of this conference?",
+      "prediction": "the program chair of the conference",
+      "reference": "Peter Denning.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 13,
+        "latency": 4.042943477630615
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The program chair of the conference is Peter Denning."
+    },
+    {
+      "sample_id": 67,
+      "question": "How does the conduction gap depend on the strain direction?",
+      "prediction": "the conduction gap depends on the strain direction",
+      "reference": "Peaks occur at certain strain directions, while the gap is zero at others.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3157894736842105,
+        "token_count": 111,
+        "latency": 8.378518342971802
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The conduction gap in graphene strained junctions depends on the strain direction because the shift of Dirac points along the $k_y$-axis, which is responsible for the conduction gap, varies with the applied strain direction. This dependence arises due to the anisotropic nature of graphene's bandstructure and the directional sensitivity of strain-induced lattice deformations.\n\nFinal Answer: The conduction gap depends on the strain direction."
+    },
+    {
+      "sample_id": 68,
+      "question": "When was the paper published?",
+      "prediction": "7 march 2023",
+      "reference": "The paper was published on 7 March 2023.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5454545454545454,
+        "token_count": 17,
+        "latency": 3.429535150527954
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The paper was published on 7 March 2023. \n\nFinal Answer: 7 March 2023"
+    },
+    {
+      "sample_id": 69,
+      "question": "What are the three subsets into which the parameter space V is divided?",
+      "prediction": "v v 0 and v",
+      "reference": "The three subsets are V+, V0, and V-, determined by the Kullback-Leibler information distance.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.26666666666666666,
+        "token_count": 179,
+        "latency": 19.684571027755737
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The parameter space V is divided into three subsets: $ V^+ $, $ V^0 $, and $ V^- $. These subsets are determined based on the Kullback-Leibler information distance between the distributions $ P_v $, $ P_{v_0} $, and $ P_{v_1} $. Specifically:\n- $ V^- $ consists of parameters where $ P_v $ is closer to $ P_{v_0} $ than to $ P_{v_1} $ (i.e., $ I(P_v \\| P_{v_0}) < I(P_v \\| P_{v_1}) $).\n- $ V^0 $ consists of parameters where $ P_v $ is equidistant from $ P_{v_0} $ and $ P_{v_1} $ (i.e., $ I(P_v \\| P_{v_0}) = I(P_v \\| P_{v_1}) $).\n- $ V^+ $ consists of parameters where $ P_v $ is closer to $ P_{v_1"
+    },
+    {
+      "sample_id": 70,
+      "question": "What happens to Ngotho after he attacks Jacobo at a workers' strike?",
+      "prediction": "ngotho loses his job",
+      "reference": "After attacking Jacobo at a workers' strike, Ngotho loses his job and Njoroge's family is forced to move.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3636363636363636,
+        "token_count": 107,
+        "latency": 5.103943109512329
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "After Ngotho attacks Jacobo at a workers' strike, he loses his job and Njoroge’s family is forced to move. Ngotho's position as the central power of the family weakens, and he eventually dies from injuries sustained during the murder of Mr. Howlands, which is linked to his sons. \n\nFinal Answer: Ngotho loses his job, his family is forced to move, and he eventually dies from injuries sustained during the murder of Mr. Howlands."
+    },
+    {
+      "sample_id": 71,
+      "question": "Where is the club's headquarters located?",
+      "prediction": "jivani street 2",
+      "reference": "The club's headquarters are located on Jivani Street 2 of the Malatia-Sebastia District, Yerevan.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.375,
+        "token_count": 41,
+        "latency": 3.9798507690429688
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The club's headquarters are located on Jivani Street 2 of the Malatia-Sebastia District, Yerevan.\n\nFinal Answer: Jivani Street 2, Malatia-Sebastia District, Yerevan"
+    },
+    {
+      "sample_id": 72,
+      "question": "How do the runtimes and iteration counts of NFPA and FPSA compare to GMRES and DSA in the numerical ",
+      "prediction": "nfpa and fpsa have significantly lower runtime and iteration counts compared to",
+      "reference": "NFPA and FPSA greatly outperform GMRES and DSA.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.33333333333333326,
+        "token_count": 34,
+        "latency": 4.457740306854248
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Final Answer: NFPA and FPSA have significantly lower runtime and iteration counts compared to GMRES and DSA in the numerical experiments."
+    },
+    {
+      "sample_id": 73,
+      "question": "What are some reasons for the lack of data sharing in archaeobotany?",
+      "prediction": "technological limitations",
+      "reference": "Technological limitations, resistance to exposing data to scrutiny, and desire to hold onto data for personal use.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.25,
+        "token_count": 552,
+        "latency": 27.136828422546387
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The lack of data sharing in archaeobotany can be attributed to several factors, including the following:\n\n1. **Technological limitations**: Some researchers may lack the technical knowledge or resources to effectively share and manage their data in digital formats.\n\n2. **Resistance to data sharing**: There is a perception among some archaeologists that sharing data could expose it to scrutiny, lead to others using the data before they can publish their findings, or diminish the perceived value of their work.\n\n3. **Institutional and career pressures**: The need to publish in high-status journal"
+    },
+    {
+      "sample_id": 74,
+      "question": "What are some fields in which the inverse problem is encountered?",
+      "prediction": "physics",
+      "reference": "Physics, biology, social sciences, finance, and neuroscience are some fields in which the inverse problem is encountered.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.1111111111111111,
+        "token_count": 20,
+        "latency": 9.05890417098999
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Final Answer: Physics, biology, social sciences, finance, neuroscience, and optics."
+    },
+    {
+      "sample_id": 75,
+      "question": "What is the maximum radius of the emitting region for the black body model?",
+      "prediction": "3 pm 0 2 times 10 8 cm",
+      "reference": "4.5x10^8 cm.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.2,
+        "token_count": 69,
+        "latency": 15.005059480667114
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The maximum radius of the emitting region for the black body model is derived from the model normalization and the assumed distance. For the black body model, the emitting region radius is calculated to be $1.3 \\pm 0.2 \\times 10^8$ cm.\n\nFinal Answer: $1.3 \\pm 0.2 \\times 10^8$ cm"
+    },
+    {
+      "sample_id": 76,
+      "question": "Which air unit did Goodwin command during the initial landings of Marines on Saipan?",
+      "prediction": "vc 10 squadron",
+      "reference": "VC-10 Squadron.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4,
+        "token_count": 3,
+        "latency": 1.9368326663970947
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "VC-10 Squadron"
+    },
+    {
+      "sample_id": 77,
+      "question": "How does the receptive field size affect the completion of shapes?",
+      "prediction": "larger receptive field sizes allow for more successful completion of shapes with",
+      "reference": "Bigger receptive field size leads to more successful shape completion.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.45454545454545453,
+        "token_count": 92,
+        "latency": 6.494002342224121
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The receptive field size affects the completion of shapes by enabling the algorithm to fill in larger gaps. A larger receptive field size allows the model to capture more contextual information, leading to more successful completion of shapes with bigger gaps. \n\nFinal Answer: Larger receptive field sizes allow for more successful completion of shapes with bigger gaps."
+    },
+    {
+      "sample_id": 78,
+      "question": "What is the significance of the interlayer Berry connection polarizability?",
+      "prediction": "onlinear dynamical hall effect in twisted bilayers",
+      "reference": "The momentum space curl of the interlayer Berry connection polarizability generates the crossed nonlinear dynamical Hall effect.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.27272727272727276,
+        "token_count": 117,
+        "latency": 7.011760473251343
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The significance of the interlayer Berry connection polarizability lies in its role as the geometric origin of the crossed nonlinear dynamical Hall effect in twisted bilayers. It measures the k-space curl of the interlayer Berry connection polarizability over the occupied states, which is a characteristic of layer-hybridized electronic states and allows for tunable Hall rectification and frequency doubling through the phase difference of orthogonal electric fields."
+    },
+    {
+      "sample_id": 79,
+      "question": "Can the denoiser be applied to circuits with non-Clifford noise?",
+      "prediction": "yes",
+      "reference": "Yes, the denoiser works for non-Clifford local noise channels.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.19999999999999998,
+        "token_count": 1,
+        "latency": 2.585979461669922
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Yes."
+    },
+    {
+      "sample_id": 80,
+      "question": "What is Professor Tulis's forthcoming book?",
+      "prediction": "legacies of losing in american politics and an expanded edition of the rhetorica",
+      "reference": "Legacies of Losing in American Politics and an expanded edition of The Rhetorical Presidency in the Princeton Classics series.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.7857142857142857,
+        "token_count": 211,
+        "latency": 16.494418382644653
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Step 1: Identify the relevant information about Professor Tulis's forthcoming books from the context provided.\n- The context mentions that Professor Tulis has \"forthcoming books include: Legacies of Losing in American Politics, with Nicole Mellow (University of Chicago Press, Fall 2017), and an expanded edition of The Rhetorical Presidency in the Princeton Classics series (Princeton, Fall 2017).\"\n\nStep 2: Determine which of these books are considered \"forthcoming\" at the time of the query.\n- Both books are listed as forthcoming with specific publication dates.\n\nStep 3: Select the answer based "
+    },
+    {
+      "sample_id": 81,
+      "question": "How does a media application determine the context of an event?",
+      "prediction": "content recognition module",
+      "reference": "It uses a content-recognition module or algorithm.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.2,
+        "token_count": 152,
+        "latency": 9.592804908752441
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The media application determines the context of an event using a content-recognition module that processes data associated with the event, such as audio, visual, and textual information. This module may use techniques like speech recognition, object recognition, and cross-referencing with databases to identify the event's context, including who is involved, what was said, and other relevant circumstances. The application then uses this context to request additional information from multiple users or sources to generate supplemental information about the event.\n\nFinal Answer: Content-recognitio"
+    },
+    {
+      "sample_id": 82,
+      "question": "What are the titles of one of Kam W. Leong's publications in Journal of Controlled Release?",
+      "prediction": "the question we need to identify one of kam w",
+      "reference": "Sustained viral gene delivery through core-shell fibers and Gene transfer to hemophilia A mice via oral delivery of FVIII-chitosan nanoparticles.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.14285714285714285,
+        "token_count": 164,
+        "latency": 12.44486117362976
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to identify one of Kam W. Leong's publications in the *Journal of Controlled Release*.\n\n1. Review the list of publications provided.\n2. Look for entries that mention \"Journal of Controlled Release.\"\n3. Identify the title of the publication.\n\nFrom the list, the following entry is found:\n\n- Liao, I. C. and Liu, J. B. and Bursac, N. and Leong, K. W., Sustained viral gene delivery through core-shell fibers, Journal of Controlled Release, vol. 139 no. 1 (2009), pp. 48-55 [abs]\n\nThus, one of Kam W. Leong's publications in the *Journal of Controlled Release* is:\n\n**\"Su"
+    },
+    {
+      "sample_id": 83,
+      "question": "What was the club known as before being officially renamed FC Urartu?",
+      "prediction": "fc banants",
+      "reference": "FC Banants.",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 2,
+        "latency": 1.0584254264831543
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "FC Banants"
+    },
+    {
+      "sample_id": 84,
+      "question": "What was the conclusion of the study?",
+      "prediction": "mercury exposure in amazonian riparian communities",
+      "reference": "The conclusion was that fruit consumption may provide a protective effect for mercury exposure in Amazonian riparians.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3478260869565218,
+        "token_count": 69,
+        "latency": 4.0911102294921875
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The conclusion of the study was that fruit consumption may provide a protective effect against mercury exposure in Amazonian riparian communities. Prevention strategies should focus on maintaining fish consumption while reducing mercury exposure through increased fruit intake."
+    },
+    {
+      "sample_id": 85,
+      "question": "How does the scoring engine generate a stream of content for the channel?",
+      "prediction": "enerated for the user to determine their relevance",
+      "reference": "By comparing candidate content items to a model and scoring them.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.10526315789473685,
+        "token_count": 116,
+        "latency": 9.152472734451294
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The scoring engine generates a stream of content for the channel by querying new content items based on the channel category and at least one other channel attribute, retrieving candidate content items that include these attributes, and then scoring the candidate content items against a model generated for the user to determine their relevance. The scored candidate content items are then ordered and used to generate the final stream of content for the channel."
+    },
+    {
+      "sample_id": 86,
+      "question": "When did the club win the Armenian Premier League for the first time?",
+      "prediction": "2013 14",
+      "reference": "In the 2013-2014 season.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 1,
+        "latency": 1.9681248664855957
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "2013–14"
+    },
+    {
+      "sample_id": 87,
+      "question": "How many novels did Margaret Way write?",
+      "prediction": "120",
+      "reference": "Margaret Way wrote more than 120 novels.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.25,
+        "token_count": 282,
+        "latency": 14.076757431030273
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To determine how many novels Margaret Way wrote, we need to count all the entries in the provided bibliography. This includes:\n\n1. **Single Novels**: These are listed individually and include titles such as \"King Country (1970)\", \"Blaze of Silk (1970)\", etc. Counting these gives us 120 novels.\n\n2. **Series**: The context mentions that she wrote several series, such as \"Legends of the Outback Series\", \"Koomera Crossing Series\", \"McIvor Sisters Series\", etc. However, these are already included in the list of single novels, so they do not add additional counts beyond the 120.\n\n3. **Collections an"
+    },
+    {
+      "sample_id": 88,
+      "question": "What is the proposed approach in this research paper?",
+      "prediction": "approximating the posterior distribution with an isotropic gaussian to derive an",
+      "reference": "This research paper proposed an approach based on approximating the posterior distribution with an isotropic Gaussian distribution.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.64,
+        "token_count": 118,
+        "latency": 8.419654846191406
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The proposed approach in this research paper is to approximate the posterior distribution of a state-space model with an isotropic Gaussian distribution, leading to an adaptable step-size LMS algorithm. This approach allows for a probabilistic interpretation of the LMS filter and provides a measure of uncertainty in the estimation process.\n\nFinal Answer: Approximating the posterior distribution with an isotropic Gaussian to derive an adaptable step-size LMS algorithm."
+    },
+    {
+      "sample_id": 89,
+      "question": "Does DUO contain more instances per image than COCO?",
+      "prediction": "yes",
+      "reference": "Yes, DUO has 9.57 instances per image while COCO contains 7.7.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.16666666666666669,
+        "token_count": 84,
+        "latency": 9.953032732009888
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To determine whether DUO contains more instances per image than COCO, we need to compare the average number of instances per image in both datasets.\n\nFrom the context:\n- **DUO** has an average of **9.57 instances per image**.\n- **COCO** has an average of **7.7 instances per image**.\n\nSince 9.57 is greater than 7.7, the answer is:\n\nyes"
+    },
+    {
+      "sample_id": 90,
+      "question": "What are the symptoms of vitamin K deficiency?",
+      "prediction": "e gums heavy menstrual bleeding and coagulopathy",
+      "reference": "Symptoms of vitamin K deficiency include anemia, bruising, nosebleeds, bleeding of the gums, and heavy menstrual bleeding in women.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4166666666666667,
+        "token_count": 52,
+        "latency": 9.106680870056152
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The symptoms of vitamin K deficiency include anemia, bruising, nosebleeds, bleeding of the gums, heavy menstrual bleeding, and coagulopathy. Additionally, it can lead to osteoporosis and coronary heart disease."
+    },
+    {
+      "sample_id": 91,
+      "question": "What is the security parameter for the AES-256 block cipher?",
+      "prediction": "the security parameter for the aes 256 block cipher is 172",
+      "reference": "172.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 14,
+        "latency": 6.607149839401245
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The security parameter for the AES-256 block cipher is 172."
+    },
+    {
+      "sample_id": 92,
+      "question": "What is the definition of mobile device management (MDM)?",
+      "prediction": "mobile device management mdm",
+      "reference": "Centralized control of mobile devices and applications.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.18181818181818182,
+        "token_count": 55,
+        "latency": 6.356480360031128
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Mobile device management (MDM) is defined as \"support centralized control of an entire fleet of mobile devices (smartphones and tablets) and mobile applications by applying and ensuring pre-defined configuration settings.\""
+    },
+    {
+      "sample_id": 93,
+      "question": "What models were used for dialect identification?",
+      "prediction": "xlm roberta bert electra gpt 2 and roberta",
+      "reference": "BERT, RoBERTa, ELECTRA, GPT-2, and XLM-RoBERTa.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.6153846153846153,
+        "token_count": 97,
+        "latency": 7.587433576583862
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The models used for dialect identification in the paper include XLM-RoBERTa, BERT, ELECTRA, GPT-2, and RoBERTa. These models were fine-tuned for dialect identification tasks using language-specific data. Additionally, a pretrained XLM-RoBERTa model was used as the language identification (LID) model in the two-stage pipeline.\n\nFinal Answer: XLM-RoBERTa, BERT, ELECTRA, GPT-2, and RoBERTa"
+    },
+    {
+      "sample_id": 94,
+      "question": "What are the restrictions on the use of Broadjam's servers?",
+      "prediction": "prohibitions against illegal activities",
+      "reference": "No excessive overloading and no use for illegal activity.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.16666666666666666,
+        "token_count": 218,
+        "latency": 16.528924703598022
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The restrictions on the use of Broadjam's servers include prohibitions against using the servers for illegal activities, spamming, and other abusive activities. Hosting Subscribers must not overload Broadjam's DNS or servers, and they must ensure their Website does not threaten the stability of Broadjam's network. Additionally, Hosting Subscribers are responsible for maintaining the confidentiality of their account information and are liable for any unauthorized use of their account or password. Broadjam reserves the right to suspend or terminate Hosting Services if they are used in associatio"
+    },
+    {
+      "sample_id": 95,
+      "question": "How is the vacuum processing system configured in terms of the arrangement of the vacuum processing ",
+      "prediction": "真空処理室は真空搬送室の中央軸線に対して対称的に配置され 反対側に2つ設けられ その配置位置は鋭角をなしている",
+      "reference": "Multiple vacuum processing apparatuses are arranged in parallel.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 17,
+        "latency": 5.3446362018585205
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Final Answer: 真空処理室は真空搬送室の中央軸線に対して対称的に配置され、反対側に2つ設けられ、その配置位置は鋭角をなしている。"
+    },
+    {
+      "sample_id": 96,
+      "question": "How many massive star-forming regions were studied?",
+      "prediction": "21",
+      "reference": "21.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 1.6880974769592285
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "21"
+    },
+    {
+      "sample_id": 97,
+      "question": "What is the average magnetic moment per column in Ge$_{1-x}$Mn$_{x}$ films?",
+      "prediction": "1425 mu_ b",
+      "reference": "1425 $\\mu_{B}$.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4,
+        "token_count": 75,
+        "latency": 12.431336879730225
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The average magnetic moment per column in Ge$_{1-x}$Mn$_{x}$ films is calculated by considering the total magnetic moment and dividing it by the number of columns. From the context, it is stated that the average magnetic moment per column is approximately 1425 $\\mu_{B}$. \n\nFinal Answer: 1425 $\\mu_{B}$"
+    },
+    {
+      "sample_id": 98,
+      "question": "Is there any evidence of heaven and hell?",
+      "prediction": "no",
+      "reference": "Unknown.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 4,
+        "latency": 1.6677155494689941
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Final Answer: No."
+    },
+    {
+      "sample_id": 99,
+      "question": "When will BC leave Boston?",
+      "prediction": "mention when bc boston college will leave boston",
+      "reference": "August 25.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 40,
+        "latency": 6.229737997055054
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Final Answer: The context provided does not mention when BC (Boston College) will leave Boston. Therefore, the answer is not available from the given information."
+    }
+  ]
+}

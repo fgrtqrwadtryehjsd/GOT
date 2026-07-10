@@ -1,0 +1,1562 @@
+{
+  "summary": {
+    "method": "gers_cv2_fullctx",
+    "dataset": "longbench_narrativeqa",
+    "num_samples": 100,
+    "avg_em": 0.027,
+    "avg_f1": 0.2084,
+    "avg_latency": 26.7626,
+    "error_count": 26,
+    "workers": 4
+  },
+  "results": [
+    {
+      "sample_id": 0,
+      "question": "What is Saltram's living situation?",
+      "prediction": "Saltram lives with the Mulvilles at their Wimbledon home",
+      "reference": "He is a guest in the home of the Mulvilles.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3333333333333333,
+        "token_count": 140,
+        "latency": 38.881452322006226,
+        "consistency_score": 0.4046
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is Saltram's living situation?\nAnswer: Saltram lives with the Mulvilles at their Wimbledon home\nStep 2: Where is Saltram staying during the winter?\nAnswer: At the Mulvilles' home in Wimbledon\nStep 3: Who is responsible for supporting Saltram financially?\nAnswer: The Mulvilles\nStep 4: How does Saltram's financial support affect his living situation?\nAnswer: Saltram lives comfortably due to the Mulvilles' financial support, though his dependence on them highlights his lack of independence\n\nSaltram lives with the Mulvilles at their Wimbledon home"
+    },
+    {
+      "sample_id": 1,
+      "question": "Why does Ann not return Mary's feelings of affection?",
+      "prediction": "Ann is devoted to her husband and focused on her own struggles, making it imposs",
+      "reference": "Because she is in unrequited love with someone else",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.08695652173913043,
+        "token_count": 195,
+        "latency": 26.047154188156128,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the relationship between Mary and Ann?\nAnswer: Mary and Ann are close friends with a deep emotional bond\nStep 2: Why does Ann not return Mary's feelings of affection?\nAnswer: Ann does not return Mary's feelings of affection because she is devoted to her husband and focused on her own struggles, making it impossible for her to reciprocate Mary's deep emotional bond [LOW CONFIDENCE - may be unreliable, verify before relying on it]\n\n[Note: 1 step(s) above have LOW confidence. Cross-check these before finalizing your answer; if a low-confidence step is a prerequisite for later step"
+    },
+    {
+      "sample_id": 2,
+      "question": "Where does the witch live?",
+      "prediction": "On Atlas' mountain in a cavern by a secret fountain",
+      "reference": "The Atlas Mountains",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.16666666666666666,
+        "token_count": 180,
+        "latency": 13.210427522659302,
+        "consistency_score": 0.6
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: Where does the witch live according to the poem?\nAnswer: On Atlas' mountain in a cavern by a secret fountain\nStep 2: What is the significance of the location where the witch lives in the context of the poem?\nAnswer: The witch's location on Atlas' mountain in a cavern by a secret fountain signifies her isolation, mystical power, and connection to ancient wisdom, contrasting with the transient world [LOW CONFIDENCE - may be unreliable, verify before relying on it]\n\n[Note: 1 step(s) above have LOW confidence. Cross-check these before finalizing your answer; if a low-confidence step is a p"
+    },
+    {
+      "sample_id": 3,
+      "question": "What was the purpose of Crito's visit?",
+      "prediction": "To prevent disgrace",
+      "reference": "To smuggle Socrates out of prison and into a life of exile.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.14285714285714288,
+        "token_count": 132,
+        "latency": 15.49575424194336,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What was the purpose of Crito's visit to Socrates?\nAnswer: Crito visited Socrates to convince him to escape from prison, fearing social disgrace and the consequences for his friends and family\nStep 2: What arguments did Crito present to convince Socrates to escape from prison?\nAnswer: Crito argued that escaping would prevent disgrace, protect friends and family, and allow Socrates to live and care for his children\n\nTo prevent disgrace, protect friends and family, and allow Socrates to live and care for his children."
+    },
+    {
+      "sample_id": 4,
+      "question": "Why didn't Baron Henry just kill Otto instead of cutting his hand off?",
+      "prediction": "Because he wanted to ensure Otto's suffering and humiliation as a form of reveng",
+      "reference": "Otto was so young.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 175,
+        "latency": 47.930575370788574,
+        "consistency_score": 0.24
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: Why did Baron Henry attack Drachenhausen?\nAnswer: To avenge his uncle and seek revenge against the Vuelph family\nStep 2: What was the outcome of the attack on Drachenhausen?\nAnswer: The castle was destroyed in a fire, and Otto was captured and imprisoned\nStep 3: Where was Otto taken after the attack?\nAnswer: Trutz-Drachen\nStep 4: Who was responsible for informing Baron Conrad about Otto's location?\nAnswer: Fritz, the swineherd\nStep 5: How did one-eyed Hans manage to enter the castle?\nAnswer: He pretended to be a peddler and tricked a girl into opening the postern door for him\n\nBecause "
+    },
+    {
+      "sample_id": 5,
+      "question": "How long had Mortimer Trefinnis' sister been dead when the doctor examined the body?",
+      "prediction": "At least six hours",
+      "reference": "Six hours.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.6666666666666666,
+        "token_count": 66,
+        "latency": 20.5425283908844,
+        "consistency_score": 0.7
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: When did the doctor examine the body of Mortimer Tregennis' sister?\nAnswer: At least six hours before the examination\nStep 2: How long had Mortimer Tregennis' sister been dead when the doctor examined the body?\nAnswer: At least six hours\n\nAt least six hours"
+    },
+    {
+      "sample_id": 6,
+      "question": "With whom does the entertainers' manager have an affair?",
+      "prediction": "the girl from the deserted village",
+      "reference": "Lisa, the blacksmith's wife.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.22222222222222224,
+        "token_count": 90,
+        "latency": 32.54295229911804,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: Who is the entertainer's manager in the context of The Seventh Seal?\nAnswer: Jons\nStep 2: With whom does the entertainer's manager have an affair, based on the interactions and relationships described in the text?\nAnswer: Jons has an affair with the girl from the deserted village, who is the wife of the juggler Jof\n\nthe girl from the deserted village"
+    },
+    {
+      "sample_id": 7,
+      "question": "Who is the first person that falls under Vigo's spell?",
+      "prediction": "Frank",
+      "reference": "Dr. Janosz Poha",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 67,
+        "latency": 29.643583297729492,
+        "consistency_score": 1.0
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: Who is the first person that Oscar interacts with in the scene where the baby buggy incident occurs?\nAnswer: Frank\nStep 2: What is the name of the person who helps Dana with her groceries and later becomes involved in the supernatural events?\nAnswer: Frank\n\nFrank"
+    },
+    {
+      "sample_id": 8,
+      "question": "What nationality is Ruth Anvoy?",
+      "prediction": "American",
+      "reference": "She is an American.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4,
+        "token_count": 36,
+        "latency": 24.083594799041748,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the nationality of Ruth Anvoy?\nAnswer: American\nStep 2: Where is Ruth Anvoy from according to the text?\nAnswer: American\n\nAmerican"
+    },
+    {
+      "sample_id": 9,
+      "question": "Who did the Witch want to have reveal their own lies?",
+      "prediction": "The Witch wanted to have the speaker reveal their own lies",
+      "reference": "The scribe.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.16666666666666669,
+        "token_count": 200,
+        "latency": 14.991743326187134,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: Who is the Witch in the poem 'The Witch of Atlas' by Percy Bysshe Shelley?\nAnswer: A supernatural being residing on Atlas' mountain with great magical powers and influence over both the natural and spiritual realms\nStep 2: What is the significance of the Witch's ability to reveal lies in the context of the poem?\nAnswer: The Witch's ability to reveal lies highlights her role as a moral arbiter, exposing hidden truths and the consequences of deception within human nature [LOW CONFIDENCE - may be unreliable, verify before relying on it]\n\n[Note: 1 step(s) above have LOW confidence. Cross-c"
+    },
+    {
+      "sample_id": 10,
+      "question": "Why do the bosses of Wilma's gang believe that Anthony Rogers will be useful to them in the current ",
+      "prediction": "Anthony Rogers' successful destruction of a Han ship and his unique knowledge fr",
+      "reference": "Because he fought in the first world war.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 199,
+        "latency": 25.705116987228394,
+        "consistency_score": 0.6
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the name of the character who saves Wilma from the Bad Bloods?\nAnswer: Anthony Rogers\nStep 2: Why do the bosses of Wilma's gang believe Anthony Rogers will be useful to them in the current conflict?\nAnswer: Anthony Rogers' successful destruction of a Han ship and his unique knowledge from the past make him a valuable asset to the gang's efforts against the Hans [LOW CONFIDENCE - may be unreliable, verify before relying on it]\n\n[Note: 1 step(s) above have LOW confidence. Cross-check these before finalizing your answer; if a low-confidence step is a prerequisite for later steps, "
+    },
+    {
+      "sample_id": 11,
+      "question": "Which descriptions of the future world does Soames provide upon his return?",
+      "prediction": "Soames describes a future reading-room filled with uniformed, hairless, and seem",
+      "reference": "ones that are vague",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 301,
+        "latency": 20.861513376235962,
+        "consistency_score": 0.6
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What are the descriptions of the future world that Enoch Soames provides upon his return from the reading-room?\nAnswer: Soames describes a future reading-room filled with uniformed, hairless, and seemingly emotionless individuals in a utopian, highly organized society, highlighting their lack of individuality and mechanical behavior [LOW CONFIDENCE - may be unreliable, verify before relying on it]\nStep 2: What specific details does Soames mention about the people and environment in the reading-room of the future?\nAnswer: Soames describes the future reading-room as filled with uniformed"
+    },
+    {
+      "sample_id": 12,
+      "question": "How long after Madame de Merret dies before people are allowed inter manor?",
+      "prediction": "Fifty years",
+      "reference": "50 years",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5,
+        "token_count": 200,
+        "latency": 28.832700967788696,
+        "consistency_score": 0.27
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: When did Madame de Merret die according to the story?\nAnswer: Madame de Merret died on the night she summoned Monsieur Regnault to her bedside\nStep 2: What was the condition of la Grande Breteche when Madame de Merret died?\nAnswer: La Grande Breteche was in a state of severe neglect and decay, having been dismantled and left to fall into ruin\nStep 3: What were the terms of Madame de Merret's will regarding la Grande Breteche?\nAnswer: Madame de Merret's will required la Grande Breteche to remain in its state at her death for fifty years, prohibiting entry or repairs, and it would revert"
+    },
+    {
+      "sample_id": 13,
+      "question": "Who doe the Vervelle couple believe Grassou is the perfect match for?",
+      "prediction": "Virginie",
+      "reference": "Their daughter, Virgine. ",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 165,
+        "latency": 29.287049770355225,
+        "consistency_score": 0.27
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: Who is the Vervelle family in the context of the story?\nAnswer: A wealthy bourgeois family who commission portraits of Pierre Grassou and consider him a potential son-in-law\nStep 2: What is the Vervelle family's interest in Pierre Grassou?\nAnswer: The Vervelle family is interested in Pierre Grassou as a potential son-in-law due to his artistic talent and social standing\nStep 3: What does the Vervelle family offer Pierre Grassou in exchange for his portraits?\nAnswer: A substantial dowry and the hand of their daughter, Virginie\nStep 4: Who does the Vervelle couple believe Grassou is the "
+    },
+    {
+      "sample_id": 14,
+      "question": "Who does Vervelle want his daughter to marry?",
+      "prediction": "Pierre Grassou",
+      "reference": "Grassou",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.6666666666666666,
+        "token_count": 126,
+        "latency": 22.41857624053955,
+        "consistency_score": 0.27
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: Who is the artist Pierre Grassou?\nAnswer: Pierre Grassou is a genre painter from Fougeres who becomes a successful portraitist and marries Virginie Vervelle\nStep 2: What is the name of the family that Pierre Grassou is considering marrying into?\nAnswer: The Vervelle family\nStep 3: What is the name of the daughter of the family that Pierre Grassou is considering marrying into?\nAnswer: Virginie Vervelle\nStep 4: Who does Vervelle want his daughter to marry?\nAnswer: Pierre Grassou\n\nPierre Grassou"
+    },
+    {
+      "sample_id": 15,
+      "question": "How does the slime get into Dana's apartment?",
+      "prediction": "",
+      "reference": "The slime gets into Dana's apartment from the bathtub.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 12.714232921600342
+      },
+      "method": "gers_cv2_fullctx",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 16,
+      "question": "What does Elder Childers argue?",
+      "prediction": "Elder Childers argues for moral and spiritual leadership, criticizes the Baptist",
+      "reference": "That a mule bone is very powerful and can be a weapon.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.09090909090909091,
+        "token_count": 329,
+        "latency": 44.82312870025635,
+        "consistency_score": 0.27
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the main conflict in Act I of 'The Mule-Bone'?\nAnswer: The main conflict is the rivalry between Jim and Dave over Daisy, leading to a fight and highlighting the town's social and religious tensions\nStep 2: Who are the key characters involved in the conflict described in sub-question 1?\nAnswer: Jim Weston, Dave Carter, and Daisy Taylor\nStep 3: What does Elder Childers argue about in Act I?\nAnswer: Elder Childers argues for moral and spiritual leadership, criticizes the Baptist church's influence, and supports Jim Weston against the Mayor's unjust authority [LOW CONFIDENCE - may "
+    },
+    {
+      "sample_id": 17,
+      "question": "Why do the bosses of Wilma's gang believe that Anthony Rogers will be useful to them in the current ",
+      "prediction": "Anthony Rogers' successful destruction of a Han airship and his unique knowledge",
+      "reference": "Anthony Rogers has previous wartime and combatant experience.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3,
+        "token_count": 214,
+        "latency": 13.294616460800171,
+        "consistency_score": 1.0
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the name of the character who saves Wilma from the Bad Bloods?\nAnswer: Anthony Rogers\nStep 2: Why do the bosses of Wilma's gang believe Anthony Rogers will be useful to them in the current conflict?\nAnswer: Anthony Rogers' successful destruction of a Han airship and his unique knowledge from the 20th century make him a valuable asset to Wilma's gang in the ongoing conflict against the Hans [LOW CONFIDENCE - may be unreliable, verify before relying on it]\n\n[Note: 1 step(s) above have LOW confidence. Cross-check these before finalizing your answer; if a low-confidence step is a p"
+    },
+    {
+      "sample_id": 18,
+      "question": "What does Reiko see in the photograph that her ex-husband takes of her after she has seen the tape?",
+      "prediction": "",
+      "reference": "Her face is blurry",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 15.194797039031982
+      },
+      "method": "gers_cv2_fullctx",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 19,
+      "question": "How many ethical arguments does Socrates propose?",
+      "prediction": "the question of how many ethical arguments Socrates proposes in the Crito, we",
+      "reference": "Two",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 612,
+        "latency": 12.751866340637207,
+        "consistency_score": 1.0
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "To answer the question of how many ethical arguments Socrates proposes in the *Crito*, we need to analyze the dialogue step by step and identify the key ethical principles or arguments that Socrates presents.\n\n---\n\n### Step 1: Understand the Context\nThe *Crito* is a dialogue between Socrates and his friend Crito, who wants to help Socrates escape from prison. Socrates refuses, not because he fears death, but because he believes that escaping would be ethically wrong. The dialogue explores the moral and philosophical implications of obeying the laws of the state versus personal justice.\n\n---\n\n#"
+    },
+    {
+      "sample_id": 20,
+      "question": "Why was Mortimer Trefinnis once estranged from his siblings?",
+      "prediction": "A family quarrel over the division of money",
+      "reference": "because of the division of proceeds from selling the family business.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.47058823529411764,
+        "token_count": 98,
+        "latency": 16.396512508392334,
+        "consistency_score": 0.7
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What was the relationship between Mortimer Tregennis and his siblings?\nAnswer: Mortimer Tregennis was estranged from his siblings due to a past family quarrel over money, though they had since reconciled\nStep 2: What event caused Mortimer Tregennis to become estranged from his siblings?\nAnswer: A family quarrel over the division of money\n\nA family quarrel over the division of money"
+    },
+    {
+      "sample_id": 21,
+      "question": "What year is it when Anthony Rogers finally disembarks from the coal mine?",
+      "prediction": "2419 A.D",
+      "reference": "2419.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 181,
+        "latency": 53.207881450653076,
+        "consistency_score": 0.296
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What year does Anthony Rogers awaken from his suspended animation?\nAnswer: 2419 A.D\nStep 2: How many years passed between Anthony Rogers' awakening and the events of the Han air raid?\nAnswer: The events of the Han air raid occurred in the same year Anthony Rogers awoke, 2419 A.D\nStep 3: What is the name of the gang that Anthony Rogers joins in the 25th century?\nAnswer: Wyoming Gang\nStep 4: What is the name of the girl who saves Anthony Rogers from the Bad Bloods?\nAnswer: Wilma Deering\nStep 5: What is the name of the Han airship that is destroyed by Anthony Rogers' rocket?\nAnswer: GK-98"
+    },
+    {
+      "sample_id": 22,
+      "question": "Why did Bill run to Texas?",
+      "prediction": "",
+      "reference": "he murdered someone",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 17.895965814590454
+      },
+      "method": "gers_cv2_fullctx",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 23,
+      "question": "Who does Socrates compare going against the law to?",
+      "prediction": "Socrates compares going against the law to injuring one's parents or master",
+      "reference": "Your parents",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.14285714285714285,
+        "token_count": 198,
+        "latency": 14.628145456314087,
+        "consistency_score": 0.7
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the main argument Socrates presents regarding his decision to stay in prison?\nAnswer: Socrates argues that escaping would be unjust and violate his agreements with Athenian laws, harming himself and others, and that a just life is more valuable than preserving his life [LOW CONFIDENCE - may be unreliable, verify before relying on it]\nStep 2: Who does Socrates compare going against the law to, according to the dialogue?\nAnswer: Socrates compares going against the law to injuring one's parents or master\n\n[Note: 1 step(s) above have LOW confidence. Cross-check these before finaliz"
+    },
+    {
+      "sample_id": 24,
+      "question": "What relation to Ruth Anvoy is Lady Coxon?",
+      "prediction": "Lady Coxon's niece",
+      "reference": "Lady Coxon is Ruth's aunt.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.25,
+        "token_count": 275,
+        "latency": 44.91115164756775,
+        "consistency_score": 0.27
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: Who is Ruth Anvoy in relation to the characters in the text?\nAnswer: Ruth Anvoy is Lady Coxon's niece and is engaged to George Gravener, while being influenced by Frank Saltram's ideas\nStep 2: What is the relationship between Ruth Anvoy and Lady Coxon?\nAnswer: Ruth Anvoy is Lady Coxon's niece\nStep 3: What is the significance of the Coxon Fund in the narrative?\nAnswer: The Coxon Fund symbolizes the tension between idealism and practicality, driving the narrative's conflicts and character motivations\nStep 4: How does Ruth Anvoy's relationship with Frank Saltram influence her decisions?\nA"
+    },
+    {
+      "sample_id": 25,
+      "question": "What is Reiko's job?",
+      "prediction": "",
+      "reference": "Reiko is a reporter.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 15.490484476089478
+      },
+      "method": "gers_cv2_fullctx",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 26,
+      "question": "Why does Socrates ultimately decide it is unjust to escape?",
+      "prediction": "Socrates ultimately decides it",
+      "reference": "Because it violates his belief in the  laws of society.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.14285714285714288,
+        "token_count": 269,
+        "latency": 17.877813577651978,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the main argument Socrates uses to justify his decision not to escape from prison?\nAnswer: Socrates justifies his decision by emphasizing the importance of upholding justice and honoring the agreements with the laws of Athens, which he views as essential to a virtuous life [LOW CONFIDENCE - may be unreliable, verify before relying on it]\nStep 2: How does Socrates argue that escaping would violate the principles of justice and honor?\nAnswer: Socrates argues that escaping would break his agreements with Athens' laws, dishonor justice, and corrupt others, contradicting his lifelon"
+    },
+    {
+      "sample_id": 27,
+      "question": "How is Drexl killed?",
+      "prediction": "",
+      "reference": "he is shot",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 17.609899759292603
+      },
+      "method": "gers_cv2_fullctx",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 28,
+      "question": "What did Anvoy do with the letter once she received it?",
+      "prediction": "She used it to secure financial support from Lady Coxon for her engagement to Ge",
+      "reference": "She declined to read it.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3157894736842105,
+        "token_count": 106,
+        "latency": 27.15249490737915,
+        "consistency_score": 0.6
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What did Anvoy do with the letter once she received it?\nAnswer: She used it to secure financial support from Lady Coxon for her engagement to George Gravener\nStep 2: What was the content of the letter that Anvoy received?\nAnswer: Anvoy asked Lady Coxon for financial assistance to support her engagement to George Gravener\n\nShe used it to secure financial support from Lady Coxon for her engagement to George Gravener"
+    },
+    {
+      "sample_id": 29,
+      "question": "What was the description of the teens faces when they died?",
+      "prediction": "",
+      "reference": "Twisted in fear",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 14.670921087265015
+      },
+      "method": "gers_cv2_fullctx",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 30,
+      "question": "Why does Soames get upset with Beerbohm?",
+      "prediction": "Enoch Soames",
+      "reference": "Beerbohm wrote a fictional story about Soames.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.22222222222222224,
+        "token_count": 75,
+        "latency": 18.122530460357666,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the name of the person who wrote the book 'Negations'?\nAnswer: Enoch Soames\nStep 2: Why did Enoch Soames become upset with Max Beerbohm?\nAnswer: Soames became upset because Beerbohm's acknowledgment of his work contradicted Soames's belief in his obscurity, humiliating him\n\nEnoch Soames"
+    },
+    {
+      "sample_id": 31,
+      "question": "How many days do viewers of the tape have to live after they watch it?",
+      "prediction": "",
+      "reference": "Seven days",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 6.61501932144165
+      },
+      "method": "gers_cv2_fullctx",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 32,
+      "question": "Who does not see death in the end?",
+      "prediction": "The Knight",
+      "reference": "all but Jof and the Juggler",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.25,
+        "token_count": 84,
+        "latency": 49.84710192680359,
+        "consistency_score": 0.58
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: Who is the character that plays chess with Death?\nAnswer: Antonius Block\nStep 2: What is the outcome of the chess game between the knight and Death?\nAnswer: The knight loses the game, and Death takes his queen, leaving him mated\nStep 3: Who does not see death in the end according to the narrative?\nAnswer: The Knight\n\nThe Knight"
+    },
+    {
+      "sample_id": 33,
+      "question": "When Mary was younger, how did her mother fill her free time?",
+      "prediction": "Reading novels and engaging in superficial social activities with her French mai",
+      "reference": "she was obsessed with novels.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.23529411764705882,
+        "token_count": 161,
+        "latency": 39.002904176712036,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What was Mary's mother's occupation or role in the household?\nAnswer: She was a domestic figure focused on social and superficial aspects of household life\nStep 2: How did Mary's mother spend her free time when she was younger, according to the text?\nAnswer: Reading novels and engaging in superficial social activities with her French maid\nStep 3: What specific activities did Mary's mother engage in during her free time?\nAnswer: Reading novels, dancing, attending fashionable events, and engaging in superficial social activities with her French maid\n\nReading novels and engaging in superf"
+    },
+    {
+      "sample_id": 34,
+      "question": "What attratcs men to Anderson?",
+      "prediction": "Star Queen",
+      "reference": "HER BEAUTY",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 413,
+        "latency": 41.73030352592468,
+        "consistency_score": 0.21
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the name of the spaceship in the story?\nAnswer: _Star Queen_\nStep 2: Who is the doctor on the spaceship and what is his role?\nAnswer: Dr. Nordenfeld is the ship's doctor responsible for passenger health and safety, including monitoring for diseases like chlorophage\nStep 3: What is the significance of the virus 'chlorophage' in the story?\nAnswer: Chlorophage is a lethal virus that consumes chlorophyll and hemoglobin, capable of destroying all life, making it a critical threat in the story\nStep 4: What event leads to the discovery of chlorophage on the spaceship?\nAnswer: The appe"
+    },
+    {
+      "sample_id": 35,
+      "question": "Why was Falder worried about Ruth?",
+      "prediction": "William Falder",
+      "reference": "Her husband abused her",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 108,
+        "latency": 50.99578547477722,
+        "consistency_score": 0.6
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the name of the character who was worried about Ruth?\nAnswer: William Falder\nStep 2: Why was William Falder worried about Ruth?\nAnswer: Because Ruth was in danger from her abusive husband and needed his help to escape, causing Falder great emotional distress\n\nWilliam Falder was worried about Ruth because she was in danger from her abusive husband and needed his help to escape, causing him great emotional distress."
+    },
+    {
+      "sample_id": 36,
+      "question": "How did Bill die?",
+      "prediction": "",
+      "reference": "He is killed by police.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 13.49914836883545
+      },
+      "method": "gers_cv2_fullctx",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 37,
+      "question": "Why are Holmes and Dr. Watson in Cornwall?",
+      "prediction": "Cornwall",
+      "reference": "For Holmes' health.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 432,
+        "latency": 55.13855767250061,
+        "consistency_score": 0.273
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: Where are Holmes and Dr. Watson located at the beginning of the story?\nAnswer: Cornwall, near Poldhu Bay\nStep 2: What event prompts Holmes and Dr. Watson to investigate in Cornwall?\nAnswer: The death of Brenda Tregennis and the madness of her brothers\nStep 3: Who is the first person to approach Holmes and Dr. Watson with the mystery?\nAnswer: The vicar, Mr. Roundhay\nStep 4: What unusual phenomenon occurs during the investigation that leaves a sinister impression on Holmes?\nAnswer: They see a contorted, grinning face in a passing carriage, leaving a sinister impression on Holmes\nStep 5: "
+    },
+    {
+      "sample_id": 38,
+      "question": "What ghost emerged from a painting at Dana's workplace?",
+      "prediction": "",
+      "reference": "Vigo",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 29.91848134994507
+      },
+      "method": "gers_cv2_fullctx",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 39,
+      "question": "How is Mary initially educated?",
+      "prediction": "Mary was educated in superficial accomplishments and social graces, with little",
+      "reference": "Nature and books",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.14285714285714288,
+        "token_count": 152,
+        "latency": 42.44405913352966,
+        "consistency_score": 0.4867
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the name of the protagonist in the text?\nAnswer: Mary\nStep 2: What is the initial education of Mary according to the text?\nAnswer: Mary was educated in superficial accomplishments and social graces, with little emphasis on intellectual development\nStep 3: What are the key characteristics of Mary's early education as described in the text?\nAnswer: Mary's early education emphasized superficial accomplishments and social graces, with little intellectual or moral development\n\nMary was educated in superficial accomplishments and social graces, with little emphasis on intellectual de"
+    },
+    {
+      "sample_id": 40,
+      "question": "Where does the slime attack Dana and Oscar?",
+      "prediction": "",
+      "reference": "museum",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 13.991220474243164
+      },
+      "method": "gers_cv2_fullctx",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 41,
+      "question": "Who made the original cursed videotape?",
+      "prediction": "",
+      "reference": "Sadako Yamamura made the tape psionically.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 17.867619276046753
+      },
+      "method": "gers_cv2_fullctx",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 42,
+      "question": "Where does this story take place?",
+      "prediction": "Athens",
+      "reference": "In Socrates Cell?",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 80,
+        "latency": 13.30516004562378,
+        "consistency_score": 0.6
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: Where is the story of 'Crito' set?\nAnswer: The prison of Socrates in Athens\nStep 2: What is the significance of the prison setting in the context of the dialogue?\nAnswer: The prison setting emphasizes Socrates' adherence to justice and the moral conflict between personal freedom and civic responsibility\n\nAthens"
+    },
+    {
+      "sample_id": 43,
+      "question": "How did Shizuko Yamamura die?",
+      "prediction": "",
+      "reference": "She committed suicide.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 16.857663869857788
+      },
+      "method": "gers_cv2_fullctx",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 44,
+      "question": "Why did Bennett Landsmann need to defend Seth Lazurus in court?",
+      "prediction": "Bennett Landsmann needed to defend Seth Lazurus in court because Seth was accuse",
+      "reference": "because he's a lawyer",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.125,
+        "token_count": 350,
+        "latency": 27.816785097122192,
+        "consistency_score": 0.415
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the significance of chlorophage in the story?\nAnswer: Chlorophage is a lethal virus capable of destroying all life by consuming chlorophyll and hemoglobin, serving as the central threat that the characters must address [LOW CONFIDENCE - may be unreliable, verify before relying on it]\nStep 2: Why was Kathy Brand taken to an aseptic-environment room on Kamerun?\nAnswer: To protect her from the chlorophage virus that had killed all life on Kamerun\nStep 3: How did Kathy Brand end up on the Star Queen?\nAnswer: She was secretly transported to Altaira and then boarded the Star Queen\nSt"
+    },
+    {
+      "sample_id": 45,
+      "question": "Which remarkable habit did Enoch Soames demonstrate with regard to choice of clothing?",
+      "prediction": "wearing a soft black clerical hat and a gray waterproof cape",
+      "reference": "always wore a grey waterproof cape and a soft black hat",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.7,
+        "token_count": 173,
+        "latency": 26.3006694316864,
+        "consistency_score": 0.58
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the name of the book written by Enoch Soames that is mentioned in the text?\nAnswer: Negations\nStep 2: What was the title of Enoch Soames's poems that were to be published without a title, according to the text?\nAnswer: There was no title for Enoch Soames's poems, as he initially planned to publish them without one\nStep 3: What was the notable habit of Enoch Soames regarding his choice of clothing, as described in the text?\nAnswer: Enoch Soames was consistently described as wearing a soft black clerical hat and a gray waterproof cape, which were seen as unromantic and dim, refle"
+    },
+    {
+      "sample_id": 46,
+      "question": "Who did Baron Conrad kill?",
+      "prediction": "Otto",
+      "reference": "Baron Frederick",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 371,
+        "latency": 71.10764598846436,
+        "consistency_score": 0.2597
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: Who is the main character in the story?\nAnswer: Otto\nStep 2: What is the relationship between Baron Conrad and Otto?\nAnswer: Baron Conrad is Otto's father\nStep 3: Where does Otto live at the beginning of the story?\nAnswer: At the White Cross on the Hill\nStep 4: What event leads to Otto being taken from the monastery?\nAnswer: Baron Conrad's arrival and demand for Otto to live at Drachenhausen\nStep 5: How does Otto end up in the Dragon's House?\nAnswer: Baron Conrad takes Otto to Drachenhausen, but after an attack, Otto is captured and sent to Trutz-Drachen\nStep 6: What happens to the cas"
+    },
+    {
+      "sample_id": 47,
+      "question": "How is Mary initially educated?",
+      "prediction": "Mary was educated in superficial accomplishments and social graces, with little",
+      "reference": "She educates herself using books and the natural world.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.09999999999999999,
+        "token_count": 157,
+        "latency": 25.353111028671265,
+        "consistency_score": 0.4867
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the name of the protagonist in the text?\nAnswer: Mary\nStep 2: What is the initial education of Mary according to the text?\nAnswer: Mary was educated in superficial accomplishments and social graces, with little emphasis on intellectual development\nStep 3: What are the key characteristics of Mary's early education as described in the text?\nAnswer: Mary's early education emphasized superficial accomplishments and social graces, with little intellectual development and a focus on appearances\n\nMary was educated in superficial accomplishments and social graces, with little emphasis "
+    },
+    {
+      "sample_id": 48,
+      "question": "What religion supported Dave during Jim's trial?",
+      "prediction": "Elder Simms",
+      "reference": "The Baptist's supported Dave. ",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 64,
+        "latency": 22.251667737960815,
+        "consistency_score": 1.0
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the name of the character who is a Methodist and supports Dave during Jim's trial?\nAnswer: Elder Simms\nStep 2: Which character is described as a Methodist and is mentioned as supporting Dave during Jim's trial?\nAnswer: Elder Simms\n\nElder Simms"
+    },
+    {
+      "sample_id": 49,
+      "question": "Who does Vane write about in her letter?",
+      "prediction": "Evelyn Vane",
+      "reference": "Louis Leverett",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 256,
+        "latency": 42.2225706577301,
+        "consistency_score": 0.24
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: Who is the author of the letters?\nAnswer: Henry James\nStep 2: Which character is described as being in Paris and writing to her mother?\nAnswer: Miranda Hope\nStep 3: What is the name of the French family that Miranda Hope is staying with?\nAnswer: Maisonrouge\nStep 4: Who is Evelyn Vane, and what is her relationship to the other characters?\nAnswer: Evelyn Vane is an Englishwoman staying in Paris with her brother, and she is a key figure in Miranda Hope's observations about English society and the role of women [LOW CONFIDENCE - may be unreliable, verify before relying on it]\nStep 5: What "
+    },
+    {
+      "sample_id": 50,
+      "question": "What are some important themes mentioned in this story?",
+      "prediction": "Innocence, violence, good vs",
+      "reference": "Be responsible,keep your word and be wise and peaceful.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 225,
+        "latency": 45.19343447685242,
+        "consistency_score": 0.27
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What are the main themes of the story 'Otto of the Silver Hand'?\nAnswer: Innocence, violence, good vs. evil, and the contrast between medieval brutality and childlike purity\nStep 2: What is the significance of the White Cross on the Hill in the story?\nAnswer: The White Cross on the Hill serves as a sanctuary of peace and moral guidance, contrasting with the brutality of the outside world\nStep 3: How does the character of Baron Conrad represent a theme in the story?\nAnswer: The character of Baron Conrad embodies the destructive nature of vengeance and moral corruption\nStep 4: What role "
+    },
+    {
+      "sample_id": 51,
+      "question": "What happens to Tomoko?",
+      "prediction": "",
+      "reference": "Tomoko reveals that they watched a video tape with several friends a week ago and received a strange call after watching it. Tomoko is killed while Masami watches.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 17.498928546905518
+      },
+      "method": "gers_cv2_fullctx",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 52,
+      "question": "What was the description of the teens faces when they died?",
+      "prediction": "",
+      "reference": "Their faces twisted in fear.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 4.352032423019409
+      },
+      "method": "gers_cv2_fullctx",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 53,
+      "question": "Who was the final raid in the story on?",
+      "prediction": "Wyoming Valley",
+      "reference": "The Sinsings",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 445,
+        "latency": 65.9034583568573,
+        "consistency_score": 0.21
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the name of the main character in the story?\nAnswer: Anthony Rogers\nStep 2: What event triggers the main character's journey into the future?\nAnswer: An accident in a mine that puts him into suspended animation\nStep 3: What is the significance of the 'inertron belt' in the story?\nAnswer: The inertron belt allows characters to achieve anti-gravity and enhanced mobility, essential for their survival and combat against the Hans\nStep 4: How does the main character save Wilma from the Bad Bloods?\nAnswer: He uses a rocket to target the Han ship's repellor beam, causing it to crash an"
+    },
+    {
+      "sample_id": 54,
+      "question": "Who leaves Chicago with him?",
+      "prediction": "",
+      "reference": "His girlfriend Abby and her sister Linda.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 14.417418003082275
+      },
+      "method": "gers_cv2_fullctx",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 55,
+      "question": "What do the Ghostbusters do to stop an argument between Ray and Winston?",
+      "prediction": "They use their proton packs to create a distraction",
+      "reference": "Take their clothes off",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.15384615384615383,
+        "token_count": 198,
+        "latency": 37.05039405822754,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the context of the argument between Ray and Winston in the movie Ghostbusters II?\nAnswer: Ray and Winston argue about the future of their business, with Winston frustrated by the lack of real ghost work and Ray defending their continued efforts [LOW CONFIDENCE - may be unreliable, verify before relying on it]\nStep 2: What action do the Ghostbusters take to stop the argument between Ray and Winston?\nAnswer: They use their proton packs to create a distraction, shifting the focus from their argument to the supernatural threat\n\n[Note: 1 step(s) above have LOW confidence. Cross-chec"
+    },
+    {
+      "sample_id": 56,
+      "question": "What does Frank Saltram do for work?",
+      "prediction": "Frank Saltram",
+      "reference": "He does not work.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 342,
+        "latency": 46.91838574409485,
+        "consistency_score": 0.27
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is Frank Saltram's profession according to the text?\nAnswer: Frank Saltram is not described as having a conventional profession but is recognized for his intellectual contributions and eloquence\nStep 2: What does the text suggest about Frank Saltram's character and reputation?\nAnswer: Frank Saltram is depicted as a brilliant but morally ambiguous intellectual, admired for his mind but criticized for his lack of character and self-discipline\nStep 3: How does the text describe Frank Saltram's relationship with the Mulvilles?\nAnswer: The Mulvilles support and accommodate Frank Saltra"
+    },
+    {
+      "sample_id": 57,
+      "question": "Who did Ruth Honeywill plan to escape with?",
+      "prediction": "Ruth Honeywill",
+      "reference": "Falder",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 70,
+        "latency": 37.964377880096436,
+        "consistency_score": 0.6
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: Who is the woman that William Falder was planning to escape with?\nAnswer: Ruth Honeywill\nStep 2: What was the relationship between Ruth Honeywill and William Falder?\nAnswer: Ruth Honeywill was William Falder's lover, and they were planning to escape together\n\nRuth Honeywill"
+    },
+    {
+      "sample_id": 58,
+      "question": "What Medical school does Laura attend?",
+      "prediction": "Cannot be determined",
+      "reference": "Laura attends Harvard Medical school.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 260,
+        "latency": 25.41816473007202,
+        "consistency_score": 0.27
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: Who is the doctor on the Star Queen?\nAnswer: Doctor Nordenfeld\nStep 2: What is the name of the child who boarded the Star Queen?\nAnswer: Kathy Brand\nStep 3: Where was the child originally from according to her description?\nAnswer: A university's aseptic-environment room\nStep 4: What is the name of the university or research facility where the child was kept in an aseptic-environment room?\nAnswer: The name of the university or research facility is not specified in the text [LOW CONFIDENCE - may be unreliable, verify before relying on it]\n\n[Note: 1 step(s) above have LOW confidence. Cros"
+    },
+    {
+      "sample_id": 59,
+      "question": "What gift did the mayor give to the Ghostbusters?",
+      "prediction": "",
+      "reference": "key to the city",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 39.83672547340393
+      },
+      "method": "gers_cv2_fullctx",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 60,
+      "question": "Who does the Witch create?",
+      "prediction": "a magical boat and a sexless, beautiful creation",
+      "reference": "Hermaphroditus.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 127,
+        "latency": 14.537496089935303,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: Who is the Witch of Atlas according to the poem?\nAnswer: The Witch of Atlas is a mystical creator figure who conjures beings and influences the natural and supernatural worlds through her magic and power\nStep 2: What creatures or beings does the Witch of Atlas create or influence in the poem?\nAnswer: The Witch of Atlas creates and influences animals, mythical beings, and abstract entities, including a magical boat and a sexless, beautiful creation\n\na magical boat and a sexless, beautiful creation"
+    },
+    {
+      "sample_id": 61,
+      "question": "Where did the lover hide?",
+      "prediction": "The Spanish prisoner, Feredia",
+      "reference": "In a closet.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 152,
+        "latency": 23.790726900100708,
+        "consistency_score": 0.66
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: Where is La Grande Breteche located according to the story?\nAnswer: A hundred paces from Vendome, on the banks of the Loir\nStep 2: Who was the last person to enter the room where Madame de Merret died?\nAnswer: Monsieur Regnault\nStep 3: What was the name of the Spanish prisoner who was lodged at the inn?\nAnswer: Bagos de Feredia\nStep 4: What was the reason for the Spanish prisoner's disappearance?\nAnswer: He escaped to avoid capture, with the help of Rosalie\nStep 5: Who was the lover that hid in the closet at La Grande Breteche?\nAnswer: The Spanish prisoner, Feredia\n\nThe Spanish prisone"
+    },
+    {
+      "sample_id": 62,
+      "question": "Who greeted Jacob in his apartment after Jacob finally came to terms with his military ordeal?",
+      "prediction": "",
+      "reference": "His son Gabe",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 14.706899404525757
+      },
+      "method": "gers_cv2_fullctx",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 63,
+      "question": "Where were Jim and Dave from?",
+      "prediction": "Eatonville",
+      "reference": "Eatonville",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 181,
+        "latency": 39.46574521064758,
+        "consistency_score": 0.4584
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: Who are the main characters in the play 'The Mule-Bone'?\nAnswer: Jim Weston, Dave Carter, Daisy Taylor, Joe Clark, and Elder Simms are the main characters in \"The Mule-Bone.\"\nStep 2: What is the relationship between Jim and Dave as described in the first act?\nAnswer: Jim and Dave are close friends who both have romantic feelings for Daisy Taylor, leading to friendly rivalry and competition\nStep 3: Where does the play take place in Act I?\nAnswer: Eatonville, around Joe Clark's store and the surrounding street\nStep 4: What event triggers the conflict between Jim and Dave in Act I?\nAnswer"
+    },
+    {
+      "sample_id": 64,
+      "question": "Who discovered the Tregennis siblings the morning after the tragedy?",
+      "prediction": "Mr. Mortimer Tregennis",
+      "reference": "The housekeeper",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 148,
+        "latency": 23.657058477401733,
+        "consistency_score": 0.4046
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: Who was the first person to discover the Tregennis siblings the morning after the tragedy?\nAnswer: Mr. Mortimer Tregennis\nStep 2: What was the condition of the Tregennis siblings when they were discovered?\nAnswer: Brenda was dead, and the two brothers were in a state of madness, all showing signs of extreme terror\nStep 3: Who accompanied the person who discovered the Tregennis siblings?\nAnswer: Mr. Roundhay\nStep 4: What was the cause of Brenda Tregennis's death according to the initial account?\nAnswer: A state of extreme terror, with no clear physical cause\n\nMr. Mortimer Tregennis"
+    },
+    {
+      "sample_id": 65,
+      "question": "Who killed Jacob?",
+      "prediction": "Not specified in the provided information",
+      "reference": "One of his fellow soldiers.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 616,
+        "latency": 98.68331480026245,
+        "consistency_score": 0.2597
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: Who is the main character in the story?\nAnswer: Jacob Singer\nStep 2: What event leads to Jacob's traumatic experience in Vietnam?\nAnswer: Jacob's traumatic experience in Vietnam is caused by an attack by demonic soldiers, resulting in severe physical and psychological injuries\nStep 3: How does Jacob survive the attack in Vietnam?\nAnswer: Jacob survives the attack by being transported through a surreal journey to a subway station in New York City\nStep 4: What happens to Jacob after he survives the attack?\nAnswer: Jacob's survival leads to a descent into madness as he confronts demons an"
+    },
+    {
+      "sample_id": 66,
+      "question": "What is Landsmann's ultimate profession?",
+      "prediction": "Microbiologist",
+      "reference": "A lawyer",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 105,
+        "latency": 23.713563680648804,
+        "consistency_score": 0.24
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the name of the ship in the story?\nAnswer: _Star Queen_\nStep 2: Who is the doctor on the ship?\nAnswer: Doctor Nordenfeld\nStep 3: What is the name of the child who boards the ship last?\nAnswer: Kathy Brand\nStep 4: What is the profession of the child's father?\nAnswer: Microbiologist\nStep 5: What is the ultimate profession of Landsmann, based on the context provided?\nAnswer: Microbiologist\n\nMicrobiologist"
+    },
+    {
+      "sample_id": 67,
+      "question": "What does Gravener want Ruth to do with the money?",
+      "prediction": "Gravener wants Ruth to use the money for the Endowment of Research",
+      "reference": "Keep it to buy a house ",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.11764705882352942,
+        "token_count": 142,
+        "latency": 29.562678337097168,
+        "consistency_score": 0.7816
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the name of the person who is engaged to George Gravener?\nAnswer: Ruth Anvoy\nStep 2: What is the name of the fund that Lady Coxon wants to establish?\nAnswer: The Coxon Fund\nStep 3: What is the condition attached to the use of the money in the fund?\nAnswer: The money must be used for the Endowment of Research to support an earnest seeker of Moral Truth\nStep 4: What does Gravener want Ruth to do with the money?\nAnswer: Gravener wants Ruth to use the money for the Endowment of Research\n\nGravener wants Ruth to use the money for the Endowment of Research"
+    },
+    {
+      "sample_id": 68,
+      "question": "To whom does Miranda write her letters?",
+      "prediction": "Miranda's mother",
+      "reference": "Her mother.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5,
+        "token_count": 65,
+        "latency": 19.107590436935425,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: To whom does Miranda write her letters?\nAnswer: Miranda writes her letters to her mother\nStep 2: What is the relationship between Miranda and her mother?\nAnswer: Miranda is writing to her mother, indicating they are mother and daughter\n\nMiranda's mother"
+    },
+    {
+      "sample_id": 69,
+      "question": "How many days do viewers of the tape have to live after they watch it?",
+      "prediction": "",
+      "reference": "7 days",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 10.579885959625244
+      },
+      "method": "gers_cv2_fullctx",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 70,
+      "question": "What was Grassou's wife's name?",
+      "prediction": "Virginie Vervelle",
+      "reference": "Virginie.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.6666666666666666,
+        "token_count": 49,
+        "latency": 11.941917181015015,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: Who is Pierre Grassou's wife in the story?\nAnswer: Virginie Vervelle\nStep 2: What is the name of Pierre Grassou's wife as mentioned in the text?\nAnswer: Virginie Vervelle\n\nVirginie Vervelle"
+    },
+    {
+      "sample_id": 71,
+      "question": "What does Reiko do differently that causes her not to die like the others?",
+      "prediction": "",
+      "reference": "She made a copy of the tape and gives it to her husband to study.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 14.067474842071533
+      },
+      "method": "gers_cv2_fullctx",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 72,
+      "question": "What is death disguised as?",
+      "prediction": "A chess opponent",
+      "reference": "A monk.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4,
+        "token_count": 392,
+        "latency": 59.58852219581604,
+        "consistency_score": 0.38
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the main theme of the play 'The Seventh Seal'?\nAnswer: The main theme is the existential confrontation with death, faith, and the search for meaning in a world of suffering and uncertainty [LOW CONFIDENCE - may be unreliable, verify before relying on it]\nStep 2: How does the character Antonius Block interact with Death in the play?\nAnswer: Antonius Block plays chess with Death to challenge mortality and seek meaning, symbolizing humanity's struggle against death and existential uncertainty [LOW CONFIDENCE - may be unreliable, verify before relying on it]\nStep 3: What symbolic r"
+    },
+    {
+      "sample_id": 73,
+      "question": "What does a citizen willingly do if they agree to live in Athens?",
+      "prediction": "Obey the laws of Athens",
+      "reference": "Comply with the laws",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4444444444444445,
+        "token_count": 327,
+        "latency": 24.066306591033936,
+        "consistency_score": 0.27
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the main purpose of the dialogue 'Crito' according to the introduction?\nAnswer: To illustrate Socrates' commitment to justice and adherence to the laws of Athens despite condemnation\nStep 2: What does Socrates argue about the relationship between a citizen and the laws of Athens?\nAnswer: Socrates argues that a citizen must respect and obey the laws of Athens, as they are part of a mutual agreement and essential for justice, and breaking them would be unjust [LOW CONFIDENCE - may be unreliable, verify before relying on it]\nStep 3: What are the potential consequences of Socrates "
+    },
+    {
+      "sample_id": 74,
+      "question": "How does Falder break his neck?",
+      "prediction": "William Falder breaks his neck while trying to escape from prison by sawing thro",
+      "reference": "He throws himself down the stairs",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 85,
+        "latency": 25.632095336914062,
+        "consistency_score": 0.6
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the name of the character who breaks his neck?\nAnswer: William Falder\nStep 2: How does William Falder break his neck?\nAnswer: William Falder breaks his neck while trying to escape from prison by sawing through the window bars\n\nWilliam Falder breaks his neck while trying to escape from prison by sawing through the window bars."
+    },
+    {
+      "sample_id": 75,
+      "question": "What does Reiko discover saves viewers of the tape from their imminent death?",
+      "prediction": "",
+      "reference": "Making a copy and showing it to someone else",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 14.001816987991333
+      },
+      "method": "gers_cv2_fullctx",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 76,
+      "question": "What is the name of Mortimer Treginnis' sister?",
+      "prediction": "Brenda Tregennis",
+      "reference": "Brenda.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.6666666666666666,
+        "token_count": 58,
+        "latency": 13.47788119316101,
+        "consistency_score": 0.6
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: Who is the sister of Mortimer Treginnis?\nAnswer: Brenda Tregennis\nStep 2: What is the name of Brenda Tregennis's brother who was involved in the events described in the story?\nAnswer: Owen and George Tregennis\n\nBrenda Tregennis"
+    },
+    {
+      "sample_id": 77,
+      "question": "What did Madam de Merret and her husband do after walling off the closet?",
+      "prediction": "They had a mason wall off the closet to conceal a hidden person",
+      "reference": "They stayed in the bedroom for a few days with the sounds of her lover trapped. ",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.22222222222222224,
+        "token_count": 241,
+        "latency": 25.3959801197052,
+        "consistency_score": 0.4854
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: Who are the main characters involved in the story of La Grande Breteche?\nAnswer: Madame de Merret, Monsieur de Merret, Rosalie, and the Spanish prisoner Feredia\nStep 2: What was the relationship between Madame de Merret and her husband, Monsieur de Merret?\nAnswer: They were a married couple whose relationship was strained and secretive, ultimately leading to tragic consequences\nStep 3: What event led to the creation of the will that left La Grande Breteche in a specific state?\nAnswer: Madame de Merret's death led to the creation of the will, which left La Grande Breteche in its state a"
+    },
+    {
+      "sample_id": 78,
+      "question": "Prior to her brother's death, how did Mary spend most of her time outside of the home? ",
+      "prediction": "Reading and interacting with nature",
+      "reference": "With her charity",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.25,
+        "token_count": 260,
+        "latency": 37.481475830078125,
+        "consistency_score": 0.4046
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What was Mary's primary activity outside of the home before her brother's death?\nAnswer: Reading and interacting with nature\nStep 2: What specific activities did Mary engage in during her free time outside the home?\nAnswer: Reading novels, interacting with nature, and solitary reflection\nStep 3: How did Mary's interactions with animals reflect her character and emotional state?\nAnswer: Mary's interactions with animals revealed her tender nature, emotional sensitivity, and underlying vanity\nStep 4: What role did reading play in Mary's life before her brother's death?\nAnswer: Reading was"
+    },
+    {
+      "sample_id": 79,
+      "question": "What is Clifford's profession?",
+      "prediction": "",
+      "reference": "A security guard.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 13.99263858795166
+      },
+      "method": "gers_cv2_fullctx",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 80,
+      "question": "What was Rodgers exposed to while investigating?",
+      "prediction": "radioactive gases and traces of carnotite",
+      "reference": "Radioactive gas",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.25,
+        "token_count": 465,
+        "latency": 59.731714725494385,
+        "consistency_score": 0.21
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What was the name of the character who was awakened after being in suspended animation?\nAnswer: Anthony Rogers\nStep 2: What was the reason the character was investigating the abandoned coal mines near the Wyoming Valley?\nAnswer: He was investigating reports of unusual phenomena, including radioactive gases, in the abandoned coal mines\nStep 3: What unusual phenomenon did the character observe in the abandoned coal mines?\nAnswer: Radioactive gases and traces of carnotite\nStep 4: How did the character escape from the mine after being trapped by a cave-in?\nAnswer: He escaped after the stra"
+    },
+    {
+      "sample_id": 81,
+      "question": "Where is the rental cabin located that Reiko found the tape?",
+      "prediction": "",
+      "reference": "Izu Oshima Island",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 13.791418313980103
+      },
+      "method": "gers_cv2_fullctx",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 82,
+      "question": "What does Clarence take from the apartment? ",
+      "prediction": "",
+      "reference": "A bag that contains cocaine",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 13.220526456832886
+      },
+      "method": "gers_cv2_fullctx",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 83,
+      "question": "How many years into the future was Soames sent?",
+      "prediction": "100 years",
+      "reference": "100.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 250,
+        "latency": 9.94139313697815,
+        "consistency_score": 1.0
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "To determine how many years into the future Soames was sent, we need to analyze the timeline presented in the text.\n\n1. **Context of the Story**: The story is set in the 1890s and follows Enoch Soames, a writer who fails to gain recognition during his lifetime. He is eventually \"sent\" into the future by the devil.\n\n2. **Key Event**: In the final part of the story, Soames makes a deal with the devil to be projected into the future. The devil promises that Soames will be transported to the reading-room of the British Museum on the afternoon of June 3, 1997.\n\n3. **Time Travel Details**: The story"
+    },
+    {
+      "sample_id": 84,
+      "question": "How did the housekeeper's feet get wet during Holmes' visit?",
+      "prediction": "Holmes knocked over a watering pot",
+      "reference": "Holmes accidentally kicks over a water pot",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.6153846153846153,
+        "token_count": 125,
+        "latency": 17.341871738433838,
+        "consistency_score": 0.7
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What event caused the housekeeper's feet to get wet during Holmes' visit?\nAnswer: Holmes upset a watering pot, causing water to spill onto the garden path and the housekeeper's feet\nStep 2: What action did Holmes take that resulted in the housekeeper's feet getting wet?\nAnswer: Holmes knocked over a watering pot, causing water to spill onto the garden path and the housekeeper's feet\n\nHolmes knocked over a watering pot, causing water to spill onto the garden path and the housekeeper's feet."
+    },
+    {
+      "sample_id": 85,
+      "question": "What would Socrates turn into if he agreed to break out of prison?",
+      "prediction": "ld not turn into anything; he would remain himself",
+      "reference": "He would turn into an outlaw.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5333333333333333,
+        "token_count": 236,
+        "latency": 15.290419578552246,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the main argument Socrates presents regarding his decision to escape or not?\nAnswer: Socrates argues that escaping would be unjust as it violates the agreements with Athenian laws, prioritizing justice over personal survival\nStep 2: How does Socrates justify the idea that escaping would be an act of injustice?\nAnswer: Socrates justifies escaping as unjust because it violates the covenant with Athenian laws, which nurtured and educated him, making it dishonorable to retaliate against them [LOW CONFIDENCE - may be unreliable, verify before relying on it]\n\n[Note: 1 step(s) above h"
+    },
+    {
+      "sample_id": 86,
+      "question": "Who acts as Falder's lawyer?",
+      "prediction": "James and Walter How",
+      "reference": "Frome",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 88,
+        "latency": 37.85169172286987,
+        "consistency_score": 0.6
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: Who is William Falder's lawyer in the play?\nAnswer: James and Walter How, as his employers, act as his lawyers\nStep 2: What role does Robert Cokeson play in relation to William Falder?\nAnswer: Robert Cokeson is William Falder's employer and managing clerk at the law firm, and he plays a key role in uncovering the forgery\n\nJames and Walter How"
+    },
+    {
+      "sample_id": 87,
+      "question": "Who asks the Ghostbusters for help?",
+      "prediction": "Dana Barrett",
+      "reference": "Dana",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.6666666666666666,
+        "token_count": 61,
+        "latency": 29.769206047058105,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: Who is the person that Dana Barrett calls for help after the baby buggy incident?\nAnswer: The Ghostbusters\nStep 2: Which character is responsible for calling the Ghostbusters for assistance in the story?\nAnswer: Dana Barrett\n\nDana Barrett"
+    },
+    {
+      "sample_id": 88,
+      "question": "What is Soames unhappy about?",
+      "prediction": "His failed literary ambitions and the tragic pursuit of artistic recognition",
+      "reference": "the his works are not recognized",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.23529411764705885,
+        "token_count": 237,
+        "latency": 31.981518507003784,
+        "consistency_score": 0.27
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the main theme of the story involving Enoch Soames?\nAnswer: The main theme revolves around the tragic pursuit of artistic recognition and the consequences of unfulfilled ambition\nStep 2: What specific aspects of Enoch Soames's life and work are highlighted in the narrative?\nAnswer: His failed literary ambitions, eccentric personality, and tragic pursuit of recognition are highlighted\nStep 3: What does the author suggest about Enoch Soames's failure to gain recognition?\nAnswer: The author portrays Soames's failure to gain recognition as a tragic and futile struggle against an in"
+    },
+    {
+      "sample_id": 89,
+      "question": "What is Mary's mother's name?",
+      "prediction": "Eliza",
+      "reference": "Eliza",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 32,
+        "latency": 21.243308544158936,
+        "consistency_score": 0.6
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: Who is the author of the text?\nAnswer: Mary Wollstonecraft\nStep 2: What is the name of Mary's mother?\nAnswer: Eliza\n\nEliza"
+    },
+    {
+      "sample_id": 90,
+      "question": "What gang did Rodgers and the other humans fight while he was at the camp?",
+      "prediction": "Bad Bloods",
+      "reference": "The Hans",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 45,
+        "latency": 20.743210554122925,
+        "consistency_score": 0.7
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What gang did Rodgers belong to while he was at the camp?\nAnswer: Wyoming Gang\nStep 2: Which gang did Rodgers fight against while at the camp?\nAnswer: Bad Bloods\n\nBad Bloods"
+    },
+    {
+      "sample_id": 91,
+      "question": "Where does Alabama meet Clarence for the first time? ",
+      "prediction": "",
+      "reference": "At a Detroit theater. ",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 13.875293016433716
+      },
+      "method": "gers_cv2_fullctx",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 92,
+      "question": "How is Oscar related to Dana?",
+      "prediction": "",
+      "reference": "It's her son",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 24.02550482749939
+      },
+      "method": "gers_cv2_fullctx",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 93,
+      "question": "What does Socrates believe about being judged in the after life if he breaks out of prison?",
+      "prediction": "Socrates would not believe that breaking out of prison would be justified in the",
+      "reference": "It would have a negative effect",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.10526315789473684,
+        "token_count": 282,
+        "latency": 16.498684644699097,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the main argument Socrates presents regarding his decision to escape from prison?\nAnswer: Socrates argues that escaping would be unjust and violate his agreements with Athenian laws, leading to moral corruption and dishonor\nStep 2: How does Socrates justify the idea that escaping from prison would be an act of injustice?\nAnswer: Socrates sees escaping as unjust because it breaks his agreements with Athenian laws, which he considers just and binding, and would lead to moral corruption [LOW CONFIDENCE - may be unreliable, verify before relying on it]\n\n[Note: 1 step(s) above have "
+    },
+    {
+      "sample_id": 94,
+      "question": "Madame de Merret threatened to leave her husband if he did what?",
+      "prediction": "discover the secret of the hidden person in her closet",
+      "reference": "Opened the closet",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3333333333333333,
+        "token_count": 79,
+        "latency": 12.305088520050049,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: Who is the notary mentioned in the story?\nAnswer: Monsieur Regnault\nStep 2: What was the reason Madame de Merret threatened to leave her husband?\nAnswer: She threatened to leave her husband if he discovered the secret of the hidden person in her closet\n\ndiscover the secret of the hidden person in her closet"
+    },
+    {
+      "sample_id": 95,
+      "question": "Who moved to Chicago to perform mercy killings?",
+      "prediction": "No one moved to Chicago to perform mercy killings",
+      "reference": "Seth Lazarus",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 352,
+        "latency": 34.88788318634033,
+        "consistency_score": 0.3573
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: Who is the doctor on the Star Queen?\nAnswer: Dr. Nordenfeld\nStep 2: What is the name of the little girl who boards the Star Queen?\nAnswer: Kathy Brand\nStep 3: What is the significance of the little girl's story regarding her father and the aseptic environment?\nAnswer: The girl's story shows her father's attempt to combat chlorophage using an aseptic environment, highlighting the virus's lethality and the extreme precautions needed to prevent its spread [LOW CONFIDENCE - may be unreliable, verify before relying on it]\nStep 4: What is the connection between the little girl and the virus "
+    },
+    {
+      "sample_id": 96,
+      "question": "How does the art-dealer describe Grassou's skill level to Virginie's father?",
+      "prediction": "Elie Magus praises Grassou's skill",
+      "reference": "A grand master.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 111,
+        "latency": 14.406121253967285,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the name of the art dealer who approaches Pierre Grassou?\nAnswer: Elie Magus\nStep 2: How does the art dealer describe Pierre Grassou's skill level to Virginie's father?\nAnswer: Elie Magus praises Grassou's skill, indicating he is a competent and respected painter capable of creating valuable portraits\n\nElie Magus praises Grassou's skill, indicating he is a competent and respected painter capable of creating valuable portraits."
+    },
+    {
+      "sample_id": 97,
+      "question": "What is Grassous biggest disappointment?",
+      "prediction": "His unrecognized talent and mockery by true artists",
+      "reference": "He doesn't feel he is a true artist.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.13333333333333333,
+        "token_count": 162,
+        "latency": 22.622397899627686,
+        "consistency_score": 0.62
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the name of the artist in the story?\nAnswer: Pierre Grassou\nStep 2: What is the main source of Pierre Grassou's income?\nAnswer: Portrait painting and commissions from wealthy patrons\nStep 3: What is the significance of the Vervelle family in Pierre Grassou's life?\nAnswer: The Vervelle family provides Grassou with financial stability and social recognition through their patronage, significantly impacting his career and lifestyle\nStep 4: What is the biggest disappointment in Pierre Grassou's life according to the text?\nAnswer: His unrecognized talent and mockery by true artists\n\n"
+    },
+    {
+      "sample_id": 98,
+      "question": "Who does Don Vincenzo Coccotti work for? ",
+      "prediction": "",
+      "reference": "A mobster named \"Blue Lou Boyle\". ",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 0,
+        "latency": 14.57707691192627
+      },
+      "method": "gers_cv2_fullctx",
+      "error": "Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.al"
+    },
+    {
+      "sample_id": 99,
+      "question": "Why did the police come back for Falder after he left prison?",
+      "prediction": "He attempted to escape by sawing through his cell window",
+      "reference": "He failed to report",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.28571428571428575,
+        "token_count": 73,
+        "latency": 26.669347763061523,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the reason the police came back for Falder after he left prison?\nAnswer: He attempted to escape by sawing through his cell window\nStep 2: What event led to Falder's imprisonment?\nAnswer: Forgery to aid his lover's escape\n\nHe attempted to escape by sawing through his cell window"
+    }
+  ]
+}

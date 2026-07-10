@@ -1,0 +1,3014 @@
+{
+  "summary": {
+    "method": "cot_sc",
+    "dataset": "longbench_qasper",
+    "num_samples": 200,
+    "avg_em": 0.1,
+    "avg_f1": 0.2719,
+    "avg_latency": 5.9093,
+    "error_count": 0,
+    "workers": 4
+  },
+  "results": [
+    {
+      "sample_id": 0,
+      "question": "How is the ground truth for fake news established?",
+      "prediction": "manual annotation by an expert",
+      "reference": "Ground truth is not established in the paper",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 78,
+        "latency": 4.850108623504639
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The ground truth for fake news in this study is established through manual labeling by an expert, based on predefined categories of fake news provided by Rubin et al. The dataset used in the study was manually annotated to identify tweets containing fake news or not. \n\nFinal Answer: manual labeling by an expert"
+    },
+    {
+      "sample_id": 1,
+      "question": "What is the GhostVLAD approach?",
+      "prediction": "atures improving language identification accuracy",
+      "reference": "extension of the NetVLAD, adds Ghost clusters along with the NetVLAD clusters",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 70,
+        "latency": 5.4556050300598145
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "GhostVLAD is a pooling method inspired by NetVLAD, which adds ghost clusters to handle noisy or irrelevant features, improving language identification accuracy. It outperforms other pooling strategies like NetVLAD, Average pooling, and Statistics pooling, achieving 98.43% F1-score."
+    },
+    {
+      "sample_id": 2,
+      "question": "By how much does their model outperform the state of the art results?",
+      "prediction": "8 to 71 8",
+      "reference": "the attention model, MDREA, also outperforms the best existing research results (WAP 0.690 to 0.688)",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.11764705882352941,
+        "token_count": 30,
+        "latency": 5.70374059677124
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The model outperforms the state of the art results by 68.8% to 71.8% on the IEMOCAP dataset.\n\nFinal Answer: 68.8% to 71.8%"
+    },
+    {
+      "sample_id": 3,
+      "question": "What additional features and context are proposed?",
+      "prediction": "ch are tweets that a user has replied to or quoted",
+      "reference": "using tweets that one has replied or quoted to as contextual information",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.6086956521739131,
+        "token_count": 176,
+        "latency": 8.56309723854065
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The additional features and context proposed in the paper include the use of \"context tweets,\" which are tweets that a user has replied to or quoted. These context tweets provide significant contextual information that can aid in detecting abusive language by offering better understanding of the intent and target of the abusive tweet. Additionally, the paper explores various feature extensions such as character-level representations, n-grams, POS tags, and user information, along with variant models like HybridCNN, RNN with attention mechanisms, and Latent Topic Clustering (LTC). The paper als"
+    },
+    {
+      "sample_id": 4,
+      "question": "Which Facebook pages did they look at?",
+      "prediction": "is foxnews",
+      "reference": "FoxNews, CNN, ESPN, New York Times, Time magazine, Huffington Post Weird News, The Guardian, Cartoon Network, Cooking Light, Home Cooking Adventure, Justin Bieber, Nickelodeon, Spongebob, Disney",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.07407407407407407,
+        "token_count": 54,
+        "latency": 4.4117350578308105
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The final answer is: FoxNews, CNN, ESPN, New York Times, Time magazine, Huffington Post Weird News, The Guardian, Cartoon Network, Cooking Light, Home Cooking Adventure, Justin Bieber, Nickelodeon, Spongebob, Disney."
+    },
+    {
+      "sample_id": 5,
+      "question": "Do the hashtag and SemEval datasets contain only English data?",
+      "prediction": "yes",
+      "reference": "Yes",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 86,
+        "latency": 6.730143785476685
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The hashtag and SemEval datasets used in the study contain only English data. The context explicitly states that the STAN datasets consist of 1,108 and 12,594 unique English hashtags, respectively, and the SemEval 2017 benchmark dataset is used for sentiment analysis. There is no mention of non-English data in these datasets.\n\nFinal Answer: yes"
+    },
+    {
+      "sample_id": 6,
+      "question": "What type of evaluation is proposed for this task?",
+      "prediction": "reliability studies and intrinsic extrinsic evaluations",
+      "reference": "Answer with content missing: (Evaluation Metrics section) Precision, Recall, F1-scores, Strict match, METEOR, ROUGE-2",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 168,
+        "latency": 8.347628831863403
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The type of evaluation proposed for this task is a combination of reliability studies and intrinsic/extrinsic evaluations. The reliability studies include measures such as agreement correlations and repeated crowdsourcing runs to ensure the consistency and quality of annotations. The intrinsic evaluation involves assessing the agreement between different annotators on the importance of propositions, while the extrinsic evaluation compares the importance scores with manual responsiveness scores and other metrics like ROUGE-2 and Pyramid scores to determine their usefulness for summary evaluatio"
+    },
+    {
+      "sample_id": 7,
+      "question": "What are the datasets used for evaluation?",
+      "prediction": "the datasets used for evaluation",
+      "reference": "CNN/DailyMail news highlights, New York Times Annotated Corpus, XSum",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 25,
+        "latency": 3.817260503768921
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The datasets used for evaluation are CNN/DailyMail, New York Times Annotated Corpus (NYT), and XSum."
+    },
+    {
+      "sample_id": 8,
+      "question": "How does this approach compare to other WSD approaches employing word embeddings?",
+      "prediction": "gm_kl outperforms existing approaches in capturing both word similarity and enta",
+      "reference": "GM$\\_$KL achieves better correlation than existing approaches for various metrics on SCWS dataset.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.24999999999999994,
+        "token_count": 144,
+        "latency": 8.367576122283936
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The proposed approach, GM_KL, uses a KL divergence-based energy function to capture both textual entailment and word similarity by modeling words as Gaussian mixtures. This approach is compared to other WSD approaches employing word embeddings such as w2g (single Gaussian model) and w2gm (mixture of Gaussian model with expected likelihood kernel). The results show that GM_KL outperforms these approaches on benchmark datasets for both word similarity and entailment tasks. \n\nFinal Answer: GM_KL outperforms existing approaches in capturing both word similarity and entailment."
+    },
+    {
+      "sample_id": 9,
+      "question": "How does their ensemble method work?",
+      "prediction": "bining predictions from multiple individual models",
+      "reference": "simply averaging the predictions from the constituent single models",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.42857142857142855,
+        "token_count": 115,
+        "latency": 7.497495174407959
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The ensemble method described in the text involves combining predictions from multiple models to improve overall performance. The ensembles were formed by averaging the predictions from constituent single models, and these single models were selected using a greedy algorithm that added the best performing models that had not been previously tried. The final ensemble consisted of 5 models selected from 10 offered models based on their validation performance."
+    },
+    {
+      "sample_id": 10,
+      "question": "What are the sources of the datasets?",
+      "prediction": "the sources of the datasets",
+      "reference": "Friends TV sitcom, Facebook messenger chats",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 37,
+        "latency": 3.3501408100128174
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The sources of the datasets are the scripts of the Friends TV sitcom for the Friends subset and Facebook messenger chats for the EmotionPush subset."
+    },
+    {
+      "sample_id": 11,
+      "question": "what language does this paper focus on?",
+      "prediction": "english",
+      "reference": "English",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 16,
+        "latency": 1.8651597499847412
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The paper focuses on the English language. \n\nFinal Answer: English"
+    },
+    {
+      "sample_id": 12,
+      "question": "What sentiment analysis dataset is used?",
+      "prediction": "imdb dataset",
+      "reference": "IMDb dataset of movie reviews",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5714285714285715,
+        "token_count": 3,
+        "latency": 1.5171477794647217
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Imdb dataset"
+    },
+    {
+      "sample_id": 13,
+      "question": "What accuracy does the proposed system achieve?",
+      "prediction": "is the f1 improvements on each dataset",
+      "reference": "F1 scores of 85.99 on the DL-PS data,  75.15 on the EC-MT data and 71.53 on the EC-UQ data ",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3,
+        "token_count": 70,
+        "latency": 8.854606866836548
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The proposed system achieves an F1 score improvement of +1.08 on the DL-PS dataset, +1.24 on the EC-MT dataset, and +2.38 on the EC-UQ dataset compared to the strong baseline LSTM-CRF system. The final answer is the F1 improvements on each dataset.\n\nFinal Answer: +1.08, +1.24, +2.38"
+    },
+    {
+      "sample_id": 14,
+      "question": "Did they experiment with this new dataset?",
+      "prediction": "yes",
+      "reference": "No",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 81,
+        "latency": 4.805716276168823
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The question asks whether they experimented with this new dataset. The context describes the development and validation of the ZuCo 2.0 corpus, including detailed experimental design, data acquisition, preprocessing, and validation steps. These indicate that experiments were conducted using the new dataset.\n\nFinal Answer: yes"
+    },
+    {
+      "sample_id": 15,
+      "question": "What datasets are used?",
+      "prediction": "such as the restaurant and travel information sets",
+      "reference": "Custom dataset with user questions; set of documents, twitter posts and news articles, all related to finance.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.07999999999999999,
+        "token_count": 120,
+        "latency": 14.255415916442871
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The datasets used include the Switchboard dataset, which consists of transcripts of spoken, unconstrained dialogues, and the set of tasks for the Dialog State Tracking Challenge (DSTC), which contain more constrained tasks, such as the restaurant and travel information sets. Additionally, a custom dataset was created for the Intent Classifier in the CognIA system using an incremental approach, collecting 124 questions from users and expanding it to 37 classes with 415 samples."
+    },
+    {
+      "sample_id": 16,
+      "question": "Which stock market sector achieved the best performance?",
+      "prediction": "not specified",
+      "reference": "Energy with accuracy of 0.538",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 70,
+        "latency": 14.805855989456177
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The stock market sector that achieved the best performance is not explicitly stated in the provided text. The text discusses various sectors and their performance, but it does not specify which sector had the best performance. Therefore, the answer is:\n\nFinal Answer: Not specified"
+    },
+    {
+      "sample_id": 17,
+      "question": "what NMT models did they compare with?",
+      "prediction": "the nmt models compared with include rnn based nmt transformer nmt and smt mod",
+      "reference": "RNN-based NMT model, Transformer-NMT",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.125,
+        "token_count": 21,
+        "latency": 3.069908857345581
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The NMT models compared with include RNN-based NMT, Transformer-NMT, and SMT models."
+    },
+    {
+      "sample_id": 18,
+      "question": "What are the three regularization terms?",
+      "prediction": "the three regularization terms are 1 a regularization term associated with ne",
+      "reference": "a regularization term associated with neutral features, the maximum entropy of class distribution regularization term, the KL divergence between reference and predicted class distribution",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.39999999999999997,
+        "token_count": 64,
+        "latency": 9.112597227096558
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The three regularization terms introduced in the paper are:\n1. A regularization term associated with neutral features.\n2. The maximum entropy of class distribution regularization term.\n3. The KL divergence between reference and predicted class distribution."
+    },
+    {
+      "sample_id": 19,
+      "question": "What are the baselines?",
+      "prediction": "svm with unigram",
+      "reference": "SVM with unigram, bigram, and trigram features, SVM with average word embedding, SVM with average transformed word embeddings, CNN, ecurrent Convolutional Neural Networks, SVM and deep learning models with comment information",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.24000000000000002,
+        "token_count": 117,
+        "latency": 7.767307996749878
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The baselines are the models and methods used for comparison in the experiment, including SVM with different features, CNN, RCNN, and variations of UTCNN without certain components like user information, topic information, or comments. \n\nFinal Answer: SVM with unigram, bigram, and trigram features; SVM with average word embedding; SVM with average transformed word embeddings; CNN; RCNN; UTCNN without user information; UTCNN without LDA model; UTCNN without comments."
+    },
+    {
+      "sample_id": 20,
+      "question": "By how much did they improve?",
+      "prediction": "improved state of the art performance",
+      "reference": "They decrease MAE in 0.34",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 4.281757831573486
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The paper states that the multitask learning approach improves the state-of-the-art performance on the fine-grained sentiment classification task. It does not provide a specific numerical improvement value, but it indicates that the neural network architecture using multitask learning achieves the best performance overall.\n\nFinal Answer: Improved state-of-the-art performance"
+    },
+    {
+      "sample_id": 21,
+      "question": "How does their model improve interpretability compared to softmax transformers?",
+      "prediction": "sparse attention with alpha entmax enables clearer identification of attention",
+      "reference": "the attention heads in the proposed adaptively sparse Transformer can specialize more and with higher confidence",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.25,
+        "token_count": 175,
+        "latency": 10.588802337646484
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The model improves interpretability compared to softmax transformers by introducing sparse attention mechanisms using $\\alpha$-entmax, which allows for exactly zero probabilities for irrelevant words. This sparsity enables clearer identification of attention head behaviors and roles, leading to more interpretable models. Additionally, the adaptive version of sparse attention allows each head to learn its own $\\alpha$ value, enabling continuous variation between dense (softmax) and sparse (sparsemax) behaviors, further enhancing interpretability. \n\nFinal Answer: Sparse attention with $\\alpha$-e"
+    },
+    {
+      "sample_id": 22,
+      "question": "what was the baseline?",
+      "prediction": "transformer base model",
+      "reference": " MT system on the data released by BIBREF11",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 57,
+        "latency": 5.981256484985352
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The baseline in the context of this study refers to the standard sequence-to-sequence Transformer model used for back-translation and as a reference for comparison. \n\nFinal Answer: standard sequence-to-sequence Transformer model"
+    },
+    {
+      "sample_id": 23,
+      "question": "What metrics are used for evaluation?",
+      "prediction": "cross lingual natural language inference xnli and universal dependency parsing",
+      "reference": "translation probabilities, Labeled Attachment Scores (LAS)",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 96,
+        "latency": 6.437916994094849
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The metrics used for evaluation in the context provided are **Cross-lingual Natural Language Inference (XNLI)** and **Universal Dependency Parsing**. The specific performance metrics reported include **test accuracy** for XNLI and **Labeled Attachment Scores (LAS)** for dependency parsing.\n\nFinal Answer: Cross-lingual Natural Language Inference (XNLI) and Universal Dependency Parsing"
+    },
+    {
+      "sample_id": 24,
+      "question": "What is the attention module pretrained on?",
+      "prediction": "the attention module in the proposed tcen model",
+      "reference": "the model is pre-trained on CTC-based ASR task and MT task in the pre-training stage.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3,
+        "token_count": 25,
+        "latency": 4.8804380893707275
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The attention module in the proposed TCEN model is pretrained on the MT (machine translation) dataset."
+    },
+    {
+      "sample_id": 25,
+      "question": "What kind of stylistic features are obtained?",
+      "prediction": "the stylistic features obtained in the context of sarcasm detection include unig",
+      "reference": "Unanswerable",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 78,
+        "latency": 4.923582315444946
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The stylistic features obtained in the context of sarcasm detection include unigrams, pragmatic features, stylistic patterns, situational disparity patterns, hashtag interpretations, readability, word count, and features derived from eye-movement patterns such as fixation duration, scanpaths, and saliency graphs."
+    },
+    {
+      "sample_id": 26,
+      "question": "What architecture does the encoder have?",
+      "prediction": "lstm",
+      "reference": "LSTM",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 84,
+        "latency": 4.287771940231323
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The encoder in the described system is an LSTM. The baseline system uses an LSTM encoder to encode the concatenated context vector and character embeddings of the lemma. The modified system also uses LSTMs to encode the full context, with a forward LSTM for the past context and a backward LSTM for the future context. \n\nFinal Answer: LSTM"
+    },
+    {
+      "sample_id": 27,
+      "question": "Is WordNet useful for taxonomic reasoning for this task?",
+      "prediction": "yes",
+      "reference": "Unanswerable",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 1,
+        "latency": 2.744699001312256
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Yes."
+    },
+    {
+      "sample_id": 28,
+      "question": "what were the baselines?",
+      "prediction": "conventional asr systems",
+      "reference": "Unanswerable",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 95,
+        "latency": 5.36979866027832
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The baselines mentioned in the context are conventional automatic speech recognition (ASR) systems, hybrid systems combining hidden Markov models with neural networks, and end-to-end (E2E) systems. The paper also compares results against non-end-to-end models and other existing models like wav2letter.\n\nFinal Answer: conventional ASR systems, hybrid systems, and end-to-end systems"
+    },
+    {
+      "sample_id": 29,
+      "question": "How many users do they look at?",
+      "prediction": "22880",
+      "reference": "22,880 users",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.6666666666666666,
+        "token_count": 39,
+        "latency": 4.389180421829224
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The dataset consists of 22,880 users. The question asks how many users they look at, which refers to the number of users in the dataset. \n\nFinal Answer: 22,880"
+    },
+    {
+      "sample_id": 30,
+      "question": "What metrics are used for evaluation?",
+      "prediction": "the metrics used for evaluation include perplexity user ranking bleu 1 4 roug",
+      "reference": "Byte-Pair Encoding perplexity  (BPE PPL),\nBLEU-1,\nBLEU-4,\nROUGE-L,\npercentage of distinct unigram (D-1),\npercentage of distinct bigrams(D-2),\nuser matching accuracy(UMA),\nMean Reciprocal Rank(MRR)\nPairwise preference over baseline(PP)",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.1111111111111111,
+        "token_count": 47,
+        "latency": 4.555278062820435
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The metrics used for evaluation include perplexity, user-ranking, BLEU-1/4, ROUGE-L, Distinct-1/2, user matching accuracy (UMA), Mean Reciprocal Rank (MRR), and recipe-level coherence scores."
+    },
+    {
+      "sample_id": 31,
+      "question": "What labels do they create on their dataset?",
+      "prediction": "time activities extent frequency location no answer",
+      "reference": "(1) the time the patient has been experiencing the symptom, (2) activities that trigger the symptom (to occur or worsen), (3) the extent of seriousness, (4) the frequency occurrence of the symptom, and (5) the location of symptom, No Answer",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4,
+        "token_count": 88,
+        "latency": 7.011667966842651
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The labels created on their dataset are the five attributes: (1) the time the patient has been experiencing the symptom, (2) activities that trigger the symptom (to occur or worsen), (3) the extent of seriousness, (4) the frequency occurrence of the symptom, and (5) the location of symptom. \n\nFinal Answer: time, activities, extent, frequency, location"
+    },
+    {
+      "sample_id": 32,
+      "question": "How much data is needed to train the task-specific encoder?",
+      "prediction": "not explicitly quantified in the text",
+      "reference": "57,505 sentences",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 199,
+        "latency": 8.94239330291748
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The paper discusses the use of both expert and crowd annotations to train models for biomedical information extraction. It shows that using a combination of expert annotations on difficult examples and crowd annotations on easier ones leads to better model performance than using either alone. The study also explores how much data is needed, finding that even a small number of expert annotations on difficult instances can significantly improve performance.\n\nThe question asks specifically about \"how much data is needed to train the task-specific encoder.\" The paper does not provide an exact numb"
+    },
+    {
+      "sample_id": 33,
+      "question": "What tasks are used for evaluation?",
+      "prediction": "machine translation tasks",
+      "reference": "four machine translation tasks: German -> English, Japanese -> English, Romanian -> English, English -> German",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5454545454545454,
+        "token_count": 111,
+        "latency": 7.978960275650024
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The tasks used for evaluation in the context of this paper are machine translation tasks. The specific tasks mentioned include translating between different language pairs such as German to English, Japanese to English, Romanian to English, and English to German. These tasks are evaluated using the BLEU score, which measures the quality of the translated text by comparing it to reference translations.\n\nFinal Answer: machine translation tasks"
+    },
+    {
+      "sample_id": 34,
+      "question": "What is the improvement in performance for Estonian in the NER task?",
+      "prediction": "is significant improvement",
+      "reference": "5 percent points.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 93,
+        "latency": 6.263551473617554
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The improvement in performance for Estonian in the NER task is shown in Table TABREF21, where ELMo embeddings improve results compared to fastText embeddings. The exact improvement is not specified in the text, but it is noted that ELMo embeddings show significant improvements on Estonian, which is among the larger datasets. The final answer is: \"significant improvement.\""
+    },
+    {
+      "sample_id": 35,
+      "question": "What background do they have?",
+      "prediction": "ities social sciences and computational analysis",
+      "reference": "Unanswerable",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 208,
+        "latency": 13.391968011856079
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The background of the researchers involves interdisciplinary collaboration between scholars from different disciplines, including the humanities, social sciences, and computational analysis. They have experience in analyzing textual data using computational methods to explore cultural and social issues, such as hate speech on online platforms like Reddit. Their work integrates insights from both computational techniques and traditional qualitative analysis, emphasizing the importance of conceptual validity, interpretability, and ethical considerations in text analysis. The researchers also hig"
+    },
+    {
+      "sample_id": 36,
+      "question": "LDA is an unsupervised method; is this paper introducing an unsupervised approach to spam detection?",
+      "prediction": "yes",
+      "reference": "No",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 43,
+        "latency": 3.5587363243103027
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Yes. The paper introduces an unsupervised approach to spam detection by using LDA, which is an unsupervised method, to extract topic-based features for classifying spammers."
+    },
+    {
+      "sample_id": 37,
+      "question": "Which languages are similar to each other?",
+      "prediction": "nguni and sotho languages",
+      "reference": "Nguni languages (zul, xho, nbl, ssw), Sotho languages (nso, sot, tsn)",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4285714285714285,
+        "token_count": 33,
+        "latency": 2.8780155181884766
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The Nguni languages are similar to each other. The Sotho languages are similar to each other. The answer is Nguni and Sotho languages."
+    },
+    {
+      "sample_id": 38,
+      "question": "which lstm models did they compare with?",
+      "prediction": "9 layers and 2 layers lstm models",
+      "reference": "Unidirectional LSTM networks with 2, 6, 7, 8, and  9 layers.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5882352941176471,
+        "token_count": 97,
+        "latency": 6.2237420082092285
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The question asks which LSTM models were compared with. From the context, it is mentioned that a 9-layers unidirectional LSTM model was compared with a 2-layers distilled LSTM model. Additionally, the paper discusses comparisons between different training methods like model averaging, BMUF, and EMA, but these are not specific LSTM models.\n\nFinal Answer: 9-layers and 2-layers LSTM models"
+    },
+    {
+      "sample_id": 39,
+      "question": "How large is their data set?",
+      "prediction": "29794 articles",
+      "reference": "a sample of  29,794 wikipedia articles and 2,794 arXiv papers ",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.33333333333333337,
+        "token_count": 87,
+        "latency": 8.797874212265015
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The question asks how large the dataset is. From the context, it states that the Wikipedia dataset consists of around 5K FA, 28K GA, 212K B, 533K C, 2.6M Start, and 3.2M Stub articles. After randomly sampling 5,000 articles from each quality class and removing redirect pages, the final dataset contains 29,794 articles.\n\nFinal Answer: 29,794 articles"
+    },
+    {
+      "sample_id": 40,
+      "question": "How were the human judgements assembled?",
+      "prediction": "50 native speakers",
+      "reference": "50 human annotators ranked a random sample of 100 translations by Adequacy, Fluency and overall ranking on a 5-point scale.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.09090909090909091,
+        "token_count": 101,
+        "latency": 7.275231122970581
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The human judgements were assembled by a group of 50 native people who were well-versed in both English and Tamil languages acting as annotators for the evaluation. They evaluated the translations based on adequacy, fluency, and relative ranking values. The results were tabulated in Table TABREF30 and further analyzed with intra-annotator values shown in Table TABREF32. \n\nFinal Answer: 50 native speakers"
+    },
+    {
+      "sample_id": 41,
+      "question": "Do they test their framework performance on commonly used language pairs, such as English-to-German?",
+      "prediction": "no",
+      "reference": "Yes",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 91,
+        "latency": 5.882474899291992
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The context mentions that the proposed framework is applied in two demanding scenarios: under-resourced translation and zero-resourced translation. However, it does not explicitly state whether the framework's performance is tested on commonly used language pairs such as English-to-German. Therefore, based on the given information, the answer is:\n\nFinal Answer: no"
+    },
+    {
+      "sample_id": 42,
+      "question": "How are models evaluated in this human-machine communication game?",
+      "prediction": "ured by the fraction of sentences exactly matched",
+      "reference": "by training an autocomplete system on 500K randomly sampled sentences from Yelp reviews",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.1904761904761905,
+        "token_count": 118,
+        "latency": 5.716379880905151
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The models are evaluated based on two main metrics: efficiency (measured by token retention rate) and accuracy (measured by the fraction of sentences exactly matched). The efficiency is quantified as the fraction of tokens kept in the keywords, while accuracy is measured by how often the model's decoded sentences match the target sentences. Additionally, user studies are conducted to assess the practical effectiveness and efficiency of the system in real-world scenarios."
+    },
+    {
+      "sample_id": 43,
+      "question": "What evaluation metrics are looked at for classification tasks?",
+      "prediction": "precision",
+      "reference": "Precision, Recall, F-measure, accuracy",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4,
+        "token_count": 143,
+        "latency": 7.609041690826416
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The evaluation metrics looked at for classification tasks in the context of this paper include precision, recall, and F-measure. These metrics are used for both multi-class and multi-label classification tasks. For multi-label classification, precision and recall are computed using a strategy similar to that described in BIBREF21. The overall F-measure is computed using the overall precision and recall. Additionally, for the sentence classification task, accuracy is defined as the ratio of correctly predicted sentences to the total number of sentences in the dataset."
+    },
+    {
+      "sample_id": 44,
+      "question": "What are the source and target domains?",
+      "prediction": "source domain",
+      "reference": "Book, electronics, beauty, music, IMDB, Yelp, cell phone, baby, DVDs, kitchen",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 72,
+        "latency": 6.5508339405059814
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The source domain refers to the existing domain with sufficient labeled data, while the target domain is the new domain with very few or no labeled data. \n\nFinal Answer: Source domain is the existing domain with labeled data, target domain is the new domain with limited or no labeled data."
+    },
+    {
+      "sample_id": 45,
+      "question": "what previous RNN models do they compare with?",
+      "prediction": "is lstms and other state of the art methods",
+      "reference": "Variational LSTM, CharCNN, Pointer Sentinel-LSTM, RHN, NAS Cell, SRU, QRNN, RAN, 4-layer skip-connection LSTM, AWD-LSTM, Quantized LSTM",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 10,
+        "latency": 3.49995756149292
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "LSTMs and other state-of-the-art methods."
+    },
+    {
+      "sample_id": 46,
+      "question": "What neural network modules are included in NeuronBlocks?",
+      "prediction": "embedding layer",
+      "reference": "Embedding Layer, Neural Network Layers, Loss Function, Metrics",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4,
+        "token_count": 214,
+        "latency": 9.508229970932007
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The neural network modules included in NeuronBlocks are categorized into several functional groups. These include:\n\n1. **Embedding Layer**: Supports word/character embedding and extra handcrafted feature embedding such as pos-tagging.\n2. **Neural Network Layers**: Includes RNN, CNN, QRNN, Transformer, Highway network, Encoder Decoder architecture, and attention mechanisms like Linear/Bi-linear Attention, Full Attention, Bidirectional attention flow.\n3. **Regularization Layers**: Dropout, Layer Norm, Batch Norm.\n4. **Loss Function**: Focal Loss, in addition to those built in PyTorch.\n5. **Metri"
+    },
+    {
+      "sample_id": 47,
+      "question": "what datasets did they use?",
+      "prediction": "multilingual pronunciation corpus from wiktionary and phoible s phonemic invento",
+      "reference": "the Carnegie Mellon Pronouncing Dictionary BIBREF12, the multilingual pronunciation corpus collected by deri2016grapheme , ranscriptions extracted from Wiktionary",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.38461538461538464,
+        "token_count": 120,
+        "latency": 7.160640001296997
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The datasets used include the multilingual pronunciation corpus collected by deri2016grapheme, which consists of spelling–pronunciation pairs extracted from Wiktionary. Additionally, the Carnegie Mellon Pronouncing Dictionary is mentioned as a standard dataset for g2p but is not used due to being monolingual. The data cleaning process uses the phonemic inventories from Phoible. \n\nFinal Answer: multilingual pronunciation corpus from Wiktionary and Phoible's phonemic inventories."
+    },
+    {
+      "sample_id": 48,
+      "question": "What were the baselines?",
+      "prediction": "previous state of the art systems",
+      "reference": "varied from Maximum Entropy Classifiers (BIBREF4) to Support Vector Machines (BIBREF5,BIBREF6,BIBREF7,BIBREF8), Recursive Neural Networks (BIBREF9,BIBREF10), Convolutional Neural Networks (BIBREF11) and most recently transfer learning-based architectures like Bidirectional Encoder Representation from Transformers (BERT) (BIBREF12)",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 88,
+        "latency": 5.590671539306641
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The baselines were the previous state-of-the-art systems for speculation detection and scope resolution, which were evaluated against the models using BERT, XLNet, and RoBERTa. The performance of these models was compared to the baselines to determine improvements in F1 scores across various datasets. \n\nFinal Answer: previous state-of-the-art systems"
+    },
+    {
+      "sample_id": 49,
+      "question": "What are the languages they use in their experiment?",
+      "prediction": "english spanish finnish",
+      "reference": "English\nFrench\nSpanish\nGerman\nGreek\nBulgarian\nRussian\nTurkish\nArabic\nVietnamese\nThai\nChinese\nHindi\nSwahili\nUrdu\nFinnish",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5,
+        "token_count": 28,
+        "latency": 3.0654568672180176
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The languages used in the experiment are English, Spanish, and Finnish. \n\nFinal Answer: English, Spanish, Finnish"
+    },
+    {
+      "sample_id": 50,
+      "question": "What other tasks do they test their method on?",
+      "prediction": "named entity recognition",
+      "reference": "None",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 88,
+        "latency": 5.226499080657959
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The question asks what other tasks they test their method on. From the context, it is mentioned that the model's applicability is shown for a variety of NLP tasks such as Named Entity Recognition, POS tagging, text classification, and language modeling. \n\nFinal Answer: Named Entity Recognition, POS tagging, text classification, and language modeling."
+    },
+    {
+      "sample_id": 51,
+      "question": "Do they use pretrained embeddings?",
+      "prediction": "yes",
+      "reference": "Yes",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 66,
+        "latency": 5.2135398387908936
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The context mentions that the model uses a bidirectional GRU cell for computing the representation of fields and values, and it initializes embeddings with 300-dimensional Glove embeddings. This indicates the use of pretrained embeddings (GloVe). \n\nFinal Answer: yes"
+    },
+    {
+      "sample_id": 52,
+      "question": "Was PolyReponse evaluated against some baseline?",
+      "prediction": "yes",
+      "reference": "No",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 52,
+        "latency": 3.524115800857544
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Yes. The context mentions that the PolyResponse system was evaluated against baselines in empirical evaluations on the response retrieval task using Reddit, OpenSubtitles, and AmazonQA conversational test data."
+    },
+    {
+      "sample_id": 53,
+      "question": "How do they obtain psychological dimensions of people?",
+      "prediction": "analysis of psycholinguistic and semantic word categories from blog posts using",
+      "reference": "using the Meaning Extraction Method",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.12500000000000003,
+        "token_count": 190,
+        "latency": 10.939021587371826
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The psychological dimensions of people are obtained through the analysis of psycholinguistic and semantic word categories derived from blog posts. These categories, such as Positive Feelings and Money, are mapped geographically to reflect variations in their usage across different regions. This analysis is conducted using tools like LIWC (Linguistic Inquiry and Word Count) and methods like Meaning Extraction Method (MEM) to identify themes related to people's core values. The data collected from blogs, which include location information and rich metadata, allows for the generation of maps that"
+    },
+    {
+      "sample_id": 54,
+      "question": "What argument components do the ML methods aim to identify?",
+      "prediction": "the ml methods aim to identify argument components such as claim premise backi",
+      "reference": "claim, premise, backing, rebuttal, and refutation",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.21052631578947367,
+        "token_count": 27,
+        "latency": 8.720476388931274
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The ML methods aim to identify argument components such as claim, premise, backing, rebuttal, and refutation."
+    },
+    {
+      "sample_id": 55,
+      "question": "Ngrams of which length are aligned using PARENT?",
+      "prediction": "1",
+      "reference": "Unanswerable",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 118,
+        "latency": 8.36624264717102
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The question asks about the length of ngrams aligned using PARENT. According to the context, PARENT uses a union of the reference and the table for precision and an intersection for recall, with entailment models deciding if a text n-gram is entailed by the table. The text n-grams used in these computations are of order 1, as the context refers to \"the collection of n-grams of order INLINEFORM7\" and later specifies that PARENT uses n-grams of order 1.\n\nFinal Answer: 1"
+    },
+    {
+      "sample_id": 56,
+      "question": "How large is the Twitter dataset?",
+      "prediction": "1873 conversation threads 14000 tweets",
+      "reference": "1,873 Twitter conversation threads, roughly 14k tweets",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.6666666666666666,
+        "token_count": 55,
+        "latency": 5.289005994796753
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The Twitter dataset consists of 1,873 conversation threads, which include roughly 14,000 tweets. Each conversation thread has at least 4 tweets. \n\nFinal Answer: 1,873 conversation threads with approximately 14,000 tweets."
+    },
+    {
+      "sample_id": 57,
+      "question": "What are the 12 languages covered?",
+      "prediction": "the 12 languages covered in the multi simlex project are english mandarin russ",
+      "reference": "Chinese Mandarin, Welsh, English, Estonian, Finnish, French, Hebrew, Polish, Russian, Spanish, Kiswahili, Yue Chinese",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.16,
+        "token_count": 42,
+        "latency": 12.220143556594849
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The 12 languages covered in the Multi-SimLex project are English, Mandarin, Russian, French, Kiswahili, Welsh, Yue Chinese, Spanish, German, Italian, Polish, and Estonian."
+    },
+    {
+      "sample_id": 58,
+      "question": "What are two datasets model is applied to?",
+      "prediction": "expanded conversations gone awry dataset and cmv dataset",
+      "reference": " `Conversations Gone Awry' dataset, subreddit ChangeMyView",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.6153846153846153,
+        "token_count": 51,
+        "latency": 5.754190444946289
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The two datasets model is applied to are the expanded `Conversations Gone Awry' dataset and the subreddit ChangeMyView (CMV) dataset. \n\nFinal Answer: expanded Conversations Gone Awry dataset and CMV dataset"
+    },
+    {
+      "sample_id": 59,
+      "question": "Were any of the pipeline components based on deep learning models?",
+      "prediction": "no",
+      "reference": "No",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 115,
+        "latency": 6.513652801513672
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The pipeline components described in the context include tasks such as part-of-speech tagging, named entity recognition, dependency parsing, semantic role labeling, subject-verb-object triple extraction, and lexicon matching. None of these explicitly mention the use of deep learning models. The text mentions the use of libraries like Freeling and references to algorithms like Hidden Markov Models, but no deep learning models are specified.\n\nFinal Answer: no"
+    },
+    {
+      "sample_id": 60,
+      "question": "How is the quality of the data empirically evaluated? ",
+      "prediction": "bleu scores",
+      "reference": "Validated transcripts were sent to professional translators., various sanity checks to the translations,  sanity check the overlaps of train, development and test sets",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 160,
+        "latency": 8.016445636749268
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Empirical evaluation of data quality involves several steps. First, validated transcripts are translated by professional translators. Then, various sanity checks are applied to the translations, including sentence-level BLEU scores with state-of-the-art systems, perplexity measurements using language models, character ratio analysis, and similarity scores using cross-lingual embeddings. Additionally, overlaps between train, development, and test sets are checked to ensure they are disjoint. These methods collectively assess the quality of the data.\n\nFinal Answer: BLEU scores, perplexity, chara"
+    },
+    {
+      "sample_id": 61,
+      "question": "How do they combine audio and text sequences in their RNN?",
+      "prediction": "dual recurrent encoder",
+      "reference": "combines the information from these sources using a feed-forward neural model",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 155,
+        "latency": 7.12412166595459
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The model combines audio and text sequences in their RNN by using a dual recurrent encoder approach. The audio is encoded using an Audio Recurrent Encoder (ARE) with GRUs, and the text is encoded using a Text Recurrent Encoder (TRE) with GRUs. The final encoded vectors from both modalities are concatenated and passed through a fully connected neural network layer to predict the emotion class. Additionally, an attention mechanism is used in the MDREA model to focus on specific parts of the transcript that contain strong emotional information, conditioned on the audio information.\n\nFinal Answer:"
+    },
+    {
+      "sample_id": 62,
+      "question": "by how much did their model improve?",
+      "prediction": "11 bleu 1 7 fkgl 1 07 sari",
+      "reference": "For the WikiLarge dataset, the improvement over baseline NMT is 2.11 BLEU, 1.7 FKGL and 1.07 SARI.\nFor the WikiSmall dataset, the improvement over baseline NMT is  8.37 BLEU.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.26086956521739124,
+        "token_count": 49,
+        "latency": 4.555113077163696
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The model's performance improved by 2.11 BLEU, 1.7 FKGL, and 1.07 SARI points when using synthetic data in training compared to the baseline NMT model. \n\nFinal Answer: 2.11 BLEU, 1.7 FKGL, 1.07 SARI"
+    },
+    {
+      "sample_id": 63,
+      "question": "how many humans evaluated the results?",
+      "prediction": "700",
+      "reference": "Unanswerable",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 73,
+        "latency": 5.434046030044556
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The question asks how many humans evaluated the results. From the context, it is mentioned that a human evaluation was conducted on random 700 examples from the general test set. The exact number of humans involved in the evaluation is not specified. Therefore, the answer is:\n\nFinal Answer: 700"
+    },
+    {
+      "sample_id": 64,
+      "question": "What is their definition of tweets going viral?",
+      "prediction": "retweeted more than 1000 times",
+      "reference": "Viral tweets are the ones that are retweeted more than 1000 times",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.625,
+        "token_count": 45,
+        "latency": 4.1737589836120605
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The definition of tweets going viral in the context of this study is that a tweet went viral if it was retweeted more than 1000 times. \n\nFinal Answer: retweeted more than 1000 times"
+    },
+    {
+      "sample_id": 65,
+      "question": "Which basic neural architecture perform best by itself?",
+      "prediction": "bert",
+      "reference": "BERT",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 1,
+        "latency": 1.1031849384307861
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "BERT"
+    },
+    {
+      "sample_id": 66,
+      "question": "what is the source of the data?",
+      "prediction": "the source of the data is the deepmine dataset",
+      "reference": "Android application",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 29,
+        "latency": 2.7322185039520264
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The source of the data is the DeepMine dataset, which was collected using crowdsourcing through an Android application."
+    },
+    {
+      "sample_id": 67,
+      "question": "What machine learning and deep learning methods are used for RQE?",
+      "prediction": "logistic regression and deep learning models specifically a neural network adap",
+      "reference": "Logistic Regression, neural networks",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.39999999999999997,
+        "token_count": 30,
+        "latency": 4.834745645523071
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Logistic Regression and Deep Learning models (specifically a neural network adapted from Bowman et al.) are used for RQE."
+    },
+    {
+      "sample_id": 68,
+      "question": "What is the benchmark dataset and is its quality high?",
+      "prediction": "social honeypot dataset high",
+      "reference": "Social Honeypot dataset (public) and Weibo dataset (self-collected); yes",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5,
+        "token_count": 112,
+        "latency": 4.556079864501953
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The benchmark dataset mentioned in the context is the Social Honeypot dataset. The quality of the dataset is high as it has been extensively explored and validated in the paper, and it contains a considerable amount of data with both legitimate users and spammers. Additionally, the paper also mentions a self-collected Weibo dataset, which further validates the effectiveness of their proposed features.\n\nFinal Answer: Social Honeypot dataset; high"
+    },
+    {
+      "sample_id": 69,
+      "question": "What architecture does the decoder have?",
+      "prediction": "lstm",
+      "reference": "LSTM",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 78,
+        "latency": 4.068119525909424
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The decoder in the described system uses an LSTM. The context vector is concatenated with character embeddings, and the resulting sequence is encoded using an LSTM encoder. The LSTM decoder then generates the characters in the output word form using encoder states and an attention mechanism.\n\nFinal Answer: LSTM"
+    },
+    {
+      "sample_id": 70,
+      "question": "Do they report results only on English data?",
+      "prediction": "no",
+      "reference": "Unanswerable",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 114,
+        "latency": 7.843860626220703
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The question is whether the results are reported only on English data. From the context, the datasets used include FSD (social media), Twitter (social media), and Google dataset (news articles). These datasets are not explicitly stated to be limited to English data. The Google dataset is mentioned as a subset of GDELT Event Database, which likely includes multilingual data. Therefore, the results are not reported only on English data.\n\nFinal Answer: no"
+    },
+    {
+      "sample_id": 71,
+      "question": "What is best performing model among author's submissions, what performance it had?",
+      "prediction": "is mic cis",
+      "reference": "For SLC task, the \"ltuorp\" team  has the best performing  model (0.6323/0.6028/0.6649 for F1/P/R  respectively) and for FLC task the \"newspeak\" team  has the best performing  model (0.2488/0.2863/0.2201 for F1/P/R respectively).",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 38,
+        "latency": 3.311917543411255
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The best performing model among the author's submissions is the one that ranked 3rd in the FLC task and 4th in the SLC task. The final answer is: MIC-CIS."
+    },
+    {
+      "sample_id": 72,
+      "question": "what was the baseline?",
+      "prediction": "m2m transformer nmt model b3",
+      "reference": "pivot-based translation relying on a helping language BIBREF10, nduction of phrase tables from monolingual data BIBREF14 , attentional RNN-based model (RNMT) BIBREF2, Transformer model BIBREF18, bi-directional model BIBREF11, multi-to-multi (M2M) model BIBREF8, back-translation BIBREF17",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.17142857142857143,
+        "token_count": 74,
+        "latency": 6.241366386413574
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The baseline in the context of this paper refers to the initial model used for comparison. Based on the information provided, the baseline is the M2M Transformer NMT model (b3), which is described as a weak baseline without using any monolingual data.\n\nFinal Answer: M2M Transformer NMT model (b3)"
+    },
+    {
+      "sample_id": 73,
+      "question": "What was their highest recall score?",
+      "prediction": "7033",
+      "reference": "0.7033",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 50,
+        "latency": 6.012643814086914
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The highest recall score mentioned in the context is for the List-type question answering task in the fourth test batch set, where the system achieved a recall score of '0.7033'. \n\nFinal Answer: 0.7033"
+    },
+    {
+      "sample_id": 74,
+      "question": "What embedding techniques are explored in the paper?",
+      "prediction": "integration of semantic similarity scores into second order co occurrence vector",
+      "reference": "Skip–gram, CBOW",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 123,
+        "latency": 8.147449970245361
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The paper explores embedding techniques that integrate semantic similarity scores into second-order co-occurrence vectors. These techniques involve using pairwise semantic similarity scores derived from taxonomies like SNOMED-CT and MeSH to reduce noise in the vectors. The integration of these similarity scores with second-order co-occurrence vectors is the core embedding technique discussed.\n\nFinal Answer: Integration of semantic similarity scores into second-order co-occurrence vectors."
+    },
+    {
+      "sample_id": 75,
+      "question": "How do they match words before reordering them?",
+      "prediction": "contextual representations",
+      "reference": "Unanswerable",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 227,
+        "latency": 8.316535472869873
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The process of matching words before reordering them involves generating contextual representations for each source word using an encoder. These representations are then used by the attention network to match the source words to the current decoder state. The contextual representation is word-order dependent, meaning that if the assisting and source languages have different word orders, the generated contextual representations will not be consistent, making it difficult to transfer knowledge from the assisting language to the source language. To address this, the assisting language sentences a"
+    },
+    {
+      "sample_id": 76,
+      "question": "Does the paper explore extraction from electronic health records?",
+      "prediction": "yes",
+      "reference": "Yes",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 81,
+        "latency": 5.468984127044678
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Yes. The paper explores extraction from electronic health records by discussing various methods used in Biomedical Information Extraction (BioIE), including Named Entity Recognition (NER), Relation Extraction, and Event Extraction, which are applied to different types of biomedical texts, including electronic health records."
+    },
+    {
+      "sample_id": 77,
+      "question": "Who were the experts used for annotation?",
+      "prediction": "the experts used for annotation were seven experts with legal training",
+      "reference": "Individuals with legal training",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4285714285714285,
+        "token_count": 17,
+        "latency": 2.356529951095581
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The experts used for annotation were seven experts with legal training."
+    },
+    {
+      "sample_id": 78,
+      "question": "What models are used for painting embedding and what for language style transfer?",
+      "prediction": "uence to sequence model trained by policy gradient",
+      "reference": "generating a poem from images we use an existing actor-critic architecture, various types of sequence to sequence models",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.15999999999999998,
+        "token_count": 74,
+        "latency": 3.243342876434326
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The models used for painting embedding are the actor-critic architecture with CNNs and a sequence-to-sequence model trained by policy gradient. The models used for language style transfer are sequence-to-sequence models with attention mechanisms, specifically global attention and pointer networks."
+    },
+    {
+      "sample_id": 79,
+      "question": "On top of BERT does the RNN layer work better or the transformer layer?",
+      "prediction": "transformer layer",
+      "reference": "Transformer over BERT (ToBERT)",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3333333333333333,
+        "token_count": 66,
+        "latency": 4.961090803146362
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "ToBERT performs better than RoBERT on the Fisher and 20newsgroups datasets, with improvements of 13.63% and 0.81% respectively. On the CSAT dataset, ToBERT performs slightly worse than RoBERT but the difference is not statistically significant.\n\nFinal Answer: ToBERT"
+    },
+    {
+      "sample_id": 80,
+      "question": "Do the authors hypothesize that humans' robustness to noise is due to their general knowledge?",
+      "prediction": "yes",
+      "reference": "Yes",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 89,
+        "latency": 6.6510374546051025
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The authors hypothesize that humans' robustness to noise is due to their general knowledge. This is stated in the context: \"The reason for these phenomena, we believe, is that MRC models can only utilize the knowledge contained in each given passage-question pair, but in addition to this, human beings can also utilize general knowledge.\"\n\nFinal Answer: yes"
+    },
+    {
+      "sample_id": 81,
+      "question": "What cyberbulling topics did they address?",
+      "prediction": "personal attack racism and sexism",
+      "reference": "personal attack, racism, and sexism",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 35,
+        "latency": 3.1325390338897705
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The cyberbullying topics addressed in the context are personal attack, racism, and sexism. \n\nFinal Answer: personal attack, racism, and sexism"
+    },
+    {
+      "sample_id": 82,
+      "question": "How do they obtain the new context represetation?",
+      "prediction": "s left context middle context and right context",
+      "reference": "They use two independent convolutional and max-pooling layers on (1) a combination of the left context, the left entity and the middle context; and (2) a combination of the middle context, the right entity and the right context. They concatenated the two results after pooling to get the new context representation.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.29411764705882354,
+        "token_count": 134,
+        "latency": 6.284641265869141
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The new context representation, called extended middle context, is obtained by splitting the sentence into three disjoint regions based on the two relation arguments: left context, middle context, and right context. The extended middle context uses a combination of the left context, the left entity, and the middle context, as well as a combination of the middle context, the right entity, and the right context. This approach ensures that the network pays special attention to the middle context while also considering the other regions."
+    },
+    {
+      "sample_id": 83,
+      "question": "How many different types of entities exist in the dataset?",
+      "prediction": "3",
+      "reference": "OurNepali contains 3 different types of entities, ILPRL contains 4 different types of entities",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.19999999999999998,
+        "token_count": 97,
+        "latency": 5.91087532043457
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The question asks for the number of different types of entities in the dataset. According to the context, the dataset has three major classes: Person (PER), Location (LOC), and Organization (ORG). There is also a mention of \"MISC\" (Miscellaneous) in the context of the ILPRL dataset. However, the primary focus of the dataset described in the paper is on PER, LOC, and ORG.\n\nFinal Answer: 3"
+    },
+    {
+      "sample_id": 84,
+      "question": "How much higher quality is the resulting annotated data?",
+      "prediction": "expert annotations provide higher quality and lead to better model performance c",
+      "reference": "improvement when the difficult subset with expert annotations is mixed with the remaining crowd annotation is 3.5 F1 score, much larger than when a random set of expert annotations are added",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.10810810810810811,
+        "token_count": 120,
+        "latency": 7.307117462158203
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The results show that expert annotations significantly improve model performance compared to crowd annotations. The F1 scores for models trained on expert-annotated data are higher than those trained on crowd annotations, with the difference being less than 1% when expert annotations are used. This indicates that expert annotations are of higher quality.\n\nFinal Answer: Expert annotations provide higher quality and more consistent annotations, leading to better model performance."
+    },
+    {
+      "sample_id": 85,
+      "question": "How big is imbalance in analyzed corpora?",
+      "prediction": "significant gender imbalance with women representing 33 16 of speakers and 22 5",
+      "reference": "Women represent 33.16% of the speakers",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3157894736842105,
+        "token_count": 200,
+        "latency": 13.924213647842407
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The imbalance in gender representation in the analyzed corpora is significant. Women represent 33.16% of the speakers but only 22.57% of the total speech time. Additionally, women are underrepresented in important roles, with only 29.47% of Anchor speakers being female. This disparity contributes to gender bias in ASR performance, as evidenced by higher Word Error Rates (WER) for women compared to men. The imbalance is further exacerbated by the fact that Punctual speakers, who make up 92.78% of the speakers, are more likely to exhibit gender bias due to less data available for adaptation. The"
+    },
+    {
+      "sample_id": 86,
+      "question": "What dataset does this approach achieve state of the art results on?",
+      "prediction": "the dataset on which the approach achieves state of the art results is multi30k",
+      "reference": "the English-German dataset",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.26666666666666666,
+        "token_count": 20,
+        "latency": 1.937941074371338
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The dataset on which the approach achieves state of the art results is Multi30K."
+    },
+    {
+      "sample_id": 87,
+      "question": "What are strong baselines model is compared to?",
+      "prediction": "traditional and neural models",
+      "reference": "Baseline models are:\n- Chen et al., 2015a\n- Chen et al., 2015b\n- Liu et al., 2016\n- Cai and Zhao, 2016\n- Cai et al., 2017\n- Zhou et al., 2017\n- Ma et al., 2018\n- Wang et al., 2019",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.28571428571428575,
+        "token_count": 10,
+        "latency": 3.037416458129883
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Final Answer: traditional and neural models"
+    },
+    {
+      "sample_id": 88,
+      "question": "What type of classifiers are used?",
+      "prediction": "machine learning models",
+      "reference": "probabilistic model",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 132,
+        "latency": 8.9932541847229
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The classifiers used in the context of event detection on microblogging platforms, as described in the provided text, are primarily **machine learning models**, specifically **deep neural networks** and **logistic regression (LR)** and **multilayer perceptron (MLP)** models. The text also mentions the use of **expectation regularization** and a **unified probabilistic model** for training these classifiers.\n\nFinal Answer: machine learning models, including deep neural networks, logistic regression, and multilayer perceptron."
+    },
+    {
+      "sample_id": 89,
+      "question": "Which toolkits do they use?",
+      "prediction": "the nlp toolkits used in the study include nltk",
+      "reference": "BIBREF17, BIBREF18, TensiStrength BIBREF13, TwitterNLP BIBREF6, BIBREF19, CogComp-NLP BIBREF20, Stanford NLP NER BIBREF21",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.09523809523809525,
+        "token_count": 29,
+        "latency": 2.8127007484436035
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The NLP toolkits used in the study include NLTK, Stanford CoreNLP, TwitterNLP, TensiStrength, CogComp-NLP, and spaCy."
+    },
+    {
+      "sample_id": 90,
+      "question": "On what datasets are experiments performed?",
+      "prediction": "squad",
+      "reference": "SQuAD",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 1,
+        "latency": 1.807837724685669
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "SQuAD"
+    },
+    {
+      "sample_id": 91,
+      "question": "what are the existing approaches?",
+      "prediction": "bag of words",
+      "reference": "BOW-Tags, BOW-KL(Tags), BOW-All, GloVe",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 133,
+        "latency": 7.213759422302246
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The existing approaches for modeling geographic locations using Flickr tags and structured environmental data include bag-of-words representations, vector space embeddings, and methods that combine word embedding models with geographic coordinates or other structured information. Some of these approaches focus on predicting environmental phenomena such as climate features, land cover types, and human assessments of scenicness.\n\nFinal Answer: bag-of-words, vector space embeddings, and combined word embedding with structured data"
+    },
+    {
+      "sample_id": 92,
+      "question": "Do they use attention?",
+      "prediction": "yes",
+      "reference": "Yes",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 34,
+        "latency": 2.1450581550598145
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The model uses attention in the Memory Generation Layer to compute the similarity score between passages and questions. \n\nFinal Answer: yes"
+    },
+    {
+      "sample_id": 93,
+      "question": "What datasets did they use for evaluation?",
+      "prediction": "the datasets used for evaluation are csat",
+      "reference": "CSAT dataset, 20 newsgroups, Fisher Phase 1 corpus",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.13333333333333333,
+        "token_count": 17,
+        "latency": 2.210282802581787
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The datasets used for evaluation are CSAT, 20 newsgroups, and Fisher."
+    },
+    {
+      "sample_id": 94,
+      "question": "What sentiment classification dataset is used?",
+      "prediction": "imdb movie review dataset",
+      "reference": "the IMDb movie review dataset BIBREF17",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.8,
+        "token_count": 6,
+        "latency": 1.8400535583496094
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Imdb movie review dataset"
+    },
+    {
+      "sample_id": 95,
+      "question": "Were any of these tasks evaluated in any previous work?",
+      "prediction": "yes",
+      "reference": "Yes",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 1,
+        "latency": 1.0402214527130127
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Yes."
+    },
+    {
+      "sample_id": 96,
+      "question": "Is datasets for sentiment analysis balanced?",
+      "prediction": "no",
+      "reference": "No",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 60,
+        "latency": 3.385084390640259
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The dataset used in the study contains 1,000 tweets with a significant imbalance, as it includes more than twice as many tweets about Trump compared to the other candidates. This indicates that the dataset is not balanced.\n\nFinal Answer: no"
+    },
+    {
+      "sample_id": 97,
+      "question": "What is the invertibility condition?",
+      "prediction": "the invertibility condition requires the neural projector to be invertible enab",
+      "reference": "The neural projector must be invertible.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.625,
+        "token_count": 151,
+        "latency": 8.314064979553223
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The invertibility condition refers to the requirement that the neural projector used in the model must be invertible, which allows for tractable exact inference and marginal likelihood computation. This is achieved by ensuring that the Jacobian determinant of the projection function is non-zero and differentiable, which is guaranteed by using an invertible neural network architecture such as a volume-preserving invertible neural network.\n\nFinal Answer: The invertibility condition requires the neural projector to be invertible, enabling tractable exact inference and marginal likelihood computat"
+    },
+    {
+      "sample_id": 98,
+      "question": "How does proposed qualitative annotation schema looks like?",
+      "prediction": "linguistic complexity",
+      "reference": "The resulting taxonomy of the framework is shown in Figure FIGREF10",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 124,
+        "latency": 8.388672828674316
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The proposed qualitative annotation schema includes dimensions such as linguistic complexity, required reasoning, background knowledge, factual correctness, and lexical cues. It categorizes answers into types like Span, Paraphrasing, Unanswerable, and Generated. It also includes annotations for syntactic features, semantic entailment, and complexity metrics based on lexical overlap.\n\nFinal Answer: Linguistic complexity, required reasoning, factual correctness, lexical cues, and answer types."
+    },
+    {
+      "sample_id": 99,
+      "question": "what are the sizes of both datasets?",
+      "prediction": "wikismall has 89",
+      "reference": "training set has 89,042 sentence pairs, and the test set has 100 pairs, training set contains 296,402, 2,000 for development and 359 for testing",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.1,
+        "token_count": 103,
+        "latency": 8.00257134437561
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The sizes of both datasets are 89,042 sentence pairs in the training set and 100 pairs in the test set for WikiSmall, and 296,402 sentence pairs in the training set and 2,359 sentences split into 2,000 for development and 359 for testing for WikiLarge. \n\nFinal Answer: WikiSmall has 89,042 training pairs and 100 test pairs; WikiLarge has 296,402 training pairs, 2,000 development sentences, and 359 test sentences."
+    },
+    {
+      "sample_id": 100,
+      "question": "What are the baselines?",
+      "prediction": "vanilla st baseline",
+      "reference": "Vanilla ST baseline, encoder pre-training, in which the ST encoder is initialized from an ASR model, decoder pre-training, in which the ST decoder is initialized from an MT model, encoder-decoder pre-training, where both the encoder and decoder are pre-trained, many-to-many multi-task model where the encoders and decoders are derived from pre-trained ASR and MT models, Triangle+pre-train: BIBREF18 DBLP:conf/naacl/AnastasopoulosC18 proposed a triangle multi-task strategy for speech translation",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.14634146341463414,
+        "token_count": 124,
+        "latency": 8.807001829147339
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The baselines mentioned in the context are the different approaches and models used for comparison in the experiments, including the Vanilla ST baseline, Pre-training baselines (encoder pre-training, decoder pre-training, encoder-decoder pre-training), Multi-task baselines (one-to-many, many-to-one, many-to-many), and Many-to-many+pre-training and Triangle+pre-train. \n\nFinal Answer: Vanilla ST baseline, Pre-training baselines, Multi-task baselines, Many-to-many+pre-training, Triangle+pre-train"
+    },
+    {
+      "sample_id": 101,
+      "question": "Which natural language(s) are studied in this paper?",
+      "prediction": "social media and news data",
+      "reference": "Unanswerable",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 114,
+        "latency": 6.5809080600738525
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The paper studies natural language(s) used in social media and news data, specifically focusing on propaganda detection. The context mentions tasks such as sentiment analysis, propaganda detection, and event extraction from social media, which are examples of imbalanced classification problems. Additionally, the dataset described includes news articles with propagandistic fragments manually labelled by experts.\n\nFinal Answer: Social media and news data"
+    },
+    {
+      "sample_id": 102,
+      "question": "What models are used in the experiment?",
+      "prediction": "linear svm bilstm cnn",
+      "reference": "linear SVM, bidirectional Long Short-Term-Memory (BiLSTM), Convolutional Neural Network (CNN)",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5714285714285715,
+        "token_count": 48,
+        "latency": 4.460928678512573
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The models used in the experiment are a linear SVM, a bidirectional Long Short-Term-Memory (BiLSTM) model, and a Convolutional Neural Network (CNN) model. \n\nFinal Answer: linear SVM, BiLSTM, CNN"
+    },
+    {
+      "sample_id": 103,
+      "question": "Do the answered questions measure for the usefulness of the answer?",
+      "prediction": "yes",
+      "reference": "No",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 130,
+        "latency": 5.139041423797607
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The study in the context measures the usefulness of answers by analyzing linguistic and psycholinguistic characteristics of questions on Quora to determine factors that influence whether a question gets answered. It identifies differences between open (unanswered) and answered questions, such as word usage, POS tag diversity, and emotional content, which are used to predict answerability. These linguistic features are shown to correlate with human judgments about why questions remain unanswered.\n\nFinal Answer: Yes."
+    },
+    {
+      "sample_id": 104,
+      "question": "what pretrained word embeddings were used?",
+      "prediction": "glove edinburgh embeddings emoji embeddings",
+      "reference": "Pretrained word embeddings  were not used",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.2,
+        "token_count": 42,
+        "latency": 2.5870444774627686
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The pretrained word embeddings used in the context include GloVe, Edinburgh embeddings, and Emoji embeddings. \n\nFinal Answer: GloVe, Edinburgh embeddings, Emoji embeddings"
+    },
+    {
+      "sample_id": 105,
+      "question": "What were their results on the new dataset?",
+      "prediction": "personalized models outperformed baselines in bpe perplexity generated more div",
+      "reference": "average recipe-level coherence scores of 1.78-1.82, human evaluators preferred personalized model outputs to baseline 63% of the time",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.07407407407407408,
+        "token_count": 186,
+        "latency": 9.72578740119934
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The results on the new dataset show that personalized models outperform baselines in BPE perplexity, with Prior Name performing the best. They also generate more diverse and acceptable recipes compared to baselines. Additionally, personalized models achieve higher average recipe-level coherence scores (1.78-1.82) compared to the baseline (1.77). Human evaluators preferred personalized model outputs over baseline 63% of the time. The Prior Name model achieves the best user matching accuracy (UMA) and Mean Reciprocal Rank (MRR) by a large margin. \n\nFinal Answer: Personalized models outperformed "
+    },
+    {
+      "sample_id": 106,
+      "question": "What is the combination of rewards for reinforcement learning?",
+      "prediction": "irony reward and sentiment reward combined using harmonic mean",
+      "reference": "irony accuracy, sentiment preservation",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3333333333333333,
+        "token_count": 138,
+        "latency": 8.275274515151978
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The combination of rewards for reinforcement learning in the context of irony generation includes an **irony reward** and a **sentiment reward**. The irony reward measures the difference between the irony score of the input sentence and that of the output sentence, while the sentiment reward ensures the sentiment polarity of the input and output sentences remains consistent. These two rewards are combined using the **harmonic mean** to balance both aspects during training.\n\nFinal Answer: irony reward and sentiment reward combined using harmonic mean"
+    },
+    {
+      "sample_id": 107,
+      "question": "What limitations do the authors demnostrate of their model?",
+      "prediction": "ontent score for starry night in figure figref12",
+      "reference": "Since we do not have an end-to-end dataset, the generated English poem may not work well with Shakespeare style transfer",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 112,
+        "latency": 4.7659406661987305
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The authors demonstrate limitations in their model's ability to generate Shakespearean prose that is well-aligned with the content of the input paintings, particularly when the style transfer dataset lacks similar words in the training set. This is evidenced by a low average content score for \"Starry Night\" in their human evaluation. \n\nFinal Answer: Limited alignment between generated prose and painting content due to insufficient training data."
+    },
+    {
+      "sample_id": 108,
+      "question": "Which existing benchmarks did they compare to?",
+      "prediction": "the existing benchmarks they compared to",
+      "reference": "Affective Text, Fairy Tales, ISEAR",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 30,
+        "latency": 2.7310245037078857
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The existing benchmarks they compared to are the Affective Text dataset, the Fairy Tales dataset, and the ISEAR dataset."
+    },
+    {
+      "sample_id": 109,
+      "question": "What were their distribution results?",
+      "prediction": "significant differences in followers",
+      "reference": "Distributions of Followers, Friends and URLs are significantly different between the set of tweets containing fake news and those non containing them, but for Favourites, Mentions, Media, Retweets and Hashtags they are not significantly different",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0625,
+        "token_count": 74,
+        "latency": 5.883146524429321
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The distribution results showed significant differences in the number of followers, the number of URLs on tweets, and user verification status between tweets containing fake news and those not containing fake news. \n\nFinal Answer: significant differences in followers, URLs, and user verification"
+    },
+    {
+      "sample_id": 110,
+      "question": "How is the dataset of hashtags sourced?",
+      "prediction": "the dataset of hashtags",
+      "reference": "1,268 randomly selected tweets in the Stanford Sentiment Analysis Dataset BIBREF36, all 12,594 unique English hashtags and their associated tweets from the same Stanford dataset",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.24,
+        "token_count": 84,
+        "latency": 5.170608282089233
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The dataset of hashtags is sourced from the Stanford Sentiment Analysis Dataset, specifically from 1,268 randomly selected tweets, and includes both crowdsourced segmentations and additional corrections. The new expert curated dataset includes all 12,594 unique English hashtags and their associated tweets from the same Stanford dataset."
+    },
+    {
+      "sample_id": 111,
+      "question": "what accents are present in the corpus?",
+      "prediction": "unknown",
+      "reference": "Unanswerable",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 103,
+        "latency": 6.952454328536987
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The question asks about the accents present in the corpus. The context mentions that the DeepMine dataset includes speech from Persian speakers and also mentions English phrases. However, it does not explicitly mention any specific accents within the Persian or English speech data. Therefore, based on the information provided, we cannot determine the specific accents present in the corpus.\n\nFinal Answer: unknown"
+    },
+    {
+      "sample_id": 112,
+      "question": "What can word subspace represent?",
+      "prediction": "word subspace can represent the context of the corresponding text in a compact a",
+      "reference": "Word vectors, usually in the context of others within the same class",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.43478260869565216,
+        "token_count": 28,
+        "latency": 4.06777811050415
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Final Answer: Word subspace can represent the context of the corresponding text in a compact and meaningful way."
+    },
+    {
+      "sample_id": 113,
+      "question": "What baseline model is used?",
+      "prediction": "random forests",
+      "reference": "For Article-Entity placement, they consider two baselines: the first one using only salience-based features, and the second baseline checks if the entity appears in the title of the article. \n\nFor Article-Section Placement, they consider two baselines: the first picks the section with the highest lexical similarity to the article, and the second one picks the most frequent section.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 3,
+        "latency": 3.1296186447143555
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Random Forests"
+    },
+    {
+      "sample_id": 114,
+      "question": "Is SemCor3.0 reflective of English language data in general?",
+      "prediction": "no",
+      "reference": "Yes",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 55,
+        "latency": 3.778571605682373
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The paper states that SemCor3.0 is the largest corpus manually annotated with WordNet sense for WSD, but it does not explicitly claim that it is reflective of English language data in general. Therefore, the answer is:\n\nno"
+    },
+    {
+      "sample_id": 115,
+      "question": "How big is Augmented LibriSpeech dataset?",
+      "prediction": "708 hours",
+      "reference": "Unanswerable",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 91,
+        "latency": 5.694260120391846
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The Augmented LibriSpeech dataset is not directly mentioned in the provided context. However, the CoVoST dataset is described as having a total of 708 hours of speeches across 11 languages, with French and German having the largest durations among existing public corpora. The Tatoeba evaluation samples add an additional 9.3 hours of speech.\n\nFinal Answer: 708 hours"
+    },
+    {
+      "sample_id": 116,
+      "question": "What dataset did they use?",
+      "prediction": "semeval 2016 sentiment analysis in twitter task datasets",
+      "reference": " high-quality datasets  from SemEval-2016 “Sentiment Analysis in Twitter” task",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.7058823529411765,
+        "token_count": 57,
+        "latency": 3.8336520195007324
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The dataset used in the study is the fine-grained and ternary sentiment classification datasets from the SemEval-2016 “Sentiment Analysis in Twitter” task. \n\nFinal Answer: SemEval-2016 “Sentiment Analysis in Twitter” task datasets"
+    },
+    {
+      "sample_id": 117,
+      "question": "Do they use large or small BERT?",
+      "prediction": "bert base",
+      "reference": "small BERT",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5,
+        "token_count": 64,
+        "latency": 4.574707269668579
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The paper mentions using the pre-trained BERT model for fine-tuning on the WSD task. It specifically states that the BERT$_\\mathrm {BASE}$ model was used because the BERT$_\\mathrm {LARGE}$ model performed slightly worse in this task.\n\nFinal Answer: BERT BASE"
+    },
+    {
+      "sample_id": 118,
+      "question": "Are the automatically constructed datasets subject to quality control?",
+      "prediction": "yes",
+      "reference": "No",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 62,
+        "latency": 7.35258936882019
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Yes. The context explicitly states that the authors carefully constructed baselines and performed close data inspection to ensure probe quality, indicating that there is a quality control process in place for the automatically constructed datasets."
+    },
+    {
+      "sample_id": 119,
+      "question": "Are the images from a specific domain?",
+      "prediction": "no",
+      "reference": "Yes",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 60,
+        "latency": 4.203776121139526
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The question asks whether the images are from a specific domain. The context discusses image captioning and evaluation metrics, but it does not specify that the images are from a particular domain. Therefore, the answer is:\n\nFinal Answer: no"
+    },
+    {
+      "sample_id": 120,
+      "question": "What was their performance on emotion detection?",
+      "prediction": "competitive or state of the art results for some emotion labels",
+      "reference": "Answer with content missing: (Table 3) Best author's model B-M average micro f-score is 0.409, 0.459, 0.411 on Affective, Fairy Tales and ISEAR datasets respectively. ",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 130,
+        "latency": 8.373931646347046
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The performance on emotion detection was evaluated using precision, recall, and f-score on the development set. The average f-score was reported as micro-average. The results showed that a simple tf-idf bag-of-words model worked very well, and combining features with embeddings improved performance. The best model (B-M) achieved competitive or even state-of-the-art results for some emotion labels on existing, standard evaluation datasets.\n\nFinal Answer: Competitive or state-of-the-art results for some emotion labels."
+    },
+    {
+      "sample_id": 121,
+      "question": "What is the tagging scheme employed?",
+      "prediction": "the tagging scheme employed",
+      "reference": "A new tagging scheme that tags the words before and after the pun as well as the pun words.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3333333333333333,
+        "token_count": 26,
+        "latency": 2.5303149223327637
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The tagging scheme employed is a three-tag scheme consisting of {INLINEFORM0, INLINEFORM1, INLINEFORM2}."
+    },
+    {
+      "sample_id": 122,
+      "question": "Is Arabic one of the 11 languages in CoVost?",
+      "prediction": "no",
+      "reference": "No",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 77,
+        "latency": 5.381819486618042
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The context states that CoVost is a multilingual ST corpus based on Common Voice for 11 languages into English. The list of these 11 languages includes French, German, Dutch, Russian, Spanish, Italian, Turkish, Persian, Swedish, Mongolian, and Chinese. Arabic is not mentioned in this list.\n\nFinal Answer: no"
+    },
+    {
+      "sample_id": 123,
+      "question": "How do they define robustness of a model?",
+      "prediction": "ovided prior knowledge is imbalanced or incomplete",
+      "reference": "ability to accurately classify texts even when the amount of prior knowledge for different classes is unbalanced, and when the class distribution of the dataset is unbalanced",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.21428571428571427,
+        "token_count": 197,
+        "latency": 8.321495056152344
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The robustness of a model, as defined in the context of this paper, refers to its ability to be less sensitive to biases in prior knowledge and to maintain good performance even when the provided prior knowledge is incomplete or imbalanced. This is achieved through the introduction of auxiliary regularization terms such as neutral features, maximum entropy principle, and KL divergence between reference and predicted class distributions. These terms help reduce the model's dependence on potentially biased prior knowledge and improve its generalization and performance across different scenarios."
+    },
+    {
+      "sample_id": 124,
+      "question": "What other sentence embeddings methods are evaluated?",
+      "prediction": "infersent",
+      "reference": "GloVe, BERT, Universal Sentence Encoder, TF-IDF, InferSent",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.25,
+        "token_count": 23,
+        "latency": 2.8493714332580566
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "InferSent, Universal Sentence Encoder, average GloVe embeddings, and average BERT embeddings."
+    },
+    {
+      "sample_id": 125,
+      "question": "What are method's improvements of F1 for NER task for English and Chinese datasets?",
+      "prediction": "dice loss and tversky index with dynamic weighting",
+      "reference": "English datasets including CoNLL2003 and OntoNotes5.0, our proposed method outperforms BERT-MRCBIBREF38 by +0.29 and +0.96 respectively, Chinese datasets, achieving F1 improvements by +0.97 and +2.36 on MSRA and OntoNotes4.0, respectively",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0625,
+        "token_count": 142,
+        "latency": 7.892797231674194
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The method's improvements for the NER task on English and Chinese datasets involve using dice loss and Tversky index to address data imbalance. These losses are more robust to class imbalance compared to cross-entropy, as they focus on precision and recall, which are crucial for imbalanced datasets. Additionally, a dynamic weighting strategy based on $(1-p)$ is introduced to reduce the dominance of easy-negative examples during training. This combination leads to significant performance improvements.\n\nFinal Answer: Dice loss and Tversky index with dynamic weighting"
+    },
+    {
+      "sample_id": 126,
+      "question": "On which tasks do they test their conflict method?",
+      "prediction": "task 1 quora duplicate question pair detection",
+      "reference": "Task 1: Quora Duplicate Question Pair Detection, Task 2: Ranking questions",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.8235294117647058,
+        "token_count": 61,
+        "latency": 2.915600299835205
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The tasks on which they test their conflict method are Quora Duplicate Question Pair Detection and Ranking questions in Bing's People Also Ask. \n\nFinal Answer: Quora Duplicate Question Pair Detection and Ranking questions in Bing's People Also Ask"
+    },
+    {
+      "sample_id": 127,
+      "question": "Which baselines did they compare against?",
+      "prediction": "the baselines compared against include syntactic tree based models latent tree",
+      "reference": "Various tree structured neural networks including variants of Tree-LSTM, Tree-based CNN, RNTN, and non-tree models including variants of LSTMs, CNNs, residual, and self-attention based networks",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.2,
+        "token_count": 64,
+        "latency": 6.994718074798584
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The baselines compared against include syntactic tree-based models, latent tree models, and other neural models such as Tree-based CNN, Gumbel Tree-LSTM, NSE, Reinforced Self-Attention Network, Residual stacked encoders, and BiLSTM with generalized pooling."
+    },
+    {
+      "sample_id": 128,
+      "question": "What is te core component for KBQA?",
+      "prediction": "relation detection",
+      "reference": "answer questions by obtaining information from KB tuples ",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 58,
+        "latency": 7.012319564819336
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The core component for KBQA is the relation detection subtask, which is improved in this paper through a hierarchical matching approach with residual learning. The final answer is the proposed model, HR-BiLSTM.\n\nFinal Answer: HR-BiLSTM"
+    },
+    {
+      "sample_id": 129,
+      "question": "What are the baseline models?",
+      "prediction": "encoder decoder enc dec model with ingredient attention",
+      "reference": "name-based Nearest-Neighbor model (NN), Encoder-Decoder baseline with ingredient attention (Enc-Dec)",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4444444444444445,
+        "token_count": 135,
+        "latency": 6.723839998245239
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Baseline models in the context of this paper are the standard approaches used for recipe generation that focus on creating coherent recipes given all ingredients and a recipe name. These models do not account for personal preferences or incomplete recipe details, which is what the proposed personalized model aims to address. The specific baseline models mentioned are the Nearest-Neighbor (NN) model and an Encoder-Decoder (Enc-Dec) model with ingredient attention. \n\nFinal Answer: Encoder-Decoder (Enc-Dec) model with ingredient attention"
+    },
+    {
+      "sample_id": 130,
+      "question": "Which methods are considered to find examples of biases and unwarranted inferences??",
+      "prediction": "manual inspection",
+      "reference": "spot patterns by just looking at a collection of images, tag all descriptions with part-of-speech information, I applied Louvain clustering",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 150,
+        "latency": 7.235493421554565
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The methods considered to find examples of biases and unwarranted inferences include manual inspection of the dataset, tagging descriptions with part-of-speech information, leveraging the structure of Flickr30K Entities for coreference analysis, and creating a coreference graph followed by Louvain clustering. Additionally, analyzing patterns in ethnicity/race marking and examining the frequency of specific adjectives used for particular nouns are also mentioned as methods. \n\nFinal Answer: Manual inspection, part-of-speech tagging, coreference analysis, Louvain clustering, and pattern analysis."
+    },
+    {
+      "sample_id": 131,
+      "question": "What language do they explore?",
+      "prediction": "english",
+      "reference": "English, French, German ",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5,
+        "token_count": 240,
+        "latency": 9.483253479003906
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The question asks, \"What language do they explore?\" The context discusses the use of Winograd schemas in machine translation and specifically mentions that these schemas are used to test the ability of AI programs to correctly translate pronouns in different languages. It also provides examples of how these schemas can be used for translation into languages like French, Spanish, Italian, Hebrew, and Arabic.\n\nThe context does not specify a single language that is being explored; rather, it discusses the application of Winograd schemas across multiple languages. However, the question appears to "
+    },
+    {
+      "sample_id": 132,
+      "question": "Which models did they experiment with?",
+      "prediction": "stacked lstms",
+      "reference": "Stacked LSTMs, Cell-aware Stacked LSTMs, Sentence Encoders, Top-layer Classifiers",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4444444444444445,
+        "token_count": 84,
+        "latency": 7.0720179080963135
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The models they experimented with include stacked LSTMs, Cell-aware Stacked LSTMs (CAS-LSTM), and variants of these models such as Bi-CAS-LSTM. They also compared their models with multidimensional RNNs (MDRNN), tree-structured RNNs, and other related architectures.\n\nFinal Answer: Stacked LSTMs, CAS-LSTM, Bi-CAS-LSTM, MDRNN, Tree-LSTMs"
+    },
+    {
+      "sample_id": 133,
+      "question": "Do they report results only on English data?",
+      "prediction": "no",
+      "reference": "Yes",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 4,
+        "latency": 2.7723312377929688
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Final Answer: no"
+    },
+    {
+      "sample_id": 134,
+      "question": "What summarization algorithms did the authors experiment with?",
+      "prediction": "is ilp based summarization algorithm and sumy algorithms",
+      "reference": "LSA, TextRank, LexRank and ILP-based summary.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.14285714285714288,
+        "token_count": 87,
+        "latency": 4.698333501815796
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The authors experimented with several summarization algorithms. These include the ILP-based summarization algorithm and a few summarization algorithms provided by the Sumy package. The ILP-based approach was compared with the Sumy algorithms using the ROUGE unigram score. The final answer is: ILP-based summarization algorithm and Sumy algorithms."
+    },
+    {
+      "sample_id": 135,
+      "question": "What was the previous state of the art for this task?",
+      "prediction": "bibref0",
+      "reference": "hLSTM",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 189,
+        "latency": 9.852752685546875
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The previous state of the art for this task was the work by BIBREF0, which proposed probabilistic graphical models to model structure and sequence for instructor intervention prediction. However, their model required a hyperparameter for the number of latent states and had weak evaluation, limiting its generalizability. Subsequent works, such as BIBREF7, evaluated baseline models over a larger corpus and found results to vary widely across MOOCs, but they did not investigate the role of structure and sequence in predicting instructor interventions. The current paper improves upon these methods"
+    },
+    {
+      "sample_id": 136,
+      "question": "Which component is the least impactful?",
+      "prediction": "neighbors only",
+      "reference": "Based on table results provided changing directed to undirected edges had least impact - max abs difference of 0.33 points on all three datasets.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 99,
+        "latency": 6.494474649429321
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The question asks which component is the least impactful. Based on the ablation study results, the \"Neighbors-only\" component was found to have the least impact as it resulted in performance deterioration across all datasets except for Reuters, where there was almost no change. This indicates that considering the root node during updates is crucial for performance.\n\nFinal Answer: Neighbors-only"
+    },
+    {
+      "sample_id": 137,
+      "question": "What is the corpus used for the task?",
+      "prediction": "dta18 and dta19",
+      "reference": "DTA18, DTA19",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.8,
+        "token_count": 20,
+        "latency": 1.7110943794250488
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The corpus used for the task is DTA18 and DTA19. \n\nFinal Answer: DTA18 and DTA19"
+    },
+    {
+      "sample_id": 138,
+      "question": "Which 7 Indian languages do they experiment with?",
+      "prediction": "kannada",
+      "reference": "Hindi, English, Kannada, Telugu, Assamese, Bengali and Malayalam",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.2222222222222222,
+        "token_count": 100,
+        "latency": 5.3880603313446045
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The 7 Indian languages mentioned in the context are Kannada, Hindi, Telugu, Malayalam, Bengali, and English. However, the context lists only six languages explicitly. The seventh language is not clearly specified in the text, but it can be inferred that the seventh language is Tamil, as it is commonly included in such lists. \n\nFinal Answer: Kannada, Hindi, Telugu, Malayalam, Bengali, English, Tamil"
+    },
+    {
+      "sample_id": 139,
+      "question": "What is the model performance on target language reading comprehension?",
+      "prediction": "competitive performance with some degradation when using translated data",
+      "reference": "Table TABREF6, Table TABREF8",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 189,
+        "latency": 9.361434698104858
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The model performance on target language reading comprehension is evaluated using various metrics such as EM (Exact Match) and F1 scores. The results show that multi-BERT achieves competitive performance when fine-tuned on the source language and tested on the target language, with some degradation in performance when using translated data. For example, when testing on Chinese, the F1 score of the model trained on English is 53.8, while the F1 score is only 44.1 for the model trained on Zh-En. Additionally, the model shows reasonable performance across different languages including English, Ch"
+    },
+    {
+      "sample_id": 140,
+      "question": "How big is the difference in performance between proposed model and baselines?",
+      "prediction": "significant improvement over baselines",
+      "reference": "Metric difference between Aloha and best baseline score:\nHits@1/20: +0.061 (0.3642 vs 0.3032)\nMRR: +0.0572(0.5114 vs 0.4542)\nF1: -0.0484 (0.3901 vs 0.4385)\nBLEU: +0.0474 (0.2867 vs 0.2393)",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 131,
+        "latency": 8.527206420898438
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The difference in performance between the proposed model (ALOHA) and baselines is significant, as ALOHA outperforms the baselines in various metrics such as Hits@n/N, Mean Rank, Mean Reciprocal Rank (MRR), F1-score, and BLEU scores. The results show that ALOHA achieves higher accuracy in retrieving the correct responses for target characters compared to the baselines, demonstrating its effectiveness in language style recovery based on Human Level Attributes (HLAs). \n\nFinal Answer: Significant improvement over baselines."
+    },
+    {
+      "sample_id": 141,
+      "question": "How much improvement is gained from Adversarial Reward Augmented Maximum Likelihood (ARAML)?",
+      "prediction": "superior performance and greater stability in training",
+      "reference": "ARAM has achieved improvement over all baseline methods using reverese perplexity and  slef-BLEU metric.  The maximum reverse perplexity improvement 936,16 is gained for EMNLP2017  WMT  dataset and  48,44 for COCO dataset.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.060606060606060615,
+        "token_count": 112,
+        "latency": 6.623867034912109
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The improvement gained from Adversarial Reward Augmented Maximum Likelihood (ARAML) is demonstrated through its superior performance compared to other baselines in terms of forward and reverse perplexity, Self-BLEU scores, and manual evaluation on dialogue generation tasks. Additionally, ARAML shows greater stability in training with smaller standard deviations across metrics.\n\nFinal Answer: Superior performance and greater stability in training."
+    },
+    {
+      "sample_id": 142,
+      "question": "What evidence do the authors present that the model can capture some biases in data annotation and c",
+      "prediction": "the model can detect some biases in data annotation and collection",
+      "reference": "The authors showed few tweets where neither and implicit hatred content exist but the model was able to discriminate",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.20689655172413793,
+        "token_count": 144,
+        "latency": 7.890864133834839
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The authors present evidence that their model can detect some biases in the process of collecting or annotating datasets. This is indicated by the results showing the model's ability to identify misclassifications that stem from biases in the data, such as oversampling specific language or geographic groups, and not from the classifier itself. The model leverages its pre-trained general knowledge to differentiate between hate and offensive content, which helps in identifying these biases.\n\nFinal Answer: The model can detect some biases in data annotation and collection."
+    },
+    {
+      "sample_id": 143,
+      "question": "Were other baselines tested to compare with the neural baseline?",
+      "prediction": "yes",
+      "reference": "SVM, No-Answer Baseline (NA) , Word Count Baseline, Human Performance",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 36,
+        "latency": 3.745314121246338
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Yes. The context mentions that other baselines were tested, including SVM, CNN, and Word Count Baselines, as well as human performance baseline."
+    },
+    {
+      "sample_id": 144,
+      "question": "What is the size of the dataset?",
+      "prediction": "cannot be determined from the given information",
+      "reference": "Dataset contains 3606 total sentences and 79087 total entities.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 152,
+        "latency": 8.969054937362671
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The dataset size is not explicitly mentioned in the text. However, it is stated that the dataset contains sentences collected from daily newspapers of the year 2015-2016 and that the dataset is divided into three parts with 64%, 16%, and 20% of the total dataset into training set, development set, and test set respectively. The text also mentions that the OurNepali dataset volume is almost ten times bigger compared to ILPRL dataset in terms of entities. Therefore, the exact size of the dataset cannot be determined from the given information.\n\nFinal Answer: Cannot be determined from the given i"
+    },
+    {
+      "sample_id": 145,
+      "question": "What are method improvements of F1 for paraphrase identification?",
+      "prediction": "dice loss and tversky index with dynamic weighting",
+      "reference": "Using DSC loss improves the F1 score by +0.58 for MRPC and +0.73 for QQP",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.18181818181818182,
+        "token_count": 130,
+        "latency": 7.6736156940460205
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The method improvements of F1 for paraphrase identification mentioned in the context involve replacing the standard cross-entropy loss with dice loss or Tversky index, which are based on the F1 score. Additionally, a dynamic weight adjusting strategy inspired by focal loss is used to address the dominating influence of easy-negative examples. These strategies help improve performance on imbalanced datasets, including paraphrase identification tasks. \n\nFinal Answer: Dice loss and Tversky index with dynamic weighting"
+    },
+    {
+      "sample_id": 146,
+      "question": "What datasets are used?",
+      "prediction": "the datasets used are those from bibref0",
+      "reference": "Answer with content missing: (Whole Method and Results sections) The primary dataset we use is the ERP data collected and computed by Frank et al. (2015), and we also use behavioral data (eye-tracking data and self-paced reading times) from Frank et al. (2013) which were collected on the same set of 205 sentences.\nSelect:\n- ERP data collected and computed by Frank et al. (2015)\n- behavioral data (eye-tracking data and self-paced reading times) from Frank et al. (2013)",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0851063829787234,
+        "token_count": 24,
+        "latency": 1.5804054737091064
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The datasets used are those from BIBREF0, which contains ERP data related to language processing."
+    },
+    {
+      "sample_id": 147,
+      "question": "What data was presented to the subjects to elicit event-related responses?",
+      "prediction": "multimodal data for stimulus based",
+      "reference": "7 phonemic/syllabic ( /iy/, /piy/, /tiy/, /diy/, /uw/, /m/, /n/ ) as well as 4 words(pat, pot, knew and gnaw)",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 99,
+        "latency": 6.789294242858887
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The data presented to the subjects to elicit event-related responses was multimodal data for stimulus-based, imagined and articulated speech state corresponding to 7 phonemic/syllabic and 4 words. The dataset consists of EEG data corresponding to imagined speech, with facial and audio information discarded. \n\nFinal Answer: multimodal data for stimulus-based, imagined and articulated speech state"
+    },
+    {
+      "sample_id": 148,
+      "question": "Which baselines are used for evaluation?",
+      "prediction": "pointer gen",
+      "reference": "Pointer-Gen, Pointer-Gen+Pos, Pointer-Gen+Same-FT, Pointer-Gen+Pos-FT, Pointer-Gen+RL-ROUGE, Pointer-Gen+RL-SEN",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 18,
+        "latency": 3.649383783340454
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Pointer-Gen, Pointer-Gen+RL-ROUGE, Pointer-Gen+RL-SEN, Pointer-Gen+ARL-SEN"
+    },
+    {
+      "sample_id": 149,
+      "question": "What learning models are used on the dataset?",
+      "prediction": "traditional machine learning classifiers naïve bayes logistic regression supp",
+      "reference": "Naïve Bayes (NB), Logistic Regression (LR), Support Vector Machine (SVM), Random Forests (RF), Gradient Boosted Trees (GBT),  Convolutional Neural Networks (CNN), Recurrent Neural Networks (RNN)",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3125,
+        "token_count": 197,
+        "latency": 8.904059648513794
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The learning models used on the dataset include traditional machine learning classifiers such as Naïve Bayes, Logistic Regression, Support Vector Machine, Random Forests, and Gradient Boosted Trees, as well as neural network based models such as Convolutional Neural Networks (CNN), Recurrent Neural Networks (RNN), and their variants like HybridCNN and models with attention mechanisms and Latent Topic Clustering (LTC). Additionally, the use of context tweets is explored as an additional feature. \n\nFinal Answer: Traditional machine learning classifiers (Naïve Bayes, Logistic Regression, Support "
+    },
+    {
+      "sample_id": 150,
+      "question": "What language model architectures are used?",
+      "prediction": "bi directional and uni directional transformer based language models with self a",
+      "reference": "uni-directional model to augment the decoder",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 161,
+        "latency": 8.155733823776245
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The language model architectures used are a bi-directional language model and a uni-directional language model. Both use self-attention. The bi-directional model contains 353M parameters and the uni-directional model contains 190M parameters. The bi-directional model solves a cloze-style token prediction task at training time and consists of two towers, each containing INLINEFORM1 transformer blocks. The uni-directional model contains INLINEFORM0 transformer blocks, followed by a word classifier to predict the next word on the right. \n\nFinal Answer: Bi-directional and uni-directional transform"
+    },
+    {
+      "sample_id": 151,
+      "question": "How are weights dynamically adjusted?",
+      "prediction": "1 p where p is the model s predicted probability",
+      "reference": "One can think $(1-p_{i1})$ as a weight associated with each example, which changes as training proceeds. The intuition of changing $p_{i1}$ to $(1-p_{i1}) p_{i1}$ is to push down the weight of easy examples. For easy examples whose probability are approaching 0 or 1, $(1-p_{i1}) p_{i1}$ makes the model attach significantly less focus to them. Figure FIGREF23 gives gives an explanation from the perspective in derivative: the derivative of $\\frac{(1-p)p}{1+(1-p)p}$ with respect to $p$ approaches 0 immediately after $p$ approaches 0, which means the model attends less to examples once they are correctly classified.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.16901408450704225,
+        "token_count": 73,
+        "latency": 4.918493986129761
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The weights are dynamically adjusted by associating each training example with a weight proportional to $(1-p)$, where $p$ is the model's predicted probability. This weight changes as training proceeds, deemphasizing confident examples and making the model attentive to hard-negative examples."
+    },
+    {
+      "sample_id": 152,
+      "question": "What are the results from these proposed strategies?",
+      "prediction": "methods far outperform the baseline a2c and kg a2c",
+      "reference": "Reward of 11.8 for the A2C-chained model, 41.8 for the KG-A2C-chained model, 40 for A2C-Explore and 44 for KG-A2C-Explore.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.18181818181818182,
+        "token_count": 118,
+        "latency": 6.230563640594482
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The results from the proposed strategies show that agents utilizing knowledge-graphs in addition to enhanced exploration methods far outperform the baseline A2C and KG-A2C. KG-A2C-chained and KG-A2C-Explore both pass the bottleneck of a score of 40, whereas A2C-Explore gets to the bottleneck but cannot surpass it. The knowledge graph appears to be critical for passing bottlenecks, and the KG-A2C-chained method is significantly more sample efficient and converges faster."
+    },
+    {
+      "sample_id": 153,
+      "question": "What does an individual model consist of?",
+      "prediction": "the individual model consists of bayesian models for each language and crossling",
+      "reference": "Bayesian model of garg2012unsupervised as our base monolingual model",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3,
+        "token_count": 41,
+        "latency": 3.2386415004730225
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The individual model consists of Bayesian models for each language and crosslingual latent variables to incorporate soft role agreement between aligned constituents."
+    },
+    {
+      "sample_id": 154,
+      "question": "How is non-standard pronunciation identified?",
+      "prediction": "annotations marking mispronunciations and disfluencies",
+      "reference": "Unanswerable",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 101,
+        "latency": 5.432961940765381
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The non-standard pronunciation in the Mapudungun corpus is identified through annotations that mark mispronunciations, poor intelligibility, and other disfluencies. These annotations help in recognizing variations from standard pronunciation, which is crucial for developing accurate NLP systems and understanding linguistic nuances. \n\nFinal Answer: Annotations marking mispronunciations and disfluencies"
+    },
+    {
+      "sample_id": 155,
+      "question": "What is a semicharacter architecture?",
+      "prediction": "ing the internal characters in an unordered manner",
+      "reference": "A semi-character based RNN (ScRNN) treats the first and last characters individually, and is agnostic to the ordering of the internal characters",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.23076923076923078,
+        "token_count": 157,
+        "latency": 8.32067608833313
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "A semicharacter architecture, as described in the context, refers to a model that processes text by considering the first and last characters of words separately while treating the internal characters in an unordered manner. This approach is inspired by psycholinguistic studies and is implemented through models like the semi-character RNN (ScRNN), which concatenates one-hot vectors for the first and last characters of each word with a bag-of-characters representation for the internal characters. This architecture is used in the paper to improve robustness against adversarial spelling mistakes "
+    },
+    {
+      "sample_id": 156,
+      "question": "which languages are explored?",
+      "prediction": "the languages explored in the context are bulgarian croatian czech danish e",
+      "reference": "Bulgarian, Croatian, Czech, Danish, English, French, German, Indonesian, Italian, Norwegian, Persian, Polish, Portuguese, Slovenian, Spanish and Swedish",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.2857142857142857,
+        "token_count": 49,
+        "latency": 4.295383930206299
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The languages explored in the context are: Bulgarian, Croatian, Czech, Danish, English, French, German, Indonesian, Italian, Norwegian, Persian, Polish, Portuguese, Slovenian, Spanish, and Swedish."
+    },
+    {
+      "sample_id": 157,
+      "question": "How effective is their NCEL approach overall?",
+      "prediction": "effective",
+      "reference": "NCEL consistently outperforms various baselines with a favorable generalization ability",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 89,
+        "latency": 5.463942766189575
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The paper evaluates the effectiveness of NCEL through experiments on five public benchmarks and a challenging dataset WW. The results show that NCEL consistently outperforms various baselines with a favorable generalization ability. Additionally, the qualitative analysis and module impact studies further support its effectiveness.\n\nFinal Answer: effective"
+    },
+    {
+      "sample_id": 158,
+      "question": "Is the data de-identified?",
+      "prediction": "yes",
+      "reference": "Yes",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 45,
+        "latency": 4.261042356491089
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The data is described as being de-identified, with the audio and transcript having identifying information removed using digital zeros and [de-identified] tags. \n\nFinal Answer: yes"
+    },
+    {
+      "sample_id": 159,
+      "question": "What was the baseline used?",
+      "prediction": "the error detection system trained using only the available training set",
+      "reference": "error detection system by Rei2016",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4,
+        "token_count": 60,
+        "latency": 2.974942207336426
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The baseline used in the evaluation was the error detection system trained using only the available training set, without any additional artificial data. \n\nFinal Answer: the error detection system trained using only the available training set"
+    },
+    {
+      "sample_id": 160,
+      "question": "where did they obtain the annotated clinical notes from?",
+      "prediction": "the annotated clinical notes were obtained from the ce task in 2010 i2b2 va",
+      "reference": "clinical notes from the CE task in 2010 i2b2/VA",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.7272727272727274,
+        "token_count": 19,
+        "latency": 3.360959768295288
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The annotated clinical notes were obtained from the CE task in 2010 i2b2/VA."
+    },
+    {
+      "sample_id": 161,
+      "question": "Why masking words in the decoder is helpful?",
+      "prediction": "enhances context modeling and generates more fluent summaries",
+      "reference": "ecause this process is similar to the cloze task in BERT's pre-train process, therefore by using the ability of the contextual language model the decoder can generate more fluent and natural sequences.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.16666666666666666,
+        "token_count": 117,
+        "latency": 6.989134073257446
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Masking words in the decoder is helpful because it allows the refine decoder to focus on one word at a time, using both the source document and other words in the summary to generate more fluent and natural sequences. This process aligns with BERT's pre-training tasks, providing a more complete input sequence that enhances context modeling and improves the quality of generated summaries. \n\nFinal Answer: Enhances context modeling and generates more fluent summaries."
+    },
+    {
+      "sample_id": 162,
+      "question": "Which dataset do they use?",
+      "prediction": "not specified in the context",
+      "reference": "Unanswerable",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 60,
+        "latency": 3.0304131507873535
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The question asks which dataset is used. The context provided discusses various models and their applications but does not specify a particular dataset used by the authors. Therefore, the answer is:\n\nFinal Answer: Not specified in the context."
+    },
+    {
+      "sample_id": 163,
+      "question": "What features are used?",
+      "prediction": "the features used in the study",
+      "reference": "Unanswerable",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 23,
+        "latency": 2.098031759262085
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The features used in the study are TF-IDF (Term Frequency-Inverse Document Frequency) features."
+    },
+    {
+      "sample_id": 164,
+      "question": "How is the dataset annotated?",
+      "prediction": "her annotated with one or more depressive symptoms",
+      "reference": "no evidence of depression, depressed mood, disturbed sleep, fatigue or loss of energy",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.1,
+        "token_count": 81,
+        "latency": 4.837017059326172
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The dataset is annotated by labeling each tweet as either \"no evidence of depression\" or \"evidence of depression.\" If a tweet is labeled as \"evidence of depression,\" it is further annotated with one or more depressive symptoms. Each annotation is binarized, where the presence of a symptom is marked as 1 and its absence as 0."
+    },
+    {
+      "sample_id": 165,
+      "question": "Which eight NER tasks did they evaluate on?",
+      "prediction": "eight biomedical ner tasks",
+      "reference": "BC5CDR-disease, NCBI-disease, BC5CDR-chem, BC4CHEMD, BC2GM, JNLPBA, LINNAEUS, Species-800",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 64,
+        "latency": 4.713479995727539
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The context states that the authors evaluated their method on \"eight publicly available NER tasks used in BIBREF2.\" Therefore, the eight NER tasks they evaluated on are the ones used in the referenced work (BIBREF2). \n\nFinal Answer: eight biomedical NER tasks"
+    },
+    {
+      "sample_id": 166,
+      "question": "How was the training data translated?",
+      "prediction": "the training data",
+      "reference": "using the machine translation platform Apertium ",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.2222222222222222,
+        "token_count": 20,
+        "latency": 2.3132307529449463
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The training data was translated using the machine translation platform Apertium."
+    },
+    {
+      "sample_id": 167,
+      "question": "What model did they use for their system?",
+      "prediction": "multinomial naive bayes with igr and afr feature selection",
+      "reference": "AllWords model by counting the frequencies of all the remaining words and training a multinomial Naive Bayes classifier",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.30769230769230765,
+        "token_count": 63,
+        "latency": 4.733180999755859
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The model used for their system is a multinomial Naive Bayes classifier with feature selection methods such as Information Gain Ratio (IGR) and Aggressive Feature Ranking (AFR). \n\nFinal Answer: Multinomial Naive Bayes with IGR and AFR feature selection."
+    },
+    {
+      "sample_id": 168,
+      "question": "What was the baseline for this task?",
+      "prediction": "logistic regression with sentence length as feature for slc random selection of",
+      "reference": "The baseline system for the SLC task is a very simple logistic regression classifier with default parameters. The baseline for the FLC task generates spans and selects one of the 18 techniques randomly.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3157894736842105,
+        "token_count": 108,
+        "latency": 6.545136451721191
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The baseline for the Sentence-Level Classification (SLC) task was a very simple logistic regression classifier with default parameters, using the length of the sentence as the single feature. For the Fragment-Level Classification (FLC) task, the baseline generated spans and selected one of the 18 techniques randomly.\n\nFinal Answer: logistic regression with sentence length as feature for SLC, random selection of techniques for FLC"
+    },
+    {
+      "sample_id": 169,
+      "question": "What baselines do they compare with?",
+      "prediction": "prior studies that did not employ joint learning",
+      "reference": "They compare with the following models: by Pedersen (2017), by Pramanick and Das (2017), by Mikhalkova and Karyakin (2017),  by Vadehra (2017), Indurthi and Oota (2017), by Vechtomova (2017), by (Cai et al., 2018), and CRF.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 113,
+        "latency": 7.053948163986206
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The baselines they compare with are prior studies that did not employ joint learning, as indicated in the first block of Table TABREF11. These include systems that address pun detection and location separately, such as rule-based systems (BIBREF25), systems using word sense knowledge (BIBREF22), bidirectional RNN classifiers (BIBREF24), and others mentioned in the Related Work section.\n\nFinal Answer: Prior studies that did not employ joint learning."
+    },
+    {
+      "sample_id": 170,
+      "question": "How is the political bias of different sources included in the model?",
+      "prediction": "political bias",
+      "reference": "By assigning a political bias label to each news article and training only on left-biased or right-biased outlets of both disinformation and mainstream domains",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.16,
+        "token_count": 179,
+        "latency": 10.635905742645264
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The political bias of different sources is included in the model by assigning a political bias label to news sources based on the procedure described in BIBREF2. This labeling allows the model to account for political biases when classifying news articles, and experiments were conducted by training only on left-biased or right-biased outlets and testing on the entire set of sources. The model's performance was evaluated while considering these political biases, showing that it can accurately classify credible vs. non-credible news even when accounting for political bias.\n\nFinal Answer: Politic"
+    },
+    {
+      "sample_id": 171,
+      "question": "Where does the ancient Chinese dataset come from?",
+      "prediction": "ancient chinese history records and articles by celebrities of that era",
+      "reference": "ancient Chinese history records in several dynasties (about 1000BC-200BC) and articles written by celebrities of that era",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.7857142857142858,
+        "token_count": 119,
+        "latency": 7.12841272354126
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The ancient Chinese dataset comes from a combination of sources, including ancient Chinese history records from several dynasties (about 1000BC-200BC) and articles written by celebrities of that era. The dataset was created through a process involving data collection, paragraph alignment, clause alignment, and data augmentation. The final dataset contains 1.24M bilingual sentence pairs. \n\nFinal Answer: ancient Chinese history records and articles by celebrities of that era"
+    },
+    {
+      "sample_id": 172,
+      "question": "In what language are the tweets?",
+      "prediction": "english",
+      "reference": "English",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 16,
+        "latency": 2.130506753921509
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The tweets in the dataset are in English. \n\nFinal Answer: English"
+    },
+    {
+      "sample_id": 173,
+      "question": "which chinese datasets were used?",
+      "prediction": "not specified",
+      "reference": "Answer with content missing: (Data section) Chinese with version 5.1 of the Chinese Penn Treebank (CTB)",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 60,
+        "latency": 3.294786214828491
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The context mentions that the proposed approach performs favorably on standard benchmarks for English and Chinese. However, it does not specify which particular Chinese datasets were used. Therefore, the answer is:\n\nFinal Answer: Not specified"
+    },
+    {
+      "sample_id": 174,
+      "question": "How many layers does the UTCNN model have?",
+      "prediction": "3",
+      "reference": "eight layers",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 16,
+        "latency": 3.7457897663116455
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The UTCNN model uses three convolutional layers. \n\nFinal Answer: 3"
+    },
+    {
+      "sample_id": 175,
+      "question": "what dataset is used in this paper?",
+      "prediction": "70 million flickr photos with coordinates in europe and structured environmental",
+      "reference": " the same datasets as BIBREF7",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 75,
+        "latency": 5.176304578781128
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The dataset used in the paper is the 70 million Flickr photos with coordinates in Europe, along with structured environmental datasets such as CORINE land cover classes and SoilGrids soil types. \n\nFinal Answer: 70 million Flickr photos with coordinates in Europe and structured environmental datasets."
+    },
+    {
+      "sample_id": 176,
+      "question": "What are the clinical datasets used in the paper?",
+      "prediction": "meddocan and nubes",
+      "reference": "MEDDOCAN, NUBes-PHI",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4,
+        "token_count": 49,
+        "latency": 4.662205219268799
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The clinical datasets used in the paper are the MEDDOCAN: Medical Document Anonymization shared task dataset and NUBes, a corpus of real medical reports in Spanish. \n\nFinal Answer: MEDDOCAN and NUBes"
+    },
+    {
+      "sample_id": 177,
+      "question": "What traditional linguistics features did they use?",
+      "prediction": "the traditional linguistics features used include unigrams and pragmatic feature",
+      "reference": "Unanswerable",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 32,
+        "latency": 2.6030917167663574
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The traditional linguistics features used include unigrams and pragmatic features, stylistic patterns, and hashtag interpretations."
+    },
+    {
+      "sample_id": 178,
+      "question": "What metrics are used to establish that this makes chatbots more knowledgeable and better at learnin",
+      "prediction": "coverage avg mcc and average ve f1 score",
+      "reference": "Coverage, Avg. MCC and avg. +ve F1 score",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.9333333333333333,
+        "token_count": 146,
+        "latency": 9.451204538345337
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The metrics used to establish that chatbots are more knowledgeable and better at learning and conversation include predictive performance and strategy formulation ability. These are evaluated using metrics such as Coverage, Average Matthews Correlation Coefficient (Avg. MCC), and average positive F1 score. The effectiveness of the lifelong interactive learning and inference (LiLi) approach is demonstrated through these metrics, showing improved performance in both knowledge acquisition and conversational understanding.\n\nFinal Answer: Coverage, Avg. MCC, and average +ve F1 score"
+    },
+    {
+      "sample_id": 179,
+      "question": "Do they employ their indexing-based method to create a sample of a QA Wikipedia dataset?",
+      "prediction": "yes",
+      "reference": "Yes",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 107,
+        "latency": 5.540655851364136
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The context describes an indexing-based method used to create a sample of a QA Wikipedia dataset. Specifically, it mentions that each paragraph in Wikipedia is indexed by Lucene using {1,2,3}-grams, and answer sentences from the corpora are queried to Lucene to retrieve the top-5 ranked paragraphs. This indexing-based method is used to map answer contexts to the same version of Wikipedia for answer retrieval.\n\nFinal Answer: yes"
+    },
+    {
+      "sample_id": 180,
+      "question": "Which sports clubs are the targets?",
+      "prediction": "galatasaray and fenerbahçe",
+      "reference": "Galatasaray, Fenerbahçe",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.8,
+        "token_count": 6,
+        "latency": 1.7276496887207031
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Galatasaray and Fenerbahçe"
+    },
+    {
+      "sample_id": 181,
+      "question": "What experiments are conducted?",
+      "prediction": "dataset creation",
+      "reference": "Irony Classifier, Sentiment Classifier for Irony, Sentiment Classifier for Non-irony, transformation from ironic sentences to non-ironic sentences",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 483,
+        "latency": 27.013162851333618
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The experiments conducted include the following steps:\n\n1. **Dataset Creation**: Crawl over 2M tweets from Twitter to build a dataset with 262,755 ironic and 112,330 non-ironic tweets.\n2. **Preprocessing**: Clean and preprocess the data by removing re-tweets, non-English sentences, hashtags, URLs, and other irrelevant elements. Replace specific tokens and filter out sentences with inappropriate lengths or vocabulary.\n3. **Sentiment Classification**: Use a simple one-layer LSTM network to classify preprocessed sentences into ironic and non-ironic based on the Semeval-2018 Task 3 dataset.\n4. **I"
+    },
+    {
+      "sample_id": 182,
+      "question": "How does Gaussian-masked directional multi-head attention works?",
+      "prediction": "haracters and lower weights to those further apart",
+      "reference": "pays attentions to adjacent characters and casts a localness relationship between the characters as a fixed Gaussian weight assuming the weight relies on the distance between characters",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.14285714285714288,
+        "token_count": 163,
+        "latency": 8.123718976974487
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The Gaussian-masked directional multi-head attention works by incorporating a Gaussian weight matrix that assigns higher weights to adjacent characters and lower weights to those further apart. This mechanism enhances the model's ability to capture localness and directional information. The Gaussian weights are combined with the standard self-attention scores through a Hadamard product, which ensures that long-distance relationships have weaker influence. Additionally, forward and backward encoders use triangular masks to focus on different directional information, allowing the model to effect"
+    },
+    {
+      "sample_id": 183,
+      "question": "What types of social media did they consider?",
+      "prediction": "facebook and tweets",
+      "reference": "Facebook status update messages",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.28571428571428575,
+        "token_count": 28,
+        "latency": 2.934763193130493
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The types of social media considered in the context are Facebook and tweets. \n\nFinal Answer: Facebook and tweets"
+    },
+    {
+      "sample_id": 184,
+      "question": "What are the network's baseline features?",
+      "prediction": "the baseline features",
+      "reference": " The features extracted from CNN.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5,
+        "token_count": 22,
+        "latency": 4.319252967834473
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The baseline features are the features extracted from the CNN used in the baseline method."
+    },
+    {
+      "sample_id": 185,
+      "question": "Which hyperparameters were varied in the experiments on the four tasks?",
+      "prediction": "number of clusters and type of word vectors",
+      "reference": "number of clusters, seed value in clustering, selection of word vectors, window size and dimension of embedding",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5454545454545455,
+        "token_count": 45,
+        "latency": 3.594914674758911
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The hyperparameters varied in the experiments on the four tasks were the number of clusters and the type of word vectors. \n\nFinal Answer: number of clusters and type of word vectors"
+    },
+    {
+      "sample_id": 186,
+      "question": "What were the scores of their system?",
+      "prediction": "the scores of their system were second ei reg",
+      "reference": "column Ens Test in Table TABREF19",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 24,
+        "latency": 3.149829626083374
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The scores of their system were second (EI-Reg), second (EI-Oc), fourth (V-Reg), and fifth (V-Oc)."
+    },
+    {
+      "sample_id": 187,
+      "question": "How large is the corpus?",
+      "prediction": "53 documents",
+      "reference": "8,275 sentences and 167,739 words in total",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 16,
+        "latency": 2.2230377197265625
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The corpus consists of 53 documents. \n\nFinal Answer: 53 documents"
+    },
+    {
+      "sample_id": 188,
+      "question": "Is it possible to convert a cloze-style questions to a naturally-looking questions?",
+      "prediction": "yes",
+      "reference": "Unanswerable",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 5,
+        "latency": 8.17710280418396
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Yes\n\nFinal Answer: yes"
+    },
+    {
+      "sample_id": 189,
+      "question": "What NLP tasks do they consider?",
+      "prediction": "the nlp tasks considered in the context",
+      "reference": "text classification for themes including sentiment, web-page, science, medical and healthcare",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 23,
+        "latency": 2.4100501537323
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The NLP tasks considered in the context are text categorization and sentiment classification."
+    },
+    {
+      "sample_id": 190,
+      "question": "What previous methods is their model compared to?",
+      "prediction": "term frequency models",
+      "reference": "bag-of-words model, CNN",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 115,
+        "latency": 12.077222108840942
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The previous methods their model is compared to include term frequency models, CNN variants, LSTM models, rule-based pattern matching, and other syntactic, semantic, and embedding methods. Additionally, it compares with existing question classification models on benchmark datasets like TREC, GARD, and MLBioMedLAT.\n\nFinal Answer: term frequency models, CNN variants, LSTM models, rule-based methods, and existing models on TREC, GARD, and MLBioMedLAT datasets."
+    },
+    {
+      "sample_id": 191,
+      "question": "How larger are the training sets of these versions of ELMo compared to the previous ones?",
+      "prediction": "larger training sets were used for the new elmo models compared to elmoformanyla",
+      "reference": "By 14 times.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 144,
+        "latency": 9.522660732269287
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The training sets of the ELMo versions described in the text are larger compared to the previous ones. The original ELMo model was trained on a one billion word English corpus, while the ELMoForManyLangs models were trained on significantly smaller datasets (20 million words). The new ELMo models for seven languages were trained on much larger corpora, with the Latvian dataset being 270 million tokens, which is much larger than the 20 million tokens used by ELMoForManyLangs.\n\nFinal Answer: Larger training sets were used for the new ELMo models compared to ELMoForManyLangs."
+    },
+    {
+      "sample_id": 192,
+      "question": "How many sentences does the dataset contain?",
+      "prediction": "not specified",
+      "reference": "3606",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 194,
+        "latency": 11.893516063690186
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To determine the number of sentences in the dataset, we need to analyze the content provided. The context mentions that the dataset contains sentences collected from daily news sources in Nepal from 2015-2016. However, the exact number of sentences is not directly specified in the text.\n\nThe dataset statistics section refers to \"OurNepali dataset\" and mentions that it contains \"sentences collected from daily newspaper of the year 2015-2016.\" It also states that the dataset has three major classes: Person (PER), Location (LOC), and Organization (ORG). However, there is no explicit count of sent"
+    },
+    {
+      "sample_id": 193,
+      "question": "Which models/frameworks do they compare to?",
+      "prediction": "the models frameworks compared to are mlp",
+      "reference": "MLP",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.25,
+        "token_count": 16,
+        "latency": 2.454016923904419
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The models/frameworks compared to are MLP, Eusboost, and MWMOTE."
+    },
+    {
+      "sample_id": 194,
+      "question": "Does their NER model learn NER from both text and images?",
+      "prediction": "yes",
+      "reference": "Yes",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 131,
+        "latency": 7.359207630157471
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The NER model described in the context incorporates both text and images as input modalities. The model uses a multimodal approach that combines word embeddings, character embeddings, and visual features extracted from images. Additionally, the modality attention module is designed to selectively focus on the most informative modality at each decoding step, which can include text (word and character embeddings) and visual features from images. Therefore, the NER model learns from both text and images.\n\nFinal Answer: yes"
+    },
+    {
+      "sample_id": 195,
+      "question": "Do they evaluate only on English datasets?",
+      "prediction": "no",
+      "reference": "Yes",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 101,
+        "latency": 6.414858102798462
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The question asks whether the evaluation is only on English datasets. From the context, it is mentioned that experiments were conducted on the Wall Street Journal (WSJ) portion of the Penn Treebank, which is an English corpus. However, there is no explicit mention that the evaluation was exclusively limited to English datasets. Therefore, based on the given information, the answer is:\n\nFinal Answer: no"
+    },
+    {
+      "sample_id": 196,
+      "question": "What was their highest MRR score?",
+      "prediction": "6103",
+      "reference": "0.5115",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 50,
+        "latency": 6.728157997131348
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The highest MRR score for the Factoid Question Answering task was achieved in the third test batch set by the system described in the context. The MRR score mentioned is \"0.6103\". \n\nFinal Answer: 0.6103"
+    },
+    {
+      "sample_id": 197,
+      "question": "What datasets do they evaluate on?",
+      "prediction": "the datasets evaluated in the experiments",
+      "reference": " Wall Street Journal (WSJ) portion of the Penn Treebank",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.14285714285714285,
+        "token_count": 26,
+        "latency": 3.2708539962768555
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The datasets evaluated in the experiments are the Wall Street Journal (WSJ) portion of the Penn Treebank."
+    },
+    {
+      "sample_id": 198,
+      "question": "How do the authors evidence the claim that many engineers find it a big overhead to choose from mult",
+      "prediction": "more than 90 of the networks were composed of several common components",
+      "reference": "By conducting a survey among engineers",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 116,
+        "latency": 5.956529378890991
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The authors evidence the claim by stating that more than 90% of the networks were composed of several common components, suggesting that engineers face a big overhead in choosing from multiple frameworks, models, and optimization techniques. This implies that the need for a toolkit like NeuronBlocks arises due to the complexity and variety of choices engineers have to make.\n\nFinal Answer: more than 90% of the networks were composed of several common components"
+    },
+    {
+      "sample_id": 199,
+      "question": "On which benchmarks they achieve the state of the art?",
+      "prediction": "simplequestions and webqsp",
+      "reference": "SimpleQuestions, WebQSP",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.8,
+        "token_count": 73,
+        "latency": 6.939837217330933
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The paper states that the improved relation detector enables their simple KBQA system to achieve state-of-the-art results on both single-relation and multi-relation KBQA tasks. The specific benchmarks mentioned are SimpleQuestions (SQ) and WebQSP (WQ). \n\nFinal Answer: SimpleQuestions and WebQSP"
+    }
+  ]
+}

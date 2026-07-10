@@ -1,0 +1,1614 @@
+{
+  "summary": {
+    "method": "gers_cv2_fullctx",
+    "dataset": "longbench_multifieldqa_en",
+    "num_samples": 100,
+    "avg_em": 0.15,
+    "avg_f1": 0.415,
+    "avg_latency": 18.9927,
+    "error_count": 0,
+    "workers": 4
+  },
+  "results": [
+    {
+      "sample_id": 0,
+      "question": "What is the name of the most active fan club?",
+      "prediction": "South West Ultras",
+      "reference": "South West Ultras fan club.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.7499999999999999,
+        "token_count": 60,
+        "latency": 8.18529224395752,
+        "consistency_score": 1.0
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the name of the most active fan club mentioned in the text?\nAnswer: South West Ultras\nStep 2: Where are the members of the most active fan club primarily located?\nAnswer: Malatia-Sebastia District of Yerevan\n\nSouth West Ultras"
+    },
+    {
+      "sample_id": 1,
+      "question": "Is the ISR necessary for transgene reactivation?",
+      "prediction": "no",
+      "reference": "No, it is not necessary.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.33333333333333337,
+        "token_count": 238,
+        "latency": 30.368614435195923,
+        "consistency_score": 0.4854
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the effect of essential amino acid (EAA) deprivation on transgene reactivation in mammalian cells?\nAnswer: EAA deprivation induces transgene reactivation through epigenetic changes, independent of the ISR and GCN2\nStep 2: Is the Integrated Stress Response (ISR) necessary for the transgene reactivation induced by EAA deprivation?\nAnswer: No, the ISR is not necessary for transgene reactivation induced by EAA deprivation\nStep 3: What signaling pathways are involved in the transgene reactivation response to EAA deprivation, and how do they differ from the ISR?\nAnswer: The transgene"
+    },
+    {
+      "sample_id": 2,
+      "question": "What experimental techniques were used to study the quantum dot structures in this research?",
+      "prediction": "Low-temperature scanning tunneling microscopy and spectroscopy (STM/STS)",
+      "reference": "Low temperature scanning tunneling microscopy and spectroscopy (STM/STS).",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.7999999999999999,
+        "token_count": 310,
+        "latency": 19.93905758857727,
+        "consistency_score": 0.4046
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What experimental technique was used to study the quantum dot structures in this research?\nAnswer: Low-temperature scanning tunneling microscopy and spectroscopy (STM/STS) was used to study the quantum dot structures\nStep 2: What specific measurements were performed using the experimental technique mentioned in sub-question 1?\nAnswer: Differential conductance $dI/dV$ spectra and $dI/dV(x,V)$ maps were used to measure the local density of states and spatial distribution of quantum dot states [LOW CONFIDENCE - may be unreliable, verify before relying on it]\nStep 3: What additional method"
+    },
+    {
+      "sample_id": 3,
+      "question": "What is the purpose of an ICD?",
+      "prediction": "To correct dangerous heart rhythms and prevent sudden cardiac death",
+      "reference": "Implantable Cardioverter Defibrillator (ICD) is a surgically implanted electronic device to treat life-threatening heartbeat irregularities.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.08,
+        "token_count": 123,
+        "latency": 19.13032364845276,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the definition of an ICD according to the provided context?\nAnswer: An ICD is a surgically implanted device that delivers electric shocks to correct dangerous heart rhythms and prevent sudden cardiac death\nStep 2: What are the primary functions of an ICD as described in the context?\nAnswer: An ICD detects and corrects dangerous heart rhythms by delivering electric shocks, preventing sudden cardiac death\n\nTo correct dangerous heart rhythms and prevent sudden cardiac death."
+    },
+    {
+      "sample_id": 4,
+      "question": "Why is it important for the sides of the fuselage to be sloped (tumbled home)?",
+      "prediction": "To prevent the top longeron from bowing outward and forming a \"banana\" shape whe",
+      "reference": "The sides of the fuselage are sloped to create a conical section when the fuselage is formed.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.21428571428571427,
+        "token_count": 336,
+        "latency": 27.775563955307007,
+        "consistency_score": 0.27
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the purpose of sloping the sides of the fuselage (tumbled home) in the KR series planes?\nAnswer: To create a conical fuselage shape that allows the top longeron to form an elliptical curve when assembled\nStep 2: Why does sloping the fuselage sides lead to a conical shape instead of a cylindrical one?\nAnswer: Sloping the fuselage sides creates a conical shape due to the directional curvature introduced by the slope, unlike the straight, parallel sides required for a cylindrical shape [LOW CONFIDENCE - may be unreliable, verify before relying on it]\nStep 3: What problem arises wh"
+    },
+    {
+      "sample_id": 5,
+      "question": "What is the effect of the proximity of superconductivity on the Kondo effect?",
+      "prediction": "The proximity of superconductivity can suppress or modify the Kondo effect, pote",
+      "reference": "It tends to suppress the Kondo effect.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4444444444444444,
+        "token_count": 548,
+        "latency": 41.42724895477295,
+        "consistency_score": 0.24
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the Kondo effect and how does it arise from local exchange interactions?\nAnswer: The Kondo effect is a quantum many-body phenomenon where a localized magnetic impurity's spin is screened by conduction electrons due to local exchange interactions, forming a singlet state at low temperatures\nStep 2: How does the proximity of superconductivity affect the Kondo effect in quantum dot systems?\nAnswer: Superconducting proximity induces non-local pairing, leading to CAR exchange that can either suppress or modify the Kondo effect, potentially causing two-stage Kondo screening [LOW CONF"
+    },
+    {
+      "sample_id": 6,
+      "question": "How is electricity used in everyday life?",
+      "prediction": "Electricity is used in everyday life for lighting",
+      "reference": "Electricity is used for transport, heating, lighting, communications, and computation.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5555555555555556,
+        "token_count": 245,
+        "latency": 15.047537326812744,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What are the basic forms of electricity and how do they manifest in nature?\nAnswer: Static electricity involves charge accumulation, while current electricity involves charge flow, both manifesting in nature through phenomena like lightning and electric fish [LOW CONFIDENCE - may be unreliable, verify before relying on it]\nStep 2: How does electricity play a role in everyday applications such as lighting, heating, and communication?\nAnswer: Electricity powers lighting, heating, and communication by enabling devices like bulbs, heaters, and telecommunications systems to function efficie"
+    },
+    {
+      "sample_id": 7,
+      "question": "What was Hugh H. Goodwin's rank in the United States Navy?",
+      "prediction": "Vice Admiral",
+      "reference": "Vice Admiral.",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 73,
+        "latency": 8.719027996063232,
+        "consistency_score": 0.6
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What was Hugh H. Goodwin's highest rank in the United States Navy?\nAnswer: Vice Admiral\nStep 2: Did Hugh H. Goodwin hold any other significant positions or commands in the Navy besides his rank?\nAnswer: Yes, he held multiple significant commands and positions in the Navy\n\nVice Admiral"
+    },
+    {
+      "sample_id": 8,
+      "question": "What was the Buckeyes' record in their first game of the season?",
+      "prediction": "15–3",
+      "reference": "They won their first game with a score of 15-3.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.18181818181818182,
+        "token_count": 59,
+        "latency": 6.954455375671387,
+        "consistency_score": 1.0
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What was the date of the Buckeyes' first game of the season?\nAnswer: March 16\nStep 2: What was the result of the Buckeyes' first game of the season?\nAnswer: The Buckeyes won their first game of the season with a score of 15–3\n\n15–3"
+    },
+    {
+      "sample_id": 9,
+      "question": "What are the three synthetic types of vitamin K?",
+      "prediction": "Vitamin K3, K4, and K5",
+      "reference": "Vitamins K3, K4, and K5.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.8000000000000002,
+        "token_count": 86,
+        "latency": 21.705646276474,
+        "consistency_score": 0.6
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What are the three synthetic types of vitamin K?\nAnswer: Vitamin K3, K4, and K5\nStep 2: What is the difference between the synthetic forms of vitamin K and the natural forms?\nAnswer: Synthetic vitamin K forms (K3, K4, K5) differ in structure and function from natural forms (K1, K2), with K3 being potentially toxic\n\nVitamin K3, K4, and K5"
+    },
+    {
+      "sample_id": 10,
+      "question": "Can individual molecules of indeno[1,2-a]fluorene switch between open-shell and closed-shell states?",
+      "prediction": "yes",
+      "reference": "Yes, individual molecules of indeno[1,2-a]fluorene can switch between open-shell and closed-shell states by changing their adsorption site on the surface.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.09523809523809523,
+        "token_count": 124,
+        "latency": 15.19312572479248,
+        "consistency_score": 1.0
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the title of the paper that discusses bistability between π-diradical open-shell and closed-shell states in indeno[1,2-a]fluorene?\nAnswer: Bistability between π-diradical open-shell and closed-shell states in indeno[1,2-a]fluorene\nStep 2: According to the paper, can individual molecules of indeno[1,2-a]fluorene switch between open-shell and closed-shell states?\nAnswer: Yes, individual molecules of indeno[1,2-a]fluorene can switch between open-shell and closed-shell states\n\nyes"
+    },
+    {
+      "sample_id": 11,
+      "question": "What field does Danny work in in Tennessee?",
+      "prediction": "3-D printing and software development",
+      "reference": "3-D printing and software development.",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 76,
+        "latency": 16.10806179046631,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the name of the person asking about Danny?\nAnswer: Mac\nStep 2: What is Danny's field of interest according to the context?\nAnswer: 3-D printing and software development\nStep 3: Where is Danny currently working based on the context?\nAnswer: Tennessee\n\n3-D printing and software development"
+    },
+    {
+      "sample_id": 12,
+      "question": "What is the recommended daily intake of vitamin K for adult women and men?",
+      "prediction": "90 μg for adult women and 120 μg for adult men",
+      "reference": "90 μg for women and 120 μg for men.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.9333333333333333,
+        "token_count": 79,
+        "latency": 22.11262321472168,
+        "consistency_score": 1.0
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the recommended daily intake of vitamin K for adult women according to the National Academy of Medicine?\nAnswer: 90 μg\nStep 2: What is the recommended daily intake of vitamin K for adult men according to the National Academy of Medicine?\nAnswer: 120 μg\n\n90 μg for adult women and 120 μg for adult men"
+    },
+    {
+      "sample_id": 13,
+      "question": "What is the SI unit of power?",
+      "prediction": "watt",
+      "reference": "Watt, one joule per second.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.33333333333333337,
+        "token_count": 55,
+        "latency": 12.703667879104614,
+        "consistency_score": 0.7
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the definition of electric power?\nAnswer: The rate at which electric energy is transferred by an electric circuit\nStep 2: What is the SI unit of electric power based on its definition?\nAnswer: The watt\n\nwatt"
+    },
+    {
+      "sample_id": 14,
+      "question": "What is the main advantage of a horizontal business model for mobile devices?",
+      "prediction": "Flexibility to use diverse SoCs and target various market segments",
+      "reference": "Flexibility.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.18181818181818182,
+        "token_count": 349,
+        "latency": 29.67923402786255,
+        "consistency_score": 0.27
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is a horizontal business model in the context of mobile devices?\nAnswer: A horizontal business model in mobile devices involves standardized, flexible components that enable diverse product offerings and cost efficiency\nStep 2: What are the key differences between a vertical and horizontal business model in the mobile device industry?\nAnswer: A vertical model integrates hardware and software control, while a horizontal model uses standardized components and partnerships for flexibility and cost efficiency [LOW CONFIDENCE - may be unreliable, verify before relying on it]\nStep 3: Ho"
+    },
+    {
+      "sample_id": 15,
+      "question": "Who was Brooksley Elizabeth's first husband?",
+      "prediction": "Jacob C. Landau",
+      "reference": "Jacob C. Landau.",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 66,
+        "latency": 7.185039043426514,
+        "consistency_score": 0.6
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the full name of Brooksley Elizabeth Born's first husband?\nAnswer: Jacob C. Landau\nStep 2: What was the name of the law firm where Brooksley Elizabeth Born worked before moving to Boston with her first husband?\nAnswer: Arnold & Porter\n\nJacob C. Landau"
+    },
+    {
+      "sample_id": 16,
+      "question": "What is the main methodology used in the research?",
+      "prediction": "unsupervised information bottleneck approach combined with contrastive learning",
+      "reference": "An unsupervised method based on the information bottleneck and contrastive learning.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5263157894736842,
+        "token_count": 326,
+        "latency": 27.77035164833069,
+        "consistency_score": 0.4046
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the main methodology used in the research?\nAnswer: The main methodology is an unsupervised information bottleneck approach combined with contrastive learning and compositional communication\nStep 2: What is the purpose of using contrastive learning in the methodology?\nAnswer: To enhance representation similarity, optimize the Q-function, and reduce sample complexity by aligning latent spaces for better coordination\nStep 3: How does the method ensure that messages are sparse and contain minimal bits?\nAnswer: The method ensures sparsity through compositional communication, fixed t"
+    },
+    {
+      "sample_id": 17,
+      "question": "How is the function beta(r) determined in the derivation?",
+      "prediction": "\\sqrt{\\frac{2GM}{rc^2}}",
+      "reference": "Using the vacuum Einstein equation and the Baez-Bunn form.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 323,
+        "latency": 43.938764810562134,
+        "consistency_score": 0.24
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the definition of the function β(r) in terms of the radial coordinate speed and proper time?\nAnswer: $\\beta(r)$ is defined as $-\\frac{1}{c}\\frac{\\mathrm{d} r}{\\mathrm{d} T}(r)$\nStep 2: How is the metric transformed from static coordinates to infalling observer coordinates?\nAnswer: The metric is transformed by expressing $t$ as a function of $T$ and $r$, introducing a mixed $\\mathrm{d}r\\mathrm{d}T$ term and modifying the metric components accordingly\nStep 3: What is the form of the metric in terms of the infalling observer coordinates after applying the Galilei transformation?\nA"
+    },
+    {
+      "sample_id": 18,
+      "question": "What is the water depth in the Greater Ekofisk Area?",
+      "prediction": "70-75 metres",
+      "reference": "The water depth in the Greater Ekofisk Area is 70-75 meters.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.16666666666666669,
+        "token_count": 170,
+        "latency": 16.209968090057373,
+        "consistency_score": 0.6
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the water depth in the Greater Ekofisk Area according to the provided text?\nAnswer: 70-75 metres\nStep 2: How has the water depth in the Greater Ekofisk Area been affected by seabed subsidence over time?\nAnswer: Seabed subsidence caused the water depth to effectively increase, prompting platforms to be jacked up by six metres in 1987, with the rate of subsidence declining in recent years [LOW CONFIDENCE - may be unreliable, verify before relying on it]\n\n[Note: 1 step(s) above have LOW confidence. Cross-check these before finalizing your answer; if a low-confidence step is a prer"
+    },
+    {
+      "sample_id": 19,
+      "question": "What were the vaccines trialed against?",
+      "prediction": "Other toxic products",
+      "reference": "Other toxic products.",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 102,
+        "latency": 10.411327600479126,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What vaccines were trialed against genuine placebo according to the ICAN letter?\nAnswer: No vaccines were trialed against genuine placebo\nStep 2: What was the conclusion of the ICAN letter regarding the use of placebo in vaccine trials?\nAnswer: No vaccines were trialed against genuine placebo; they were compared with other toxic products, undermining pre-marketing safety data\n\nOther toxic products"
+    },
+    {
+      "sample_id": 20,
+      "question": "Where was Margaret Way born and where did she die?",
+      "prediction": "Brisbane",
+      "reference": "Margaret Way was born in Brisbane and died in Cleveland, Queensland, Australia.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.16666666666666669,
+        "token_count": 55,
+        "latency": 7.48342490196228,
+        "consistency_score": 1.0
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: Where was Margaret Way born?\nAnswer: Brisbane, Queensland, Australia\nStep 2: Where did Margaret Way die?\nAnswer: Cleveland, Queensland, Australia\n\nBrisbane, Queensland, Australia and Cleveland, Queensland, Australia"
+    },
+    {
+      "sample_id": 21,
+      "question": "What size chains were used in the benchmarking?",
+      "prediction": "L = 6 and L = 14",
+      "reference": "L = 8 and L = 14.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.75,
+        "token_count": 62,
+        "latency": 13.56540584564209,
+        "consistency_score": 0.6
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the size of the Heisenberg chain used in the benchmarking of the denoiser?\nAnswer: L = 6 and L = 14\nStep 2: What are the different Trotter depths used in the benchmarking of the denoiser?\nAnswer: Mtrot = 8, 16, 32, 64\n\nL = 6 and L = 14"
+    },
+    {
+      "sample_id": 22,
+      "question": "How many experiments were demonstrated to test the capabilities of the controller?",
+      "prediction": "The number of experiments demonstrated to test the capabilities of the controlle",
+      "reference": "5.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 307,
+        "latency": 5.897700548171997,
+        "consistency_score": 1.0
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "To determine how many experiments were demonstrated to test the capabilities of the controller, we need to analyze the context provided in the paper. Specifically, we should focus on the section that describes the experiments.\n\n### Step-by-step Analysis:\n\n1. **Identify the Section**: The relevant information is found in the \"Experiments\" section of the paper.\n\n2. **Read the Description**: In the \"Experiments\" section, the paper states:\n   > \"To explore the capabilities of our controller, we demonstrate five experiments of increasing complexity: 1) we picked and placed a bottle using a tripod g"
+    },
+    {
+      "sample_id": 23,
+      "question": "What are the three teams that used conflict optimization in the challenge?",
+      "prediction": "Lasa, Gitastrophe, and Shadoks",
+      "reference": "Lasa, Gitastrophe, and Shadoks.",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 97,
+        "latency": 15.256032466888428,
+        "consistency_score": 1.0
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: Which teams participated in the CG:SHOP 2022 challenge?\nAnswer: Lasa, Gitastrophe, and Shadoks\nStep 2: Which of these teams used conflict optimization in the CG:SHOP 2022 challenge?\nAnswer: Lasa, Gitastrophe, and Shadoks\nStep 3: What is the name of the technique used by the top three teams in the CG:SHOP 2022 challenge?\nAnswer: Conflict optimization\n\nLasa, Gitastrophe, and Shadoks"
+    },
+    {
+      "sample_id": 24,
+      "question": "What did the court in In re Ferguson conclude about the transformation prong of the Bilski test?",
+      "prediction": "The court in In re Ferguson concluded that transformation under the Bilski test",
+      "reference": "It required the transformation to be limited to specific data and a visual depiction representing specific objects or substances.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.14285714285714285,
+        "token_count": 254,
+        "latency": 20.694772005081177,
+        "consistency_score": 0.6
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the Bilski test, and what are its two prongs?\nAnswer: The Bilski test consists of two prongs: (1) the invention must be tied to a particular machine or apparatus, and (2) it must effect a transformation of an article or data into a different state or thing\nStep 2: What did the court in In re Ferguson conclude about the transformation prong of the Bilski test?\nAnswer: The court in In re Ferguson held that transformation under the Bilski test requires a physical change of an article or data, excluding intangible manipulations like legal obligations [LOW CONFIDENCE - may be unreli"
+    },
+    {
+      "sample_id": 25,
+      "question": "How does the transition probability of the environment affect the learning rate in the static agent?",
+      "prediction": "The transition probability of the environment affects the learning rate in the s",
+      "reference": "As the transition probability increases, the learning rate initially rises and then declines.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.45454545454545453,
+        "token_count": 334,
+        "latency": 30.62868356704712,
+        "consistency_score": 0.27
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the relationship between environmental distance (d_e) and the learning rate (η_p) in the static agent?\nAnswer: The learning rate η_p increases with environmental distance d_e\nStep 2: How does the frequency of environmental change (p_tr) affect the learning rate (η_p) in the static agent?\nAnswer: The learning rate η_p increases with the frequency of environmental change p_tr up to a point, after which it declines as the environment becomes too unstable for effective learning\nStep 3: What is the impact of reward noise (σ) on the learning rate (η_p) in the static agent?\nAnswer: Th"
+    },
+    {
+      "sample_id": 26,
+      "question": "What kind of ultracold neutral plasmas does this study focus on?",
+      "prediction": "Molecular ultracold plasmas formed from nitric oxide Rydberg gases in a superson",
+      "reference": "A subset that form via kinetic rate processes from state-selected Rydberg gases.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3333333333333333,
+        "token_count": 140,
+        "latency": 16.223827600479126,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the primary method used to form ultracold neutral plasmas in this study?\nAnswer: Ultracold neutral plasmas are formed via spontaneous avalanche ionization of a dense Rydberg gas in a supersonic molecular beam\nStep 2: What kind of ultracold neutral plasmas does this study focus on, based on the formation method identified in sub-question 1?\nAnswer: Molecular ultracold plasmas formed from nitric oxide Rydberg gases in a supersonic molecular beam\n\nMolecular ultracold plasmas formed from nitric oxide Rydberg gases in a supersonic molecular beam"
+    },
+    {
+      "sample_id": 27,
+      "question": "What types of sensors are now capable of estimating physical activity levels and physiological outco",
+      "prediction": "Accelerometers (ACC)",
+      "reference": "Wearable sensors.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 332,
+        "latency": 36.44953465461731,
+        "consistency_score": 0.4046
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What types of wearable sensors are mentioned in the text that can estimate physical activity levels of older adults?\nAnswer: Accelerometers (ACC), Electrodermal Activity (EDA), and Photoplethysmography (PPG) sensors\nStep 2: Which physiological sensors are highlighted in the text for estimating physiological outcomes of older adults?\nAnswer: Electrodermal Activity (EDA) and Photoplethysmography (PPG) sensors\nStep 3: What specific features of EDA signals are extracted for cognitive health assessment according to the text?\nAnswer: Features extracted from EDA signals include nSCR, latency,"
+    },
+    {
+      "sample_id": 28,
+      "question": "What did the decision to base the water rates on usage reflect?",
+      "prediction": "fairness",
+      "reference": "Fairness.",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 118,
+        "latency": 15.196326732635498,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What was the main issue discussed in the article regarding water rates?\nAnswer: The main issue was the proposed water rate increase and the debate over basing rates on usage versus alternative funding methods\nStep 2: What was the reasoning provided for basing water rates on usage according to the article?\nAnswer: The decision to base water rates on usage reflected a commitment to fairness, ensuring users pay according to their actual water consumption\n\nfairness"
+    },
+    {
+      "sample_id": 29,
+      "question": "What did Mary tell the disciples?",
+      "prediction": "inform the disciples that he",
+      "reference": "\"I have seen the Lord.\".",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.20000000000000004,
+        "token_count": 114,
+        "latency": 13.195842027664185,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What did Mary Magdalene see when she arrived at the tomb?\nAnswer: Mary Magdalene saw the stone removed and two angels in white at the tomb\nStep 2: What did Jesus tell Mary Magdalene to do after identifying himself?\nAnswer: Jesus told Mary to inform the disciples that he was ascending to his Father and their Father, and to his God and their God\n\ninform the disciples that he was ascending to his Father and their Father, and to his God and their God"
+    },
+    {
+      "sample_id": 30,
+      "question": "What is the future direction mentioned in the conclusion?",
+      "prediction": "Future directions include exploring more meta-information types, developing robu",
+      "reference": "Verifying other meta-information such as patient's gender, age, race, etc.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.10526315789473685,
+        "token_count": 311,
+        "latency": 21.344736337661743,
+        "consistency_score": 0.4316
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the main focus of the paper?\nAnswer: Improving abstractive discharge summary generation using medical meta-information\nStep 2: What specific types of meta-information were used in the study?\nAnswer: Hospital, physician, disease, and length of stay\nStep 3: What were the key findings regarding the effectiveness of meta-information in discharge summary generation?\nAnswer: The study found that disease meta-information significantly improved summary quality, with the highest gains in ROUGE-1, ROUGE-L, and BERTScore, while physician and hospital information enhanced symbol and format"
+    },
+    {
+      "sample_id": 31,
+      "question": "What types of data did the authors use in their experiments?",
+      "prediction": "Synthetic data and real-world data from a wireless MISO channel in an indoor env",
+      "reference": "The authors used simulated data and real data from a wireless MISO channel.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5599999999999999,
+        "token_count": 215,
+        "latency": 21.93689799308777,
+        "consistency_score": 0.4854
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the observation model used in the probabilistic framework described in the paper?\nAnswer: A linear-Gaussian observation model with mean $ {\\bf x}_k^T {\\bf w}_k $ and variance $ \\sigma_n^2 $\nStep 2: What type of distribution is assumed for the parameter vector in the non-stationary scenario?\nAnswer: A Gaussian distribution with mean ${\\bf w}_{k-1}$ and covariance $\\sigma_d^2 {\\bf I}$\nStep 3: What kind of data was used in the simulated experiments described in the paper?\nAnswer: Synthetic data generated from a linear-Gaussian model with zero-mean Gaussian regressors and additive "
+    },
+    {
+      "sample_id": 32,
+      "question": "What is the purpose of the baseline in the layout procedure?",
+      "prediction": "The baseline provides a straight reference for accurate measurement and layout o",
+      "reference": "The baseline is used as a reference for the mid point of the firewall for the developed side panel.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3703703703703704,
+        "token_count": 199,
+        "latency": 15.13953971862793,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the purpose of the baseline in the layout procedure?\nAnswer: The baseline provides a straight reference for accurate measurement and layout of the fuselage panels\nStep 2: How does the baseline help in ensuring the correct dimensions for the side panel?\nAnswer: The baseline ensures accurate measurements and consistent station spacing, allowing the side panel to be developed correctly and formed without distortion [LOW CONFIDENCE - may be unreliable, verify before relying on it]\n\n[Note: 1 step(s) above have LOW confidence. Cross-check these before finalizing your answer; if a low"
+    },
+    {
+      "sample_id": 33,
+      "question": "What does the new Iraqi Body Count organization do?",
+      "prediction": "Tracks civilian casualties in Iraq to provide data on the war's impact",
+      "reference": "It provides cover for the war and allows supporters of the illegal war to point to it.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.16,
+        "token_count": 202,
+        "latency": 11.587081670761108,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the Iraqi Body Count organization?\nAnswer: The Iraqi Body Count is an organization that tracks civilian casualties in Iraq, often used to justify or downplay the war's impact\nStep 2: What is the purpose of the Iraqi Body Count organization according to the context provided?\nAnswer: The purpose of the Iraqi Body Count organization, according to the context, is to provide data on civilian casualties in Iraq, often used to justify or downplay the war's impact [LOW CONFIDENCE - may be unreliable, verify before relying on it]\n\n[Note: 1 step(s) above have LOW confidence. Cross-check "
+    },
+    {
+      "sample_id": 34,
+      "question": "What is the main advantage of the proposed method in terms of computation time?",
+      "prediction": "Constant computation time regardless of environmental complexity",
+      "reference": "The time required to update the belief does not increase with the complexity of the environment.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3,
+        "token_count": 132,
+        "latency": 14.783554792404175,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the main claim regarding the computation time of the proposed method in the abstract?\nAnswer: The computation time remains constant regardless of environmental complexity\nStep 2: How does the proposed method ensure that the computation time does not increase with the complexity of the environment?\nAnswer: The method uses conditional independence and polytope partitioning to keep computation time constant regardless of environmental complexity\n\nConstant computation time regardless of environmental complexity"
+    },
+    {
+      "sample_id": 35,
+      "question": "When did the Tevatron Collider Run II start and when is it expected to end?",
+      "prediction": "March 2002, by the end of the 2010s",
+      "reference": "The Tevatron Collider Run II started in March 2002 and is expected to continue until the end of this decade.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3846153846153846,
+        "token_count": 62,
+        "latency": 10.2740478515625,
+        "consistency_score": 1.0
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: When did the Tevatron Collider Run II start?\nAnswer: March 2002\nStep 2: When is the Tevatron Collider Run II expected to end?\nAnswer: The Tevatron Collider Run II is expected to end by the end of the 2010s\n\nMarch 2002, by the end of the 2010s"
+    },
+    {
+      "sample_id": 36,
+      "question": "How many brother does Njoroge have?",
+      "prediction": "Njoroge has four brothers",
+      "reference": "Four.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4,
+        "token_count": 279,
+        "latency": 7.86324667930603,
+        "consistency_score": 1.0
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "To answer the question \"How many brothers does Njoroge have?\" we need to analyze the information provided in the context and plot summary of the novel *Weep Not, Child* by Ngũgĩ wa Thiong'o.\n\n---\n\n### Step 1: Identify the relevant character\nThe question is about **Njoroge**, the main character of the novel. We are asked to determine how many **brothers** he has.\n\n---\n\n### Step 2: Look for direct mentions of Njoroge's siblings\nIn the **Characters in Weep Not, Child** section, it is stated:\n\n> \"Njoroge has four brothers: Boro, Kamau, Kori and Mwangi (who is Njoroge's only full brother, who died "
+    },
+    {
+      "sample_id": 37,
+      "question": "What are the stability conditions for a solution of $-\\Delta u = f(u)$?",
+      "prediction": "A solution  u  of  -\\Delta u = f(u)",
+      "reference": "$\\int f'(u) \\psi^2 \\le \\int | \\nabla \\psi|^2, \\forall \\psi \\in C_c^2$.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.13333333333333333,
+        "token_count": 144,
+        "latency": 21.610931396484375,
+        "consistency_score": 1.0
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What are the stability conditions for a solution of $-\\Delta u = f(u)$?\nAnswer: A solution $ u $ of $ -\\Delta u = f(u) $ is stable if $ \\int f'(u) \\psi^2 \\le \\int |\\nabla \\psi|^2 $ for all compactly supported $ C^2 $ functions $ \\psi $ [LOW CONFIDENCE - may be unreliable, verify before relying on it]\n\n[Note: 1 step(s) above have LOW confidence. Cross-check these before finalizing your answer; if a low-confidence step is a prerequisite for later steps, the later steps may also be unreliable.]\n\nA solution $ u $ of $ -\\Delta u = f(u) $ is stable if $ f'(u) \\leq 0 $."
+    },
+    {
+      "sample_id": 38,
+      "question": "What algorithm is engaged in the PLMS-PPIC method?",
+      "prediction": "The normalized least mean square (NLMS) algorithm",
+      "reference": "The normalized least mean square (NLMS) algorithm.",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 313,
+        "latency": 27.156714916229248,
+        "consistency_score": 0.4046
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the primary algorithm used in the PLMS-PPIC method?\nAnswer: The normalized least mean square (NLMS) algorithm\nStep 2: How does the PLMS-PPIC method differ from the LMS-PPIC method in terms of algorithm usage?\nAnswer: PLMS-PPIC uses multiple NLMS algorithms with different step-sizes, while LMS-PPIC uses a single NLMS algorithm\nStep 3: What is the role of the step-size parameter in the NLMS algorithms used in PLMS-PPIC?\nAnswer: The step-size parameter in the NLMS algorithms of PLMS-PPIC controls the convergence speed and stability of the weight updates\nStep 4: How does the PLMS-P"
+    },
+    {
+      "sample_id": 39,
+      "question": "Who compiled the 88-page letter to the HHS regarding vaccine safety?",
+      "prediction": "Del Bigtree",
+      "reference": "Del Bigtree and his team at ICAN.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4444444444444445,
+        "token_count": 65,
+        "latency": 8.424124717712402,
+        "consistency_score": 1.0
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: Who compiled the 88-page letter to the HHS regarding vaccine safety?\nAnswer: Del Bigtree and his team at ICAN\nStep 2: What organization is associated with the compilation of the 88-page letter to the HHS regarding vaccine safety?\nAnswer: ICAN\n\nDel Bigtree"
+    },
+    {
+      "sample_id": 40,
+      "question": "What molecule was the focus of the study?",
+      "prediction": "C_2H",
+      "reference": "The focus of the study was on the reactive radical ethynyl (C$_2$H).",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.18181818181818182,
+        "token_count": 147,
+        "latency": 12.902132034301758,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the main molecule studied in the research?\nAnswer: C$_2$H\nStep 2: What are the observed characteristics of the C$_2$H lines in the study?\nAnswer: C$_2$H lines around 349.4 GHz with $E_u/k \\sim 42$ K were detected across all evolutionary stages, showing varying line widths and shell-like spatial structures [LOW CONFIDENCE - may be unreliable, verify before relying on it]\n\n[Note: 1 step(s) above have LOW confidence. Cross-check these before finalizing your answer; if a low-confidence step is a prerequisite for later steps, the later steps may also be unreliable.]\n\nC$_2$H"
+    },
+    {
+      "sample_id": 41,
+      "question": "When was Weep Not, Child first published?",
+      "prediction": "1964",
+      "reference": "Weep Not, Child was first published in 1964.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.2222222222222222,
+        "token_count": 36,
+        "latency": 6.137246370315552,
+        "consistency_score": 1.0
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the title of the novel in question?\nAnswer: Weep Not, Child\nStep 2: In which year was the novel first published?\nAnswer: 1964\n\n1964"
+    },
+    {
+      "sample_id": 42,
+      "question": "What is the relationship between the maximum velocity and the amplitude of the blob or depletion?",
+      "prediction": "The maximum velocity scales linearly with amplitude for small amplitudes and fol",
+      "reference": "The maximum velocity scales with the square root of the amplitude.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5714285714285715,
+        "token_count": 461,
+        "latency": 45.6790452003479,
+        "consistency_score": 0.4065
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the equation that describes the dynamics of the electron density in drift-fluid models?\nAnswer: The continuity equation $\\frac{\\partial n}{\\partial t} + \\nabla\\cdot\\left( n \\vec u_E  \\right) = 0$ describes the dynamics of the electron density in drift-fluid models\nStep 2: What is the expression for the electric drift velocity in the context of the model?\nAnswer: $\\vec{u}_E := (\\hat{\\vec{b}} \\times \\nabla \\phi)/B$\nStep 3: What is the form of the equation that combines the continuity equation with the quasineutrality condition?\nAnswer: The combined equation is $\\frac{\\partial \\rh"
+    },
+    {
+      "sample_id": 43,
+      "question": "What do dendritic spines contain?",
+      "prediction": "Dendritic spines contain synaptic terminals",
+      "reference": "They are rich in actin and have been shown to be highly dynamic.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 213,
+        "latency": 27.473451614379883,
+        "consistency_score": 0.27
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the purpose of using late stage Drosophila pupae for neuronal culture preparation?\nAnswer: To obtain mature neurons for studying synaptic function and connectivity in a controlled in vitro setting\nStep 2: What is the role of papain in the brain dissociation process?\nAnswer: Papain helps break down the extracellular matrix to enable mechanical dissociation of neurons\nStep 3: How are the brains of late stage Drosophila pupae prepared for mechanical dissociation?\nAnswer: Brains are isolated, incubated in papain, washed, and dissociated mechanically on a coverslip\nStep 4: What is t"
+    },
+    {
+      "sample_id": 44,
+      "question": "How many people attend the 233rd ACS national meeting?",
+      "prediction": "14520",
+      "reference": "There are 14,520 attendees, including 7,152 chemical scientists, 5,059 students, 1,283 exhibitors, 119 precollege teachers, 573 exposition visitors, and 453 guests.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0909090909090909,
+        "token_count": 207,
+        "latency": 4.981145858764648,
+        "consistency_score": 1.0
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "To determine the number of people who attended the 233rd ACS national meeting, we need to locate the relevant information in the provided context.\n\nStep 1: Identify the section that mentions the attendance numbers for the 233rd ACS national meeting.\n- The context includes a detailed report on various committees and their activities. We are looking for a specific mention of the 233rd ACS national meeting's attendance.\n\nStep 2: Locate the exact sentence or paragraph that provides the attendance figure.\n- The context states: \"The Committee on Meetings & Expositions (M&E) reported that the 233rd A"
+    },
+    {
+      "sample_id": 45,
+      "question": "What did Justice Kennedy argue about Quill in Direct Marketing Ass'n v. Brohl?",
+      "prediction": "Justice Kennedy argued that Quill's physical presence rule was outdated and harm",
+      "reference": "Quill harmed states more than anticipated due to the Internet.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 227,
+        "latency": 18.355560302734375,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What was the ruling in Quill Corp. v. North Dakota?\nAnswer: The Court upheld the physical presence rule, preventing states from requiring remote sellers without in-state physical presence to collect sales taxes\nStep 2: What did Justice Kennedy argue about Quill in Direct Marketing Ass'n v. Brohl?\nAnswer: Justice Kennedy argued that Quill's physical presence rule was outdated and harmful due to the Internet's impact, and expressed a desire for the Court to reexamine it [LOW CONFIDENCE - may be unreliable, verify before relying on it]\n\n[Note: 1 step(s) above have LOW confidence. Cross-ch"
+    },
+    {
+      "sample_id": 46,
+      "question": "What factors control the reliance of artificial organisms on plasticity?",
+      "prediction": "Environmental fluctuation",
+      "reference": "Environmental fluctuation and uncertainty control the reliance of artificial organisms on plasticity.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.2857142857142857,
+        "token_count": 455,
+        "latency": 30.16792869567871,
+        "consistency_score": 0.27
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What are the main factors that influence the reliance of artificial organisms on plasticity according to the study?\nAnswer: Environmental fluctuation, uncertainty, and task complexity are the main factors influencing the reliance of artificial organisms on plasticity [LOW CONFIDENCE - may be unreliable, verify before relying on it]\nStep 2: How does environmental fluctuation specifically affect the reliance of artificial organisms on plasticity?\nAnswer: Environmental fluctuation increases reliance on plasticity by necessitating faster adaptation, as higher environmental distance (d_e) l"
+    },
+    {
+      "sample_id": 47,
+      "question": "What is the problem encountered when building the fuselage sides?",
+      "prediction": "The top longerons bow into a \"banana\" shape due to improper development of the f",
+      "reference": "The longerons bow up from the building surface, forming a \"banana\" shape.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4799999999999999,
+        "token_count": 322,
+        "latency": 29.05514359474182,
+        "consistency_score": 0.4046
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the problem encountered when building the fuselage sides?\nAnswer: The top longerons bow into a \"banana\" shape due to improper development of the fuselage sides' true dimensions\nStep 2: Why do the longerons bow up and form a 'banana' shape when the fuselage sides are bent into position?\nAnswer: The longerons bow due to improper development of the fuselage sides, leading to an elliptical shape when bent into a conical form\nStep 3: What is the reason behind the 'undevelopable' shape of the fuselage sides?\nAnswer: The 'undevelopable' shape arises from a twist in the plans that caus"
+    },
+    {
+      "sample_id": 48,
+      "question": "When did Goodwin become a Naval aviator?",
+      "prediction": "January 1929",
+      "reference": "Goodwin became a Naval aviator in January 1929.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4,
+        "token_count": 46,
+        "latency": 13.096681118011475,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: When did Hugh H. Goodwin begin his naval aviation training?\nAnswer: August 1928\nStep 2: When was Hugh H. Goodwin designated as a Naval aviator?\nAnswer: January 1929\n\nJanuary 1929"
+    },
+    {
+      "sample_id": 49,
+      "question": "对于PD3.0协议，FS312BH支持的最高诱骗电压是多少？",
+      "prediction": "48V",
+      "reference": "48V.",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 25,
+        "latency": 8.517765045166016,
+        "consistency_score": 1.0
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: FS312BH支持的PD协议版本有哪些？\nAnswer: PD2.0、PD3.0、PD3.1\nStep 2: FS312BH支持的最高诱骗电压是多少？\nAnswer: 48V\n\n48V"
+    },
+    {
+      "sample_id": 50,
+      "question": "When did Born resign as chairperson of the CFTC?",
+      "prediction": "June 1, 1999",
+      "reference": "June 1, 1999.",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 48,
+        "latency": 10.10553765296936,
+        "consistency_score": 1.0
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What year did Brooksley Born resign as chairperson of the CFTC?\nAnswer: 1999\nStep 2: On what date did Brooksley Born resign as chairperson of the CFTC?\nAnswer: June 1, 1999\n\nJune 1, 1999"
+    },
+    {
+      "sample_id": 51,
+      "question": "Which orders did Mufti-e-Azam-e-Hind receive Khilafat from?",
+      "prediction": "Qaderi",
+      "reference": "Mufti-e-Azam-e-Hind received Khilafat in the Qaderi, Chishti, Nakshbandi, Suharwardi, and Madaari Orders.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.15384615384615385,
+        "token_count": 94,
+        "latency": 18.91318154335022,
+        "consistency_score": 0.6
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: Which orders did Mufti-e-Azam-e-Hind receive Khilafat from?\nAnswer: Qaderi, Chishti, Nakshbandi, Suharwardi, Madaari, and from his father A'la Hazrat\nStep 2: Did Mufti-e-Azam-e-Hind receive Khilafat from his father as well?\nAnswer: Yes, he received Khilafat from his father, A'la Hazrat\n\nQaderi, Chishti, Nakshbandi, Suharwardi, Madaari, and from his father A'la Hazrat"
+    },
+    {
+      "sample_id": 52,
+      "question": "What was the reason given by Governor Rick Scott for not implementing a prescription drug monitoring",
+      "prediction": "Privacy concerns",
+      "reference": "Privacy concerns and skepticism about its effectiveness.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4444444444444445,
+        "token_count": 277,
+        "latency": 19.37557864189148,
+        "consistency_score": 0.7
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What was the reason Governor Rick Scott gave for not implementing a prescription drug monitoring database in Florida?\nAnswer: Governor Rick Scott cited privacy concerns, skepticism about the program's effectiveness, and potential high costs as reasons for not implementing a prescription drug monitoring database in Florida [LOW CONFIDENCE - may be unreliable, verify before relying on it]\nStep 2: What were the specific concerns Governor Rick Scott raised regarding the implementation of the prescription drug monitoring database?\nAnswer: Governor Rick Scott cited privacy concerns, skeptici"
+    },
+    {
+      "sample_id": 53,
+      "question": "In which electorate was Simon English elected to the New Zealand Parliament?",
+      "prediction": "Clutha-Southland",
+      "reference": "The Wallace electorate.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 58,
+        "latency": 11.685405015945435,
+        "consistency_score": 0.6
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: In which electorate was Simon English first elected to the New Zealand Parliament?\nAnswer: Wallace electorate\nStep 2: What was the name of the electorate after it was renamed in 1996?\nAnswer: Clutha-Southland\n\nClutha-Southland"
+    },
+    {
+      "sample_id": 54,
+      "question": "What was the population of McPherson County according to the 2020 census?",
+      "prediction": "30223",
+      "reference": "30,223.",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 47,
+        "latency": 8.508265972137451,
+        "consistency_score": 1.0
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the name of the county in question?\nAnswer: McPherson County, Kansas\nStep 2: What was the population of McPherson County according to the 2020 census?\nAnswer: 30,223\n\n30,223"
+    },
+    {
+      "sample_id": 55,
+      "question": "When did Margaret Way start self-publishing her books as e-books?",
+      "prediction": "2013",
+      "reference": "Margaret Way started self-publishing her books as e-books in 2013.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.18181818181818182,
+        "token_count": 43,
+        "latency": 6.9640491008758545,
+        "consistency_score": 1.0
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: When did Margaret Way start self-publishing her books as e-books?\nAnswer: 2013\nStep 2: What year did Margaret Way begin her self-publishing career?\nAnswer: 2013\n\n2013"
+    },
+    {
+      "sample_id": 56,
+      "question": "When did the 2017 general election be held?",
+      "prediction": "23 September 2017",
+      "reference": "23 September.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.8,
+        "token_count": 50,
+        "latency": 11.561880350112915,
+        "consistency_score": 1.0
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: When did John Key resign as Prime Minister of New Zealand?\nAnswer: 12 December 2016\nStep 2: When was the 2017 general election held in New Zealand?\nAnswer: 23 September 2017\n\n23 September 2017"
+    },
+    {
+      "sample_id": 57,
+      "question": "What hedge fund's collapse in 1998 highlighted the need for regulation of derivatives?",
+      "prediction": "Long Term Capital Management",
+      "reference": "Long Term Capital Management (LTCM).",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.888888888888889,
+        "token_count": 103,
+        "latency": 10.553797006607056,
+        "consistency_score": 1.0
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: Which hedge fund collapsed in 1998 and was associated with the use of derivatives?\nAnswer: Long Term Capital Management (LTCM)\nStep 2: What event involving this hedge fund highlighted the need for regulation of derivatives according to Brooksley Born?\nAnswer: The near-collapse of Long Term Capital Management (LTCM) in 1998 highlighted the need for regulation of derivatives\n\nLong Term Capital Management"
+    },
+    {
+      "sample_id": 58,
+      "question": "What is the dynamical behavior of the anisotropic order parameter following a quench to the critical",
+      "prediction": "The anisotropic order parameter O follows O \\sim t^{\\alpha} L_\\parallel^{-1/2} w",
+      "reference": "It is well described by the Gaussian theory.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.11111111111111112,
+        "token_count": 141,
+        "latency": 12.524977922439575,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the dynamical behavior of the anisotropic order parameter following a quench to the critical point?\nAnswer: The anisotropic order parameter $O$ follows $O \\sim t^{\\alpha} L_\\parallel^{-1/2}$ with $\\alpha = 1/10$ for the equilibrium lattice gas and $\\alpha = 1/8$ for driven models, reflecting non-Gaussian dynamics in the former\n\nThe anisotropic order parameter $O$ follows $O \\sim t^{\\alpha} L_\\parallel^{-1/2}$ with $\\alpha = 1/10$ for the equilibrium lattice gas and $\\alpha = 1/8$ for driven models, reflecting non-Gaussian dynamics in the former."
+    },
+    {
+      "sample_id": 59,
+      "question": "What is the recommended space for using the VR headset?",
+      "prediction": "2×2 meters of open space",
+      "reference": "It is recommended to have at least a 2x2 meter space for using the VR headset.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.09523809523809523,
+        "token_count": 169,
+        "latency": 12.30314302444458,
+        "consistency_score": 0.6
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the recommended minimum space required for using the VR headset?\nAnswer: At least 2×2 meters of open space\nStep 2: What are the safety precautions mentioned in the user guide for using the VR headset?\nAnswer: Use in a safe, open indoor area with at least 2×2 meters of space, avoid reflective surfaces and moving objects, and keep the headset out of reach of children under 12 [LOW CONFIDENCE - may be unreliable, verify before relying on it]\n\n[Note: 1 step(s) above have LOW confidence. Cross-check these before finalizing your answer; if a low-confidence step is a prerequisite for "
+    },
+    {
+      "sample_id": 60,
+      "question": "How does the performance of the PLM with decimation compare to other methods?",
+      "prediction": "The PLM with decimation performs better than other methods, especially in sparse",
+      "reference": "It outperforms mean-field methods and the PLM with $l_2$ regularization in terms of reconstruction error and true positive rate.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.33333333333333337,
+        "token_count": 119,
+        "latency": 23.483779668807983,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: How does the performance of the PLM with decimation compare to other methods?\nAnswer: The PLM with decimation performs better than other methods, especially in sparse networks and low sampling regimes, achieving lower reconstruction errors and more accurate coupling inference\n\nThe PLM with decimation performs better than other methods, especially in sparse networks and low sampling regimes, achieving lower reconstruction errors and more accurate coupling inference."
+    },
+    {
+      "sample_id": 61,
+      "question": "What are the three phases of the author's preaching process?",
+      "prediction": "Exegetical, theological, and homiletical",
+      "reference": "The three phases are exegetical, theological, and homiletical.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.6666666666666666,
+        "token_count": 60,
+        "latency": 20.45178985595703,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the author's preaching process called?\nAnswer: Big Idea preaching\nStep 2: What are the three phases of the author's preaching process?\nAnswer: Exegetical, theological, and homiletical\n\nExegetical, theological, and homiletical"
+    },
+    {
+      "sample_id": 62,
+      "question": "When did KSTP switch to a sports radio format?",
+      "prediction": "February 15, 2010",
+      "reference": "KSTP switched to a sports radio format on February 15, 2010.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.42857142857142855,
+        "token_count": 41,
+        "latency": 9.270469427108765,
+        "consistency_score": 0.6
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the current format of KSTP?\nAnswer: Sports radio\nStep 2: When did KSTP switch to a sports radio format?\nAnswer: February 15, 2010\n\nFebruary 15, 2010"
+    },
+    {
+      "sample_id": 63,
+      "question": "What was the best performing model for the Spanish language in Track-1?",
+      "prediction": "Spanish BERT base",
+      "reference": "The best performing model for the Spanish language in Track-1 was Spanish BERT.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.28571428571428575,
+        "token_count": 116,
+        "latency": 12.525502681732178,
+        "consistency_score": 0.58
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What are the languages involved in Track-1 of the VarDial 2023 DSL-TL shared task?\nAnswer: English, Spanish, and Portuguese\nStep 2: Which models were used for dialect identification in Track-1 according to the paper?\nAnswer: RoBERTa base for English, Spanish BERT base for Spanish, and Portuguese BERT base for Portuguese\nStep 3: Which model performed best for Spanish in Track-1 based on the validation F1 scores?\nAnswer: Spanish BERT base\n\nSpanish BERT base"
+    },
+    {
+      "sample_id": 64,
+      "question": "How does the infall rate and gas density in the magnetized model compare to non-magnetized accretion",
+      "prediction": "The infall rate and gas density in the magnetized model are both 2-5 times small",
+      "reference": "Infall rate is 2-5 times smaller and gas density is 2-5 times smaller.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.6086956521739131,
+        "token_count": 183,
+        "latency": 15.56484580039978,
+        "consistency_score": 0.8133
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the accretion rate in the non-magnetized model according to the study?\nAnswer: The non-magnetized model has an accretion rate 2-5 times higher than the magnetized model\nStep 2: How does the infall rate in the magnetized model compare to the non-magnetized model?\nAnswer: The infall rate in the magnetized model is 2-5 times smaller than in the non-magnetized model\nStep 3: What is the gas density in the magnetized model compared to the non-magnetized model near the black hole?\nAnswer: The gas density in the magnetized model is 2-5 times smaller than in the non-magnetized model nea"
+    },
+    {
+      "sample_id": 65,
+      "question": "According to the text, what is Toby Schindelbeck's observation about the police?",
+      "prediction": "The police claim they aren't paid enough to enforce laws, and Burkland asserts h",
+      "reference": "Toby Schindelbeck's observation is that the police say they aren't paid enough to enforce the laws in the streets.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5806451612903226,
+        "token_count": 124,
+        "latency": 14.969341516494751,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is Toby Schindelbeck's observation about the police?\nAnswer: The police claim they aren't paid enough to enforce laws, and Burkland asserts he doesn't have to\nStep 2: What does Toby Schindelbeck imply about the enforcement of laws in Chico?\nAnswer: Toby Schindelbeck implies that law enforcement in Chico is weak due to underpayment of police and a lack of accountability from officials\n\nThe police claim they aren't paid enough to enforce laws, and Burkland asserts he doesn't have to"
+    },
+    {
+      "sample_id": 66,
+      "question": "Who is the program chair of this conference?",
+      "prediction": "Peter Denning",
+      "reference": "Peter Denning.",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 56,
+        "latency": 11.667069435119629,
+        "consistency_score": 0.7
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: Who is mentioned as the program chair of the conference in the text?\nAnswer: Peter Denning\nStep 2: What is the full name of the person identified as the program chair in the text?\nAnswer: Peter Denning\n\nPeter Denning"
+    },
+    {
+      "sample_id": 67,
+      "question": "How does the conduction gap depend on the strain direction?",
+      "prediction": "The conduction gap depends on the strain direction due to the \\theta-dependent s",
+      "reference": "Peaks occur at certain strain directions, while the gap is zero at others.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.2608695652173913,
+        "token_count": 363,
+        "latency": 28.005577564239502,
+        "consistency_score": 0.27
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the primary reason for the low ON/OFF current ratio in pristine graphene transistors?\nAnswer: Gapless nature leading to poor current saturation and low ON/OFF ratio\nStep 2: How does strain engineering affect the electronic properties of graphene nanomaterials?\nAnswer: Strain engineering modulates electronic properties by inducing bandgap oscillations and altering spin polarization, enabling conduction gap formation through Dirac point shifts [LOW CONFIDENCE - may be unreliable, verify before relying on it]\nStep 3: What is the relationship between the conduction gap and the shif"
+    },
+    {
+      "sample_id": 68,
+      "question": "When was the paper published?",
+      "prediction": "7 March 2023",
+      "reference": "The paper was published on 7 March 2023.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5454545454545454,
+        "token_count": 49,
+        "latency": 9.386693477630615,
+        "consistency_score": 1.0
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the publication date of the paper?\nAnswer: 7 March 2023\nStep 2: What is the title of the paper?\nAnswer: Interpretable reduced-order modeling with time-scale separation\n\n7 March 2023"
+    },
+    {
+      "sample_id": 69,
+      "question": "What are the three subsets into which the parameter space V is divided?",
+      "prediction": "V⁺, V₀, and V⁻",
+      "reference": "The three subsets are V+, V0, and V-, determined by the Kullback-Leibler information distance.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.26666666666666666,
+        "token_count": 170,
+        "latency": 13.531224489212036,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the purpose of dividing the parameter space V into subsets?\nAnswer: To classify post-change distributions based on their proximity to the pre-change distribution, aiding in understanding test behavior under different change magnitudes [LOW CONFIDENCE - may be unreliable, verify before relying on it]\nStep 2: What are the three subsets into which the parameter space V is divided based on the Kullback-Leibler information distance?\nAnswer: V⁺, V₀, and V⁻\n\n[Note: 1 step(s) above have LOW confidence. Cross-check these before finalizing your answer; if a low-confidence step is a prere"
+    },
+    {
+      "sample_id": 70,
+      "question": "What happens to Ngotho after he attacks Jacobo at a workers' strike?",
+      "prediction": "Ngotho loses his job and his family relocates",
+      "reference": "After attacking Jacobo at a workers' strike, Ngotho loses his job and Njoroge's family is forced to move.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.48,
+        "token_count": 119,
+        "latency": 11.395407915115356,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the reason Ngotho has for attacking Jacobo at the workers' strike?\nAnswer: Ngotho attacks Jacobo out of sympathy for the workers' cause and a desire to resist colonial oppression\nStep 2: What are the immediate consequences of Ngotho attacking Jacobo at the workers' strike?\nAnswer: A riot breaks out, killing two people, Jacobo survives and vows revenge, causing Ngotho to lose his job and his family to relocate\n\nNgotho loses his job and his family relocates."
+    },
+    {
+      "sample_id": 71,
+      "question": "Where is the club's headquarters located?",
+      "prediction": "Jivani Street 2",
+      "reference": "The club's headquarters are located on Jivani Street 2 of the Malatia-Sebastia District, Yerevan.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.375,
+        "token_count": 83,
+        "latency": 12.507358074188232,
+        "consistency_score": 0.72
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: Where was the club originally based before moving to Yerevan?\nAnswer: Kotayk\nStep 2: When did the club relocate to Yerevan?\nAnswer: 2001\nStep 3: What is the current location of the club's headquarters in Yerevan?\nAnswer: Jivani Street 2, Malatia-Sebastia District, Yerevan\n\nJivani Street 2, Malatia-Sebastia District, Yerevan"
+    },
+    {
+      "sample_id": 72,
+      "question": "How do the runtimes and iteration counts of NFPA and FPSA compare to GMRES and DSA in the numerical ",
+      "prediction": "ter than NFPA for Problem 1 with SRK and η = 10^-7",
+      "reference": "NFPA and FPSA greatly outperform GMRES and DSA.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.2222222222222222,
+        "token_count": 410,
+        "latency": 62.55868077278137,
+        "consistency_score": 0.21
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What are the numerical methods being compared in the study?\nAnswer: GMRES, DSA, FPSA, and NFPA are the numerical methods being compared\nStep 2: What is the runtime of NFPA for Problem 1 with SRK and η = 10^-7?\nAnswer: 0.542 seconds\nStep 3: What is the iteration count of FPSA for Problem 1 with SRK and η = 10^-7?\nAnswer: 10 iterations\nStep 4: What is the runtime of GMRES for Problem 1 with SRK and η = 10^-7?\nAnswer: 174 seconds\nStep 5: What is the iteration count of DSA for Problem 1 with SRK and η = 10^-7?\nAnswer: 73,940 iterations\nStep 6: What is the runtime of NFPA for Problem 2 with"
+    },
+    {
+      "sample_id": 73,
+      "question": "What are some reasons for the lack of data sharing in archaeobotany?",
+      "prediction": "Technological limitations",
+      "reference": "Technological limitations, resistance to exposing data to scrutiny, and desire to hold onto data for personal use.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.25,
+        "token_count": 413,
+        "latency": 27.69092607498169,
+        "consistency_score": 0.27
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the primary focus of archaeobotany as described in the text?\nAnswer: The primary focus of archaeobotany is studying plant remains to understand past human-plant relationships, including crop choice, husbandry, diet, and vegetation [LOW CONFIDENCE - may be unreliable, verify before relying on it]\nStep 2: What percentage of archaeobotanical journal articles shared their primary data according to the study?\nAnswer: 56%\nStep 3: What are some reasons cited for the lack of data sharing in archaeobotany?\nAnswer: Technological limitations, resistance from archaeologists due to concerns"
+    },
+    {
+      "sample_id": 74,
+      "question": "What are some fields in which the inverse problem is encountered?",
+      "prediction": "physics",
+      "reference": "Physics, biology, social sciences, finance, and neuroscience are some fields in which the inverse problem is encountered.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.1111111111111111,
+        "token_count": 539,
+        "latency": 50.57732939720154,
+        "consistency_score": 0.3075
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the definition of an inverse problem in the context of statistical inference?\nAnswer: The inverse problem in statistical inference involves estimating unknown model parameters from observed data, typically by maximizing likelihood functions or using statistical techniques to infer hidden structures or interactions [LOW CONFIDENCE - may be unreliable, verify before relying on it]\nStep 2: In which fields are inverse problems encountered according to the provided text?\nAnswer: Inverse problems are encountered in physics, biology, social sciences, finance, neuroscience, and optics\n"
+    },
+    {
+      "sample_id": 75,
+      "question": "What is the maximum radius of the emitting region for the black body model?",
+      "prediction": "3 ± 0.2 × 10⁸ cm",
+      "reference": "4.5x10^8 cm.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3333333333333333,
+        "token_count": 130,
+        "latency": 40.26255655288696,
+        "consistency_score": 0.4046
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the count rate of XMMSL1 J060636.2-694933 during its discovery by XMM-Newton slew observation?\nAnswer: 23.4 ± 1.4 ct s$^{-1}$\nStep 2: What is the temperature of the black body model fitted to the XMM-Newton slew spectrum?\nAnswer: $63_{-10}^{+12}$\\,eV\nStep 3: What is the assumed distance to the source based on the black body model?\nAnswer: 50 kpc\nStep 4: What is the maximum radius of the emitting region for the black body model given the assumed distance?\nAnswer: 1.3 ± 0.2 × 10⁸ cm\n\n1.3 ± 0.2 × 10⁸ cm"
+    },
+    {
+      "sample_id": 76,
+      "question": "Which air unit did Goodwin command during the initial landings of Marines on Saipan?",
+      "prediction": "VC-10 Squadron",
+      "reference": "VC-10 Squadron.",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 62,
+        "latency": 8.58930230140686,
+        "consistency_score": 0.7
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: Which carrier did Goodwin command during the Mariana Islands campaign?\nAnswer: USS Gambier Bay\nStep 2: Which air unit did Goodwin command on the carrier during the initial landings of Marines on Saipan?\nAnswer: VC-10 Squadron\n\nVC-10 Squadron"
+    },
+    {
+      "sample_id": 77,
+      "question": "How does the receptive field size affect the completion of shapes?",
+      "prediction": "A larger receptive field size improves the model's ability to complete shapes wi",
+      "reference": "Bigger receptive field size leads to more successful shape completion.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.34782608695652173,
+        "token_count": 420,
+        "latency": 27.31809949874878,
+        "consistency_score": 0.27
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the main objective of the paper regarding convolutional neural networks and shape completion?\nAnswer: To determine if CNNs can complete fragmented shapes and contours using deep structural priors without explicit training data or masks\nStep 2: How does the receptive field size influence the ability of the model to complete shapes with larger gaps according to the paper?\nAnswer: A larger receptive field size improves the model's ability to complete shapes with larger gaps by capturing more contextual information, as demonstrated in the experimental results [LOW CONFIDENCE - may "
+    },
+    {
+      "sample_id": 78,
+      "question": "What is the significance of the interlayer Berry connection polarizability?",
+      "prediction": "The interlayer Berry connection polarizability quantifies the geometric response",
+      "reference": "The momentum space curl of the interlayer Berry connection polarizability generates the crossed nonlinear dynamical Hall effect.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.43478260869565216,
+        "token_count": 501,
+        "latency": 30.535609006881714,
+        "consistency_score": 0.27
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the definition of the interlayer Berry connection polarizability (BCP) in the context of twisted bilayers?\nAnswer: The interlayer Berry connection polarizability (BCP) is the k-space curl of the interlayer Berry connection, arising from layer hybridization in twisted bilayers, and quantifies the geometric response to out-of-plane fields [LOW CONFIDENCE - may be unreliable, verify before relying on it]\nStep 2: How does the interlayer BCP contribute to the nonlinear dynamical Hall effect in twisted bilayers?\nAnswer: The interlayer BCP contributes to the nonlinear dynamical Hall e"
+    },
+    {
+      "sample_id": 79,
+      "question": "Can the denoiser be applied to circuits with non-Clifford noise?",
+      "prediction": "yes",
+      "reference": "Yes, the denoiser works for non-Clifford local noise channels.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.19999999999999998,
+        "token_count": 88,
+        "latency": 13.383715152740479,
+        "consistency_score": 0.6
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What type of noise is considered in the paper for the denoiser application?\nAnswer: Two-qubit depolarizing noise\nStep 2: Does the paper mention the effectiveness of the denoiser in recovering noiseless eigenvalues for non-Clifford noise?\nAnswer: Yes, the denoiser recovers noiseless eigenvalues for non-Clifford noise as shown in the figures\n\nyes"
+    },
+    {
+      "sample_id": 80,
+      "question": "What is Professor Tulis's forthcoming book?",
+      "prediction": "Legacies of Losing in American Politics",
+      "reference": "Legacies of Losing in American Politics and an expanded edition of The Rhetorical Presidency in the Princeton Classics series.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5454545454545454,
+        "token_count": 82,
+        "latency": 14.320669651031494,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What are the titles of Professor Tulis's forthcoming books?\nAnswer: Legacies of Losing in American Politics and an expanded edition of The Rhetorical Presidency\nStep 2: What is the title of one of Professor Tulis's forthcoming books?\nAnswer: Legacies of Losing in American Politics\n\nLegacies of Losing in American Politics"
+    },
+    {
+      "sample_id": 81,
+      "question": "How does a media application determine the context of an event?",
+      "prediction": "A media application determines the context of an event by analyzing audio, visua",
+      "reference": "It uses a content-recognition module or algorithm.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.1,
+        "token_count": 421,
+        "latency": 25.164266347885132,
+        "consistency_score": 0.27
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the definition of 'context' as used in the media application?\nAnswer: The context of an event refers to the set of circumstances surrounding it that influence its meaning, including who made the statement, preceding/following statements, tone, and other relevant factors\nStep 2: How does a media application determine the context of an event using a content-recognition module?\nAnswer: A media application uses a content-recognition module to analyze audio, visual, and textual data, cross-referencing it with databases to identify and understand the event's context\nStep 3: What type"
+    },
+    {
+      "sample_id": 82,
+      "question": "What are the titles of one of Kam W. Leong's publications in Journal of Controlled Release?",
+      "prediction": "Sustained viral gene delivery through core-shell fibers",
+      "reference": "Sustained viral gene delivery through core-shell fibers and Gene transfer to hemophilia A mice via oral delivery of FVIII-chitosan nanoparticles.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.56,
+        "token_count": 102,
+        "latency": 11.906116485595703,
+        "consistency_score": 0.6
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the title of one of Kam W. Leong's publications in the Journal of Controlled Release?\nAnswer: Sustained viral gene delivery through core-shell fibers\nStep 2: Which specific publication by Kam W. Leong in the Journal of Controlled Release is listed in the provided context?\nAnswer: Sustained viral gene delivery through core-shell fibers\n\nSustained viral gene delivery through core-shell fibers"
+    },
+    {
+      "sample_id": 83,
+      "question": "What was the club known as before being officially renamed FC Urartu?",
+      "prediction": "FC Banants",
+      "reference": "FC Banants.",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 54,
+        "latency": 6.417884349822998,
+        "consistency_score": 1.0
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What was the name of the club before it was officially renamed FC Urartu?\nAnswer: FC Banants\nStep 2: When was the club officially renamed from its previous name to FC Urartu?\nAnswer: 1 August 2019\n\nFC Banants"
+    },
+    {
+      "sample_id": 84,
+      "question": "What was the conclusion of the study?",
+      "prediction": "Higher fruit consumption",
+      "reference": "The conclusion was that fruit consumption may provide a protective effect for mercury exposure in Amazonian riparians.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.2,
+        "token_count": 161,
+        "latency": 11.744829416275024,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What was the main objective of the study on fruit consumption and mercury exposure in the Brazilian Amazon?\nAnswer: To evaluate the impact of fruit consumption on mercury exposure in relation to fish consumption in Amazonian communities\nStep 2: What were the key findings regarding the relationship between fruit consumption and mercury levels in the study?\nAnswer: Higher fruit consumption was linked to reduced blood and hair mercury levels, suggesting a protective effect against mercury exposure\n\nHigher fruit consumption was associated with lower blood and hair mercury levels, indicatin"
+    },
+    {
+      "sample_id": 85,
+      "question": "How does the scoring engine generate a stream of content for the channel?",
+      "prediction": "The scoring engine generates a stream of content for the channel by querying and",
+      "reference": "By comparing candidate content items to a model and scoring them.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.41666666666666663,
+        "token_count": 354,
+        "latency": 31.855084896087646,
+        "consistency_score": 0.27
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the role of the scoring engine in generating a stream of content for a channel?\nAnswer: The scoring engine queries and scores candidate content items based on channel attributes and a user model to generate a relevant content stream\nStep 2: What types of data sources does the scoring engine query to generate the stream of content?\nAnswer: The scoring engine queries new content items from heterogeneous data sources including search servers, entertainment servers, ratings servers, email servers, social network servers, and third-party servers\nStep 3: How does the scoring engine d"
+    },
+    {
+      "sample_id": 86,
+      "question": "When did the club win the Armenian Premier League for the first time?",
+      "prediction": "2013–14 season",
+      "reference": "In the 2013-2014 season.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3333333333333333,
+        "token_count": 68,
+        "latency": 8.032041311264038,
+        "consistency_score": 1.0
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the name of the Armenian football club that won the Armenian Premier League for the first time?\nAnswer: FC Banants (now FC Urartu)\nStep 2: In which season did the club win the Armenian Premier League for the first time?\nAnswer: 2013–14 season\n\n2013–14 season"
+    },
+    {
+      "sample_id": 87,
+      "question": "How many novels did Margaret Way write?",
+      "prediction": "A. Single Novels",
+      "reference": "Margaret Way wrote more than 120 novels.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.2,
+        "token_count": 383,
+        "latency": 8.77593731880188,
+        "consistency_score": 1.0
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "To determine how many novels Margaret Way wrote, we need to analyze the provided context and bibliography.\n\n### Step 1: Understand the Context\nThe context states that Margaret Way was a prolific author who wrote **more than 120 novels since 1970**. This is an important starting point, but it's not definitive because it's a general statement and may include other works like short stories or collections.\n\n### Step 2: Analyze the Bibliography\nThe bibliography lists several series and individual novels. We can count these to get a more precise number of novels written by Margaret Way.\n\n#### A. Sin"
+    },
+    {
+      "sample_id": 88,
+      "question": "What is the proposed approach in this research paper?",
+      "prediction": "A probabilistic interpretation of the LMS filter leading to an adaptable step-si",
+      "reference": "This research paper proposed an approach based on approximating the posterior distribution with an isotropic Gaussian distribution.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.14814814814814814,
+        "token_count": 422,
+        "latency": 28.373902082443237,
+        "consistency_score": 0.27
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the main objective of the research paper?\nAnswer: To present a probabilistic interpretation of the LMS filter, resulting in an adaptable step-size LMS algorithm with uncertainty estimation and potential for Bayesian extensions [LOW CONFIDENCE - may be unreliable, verify before relying on it]\nStep 2: What approach does the paper propose to achieve this objective?\nAnswer: The paper proposes approximating the posterior distribution with an isotropic Gaussian to derive an adaptable step-size LMS algorithm with uncertainty estimation [LOW CONFIDENCE - may be unreliable, verify befor"
+    },
+    {
+      "sample_id": 89,
+      "question": "Does DUO contain more instances per image than COCO?",
+      "prediction": "yes",
+      "reference": "Yes, DUO has 9.57 instances per image while COCO contains 7.7.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.16666666666666669,
+        "token_count": 94,
+        "latency": 16.2581627368927,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the total number of instances per image in the DUO dataset?\nAnswer: 9.57 instances per image on average\nStep 2: What is the total number of instances per image in the COCO dataset?\nAnswer: 7.7 instances per image\nStep 3: Does the DUO dataset have more instances per image than the COCO dataset?\nAnswer: Yes, DUO contains more instances per image than COCO\n\nyes"
+    },
+    {
+      "sample_id": 90,
+      "question": "What are the symptoms of vitamin K deficiency?",
+      "prediction": "Uncontrolled bleeding",
+      "reference": "Symptoms of vitamin K deficiency include anemia, bruising, nosebleeds, bleeding of the gums, and heavy menstrual bleeding in women.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.10526315789473684,
+        "token_count": 247,
+        "latency": 31.981377840042114,
+        "consistency_score": 0.4316
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What are the primary functions of vitamin K in the human body?\nAnswer: Vitamin K is essential for blood coagulation, bone health, and preventing arterial calcification\nStep 2: What are the symptoms of vitamin K deficiency related to blood coagulation?\nAnswer: Uncontrolled bleeding, easy bruising, nosebleeds, and heavy menstrual bleeding\nStep 3: What are the symptoms of vitamin K deficiency related to bone health?\nAnswer: Increased risk of osteoporosis, reduced bone density, and higher fracture susceptibility\nStep 4: What are the symptoms of vitamin K deficiency related to cardiovascula"
+    },
+    {
+      "sample_id": 91,
+      "question": "What is the security parameter for the AES-256 block cipher?",
+      "prediction": "256 bits",
+      "reference": "172.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 68,
+        "latency": 21.755073308944702,
+        "consistency_score": 0.6
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the key size of the AES-256 block cipher?\nAnswer: 256 bits\nStep 2: What is the security parameter for AES-256 in terms of quantum resistance against Grover's algorithm?\nAnswer: The security parameter for AES-256 against quantum attacks is 172 bits\n\n256 bits"
+    },
+    {
+      "sample_id": 92,
+      "question": "What is the definition of mobile device management (MDM)?",
+      "prediction": "Mobile device management (MDM)",
+      "reference": "Centralized control of mobile devices and applications.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.18181818181818182,
+        "token_count": 354,
+        "latency": 29.870348930358887,
+        "consistency_score": 0.27
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the primary purpose of mobile device management (MDM)?\nAnswer: To centrally manage, configure, and secure mobile devices and applications according to predefined policies\nStep 2: How does IoT-MDM differ from traditional MDM in terms of device management scope?\nAnswer: IoT-MDM manages both mobile devices and IoT nodes, while traditional MDM focuses mainly on mobile devices\nStep 3: What are the key security challenges associated with IoT devices in a digital hospital environment?\nAnswer: Unauthorized access, data breaches, device tampering, and protocol vulnerabilities are key se"
+    },
+    {
+      "sample_id": 93,
+      "question": "What models were used for dialect identification?",
+      "prediction": "XLM-RoBERTa, BERT, ELECTRA, GPT-2, and RoBERTa",
+      "reference": "BERT, RoBERTa, ELECTRA, GPT-2, and XLM-RoBERTa.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 1.0,
+        "token_count": 185,
+        "latency": 20.000484704971313,
+        "consistency_score": 0.4584
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the main approach used for dialect identification in the paper?\nAnswer: A two-stage pipeline with language identification followed by language-specific dialect classification models\nStep 2: Which language identification model was used in the first stage of the pipeline?\nAnswer: XLM-RoBERTa fine-tuned for language identification\nStep 3: What are the different models used for dialect identification in the second stage of the pipeline?\nAnswer: XLM-RoBERTa, BERT, ELECTRA, GPT-2, and RoBERTa\nStep 4: Which model performed best for dialect identification in Track-1 according to the pa"
+    },
+    {
+      "sample_id": 94,
+      "question": "What are the restrictions on the use of Broadjam's servers?",
+      "prediction": "vities, or use services for spam/security breaches",
+      "reference": "No excessive overloading and no use for illegal activity.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.26666666666666666,
+        "token_count": 451,
+        "latency": 31.960939407348633,
+        "consistency_score": 0.27
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What are the terms and conditions that govern the use of Broadjam's website and services?\nAnswer: The Agreement outlines terms and conditions including intellectual property rights, user conduct, content submission, account management, liability limitations, and service modifications, and is a legally binding contract users must accept [LOW CONFIDENCE - may be unreliable, verify before relying on it]\nStep 2: What rights does Broadjam retain regarding the intellectual property on its site?\nAnswer: Broadjam retains exclusive ownership of all intellectual property on its site and reserves"
+    },
+    {
+      "sample_id": 95,
+      "question": "How is the vacuum processing system configured in terms of the arrangement of the vacuum processing ",
+      "prediction": "The vacuum processing apparatus",
+      "reference": "Multiple vacuum processing apparatuses are arranged in parallel.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3333333333333333,
+        "token_count": 442,
+        "latency": 30.716888427734375,
+        "consistency_score": 0.24
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the main objective of the vacuum processing system described in the context?\nAnswer: To suppress manufacturing cost increase while accommodating larger samples and enhancing maintainability\nStep 2: What components make up the vacuum processing apparatus according to the context?\nAnswer: The vacuum processing apparatus comprises an air loader, a vacuum loader with etching chambers and a vacuum carriage chamber, and a lock device with load/unload lock chambers\nStep 3: How are the etching treatment chambers arranged relative to the vacuum carriage chamber?\nAnswer: The etching trea"
+    },
+    {
+      "sample_id": 96,
+      "question": "How many massive star-forming regions were studied?",
+      "prediction": "$$",
+      "reference": "21.",
+      "metrics": {
+        "em": 1.0,
+        "f1": 0.0,
+        "token_count": 299,
+        "latency": 5.511976718902588,
+        "consistency_score": 1.0
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "To answer the question **\"How many massive star-forming regions were studied?\"**, we will follow a step-by-step approach based on the provided context.\n\n---\n\n### Step 1: Identify the relevant section\nThe question is about the number of massive star-forming regions that were studied. This information is most likely found in the **Observations** section, where details about the sources observed are described.\n\n---\n\n### Step 2: Locate the key sentence\nIn the **Observations** section, the following sentence appears:\n\n> \"The 21 massive star-forming regions were observed with the Atacama Pathfinder "
+    },
+    {
+      "sample_id": 97,
+      "question": "What is the average magnetic moment per column in Ge$_{1-x}$Mn$_{x}$ films?",
+      "prediction": "1425 \\mu_{B}",
+      "reference": "1425 $\\mu_{B}$.",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 51,
+        "latency": 20.076815128326416,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the average magnetic moment per column in Ge$_{1-x}$Mn$_{x}$ films?\nAnswer: The average magnetic moment per column in Ge$_{1-x}$Mn$_{x}$ films is approximately 1425 $\\mu_{B}$\n\n1425 $\\mu_{B}$"
+    },
+    {
+      "sample_id": 98,
+      "question": "Is there any evidence of heaven and hell?",
+      "prediction": "no",
+      "reference": "Unknown.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 158,
+        "latency": 11.584360837936401,
+        "consistency_score": 0.3
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the definition of heaven and hell according to major world religions?\nAnswer: Heaven and hell are eternal states of reward or punishment in major religions, with Christianity and Islam describing them as eternal bliss and torment respectively, while other faiths offer variations based on moral conduct and spiritual beliefs\nStep 2: Are there any historical or archaeological evidences that support the existence of heaven and hell as described in religious texts?\nAnswer: No, there is no definitive historical or archaeological evidence supporting the existence of heaven and hell as"
+    },
+    {
+      "sample_id": 99,
+      "question": "When will BC leave Boston?",
+      "prediction": "No specific time is mentioned",
+      "reference": "August 25.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 476,
+        "latency": 35.14847731590271,
+        "consistency_score": 0.27
+      },
+      "method": "gers_cv2_fullctx",
+      "error": null,
+      "reasoning_text": "Step 1: What is the context of the article discussing BC's football program and its coach, Frank Spaziani?\nAnswer: The article discusses challenges facing BC's football program under Frank Spaziani, including recruiting concerns, performance issues, and potential coaching changes, while outlining possible outcomes based on his season [LOW CONFIDENCE - may be unreliable, verify before relying on it]\nStep 2: What are the two possible outcomes for Frank Spaziani's tenure based on the performance of the team in the upcoming season?\nAnswer: If BC has a losing season, Spaziani may be fired, leading "
+    }
+  ]
+}

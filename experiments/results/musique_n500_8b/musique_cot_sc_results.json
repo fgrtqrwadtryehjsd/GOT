@@ -7508,6 +7508,1731 @@
       "method": "cot_sc",
       "error": null,
       "reasoning_text": "The luxury division of the manufacturer of Scion Fuse is Acura. The Acura RX 350 underwent a body style change in 2012. \n\nFinal Answer: 2012"
+    },
+    {
+      "sample_id": 500,
+      "question": "The German priest, who wanted Joseph Strickland's religious denomination to reform, preached a sermo",
+      "prediction": "saxony anhalt",
+      "reference": "Saxony-Anhalt",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 52,
+        "latency": 4.316564559936523
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The German priest who preached a sermon on Marian devotion before his death was Martin Luther. He preached this sermon in Wittenberg, which is located in the state of Saxony-Anhalt.\n\nFinal Answer: Saxony-Anhalt"
+    },
+    {
+      "sample_id": 504,
+      "question": "University of the state having Fort Hill or university of the state whose primary was won by Edwards",
+      "prediction": "no",
+      "reference": "University of South Carolina",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 351,
+        "latency": 15.857272863388062
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to identify which state has a university with \"Fort Hill\" and also has a James B. Simmons House, and then compare the number of national championships between that state's university and the one whose primary was won by Edwards.\n\n1. **Identify the state with Fort Hill**:\n   - Fort Hill is located at Clemson University in South Carolina.\n\n2. **Identify the state with the James B. Simmons House**:\n   - The James B. Simmons House is in Georgia.\n\n3. **Determine the state with the university whose primary was won by Edwards**:\n   - From the context, Edwards finished only slightly behind Kerry in Georgia but failed to win any other state except South Carolina. Therefore, the state whose primary was won by Edwards is South Carolina.\n\n4. **Compare the states**:\n   -"
+    },
+    {
+      "sample_id": 511,
+      "question": "When was the region that lies to the north of what used to be known as the \"Near East\" and the locat",
+      "prediction": "1932",
+      "reference": "1932",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 389,
+        "latency": 18.905823707580566
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To determine when the region that lies to the north of what used to be known as the \"Near East\" and the location of Operation Earnest Will was established, we need to follow these steps:\n\n1. **Identify the \"Near East\":** The term \"Near East\" historically referred to the area encompassing modern-day Turkey, Syria, Lebanon, Jordan, and parts of Iraq and Israel/Palestine. It is now largely replaced by the term \"Middle East.\"\n\n2. **Determine the region to the north of the Near East:** This would be the area that includes parts of modern-day Turkey, Armenia, Georgia, and Azerbaijan.\n\n3. **Identify Operation Earnest Will:** Operation Earnest Will was a U.S. military operation conducted in 1987-1988 in the Persian Gulf, aimed at protecting international shipping in the waters around Iran.\n\n4. **R"
+    },
+    {
+      "sample_id": 530,
+      "question": "Edwards won a primary in a state excluding the state where a jury sentenced Demarcus Sears to death.",
+      "prediction": "university of south carolina",
+      "reference": "University of South Carolina",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 240,
+        "latency": 11.25584602355957
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To determine who has more national championships between that state's university and Fort Hill's city's university, we need to identify the relevant states and universities.\n\n1. **Identify the state where Demarcus Sears was sentenced to death**: The context states that Demarcus Sears was sentenced to death in Georgia.\n\n2. **Identify the university associated with that state**: The context mentions the University of South Carolina as a competitor in the Clemson–South Carolina rivalry.\n\n3. **Identify the university associated with Fort Hill**: The context states that Fort Hill is part of Clemson University in South Carolina.\n\n4. **Compare national championships**: The context provides the number of national championships for Clemson University (5) and the University of South Carolina (10).\n\n"
+    },
+    {
+      "sample_id": 535,
+      "question": "Where into the Gulf of Mexico does the body of water by the city where the Lots More Blues, Rags and",
+      "prediction": "mississippi river",
+      "reference": "the Mississippi River Delta",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.6666666666666666,
+        "token_count": 99,
+        "latency": 5.012386798858643
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to determine which body of water empties into the Gulf of Mexico near the city where the band Koerner, Ray & Glover was formed.\n\n1. The band \"Koerner, Ray & Glover\" was formed in Minneapolis, Minnesota.\n2. The Mississippi River flows through Minneapolis and eventually empties into the Gulf of Mexico at the Mississippi River Delta.\n\nFinal Answer: Mississippi River"
+    },
+    {
+      "sample_id": 536,
+      "question": "What treaty ceded territory to the US extending west to the body of water by the city where the desi",
+      "prediction": "louisiana purchase",
+      "reference": "Treaty of Paris",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 136,
+        "latency": 6.361879348754883
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to identify the treaty that ceded territory to the US extending west to a body of water, and this body of water is associated with the city where the designer of the Southeast Library died.\n\n1. The Southeast Library was designed by Ralph Rapson.\n2. Ralph Rapson died in Minneapolis, Minnesota.\n3. The body of water associated with Minneapolis is the Mississippi River.\n4. The treaty that ceded territory to the US extending west to the Mississippi River is the Louisiana Purchase.\n\nFinal Answer: Louisiana Purchase"
+    },
+    {
+      "sample_id": 541,
+      "question": "What location borders the city founded by a former newspaper publisher selling supplies in the state",
+      "prediction": "antelope wells new mexico",
+      "reference": "Rio Linda",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 215,
+        "latency": 10.969168186187744
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "First, identify the city founded by a former newspaper publisher selling supplies. From the context, this refers to Sacramento, California, which was founded by Samuel Brannan, a San Francisco newspaper publisher who sold gold prospecting supplies.\n\nNext, determine the state where the valley girl accent originated. The valley girl accent is associated with California English, specifically from the San Fernando Valley in California.\n\nNow, find the location that borders the city (Sacramento) in the state where the valley girl accent originated (California). Sacramento is bordered by several locations, but the specific one mentioned in the context is Antelope Wells, New Mexico, which is located near the Mexico–United States border and shares a border with the small settlement of El Berrendo, "
+    },
+    {
+      "sample_id": 543,
+      "question": "Where does the city where Veoh's headquarters is located rank in the top five largest urban areas of",
+      "prediction": "third",
+      "reference": "third-largest",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 221,
+        "latency": 14.294942855834961
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Step 1: Identify the location of Veoh's headquarters. According to the context, Veoh is based in San Diego, California.\n\nStep 2: Determine the state where The Paramour Sessions' performers were formed. The Paramour Sessions is an album by Papa Roach, and the band was formed in Vacaville, California.\n\nStep 3: Identify the top five largest urban areas in California. From the context, the top three urban areas in California are the Los Angeles metropolitan area, the San Francisco metropolitan area, and the San Diego metropolitan area. The fourth and fifth largest urban areas in California are not explicitly mentioned, but the context provides enough information to determine the answer.\n\nStep 4: Determine the rank of San Diego in the top five largest urban areas of California. The context stat"
+    },
+    {
+      "sample_id": 545,
+      "question": "Who burned down the death city of the artist responsible for Dunn Dunn in the war after which the fi",
+      "prediction": "atlanta",
+      "reference": "Confederate Gen. John Bell Hood",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 338,
+        "latency": 16.201101541519165
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to identify the artist responsible for \"Dunn Dunn,\" determine which war is referenced, and find out who burned down the \"death city\" of that artist. \n\n1. **Identify the artist responsible for \"Dunn Dunn\":**  \n   - The song \"Dunn Dunn\" is produced by Born Immaculate and DJ Pooh and is the second single from Shawty Lo's debut solo album, \"Units in the City.\"  \n   - Therefore, the artist responsible for \"Dunn Dunn\" is Shawty Lo.\n\n2. **Determine the war referenced:**  \n   - The context mentions \"the war after which the first time black people declined in living in NYC.\"  \n   - This refers to the American Civil War, as the context states that for the first time since the Civil War, the number of blacks declined over a decade in New York City.\n\n3. **Identify who b"
+    },
+    {
+      "sample_id": 548,
+      "question": "In what German state is the district where the man, who wanted the religion underlying Daraga Church",
+      "prediction": "saxony anhalt",
+      "reference": "Saxony-Anhalt",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 142,
+        "latency": 6.924976587295532
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to identify the German state where the district is located, which is associated with the man who wanted the religion underlying Daraga Church to reform and preached a sermon on Marian devotion.\n\n1. **Identify the man**: The context mentions Pope Paul VI, who was a Marian devotee and preached sermons on Marian devotion.\n2. **Identify the district**: The context mentions Wittenberg, a district in Saxony-Anhalt, Germany.\n3. **Determine the German state**: Wittenberg is located in the state of Saxony-Anhalt.\n\nFinal Answer: Saxony-Anhalt"
+    },
+    {
+      "sample_id": 554,
+      "question": "New coins by the Somali Muslim Ajuran Empire were a proclamation of independence from a nation. How ",
+      "prediction": "myanmar",
+      "reference": "The dynasty regrouped and defeated the Portuguese",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 66,
+        "latency": 2.976405620574951
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The Somali Muslim Ajuran Empire's new coins were a proclamation of independence from the Ottoman Empire. The people of the Ottoman Empire were expelled from the country that borders Thailand and Ban Nampo village's country, which is Myanmar. \n\nFinal Answer: Myanmar"
+    },
+    {
+      "sample_id": 561,
+      "question": "How were the same people who the Somali Muslim Ajuran Empire declared independence from expelled fro",
+      "prediction": "no",
+      "reference": "The dynasty regrouped and defeated the Portuguese",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 391,
+        "latency": 19.503774642944336
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to break it down step by step:\n\n1. **Identify the key elements of the question**:\n   - The Somali Muslim Ajuran Empire declared independence from a group of people.\n   - These same people were expelled from the natural boundary between Thailand and the country where Nam Theun is found.\n\n2. **Determine who the Somali Muslim Ajuran Empire declared independence from**:\n   - From the context, the Somali Muslim Ajuran Empire was allied with the Ottomans and defied the Portuguese economic monopoly in the Indian Ocean. This implies that they were independent from the Portuguese.\n\n3. **Identify the natural boundary between Thailand and the country where Nam Theun is found**:\n   - Nam Theun is a river in Laos. The natural boundary between Thailand and Laos is the Mek"
+    },
+    {
+      "sample_id": 566,
+      "question": "When was \"Slavs\" used in the national anthem of the country whose military having the Air Defense Ar",
+      "prediction": "1943",
+      "reference": "1943–1992",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 476,
+        "latency": 19.78811764717102
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to identify the country whose military had an Air Defense Artillery that was unprepared for the invasion of a country conquered by the Pact, and then determine when the word \"Slavs\" was used in the national anthem of that country.\n\n1. **Identify the country whose military had an unprepared Air Defense Artillery for an invasion**:\n   - The context mentions the Warsaw Pact invasion of Czechoslovakia in August 1968.\n   - It also notes that Yugoslavia was considered a possible Soviet target due to the Tito-Stalin Split and was on the list of \"chief danger spots\" in case of a North Korea invasion.\n   - Additionally, it states that after the invasion of Czechoslovakia, Tito removed generals in Yugoslavia due to the unpreparedness of the Yugoslav army to respond to"
+    },
+    {
+      "sample_id": 571,
+      "question": "What is the direction of the flow of the river near the city where the designer of Southeast Library",
+      "prediction": "cannot be determined",
+      "reference": "rises in northern Minnesota and meanders slowly southwards",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 183,
+        "latency": 8.542479991912842
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To determine the direction of the flow of the river near the city where the designer of Southeast Library died, we need to follow these steps:\n\n1. Identify the designer of the Southeast Library: The designer was Ralph Rapson.\n2. Determine where Ralph Rapson died: The context does not provide information about where Ralph Rapson died.\n3. Identify the city where the designer died: Since we do not have information on where Ralph Rapson died, we cannot identify the city.\n4. Determine the river near that city: Without knowing the city, we cannot determine the river.\n\nSince we lack information on where Ralph Rapson died, we cannot determine the direction of the flow of the river near that city.\n\nFinal Answer: Cannot be determined"
+    },
+    {
+      "sample_id": 572,
+      "question": "When was the region immediately north of the region that prevailed with the disgrace of Near East an",
+      "prediction": "100000 to 10000 years ago",
+      "reference": "1930",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 400,
+        "latency": 17.391900062561035
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to identify:\n\n1. The region immediately north of the region that prevailed with the disgrace of Near East.\n2. The terrain feature on which shamal is located.\n3. When that region was created.\n\n### Step 1: Identify the region that prevailed with the disgrace of Near East\nFrom the context: \"Subsequently with the disgrace of 'Near East' in diplomatic and military circles, 'Middle East' prevailed.\" So, the region in question is the **Middle East**.\n\n### Step 2: Identify the terrain feature on which shamal is located\nFrom the context: \"Shamal (..., 'north') is a northwesterly wind blowing over Iraq and the Persian Gulf states (including Saudi Arabia and Kuwait).\" Therefore, the terrain feature associated with shamal is **Saudi Arabia** (as it is one of the regions"
+    },
+    {
+      "sample_id": 575,
+      "question": "Who was the second pick in the 1999 draft of the organization, that includes the team with the most ",
+      "prediction": "cannot be determined",
+      "reference": "Josh Beckett",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 383,
+        "latency": 20.25849223136902
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to identify the second pick in the 1999 MLB draft and determine which organization includes the team with the most World Series titles. \n\n1. From the context, the second pick in the 1999 Major League Baseball draft was Josh Girdley, selected by the Montreal Expos.\n\n2. The context also provides information about teams with the most World Series titles:\n   - The New York Yankees have played in 40 World Series and won 27.\n   - The Los Angeles Dodgers have won 6 World Series.\n   - Other teams have fewer titles.\n\n3. The Montreal Expos were part of the National League and were not the team with the most World Series titles. However, the question asks for the organization that includes the team with the most titles, which is the New York Yankees.\n\n4. The question a"
+    },
+    {
+      "sample_id": 577,
+      "question": "Who brought the language Hokkien to the country between the country that hosted the tournament and t",
+      "prediction": "myanmar",
+      "reference": "Han Chinese emigrants",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 262,
+        "latency": 12.820142984390259
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to identify:\n\n1. The country that hosted the tournament (Cricket World Cup) and the country where That Dam is from.\n2. Who brought the language Hokkien to the country between these two countries.\n\nFrom the context:\n- That Dam is located in Laos.\n- The Cricket World Cup was co-hosted by Sri Lanka and Pakistan in 1996. However, the question refers to \"the country that hosted the tournament\" without specifying which one, so we can consider either Sri Lanka or Pakistan. For simplicity, we will use Sri Lanka as the host country.\n- The context states: \"Many ethnic Han Chinese emigrants to the region were Hoklo from southern Fujian, and brought the language to what is now Burma (Myanmar), Indonesia (the former Dutch East Indies) and present day Malaysia and Singapo"
+    },
+    {
+      "sample_id": 579,
+      "question": "In what state is the district where the one who wanted to reform and address the institution behind ",
+      "prediction": "new york",
+      "reference": "Saxony-Anhalt",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 219,
+        "latency": 10.625491857528687
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To determine the state where the district is located where the one who wanted to reform and address the institution behind the religion of Egidio Vagnozzi preached a sermon, we need to follow these steps:\n\n1. Identify who Egidio Vagnozzi is: He was an Italian Cardinal of the Catholic Church.\n2. Determine what institution he was associated with: As a Cardinal in the Catholic Church, he was part of the Roman Catholic Church's institutional structure.\n3. Identify who preached a sermon related to reforming this institution: The context mentions a sermon given by Father Flynn in a Catholic church in The Bronx, New York.\n4. Identify the district where this sermon was preached: The sermon was given in The Bronx, New York.\n5. Determine the state where this district is located: The Bronx is a borou"
+    },
+    {
+      "sample_id": 580,
+      "question": "What is the seat of the county sharing a border with the county in which Valley New School is locate",
+      "prediction": "appleton",
+      "reference": "Green Bay",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 86,
+        "latency": 4.222754240036011
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Valley New School is located in Appleton, Wisconsin. Appleton is in Brown County, Wisconsin. The county sharing a border with Brown County is Outagamie County. The seat of Outagamie County is Appleton. Therefore, the seat of the county sharing a border with the county in which Valley New School is located is Appleton. \n\nFinal Answer: Appleton"
+    },
+    {
+      "sample_id": 582,
+      "question": "When did the city where Hillcrest High School is located become capitol of the state where the scree",
+      "prediction": "1839",
+      "reference": "1839",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 182,
+        "latency": 10.775596857070923
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to determine the following:\n\n1. Identify the screenwriter of *The Poor Boob*.\n2. Determine where that screenwriter was born.\n3. Identify the state where that birthplace is located.\n4. Find out when the city where Hillcrest High School is located became the capital of that state.\n\nStep 1: The screenwriter of *The Poor Boob* is Margaret Mayo.\n\nStep 2: Margaret Mayo was born in Brownsville, Illinois.\n\nStep 3: Brownsville is in Illinois.\n\nStep 4: Hillcrest High School is located in Springfield, Missouri.\n\nNow, we need to determine when Springfield, Missouri, became the capital of Missouri. According to the context provided, Springfield became the capital of Missouri in 1839.\n\nFinal Answer: 1839"
+    },
+    {
+      "sample_id": 592,
+      "question": "What area shares a border, with the city that was the work location of an individual, who went to th",
+      "prediction": "oak lawn illinois",
+      "reference": "Rio Linda",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 241,
+        "latency": 10.73300838470459
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to break it down step by step:\n\n1. **Identify the U.S. state with a Mediterranean climate**: From the context, California is noted as having a Mediterranean climate.\n\n2. **Determine the city that was the work location of an individual during the Gold Rush in this state**: The context mentions that the California Gold Rush began in 1848 and that San Francisco was a major port and service center for the region. Samuel Brannan, a newspaper publisher in San Francisco, confirmed the discovery of gold.\n\n3. **Find the area that shares a border with this city**: The context states that Oak Lawn, Illinois, shares borders with the city (likely referring to Chicago, which is a major city in Illinois and is known to be near Oak Lawn).\n\nThus, the area that shares a borde"
+    },
+    {
+      "sample_id": 593,
+      "question": "What year did the country that is the natural boundary between where tournament was hosted and where",
+      "prediction": "2014",
+      "reference": "hosted the summit in 2014",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.33333333333333337,
+        "token_count": 340,
+        "latency": 14.846975326538086
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To determine the answer, we need to identify the country that is the natural boundary between where a tournament was hosted and where That Dam is located, then find out the year this country hosted the ASEAN Conference.\n\n1. **Identify the location of That Dam**: That Dam is located in Vientiane, Laos.\n2. **Determine the natural boundary**: The natural boundary between Laos and another country would be a shared border. Given the context, the most likely neighboring country is Thailand, as it is a close neighbor to Laos.\n3. **Identify the tournament**: The context mentions the 2020 AFC U-23 Championship qualification, which was hosted by Thailand.\n4. **Find the ASEAN Conference hosted by the country (Laos)**: According to the context, Myanmar chaired the forum and hosted the summit in 2014.\n"
+    },
+    {
+      "sample_id": 595,
+      "question": "How were people from whom new coins were a proclamation of independence by the Somali Muslim Ajuran ",
+      "prediction": "no",
+      "reference": "The dynasty regrouped and defeated the Portuguese",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 107,
+        "latency": 5.449528694152832
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The Somali Muslim Ajuran Empire was a historical entity in the Horn of Africa, not related to Thailand or the Nahe mine in Laos. The context provided does not mention any expulsion of people from the natural boundary between Thailand and the Nahe mine's country due to new coins being a proclamation of independence by the Somali Muslim Ajuran Empire. Therefore, the question is based on incorrect information.\n\nFinal Answer: no"
+    },
+    {
+      "sample_id": 601,
+      "question": "How were people from whom the new coins were a proclamation of independence by the Somali Muslim Aju",
+      "prediction": "no",
+      "reference": "The dynasty regrouped and defeated the Portuguese",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 137,
+        "latency": 5.55579400062561
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The Somali Muslim Ajuran Empire was involved in economic activities in the Indian Ocean, including the use of new coinage that proclaimed economic independence from the Portuguese. There is no direct historical connection between the Ajuran Empire and the natural boundary between Thailand and A Doi's country. The context provided does not indicate any expulsion of people from this boundary due to the Ajuran Empire's actions. Therefore, the question is based on a misunderstanding or misinterpretation of the historical events.\n\nFinal Answer: No."
+    },
+    {
+      "sample_id": 602,
+      "question": "What is the name of the child of the Italian navigator who sailed for England and explored the east ",
+      "prediction": "sebastian cabot",
+      "reference": "Sebastian Cabot",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 183,
+        "latency": 9.461045503616333
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To determine the name of the child of the Italian navigator who sailed for England and explored the east coast of the continent Francisco Vázquez' birthplace is located, we need to follow these steps:\n\n1. Identify Francisco Vázquez's birthplace: Francisco H. Vázquez was born in Guadalajara, Jalisco, Mexico.\n2. Determine which continent this location is on: Mexico is located in North America.\n3. Identify the Italian navigator who sailed for England and explored the east coast of North America: This refers to John Cabot (Giovanni Caboto), an Italian navigator who sailed for England and explored the east coast of North America.\n4. Find the child of John Cabot: John Cabot's son was Sebastian Cabot.\n\nFinal Answer: Sebastian Cabot"
+    },
+    {
+      "sample_id": 612,
+      "question": "Who was in charge in the country that is the natural boundary between the country that hosted the to",
+      "prediction": "russia",
+      "reference": "Thein Sein",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 362,
+        "latency": 17.23702907562256
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to identify the country that is the natural boundary between the country that hosted the tournament and the country where A Don is located. \n\n1. **Identify the country where A Don is located**: A Don is a village in south-eastern Laos near the border with Vietnam.\n\n2. **Identify the country that hosted the tournament**: The question does not specify which tournament, so we must infer from the context provided. The most relevant tournament mentioned is the 2018 FIFA World Cup, which was hosted by Russia.\n\n3. **Determine the natural boundary between Russia and Laos**: The natural boundary between Russia and Laos would be the border between these two countries. However, this is not directly stated in the context.\n\n4. **Identify who was in charge in the country "
+    },
+    {
+      "sample_id": 616,
+      "question": "When was the most recent Bicycle Friendly Community Award given to the city where the only group lar",
+      "prediction": "2013",
+      "reference": "2013",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 191,
+        "latency": 12.853033542633057
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To determine the answer, we need to follow these steps:\n\n1. Identify the record label of \"Desde El Principio\": According to the context, \"Desde El Principio\" is an album released by Sony Music Entertainment.\n2. Determine the headquarters of the largest group associated with Sony Music: The context indicates that Sony Music Entertainment is part of Sony Corporation of America, which is a subsidiary of Sony Corporation (Japan). However, the context also mentions that Sony Music is headquartered in New York City.\n3. Find the most recent Bicycle Friendly Community Award given to Santa Monica, California: The context states that Santa Monica has received the Bicycle Friendly Community Award, with the most recent being a Silver award in 2013.\n\nFinal Answer: 2013"
+    },
+    {
+      "sample_id": 621,
+      "question": "Where does the river by the city where the Southeast Library designer died and the Ohio River meet?",
+      "prediction": "cairo illinois",
+      "reference": "at the city of Cairo, Illinois",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5,
+        "token_count": 102,
+        "latency": 5.434343576431274
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to determine where the river by the city where the Southeast Library designer died meets the Ohio River.\n\n1. The Southeast Library was designed by Ralph Rapson.\n2. Ralph Rapson died in 1985.\n3. He died in Minneapolis, Minnesota.\n4. The river by Minneapolis is the Mississippi River.\n5. The Mississippi River meets the Ohio River at Cairo, Illinois.\n\nFinal Answer: Cairo, Illinois"
+    },
+    {
+      "sample_id": 623,
+      "question": "The German priest, who wanted to reform Laurean Rugambwa's religion, preached a sermon on Marian dev",
+      "prediction": "saxony anhalt",
+      "reference": "Saxony-Anhalt",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 87,
+        "latency": 5.497147083282471
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to determine which German state the German priest preached a sermon on Marian devotion in late in Laurean Rugambwa's life.\n\n1. The context mentions that the sermon was preached at Wittenberg.\n2. From the context, we know that Wittenberg is a district in the east of Saxony-Anhalt, Germany.\n\nFinal Answer: Saxony-Anhalt"
+    },
+    {
+      "sample_id": 629,
+      "question": "What city shares a border with the city where a person went to work during the gold rush in the bigg",
+      "prediction": "nevada",
+      "reference": "Rio Linda",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 372,
+        "latency": 16.740020275115967
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to identify the city that shares a border with the city where a person went to work during the gold rush in the biggest state in the USA by population.\n\n1. **Identify the biggest state in the USA by population**: According to the context, California is the most populous state.\n2. **Determine which gold rush occurred in California**: The context mentions the \"California Gold Rush,\" which began in 1848.\n3. **Identify the city associated with the California Gold Rush**: The context states that Sacramento, California, was founded around the time of the gold rush and has a history tied to it.\n4. **Find a city that shares a border with Sacramento**: The context does not directly mention a city that borders Sacramento, but we can infer from general knowledge that S"
+    },
+    {
+      "sample_id": 640,
+      "question": "When was the region immediately north of the region home to Israel and the location of Operation Ear",
+      "prediction": "lebanon",
+      "reference": "1932",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 224,
+        "latency": 8.268981456756592
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To determine the answer, we need to identify the region immediately north of the region home to Israel and locate where Operation Earnest Will was established.\n\n1. **Region Home to Israel**: Israel is located in the Middle East, with its northern border adjacent to Lebanon.\n\n2. **Region Immediately North of Israel**: The region immediately north of Israel is Lebanon.\n\n3. **Location of Operation Earnest Will**: Operation Earnest Will was a U.S. military operation conducted in 1987 in the Persian Gulf, specifically in the waters off the coast of Saudi Arabia. It was aimed at protecting oil tankers during the Iran-Iraq War.\n\n4. **Conclusion**: The region immediately north of Israel is Lebanon, and Operation Earnest Will was established in the Persian Gulf, near Saudi Arabia. Therefore, the an"
+    },
+    {
+      "sample_id": 641,
+      "question": "What day is the Feast held in the city where the headquarters of the only group larger than Långa nä",
+      "prediction": "may 4",
+      "reference": "May 4",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 204,
+        "latency": 10.150944948196411
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To determine the answer, we need to follow these steps:\n\n1. Identify the record label of Långa nätter: The album \"Långa nätter\" is released on Sony Music Entertainment.\n2. Determine the largest record company larger than Sony Music Entertainment: According to the context, Universal Music Group is the only group larger than Sony Music Entertainment.\n3. Identify the headquarters of Universal Music Group: The context does not explicitly state the headquarters of Universal Music Group. However, based on general knowledge, Universal Music Group's headquarters is in New York City.\n4. Determine the feast day in the city where Universal Music Group's headquarters is located: The context mentions that Santa Monica was named in honor of the feast day of Saint Monica, which is celebrated on May 4.\n\nF"
+    },
+    {
+      "sample_id": 646,
+      "question": "What is the longest home run in the history of the league of the team that has played the most games",
+      "prediction": "575 feet",
+      "reference": "582 feet (177 m)",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3333333333333333,
+        "token_count": 155,
+        "latency": 7.939722776412964
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to identify two key pieces of information:\n\n1. **The team that has played the most games in the competition they give out MVP awards after**: The MVP awards are given out after the World Series. The team that has played the most games in the World Series is the New York Yankees, who have played in 40 World Series games.\n\n2. **The longest home run in the history of the league of that team**: The New York Yankees are part of the American League (AL). The longest verifiable home run in Major League Baseball history is 575 feet, hit by Babe Ruth at Tiger Stadium.\n\nFinal Answer: 575 feet"
+    },
+    {
+      "sample_id": 652,
+      "question": "When was the region that lies to the north of where Israel is located and where The World is located",
+      "prediction": "1932",
+      "reference": "1932",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 229,
+        "latency": 10.938035249710083
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To determine when the region to the north of Israel and The World (archipelago) was established, we need to identify these two regions:\n\n1. **Region to the north of Israel**: This is Saudi Arabia, as it lies directly to the north of Israel.\n2. **The World (archipelago)**: This is an artificial archipelago located in the Persian Gulf, off the coast of Dubai, United Arab Emirates.\n\nNow, we need to find out when the region that lies to the north of both Israel and The World was established. Since Saudi Arabia is to the north of Israel and also to the north of The World (as The World is in the UAE, which is south of Saudi Arabia), the region in question is Saudi Arabia.\n\nFrom the context provided:\n- \"The Kingdom of Saudi Arabia was founded in 1932 by Ibn Saud.\"\n\nThus, the region to the north o"
+    },
+    {
+      "sample_id": 654,
+      "question": "Which county shares a border with the county where the most populous city in the state where armed r",
+      "prediction": "dekalb county",
+      "reference": "Presque Isle County",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4,
+        "token_count": 234,
+        "latency": 11.475622653961182
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to follow these steps:\n\n1. Identify which state has armed robbery as a capital crime.\n   - From the context, \"armed robbery in Georgia\" is listed as a capital crime.\n\n2. Determine the most populous city in that state.\n   - The most populous city in Georgia is Atlanta.\n\n3. Identify the county where this city is located.\n   - Atlanta is located in Fulton County, Georgia.\n\n4. Determine which county shares a border with this county.\n   - The counties that share a border with Fulton County are Gwinnett County, DeKalb County, Cobb County, and Henry County.\n\nSince the question asks for the county that shares a border with the county where the most populous city in the state where armed robbery is a capital crime is located, any of the adjacent counties (Gwinnett, D"
+    },
+    {
+      "sample_id": 656,
+      "question": "When was the region that lies to the north of the region where Strangers No More took place and the ",
+      "prediction": "the levant region",
+      "reference": "1930",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 538,
+        "latency": 26.121395349502563
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To determine when the region to the north of the region where \"Strangers No More\" took place and the Persian Gulf was created, we need to break this down step by step:\n\n1. **Identify the region where \"Strangers No More\" took place**:  \n   The film is set in Tel Aviv, Israel.\n\n2. **Determine the region to the north of Tel Aviv, Israel**:  \n   The region to the north of Tel Aviv is primarily the area of northern Israel, which includes parts of the Golan Heights and the Levant region.\n\n3. **Identify the region to the north of the region where \"Strangers No More\" took place and the Persian Gulf**:  \n   The question seems to be asking for a region that lies both to the north of the region where \"Strangers No More\" took place (Tel Aviv, Israel) and also to the north of the Persian Gulf.\n\n4. **Un"
+    },
+    {
+      "sample_id": 658,
+      "question": "The largest city in the state the performer of Pithecanthropus Erectus was from is also the state ca",
+      "prediction": "mario andretti",
+      "reference": "Mario Andretti",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 273,
+        "latency": 13.937820196151733
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Step 1: Identify the state associated with \"Pithecanthropus Erectus.\" The context mentions that it is an album by Charles Mingus.\n\nStep 2: Determine where Charles Mingus was born and raised. The context states he was born in Nogales, Arizona, and largely raised in the Watts area of Los Angeles.\n\nStep 3: Identify the state associated with Arizona. The context states that Arizona's capital and largest city is Phoenix.\n\nStep 4: Determine the largest city in Arizona. The context confirms that Phoenix is the largest city in Arizona.\n\nStep 5: Identify the city that is both the largest city and the state capital in Arizona. The context confirms that Phoenix is both the capital and the largest city in Arizona.\n\nStep 6: Identify the IndyCar race held in that city. The context mentions the \"Desert D"
+    },
+    {
+      "sample_id": 660,
+      "question": "How were people from whom new coins were a proclamation of independence by the Somali Muslim Ajuran ",
+      "prediction": "no",
+      "reference": "The dynasty regrouped and defeated the Portuguese",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 99,
+        "latency": 5.05915641784668
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The question is based on a misunderstanding or misstatement. The Somali Muslim Ajuran Empire was an ancient empire in the Horn of Africa, while the natural boundary between Thailand and Tham Pha's country (likely referring to Laos) is unrelated. There is no historical connection between the Ajuran Empire and the expulsion of people from the boundary between Thailand and Laos. \n\nFinal Answer: No."
+    },
+    {
+      "sample_id": 664,
+      "question": "When was the region that lies to the north of where israel is located and the body of water where Kh",
+      "prediction": "1932",
+      "reference": "1932",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 96,
+        "latency": 6.475088834762573
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The region to the north of Israel is Lebanon. The body of water where Kharg Island is located is the Persian Gulf. The Persian Gulf is bordered by Saudi Arabia and Iran. The region that includes the area north of Israel and the Persian Gulf is the Middle East. The establishment of the modern state of Saudi Arabia, which is part of this region, occurred in 1932. \n\nFinal Answer: 1932"
+    },
+    {
+      "sample_id": 667,
+      "question": "When was the region that lies to the north of where Israel is located and the body of water between ",
+      "prediction": "30 million years ago",
+      "reference": "1930",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 194,
+        "latency": 8.504424095153809
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to identify the region that lies to the north of Israel and the body of water between East Africa and the Arabian peninsula.\n\n1. The region to the north of Israel is the Levant, which includes parts of modern-day Syria, Lebanon, Jordan, and Palestine.\n2. The body of water between East Africa and the Arabian Peninsula is the Red Sea.\n\nThe Red Sea is a body of water that borders both the Arabian Peninsula (to the west) and East Africa (to the east). It was formed as a result of tectonic activity, specifically the rifting of the African Plate and the Arabian Plate.\n\nThe Red Sea was created approximately 30 to 50 million years ago during the Miocene epoch due to the movement of these tectonic plates.\n\nFinal Answer: 30 to 50 million years ago"
+    },
+    {
+      "sample_id": 669,
+      "question": "Among the top five largest urban areas in the state where Infest's performer was formed, where does ",
+      "prediction": "third",
+      "reference": "third-largest",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 186,
+        "latency": 10.833474397659302
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To determine where Veoh's headquarters city ranks among the top five largest urban areas in the state where Infest's performer was formed, we need to follow these steps:\n\n1. Identify the performer of \"Infest\" — the album is by Papa Roach, which is an American rock band from Vacaville, California.\n2. Determine the state where Papa Roach was formed — California.\n3. Identify the top five largest urban areas in California:\n   - Los Angeles\n   - San Francisco\n   - San Diego\n   - Riverside-San Bernardino\n   - Oakland\n4. Identify Veoh's headquarters city — San Diego, California.\n5. Determine the rank of San Diego among the top five largest urban areas in California — San Diego is the third-largest urban area in California.\n\nFinal Answer: third"
+    },
+    {
+      "sample_id": 684,
+      "question": "What are the Genesis's advantages over the game platform with a 3 letter name abbreviation, featurin",
+      "prediction": "better graphics and sound",
+      "reference": "built on 16-bit architectures and offered improved graphics and sound",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.46153846153846156,
+        "token_count": 223,
+        "latency": 10.688620805740356
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The question asks for the advantages of the Genesis over a game platform with a 3-letter name abbreviation, which is featured in a game named after the league that chooses where the Super Bowl is held.\n\nStep 1: Identify the 3-letter name abbreviation of the game platform. The context mentions the \"Super Bowl\" and refers to the \"NFL\" as the league that chooses where the Super Bowl is held. The NFL is the league, and the platform with a 3-letter name abbreviation is likely referring to the \"NES\" (Nintendo Entertainment System).\n\nStep 2: Identify the advantages of the Sega Genesis over the NES. From the context, it is mentioned that the Sega Genesis, known as the Mega Drive outside North America, was a 16-bit console while the NES was an 8-bit console. This implies that the Genesis had better"
+    },
+    {
+      "sample_id": 685,
+      "question": "Who won the indy car race in the most populated city of the state where the performer of East Coasti",
+      "prediction": "is",
+      "reference": "Mario Andretti",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 348,
+        "latency": 15.449618339538574
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to break it down step by step:\n\n1. **Identify the performer of \"East Coasting\":**  \n   The context states that \"East Coasting\" is an album by Charles Mingus.\n\n2. **Determine the state where Charles Mingus is from:**  \n   The context mentions that Charles Mingus was born in Nogales, Arizona, and raised in the Watts area of Los Angeles. Therefore, he is associated with California (Los Angeles).\n\n3. **Find the most populated city in California:**  \n   The context does not directly mention the most populated city in California, but it does mention that Los Angeles is the largest city in the U.S. state of California.\n\n4. **Determine which IndyCar race was held in the most populated city of the state where Charles Mingus is from (Los Angeles):**  \n   The context d"
+    },
+    {
+      "sample_id": 689,
+      "question": "For what major conflict is the country on the natural boundary between the country that hosted the t",
+      "prediction": "sino vietnamese war",
+      "reference": "one of the world's longest-running ongoing civil wars.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 271,
+        "latency": 13.65541958808899
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To determine the answer, we need to identify the countries involved and the major conflict associated with them.\n\n1. **Identify the countries**: \n   - \"A Don\" is a village in south-eastern Laos near the border with Vietnam.\n   - The country where A Don is from is Laos.\n   - The context mentions that the country on the natural boundary between the country that hosted the tournament and the country where A Don is from is known for a major conflict.\n\n2. **Determine the tournament host**:\n   - The 2017 FIFA Confederations Cup was hosted by Russia.\n\n3. **Identify the country on the natural boundary**:\n   - Russia's natural boundary with Laos would be through China, as Laos is bordered by China to the north.\n\n4. **Major conflict associated with the country (China)**:\n   - China has been involved"
+    },
+    {
+      "sample_id": 693,
+      "question": "Edwards won the primary in a state excluding the state that sent the most tourists in to Tennessee i",
+      "prediction": "university of south carolina",
+      "reference": "University of South Carolina",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 249,
+        "latency": 9.762862920761108
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to determine which state's university and Fort Hill's city's university have the most national championships between them.\n\n1. **Identify the states involved:**\n   - The question mentions a state that sent the most tourists to Tennessee in 2013. According to the context, the second highest originating location for tourists to Tennessee is Georgia, accounting for 8.4% of tourists.\n   - Therefore, the state in question is Georgia.\n   - Fort Hill is located in Clemson, South Carolina. Thus, the university associated with Fort Hill is Clemson University.\n\n2. **Determine the number of national championships for each university:**\n   - From the context, Clemson University has 5 national championships.\n   - The University of South Carolina has 10 national champions"
+    },
+    {
+      "sample_id": 694,
+      "question": "When did the Dutch arrive in the country near the country where the author of The Book Thief is a ci",
+      "prediction": "13 december 1642",
+      "reference": "13 December 1642",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 158,
+        "latency": 8.085051536560059
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to determine two key pieces of information:\n\n1. **Who is the author of *The Book Thief*?**  \n   - The author of *The Book Thief* is Markus Zusak.\n\n2. **Which country is the author a citizen of?**  \n   - Markus Zusak is an Australian citizen.\n\n3. **When did the Dutch arrive in the country near the country where the author of *The Book Thief* is a citizen of?**  \n   - The author of *The Book Thief*, Markus Zusak, is a citizen of Australia.  \n   - The Dutch first arrived in New Zealand, which is near Australia, on 13 December 1642, according to the context provided.\n\nFinal Answer: 13 December 1642"
+    },
+    {
+      "sample_id": 699,
+      "question": "How long was the place where the Yongle Emperor greeted the person to whom the edict was addressed t",
+      "prediction": "the place where the yongle emperor greeted the karmapa lama was not the capitol",
+      "reference": "about 400 years",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 109,
+        "latency": 6.063929080963135
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The Yongle Emperor greeted the Karmapa Lama at Nanjing.  \nNanjing was the capital of the Ming dynasty during the Yongle Emperor's reign.  \nGuangling District is part of Yangzhou, Jiangsu province, China.  \nNanjing and Guangling District are in different regions of China.  \n\nFinal Answer: The place where the Yongle Emperor greeted the Karmapa Lama was not the capitol of the area where Guangling District was located.  \nFinal Answer: no"
+    },
+    {
+      "sample_id": 704,
+      "question": "How long was the city where the Yongle emperor greeted the person the Ming court thought the represe",
+      "prediction": "no",
+      "reference": "about 400 years",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 255,
+        "latency": 11.869465589523315
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to identify the city where the Yongle Emperor greeted the person the Ming court thought were representatives sent by the capitol of Yaxing Coach's headquarters location.\n\n1. **Identify the relevant context**: The question involves the Yongle Emperor and a specific event involving a greeting. The context mentions that the Yongle Emperor greeted Deshin Shekpa, the 5th Karmapa Lama, in Nanjing in 1407.\n   \n2. **Determine the location of the event**: The text states, \"The Yongle Emperor came out of the palace in Nanjing to greet the Karmapa.\"\n\n3. **Confirm the relevance of Yaxing Coach**: The context also mentions that Yaxing Coach is based in Yangzhou, Jiangsu, China. However, this information is unrelated to the event involving the Yongle Emperor and the Karma"
+    },
+    {
+      "sample_id": 711,
+      "question": "Where is the district that the person who wanted to reform and address the religion that practices c",
+      "prediction": "vatican city",
+      "reference": "Saxony-Anhalt",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 242,
+        "latency": 11.684468507766724
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to identify the person who wanted to reform and address the religion that practices candidacy, preach a sermon on Marian devotion before his death, and then determine the district where that person is located.\n\n1. The person who preached a sermon on Marian devotion before his death is Pope Paul VI.\n2. Pope Paul VI was involved in religious reforms and was a Marian devotee.\n3. The question refers to a person who wanted to reform and address the religion that practices candidacy. This refers to the Catholic Church, as candidacy is a rite in Roman Catholic seminary formation.\n4. The question asks for the district where this person (Pope Paul VI) is located. However, Pope Paul VI is not associated with a specific district; he was the Pope of the Catholic Church "
+    },
+    {
+      "sample_id": 713,
+      "question": "Who has more national championships, the university where Fort Hill is, or the university in the sta",
+      "prediction": "university of south carolina",
+      "reference": "University of South Carolina",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 239,
+        "latency": 9.325567483901978
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To determine who has more national championships, we need to identify the universities in question.\n\n1. **University where Fort Hill is**: Fort Hill is located on the campus of Clemson University in South Carolina.\n2. **University in the state where Edwards won the primary**: From the context, Edwards won the primary in Georgia. The university in Georgia is not explicitly mentioned, but we can infer it refers to the University of Georgia.\n3. **University in the state containing WDXQ**: WDXQ is a radio station licensed to Cochran, Georgia, so the state is Georgia. Again, this refers to the University of Georgia.\n4. **National Championships**: From the context, Clemson University has 5 national championships, while the University of South Carolina has 10 national championships.\n\nTherefore, t"
+    },
+    {
+      "sample_id": 715,
+      "question": "What major conflict is the country between the country that hosted the tournament and the country wh",
+      "prediction": "myanmar s ongoing civil war",
+      "reference": "one of the world's longest-running ongoing civil wars.",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3076923076923077,
+        "token_count": 248,
+        "latency": 11.790750503540039
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to identify the two countries in question and then determine what major conflict they are known for.\n\n1. **Identify the countries:**\n   - The country that hosted the tournament: Japan (from the context of the 2016 FIFA Club World Cup).\n   - The country where That Dam is from: Laos (from the context of That Dam).\n\n2. **Determine the major conflict between Japan and Laos:**\n   - There is no direct mention of a major conflict between Japan and Laos in the given context.\n   - However, there is a mention of Myanmar (Burma) being involved in a long-running civil war due to ethnic strife.\n\n3. **Conclusion:**\n   - The question seems to be referring to a conflict involving Myanmar, not directly between Japan and Laos.\n   - Therefore, the major conflict associated wit"
+    },
+    {
+      "sample_id": 718,
+      "question": "What date did the explorer reach the location of the headquarters of the only company larger than BM",
+      "prediction": "august 3 1769",
+      "reference": "August 3, 1769",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 233,
+        "latency": 15.75228214263916
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To determine the date the explorer reached the location of the headquarters of the only company larger than BMG's partner from 2005-2007, we need to follow these steps:\n\n1. Identify BMG's partner from 2005-2007: From the context, BMG partnered with Sony Music Entertainment to form Sony BMG Music Entertainment.\n2. Determine which company is larger than Sony Music Entertainment: The context states that Sony Music Entertainment is the world's second largest recorded music company, after Universal Music Group (UMG).\n3. Identify the headquarters of the only company larger than BMG's partner (UMG): The context states that Universal Music Group is based in Santa Monica, California.\n4. Find the date the explorer reached the location of Santa Monica, California: The context states that explorer Gas"
+    },
+    {
+      "sample_id": 728,
+      "question": "When did the explorer reach the city where the only group larger than the record label of The Lost T",
+      "prediction": "august 3 1769",
+      "reference": "August 3, 1769",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 409,
+        "latency": 18.604626893997192
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to break it down step by step:\n\n1. **Identify the record label of The Lost Trident Sessions**:  \n   - According to the context, *The Lost Trident Sessions* was released on **Sony Music Entertainment**.\n\n2. **Determine which record label is larger than Sony Music Entertainment**:  \n   - From the context, **Universal Music Group** is stated as the world's largest recorded music company, and **Sony Music** is the second largest. Therefore, **Universal Music Group** is larger than Sony Music.\n\n3. **Find the headquarters of the record label larger than Sony Music (i.e., Universal Music Group)**:  \n   - The context does not explicitly state the headquarters of Universal Music Group. However, it does mention that **EmArcy Records**, a subsidiary of Universal Music "
+    },
+    {
+      "sample_id": 729,
+      "question": "There exists a country A that forms a boundary between Thailand and the country containing the Khong",
+      "prediction": "no",
+      "reference": "The dynasty regrouped and defeated the Portuguese",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 397,
+        "latency": 14.623784065246582
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to determine how the people that the Ajuran Empire declared independence from by minting coins were expelled from country A.\n\n1. **Identify Country A**: The question states that there exists a country A that forms a boundary between Thailand and the country containing the Khong District. From the context, Khong District is in Champassack Province, Laos. Therefore, country A must be Thailand, as it borders Laos (Khong District) and Thailand is mentioned as being adjacent to Laos in the context of Thailand's geography.\n\n2. **Understand the Ajuran Empire's Independence**: According to the context, the Somali Muslim Ajuran Empire, allied with the Ottomans, defied the Portuguese economic monopoly in the Indian Ocean by employing a new coinage which followed the O"
+    },
+    {
+      "sample_id": 732,
+      "question": "The carnival of Guido Maus's birth place is linked to a European culture. In the era of Rotrude's fa",
+      "prediction": "medieval latin",
+      "reference": "Medieval Latin",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 85,
+        "latency": 8.49597454071045
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Guido Maus was born in Malmedy, which is associated with the Carnival of Malmedy. The Carnival of Malmedy is linked to a European culture, specifically Walloon culture. In the era of Rotrude's father, which refers to the time of Charlemagne, the language of that culture was later referred to as Medieval Latin.\n\nFinal Answer: Medieval Latin"
+    },
+    {
+      "sample_id": 741,
+      "question": "Which county shares a border with the county where the most populous city in the other state that se",
+      "prediction": "county so any of these counties would be correct",
+      "reference": "Presque Isle County",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.16666666666666666,
+        "token_count": 383,
+        "latency": 18.60590410232544
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to break it down step by step:\n\n1. **Identify the most populous city in Tennessee**: The most populous city in Tennessee is Memphis.\n\n2. **Determine which state sent Tennessee the most tourists in 2013**: According to the context, the second highest originating location for tourists to Tennessee is the state of Georgia.\n\n3. **Identify the most populous city in Georgia**: The largest municipality by population in Georgia is Atlanta.\n\n4. **Find the county where Atlanta is located**: Atlanta is located in Fulton County, Georgia.\n\n5. **Identify the county that shares a border with the county where the most populous city in the other state (Georgia) is located**: The question asks for the county that shares a border with the county where the most populous city in"
+    },
+    {
+      "sample_id": 745,
+      "question": "When was the region immediately north of the region where Israel is located and the final destinatio",
+      "prediction": "1869",
+      "reference": "1930",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 466,
+        "latency": 16.71285343170166
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To determine when the region immediately north of the region where Israel is located and the final destination for the export crops created was, we need to identify the relevant regions and their historical context.\n\n1. **Identify the region where Israel is located**: Israel is a country in the Middle East.\n2. **Determine the region immediately north of Israel**: The region immediately north of Israel is the Golan Heights, which is part of Syria, but it is also claimed by Israel. However, the context does not specify this directly.\n3. **Identify the final destination for the export crops created**: From the context, it mentions that \"many of these export crops passed through Shiraz on their way to the Persian Gulf.\" This indicates that the final destination for the export crops is the Pers"
+    },
+    {
+      "sample_id": 751,
+      "question": "Normalization occurred in Country A that invaded Country B because the military branch was unprepare",
+      "prediction": "no",
+      "reference": "Alfredo Stroessner's Paraguay",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 286,
+        "latency": 13.265263795852661
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The question asks which country was the only communist country to have an embassy where normalization occurred in Country A that invaded Country B because the military branch was unprepared. \n\nStep 1: Identify the context related to normalization and the invasion. The context mentions \"Normalization period\" in Czechoslovakia, which is associated with the Prague underground culture.\n\nStep 2: Identify the context related to the embassy. The context states that Yugoslavia was the only communist country allowed to have an embassy in Alfredo Stroessner's Paraguay.\n\nStep 3: Determine if there is a connection between normalization in Country A (Czechoslovakia) and the embassy in Country B (Paraguay). There is no direct connection mentioned in the context between the normalization in Czechoslovaki"
+    },
+    {
+      "sample_id": 752,
+      "question": "What county has a city that is adjacent to the capital city of Erskine College's state?",
+      "prediction": "richland county",
+      "reference": "Richland County",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 152,
+        "latency": 6.928645133972168
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to determine which county has a city that is adjacent to the capital city of Erskine College's state.\n\n1. Identify the state of Erskine College: Erskine College is located in Due West, South Carolina.\n2. Identify the capital city of South Carolina: The capital city of South Carolina is Columbia.\n3. Identify cities adjacent to Columbia, South Carolina: Forest Acres is a city in Richland County, South Carolina, and it is adjacent to Columbia.\n4. Determine the county of Forest Acres: Forest Acres is located in Richland County, South Carolina.\n\nFinal Answer: Richland County"
+    },
+    {
+      "sample_id": 757,
+      "question": "When did the city where Superior Drill Company is located become capitol of the state where the scre",
+      "prediction": "1839",
+      "reference": "1839",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 190,
+        "latency": 15.968269109725952
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to determine the following:\n\n1. Identify the city where the Superior Drill Company is located.\n   - From the context: \"Superior Drilling Company was a manufacturer of farming implements that formed in the late 1800' to 1903 in Springfield, Ohio, United States.\"\n\n2. Determine the state where the screenwriter of *The Poor Boob* was born.\n   - From the context: \"Margaret Mayo (playwright) ... born in Brownsville, Illinois.\"\n   - Therefore, the screenwriter was born in Illinois.\n\n3. Identify when the city where the Superior Drill Company is located (Springfield, Ohio) became the capital of the state (Illinois).\n   - From the context: \"Springfield became the third and current capital of Illinois in 1839.\"\n\nFinal Answer: 1839"
+    },
+    {
+      "sample_id": 759,
+      "question": "What is the largest medical school in the nation where, along with the country of citizenship of the",
+      "prediction": "medical university of warsaw",
+      "reference": "Medical University of Warsaw",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 195,
+        "latency": 8.265893459320068
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The question asks for the largest medical school in the nation where, along with the country of citizenship of the mother of Marie Antoinette, many expelled French Jews relocated.\n\nStep 1: Identify the country of citizenship of the mother of Marie Antoinette.\n- Marie Antoinette's mother was Empress Maria Theresa of Austria. Therefore, her country of citizenship was Austria.\n\nStep 2: Determine where many expelled French Jews relocated.\n- The context states that after being expelled from France in the Middle Ages, many Jews emigrated eastwards, settling in Poland and Hungary.\n\nStep 3: Identify the largest medical school in Poland.\n- The context states that the Medical University of Warsaw is the largest medical school in Poland.\n\nFinal Answer: Medical University of Warsaw"
+    },
+    {
+      "sample_id": 760,
+      "question": "what is the largest city the country that is a natural boundary between the country that hosted the ",
+      "prediction": "yangon",
+      "reference": "largest city is Yangon (Rangoon)",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.33333333333333337,
+        "token_count": 390,
+        "latency": 19.787476301193237
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to identify the following:\n\n1. **The country that hosted the tournament**: The context mentions the 2020 AFC U-23 Championship qualification, and it states that Thailand decided to participate in qualification despite having automatically qualified for the final tournament. Therefore, Thailand is the country that hosted the tournament.\n\n2. **The country that the Dam is located**: The context mentions \"That Dam\" (also known as the Black Stupa), which is located in Vientiane, Laos. Therefore, the country where the Dam is located is Laos.\n\n3. **The country that is a natural boundary between Thailand and Laos**: The context provides information about the geography of Myanmar and Thailand. It also describes the borders of both countries. However, the most direct "
+    },
+    {
+      "sample_id": 776,
+      "question": "Among the top five largest urban areas in the state where Infest's performer was formed, where does ",
+      "prediction": "third",
+      "reference": "third-largest",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 206,
+        "latency": 14.919492244720459
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To determine where Tammy Leitner's birth city ranks among the top five largest urban areas in the state where Infest's performer was formed, we follow these steps:\n\n1. **Identify the performer of Infest**: The album \"Infest\" is by the American rock band Papa Roach.\n2. **Determine the location of Papa Roach**: Papa Roach is from Vacaville, California.\n3. **Identify the top five largest urban areas in California**: The top five largest urban areas in California are:\n   - Los Angeles\n   - San Diego\n   - San Jose\n   - San Francisco\n   - Riverside-San Bernardino\n4. **Identify Tammy Leitner's birth city**: Tammy Leitner was born in San Diego, California.\n5. **Determine the rank of San Diego among the top five largest urban areas in California**: San Diego is the third-largest urban area in Calif"
+    },
+    {
+      "sample_id": 778,
+      "question": "Besides areas of the country gaining control of Florida after the conflict Charles Edmund Nugent par",
+      "prediction": "barcelona and madrid",
+      "reference": "two cities",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 94,
+        "latency": 4.987316846847534
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Simon Sabiani died in Barcelona, Spain, while Real Madrid is a football club based in Madrid, Spain. The differences include that Simon Sabiani died in a city (Barcelona) and Real Madrid is a sports team based in another city (Madrid). Additionally, Simon Sabiani was a French businessman and politician, while Real Madrid is a football club.\n\nFinal Answer: Barcelona and Madrid"
+    },
+    {
+      "sample_id": 782,
+      "question": "What was the wettest year in the second largest city in the state where Yuma's Library District is l",
+      "prediction": "1905",
+      "reference": "1905",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 147,
+        "latency": 7.176661491394043
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To determine the wettest year in the second largest city in the state where Yuma's Library District is located, we need to follow these steps:\n\n1. Identify the location of Yuma's Library District: The context states that the Yuma County Library District serves Yuma County, Arizona.\n2. Identify the second largest city in Arizona: The context states that Tucson is the second largest city in Arizona after Phoenix.\n3. Determine the wettest year in Tucson: The context provides data for Tucson, indicating that the wettest year was 1905 with 24.17 inches of precipitation.\n\nFinal Answer: 1905"
+    },
+    {
+      "sample_id": 785,
+      "question": "Who won the Indy car race in the largest populated city in the state where the Jazz Portraits: Mingu",
+      "prediction": "mario andretti",
+      "reference": "Mario Andretti",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 240,
+        "latency": 10.123859405517578
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To determine who won the Indy car race in the largest populated city in the state where the Jazz Portraits: Mingus in Wonderland performer is from, we follow these steps:\n\n1. Identify the performer of \"Jazz Portraits: Mingus in Wonderland.\" The context states that this album is by Charles Mingus.\n2. Determine the state where Charles Mingus is from. The context states that Charles Mingus was born in Nogales, Arizona.\n3. Identify the largest populated city in Arizona. The context states that Phoenix is the largest populated city in Arizona.\n4. Identify the Indy car race held in the largest populated city in Arizona. The context states that the Desert Diamond West Valley Phoenix Grand Prix is held in Phoenix.\n5. Determine the winner of the Desert Diamond West Valley Phoenix Grand Prix. The co"
+    },
+    {
+      "sample_id": 808,
+      "question": "Who won the Indy Car Race in the largest populated city of the state where Yuma's Library District i",
+      "prediction": "mario andretti",
+      "reference": "Mario Andretti",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 316,
+        "latency": 15.597629070281982
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To determine who won the Indy Car Race in the largest populated city of the state where Yuma's Library District is located, we need to follow these steps:\n\n1. Identify the location of Yuma's Library District: The context states that the Yuma County Library District serves Yuma County, Arizona.\n2. Determine the largest populated city in Arizona: The context states that Tucson is the second-largest populated city in Arizona, behind Phoenix. Therefore, Phoenix is the largest populated city in Arizona.\n3. Identify the Indy Car Race held in Phoenix: The context mentions the \"Desert Diamond West Valley Phoenix Grand Prix,\" which is an IndyCar race held in Phoenix.\n4. Determine the winner of the \"Desert Diamond West Valley Phoenix Grand Prix\": The context does not explicitly mention the winner of"
+    },
+    {
+      "sample_id": 812,
+      "question": "How were the same people who the Somali Muslim Ajuran Empire declared independence from expelled fro",
+      "prediction": "ethnic somalis",
+      "reference": "The dynasty regrouped and defeated the Portuguese",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 64,
+        "latency": 3.753178119659424
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The Somali Muslim Ajuran Empire declared independence from the Ottoman Empire. The same people who were expelled from the natural boundary between Thailand and the country where Route 3 is found (Laos) are the ethnic Somalis. The answer is: ethnic Somalis."
+    },
+    {
+      "sample_id": 815,
+      "question": "How were people from whom new coins were a proclamation of independence by the Somali Muslim Ajuran ",
+      "prediction": "no",
+      "reference": "The dynasty regrouped and defeated the Portuguese",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 138,
+        "latency": 6.674465179443359
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The Somali Muslim Ajuran Empire, which was allied with the Ottomans, used new coinage that followed the Ottoman pattern to proclaim economic independence from the Portuguese. This new coinage was a symbol of their defiance against Portuguese economic dominance in the Indian Ocean. However, there is no historical or contextual information provided that links this event to the expulsion of people from the natural boundary between Thailand and Ban Kenpha's country. Therefore, the question contains an incorrect or unrelated premise.\n\nFinal Answer: No."
+    },
+    {
+      "sample_id": 824,
+      "question": "The People's Socialist Republic of Albania was a member of an organization which was dissolved in Co",
+      "prediction": "france",
+      "reference": "Soviet",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 70,
+        "latency": 4.0539515018463135
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The People's Socialist Republic of Albania was a member of the Warsaw Pact, which was dissolved in Country A (Hungary). The country where many expelled French Jews relocated, other than Country A, is Tunisia. The invasion of Tunisia was carried out by France. \n\nFinal Answer: France"
+    },
+    {
+      "sample_id": 840,
+      "question": "When did the town WLUJ is licensed in become capitol of the state in which a statue of a Latin mothe",
+      "prediction": "1839",
+      "reference": "1839",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 202,
+        "latency": 9.22228717803955
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Step 1: Identify the town WLUJ is licensed in.  \n- WLUJ is a Christian radio station licensed to Springfield, Illinois.\n\nStep 2: Determine when Springfield became the capital of Illinois.  \n- Springfield became the third and current capital of Illinois in 1839.\n\nStep 3: Identify the state where a statue of a Latin mother goddess is located.  \n- The context mentions that \"alma mater\" was an honorific title for various Latin mother goddesses, especially Ceres or Cybele. The Alma Mater sculpture at the University of Illinois at Urbana-Champaign is mentioned, which is in Illinois.\n\nStep 4: Confirm that Springfield, Illinois is the capital of Illinois, where the statue of a Latin mother goddess (Ceres or Cybele) is located.  \n- Yes, the Alma Mater statue is in Springfield, Illinois.\n\nFinal Answ"
+    },
+    {
+      "sample_id": 843,
+      "question": "What is the seat of the county sharing a border with the county in which Amy McKenzie was born?",
+      "prediction": "shawano",
+      "reference": "Green Bay",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 55,
+        "latency": 3.6612789630889893
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Amy McKenzie was born in Appleton, Wisconsin. Appleton is located in Brown County, Wisconsin. The county sharing a border with Brown County is Shawano County. The seat of Shawano County is Shawano. \n\nFinal Answer: Shawano"
+    },
+    {
+      "sample_id": 850,
+      "question": "Who won the 1993 Indy Car Race in the largest city of the state containing the city where the perfor",
+      "prediction": "nigel mansell",
+      "reference": "Mario Andretti",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 257,
+        "latency": 15.723170280456543
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To determine who won the 1993 Indy Car Race in the largest city of the state containing the city where the performer of the album \"Something Like a Bird\" is from, we need to follow these steps:\n\n1. Identify the performer of the album \"Something Like a Bird\":\n   - The performer is Charles Mingus.\n\n2. Determine the city where Charles Mingus is from:\n   - Charles Mingus was born in Nogales, Arizona, and later raised in the Watts area of Los Angeles.\n\n3. Identify the state containing the city where Charles Mingus is from:\n   - The city where he was raised, Los Angeles, is in the state of California.\n\n4. Find the largest city in California:\n   - The largest city in California is Los Angeles.\n\n5. Identify the 1993 Indy Car Race held in the largest city of the state (California):\n   - The 1993 In"
+    },
+    {
+      "sample_id": 851,
+      "question": "Country A has an embassy from the country that produces the show Krystala. Who was a prominent figur",
+      "prediction": "johnny dare",
+      "reference": "Walter Sabo",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 234,
+        "latency": 17.10595941543579
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to identify the following:\n\n1. **Country A** - The country that has an embassy from the country that produces the show *Krystala*.\n2. **The network that created a version of The Biggest Loser for Country A** - This would be the network associated with the Bruneian version of *The Biggest Loser*, as *Krystala* is a Philippine show and the Philippines has an embassy in Bandar Seri Begawan (Brunei).\n3. **A prominent figure in the radio division of the network** - The network in question is NBC, which produced *The Biggest Loser*.\n\nFrom the context provided:\n- *Krystala* is a show from the Philippines.\n- The Philippines has an embassy in Bandar Seri Begawan, which is the capital of Brunei.\n- *The Biggest Loser Brunei* is the Bruneian version of *The Biggest Lose"
+    },
+    {
+      "sample_id": 856,
+      "question": "When was the region immediately north of the region where the country that secured southern Lebanon ",
+      "prediction": "arabian peninsula",
+      "reference": "1932",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 256,
+        "latency": 20.408766984939575
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to identify the region immediately north of the region where the country that secured southern Lebanon is located and the Persian Gulf.\n\n1. **Identify the country that secured southern Lebanon**: From the context, Israel invaded and secured southern Lebanon in 1978.\n2. **Determine the region where Israel is located**: Israel is situated in the Middle East, specifically in Western Asia.\n3. **Identify the region immediately north of Israel**: The region immediately north of Israel is Lebanon.\n4. **Identify the region associated with the Persian Gulf**: The Persian Gulf is a body of water located in the south of Iran and the Arabian Peninsula.\n5. **Determine the region immediately north of the Persian Gulf**: The region immediately north of the Persian Gulf is "
+    },
+    {
+      "sample_id": 859,
+      "question": "Who won the Indy car race in the largest city and capitol of the state where the Oh Yeah performer i",
+      "prediction": "phoenix",
+      "reference": "Mario Andretti",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 410,
+        "latency": 15.915063381195068
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to break it down step by step:\n\n1. **Identify the performer**: The performer mentioned is Charles Mingus.\n2. **Determine where Charles Mingus is from**: According to the context, Charles Mingus was born in Nogales, Arizona, but he was largely raised in the Watts area of Los Angeles.\n3. **Identify the largest city and capital of the state where Charles Mingus is from**: Since Charles Mingus is associated with Los Angeles, which is in California, we need to determine the largest city and capital of California. The capital of California is Sacramento, and the largest city is Los Angeles.\n4. **Find the Indy car race held in the largest city and capital of that state**: The context mentions the \"Desert Diamond West Valley Phoenix Grand Prix,\" which is held in Pho"
+    },
+    {
+      "sample_id": 869,
+      "question": "How long are the city council terms in the second largest city in the state where Yuma is located?",
+      "prediction": "4 years",
+      "reference": "four-year",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 122,
+        "latency": 5.354340076446533
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To determine the length of city council terms in the second largest city in the state where Yuma is located, we need to follow these steps:\n\n1. Identify the state where Yuma is located: Yuma is located in Arizona.\n2. Determine the second largest city in Arizona: The second largest city in Arizona is Tucson.\n3. Find the information about city council terms in Tucson: According to the context, in Tucson, both the council members and the mayor serve four-year terms.\n\nFinal Answer: 4 years"
+    },
+    {
+      "sample_id": 873,
+      "question": "What county borders the county with the largest city in the state where Birth of a Nation was filmed",
+      "prediction": "dekalb county",
+      "reference": "Presque Isle County",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.4,
+        "token_count": 280,
+        "latency": 12.33212924003601
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to follow these steps:\n\n1. Identify the state where *The Birth of a Nation* was filmed.\n   - According to the context, filming took place in Georgia in May 2015.\n\n2. Determine the largest city in that state.\n   - The context states that the largest municipality by population in Georgia is Atlanta.\n\n3. Identify the county that contains this largest city.\n   - The context mentions that the largest municipality by population in Georgia is Atlanta, and it does not specify the county. However, from general knowledge, Atlanta is located in Fulton County, Georgia.\n\n4. Find the county that borders this county.\n   - The counties bordering Fulton County include DeKalb County, Gwinnett County, Cobb County, and Clayton County.\n\nSince the question asks for the county tha"
+    },
+    {
+      "sample_id": 875,
+      "question": "Which country contains the city sharing border with the state capital of the US state filming the mo",
+      "prediction": "united states",
+      "reference": "Richland County",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 164,
+        "latency": 7.617653131484985
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to identify the country that contains the city sharing a border with the state capital of the US state filming the movie *The Patriot*.\n\n1. **Identify the US state filming the movie *The Patriot***: The movie *The Patriot* was filmed in South Carolina.\n2. **Identify the state capital of South Carolina**: The state capital of South Carolina is Columbia.\n3. **Identify the city sharing a border with Columbia**: The city of Forest Acres, South Carolina, shares a border with Columbia.\n4. **Identify the country containing Forest Acres**: Forest Acres is located in South Carolina, United States.\n\nFinal Answer: United States"
+    },
+    {
+      "sample_id": 877,
+      "question": "What county shares a border with the other county, that contains the city, where the singer of Hungr",
+      "prediction": "geauga county",
+      "reference": "Cabarrus County",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5,
+        "token_count": 119,
+        "latency": 8.225050210952759
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to determine which county shares a border with the county that contains the city where the singer of \"Hungry Eyes\" in the movie *Dirty Dancing* was born.\n\n1. Identify who the singer of \"Hungry Eyes\" is: Eric Carmen.\n2. Determine where Eric Carmen was born: Cleveland, Ohio.\n3. Identify the county that contains Cleveland, Ohio: Cuyahoga County.\n4. Find which county shares a border with Cuyahoga County: Geauga County.\n\nFinal Answer: Geauga County"
+    },
+    {
+      "sample_id": 881,
+      "question": "When was the region that lies to the north of what where Israel is located and the body of water whe",
+      "prediction": "1930",
+      "reference": "1930",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 315,
+        "latency": 17.214511394500732
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to identify the region that lies to the north of Israel and the body of water where Kharg Island is found. \n\n1. **Identify the body of water where Kharg Island is found**: \n   - According to the context, Kharg Island is located in the Persian Gulf.\n\n2. **Identify the region to the north of Israel**:\n   - The context states that Israel is located on the southeastern shore of the Mediterranean Sea. The region to the north of Israel would be the area adjacent to the northern border of Israel, which includes parts of Lebanon, Syria, and the Golan Heights.\n\n3. **Determine when the region to the north of Israel was created**:\n   - The context provides information about the history of Saudi Arabia, which borders Israel to the east. However, it does not directly men"
+    },
+    {
+      "sample_id": 885,
+      "question": "A country's military branch, which in the US contains the Air Defense Artillery, was unprepared for ",
+      "prediction": "paraguay",
+      "reference": "Alfredo Stroessner's Paraguay",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5,
+        "token_count": 82,
+        "latency": 5.027783632278442
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The question refers to a country that was unprepared for an invasion and was the only communist country to have an embassy where. From the context provided, it is mentioned that Yugoslavia was the only communist country allowed to have an embassy in Alfredo Stroessner's Paraguay. Therefore, the answer is:\n\nFinal Answer: Paraguay"
+    },
+    {
+      "sample_id": 891,
+      "question": "When was the region that lies to the north of the region Israel is located and where The World is lo",
+      "prediction": "1943",
+      "reference": "1930",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 208,
+        "latency": 13.46837830543518
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to identify the region that lies to the north of Israel and where \"The World\" is located. \n\n1. **Identify the region north of Israel**: From the context, Israel is described as being bordered by Lebanon to the north. Therefore, the region to the north of Israel is Lebanon.\n\n2. **Identify where \"The World\" is located**: The context states that \"The World\" (an artificial archipelago) is located in the waters of the Persian Gulf, off the coast of Dubai, United Arab Emirates.\n\n3. **Determine when the region north of Israel (Lebanon) was created**: The context does not provide specific information about when Lebanon was created. However, based on historical knowledge, Lebanon became an independent country in 1943 after gaining independence from France following W"
+    },
+    {
+      "sample_id": 898,
+      "question": "The Pee Dee River leads to a bay which leads to an ocean. Who led an attempt to link that ocean with",
+      "prediction": "ferdinand de lesseps",
+      "reference": "Ferdinand de Lesseps",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 206,
+        "latency": 8.534778356552124
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to identify who led an attempt to link the ocean (which is the Atlantic Ocean, as it is connected to Winyah Bay and the Pee Dee River) with the Pacific via a canal through the continental region containing the El Valle volcano.\n\nStep 1: Identify the ocean connected to the Pee Dee River.  \n- The Pee Dee River leads to Winyah Bay, which leads to the Atlantic Ocean.\n\nStep 2: Identify the continental region containing the El Valle volcano.  \n- El Valle is a stratovolcano in central Panama.\n\nStep 3: Identify who led an attempt to link the Atlantic Ocean with the Pacific via a canal through Panama.  \n- The context mentions the \"History of the Panama Canal\" and states that Ferdinand de Lesseps led an initial attempt by France to build a sea-level canal.\n\nFinal Answ"
+    },
+    {
+      "sample_id": 899,
+      "question": "Where does the city where Veoh's headquarters is located rank in the top five largest urban areas of",
+      "prediction": "third largest urban area in california",
+      "reference": "third-largest",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 203,
+        "latency": 11.288441181182861
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Step 1: Identify the location of Veoh's headquarters. According to the context, Veoh is based in San Diego, California.\n\nStep 2: Determine the state where Scars' performers were formed. The song \"Scars\" is by Papa Roach, who is from Vacaville, California.\n\nStep 3: Identify the top five largest urban areas in California. According to the context, the top three are the Los Angeles metropolitan area, the San Francisco metropolitan area, and the San Diego metropolitan area. The fourth and fifth are the Riverside–San Bernardino metropolitan area and the Sacramento metropolitan area.\n\nStep 4: Determine the rank of San Diego in the top five largest urban areas of California. According to the context, San Diego is the third-largest urban area in the state.\n\nFinal Answer: third-largest urban area i"
+    },
+    {
+      "sample_id": 903,
+      "question": "What day is the feast held in the city containing the headquarters of the company, that owns the rec",
+      "prediction": "may 4",
+      "reference": "May 4",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 185,
+        "latency": 9.969846725463867
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To determine the day of the feast held in the city containing the headquarters of the company that owns the record label which released *Study in Brown*, we need to follow these steps:\n\n1. **Identify the record label that released *Study in Brown*:**  \n   - The album *Study in Brown* was released on EmArcy Records.\n\n2. **Determine the parent company of EmArcy Records:**  \n   - EmArcy Records is owned by Universal Music Group.\n\n3. **Find the headquarters of Universal Music Group:**  \n   - Universal Music Group's headquarters is in Santa Monica, California.\n\n4. **Identify the feast day associated with Santa Monica:**  \n   - Santa Monica was named in honor of the feast day of Saint Monica, whose feast day is May 4.\n\nFinal Answer: May 4"
+    },
+    {
+      "sample_id": 911,
+      "question": "Where does the second largest city in the state where Yuma's Library District is located hold NASCAR",
+      "prediction": "tucson raceway park",
+      "reference": "Tucson Raceway Park",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 125,
+        "latency": 6.454768180847168
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to determine where the second largest city in the state where Yuma's Library District is located holds NASCAR races.\n\n1. Identify the location of Yuma's Library District: The Yuma County Library District serves Yuma County, Arizona.\n2. Determine the second largest city in Arizona: The second largest city in Arizona is Tucson.\n3. Identify where Tucson holds NASCAR races: Tucson Raceway Park hosts NASCAR-sanctioned auto racing events.\n\nFinal Answer: Tucson Raceway Park"
+    },
+    {
+      "sample_id": 915,
+      "question": "Who's the son of the Italian navigator who explored the eastern coast of the continent Hugo Casillas",
+      "prediction": "sebastian cabot",
+      "reference": "Sebastian Cabot",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 208,
+        "latency": 9.076836109161377
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to identify the son of the Italian navigator who explored the eastern coast of the continent Hugo Casillas was born in.\n\n1. **Identify the continent Hugo Casillas was born in**: Hugo Casillas was born in Guadalajara, Jalisco, Mexico. Therefore, the continent is North America.\n\n2. **Identify the Italian navigator who explored the eastern coast of North America**: The Italian navigator who explored the eastern coast of North America is Giovanni Caboto (also known as John Cabot). He was commissioned by Henry VII of England and made landfall on the coast of North America in 1497, which is believed to have been Newfoundland.\n\n3. **Identify the son of Giovanni Caboto**: Giovanni Caboto's son is Sebastian Cabot, an Italian explorer who continued his father's legacy"
+    },
+    {
+      "sample_id": 916,
+      "question": "What is the longest home run hit in the league where the team with the most games in the series afte",
+      "prediction": "babe ruth s 575 feet 175 m home run",
+      "reference": "about 575 feet",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.3333333333333333,
+        "token_count": 539,
+        "latency": 31.83333444595337
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to break it down step by step:\n\n1. **Identify the league where the team with the most games in the series after which the MLB MVP is awarded plays**:\n   - The MLB MVP is awarded after the World Series.\n   - The World Series is played between the champions of the American League (AL) and the National League (NL).\n   - The team with the most games in the World Series is not relevant; instead, we are looking for the league where the team that wins the World Series plays.\n   - The team that wins the World Series can be from either the AL or NL.\n   - However, the question refers to the \"team with the most games in the series after which the MLB MVP is awarded.\" Since the MVP is awarded after the World Series, this refers to the team that wins the World Series.\n\n2"
+    },
+    {
+      "sample_id": 925,
+      "question": "When did the country with a co-official language used in the film titled after the city that is the ",
+      "prediction": "1996",
+      "reference": "2016",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 242,
+        "latency": 11.725202322006226
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to identify the country in question and then determine when it first attended the Olympics.\n\n1. **Identify the country**: The question refers to a country with a co-official language used in a film titled after the city that is the final resting place of Tito.\n   - Tito's final resting place is in Belgrade.\n   - The film titled after Belgrade is \"Belgrade (film)\".\n   - The language used in this film is Serbian, which is a co-official language in Bosnia and Herzegovina, Croatia, Montenegro, and Serbia.\n   - Among these countries, Serbia is the one associated with Belgrade and has Serbian as its official language.\n\n2. **Determine when Serbia first attended the Olympics**:\n   - Serbia was part of Yugoslavia, which competed in the Olympics as a unified team unti"
+    },
+    {
+      "sample_id": 926,
+      "question": "How were people from whom new coins were a proclamation of independence by the Somali Muslim Ajuran ",
+      "prediction": "no",
+      "reference": "The dynasty regrouped and defeated the Portuguese",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 338,
+        "latency": 15.887316226959229
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The question involves a complex and seemingly unrelated set of geographical and historical elements. Let's break it down step by step:\n\n1. **Identify the key elements in the question**:\n   - \"People from whom new coins were a proclamation of independence by the Somali Muslim Ajuran Empire\"\n   - \"Expelled from the natural boundary between Thailand and A Magne's country\"\n\n2. **Analyze the context provided**:\n   - The Somali Muslim Ajuran Empire is mentioned in the context of its alliance with the Ottomans and its use of new coinage to proclaim economic independence from the Portuguese.\n   - There is no direct mention of any expulsion of people from the Somali Muslim Ajuran Empire related to Thailand or A Magne's country.\n   - A Magne is identified as a village in south-eastern Laos near the "
+    },
+    {
+      "sample_id": 929,
+      "question": "Who is the son of the Italian navigator who explored the eastern coast of the continent Ulises Solís",
+      "prediction": "no",
+      "reference": "Sebastian Cabot",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 197,
+        "latency": 9.814348459243774
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To determine the answer to the question, we need to break it down step by step:\n\n1. Identify who Ulises Solís is: According to the context, José Ulises Solís Perez is a Mexican professional boxer born in Guadalajara, Jalisco, Mexico.\n\n2. Determine the birthplace of Ulises Solís: The context states that he was born in Guadalajara, Jalisco, Mexico.\n\n3. Identify the son of the Italian navigator: The context mentions Sebastian Cabot, who was the son of John Cabot (Giovanni Caboto), an Italian navigator.\n\n4. Check if there is any connection between Ulises Solís and the Italian navigator's son: There is no direct connection stated between Ulises Solís and Sebastian Cabot or John Cabot in the given context.\n\nTherefore, based on the information provided, the answer is:\n\nFinal Answer: No"
+    },
+    {
+      "sample_id": 933,
+      "question": "Normalization occurred in Country A that invaded Country B because the military branch that Air Defe",
+      "prediction": "1968 to 1989",
+      "reference": "1943–1992",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 51,
+        "latency": 3.9620203971862793
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The word \"Slavs\" was used in the national anthem of Country B during the Normalization period. The Normalization period in Czechoslovakia occurred from 1968 to 1989. Therefore, the answer is:\n\n1968 to 1989"
+    },
+    {
+      "sample_id": 935,
+      "question": "What is the capital of the county that shares a border with the county where the headquarters of Pie",
+      "prediction": "green bay",
+      "reference": "Green Bay",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 63,
+        "latency": 3.6754696369171143
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Pierce Manufacturing is headquartered in Appleton, Wisconsin. Appleton is located in Outagamie County, Wisconsin. The county that shares a border with Outagamie County is Brown County. The capital of Brown County is Green Bay. \n\nFinal Answer: Green Bay"
+    },
+    {
+      "sample_id": 939,
+      "question": "When did the town WIZE is licensed in become capitol of the state where Jackson Township is located?",
+      "prediction": "no",
+      "reference": "1839",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 222,
+        "latency": 12.671398401260376
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to determine two key pieces of information:\n\n1. **Which state is Jackson Township located in?**  \n   - From the context, Jackson Township is located in **Randolph County, Indiana**.\n\n2. **When did the town where WIZE is licensed become the capital of that state?**  \n   - WIZE is a radio station licensed in **Springfield, Ohio**.\n   - The question asks about the **state where Jackson Township is located**, which is **Indiana**.\n   - Therefore, we need to find when **Springfield, Ohio** became the capital of **Indiana**.\n\nHowever, **Springfield, Ohio** is not the capital of Indiana. The capital of Indiana is **Indianapolis**.\n\nTherefore, the question contains a misunderstanding or error because **WIZE is licensed in Springfield, Ohio**, and **Jackson Township "
+    },
+    {
+      "sample_id": 943,
+      "question": "What day is the feast held, in the city that holds the headquarters of the only music company that i",
+      "prediction": "may 4",
+      "reference": "May 4",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 307,
+        "latency": 16.8128604888916
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To determine the day of the feast held in the city that houses the headquarters of the only music company larger than the record label of *Vilaiyaadu Mankatha*, we follow these steps:\n\n1. **Identify the record label of *Vilaiyaadu Mankatha***: The context states that the songs from *Vilaiyaadu Mankatha* were marketed by **Sony Music Entertainment**.\n\n2. **Determine the largest music company**: The context indicates that **Sony Music Entertainment** is the **second-largest** recorded music company, with **Universal Music Group** being the largest.\n\n3. **Find the headquarters of the largest music company**: The context does not directly mention the headquarters of Universal Music Group, but it does mention that **The Right Stuff Records** is based in **Santa Monica, California**, and is part"
+    },
+    {
+      "sample_id": 960,
+      "question": "What shares a border with the city where the person who went to the state where the 951 area code is",
+      "prediction": "not enough information",
+      "reference": "Rio Linda",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 335,
+        "latency": 15.817424297332764
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Step 1: Identify the area code 951. According to the context, area code 951 is used in western Riverside County, California.\n\nStep 2: Determine which city is associated with the gold rush in the context. The California Gold Rush is mentioned, and it is associated with Sacramento, California.\n\nStep 3: Identify the city where the person who went to the state where the 951 area code is used during the gold rush works. The person went to the state (California) where the 951 area code is used during the gold rush, so the person works in a city in California. The context mentions that Sacramento, California, was founded around the time of the California Gold Rush.\n\nStep 4: Determine which city shares a border with the city identified in step 3. The context mentions that Oak Lawn, Illinois, share"
+    },
+    {
+      "sample_id": 961,
+      "question": "Among the top five largest urban areas in the state Jacoby Shaddix' band formed in, where does the c",
+      "prediction": "3",
+      "reference": "third-largest",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 186,
+        "latency": 10.847435712814331
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Step 1: Identify the city where Jacoby Shaddix's band formed.  \n- Papa Roach, the band of Jacoby Shaddix, was formed in Vacaville, California.\n\nStep 2: Determine the top five largest urban areas in California.  \n- The top five largest urban areas in California are:\n  1. Los Angeles metropolitan area\n  2. San Francisco metropolitan area\n  3. San Diego metropolitan area\n  4. Riverside–San Bernardino–Ontario metropolitan area\n  5. Oakland–Fremont–Hayward metropolitan area\n\nStep 3: Identify where Veoh's headquarters are located.  \n- Veoh is based in San Diego, California.\n\nStep 4: Determine the rank of San Diego among the top five largest urban areas in California.  \n- San Diego is the third-largest urban area in California.\n\nFinal Answer: 3"
+    },
+    {
+      "sample_id": 962,
+      "question": "How were people from whom new coins were a proclamation of independence by the Somali Muslim Ajuran ",
+      "prediction": "no",
+      "reference": "The dynasty regrouped and defeated the Portuguese",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 154,
+        "latency": 7.410793304443359
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The Somali Muslim Ajuran Empire, which was allied with the Ottomans, defied the Portuguese economic monopoly in the Indian Ocean by employing a new coinage that followed the Ottoman pattern, thus proclaiming an attitude of economic independence in regard to the Portuguese. The question refers to people being expelled from the natural boundary between Thailand and Hiam district's country, but there is no information in the context provided that connects the Somali Muslim Ajuran Empire or any other entity to Thailand or Hiam district. Therefore, the answer is not supported by the given context.\n\nFinal Answer: No"
+    },
+    {
+      "sample_id": 970,
+      "question": "When did the country whose co-official language was used by the director of And Love Has Vanished fi",
+      "prediction": "2004",
+      "reference": "2016",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 267,
+        "latency": 20.34248971939087
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to identify the country whose co-official language was used by the director of *And Love Has Vanished* and then determine when that country first attended the Olympics as an independent team.\n\n1. **Identify the director of *And Love Has Vanished*:**  \n   The director of *And Love Has Vanished* is Aleksandar Petrović.\n\n2. **Determine the co-official language associated with Aleksandar Petrović:**  \n   Aleksandar Petrović was a Serbian and Yugoslav film director. Serbian is a co-official language in Bosnia and Herzegovina, Serbia, and Kosovo.\n\n3. **Identify the country associated with the co-official language:**  \n   Since Serbian is a co-official language in Serbia, we consider Serbia as the relevant country.\n\n4. **Determine when Serbia first attended the Oly"
+    },
+    {
+      "sample_id": 983,
+      "question": "When did Burma change its name to the country on the natural boundary between the country that hoste",
+      "prediction": "1989",
+      "reference": "1989",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 272,
+        "latency": 13.035841703414917
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to determine when Burma changed its name to the country that lies on the natural boundary between the country that hosted the tournament and the country where That Dam is from.\n\n1. **Identify the country where That Dam is from**: That Dam is located in Vientiane, Laos. Therefore, the country is Laos.\n\n2. **Determine the country that hosted the tournament**: The question refers to a tournament, but it does not specify which one. However, based on the context provided, the most relevant tournament is the 2018 FIFA World Cup, which was hosted by Russia.\n\n3. **Find the natural boundary between Russia and Laos**: The natural boundary between Russia and Laos is not directly mentioned, but the question implies that there is a country that lies on the natural bounda"
+    },
+    {
+      "sample_id": 984,
+      "question": "Ordering by the size the urban areas in the state where Jacoby Shaddix's band formed in what positio",
+      "prediction": "3",
+      "reference": "third-largest",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 136,
+        "latency": 6.922080755233765
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To determine the position of Pathology's city (San Diego) in terms of urban area size, we need to follow these steps:\n\n1. Identify the city where Pathology's band formed: San Diego, California.\n2. Determine the size ranking of San Diego's urban area.\n3. Find the position of San Diego's urban area in the state of California.\n\nFrom the context provided:\n- San Diego's urban area is described as the third-largest urban area in the state of California, after the Los Angeles metropolitan area and San Francisco metropolitan area.\n\nFinal Answer: 3"
+    },
+    {
+      "sample_id": 988,
+      "question": "What was the population in 1900 of the second largest city in the US state having the Library Distri",
+      "prediction": "7531",
+      "reference": "7,531",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 121,
+        "latency": 6.495965242385864
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To determine the population in 1900 of the second largest city in the US state having the Library District of the county containing Yuma, we follow these steps:\n\n1. Identify the county containing Yuma: Yuma County, Arizona.\n2. Identify the US state with Yuma County: Arizona.\n3. Identify the Library District in Yuma County: Yuma County Library District.\n4. Identify the second largest city in Arizona: Tucson.\n5. Determine the population of Tucson in 1900: 7,531.\n\nFinal Answer: 7,531"
+    },
+    {
+      "sample_id": 991,
+      "question": "Who won the indy car race in the largest populated city in the state that the performer of Changes T",
+      "prediction": "mario andretti",
+      "reference": "Mario Andretti",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 199,
+        "latency": 11.205462217330933
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to break it down step by step:\n\n1. **Identify the performer of \"Changes Two\":**  \n   The album \"Changes Two\" is by Charles Mingus.\n\n2. **Determine the state that Charles Mingus is from:**  \n   Charles Mingus was born in Nogales, Arizona.\n\n3. **Find the largest populated city in Arizona:**  \n   The largest city in Arizona by population is Phoenix.\n\n4. **Identify the IndyCar race held in the largest populated city in Arizona (Phoenix):**  \n   The Phoenix Grand Prix is an IndyCar race held in Phoenix.\n\n5. **Determine the winner of the Phoenix Grand Prix (specifically the Desert Diamond West Valley Phoenix Grand Prix mentioned in the context):**  \n   The final career victory for Indy legend Mario Andretti was at this race in 1993.\n\nFinal Answer: Mario Andretti"
+    },
+    {
+      "sample_id": 993,
+      "question": "What is the capital of the county, that shares a border with the other county, that includes the cit",
+      "prediction": "appleton",
+      "reference": "Green Bay",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 196,
+        "latency": 8.527682542800903
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To determine the capital of the county that shares a border with another county and includes the city where Main Hall is located, we follow these steps:\n\n1. Identify the location of Main Hall: According to the context, Main Hall is located at Lawrence University in Appleton, Wisconsin.\n2. Determine the county that includes Appleton, Wisconsin: Appleton is in Brown County, Wisconsin.\n3. Identify the counties that share a border with Brown County: Brown County borders Outagamie County and Shawano County.\n4. Determine the capital of Brown County: The capital of Brown County is not explicitly mentioned, but since Appleton is in Brown County and it is a significant city in the county, it can be inferred that Appleton is the de facto capital of Brown County.\n\nFinal Answer: Appleton"
+    },
+    {
+      "sample_id": 994,
+      "question": "Where is the district that the person who wanted to reform and address Edward Egan's religion preach",
+      "prediction": "wittenberg",
+      "reference": "Saxony-Anhalt",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 184,
+        "latency": 9.400482892990112
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to identify the person who preached a sermon on Marian devotion before his death and then determine the location of the district associated with that person.\n\n1. The context mentions that Pope Paul VI was a Marian devotee and preached sermons on Marian devotion.\n2. However, the specific mention of someone preaching a sermon on Marian devotion before his death is found in the context about Martin Luther. It states that Luther, in a sermon preached at Wittenberg only a month before his death, discussed Marian devotion and veneration.\n3. Therefore, the person in question is Martin Luther.\n4. The context also mentions that Wittenberg is a district in Saxony-Anhalt, Germany.\n\nFinal Answer: Wittenberg"
+    },
+    {
+      "sample_id": 1003,
+      "question": "In what county is located the city that shares a border with the capital of the state where Mike Dow",
+      "prediction": "richland county",
+      "reference": "Richland County",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 173,
+        "latency": 10.287618637084961
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "Step 1: Identify the state where Mike Dow was born. According to the context, Mike Dow was born in South Carolina.\n\nStep 2: Determine the capital of South Carolina. The context indicates that Columbia is the capital of South Carolina.\n\nStep 3: Find the city that shares a border with Columbia, South Carolina. From the context, Forest Acres is a city in Richland County, South Carolina, and it is part of the Columbia, South Carolina, Metropolitan Statistical Area. This implies that Forest Acres shares a border with Columbia.\n\nStep 4: Identify the county where Forest Acres is located. The context states that Forest Acres is in Richland County, South Carolina.\n\nFinal Answer: Richland County"
+    },
+    {
+      "sample_id": 1005,
+      "question": "What county is the city that shares a border with the state capital of the state where the RBC Herit",
+      "prediction": "richland county",
+      "reference": "Richland County",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 72,
+        "latency": 4.793423414230347
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The RBC Heritage Golf Tournament is played in South Carolina. The state capital of South Carolina is Columbia. The city that shares a border with Columbia is Forest Acres. Forest Acres is located in Richland County. Therefore, the county is Richland County. \n\nFinal Answer: Richland County"
+    },
+    {
+      "sample_id": 1007,
+      "question": "Who was in charge in the country that is the natural boundary between the country that hosted the to",
+      "prediction": "king vajiralongkorn",
+      "reference": "Thein Sein",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 366,
+        "latency": 17.61302638053894
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to identify the country that is the natural boundary between the country that hosted the tournament and the country where That Dam is located. \n\n1. **Identify the country where That Dam is located**: According to the context, That Dam is located in Vientiane, Laos.\n\n2. **Identify the country that hosted the tournament**: The question does not specify which tournament, but it refers to a \"tournament\" in general. However, the context mentions several tournaments, including the 2016 FIFA Club World Cup hosted by Japan and the 2017 FIFA Confederations Cup hosted by Russia. Since the context also mentions the Vajiralongkorn Dam in Thailand and That Dam in Laos, it's likely referring to the 2016 FIFA Club World Cup, as Japan and Thailand are both in Southeast Asia"
+    },
+    {
+      "sample_id": 1032,
+      "question": "The carnival in the town where Jean Mathonet died is rooted in a European culture. In Rotrude's fath",
+      "prediction": "old french",
+      "reference": "Medieval Latin",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 235,
+        "latency": 10.971436500549316
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to determine the name of the language of the European culture that influenced the carnival in Malmedy, Belgium, which is rooted in a European culture. \n\n1. The carnival in Malmedy is referred to as \"Cwarmê,\" and it is described as a \"pure walloon and Latin carnival.\" This indicates that the culture is associated with the Walloon region of Belgium.\n2. The Walloon region is known for its French-speaking population, so the language of this culture would be French.\n3. The question asks for the name of the language known later in history, which implies the name of the language during Rotrude's father's era.\n4. Rotrude was a Frankish princess, and her father was Charlemagne. During Charlemagne's time, the language used in his court was Old French, which evolved in"
+    },
+    {
+      "sample_id": 1034,
+      "question": "When was the region is immediately north of what used to be known as the \"Near East\" and the locatio",
+      "prediction": "dern day turkey which has existed since antiquity",
+      "reference": "1930",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 457,
+        "latency": 22.35488772392273
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To determine when the region immediately north of what used to be known as the \"Near East\" and the location of Operation Earnest Will was created, we need to break this down step by step:\n\n1. **Identify the \"Near East\":** The term \"Near East\" historically referred to the area that is now generally considered the Middle East, particularly including parts of modern-day Turkey, Syria, Lebanon, Jordan, Israel, Palestine, and Iraq.\n\n2. **Region immediately north of the Near East:** This would refer to the area directly north of the historical Near East, which today is primarily Turkey and parts of the Balkans.\n\n3. **Operation Earnest Will:** This was a U.S. military operation conducted in 1987 in the Persian Gulf, specifically in the waters off the coast of Iran. It was part of the U.S. respons"
+    },
+    {
+      "sample_id": 1035,
+      "question": "What county is the city that shares a border with the state capital of the state where Darlington Co",
+      "prediction": "darlington county",
+      "reference": "Richland County",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5,
+        "token_count": 160,
+        "latency": 6.854019403457642
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to determine the county of the city that shares a border with the state capital of the state where Darlington County is located.\n\n1. **Identify the state where Darlington County is located**: Darlington County is in South Carolina.\n2. **Determine the state capital of South Carolina**: The state capital of South Carolina is Columbia.\n3. **Find the city that shares a border with Columbia**: The city of Hartsville is the largest city in Darlington County and shares a border with Columbia.\n4. **Identify the county of Hartsville**: Hartsville is located in Darlington County.\n\nFinal Answer: Darlington County"
+    },
+    {
+      "sample_id": 1036,
+      "question": "In which county is the city sharing a border with the capitol of the state where WYFG is located?",
+      "prediction": "richland county",
+      "reference": "Richland County",
+      "metrics": {
+        "em": 1.0,
+        "f1": 1.0,
+        "token_count": 159,
+        "latency": 7.567784547805786
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To determine the answer, we follow these steps:\n\n1. Identify the location of WYFG: The context states that WYFG is a radio station in South Carolina.\n2. Determine the state capital of South Carolina: The context mentions that Columbia is the capital of South Carolina.\n3. Identify the county that shares a border with Columbia: The context states that Forest Acres is in Richland County, South Carolina, and it is part of the Columbia, South Carolina, Metropolitan Statistical Area. Therefore, Richland County is the county that shares a border with the capital (Columbia) of the state where WYFG is located.\n\nFinal Answer: Richland County"
+    },
+    {
+      "sample_id": 1038,
+      "question": "How were people from whom new coins were a proclamation of independence by the Somali Muslim Ajuran ",
+      "prediction": "no",
+      "reference": "The dynasty regrouped and defeated the Portuguese",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.0,
+        "token_count": 120,
+        "latency": 7.94378399848938
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "The question is based on a misunderstanding or confusion of geographical and historical contexts. The Somali Muslim Ajuran Empire was located in the Horn of Africa, while Na Khaulom is a village in western Laos, near the border with Thailand. There is no historical record or context suggesting that people from the Ajuran Empire were expelled from the natural boundary between Thailand and Na Khaulom's country. Therefore, the question is not factually accurate.\n\nFinal Answer: No."
+    },
+    {
+      "sample_id": 1039,
+      "question": "Which county shares a border with the county where the city in which the original singer of All By M",
+      "prediction": "lorain county",
+      "reference": "Cabarrus County",
+      "metrics": {
+        "em": 0.0,
+        "f1": 0.5,
+        "token_count": 112,
+        "latency": 5.432926893234253
+      },
+      "method": "cot_sc",
+      "error": null,
+      "reasoning_text": "To answer the question, we need to determine which county shares a border with the county where the original singer of \"All By Myself\" was born.\n\n1. Identify the original singer of \"All By Myself\": Eric Carmen.\n2. Determine where Eric Carmen was born: Cleveland, Ohio.\n3. Identify the county where Cleveland, Ohio is located: Cuyahoga County.\n4. Determine which county shares a border with Cuyahoga County: Lorain County.\n\nFinal Answer: Lorain County"
     }
   ]
 }
