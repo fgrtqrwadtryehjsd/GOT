@@ -206,11 +206,29 @@ Setup: Minimal Fix targeting the reasoner-error-propagation bottleneck. Each sub
 
 1. **Hidden good news (decomposition has real value on deep hops):** the Oracle-1 gold-decomposition baseline ALREADY beats CoT-SC (0.450 vs 0.370, +0.080 F1). The Stage-1 result where CV2 lost everywhere (0.348 < 0.370) was because CV2 used *model* decomposition (which often compresses 4-hop → 2-hop). With gold decomposition, the decomposition's value on deep hops emerges. **The H2 crossover exists — it was masked by decomposition quality.**
 
+   > **⚠️ UPDATE 2026-07-10 — this "good news" is NOT statistically significant and is retracted as a method window.** Paired bootstrap (B=10000, seed=42) on the same n=85 4-hop set, correctly aligned (easv local sample_id 0-84 are 4-hop-local indices; mapped to global indices [21..497] via `processed`, all <500 so all 85 pair with cot_sc n=500, 0 reference misalignment): F1 diff +0.080, **CI [-0.024, +0.188] crosses zero**, P(diff>0)=0.93; EM diff +0.071, CI [-0.035, +0.177] crosses zero; McNemar EM p=0.286. The +0.080 is a point estimate in the noise. Even the Oracle (gold decomposition) ceiling cannot beat CoT-SC to statistical detectability at n=85 — so no decomposition-quality fix (depth-prompted, few-shot, self-consistency-over-depth) can reach significance either, since model decomposition is strictly below gold. This retracts the "depth-planning-layer is worth fixing" target implied below and in §1.11. See `gold-decomp-window-not-significant` memory.
+
 2. **EASV verify+re-answer mechanism is weak (+0.004 F1):** easv_o1 barely beats the Oracle-1 baseline. In the isolation setting the baseline is already near-ceiling (gold decomp), so there is little reasoner error left for the verifier to catch. r2 (re-answer twice) is *worse* (0.431 < 0.454) — temperature-raised re-answering introduces noise and flips some correct answers wrong.
 
 3. **The bigger target may be decomposition quality:** gold vs model decomposition differs by 0.102 F1 (0.450 vs 0.348) — an order of magnitude larger than what EASV's verify+re-answer can recover (+0.004). The largest untapped space may be "getting the model to decompose into gold-like 4-hop structures," not "verifying/re-answering reasoner outputs."
 
 Reconciling with Stage-2 Oracle (71/17/12): not contradictory. Oracle-1's +0.082 measures "swap model→gold decomposition" (decomposition-quality contribution); Oracle-3's +0.346 measures "swap model→gold intermediate answers *given gold decomposition*" (reasoner-error contribution). Both hold but in different regimes. EASV targets reasoner error, but near-ceiling (reasoner already mostly correct under gold decomp) its gain is small; decomposition quality is the larger unexploited space. Verifier probe: `experiments/_verify_probe.py`. EASV runner: `experiments/run_easv.py`. Results: `experiments/results/easv_musique_8b/`.
+
+### 1.11 IDD — Iterative Deepening Decomposition (SOP Stage-3, 2nd Minimal Fix attempt) — FAILED, HARD-STOP
+
+Motivated by §1.10 finding 3 (decomposition quality is the larger space; gold 0.450 vs model 0.348, gap 0.102) and the depth-compression diagnosis (67% of 4-hop compressed to 2-3 hops). IDD targets the compression root cause: iteratively split any non-atomic leaf sub-question until all leaves are atomic (or `idd_max_depth` reached). Two versions of the splitting criterion were tested, both on MuSiQue 4-hop, n=15, qwen3-8b, full context (`experiments/_decomp_diagnosis.py --idd`).
+
+| Splitting criterion | Exact depth | Compressed (<gold) | Expanded (>gold) | Diagnosis |
+|---|---:|---:|---:|---|
+| baseline (model self-decompose, no IDD) | 23% | 67% | 10% | — |
+| v1 answerability ("answerable from context alone?") | 0% | 27% | 73% | over-expansion: marked normal cross-hop dependency as "needs splitting" → fused to max_depth |
+| v2 atomicity ("compound = bundles 2+ lookups, assuming prior hops answered") | 13% | 53% | 33% | criterion direction correct, but **wrong intervention layer** |
+
+**Structural root cause — depth-planning failure, not leaf non-atomicity.** IDD operates *after* the initial `_decompose` has already decided how many hops to produce. But the compression happens *at that decision step*: the model reads a 4-hop serial chain and emits 2 parallel atomic sub-questions (e.g. gold "A Lim→country→boundary→coins→expelled" → model "which empire used new coinage" + "which country lies between Thailand and A Lim"). Those 2 hops are already atomic single lookups — IDD judges them atomic → does not split. **Compression is locked in before IDD can act.** Conversely, the expansions IDD/v2 produced were not "finer splits" but *duplicate junk hops* (e.g. "Where was Beyoncé born" emitted twice; "which region north of Israel" emitted 3×) — IDD judges duplicates atomic (they are) → does not dedup, and they originate in the initial decomposition anyway.
+
+**Why this is structural, not a tuning problem.** v1 had the wrong criterion; v2 fixed the criterion but it acts at the wrong layer. Both Stage-3 fixes (EASV +0.004, IDD) attacked the *leaf* layer while the lesion is at the *depth-planning* layer. A v3 leaf-layer fix would be fighting a falsified hypothesis.
+
+**Hard-stop decision.** Two Minimal Fix attempts have failed. Per the standing protocol, Stage-3 is halted and the work pivots to a diagnostic-paper framing: the contribution is the localization (Oracle 71/17/12, depth-compression 67%, verifier AUROC 0.799, two-wall boundary) plus the honest record of two failed repair attempts, not a silver-bullet algorithm. Candidate targets that *would* act at the depth-planning layer (depth-prompted decomposition, few-shot 4-hop gold exemplars, decomposition self-consistency over depth) are noted but **not pursued** given the pivot. Runner: `experiments/_decomp_diagnosis.py`. Results: `experiments/results/verify_probe/decomp_diagnosis_idd.json`. Code: `GraphGuidedGenerator._iterative_deepening_decompose` / `_is_atomic` (criterion v2) in `src/chain_generation/generation_pipeline.py`.
 
 
 
@@ -321,15 +339,20 @@ The following must not be used as current paper evidence:
 
 If these numbers appear in older logs or draft files, treat them as historical debugging records only.
 
-## 4. Current Paper Positioning (updated 2026-07-08)
+## 4. Current Paper Positioning (updated 2026-07-10)
 
-> The previous framing (small-but-significant HotpotQA gain, p=0.029) is **retired**: it does not survive the fair full-context comparison in §1.6. Positioning is under review. The honest, defensible assets currently on hand are:
+> The previous framing (small-but-significant HotpotQA gain, p=0.029) is **retired**: it does not survive the fair full-context comparison in §1.6. Positioning is now **locked to a diagnostic-paper framing** after SOP Stage-3 (Minimal Fix) failed twice and the Oracle ceiling itself proved non-significant. The honest, defensible assets currently on hand are:
 
 1. **Confound audit (primary candidate contribution).** Graph-decomposition methods' apparent gains over CoT-SC on HotpotQA can be entirely explained by unequal context access: GERS caps context at 1500 chars while baselines read more, so the decomposition advantage appears only under context starvation and reverses under fair full context (§1.1 vs §1.6). This is a methodological caution for the subfield, not a method win.
 2. **Mechanism diagnosis.** The bidirectional cross-validation consistency score is *self-agreement*, not correctness: with `enable_evidence_grounding=False` (default), `grounding_score=1.0` unconditionally (`generation_pipeline.py:944-945`). It raises CS AUROC from ~0.498 (random) to ~0.58-0.59, but the signal is *fluency-indexed* and inverts on the stronger qwen3-14b (CoT-SC 0.731 F1 >> CV2 0.446; §2.4). The 8b "gain" was fluency-accidental.
 3. **CS is not correctness.** 250/500 samples receive CS=1.0 yet 156 are EM-wrong (§1.2). High-CS-wrong answers remain common.
 4. **Negative results on two natural fixes.** Grounded-forward gating (GF-GERS, §2.3) and per-sub-question BM25 retrieval (§2.4/§1.6) both fail — retrieval is in fact the *worst* variant (drops gold paragraphs).
 5. **Honest boundary.** 2Wiki bridge-comparison and stronger models (Qwen-Plus n=300: paired diff ≈ 0) are real generalization boundaries.
+6. **Oracle bottleneck localization (SOP Stage-2).** On MuSiQue 4-hop the per-module recoverable F1 splits reasoner 71% / graph-generation 17% / retrieval 12% (§1.9) — the reasoner (error propagation) is the dominant lesion, not graph generation or retrieval.
+7. **Two failed Stage-3 repair attempts (honest record).** EASV (stepwise NLI verify + re-answer, targeting the reasoner) gained only +0.004 F1 (§1.10); IDD (iterative deepening decomposition, targeting depth compression) failed to lift depth-exact rate above baseline — v1 over-expanded (0% exact), v2 fixed the criterion but attacked the wrong layer (compression is a depth-planning failure locked in before IDD acts; §1.11).
+8. **The Oracle ceiling is itself non-significant (decisive, 2026-07-10).** Even gold decomposition (the theoretical upper bound on decomposition quality) only reaches +0.080 F1 vs CoT-SC with paired CI [-0.024, +0.188] crossing zero (P(diff>0)=0.93, McNemar EM p=0.286, n=85). No decomposition-quality fix can reach significance because model decomposition is strictly below gold. This closes the "fix decomposition, win" escape path.
+
+**Three independent lines of evidence now converge**: (i) under fair full context CoT-SC beats CV2 (§1.6, +0.032 F1, CI [+0.002, +0.063]); (ii) the gold-decomposition ceiling is non-significant (§1.10 finding 1, retracted); (iii) two Minimal Fix attempts failed (§1.10, §1.11). The method has no statistically detectable baseline advantage in this setting. The paper contribution is therefore the **diagnosis and methodological caution**, not a method win.
 
 What is NOT defensible anymore: any claim that GERS-CV2 *beats* CoT-SC on HotpotQA. Under fair full context, CoT-SC is at least tied (EM p=0.314) and marginally ahead (F1 +0.032, CI [+0.002, +0.063]) at lower cost. The MoDeGraph comparison (p=0.010) is also under the truncated regime and needs re-running under full context before it can be cited.
 

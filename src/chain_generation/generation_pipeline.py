@@ -62,6 +62,56 @@ Rules:
 - Output ONLY JSON, no other text."""
 
 
+# ─── IDD 迭代深化分解（SOP Stage-3 Minimal Fix：修深度压缩）──────────────────
+# 诊断实锤：67% 的 4-hop 被模型压成 2-3 跳（把串行多跳误当并列子问题）。
+# IDD 对每个叶子判复合度(假设前序跳已答)，复合(捆绑多跳)则继续拆，直到全原子或达深度上限。
+# v1 可答性判据过膨胀(0%精确)：把"对前序跳有依赖"误判为"该拆"——而顺序依赖链里几乎每跳
+# 都依赖前跳，导致全拆到 max_depth。v2 改判复合度：只对真正捆绑多跳的复合子问题拆分。
+
+ATOMICITY_PROMPT = """Judge whether this sub-question is ATOMIC or COMPOUND, assuming all prior sub-questions are already answered and their answers are known.
+
+Context: {context}
+
+Sub-question: {sub_question}
+
+IMPORTANT: Dependencies on prior sub-questions are NORMAL and expected in a multi-hop chain. Do NOT mark a sub-question compound merely because it depends on a prior step — assume that prior answer is already known and substituted in.
+
+A sub-question is ATOMIC (answer yes) if, with its prior-step dependencies resolved, it asks for ONE single fact/entity that the context directly contains.
+A sub-question is COMPOUND (answer no) if, even with dependencies resolved, it bundles TWO or more distinct fact lookups into one question (e.g. "X and Y", "X then Y", or asking about multiple entities/steps at once).
+
+Answer with exactly one word on the first line:
+- yes : atomic — one single fact lookup (do not split)
+- no  : compound — bundles multiple lookups (should be split further)
+
+Answer:"""
+
+
+SUBQ_DECOMPOSE_PROMPT = """Break the given sub-question into 1-2 MORE PRIMITIVE sub-questions that together lead to its answer. Each must be more basic (closer to a single context fact) than the original.
+
+Original question context: {original_question}
+{context_section}
+
+Sub-question to break down: {sub_question}
+
+Output ONLY valid JSON:
+```json
+{{
+  "sub_questions": [
+    {{
+      "id": 1,
+      "question": "more primitive sub-question",
+      "depends_on": [],
+      "type": "fact_lookup/inference"
+    }}
+  ]
+}}
+```
+Rules:
+- Make each sub-question a single context-lookupable fact
+- If the sub-question is already atomic, output a single sub-question equal to it
+- Output ONLY JSON, no other text."""
+
+
 # ─── 子问题回答 Prompt ────────────────────────────────────────────────────────
 
 ANSWER_SUBQ_PROMPT = """Answer this specific sub-question concisely.
@@ -263,7 +313,9 @@ class GraphGuidedGenerator:
                   oracle_context_paragraphs: list = None,
                   enable_stepwise_verify: bool = False,
                   stepwise_verify_retries: int = 1,
-                  stepwise_verify_temperature: float = 0.5):
+                  stepwise_verify_temperature: float = 0.5,
+                  enable_iterative_deepening: bool = False,
+                  idd_max_depth: int = 4):
         """
         Args:
             model: LLM 模型实例
@@ -352,6 +404,11 @@ class GraphGuidedGenerator:
         self.enable_stepwise_verify = enable_stepwise_verify
         self.stepwise_verify_retries = stepwise_verify_retries
         self.stepwise_verify_temperature = stepwise_verify_temperature
+        # ── IDD 迭代深化分解（SOP Stage-3 Minimal Fix：修深度压缩）──
+        # 诊断实锤 67% 的 4-hop 被压成 2-3 跳。IDD 判叶子复合度(假设前序跳已答)，
+        # 复合(捆绑多跳)则拆，直到全原子或达 idd_max_depth。纯分解改进，不与 EASV 验证耦合。
+        self.enable_iterative_deepening = enable_iterative_deepening
+        self.idd_max_depth = idd_max_depth
         # Self-Consistency 时每条 DAG 的分解温度（None=用默认 0.2）。
         # 注意：generate() 用的是参数 temperature，不读 model.temperature，
         # 所以必须在这里显式传给 _decompose，否则 K 条 DAG 无温度多样性。
@@ -428,6 +485,11 @@ class GraphGuidedGenerator:
             logger.debug(f"ORACLE-1: 注入 gold 分解 ({len(sub_questions)} 子问题)")
         else:
             sub_questions = self._decompose(question, context_section)
+            # IDD 迭代深化：诊断显示 67% 的 4-hop 被压成 2-3 跳。对叶子判复合度(假设
+            # 前序跳已答)，复合(捆绑多跳)则继续拆，直到全原子或达 idd_max_depth。
+            if self.enable_iterative_deepening:
+                sub_questions = self._iterative_deepening_decompose(
+                    question, context_section, sub_questions)
         logger.debug(f"GERS: 分解出 {len(sub_questions)} 个子问题")
 
         # ── ② 构建推理依赖图 ───────────────────────────────────────────────
@@ -912,6 +974,83 @@ class GraphGuidedGenerator:
 
         # 降级：把整个问题作为唯一子问题
         return [{"id": 1, "question": question, "depends_on": [], "type": "inference"}]
+
+    def _parse_subq_json(self, response: str) -> List[Dict]:
+        """从 LLM 响应解析子问题 JSON，失败返回空列表。"""
+        import json
+        try:
+            json_str = response
+            if "```json" in response:
+                json_str = response.split("```json")[1].split("```")[0]
+            elif "```" in response:
+                json_str = response.split("```")[1].split("```")[0]
+            data = json.loads(json_str.strip())
+            return data.get("sub_questions", []) or []
+        except Exception:
+            return []
+
+    def _is_atomic(self, sub_question: str, context_section: str) -> bool:
+        """IDD 复合度判据（轻量）：假设前序跳已答，本步是单一查找(原子)还是捆绑多跳(复合)。
+
+        v1 _can_answer 把"对前序跳有依赖"误判为"该拆"——顺序依赖链里几乎每跳都依赖前跳，
+        导致全拆到 max_depth(过膨胀)。原子性判据假设前序答案已知，只对真正捆绑多跳的
+        复合子问题返回 False（触发拆分），有依赖但原子的不拆。
+        """
+        prompt = ATOMICITY_PROMPT.format(
+            context=context_section.replace("\nContext:", "").strip()[:2500],
+            sub_question=sub_question[:300])
+        resp = self.model.generate(prompt, max_tokens=20, temperature=0.0)
+        first = resp.strip().split("\n")[0].strip().lower()
+        return first.startswith("yes")
+
+    def _iterative_deepening_decompose(self, question: str, context_section: str,
+                                        initial_subqs: List[Dict]) -> List[Dict]:
+        """IDD：迭代深化分解，修深度压缩。
+
+        初始分解一层 → 对每个叶子判复合度(假设前序跳已答) → 复合(捆绑多跳)则拆成更原子的子问题 →
+        重编号并重建依赖 → 迭代到全原子或达 idd_max_depth。
+        保持顺序依赖结构（第 i 个依赖第 i-1 个），与 _build_graph 兼容。
+        """
+        # 用 (question, depth) 跟踪每个叶子；展开成顺序列表
+        chain = [sq.get("question", "") for sq in initial_subqs if sq.get("question")]
+        if not chain:
+            chain = [question]
+
+        for depth in range(self.idd_max_depth):
+            # 找第一个复合(非原子)的叶子
+            expanded = False
+            for i, sq_text in enumerate(chain):
+                if self._is_atomic(sq_text, context_section):
+                    continue
+                # 复合 → 拆成更原子的子问题
+                prompt = SUBQ_DECOMPOSE_PROMPT.format(
+                    original_question=question,
+                    context_section=context_section,
+                    sub_question=sq_text)
+                resp = self.model.generate(prompt, max_tokens=400, temperature=0.2)
+                finer = self._parse_subq_json(resp)
+                finer_qs = [f.get("question", "") for f in finer if f.get("question")]
+                if len(finer_qs) >= 2:
+                    # 用拆出的子问题替换原叶子
+                    chain = chain[:i] + finer_qs + chain[i + 1:]
+                    expanded = True
+                    logger.debug(f"IDD 深度{depth+1}: 拆解叶子{i} → {len(finer_qs)} 个更原子子问题")
+                    break  # 重新从开头扫描（链表变了）
+                # 拆不出更细 → 当作原子，跳过
+            if not expanded:
+                logger.debug(f"IDD 终止于深度{depth+1}: 所有叶子原子（链长 {len(chain)}）")
+                break
+
+        # 重编号为 GERS 子问题格式，顺序依赖
+        sub_questions = []
+        for i, q in enumerate(chain):
+            sub_questions.append({
+                "id": i + 1,
+                "question": q,
+                "depends_on": [i] if i > 0 else [],
+                "type": "inference",
+            })
+        return sub_questions
 
     def _build_graph(self, question: str, sub_questions: List[Dict]) -> ReasoningGraph:
         """将子问题及其依赖关系构建为推理图"""
