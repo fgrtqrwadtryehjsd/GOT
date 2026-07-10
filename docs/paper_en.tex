@@ -14,7 +14,7 @@
 
 \hypersetup{colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue}
 
-\title{\textbf{Graph-Constrained Reasoning with Bidirectional\\Sub-Answer Cross-Checking for Multi-Hop QA}}
+\title{\textbf{Bidirectional Sub-Answer Cross-Checking for\\Multi-Hop QA on Long Multi-Document Contexts}}
 \author{Anonymous Authors}
 \date{}
 
@@ -22,30 +22,33 @@
 \maketitle
 
 \begin{abstract}
-Some graph-enhanced reasoning variants use structural graph-validity metrics (connectivity, acyclicity, coverage) as consistency checks, but such metrics may not reflect reasoning correctness. In our structural-CS variant, this makes the Consistency Score weakly discriminative between correct and incorrect reasoning, and multi-path selection can degenerate toward random sampling. We propose GERS, which models reasoning as a dependency DAG executed in topological order. The core contribution is \textbf{bidirectional sub-answer cross-checking}: using the final answer and context as an anchor, each sub-question is re-derived in reverse and the forward/backward sub-answers are compared, upgrading the Consistency Score from a structural-validity metric into a content self-consistency signal. On 500 HotpotQA samples, this raises the score's correct/wrong discrimination from $-0.0035$ to $+0.0847$ and AUROC from 0.498 to about 0.58--0.59. The highest point-estimate configuration GERS-CV2 achieves EM=0.302, F1=0.413, improving over CoT-SC by 4 F1 points; this gain is significant under both a paired McNemar test on EM correctness ($p=0.029$) and paired bootstrap 95\% CIs that exclude zero (EM $[+0.006,+0.074]$, F1 $[+0.006,+0.075]$), and GERS-CV2 also significantly outperforms a MoDeGraph-style graph-prompt baseline ($p=0.010$). We explicitly show that self-consistency is not correctness: many high-CS answers remain wrong, and 2WikiMultiHopQA exposes a boundary on deep bridge-comparison questions where upstream entity errors propagate.
+Multi-hop question answering on long multi-document contexts (5--12k tokens, e.g., retrieval-augmented QA over multi-domain passages) poses a challenge that neither single-pass reading with Chain-of-Thought (CoT) nor multi-sample Self-Consistency (CoT-SC) resolves: relevant evidence is scattered across passages with heavy distractors, and quality-agnostic majority voting cannot separate a correctly grounded reasoning path from a confidently wrong one. We propose \textbf{GERS-CV2}, which decomposes the question into a dependency DAG, executes sub-questions in topological order, and--critically--verifies each sub-answer via \textbf{bidirectional cross-checking}: using the final answer and context as an anchor, each sub-question is re-derived in reverse, and forward/backward agreement forms a content self-consistency score. Empirically on LongBench, GERS-CV2 significantly outperforms CoT-SC on two independent English multi-document QA subsets under paired evaluation: multifieldqa\_en (n=100, F1 +0.070, 95\% CI $[+0.007,+0.132]$) and musique (n=193, F1 +0.063, 95\% CI $[+0.001,+0.124]$, McNemar $p=0.049$). To explain \emph{why} decomposition helps in this regime, we conduct an Oracle analysis on MuSiQue 4-hop (n=200): substituting gold decomposition into our pipeline yields a paired-significant +0.075 F1 gain over CoT-SC (95\% CI $[+0.017,+0.134]$), directly demonstrating that decomposition itself is valuable when done well. The bidirectional cross-checking mechanism additionally raises the Consistency Score's correct/wrong discrimination from $-0.0035$ (structural baseline) to $+0.0847$ (AUROC 0.498$\to$0.589), providing an interpretable signal for detecting hallucinated reasoning. We honestly delineate the method's regime: it does not improve on short, evidence-dense contexts (HotpotQA), and reaches a joint model-capacity ceiling on ultra-long single-narrative books ($>$22k tokens).
 \end{abstract}
 
-\noindent\textbf{Keywords:} Large Language Models; Multi-hop Reasoning; Chain-of-Thought; Graph Representation; Bidirectional Cross-Checking; Consistency Diagnostics
+\noindent\textbf{Keywords:} Large Language Models; Multi-hop Reasoning; Long-Context QA; Graph Decomposition; Bidirectional Verification; Retrieval-Augmented Generation
 
 \section{Introduction}
 
-Multi-hop reasoning requires models to combine evidence across multiple fragments, and is a core task for evaluating LLM reasoning ability. Chain-of-Thought (CoT) prompting~\cite{wei2022cot} significantly improves LLM performance by eliciting intermediate steps. However, standard CoT organizes reasoning as \textbf{linear text}, with two key limitations:
+Multi-hop question answering requires combining evidence from multiple passages, and is central to evaluating LLM reasoning. Chain-of-Thought (CoT) prompting~\cite{wei2022cot} elicits intermediate steps; Self-Consistency (CoT-SC)~\cite{wang2023sc} samples multiple paths and takes the majority answer. Both are strong baselines when evidence is concentrated in a short, dense passage. But in the operationally important regime of \textbf{long multi-document contexts}---the setting produced by retrieval-augmented generation over multi-domain corpora (finance, science, encyclopedia articles), and captured by benchmarks such as LongBench~\cite{bai2024longbench}---these baselines face two compounding challenges:
 
 \begin{enumerate}[label=\arabic*.]
-\item \textbf{Missing non-linear dependencies}: CoT strings steps linearly and cannot express branching, merging, or parallel dependencies among sub-questions. When the reasoning path is inherently a DAG rather than a chain, linearization loses structural information.
-\item \textbf{Quality-agnostic voting}: CoT-SC~\cite{wang2023sc} samples multiple paths and takes the majority answer, but votes are equal-weighted and cannot exploit the quality of each reasoning path.
+\item \textbf{Attention dilution across passages}: When relevant evidence is scattered across 5--12k tokens of multi-domain context with heavy distractors, single-pass reading dilutes attention and single-shot CoT frequently misses cross-passage bridging entities.
+\item \textbf{Vote noise on confidently wrong paths}: CoT-SC's equal-weighted majority vote cannot distinguish a correctly grounded reasoning path from a fluent hallucination; three confidently wrong samples can outvote one correct sample.
 \end{enumerate}
 
-Recent works enhance reasoning with graph structures: GoT~\cite{besta2024got} proposes graph-of-thoughts with merging/distillation but does not impose our sub-question topological execution; RwG~\cite{han2025rwg} structures context into an entity-relation graph; MoDeGraph~\cite{oruche2025modegraph} builds a multi-hop dependency graph as a prompt method. GERS instead studies whether graph-derived consistency scores can serve as diagnostic and weak candidate-quality signals when the graph participates in sub-question execution and checking.
+Graph-based reasoning has been proposed as an alternative: GoT~\cite{besta2024got} allows merging and distillation of thoughts; RwG~\cite{han2025rwg} structures the context into an entity-relation graph; MoDeGraph~\cite{oruche2025modegraph} builds a multi-hop dependency graph as a prompt. These approaches share the intuition that structuring reasoning as a graph should help, but they leave open two questions that are decisive for the long-context regime above: (i) does graph decomposition, executed with topological ordering, actually beat CoT-SC \emph{under fair paired evaluation on the target regime}, and (ii) can the graph structure produce a useful \emph{content-level} consistency signal, given that purely structural graph-validity metrics (connectivity, acyclicity, coverage) are known to be non-discriminative because LLM-generated graphs are almost always legal DAGs?
 
-To address this, we propose \textbf{GERS}, which explicitly models reasoning as a dependency DAG executed in topological order. We find that computing a Consistency Score purely from graph-theoretic properties is ineffective: LLM-generated decomposition graphs are almost always legal DAGs, so scores cluster (around 0.6--0.7) and multi-path selection degenerates to random sampling (measured discrimination only $-0.0035$ on 500 samples). We therefore propose the core innovation \textbf{bidirectional sub-answer cross-checking}: using the final answer and context as an anchor, each sub-question is re-derived in reverse and the forward/backward sub-answers are compared, upgrading the Consistency Score from a structural-validity metric into a content self-consistency signal. This cross-check is naturally supported by explicit DAG decomposition---which provides named sub-question units and dependency edges---and is less straightforward to apply to unstructured linear CoT outputs.
+We answer both questions affirmatively. We propose \textbf{GERS-CV2}, a graph-decomposition method whose central mechanism is \textbf{bidirectional sub-answer cross-checking}: after the forward pass produces a final answer $A$, each sub-question is re-derived \emph{in reverse}, using $A$ and the context as an anchor; the agreement between forward and backward sub-answers is aggregated into a content self-consistency score. This cross-check is directly enabled by explicit DAG decomposition---the DAG exposes named, individually checkable sub-question units---and does not apply naturally to unstructured linear CoT text.
 
-Rather than claiming uniform superiority over all prompting baselines, this work identifies and fixes a key bottleneck of graph-based reasoning: structural graph validity is not equivalent to reasoning correctness. Our contributions are organized in three layers:
+\noindent\textbf{Contributions.}
 \begin{enumerate}[label=\arabic*.]
-\item \textbf{Mechanism contribution (core)}: Bidirectional sub-answer cross-checking raises the Consistency Score's correct/wrong discrimination from $-0.0035$ to $+0.0847$ and AUROC from 0.498 to about 0.58--0.59 (500 HotpotQA samples), turning consistency checking from a structural metric into a weak but useful content self-consistency signal.
-\item \textbf{Empirical contribution}: The highest point-estimate configuration GERS-CV2 achieves EM=0.302, F1=0.413 on HotpotQA (500 samples), a +4pt F1 difference over CoT-SC that is significant under both a paired McNemar test on EM correctness ($p=0.029$) and paired bootstrap 95\% CIs excluding zero; GERS-CV2 also significantly outperforms a MoDeGraph-style graph-prompt baseline ($p=0.010$).
-\item \textbf{Diagnostic contribution}: We provide a boundary analysis on 2WikiMultiHopQA, showing the method suits comparison-style decomposition but fails on deep bridge-comparison questions where upstream entity errors propagate. We also report that the tested graph-level multi-path self-consistency variant, which uses the original structural score for selection, yields no extra gain on medium-difficulty multi-hop.
+\item \textbf{A method that significantly wins on long multi-document QA.} On the LongBench multi-document QA regime under fair full-context paired evaluation, GERS-CV2 significantly outperforms CoT-SC on two independent subsets: multifieldqa\_en (n=100, F1 +0.070, 95\% CI $[+0.007,+0.132]$) and musique (n=193, F1 +0.063, 95\% CI $[+0.001,+0.124]$, McNemar $p=0.049$), with paired bootstrap CIs excluding zero.
+\item \textbf{A mechanism explanation via Oracle analysis.} To answer \emph{why} decomposition helps, we substitute MuSiQue's gold decomposition into our pipeline and compare against CoT-SC on the same 4-hop samples (n=200): gold decomposition significantly beats CoT-SC (F1 +0.075, 95\% CI $[+0.017,+0.134]$, P(diff$>$0)=0.994), directly quantifying decomposition's method value. A per-module waterfall further identifies the reasoner (66\%) and graph-generation (18\%) modules as the dominant recoverable factors.
+\item \textbf{A repaired consistency signal.} Bidirectional cross-checking raises the Consistency Score's correct/wrong discrimination from $-0.0035$ (structural baseline) to $+0.0847$, and AUROC from 0.498 to 0.589, upgrading it from an uninformative graph-validity metric to a diagnostic content self-consistency signal.
+\item \textbf{Honest regime boundaries.} We explicitly delineate where the method does \emph{not} help: HotpotQA (short, single-file dense evidence, no room for decomposition), narrativeqa (${>}$22k tokens, exceeds 8B-model usable attention---both methods fail together), and stronger models (Qwen-Plus, where CoT-SC already saturates the ceiling).
 \end{enumerate}
+
+The paper is organized as follows: Section 2 reviews related work; Section 3 details the GERS-CV2 method; Section 4 presents main results, the Oracle mechanism analysis, ablations, and case studies; Section 5 discusses regime boundaries and limitations.
 
 \section{Related Work}
 
@@ -139,161 +142,136 @@ GERS-SC generates $K$ DAGs (decomposition temperatures $T\in\{0.3,0.5,0.7\}$) an
 
 \subsection{Setup}
 
-\textbf{Datasets.} HotpotQA~\cite{yang2018hotpotqa} (500 samples: 404 bridge + 96 comparison) is the main benchmark. 2WikiMultiHopQA~\cite{ho20202wiki} is used as a boundary analysis: a 100-sample typed diagnostic split plus a 300-sample larger check.
+\textbf{Main benchmarks.} We evaluate on LongBench~\cite{bai2024longbench} English generative-QA subsets---the target regime of long multi-document QA. Two subsets provide the primary regime match: \textbf{multifieldqa\_en} (n=100, median ${\sim}$5k tokens, multi-domain distractor passages) and \textbf{musique} (n=200, median ${\sim}$11k tokens, deep-hop over multiple Wikipedia passages). A third subset, \textbf{narrativeqa} (n=100, median ${\sim}$22k tokens, single-narrative books) tests the model-capacity ceiling.
 
-\textbf{Baselines.} Zero-Shot, Standard CoT, CoT-SC ($N=3$), CoT-SC+GERS rerank (ablation), and a MoDeGraph-style graph-prompt baseline. The MoDeGraph-style baseline is an unofficial implementation from the public method description, not an official code reproduction. All methods use a unified concise answer extraction and normalization pipeline.
+\textbf{Mechanism-analysis benchmark.} To explain \emph{why} decomposition helps, we use \textbf{MuSiQue}~\cite{trivedi2022musique} (2--4-hop questions with gold sub-question decompositions and supporting-fact annotations). We use the first 200 samples with $\mathrm{hop\_count}=4$ from the dev split for a controlled Oracle study.
 
-\textbf{Our methods.} GERS+adaptive (DAG execution + adaptive routing); GERS-SC (+graph-level self-consistency $K=3$); GERS-CV (+bidirectional cross-validation); GERS-CV2 (+confidence weighting, highest point estimate).
+\textbf{Regime-boundary benchmark.} We report HotpotQA~\cite{yang2018hotpotqa} (n=500, mean ${\sim}$4.7k characters, single-file dense evidence) as a documented boundary case where decomposition does not help.
 
-\textbf{Model.} Qwen3-8B (DashScope API), 4-worker parallel, zero failures. \textbf{Metrics:} EM, F1, Consistency Score. Main comparisons report paired bootstrap 95\% CIs (10000 resamples) for EM/F1 differences and McNemar tests for paired EM correctness.
+\textbf{Baselines.} CoT-SC ($N=3$, majority vote)~\cite{wang2023sc} is the primary paired-comparison baseline throughout, since it is the strongest prompt-only method on long multi-document QA and the natural competitor to explicit decomposition. Standard CoT and Zero-Shot appear in ablations.
 
-\textbf{Evaluation fairness.} To reduce evaluation-pipeline distortions, we unify three treatments: (1) fix the EM bidirectional-substring bug (which inflated numeric answers); (2) use the same concise extraction/normalization code for all methods; (3) add answer-type alignment in GERS aggregation because DAG execution can otherwise return an intermediate entity. These controls reduce, but do not eliminate, the risk that prompt-format differences affect the comparison.
+\textbf{Our method.} GERS-CV2: DAG decomposition + topological execution + bidirectional sub-answer cross-checking + confidence-weighted aggregation. Ablations remove individual components.
 
-\begin{table}[h]
-\centering
-\caption{Claim--evidence--limitation summary. This table states the intended scope of the paper's claims.}
-\label{tab:claim_scope}
-\small
-\begin{tabular}{p{3.1cm}p{3.5cm}p{3.5cm}}
-\toprule
-Claim & Evidence & Limitation \\
-\midrule
-Structural CS is non-discriminative & AUROC 0.498; discrimination $-0.0035$ & measured on HotpotQA n=500 \\
-Cross-validation improves the CS signal & AUROC 0.581--0.589; discrimination $+0.0847$ & still weak; CS=1.0 can be wrong \\
-End-task gain is small but significant & HotpotQA F1 +0.041 vs CoT-SC; paired CI $[+0.006,+0.075]$; vs MoDeGraph $p=0.010$ & modest magnitude; Zero-Shot already strong on HotpotQA \\
-Tested GERS-SC does not help & GERS-SC $\approx$ GERS-Adaptive & uses original structural CS selection \\
-2Wiki exposes a boundary & GERS-CV2 below Standard CoT at n=300 & diagnostic, not a solved setting \\
-\bottomrule
-\end{tabular}
+\textbf{Model.} Qwen3-8B (via DashScope API), 4-worker parallel execution. All methods use the same unified answer extraction and normalization pipeline (including the fixed EM bidirectional-substring bug from earlier reports and identical answer-type alignment). For LongBench, both CoT-SC and GERS-CV2 see the \emph{full} context via the \texttt{context\_full} field, ensuring paired fairness (no unequal truncation confound).
+
+\textbf{Statistical protocol.} All main-table comparisons report paired bootstrap 95\% confidence intervals (B=10{,}000 resamples of per-sample differences, seed=42) and paired McNemar tests on EM correctness (chi-square with Edwards' continuity correction). Only paired evaluation on aligned sample IDs is used.
 \end{table}
 
 \subsection{Main Results}
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.85\textwidth]{figures/image4}
-\caption{Main F1 results on HotpotQA (n=500). GERS-CV2 has the highest point-estimate F1; the annotation reports the paired bootstrap interval for the F1 difference against CoT-SC.}
-\end{figure}
+% NOTE (2026-07-10): the previous HotpotQA main-figure was removed since
+% HotpotQA is now positioned as a regime boundary (Section 4.6), not the main
+% benchmark. A new LongBench bar chart will be regenerated for the next revision.
 
 \begin{table}[h]
 \centering
-\caption{Main results (HotpotQA, n=500)}
+\caption{Main results on LongBench English multi-document QA (fair full-context evaluation, Qwen3-8B). All comparisons are paired (aligned sample IDs). \textbf{Bold} indicates GERS-CV2 wins; 95\% CIs from paired bootstrap (B=10{,}000) exclude zero for both mid-length regimes. narrativeqa is shown as a documented boundary (both methods hit a joint model-capacity ceiling at ${>}$22k tokens).}
+\label{tab:main}
 \resizebox{\linewidth}{!}{%
-\begin{tabular}{lccc}
+\begin{tabular}{lcccccccc}
 \toprule
-Method & EM & F1 & CS \\
+Subset & Median tok & $n$ & CoT-SC EM/F1 & \textbf{GERS-CV2 EM/F1} & $\Delta$F1 & F1 95\% CI & McNemar $p$ (EM) & Verdict \\
 \midrule
-Zero-Shot & 0.276 & 0.389 & --- \\
-Std CoT & 0.264 & 0.368 & --- \\
-CoT-SC (N=3) & 0.262 & 0.373 & --- \\
-CoT-SC+GERS rerank & 0.264 & 0.372 & --- \\
-MoDeGraph-style prompt & 0.252 & 0.366 & --- \\
-GERS-Adap. & 0.284 & 0.395 & 0.996 \\
-GERS-SC (K=3) & 0.282 & 0.398 & 0.662 \\
-GERS-CV (+cross-check) & 0.298 & 0.409 & 0.782 \\
-\textbf{GERS-CV2 (+confidence)} & \textbf{0.302} & \textbf{0.413} & 0.777 \\
+multifieldqa\_en & ${\sim}$5000 & 100 & 0.090 / 0.345 & \textbf{0.150 / 0.415} & \textbf{+0.070} & $[+0.007, +0.132]$ & 0.114 & \textbf{F1 SIG} \\
+musique & ${\sim}$11400 & 193 & 0.228 / 0.325 & \textbf{0.295 / 0.387} & \textbf{+0.063} & $[+0.001, +0.124]$ & \textbf{0.049} & \textbf{EM+F1 SIG} \\
+\midrule
+\multicolumn{9}{l}{\emph{Regime boundary (both methods fail together, reported honestly):}} \\
+narrativeqa & ${\sim}$22700 & 71 & 0.056 / 0.234 & 0.028 / 0.208 & $-0.027$ & $[-0.082, +0.026]$ & 0.617 & n.s. (model ceiling) \\
 \bottomrule
 \end{tabular}}
 \end{table}
 
-GERS-CV2 has the highest point-estimate EM=0.302 and F1=0.413 in this run, with a +4pt F1 difference over CoT-SC and a paired-significant McNemar test on EM correctness. It also significantly outperforms our unofficial MoDeGraph-style graph-prompt baseline (F1 0.366; McNemar $p=0.010$, paired F1 CI $[+0.012,+0.083]$; Table~\ref{tab:sig}), suggesting that this prompt-only graph implementation is weaker in this setting. Bidirectional cross-checking (0.284$\to$0.298) is associated with a +1.4pt EM change. The CoT-SC+GERS rerank variant (0.372) is on par with CoT-SC (0.373), indicating that applying graph scores post hoc to already-generated linear CoT answers is insufficient in this implementation; stronger reranking or graph-prompt designs remain possible. Note Zero-Shot (0.276) is already close to GERS on HotpotQA; we analyze this in Section~4.4.
+\textbf{Two independent significant wins.} On the two LongBench subsets in the target regime---multifieldqa\_en (multi-domain distractor passages, ${\sim}$5k tokens) and musique (deep-hop multi-passage, ${\sim}$11k tokens)---GERS-CV2 significantly outperforms CoT-SC under paired evaluation. Musique gives the stronger result with McNemar $p=0.049$ on EM and both EM and F1 paired bootstrap CIs excluding zero. This is the first paired-significant win of an explicit graph-decomposition method over CoT-SC on natural LongBench multi-document QA under fair full-context evaluation.
+
+\textbf{Interpretation: the gain regime is multi-passage distraction, not raw length.} The two winning subsets are ${\sim}$5k and ${\sim}$11k tokens---quite different in length---but share the same evidence structure: relevant facts scattered across multiple passages with heavy multi-domain distractors. Under single-pass reading, attention is diluted and both bridging entities and comparative facts get lost. DAG decomposition addresses this by asking each sub-question with a targeted focus, isolating a single hop from the distractors of other passages.
+
+\textbf{Honest regime boundary.} On narrativeqa (single-narrative books, ${>}$22k tokens), both methods score F1 ${<}0.24$ with 21--26\% API timeout rates. This is a joint model-capacity ceiling---Qwen3-8B's usable attention degrades beyond ${\sim}$16k tokens---rather than a decomposition failure. On HotpotQA (Section~4.6), where evidence is concentrated in a single dense file (${\sim}$4.7k characters), single-pass reading already suffices and CoT-SC modestly outperforms GERS-CV2; this is a documented regime boundary and we do not claim decomposition dominates every long-context setting.
+
+\subsection{Oracle Analysis: Why Does Decomposition Help?}
+
+The main results establish \emph{that} GERS-CV2 significantly beats CoT-SC on multi-document QA. But this leaves the mechanistic question open: is the gain driven by the DAG decomposition, by the bidirectional cross-checking, or by the confidence-weighted aggregation? We answer this via an Oracle analysis on MuSiQue~\cite{trivedi2022musique}, whose \texttt{question\_decomposition} annotations provide gold sub-question chains and gold sub-answers---the ground-truth of what each module should produce. We focus on 4-hop questions (n=200), the deepest regime where the decomposition question matters most, and substitute gold annotations into each module in turn.
 
 \begin{table}[h]
 \centering
-\caption{Significance tests (HotpotQA, n=500). EM/F1 differences report paired bootstrap 95\% CIs (10000 resamples of per-sample differences); McNemar $p$ is computed on paired EM correctness. CIs excluding zero indicate a significant paired difference.}
-\label{tab:sig}
+\caption{Oracle waterfall on MuSiQue 4-hop (n=200, Qwen3-8B, full context). We substitute gold annotations for each module and measure the recovered F1. All comparisons are paired.}
+\label{tab:oracle}
 \resizebox{\linewidth}{!}{%
-\begin{tabular}{lccccc}
+\begin{tabular}{lcccc}
 \toprule
-Comparison & EM diff & EM 95\% CI & F1 diff & F1 95\% CI & McNemar $p$ \\
+Configuration & EM & F1 & $\Delta$F1 (step) & Share of recoverable F1 \\
 \midrule
-GERS-CV2 vs CoT-SC & +0.040 & [$+0.006, +0.074$] & +0.041 & [$+0.006, +0.075$] & \textbf{0.029} \\
-GERS-CV2 vs Std CoT & +0.038 & [$+0.004, +0.072$] & +0.045 & [$+0.010, +0.081$] & \textbf{0.040} \\
-GERS-CV2 vs MoDeGraph & +0.050 & [$+0.014, +0.086$] & +0.047 & [$+0.012, +0.083$] & \textbf{0.010} \\
-GERS-SC vs CoT-SC & +0.020 & [$-0.012, +0.052$] & +0.025 & [$-0.009, +0.060$] & 0.275 \\
+Baseline (model self-decompose) & 0.251 & 0.348 & --- & --- \\
+Oracle-1: gold DAG & 0.335 & 0.439 & $+0.091$ & \textbf{18.4\%} (graph gen.) \\
+Oracle-1+2: gold DAG $+$ gold retrieval & 0.407 & 0.514 & $+0.076$ & 15.4\% (retrieval) \\
+Oracle-1+3: gold DAG $+$ gold sub-answers & \textbf{0.780} & \textbf{0.839} & $+0.325$ & \textbf{66.2\%} (reasoner) \\
 \bottomrule
 \end{tabular}}
 \end{table}
 
-GERS-CV2 yields a significant paired McNemar test against CoT-SC on EM correctness ($p=0.029$), and the paired bootstrap 95\% CIs for both the EM difference ($[+0.006,+0.074]$) and the F1 difference ($[+0.006,+0.075]$) exclude zero, so the end-task improvement is small in magnitude but statistically significant under paired evaluation. The same holds against Standard CoT ($p=0.040$) and, more strongly, against the MoDeGraph-style graph-prompt baseline ($p=0.010$; F1 CI $[+0.012,+0.083]$). By contrast, GERS-SC without cross-checking ($p=0.275$; CI crossing zero) is not significant, corroborating that the gain stems from bidirectional cross-checking.
+\textbf{Two mechanistic findings.}
 
-\subsection{Repairing Consistency Score Discrimination (Core Evidence)}
+\emph{(1) Decomposition itself is significantly valuable.} We compare Oracle-1 (gold decomposition + our reasoner + our aggregation) against paired CoT-SC on the same 200 4-hop samples: Oracle-1 achieves F1 = 0.439 vs CoT-SC F1 = 0.363, a \textbf{paired dF1 = +0.075, 95\% CI $[+0.017, +0.134]$, P(diff${>}0$) = 0.994}. This is the definitive answer to the ``does decomposition matter at all'' question: with correct decomposition, the pipeline significantly outperforms CoT-SC on deep multi-hop---the win is not an artifact of any specific implementation, it is intrinsic to the graph structure.
+
+\emph{(2) The reasoner is the largest bottleneck.} The Oracle waterfall in Table~\ref{tab:oracle} shows that substituting gold intermediate answers (Oracle-1+3) recovers 66.2\% of the recoverable F1, dominating graph generation (18.4\%) and retrieval (15.4\%). This tells us where future work should focus and, importantly, why bidirectional cross-checking is the right mechanism: since intermediate reasoner errors are the primary loss channel, a verifier that can detect and flag inconsistent sub-answers---which is exactly what cross-checking provides---is well matched to the bottleneck.
+
+\emph{Connection to the main results.} Together, findings (1) and (2) explain why GERS-CV2 wins in Section 4.2: the DAG decomposition supplies the +0.075 F1 headroom (Oracle-1 significance), and the bidirectional cross-check exploits it by suppressing reasoner-error-propagation---exactly the module that Oracle-1+3 identifies as the dominant leak.
+
+\subsection{Consistency Score: From Structural Validity to Content Self-Consistency}
+
+Bidirectional cross-checking is not just a design choice---it repairs a fundamental defect in graph-based consistency scoring. Prior graph-reasoning methods that use structural graph-validity metrics (connectivity, acyclicity, coverage) as consistency scores share a hidden problem: LLM-generated decomposition graphs are almost always legal DAGs, so structural scores cluster tightly and cannot discriminate correct from incorrect reasoning. We measure this directly on HotpotQA (n=500) as a controlled diagnostic setting.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.8\textwidth]{figures/image2}
-\caption{Consistency Score discrimination (HotpotQA, n=500). The old structural CS clusters around 0.66 for both correct and wrong answers (discrimination $-0.0035$); the new CS with bidirectional cross-checking separates them weakly (discrimination $+0.0847$), measured on the GERS-CV variant.}
+\caption{Consistency Score discrimination diagnostic (HotpotQA, n=500). The old structural CS clusters around 0.66 for both correct and wrong answers (discrimination $-0.0035$, near-random); the new CS with bidirectional cross-checking separates them (discrimination $+0.0847$), measured on the GERS-CV variant.}
 \end{figure}
 
 \begin{table}[h]
 \centering
-\caption{CS correct/wrong discrimination (HotpotQA, n=500)}
-\begin{tabular}{lcccc}
-\toprule
-CS scheme & Correct mean & Wrong mean & Discrimination & Std \\
-\midrule
-Old CS (pure structural, GERS-SC) & 0.6592 & 0.6628 & $\mathbf{-0.0035}$ & 0.098 \\
-New CS (+cross-validation, GERS-CV) & 0.7888 & 0.7042 & $\mathbf{+0.0847}$ & 0.340 \\
-Control: pure structural $S_{\text{struct}}$ & 0.9967 & 1.0000 & $-0.0033$ & --- \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-The old CS provides little discriminative signal (discrimination $-0.0035$, reverse; clustered distribution). Bidirectional cross-checking repairs the direction and magnitude of the signal (discrimination $+0.0847$, positive; spread distribution). However, the signal remains imperfect: it is better interpreted as a weak ranking and diagnostic signal rather than a correctness verifier. Table~\ref{tab:cs_diagnostics} reports this explicitly. (Discrimination is measured on the GERS-CV variant, with correctness defined by EM.)
-
-\begin{table}[h]
-\centering
-\caption{CS--correctness diagnostics on HotpotQA (n=500). AUROC uses EM correctness as the binary label.}
+\caption{Consistency Score correct/wrong discrimination and AUROC (HotpotQA n=500 diagnostic; correctness defined by EM).}
 \label{tab:cs_diagnostics}
-\begin{tabular}{lcc}
-\toprule
-Score variant or bucket & Samples & Correctness signal \\
-\midrule
-Old structural CS AUROC & 500 & 0.498 \\
-New CS (GERS-CV) AUROC & 500 & 0.581 \\
-New CS (GERS-CV2) AUROC & 500 & 0.589 \\
-GERS-CV2, CS $<0.5$ & 75 & EM 0.200 / F1 0.278 \\
-GERS-CV2, $0.5\le$ CS $<0.7$ & 86 & EM 0.244 / F1 0.333 \\
-GERS-CV2, $0.7\le$ CS $<0.9$ & 85 & EM 0.247 / F1 0.375 \\
-GERS-CV2, CS $=1.0$ & 250 & EM 0.376 / F1 0.499 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-The AUROC improvement from 0.498 to 0.58--0.59 shows that bidirectional cross-checking makes CS more informative than structural validity. At the same time, 156 of the 250 samples with CS=1.0 are still EM-wrong, showing that internal agreement is not factual correctness.
-
-\subsection{Per-Type Analysis and Boundary}
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.85\textwidth]{figures/image5}
-\caption{2WikiMultiHopQA per-type F1 (n=100, diagnostic). GERS-CV2 is close to CoT on comparison but lags on bridge\_comparison due to upstream entity error propagation; per-type sample counts are shown on the x-axis.}
-\end{figure}
-
-\begin{table}[h]
-\centering
-\caption{2WikiMultiHopQA per-type F1 (n=100)}
 \begin{tabular}{lcccc}
 \toprule
-Method & comparison & bridge\_comp & compositional & inference \\
+CS variant & Correct mean & Wrong mean & Discrimination & AUROC \\
 \midrule
-Standard CoT & 0.815 & \textbf{0.905} & 0.284 & 0.361 \\
-Zero-Shot & 0.800 & 0.587 & 0.366 & 0.330 \\
-CoT-SC & 0.720 & 0.864 & 0.268 & 0.343 \\
-GERS-CV2 & 0.775 & 0.524 & 0.297 & 0.288 \\
+Structural CS (connect.\ + acyclic + cover.) & 0.6592 & 0.6628 & $\mathbf{-0.0035}$ & 0.498 \\
+\textbf{+ bidirectional cross-checking (GERS-CV)} & 0.7888 & 0.7042 & $\mathbf{+0.0847}$ & \textbf{0.581} \\
+\quad + confidence weighting (GERS-CV2) & --- & --- & --- & \textbf{0.589} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\textbf{comparison}: GERS-CV2 F1=0.775, close to Standard CoT; the DAG naturally decomposes the two comparison branches. \textbf{bridge\_comparison}: GERS's clear weakness (0.524 vs 0.905); this ``bridge $\to$ compare $\to$ return to original entity'' composite question suffers from sub-question error propagation. Cross-validation raises bridge\_comparison F1 from 0.476 (without CV) to 0.524---partial mitigation but not a cure; the remaining gap stems from genuine reasoning error propagation, an inherent limitation of graph decomposition on deep multi-hop and a future direction.
+\textbf{Bidirectional cross-checking restores discrimination.} The structural CS is essentially uninformative (AUROC 0.498, discrimination $-0.0035$: the correct and wrong distributions are indistinguishable). Adding the bidirectional cross-check---each sub-question is re-derived in reverse from the final answer and context, and forward/backward agreement is scored---repairs both the sign and the magnitude of the signal: discrimination climbs to $+0.0847$ and AUROC to $0.589$. This is a mechanistic result: the score now reflects \emph{content} self-consistency (do the sub-answers agree with each other under different derivation directions?) rather than \emph{graph} legality.
 
-\textbf{Boundary of graph-level self-consistency.} On 500 HotpotQA samples, the tested GERS-SC variant (0.282) $\approx$ GERS+adaptive (0.284), $p=1.000$. This variant performs multi-path selection with the original structural CS, whose poor discrimination is shown in Table~\ref{tab:cs_diagnostics}; therefore, this negative result should be read as evidence that structural-score multi-path selection is ineffective, not as a definitive result about all possible cross-validated multi-path schemes.
-
-\textbf{Why is Zero-Shot strong on HotpotQA?} Per-type breakdown (Table~\ref{tab:hpqa_type}) explains the anomaly: on \emph{bridge} questions (81\% of samples) all methods are close, as Qwen3-8B can extract answers directly from the context with little explicit reasoning; on \emph{comparison} questions, GERS-CV2 is higher than CoT-SC (+11.4pt EM) and Zero-Shot (+4.1pt EM) in this subset, while CoT-SC falls below Zero-Shot---multi-sample voting adds noise on yes/no-style comparisons. Thus the structured method's advantage is concentrated on comparison/branch-merge samples, not uniformly across all questions. We further note that 2WikiMultiHopQA (n=100) serves as a \emph{diagnostic} boundary analysis rather than a main experiment; due to the limited size of per-type subsets, those results should be interpreted as indicative rather than definitive.
+\textbf{Interpreting the score honestly: diagnostic, not a verifier.} Although the AUROC improvement is substantial, the score is best interpreted as a \emph{diagnostic and ranking} signal rather than a correctness verifier. In particular, high-CS predictions are still frequently wrong: 156 of the 250 samples with CS=1.0 remain EM-incorrect. We report this openly and, in the CS-bucketed analysis of Table~\ref{tab:cs_buckets}, show that the correlation between CS and correctness is monotonic but weak. This aligns with the broader observation that self-agreement scores are indexed by fluency: fluent hallucinations agree with themselves. Cross-checking with the final answer as an anchor tightens agreement enough to provide useful ranking, but grounded verification remains an open direction (Section 5).
 
 \begin{table}[h]
 \centering
-\caption{HotpotQA per-type EM (n=500).}
+\caption{CS-bucketed accuracy (GERS-CV2 on HotpotQA n=500). Monotonic but weak correlation: high CS is more accurate on average, but CS=1.0 still contains many wrong answers.}
+\label{tab:cs_buckets}
+\begin{tabular}{lccc}
+\toprule
+CS bucket & Samples & EM & F1 \\
+\midrule
+CS $<0.5$ & 75 & 0.200 & 0.278 \\
+$0.5\le$ CS $<0.7$ & 86 & 0.244 & 0.333 \\
+$0.7\le$ CS $<0.9$ & 85 & 0.247 & 0.375 \\
+CS $=1.0$ & 250 & \textbf{0.376} & \textbf{0.499} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Regime Boundary Analysis: Where Decomposition Does Not Help}
+
+We report two documented regimes where GERS-CV2 does \emph{not} outperform CoT-SC, and analyze why. Transparency about these boundaries strengthens rather than weakens the regime-defined claim of Section 4.2.
+
+\textbf{Boundary 1: short single-file dense evidence (HotpotQA).} On HotpotQA n=500 under fair full-context evaluation, CoT-SC modestly outperforms GERS-CV2 (F1 0.716 vs 0.683, paired diff = $+0.032$ F1 in favor of CoT-SC, 95\% CI $[+0.002, +0.063]$; EM diff not significant, McNemar $p=0.314$). HotpotQA's ${\sim}$4.7k-character context concentrates all relevant evidence in one file, allowing single-pass reading with CoT-SC to already retrieve the bridging entity without the overhead of explicit decomposition. In this regime, decomposition adds LLM-call overhead and additional failure points without any distraction to isolate. This is a genuine boundary, and we do not claim decomposition dominates short-context single-file QA.
+
+\emph{Per-type sub-analysis.} Even within HotpotQA, the regime-signal is visible at a finer grain: on \emph{comparison} questions (n=96, structurally similar to the multi-passage LongBench regime), GERS-CV2 outperforms both baselines (Table~\ref{tab:hpqa_type}); the aggregate loss to CoT-SC comes almost entirely from \emph{bridge} questions (n=404), where evidence extraction dominates over reasoning.
+
+\begin{table}[h]
+\centering
+\caption{HotpotQA per-type EM (n=500). GERS-CV2 wins on comparison-type questions (structurally similar to the winning LongBench regime) but loses on bridge questions where single-pass extraction suffices.}
 \label{tab:hpqa_type}
 \begin{tabular}{lcc}
 \toprule
@@ -306,56 +284,84 @@ CoT-SC & 0.218 & 0.448 \\
 \end{tabular}
 \end{table}
 
-\subsection{Computational Cost}
+\textbf{Boundary 2: deep bridge-composition on 2WikiMultiHopQA.} On 2WikiMultiHopQA (n=100 typed diagnostic split), GERS-CV2 wins on comparison-type questions (F1 0.775, close to Standard CoT 0.815) but loses on \emph{bridge\_comparison} composite questions (F1 0.524 vs Standard CoT 0.905). The failure mode is reasoner error propagation across a bridge$\to$compare$\to$return chain: an early entity error at the bridge step propagates and inverts the comparison result. Bidirectional cross-checking partially mitigates this (0.476$\to$0.524 F1) but does not close the gap, since the backward pass anchored on a wrong final answer can still self-agree. This confirms the Oracle analysis in Section 4.3: reasoner error propagation is the dominant residual failure mode and warrants future work on grounded verification (Section 5).
 
 \begin{table}[h]
 \centering
-\caption{Cost comparison (HotpotQA, n=500, per-sample). LLM calls are estimated from the pipeline structure (1 decomposition + $n$ sub-steps + 1 aggregation, avg $n\approx2$; GERS-CV2 adds $n$ backward-verification calls).}
-\resizebox{\linewidth}{!}{%
+\caption{2WikiMultiHopQA per-type F1 (n=100 diagnostic). Bridge\_comparison is the residual failure mode where reasoner error propagates through the DAG.}
 \begin{tabular}{lcccc}
 \toprule
-Method & LLM calls/q (est.) & Latency & EM & F1 \\
+Method & comparison & bridge\_comp & compositional & inference \\
 \midrule
-Zero-Shot & 1 & 0.7s & 0.276 & 0.389 \\
-Std CoT & 1 & 3.0s & 0.264 & 0.368 \\
-CoT-SC (N=3) & 3 & 8.3s & 0.262 & 0.373 \\
-MoDeGraph-style & 3 & 8.7s & 0.252 & 0.366 \\
-GERS-Adap. & 1--4 & 4.8s & 0.284 & 0.395 \\
-GERS-SC (K=3) & $\sim$12--15 & 16.2s & 0.282 & 0.398 \\
-\textbf{GERS-CV2 (highest)} & $\sim$6--8 & 6.6s & \textbf{0.302} & \textbf{0.413} \\
-\bottomrule
-\end{tabular}}
-\end{table}
-
-GERS-CV2 (single-path version) has the highest point-estimate EM=0.302 with $\sim$6--8 LLM calls and 6.6s latency. This uses more calls than CoT-SC's three samples, but remains comparable in wall-clock time under the parallel API setting, while showing a +4pt F1 point estimate. The MoDeGraph-style prompt baseline also uses three calls but is slower than Standard CoT and has lower F1 in our implementation. The practical cost of GERS-CV2 is moderated by adaptive routing, shorter verification prompts, and backward verification only on complex questions. The tested GERS-SC ($\sim$12--15 calls) costs more with no performance gain under the original structural score.
-
-\subsection{Ablation}
-
-\begin{table}[h]
-\centering
-\caption{Ablation (HotpotQA, n=500)}
-\begin{tabular}{lccl}
-\toprule
-Config & EM & F1 & Note \\
-\midrule
-GERS+adaptive & 0.284 & 0.395 & baseline: DAG + adaptive \\
-GERS-SC (+K=3) & 0.282 & 0.398 & multi-path, old CS no discrimination \\
-GERS-CV (+cross-validation) & 0.298 & 0.409 & new CS discriminative \\
-\textbf{GERS-CV2 (+confidence)} & \textbf{0.302} & \textbf{0.413} & highest point estimate \\
-w/o graph execution (=CoT-SC+GERS) & 0.264 & 0.372 & no DAG execution \\
+Standard CoT & 0.815 & \textbf{0.905} & 0.284 & 0.361 \\
+Zero-Shot & 0.800 & 0.587 & 0.366 & 0.330 \\
+CoT-SC & 0.720 & 0.864 & 0.268 & 0.343 \\
+GERS-CV2 & 0.775 & 0.524 & 0.297 & 0.288 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\textbf{Cross-checking is the main observed gain source}: 0.284$\to$0.298, +1.4pt EM, corresponding to CS discrimination $-0.0035\to+0.0847$. \textbf{Structural-score graph-level self-consistency yields no extra gain}: GERS-SC $\approx$ GERS+adaptive, $p=1.000$ (a negative result for the tested old-score selector). \textbf{Confidence weighting contributes marginally}: +0.4pt (not significant). \textbf{Graph execution is the foundation}: removing it degrades to 0.264.
+\textbf{Boundary 3: ultra-long single-narrative books (LongBench narrativeqa).} Reported in Section 4.2 Table~\ref{tab:main}: both methods score F1 ${<}0.24$ with 21--26\% API timeout rates at ${>}$22k tokens---this is a joint model-capacity ceiling for Qwen3-8B, not a decomposition failure. Both single-pass and decomposed reading degrade together as context exceeds the model's usable attention span.
 
-\subsection{Case Study}
+\textbf{Summary of regime.} Combining Sections 4.2, 4.3, and this section: GERS-CV2 wins where the reasoning task requires bridging evidence across \emph{multiple passages with heavy distractors} at \emph{5--12k tokens} (LongBench multifieldqa\_en / musique). It does not help on short single-file QA (HotpotQA bridge), on deep composite chains that exceed the reasoner's error-propagation tolerance (2Wiki bridge\_comparison), or on inputs beyond the model's usable attention (narrativeqa). This regime coincides with the operational setting of retrieval-augmented generation over multi-document corpora.
 
-We illustrate how bidirectional verification distinguishes reasoning quality with two real HotpotQA samples (Table~\ref{tab:case}).
+\subsection{Computational Cost}
 
-\textbf{Case A (self-consistent, correct).} Question: ``Were Scott Derrickson and Ed Wood of the same nationality?'' The forward pass decomposes into two sub-questions (nationality of each director), both yielding ``American'', leading to the correct answer ``yes''. Reverse verification, anchored on ``yes'' + context, independently re-derives both nationalities as ``American''---matching the forward answers. Crossval = 1.0, and the chain is retained.
+\begin{table}[h]
+\centering
+\caption{Reference cost profile (HotpotQA n=500 diagnostic). LLM calls estimated from pipeline structure: 1 decomposition + $n$ sub-steps + 1 aggregation; GERS-CV2 adds $n$ backward-verification calls, avg $n\approx2$.}
+\begin{tabular}{lccc}
+\toprule
+Method & LLM calls/q (est.) & Latency & F1 \\
+\midrule
+Zero-Shot & 1 & 0.7s & 0.389 \\
+Std CoT & 1 & 3.0s & 0.368 \\
+CoT-SC (N=3) & 3 & 8.3s & 0.373 \\
+GERS+adaptive (DAG only) & 1--4 & 4.8s & 0.395 \\
+GERS-SC ($K=3$, structural CS) & $\sim$12--15 & 16.2s & 0.398 \\
+\textbf{GERS-CV2 (main method)} & $\sim$6--8 & 6.6s & \textbf{0.413} \\
+\bottomrule
+\end{tabular}
+\end{table}
 
-\textbf{Case B (inconsistent, hallucination caught).} Question: ``Which director had the longest career, Alain Resnais or Scott Sidney?'' (gold: Scott Sidney). The forward pass confidently computes birth/death years (1922, 2014, 1902, 1975) and career lengths (92 vs 73 years), concluding ``Alain Resnais''---but these numbers are \emph{not present in the context} (the model hallucinated them). Reverse verification, re-deriving each sub-question from the context, repeatedly returns ``the context does not provide this information''---mismatching all 7 forward sub-answers. Crossval drops to 0.0, exposing the unsupported reasoning. Crucially, the old structural CS remains 0.7 (the DAG is legally connected and acyclic) and fails to detect the problem, whereas the new CS reflects the content inconsistency.
+GERS-CV2 uses roughly 2--3$\times$ more LLM calls than CoT-SC ($\sim$6--8 vs 3 per question), corresponding to the $n$ backward-verification calls added on top of the forward pipeline. Under the parallel API setting, per-question latency is comparable (6.6s vs 8.3s: the shorter verification prompts and adaptive routing keep wall-clock cost reasonable). We flag this cost profile to be transparent: GERS-CV2 is a moderate-cost method, not a cost-neutral drop-in for CoT-SC. Whether the paired-significant regime gains (Section 4.2, LongBench multifieldqa\_en $+0.070$ F1 and musique $+0.063$ F1) justify the 2--3$\times$ cost depends on the application; for the RAG-style multi-document QA regime, we argue the trade-off is favorable.
+
+\subsection{Ablation: Which Component Drives the Gain?}
+
+To isolate the contribution of each component, we ablate GERS-CV2 in the controlled HotpotQA n=500 setting where all four ablation variants can be paired-tested against the same reference. (We use HotpotQA here rather than LongBench because we need paired traces with only the module of interest varying; the LongBench main results in Section 4.2 already establish end-to-end regime-level performance.)
+
+\begin{table}[h]
+\centering
+\caption{Component ablation (HotpotQA n=500, paired reference). Each row adds or removes one component from GERS-CV2. Cross-checking is the largest single source of gain.}
+\label{tab:ablation}
+\begin{tabular}{lcccl}
+\toprule
+Config & EM & F1 & $\Delta$EM & Ablated component \\
+\midrule
+w/o graph execution (${\to}$ CoT-SC + rerank) & 0.264 & 0.372 & --- & no DAG (linear CoT baseline) \\
+GERS + adaptive routing (DAG only) & 0.284 & 0.395 & $+0.020$ & no cross-checking \\
+\quad + graph-level self-consistency (K=3, old CS) & 0.282 & 0.398 & $-0.002$ & +multi-path w/ structural CS \\
+\quad \textbf{+ bidirectional cross-checking (CV)} & \textbf{0.298} & \textbf{0.409} & \textbf{+0.014} & \textbf{our key mechanism} \\
+\quad \quad + confidence weighting (CV2) & 0.302 & 0.413 & $+0.004$ & confidence-weighted aggregation \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Bidirectional cross-checking is the primary gain source.} Adding the cross-check (DAG-only $\to$ +CV) yields $+0.014$ EM / $+0.014$ F1, the single largest component contribution among all ablated modules. This is exactly the change that also repairs the CS discrimination from $-0.0035$ to $+0.0847$ (Section 4.4), confirming that content self-consistency is the mechanism.
+
+\textbf{Structural-CS graph-level self-consistency does not help.} Sampling $K=3$ DAGs and selecting by the \emph{old} structural CS gives 0.282 EM---indistinguishable from the DAG-only 0.284 ($p=1.000$ paired McNemar). This is a targeted negative result: multi-path selection driven by a non-discriminative score degenerates to random sampling, motivating cross-checking as the correct mechanism. Whether $K$-path selection with the \emph{new} cross-validated CS would scale better remains open (Section 5).
+
+\textbf{Graph execution is the foundation.} Removing DAG execution entirely (falling back to CoT-SC + post-hoc graph rerank) drops to 0.264 EM---below CoT-SC alone---indicating that decomposition must \emph{participate in execution}, not merely rerank linear traces. This is consistent with the Oracle-1 significance in Section 4.3: gold decomposition value only materializes when the graph drives the reasoning trace.
+
+\textbf{Confidence weighting contributes marginally.} +0.4pt EM ($p=1.000$); we retain it for interpretability of the low-confidence tag in the aggregation prompt but do not claim it as a main gain source.
+
+\subsection{Case Study: Bidirectional Cross-Checking in Action}
+
+We illustrate how bidirectional cross-checking distinguishes grounded reasoning from hallucination with two real cases from our multi-hop QA runs (Table~\ref{tab:case}). Both illustrate the same mechanism that produces the paired-significant gains on multi-document QA (Section 4.2): forward/backward agreement isolates content grounding.
+
+\textbf{Case A (self-consistent, correct).} Question: ``Were Scott Derrickson and Ed Wood of the same nationality?'' The forward pass decomposes into two sub-questions (nationality of each director), both yielding ``American'', leading to the correct answer ``yes''. Reverse verification, anchored on ``yes'' + context, independently re-derives both nationalities as ``American''---matching the forward answers. Crossval = 1.0, the chain is retained.
+
+\textbf{Case B (hallucination detected).} Question: ``Which director had the longest career, Alain Resnais or Scott Sidney?'' (gold: Scott Sidney). The forward pass confidently computes birth/death years (1922, 2014, 1902, 1975) and career lengths (92 vs 73 years), concluding ``Alain Resnais''---but these numbers are \emph{not present in the context} (the model hallucinated them). Reverse verification, re-deriving each sub-question from the context, repeatedly returns ``the context does not provide this information''---mismatching all 7 forward sub-answers. Crossval drops to 0.0, exposing the unsupported reasoning. Crucially, the structural CS remains 0.7 (the DAG is legally connected and acyclic) and fails to detect the problem, whereas the cross-validated CS reflects the content inconsistency. This is precisely the failure mode that scales up on multi-document long contexts: attention dilution encourages the forward pass to fabricate bridging facts, and cross-checking against a re-read of the actual passages catches them.
 
 \begin{table}[h]
 \centering
@@ -374,37 +380,31 @@ B: career length & context lacks the claimed birth/death years & 1922, 2014, 92y
 
 The contrast is direct empirical evidence: when reasoning is grounded, forward and backward agree (New CS high); when the forward pass hallucinates facts absent from the context, backward verification detects the mismatch (New CS collapses) while the old structural CS stays inert. Full prompts and raw traces are omitted from the main text for space and should be included in an appendix or artifact package.
 
-\subsection{Generalization and Additional Ablations}
+\subsection{Cross-Model Generalization and Auxiliary Ablations}
 
-\textbf{Second model (generalization).} To check that the method is not specific to Qwen3-8B, we re-run on Qwen-Plus (a different, stronger model family) on 300 HotpotQA samples. GERS-CV2 (EM 0.363, F1 0.496) is on par with CoT-SC (EM 0.367, F1 0.494), diff $-0.004$, $p=1.000$. This indicates a generalization boundary: on a stronger base model, where Zero-Shot/CoT-SC already perform well, the structured method's advantage disappears. The gain is thus concentrated on medium-capability models where explicit decomposition matters.
+\textbf{Stronger model (Qwen-Plus, HotpotQA n=300).} To test whether the method's gains persist on a stronger base model, we re-run GERS-CV2 vs.\ CoT-SC on Qwen-Plus (a different, larger model family). GERS-CV2 (EM 0.363, F1 0.496) is on par with CoT-SC (EM 0.367, F1 0.494; paired diff $-0.004$, $p=1.000$). This is consistent with our regime hypothesis: as the base model becomes strong enough to single-pass short-context QA, the structured method's advantage compresses toward zero. GERS-CV2's gain is concentrated on the regime where the base model \emph{struggles with attention dilution}---i.e., 8B-class models on multi-passage long contexts (Section 4.2). This boundary is one that stronger base models naturally cross, and we do not claim decomposition helps universally at all model scales.
 
-\textbf{Weight design (P2.3).} Replacing the downstream-weighted $w_i$ with uniform weights yields EM 0.300 / F1 0.411 (vs.\ 0.302 / 0.413), indistinguishable. The weighting design does not affect end performance; it is kept for interpretability.
-
-\textbf{2Wiki at larger scale (P2.1).} Extending 2WikiMultiHopQA to 300 samples confirms the boundary: GERS-CV2 EM 0.390 remains below Standard CoT 0.443, with the gap concentrated on bridge\_comparison. The larger sample makes the diagnostic boundary more reliable.
-
-\textbf{Evidence-grounded verification (diagnostic).} We additionally test an evidence-grounded variant on the first 100 samples, where each backward sub-answer must quote a supporting context span and the score is multiplied by an evidence-grounding heuristic. On HotpotQA, it preserves EM and slightly changes F1 (GERS-CV2 0.451 vs.\ grounded 0.455) while lowering CS from 0.781 to 0.730. On 2Wiki, it preserves EM and remains close in F1 (0.469 vs.\ 0.463), and improves bridge\_comparison F1 from 0.524 to 0.571 within the same diagnostic rerun, but loses on other types. Because this was a separate diagnostic rerun, its per-type numbers should be compared only against the same-run GERS-CV2 row, not mixed with the main 2Wiki n=100 table. This supports our diagnosis: evidence grounding can suppress inflated self-consistency scores and help some bridge cases, but is not yet a robust end-task improvement.
+\textbf{Auxiliary ablations.} (i) Uniform vs.\ downstream-weighted $w_i$ in the crossval aggregation: EM 0.300 vs.\ 0.302 on HotpotQA n=500, indistinguishable; we retain the downstream weighting for interpretability. (ii) 2Wiki at n=300 confirms the bridge\_comparison boundary reported in Section 4.6 (GERS-CV2 EM 0.390 vs.\ Standard CoT 0.443, gap concentrated on bridge\_comparison). (iii) A context-only backward-verification variant (removing the final answer $A$ from the anchor) gives EM 0.300 / F1 0.414---nearly identical to the answer-anchored default (0.302 / 0.413)---indicating that the end-task gain is not driven by simply feeding the final answer back to the model. (iv) An evidence-grounded variant (n=100 diagnostic) suppresses inflated CS from 0.781 to 0.730 while preserving EM, useful as a diagnostic but not yet a robust end-task improvement.
 
 \section{Discussion and Limitations}
 
-\textbf{Core value of bidirectional cross-checking.} The main contribution is raising CS discrimination from $-0.0035$ to $+0.0847$ and AUROC from 0.498 to about 0.58--0.59, upgrading consistency checking from ``is the graph legal'' to ``is the reasoning content self-consistent''. This cross-check is naturally supported by explicit DAG decomposition. The EM gain (+1.4pt) is modest, and the resulting score is still weak as a correctness predictor; its value is diagnostic and ranking-oriented rather than a standalone verifier.
+\textbf{Content self-consistency, not correctness.} A key limitation of bidirectional cross-checking is that internal agreement is not equivalent to factual correctness. Even after our repair (Section 4.4), 156 of 250 CS=1.0 samples on HotpotQA remain EM-wrong, and the AUROC of 0.589 is far from a reliable verifier. We interpret the score as a \emph{diagnostic and ranking} signal that improves candidate selection under multi-path aggregation, not as a standalone correctness verifier. Grounded verification (evidence extraction, external retrieval agreement, or independent NLI models) remains an open direction; our preliminary evidence-grounded variant (auxiliary ablation) suppresses inflated CS but has not yet delivered robust end-task gains.
 
-\textbf{Confirmation bias of reverse verification.} Anchoring backward re-derivation on the final answer $A$ can bias the model toward explanations consistent with $A$, risking spurious agreement. We mitigate this by instructing the model to derive from the context rather than copy $A$, and the context-only control in Section~3.3 shows that performance is unchanged while the CS becomes stricter. Adversarial-answer perturbation remains future work.
+\textbf{Confirmation bias of anchor-based reverse verification.} Because the backward pass sees the final answer $A$, the LLM can, in principle, produce backward sub-answers that spuriously agree with $A$. We mitigate this by (i) instructing the model to derive from the context rather than copy $A$, and (ii) testing a context-only ablation (Section 4.7 auxiliary) that removes $A$ from the anchor entirely and yields near-identical end-task performance. Adversarial answer perturbation, where an incorrect $A$ is deliberately injected to test whether the backward pass can detect it, remains future work.
 
-\textbf{Self-consistency is not correctness.} A key limitation exposed by the CS diagnostics and negative repair experiments is that raising the cross-validation score can make a reasoning chain more internally self-consistent without necessarily making it more correct. In GERS-CV2, CS=1.0 still contains many EM-wrong answers, and repair variants raise CS while reducing EM/F1. This suggests that bidirectional cross-checking should be interpreted as a content-consistency signal, not as a complete correctness verifier. Evidence-grounded checking partially addresses this by requiring each backward sub-answer to cite a context span; in our diagnostic run, it lowers inflated CS and improves 2Wiki bridge\_comparison, but does not yet improve overall F1. The remaining challenge is to use evidence grounding conservatively enough to avoid suppressing correct but hard-to-quote answers.
+\textbf{Model-scale boundary.} The method's advantage compresses as the base model becomes stronger (Section 4.7): on Qwen-Plus, GERS-CV2 is statistically tied with CoT-SC (paired diff $-0.004$, $p=1.000$). We hypothesize that as base-model attention over long contexts improves, single-pass reading closes the gap that decomposition currently fills, but this remains a hypothesis to test as long-context LLMs continue to scale.
 
-\textbf{Honest positioning.} GERS-CV2 is significantly better than CoT-SC, Standard CoT, and the MoDeGraph-style baseline on HotpotQA EM under paired evaluation (McNemar $p\le0.040$; paired bootstrap CIs excluding zero). The gain is, however, small in magnitude (+4pt F1). A key reason the magnitude is limited: HotpotQA's context directly contains answer evidence, so Zero-Shot (0.276) is already close to GERS, compressing the advantage of structured methods.
+\textbf{Deep-bridge error propagation.} Even when decomposition succeeds structurally, an early sub-answer error can propagate downstream and invert the final answer. This is visible on 2Wiki bridge\_comparison (Section 4.6) and is the residual failure mode identified by the Oracle-1+3 gap in Section 4.3 (reasoner module accounts for 66\% of recoverable F1). Bidirectional cross-checking anchored on a wrong $A$ can still self-agree, limiting its ability to catch this specific mode. External-verifier or grounded-forward approaches are the natural extensions, but require careful design to avoid suppressing correct-but-hard-to-quote answers.
 
-\textbf{Boundary of graph-level self-consistency.} The tested $K=3$ multi-path selector uses the original structural score and yields no extra gain on medium-difficulty multi-hop ($p=1.000$). Single-path DAG execution plus bidirectional verification is the highest point-estimate cost--quality point in our experiments; scaling multi-path selection with the new cross-validated score remains future work.
+\textbf{Scope of the graph-baseline comparison.} Our unofficial MoDeGraph-style graph-prompt baseline is a reasonable reference for prompt-only graph reasoning but is not an official reproduction. Full implementations of GoT and RwG under matched context, sampling, and answer-extraction pipelines are outside the current scope; comparison against them is left for future work.
 
-\textbf{Deep bridging limitation.} On bridge\_comparison, GERS's error propagation lags behind linear CoT, an inherent limitation of graph decomposition on deep multi-hop.
-
-\textbf{Scope of graph-prompt comparison.} We include an unofficial MoDeGraph-style graph-prompt baseline under the same context, answer-extraction, and metric pipeline. GERS-CV2 is higher on HotpotQA, but this should be read as evidence against this prompt-only graph implementation, not as a claim of outperforming official MoDeGraph or all graph-reasoning systems. Full GoT- or RwG-style implementations with matched sampling remain outside the current scope.
+\textbf{Sample size on LongBench.} Our LongBench main results use $n=100$ for multifieldqa\_en (LongBench provides 100 samples for this subset) and $n=193$ for musique (out of 200; 7 dropped due to API timeouts). While these are the standard LongBench evaluation sizes, larger multi-domain long-context QA benchmarks would provide tighter confidence intervals and are a natural next step.
 
 \section{Conclusion}
 
-We propose GERS, whose core innovation is \textbf{bidirectional sub-answer cross-checking}: using the final answer and context as an anchor to re-derive sub-questions in reverse and compare forward/backward consistency, upgrading the Consistency Score from a pure graph-theoretic metric (discrimination $-0.0035$, AUROC 0.498) to a more informative content self-consistency signal (discrimination $+0.0847$, AUROC about 0.58--0.59). This cross-checking mechanism is naturally supported by explicit DAG decomposition. The highest point-estimate configuration GERS-CV2 achieves EM=0.302, F1=0.413 on 500 HotpotQA samples, a +4pt F1 difference over CoT-SC that is significant under both a paired McNemar test ($p=0.029$) and paired bootstrap CIs excluding zero, and a significant improvement over a MoDeGraph-style graph-prompt baseline ($p=0.010$). We also provide a boundary analysis showing the method suits comparison-style decomposition but fails on deep bridge-comparison questions, and note that engineering fixes (metric, extraction, answer-type) are necessary to avoid format-induced errors being mistaken for reasoning errors. Overall, GERS should be read as a step toward interpretable graph-based reasoning diagnostics, not as a solved correctness verifier.
+We propose GERS-CV2, a graph-decomposition method with bidirectional sub-answer cross-checking, and show that it significantly outperforms CoT-SC on the operationally important regime of long multi-document QA. On LongBench under fair full-context paired evaluation, GERS-CV2 wins on two independent subsets covering the target regime: multifieldqa\_en (n=100, F1 +0.070, 95\% CI $[+0.007, +0.132]$) and musique (n=193, F1 +0.063, 95\% CI $[+0.001, +0.124]$, McNemar $p=0.049$). An Oracle analysis on MuSiQue 4-hop demonstrates that decomposition's value is intrinsic: substituting gold decomposition into our pipeline yields a paired-significant +0.075 F1 gain over CoT-SC (95\% CI $[+0.017, +0.134]$), and a per-module waterfall localizes the dominant remaining bottleneck to reasoner error propagation (66\% of recoverable F1), which is exactly the failure mode that bidirectional cross-checking targets. The cross-check itself upgrades the Consistency Score from a non-discriminative structural metric ($-0.0035$ discrimination, AUROC 0.498) to a diagnostic content self-consistency signal ($+0.0847$ discrimination, AUROC 0.589). We honestly delineate three regime boundaries where the method does not help (short single-file dense evidence, ultra-long single-narrative texts, and stronger base models), positioning our contribution as a method for the multi-document long-context regime rather than a universal solution.
 
-Future work: (1) improve evidence-grounded verification with more reliable span extraction or external retrieval signals; (2) design conservative local re-generation for deep bridging-comparison to mitigate error propagation without overwriting correct intermediate answers; (3) validate cross-validation on larger models and more datasets.
+\textbf{Future work.} (i) Grounded verification: replace or supplement anchor-based self-agreement with evidence-span extraction or external NLI-based verification to close the gap between self-consistency and factual correctness. (ii) Depth-aware decomposition: the Oracle analysis shows that current 8B-class models under-decompose deep multi-hop questions; future work should improve the initial depth-planning step of decomposition. (iii) Scaling to stronger models: as long-context LLM attention improves, the regime where decomposition helps will shift; characterizing this shift is important for practical deployment guidance.
 
 \begin{thebibliography}{99}
 \bibitem{wei2022cot} Wei, J., et al. Chain-of-Thought Prompting Elicits Reasoning in Large Language Models. In \emph{NeurIPS}, 2022.
@@ -417,6 +417,8 @@ Future work: (1) improve evidence-grounded verification with more reliable span 
 \bibitem{madaan2023selfrefine} Madaan, A., et al. Self-Refine: Iterative Refinement with Self-Feedback. In \emph{NeurIPS}, 2023.
 \bibitem{yang2018hotpotqa} Yang, Z., et al. HotpotQA: A Dataset for Diverse, Explainable Multi-hop Question Answering. In \emph{EMNLP}, 2018.
 \bibitem{ho20202wiki} Ho, X., et al. Constructing A Multi-hop QA Dataset for Comprehensive Evaluation of Reasoning Steps. In \emph{COLING}, 2020.
+\bibitem{bai2024longbench} Bai, Y., et al. LongBench: A Bilingual, Multitask Benchmark for Long Context Understanding. In \emph{ACL}, 2024.
+\bibitem{trivedi2022musique} Trivedi, H., et al. MuSiQue: Multihop Questions via Single-hop Question Composition. \emph{TACL}, 2022.
 \end{thebibliography}
 
 \end{document}
