@@ -171,13 +171,14 @@ def figure_regime_map():
     """Scatter: dF1 (CV2 - CoT-SC) vs context length, coded by evidence structure."""
     fig, ax = plt.subplots(figsize=(3.4, 2.4))
 
-    # (name, ctx_kilo_tokens, dF1, sig, structure)
+    # (name, ctx_kilo_tokens, dF1, sig, structure, marker)
+    # Updated 2026-07-13: 2wikimqa n=200 now measured (dF1 = -0.021 n.s.)
     points = [
         ("HotpotQA",       4.7, -0.032, True,  "single-file",  "o"),
         ("multifieldqa_en", 5.0, +0.070, True,  "multi-passage","s"),
         ("musique-LB",     11.4, +0.063, True,  "multi-passage","s"),
         ("qasper",          3.4, +0.018, False, "single-doc",   "^"),
-        ("2wikimqa (LB)",   4.2, None,   False, "multi-passage","s"),  # pending
+        ("2wikimqa",        4.2, -0.021, False, "short-multi",  "v"),
         ("narrativeqa",    22.7, -0.027, False, "narrative",    "D"),
     ]
 
@@ -188,6 +189,7 @@ def figure_regime_map():
         color = {"single-file": "#a05a20",
                  "multi-passage": "#2a7a2a",
                  "single-doc": "#8888aa",
+                 "short-multi": "#b07030",
                  "narrative": "#a03a3a"}[struct]
         edge = "black" if sig else "gray"
         lw = 1.2 if sig else 0.4
@@ -212,12 +214,14 @@ def figure_regime_map():
     # Legend proxies for evidence structure
     from matplotlib.lines import Line2D
     legend_elems = [
+        Line2D([0], [0], marker="s", color="w", label="multi-passage (target)",
+               markerfacecolor="#2a7a2a", markersize=6),
         Line2D([0], [0], marker="o", color="w", label="single-file",
                markerfacecolor="#a05a20", markersize=6),
-        Line2D([0], [0], marker="s", color="w", label="multi-passage",
-               markerfacecolor="#2a7a2a", markersize=6),
         Line2D([0], [0], marker="^", color="w", label="single-doc",
                markerfacecolor="#8888aa", markersize=6),
+        Line2D([0], [0], marker="v", color="w", label="short-multi",
+               markerfacecolor="#b07030", markersize=6),
         Line2D([0], [0], marker="D", color="w", label="narrative",
                markerfacecolor="#a03a3a", markersize=6),
     ]

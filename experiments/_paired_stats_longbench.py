@@ -121,8 +121,8 @@ def main():
     print("Method: paired bootstrap 95% CI (B=10000, seed=42), McNemar chi2-cc")
     print("=" * 78)
 
-    # LongBench 3 subsets
-    subsets = ["multifieldqa_en", "musique", "narrativeqa"]
+    # LongBench 5 subsets (added qasper, 2wikimqa on 2026-07-13)
+    subsets = ["multifieldqa_en", "musique", "narrativeqa", "qasper", "2wikimqa"]
     all_summaries = {}
     for subset in subsets:
         cot_path = R / f"longbench_{subset}_8b" / f"longbench_{subset}_cot_sc_results.json"
