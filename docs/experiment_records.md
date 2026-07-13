@@ -1,6 +1,6 @@
 # GERS Experiment Records
 
-> Last updated: 2026-07-10 evening (21:10) — THREE-LAYER POSITIVE NARRATIVE with THREE INDEPENDENT SIGNIFICANT WINS
+> Last updated: 2026-07-13 — submission audit synchronized with code and final Overleaf package
 > §1.12 LongBench multifieldqa_en F1 SIG (n=100, +0.070, CI [+0.007, +0.132]) + LongBench musique EM+F1 BOTH SIG (n=193, F1 +0.063 CI [+0.001, +0.124], EM +0.067 CI [+0.005, +0.130], McNemar p=0.049)
 > §1.13 Oracle-1 vs CoT-SC 4-hop n=200 F1 SIG (+0.075, CI [+0.017, +0.134], P>0=0.994) + Oracle-1 vs Baseline strongly SIG (F1 +0.091, CI [+0.041, +0.142], McNemar p=0.002)
 > §1.14 model-decomp CV2 vs CoT-SC 4-hop n=85 loses (−0.022 F1, n.s.), quantifying model-vs-gold decomposition gap at ~0.10 F1
@@ -9,6 +9,8 @@
 > Deprecated: CLUTRR and all pre-fix HotpotQA numbers are historical only and must not be used as paper claims.
 
 > ⚠️ **CRITICAL (2026-07-08): the headline HotpotQA result in §1.1 is a context-truncation artifact.** Under a fair full-context comparison (n=500, qwen3-8b), plain CoT-SC beats every GERS variant; the "GERS-CV2 > CoT-SC, +0.041 F1, p=0.029" claim reverses sign. See §1.6 for the definitive numbers and §4 (updated) for the re-positioned paper framing. §1.1 is retained as the *truncated-context* record for the confound audit only.
+
+> ⚠️ **CRITICAL SUBMISSION AUDIT (2026-07-13):** in the evaluated single-path `gers_cv2_fullctx` configuration, bidirectional cross-checking is computed *after* the final answer and does not revise or select that answer. It improves the diagnostic Consistency Score but cannot be credited causally for end-task differences. In addition, Oracle retrieval and Oracle sub-answer runs are separate interventions conditioned on gold decomposition, not a cumulative module waterfall; the earlier 66.2/18.4/15.4 additive-share interpretation is retired. The current paper reports nominal LongBench tests without multiplicity correction and explicitly reports paired-valid-output attrition.
 
 ## 1. Current Trustworthy Results
 
@@ -39,7 +41,7 @@ Statistical interpretation:
 | GERS-CV2 vs MoDeGraph-style | +0.050 | [+0.014, +0.086] | +0.047 | [+0.012, +0.083] | 0.010 |
 | GERS-SC vs CoT-SC | +0.020 | [-0.012, +0.052] | +0.025 | [-0.009, +0.060] | 0.275 |
 
-Conclusion: bidirectional cross-checking improves the graph consistency signal and yields a small but statistically significant HotpotQA gain. GERS-CV2 is paired-significant over CoT-SC, Standard CoT, and the MoDeGraph-style baseline (McNemar p <= 0.040; paired bootstrap CIs exclude zero), while GERS-SC without cross-checking is not significant (p=0.275, CI crosses zero) --- corroborating that the gain stems from cross-checking.
+Historical interpretation only: these truncated-context point estimates cannot establish a cross-checking effect. Cross-checking is post-hoc in the evaluated single-path configuration, and the apparent HotpotQA advantage disappears under the fair full-context comparison in §1.6.
 
 Stats correction (2026-07-08): an earlier version of these CIs was computed with an unpaired bootstrap (resampling each method independently) yet labeled "paired", producing wider zero-crossing intervals (e.g., CV2 vs CoT-SC EM [-0.014,+0.096]). The correct paired bootstrap (resampling per-sample differences, 10000 resamples, seed=42) gives [+0.006,+0.074] and is what the paper now reports. Reproducer: `experiments/_paired_stats.py`. McNemar uses chi-square with Edwards' continuity correction (matches prior 0.029/0.040/0.275); the MoDeGraph row is new (p=0.010).
 
@@ -260,18 +262,18 @@ Setup: SOP Stage-1 §H1 (decomposition = distractor isolation) has been open —
 
 Reproducer: `experiments/run_parallel.py --dataset longbench_{multifieldqa_en,musique,narrativeqa} --methods cot_sc,gers_cv2_fullctx --context_field context_full --num_samples {100,200,100} --workers 4`. Stats: `experiments/_paired_stats_longbench.py`. Results: `experiments/results/longbench_{multifieldqa_en,musique,narrativeqa}_8b/`.
 
-### 1.13 Oracle Bottleneck Localization — Extended to n=200 (MuSiQue 4-hop, qwen3-8b)
+### 1.13 Oracle Interventions — Extended to n=200 (MuSiQue 4-hop, qwen3-8b)
 
 Setup: extended §1.9 Oracle waterfall from n=85 to n=200 4-hop samples (same seed=42 shuffle; first 85 samples align exactly with §1.9 via resume). All 4 configs run: baseline, Oracle-1 (gold DAG), Oracle-1+2 (+gold retrieval), Oracle-1+3 (+gold intermediate answers).
 
-| Config | EM (n=85) | F1 (n=85) | **EM (n=200)** | **F1 (n=200)** | ΔF1 (step) | share of recoverable |
-|---|---:|---:|---:|---:|---:|---:|
-| Baseline (model self) | 0.247 | 0.344 | **0.251** | **0.348** | — | — |
-| Oracle-1 (gold DAG) | 0.329 | 0.426 | **0.335** | **0.4385** | +0.0905 | **18.4%** |
-| Oracle-1+2 (+gold retrieval) | 0.376 | 0.484 | **0.407** | **0.5142** | +0.0757 | **15.4%** |
-| Oracle-1+3 (+gold intermediates) | 0.776 | 0.831 | **0.780** | **0.8394** | +0.3252 | **66.2%** |
+| Config | EM (n=85) | F1 (n=85) | **EM (n=200)** | **F1 (n=200)** | ΔF1 vs model baseline |
+|---|---:|---:|---:|---:|---:|
+| Baseline (model self) | 0.247 | 0.344 | **0.251** | **0.348** | — |
+| Oracle-1 (gold DAG) | 0.329 | 0.426 | **0.335** | **0.4385** | +0.0905 |
+| Oracle-1+2 (gold DAG + gold retrieval) | 0.376 | 0.484 | **0.407** | **0.5142** | +0.1662 |
+| Oracle-1+3 (gold DAG + gold intermediates) | 0.776 | 0.831 | **0.780** | **0.8394** | +0.4914 |
 
-**Conclusion: the §1.9 bottleneck localization is stable under 2.35× sample expansion.** Reasoner-error-propagation accounts for 66.2% of recoverable F1 (vs 71% at n=85), still by far the dominant module. Graph-generation (18.4%) and retrieval (15.4%) remain minor. All point estimates shift by ≤+0.031 F1 between n=85 and n=200, well within paired bootstrap noise, indicating the "71/17/12 → 66/18/15" distribution is a robust structural finding, not a small-sample artifact.
+**Correct interpretation after the submission audit.** Gold retrieval and gold intermediates are separate interventions conditioned on gold decomposition. They are not cumulative steps, so their deltas cannot be normalized into additive module shares. Gold decomposition improves the model pipeline by +0.091 F1; gold sub-answers provide the largest independent Oracle improvement (+0.491 vs model baseline, or +0.401 relative to gold decomposition). This motivates work on sub-answer generation/verification but does not prove that the current cross-check repairs that error source.
 
 **Paired significance tests (paired bootstrap B=10000, seed=42; McNemar chi2-cc):**
 
@@ -290,23 +292,18 @@ Setup: extended §1.9 Oracle waterfall from n=85 to n=200 4-hop samples (same se
 
 Reproducer: `experiments/run_oracle.py --dataset musique --hop 4 --num_samples 200`; extension `experiments/_extend_musique_cot_sc_hop4.py`; stats `experiments/_paired_stats_longbench.py`. Results: `experiments/results/oracle_musique_8b/`, `experiments/results/musique_n500_8b/musique_cot_sc_results.json` (now 615 entries covering the first 200 4-hop global samples).
 
-### 1.14 CV2 vs CoT-SC 4-hop with Extended n=200 CoT-SC — MODEL DECOMPOSITION QUALITY IS THE GAP
+### 1.14 Controlled Decomposition Comparisons — Gold Decomposition Has Measurable Headroom
 
-Setup: with CoT-SC 4-hop extended to n=200 (see §1.13), we can now finally test CV2 (model-generated decomposition) vs CoT-SC at 4-hop on 200 samples — but only 85 of those 200 CV2 samples exist (the CV2 hop=4 arm from §1.8 was only n=85 out of the first-500 shuffle). Paired test at n=85:
+The earlier model-CV2 vs CoT-SC table mixed an n=85 automatic run with an n=200 Oracle run. The submission paper now uses two controlled comparisons instead:
 
-| Comparison | n paired | CoT-SC F1 | CV2 F1 | dF1 | 95% CI | Verdict |
-|---|---:|---:|---:|---:|---|:---:|
-| CV2(model-decomp) vs CoT-SC | 85 | 0.370 | 0.348 | **−0.022** | [-0.115, +0.071] | n.s. (CV2 loses point-est) |
-| Oracle-1(gold-decomp) vs CoT-SC | 200 | 0.363 | 0.439 | **+0.075** | **[+0.017, +0.134]** | **SIG (Oracle-1 wins)** |
+| Comparison | n paired | dF1 | 95% CI | Interpretation |
+|---|---:|---:|---|---|
+| Gold decomposition vs model decomposition in the same pipeline | 199 | **+0.091** | **[+0.041, +0.142]** | controlled decomposition headroom |
+| Gold-decomposition pipeline vs CoT-SC | 200 | **+0.075** | **[+0.017, +0.134]** | privileged-information upper bound |
 
-**Contrast interpretation — the decomposition-quality gap is quantified:**
-- Model-generated decomposition: F1 = 0.348 (**worse** than CoT-SC 0.370)
-- Gold decomposition (Oracle-1): F1 = 0.439 (**paired-significantly better** than CoT-SC)
-- Δ = 0.091 F1 headroom that hinges entirely on decomposition quality
+Interpretation: accurate decomposition has measurable potential value in this pipeline. The result is an Oracle upper bound and should not be described as the performance of automatic GERS-CV2 or as isolating decomposition from every other difference with CoT-SC.
 
-This is the cleanest possible demonstration that **the problem is not "decomposition doesn't help"** — it does, by +0.075 F1 significantly, when done correctly — **the problem is "current LLM decomposition is poor enough to eliminate the win"**. Combined with §1.11 (IDD failed at the leaf layer while the lesion is at the depth-planning layer), this localizes the actionable target for future work: **improve initial decomposition depth-planning** (not iterative refinement, not leaf splitting).
-
-Note: extending CV2 to n=200 at 4-hop would require running an additional 115 CV2 samples on 4-hop (indices 85..199 in the 4-hop-filtered ordering). This is deferred — the Oracle-1 vs CoT-SC n=200 result already establishes the significance of the gold-decomp ceiling, and the CV2 vs CoT-SC at n=85 is directional (CV2 loses point-est by 0.022 F1) with CI crossing zero, so extension is unlikely to reverse the direction; the contrast with Oracle-1 SIG is the key paper claim.
+The automatic model-decomposition vs CoT-SC result remains available at n=85 (dF1 -0.022, CI [-0.115,+0.071]) as a separate diagnostic, but it is not subtracted from the n=200 Oracle result to estimate a paired gap.
 
 Reproducer: `experiments/_paired_stats_longbench.py` (Section "CV2 vs CoT-SC 4-hop"). Results: `experiments/results/musique_n500_8b/musique_gers_cv2_fullctx_results.json` (85 4-hop samples) vs `musique_cot_sc_results.json` (200 4-hop samples).
 
@@ -418,42 +415,42 @@ The following must not be used as current paper evidence:
 
 If these numbers appear in older logs or draft files, treat them as historical debugging records only.
 
-## 4. Current Paper Positioning (updated 2026-07-10 evening — THREE-LAYER NARRATIVE ADOPTED)
+## 4. Current Paper Positioning (updated 2026-07-13 submission audit)
 
-> **Major update (evening of 2026-07-10):** the pure-diagnostic pivot from earlier today is **partially reversed** by two new significance findings — §1.12 LongBench multifieldqa_en CV2 F1 SIG at n=100, and §1.13 Oracle-1 vs CoT-SC 4-hop F1 SIG at n=200 (the §1.10 UPDATE result reversed). The paper now has three defensible **positive** contributions plus the diagnostic assets. The old HotpotQA §1.1 framing remains retired. The new positioning is a three-layer narrative combining local method win, gold-decomp method-value proof, and diagnostic depth.
+> **Submission-audit update:** the current paper uses a conservative three-part framing: nominal paired LongBench observations, controlled Oracle headroom, and a post-hoc consistency diagnostic. It does not claim that cross-checking causes the end-task gains, does not report additive Oracle module shares, and does not treat NarrativeQA failures as a proven model-capacity threshold. The old HotpotQA §1.1 framing remains retired.
 
-### Layer 1 — Regime-defined method win (LongBench, §1.12) — TWO INDEPENDENT SIGNIFICANT SUBSETS
+### Layer 1 — LongBench paired observations (§1.12)
 
-GERS-CV2 significantly outperforms CoT-SC on **two independent LongBench subsets** under fair paired full-context evaluation:
+Nominal paired intervals favor GERS-CV2 on two LongBench subsets under the reported Qwen3-8B protocol:
 
 - **multifieldqa_en** (n=100, ~5k tok, multi-domain distractors): F1 0.415 vs 0.345, dF1 = +0.070, **95% CI [+0.007, +0.132]**, McNemar p=0.114 on EM.
 - **musique-LongBench** (n=193, ~11k tok, deep-hop + multi-passage): F1 0.387 vs 0.325, dF1 = +0.063, **95% CI [+0.001, +0.124]**; EM 0.295 vs 0.228, dEM = +0.067, **95% CI [+0.005, +0.130]**, **McNemar p=0.049**. This is the strongest CV2 win under fair full-context conditions — both EM and F1 CIs exclude zero.
 
-Honest boundary: narrativeqa (~22k tok, single-narrative books) is a model-capacity ceiling — both methods score F1<0.24 with 21-26% API timeouts, i.e., the failure is joint (not method-specific).
+NarrativeQA is inconclusive because both methods perform poorly and have substantial, unequal API failure rates. The five-subset pattern is exploratory and is not multiplicity-adjusted.
 
 The gain regime is thus: **medium-length (5-12k tok), multi-domain / multi-passage distracted context** — precisely the operational RAG sweet spot for retrieval-augmented multi-document QA. HotpotQA (dense single-file evidence) sits on the wrong side (§1.6, CoT-SC wins), narrativeqa (single-narrative but out-of-capacity) is beyond both methods, and LongBench's mid-length multi-domain regime is where CV2 wins statistically.
 
-### Layer 2 — Gold-decomposition method-value proof (Oracle-1 vs CoT-SC 4-hop n=200, §1.13)
+### Layer 2 — Gold-decomposition Oracle headroom (§1.13–1.14)
 
-The §1.10 UPDATE retraction (2026-07-10 morning: gold-decomp CI crosses zero at n=85) has been **definitively reversed** by extending CoT-SC 4-hop to n=200: Oracle-1 F1 0.439 vs CoT-SC 4-hop F1 0.363, **dF1 = +0.075, 95% CI [+0.017, +0.134], P(diff>0)=0.994**. Gold decomposition (the graph-generation ceiling) is now paired-significantly better than CoT-SC on deep hops. Together with §1.14 (model-decomposition CV2 loses to CoT-SC by −0.022 F1 at 4-hop): the decomposition-quality gap between model and gold is **quantified at ~0.10 F1**, and it is the reason methods that decompose lose today — not because decomposition doesn't help, but because current 8B LLMs don't decompose well enough.
+Gold decomposition improves the same pipeline over model decomposition by +0.091 F1 (n=199, CI [+0.041,+0.142]) and exceeds CoT-SC by +0.075 F1 (n=200, CI [+0.017,+0.134]). These comparisons estimate privileged-information headroom; they are not automatic-system results and do not isolate decomposition from every pipeline difference relative to CoT-SC.
 
 ### Layer 3 — Systematic diagnosis (contributions from the earlier pure-diagnostic pivot)
 
 The diagnostic assets remain valid and integrate as the paper's methodological rigor:
 
 1. **Confound audit.** §1.1 HotpotQA "+0.041 F1 SIG" reverses under fair full context (§1.6, CoT-SC +0.032 F1). A methodological caution: unequal context truncation manufactures apparent decomposition wins.
-2. **Oracle bottleneck localization at n=200 (§1.13).** Reasoner-error-propagation 66.2%, graph-generation 18.4%, retrieval 15.4% of recoverable F1. All shares stable under 2.35× sample expansion. Oracle-1 vs Baseline strongly significant (p=0.002).
+2. **Oracle interventions at n=200 (§1.13).** Gold sub-answers provide the largest independent Oracle gain, but retrieval and sub-answer interventions are not cumulative and must not be converted into additive module shares.
 3. **CS calibration (§1.2, §4.3 of paper).** Bidirectional cross-checking raises correct/wrong discrimination from −0.0035 to +0.0847, AUROC 0.498→0.589. Signal is diagnostic/ranking-oriented, not a correctness verifier (156/250 CS=1.0 samples still EM-wrong).
 4. **Two failed Stage-3 Minimal Fixes (§1.10, §1.11) as honest record.** EASV (+0.004 F1, verifier near-ceiling); IDD (structural failure — attacked leaf layer while lesion is at depth-planning layer). These localize the actual target (depth-planning decomposition) for future work without claiming a fix.
 5. **Boundaries reaffirmed.** HotpotQA short + dense evidence (CV2 -0.032 F1, not the target regime); narrativeqa >22k (model-capacity edge); Qwen-Plus n=300 tied (stronger models compress the advantage).
 
-### The three-way synthesis (the paper's core argument)
+### Current synthesis
 
-- **Method matters (Layer 1)**: on the right regime CV2 significantly wins.
-- **Decomposition matters (Layer 2)**: gold-decomp significantly beats CoT-SC even where model-decomp loses.
-- **Where and why current methods fall short (Layer 3)**: the reasoner is 66% of the pie, decomposition depth-planning fails 67% of 4-hop, self-agreement CS is fluency-indexed.
+- **Automatic pipeline evidence:** nominal paired improvements appear on two LongBench subsets, with multiplicity and attrition caveats.
+- **Oracle evidence:** accurate decomposition has measurable headroom, while gold sub-answers provide the largest independent intervention gain.
+- **Diagnostic evidence:** cross-checking improves CS discrimination but is post-hoc in the evaluated single-path system and does not establish causal end-task improvement.
 
-This is a stronger and more defensible claim than either "we win on HotpotQA" (retired, §1.1 confounded) or "pure diagnosis" (unnecessarily concessive given §1.12 and §1.13 significance). The paper writes to the three layers in order: regime-defined win → gold-decomp method value → systematic diagnosis with negative results.
+This framing supersedes both the retired HotpotQA-win narrative and the earlier additive Oracle-waterfall interpretation.
 
 ### Open items
 

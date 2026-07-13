@@ -1,19 +1,19 @@
 # AAAI Submission Checklist
 
-This repository currently contains an AAAI-oriented draft, not a ready-to-upload AAAI submission package.
+The repository contains an AAAI-27 source package at `docs/overleaf_submission.zip`. Final Overleaf compilation and page-count verification are still required.
 
 ## Must Fix Before Submission
 
-- Replace the current `article`/`ctexart` source with the official AAAI template (`aaai*.sty`, bibliography style, and required copyright/anonymous settings).
+- Use `docs/aaai_paper.tex` with the included official `aaai2027.sty` / `aaai2027.bst` files.
 - Keep the anonymous author setting in the submission source; do not expose local author names or acknowledgments in the review version.
-- Convert hand-written `thebibliography` entries to the official BibTeX flow once the AAAI template is added.
+- BibTeX flow is active through `docs/references.bib`; verify the final bibliography in Overleaf.
 - Re-check page length after switching templates; the current article layout is not a valid page-count proxy.
 - Package only current sources and figures. Do not include deprecated draft/plan files such as `docs/paper_draft.md` or old experiment notes in review artifacts.
 
 ## Scientific Risks To Address If Time Allows
 
 - A fair MoDeGraph-style graph-prompt baseline has been added under the current fixed extraction/evaluation pipeline; still avoid claiming coverage of all graph-reasoning systems.
-- Increase HotpotQA sample size or add another model if API budget allows; end-task gains are already paired-significant (CIs exclude zero), so more samples would tighten already-significant intervals rather than rescue a null result.
+- LongBench improvements are nominal and not corrected for comparisons across datasets and metrics; avoid family-wise significance claims without a multiplicity analysis.
 - Add a stronger CS-correctness analysis if claiming calibration; current results support a weak diagnostic/ranking signal, not probability calibration.
 - Keep 2Wiki and evidence-grounded checking results framed as boundary/diagnostic analyses, not main wins.
 - Treat `docs/paper.docx` as an internal preview only; it is not an AAAI submission source.
@@ -30,5 +30,7 @@ This repository currently contains an AAAI-oriented draft, not a ready-to-upload
 
 - Structural graph validity is a poor reasoning-quality signal.
 - Bidirectional sub-answer cross-checking improves CS association with correctness from near-random to weakly useful.
-- HotpotQA gains are small but statistically significant: paired McNemar p <= 0.040 with paired bootstrap CIs excluding zero, including over the MoDeGraph-style baseline (p=0.010).
+- Under fair full context, HotpotQA favors CoT-SC in F1. The old positive HotpotQA result is a truncated-context artifact.
+- Bidirectional cross-checking improves a post-hoc diagnostic score but does not alter answers in the evaluated single-path configuration.
+- Oracle retrieval and sub-answer runs are independent interventions conditioned on gold decomposition, not additive module shares.
 - Self-consistency is not correctness; high-CS wrong answers remain common.

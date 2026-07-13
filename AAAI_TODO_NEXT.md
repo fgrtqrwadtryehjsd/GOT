@@ -1,5 +1,7 @@
 # AAAI 2027 待办清单（2026-07-10 21:xx 起）
 
+> **2026-07-13 更新：**本文档保留历史日程，但科学口径以 `docs/aaai_paper.tex` 和 `docs/experiment_records.md` 顶部的 submission-audit correction 为准。当前编译包是 `docs/overleaf_submission.zip`；旧 `66/18/15` Oracle waterfall 与“cross-check 导致端任务增益”的解释已废弃。
+
 **关键时间线**：
 - 📅 摘要 DDL：**2026-07-22 19:59 CST** — 剩 **12 天**
 - 📅 全文 DDL：**2026-07-29 19:59 CST** — 剩 **19 天**

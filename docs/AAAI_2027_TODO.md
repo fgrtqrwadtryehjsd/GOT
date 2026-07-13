@@ -1,5 +1,7 @@
 # AAAI 2027 投稿 TODO（今晚 2026-07-10 建立，DDL 2026-07-22 摘要）
 
+> **2026-07-13 更新：**该文件是历史计划。当前科学口径以 `aaai_paper.tex` 和 `experiment_records.md` 顶部 correction 为准；当前 Overleaf 包为 `overleaf_submission.zip`。旧 additive Oracle waterfall 与 cross-check 因果性能解释不得用于投稿。
+
 > **关键 DDL**：摘要 7/22（12 天后）、全文 7/29（19 天后）、补充材料 8/1（22 天后）
 
 ---

@@ -80,12 +80,11 @@ def figure_longbench_main():
         ax.text(x[i] + width / 2, v + 0.008, f"{v:.3f}",
                 ha="center", va="bottom", fontsize=7, color="#555555")
 
-    # Significance markers ONLY (no CI text on bars — see caption/Table 1)
-    # Positioned above the higher bar of each pair, well clear of bars
+    # Nominal paired markers only; no multiplicity correction is applied.
     sig_markers = [
-        (0, r"$\ast$",          max(cot_sc[0], cv2[0])),   # F1 SIG
-        (1, r"$\ast\!\ast$",    max(cot_sc[1], cv2[1])),   # EM+F1 SIG
-        (2, "n.s.",             max(cot_sc[2], cv2[2])),   # model ceiling
+        (0, r"$\ast$",          max(cot_sc[0], cv2[0])),
+        (1, r"$\ast$",          max(cot_sc[1], cv2[1])),
+        (2, "n.s.",             max(cot_sc[2], cv2[2])),
     ]
     for idx, marker, top in sig_markers:
         ax.text(idx, top + 0.055, marker, ha="center", va="center",
@@ -103,9 +102,9 @@ def figure_longbench_main():
     # Regime shading (light) + labels near top of plot
     ax.axvspan(-0.5, 1.5, alpha=0.06, color="green", zorder=0)
     ax.axvspan(1.5, 2.5, alpha=0.06, color="orange", zorder=0)
-    ax.text(0.5, 0.555, "Target regime", ha="center", va="top",
+    ax.text(0.5, 0.555, "Positive subsets", ha="center", va="top",
             fontsize=8, color="#2a7a2a", style="italic")
-    ax.text(2.0, 0.555, "Model ceiling", ha="center", va="top",
+    ax.text(2.0, 0.555, "High timeout", ha="center", va="top",
             fontsize=8, color="#a05a20", style="italic")
 
     plt.tight_layout()
@@ -115,44 +114,31 @@ def figure_longbench_main():
     print(f"[figure] wrote {out}")
 
 
-# ==================== Figure 6: Oracle waterfall ====================
+# ==================== Figure 6: Oracle interventions ====================
 def figure_oracle_waterfall():
-    """Waterfall: MuSiQue 4-hop, n=200, F1 gains per module."""
+    """Independent Oracle interventions on MuSiQue 4-hop, n=200."""
     fig, ax = plt.subplots(figsize=(3.4, 2.5))
 
-    labels = ["Baseline\n(model self)",
-              "+Oracle-1\n(gold DAG)",
-              "+Oracle-1+2\n(+gold retr.)",
-              "+Oracle-1+3\n(+gold ans.)"]
+    labels = ["Model\npipeline",
+              "Gold\ndecomp.",
+              "Gold decomp.\n+ retrieval",
+              "Gold decomp.\n+ sub-answers"]
     f1_vals = [0.348, 0.439, 0.514, 0.839]
-    increments = [f1_vals[0]] + [f1_vals[i] - f1_vals[i - 1] for i in range(1, 4)]
-    # Share labels: bumped from 7.5pt (too small) to 9pt bold; shortened for
-    # narrow bars so text fits without overflowing.
-    shares = [None, "18\\%\ngraph-gen", "15\\%\nretrieval", "66\\%\nreasoner"]
+    deltas = [None, 0.091, 0.166, 0.491]
 
     x = np.arange(len(labels))
-    bottoms = [0, f1_vals[0], f1_vals[1], f1_vals[2]]
-    heights = [f1_vals[0]] + increments[1:]
     colors_bar = [COLOR_COT_SC, "#7fa5cc", "#5b8ac0", COLOR_ORACLE_BAR]
 
     for i in range(len(labels)):
-        ax.bar(x[i], heights[i], bottom=bottoms[i], width=0.55,
+        ax.bar(x[i], f1_vals[i], width=0.58,
                color=colors_bar[i], edgecolor="black", linewidth=0.5)
-        # Cumulative F1 label on top (bumped from 8.5 to 9)
-        ax.text(x[i], bottoms[i] + heights[i] + 0.018, f"{f1_vals[i]:.3f}",
+        ax.text(x[i], f1_vals[i] + 0.022, f"{f1_vals[i]:.3f}",
                 ha="center", va="bottom", fontsize=9, color=COLOR_ANNOT,
                 fontweight="bold" if i == 3 else "normal")
-        # In-bar share label (bumped from 7.5 to 9pt for legibility)
-        if shares[i]:
-            mid = bottoms[i] + heights[i] / 2
-            ax.text(x[i], mid, shares[i], ha="center", va="center",
-                    fontsize=9, color="white", fontweight="bold")
-
-    # Connector lines between bar tops
-    for i in range(len(labels) - 1):
-        ax.plot([x[i] + 0.28, x[i + 1] - 0.28],
-                [f1_vals[i], f1_vals[i]],
-                "k--", linewidth=0.6, alpha=0.5)
+        if deltas[i] is not None:
+            ax.text(x[i], f1_vals[i] / 2, f"$\\Delta$ {deltas[i]:+.3f}",
+                    ha="center", va="center", fontsize=8.5,
+                    color="white", fontweight="bold")
 
     ax.set_ylabel("F1 Score")
     ax.set_xticks(x)
@@ -161,14 +147,10 @@ def figure_oracle_waterfall():
     ax.set_ylim(0, 1.02)
     ax.set_yticks(np.arange(0, 1.01, 0.2))
 
-    # Highlight the reasoner dominance — moved to upper-left empty space
-    # to avoid overlap with the "0.839" numeric label above the rightmost bar.
-    ax.text(0.25, 0.98,
-            "Reasoner is\nthe bottleneck\n(66\\% of\nrecoverable F1)",
-            fontsize=8.5, color=COLOR_ANNOT, ha="left", va="top",
-            style="italic",
-            bbox=dict(boxstyle="round,pad=0.3", facecolor="white",
-                      edgecolor="gray", linewidth=0.4, alpha=0.9))
+    ax.text(0.02, 0.98,
+            "Interventions are independent,\nnot additive module shares",
+            transform=ax.transAxes, fontsize=8, color=COLOR_ANNOT,
+            ha="left", va="top", style="italic")
 
     plt.tight_layout()
     out = OUT_DIR / "image6.pdf"

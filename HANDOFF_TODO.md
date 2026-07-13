@@ -1,5 +1,7 @@
 # GERS-CV2 论文待办交接文档
 
+> **2026-07-13 submission-audit update:** scientific claims in this handoff are superseded by `docs/aaai_paper.tex` and the critical correction at the top of `docs/experiment_records.md`. In particular, cross-checking is post-hoc in the evaluated single-path configuration, Oracle interventions are non-additive, and LongBench significance is reported as nominal without multiplicity correction. Use `docs/overleaf_submission.zip` as the current compilation package.
+
 > **交接日期**：2026-07-13
 > **项目目录**：`d:\code\GOT`
 > **Git 仓库**：`https://github.com/fgrtqrwadtryehjsd/GOT.git`（最新 commit `de0e07a` 已 push）
