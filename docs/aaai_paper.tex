@@ -250,7 +250,14 @@ CoT-SC & 0.218 & 0.448 \\
 
 \noindent\textbf{Boundary 3: ultra-long single-narrative (narrativeqa).} Reported in \S4.2: both methods score F1${<}0.24$ with 21--26\% API timeouts at $>$22k tokens---a joint model-capacity ceiling for Qwen3-8B.
 
-\noindent\textbf{Summary.} GERS-CV2 wins where reasoning requires bridging across \emph{multiple passages with heavy distractors} at \emph{5--12k tokens}. It does not help on short single-file QA (HotpotQA bridge), deep composite chains exceeding reasoner error-propagation tolerance (2Wiki bridge\_comp), or contexts beyond model capacity (narrativeqa). This regime coincides with retrieval-augmented multi-document QA.
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.98\linewidth]{figures/image7}
+\caption{Regime map: $\Delta$F1 (CV2 $-$ CoT-SC) vs.\ median context length across 6 benchmarks (HotpotQA + 5 LongBench subsets). Filled markers with dark outline = paired-significant. CV2 wins concentrate on multi-passage contexts at 5--12k tokens (green squares); short single-doc / short multi-hop (qasper, 2wikimqa) are near-zero; single-file dense evidence and ultra-long narrative are documented boundaries.}
+\label{fig:regime_map}
+\end{figure}
+
+\noindent\textbf{Summary.} Figure~\ref{fig:regime_map} synthesizes the 6-benchmark regime map: GERS-CV2 wins where reasoning requires bridging across \emph{multiple passages with heavy distractors} at \emph{5--12k tokens}. It does not help on short single-file QA (HotpotQA bridge), short multi-hop with concentrated evidence (2wikimqa), single-doc scientific QA (qasper), deep composite chains exceeding reasoner error-propagation tolerance (2Wiki bridge\_comp), or contexts beyond model capacity (narrativeqa). This regime coincides with retrieval-augmented multi-document QA.
 
 \subsection{Ablation and Cost}
 

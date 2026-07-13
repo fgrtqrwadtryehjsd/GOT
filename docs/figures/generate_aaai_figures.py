@@ -73,34 +73,40 @@ def figure_longbench_main():
     b2 = ax.bar(x + width / 2, cv2, width, label="GERS-CV2 (ours)",
                 color=COLOR_CV2, edgecolor="black", linewidth=0.5)
 
-    # Significance annotations
-    annotations = [
-        (0, "F1 SIG", 0.415, "*", "CI $[+.007,+.132]$"),
-        (1, "EM+F1 SIG", 0.387, "**", "$p{=}.049$"),
-        (2, "n.s.", 0.234, "", "(ceiling)"),
+    # Numeric F1 above each bar (small, unobtrusive)
+    for i, (c, v) in enumerate(zip(cot_sc, cv2)):
+        ax.text(x[i] - width / 2, c + 0.008, f"{c:.3f}",
+                ha="center", va="bottom", fontsize=7, color="#555555")
+        ax.text(x[i] + width / 2, v + 0.008, f"{v:.3f}",
+                ha="center", va="bottom", fontsize=7, color="#555555")
+
+    # Significance markers ONLY (no CI text on bars — see caption/Table 1)
+    # Positioned above the higher bar of each pair, well clear of bars
+    sig_markers = [
+        (0, r"$\ast$",          max(cot_sc[0], cv2[0])),   # F1 SIG
+        (1, r"$\ast\!\ast$",    max(cot_sc[1], cv2[1])),   # EM+F1 SIG
+        (2, "n.s.",             max(cot_sc[2], cv2[2])),   # model ceiling
     ]
-    for i, (idx, verdict, top, marker, note) in enumerate(annotations):
-        y = top + 0.03
-        ax.text(idx, y + 0.008, marker + " " + verdict, ha="center", va="bottom",
-                fontsize=8.5, color=COLOR_ANNOT, fontweight="bold" if marker else "normal")
-        ax.text(idx, y - 0.02, note, ha="center", va="top",
-                fontsize=7.5, color="#666666", style="italic")
+    for idx, marker, top in sig_markers:
+        ax.text(idx, top + 0.055, marker, ha="center", va="center",
+                fontsize=13 if marker != "n.s." else 9,
+                color=COLOR_ANNOT, fontweight="bold")
 
     ax.set_ylabel("F1 Score")
     ax.set_xticks(x)
-    ax.set_xticklabels(subsets, fontsize=8.2)
-    ax.set_ylim(0, 0.55)
+    ax.set_xticklabels(subsets, fontsize=8.5)
+    ax.set_ylim(0, 0.58)
     ax.set_yticks(np.arange(0, 0.51, 0.1))
-    ax.legend(loc="upper right", frameon=False, ncol=1)
+    # Legend at upper-LEFT to avoid CV2 bar overlap
+    ax.legend(loc="upper left", frameon=False, ncol=1, fontsize=8.5)
 
-    # Regime label
+    # Regime shading (light) + labels near top of plot
     ax.axvspan(-0.5, 1.5, alpha=0.06, color="green", zorder=0)
     ax.axvspan(1.5, 2.5, alpha=0.06, color="orange", zorder=0)
-    ax.text(0.5, 0.53, "Target regime (multi-passage distraction)",
-            ha="center", va="top", fontsize=7.8, color="#2a7a2a",
-            style="italic")
-    ax.text(2.0, 0.53, "Model ceiling", ha="center", va="top",
-            fontsize=7.8, color="#a05a20", style="italic")
+    ax.text(0.5, 0.555, "Target regime", ha="center", va="top",
+            fontsize=8, color="#2a7a2a", style="italic")
+    ax.text(2.0, 0.555, "Model ceiling", ha="center", va="top",
+            fontsize=8, color="#a05a20", style="italic")
 
     plt.tight_layout()
     out = OUT_DIR / "image4.pdf"
@@ -115,14 +121,15 @@ def figure_oracle_waterfall():
     fig, ax = plt.subplots(figsize=(3.4, 2.5))
 
     labels = ["Baseline\n(model self)",
-              "+ Oracle-1\n(gold DAG)",
-              "+ Oracle-1+2\n(+gold retr.)",
-              "+ Oracle-1+3\n(+gold ans.)"]
+              "+Oracle-1\n(gold DAG)",
+              "+Oracle-1+2\n(+gold retr.)",
+              "+Oracle-1+3\n(+gold ans.)"]
     f1_vals = [0.348, 0.439, 0.514, 0.839]
     increments = [f1_vals[0]] + [f1_vals[i] - f1_vals[i - 1] for i in range(1, 4)]
-    shares = [None, "18.4%\ngraph-gen", "15.4%\nretrieval", "66.2%\nreasoner"]
+    # Share labels: bumped from 7.5pt (too small) to 9pt bold; shortened for
+    # narrow bars so text fits without overflowing.
+    shares = [None, "18\\%\ngraph-gen", "15\\%\nretrieval", "66\\%\nreasoner"]
 
-    # Waterfall visualization: cumulative bars with increment bars
     x = np.arange(len(labels))
     bottoms = [0, f1_vals[0], f1_vals[1], f1_vals[2]]
     heights = [f1_vals[0]] + increments[1:]
@@ -131,15 +138,15 @@ def figure_oracle_waterfall():
     for i in range(len(labels)):
         ax.bar(x[i], heights[i], bottom=bottoms[i], width=0.55,
                color=colors_bar[i], edgecolor="black", linewidth=0.5)
-        # Cumulative F1 label on top
-        ax.text(x[i], bottoms[i] + heights[i] + 0.015, f"{f1_vals[i]:.3f}",
-                ha="center", va="bottom", fontsize=8.5, color=COLOR_ANNOT,
+        # Cumulative F1 label on top (bumped from 8.5 to 9)
+        ax.text(x[i], bottoms[i] + heights[i] + 0.018, f"{f1_vals[i]:.3f}",
+                ha="center", va="bottom", fontsize=9, color=COLOR_ANNOT,
                 fontweight="bold" if i == 3 else "normal")
-        # Share label on bar
+        # In-bar share label (bumped from 7.5 to 9pt for legibility)
         if shares[i]:
             mid = bottoms[i] + heights[i] / 2
             ax.text(x[i], mid, shares[i], ha="center", va="center",
-                    fontsize=7.5, color="white", fontweight="bold")
+                    fontsize=9, color="white", fontweight="bold")
 
     # Connector lines between bar tops
     for i in range(len(labels) - 1):
@@ -149,15 +156,19 @@ def figure_oracle_waterfall():
 
     ax.set_ylabel("F1 Score")
     ax.set_xticks(x)
-    ax.set_xticklabels(labels, fontsize=8)
-    ax.set_ylim(0, 0.95)
-    ax.set_yticks(np.arange(0, 0.91, 0.2))
+    ax.set_xticklabels(labels, fontsize=8.5)
+    # Y-limit raised from 0.95 to 1.02 for annotation breathing room
+    ax.set_ylim(0, 1.02)
+    ax.set_yticks(np.arange(0, 1.01, 0.2))
 
-    # Highlight the reasoner dominance
-    ax.annotate("reasoner is\nthe bottleneck",
-                xy=(3, 0.65), xytext=(2.5, 0.85),
-                fontsize=8, color=COLOR_ANNOT, ha="center",
-                arrowprops=dict(arrowstyle="->", color=COLOR_ANNOT, lw=0.6))
+    # Highlight the reasoner dominance — moved to upper-left empty space
+    # to avoid overlap with the "0.839" numeric label above the rightmost bar.
+    ax.text(0.25, 0.98,
+            "Reasoner is\nthe bottleneck\n(66\\% of\nrecoverable F1)",
+            fontsize=8.5, color=COLOR_ANNOT, ha="left", va="top",
+            style="italic",
+            bbox=dict(boxstyle="round,pad=0.3", facecolor="white",
+                      edgecolor="gray", linewidth=0.4, alpha=0.9))
 
     plt.tight_layout()
     out = OUT_DIR / "image6.pdf"
@@ -193,21 +204,24 @@ def figure_regime_map():
                  "narrative": "#a03a3a"}[struct]
         edge = "black" if sig else "gray"
         lw = 1.2 if sig else 0.4
-        ax.scatter(ctx, dF1, c=color, s=60, marker=marker,
+        ax.scatter(ctx, dF1, c=color, s=80, marker=marker,
                    edgecolor=edge, linewidth=lw, zorder=3)
-        # Label
-        offset_y = 0.008 if dF1 > 0 else -0.015
-        offset_x = 0.5 if name != "narrativeqa" else -3
+        # Point label (bumped from 7.5 to 8.5 pt)
+        offset_y = 0.010 if dF1 > 0 else -0.018
+        offset_x = 0.6 if name != "narrativeqa" else -3.2
         ax.annotate(name, xy=(ctx, dF1),
                     xytext=(ctx + offset_x, dF1 + offset_y),
-                    fontsize=7.5, color="#222222")
+                    fontsize=8.5, color="#222222")
 
     # Zero line
     ax.axhline(0, color="black", linewidth=0.5, linestyle="--", alpha=0.6)
-    ax.text(23, 0.005, "CoT-SC wins below", fontsize=7, color="gray", ha="right")
+    ax.text(25, 0.006, "CV2 wins above", fontsize=8, color="#2a7a2a",
+            ha="right", style="italic")
+    ax.text(25, -0.008, "CoT-SC wins below", fontsize=8, color="#a05a20",
+            ha="right", style="italic")
 
     ax.set_xlabel("Median context length (k tokens)")
-    ax.set_ylabel("$\\Delta$F1 (CV2 $-$ CoT-SC)")
+    ax.set_ylabel(r"$\Delta$F1 (CV2 $-$ CoT-SC)")
     ax.set_xlim(2, 26)
     ax.set_ylim(-0.06, 0.10)
 
