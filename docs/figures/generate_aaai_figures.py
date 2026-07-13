@@ -10,7 +10,7 @@ AAAI style conventions (learned from typical AAAI-quality figures):
 
 Outputs (writes to docs/figures/):
   image4.pdf  - LongBench main results bar chart (Section 4.2)
-  image6.pdf  - Oracle waterfall on MuSiQue 4-hop (Section 4.3)
+  image6.pdf  - Oracle interventions on MuSiQue 4-hop (Section 4.3)
   image7.pdf  - Regime map: dF1 vs context length x evidence structure (optional)
 
 Run:
@@ -46,7 +46,7 @@ plt.rcParams.update({
 
 # Neutral AAAI-friendly palette
 COLOR_COT_SC = "#8ca0b3"       # cool gray-blue for baseline
-COLOR_CV2 = "#c65b45"          # muted brick-red for our method (highlight)
+COLOR_GERS = "#c65b45"         # muted brick-red for our method (highlight)
 COLOR_ORACLE_BAR = "#4c72b0"   # deep blue for oracle bars
 COLOR_ANNOT = "#333333"
 
@@ -56,56 +56,37 @@ OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 # ==================== Figure 4: LongBench main results ====================
 def figure_longbench_main():
-    """Bar chart: CoT-SC vs GERS-CV2 on 3 LongBench subsets + significance annotation."""
-    fig, ax = plt.subplots(figsize=(3.4, 2.6))
+    """Horizontal comparison that remains legible at one-column width."""
+    fig, ax = plt.subplots(figsize=(3.4, 2.05))
 
-    subsets = ["multifieldqa\\_en\n(n=100, $\\sim$5k tok)",
-               "musique\n(n=193, $\\sim$11k tok)",
-               "narrativeqa\n(n=71, $\\sim$22k tok)"]
+    subsets = ["multifieldqa_en", "musique", "narrativeqa"]
     cot_sc = [0.345, 0.325, 0.234]
     cv2 = [0.415, 0.387, 0.208]
 
-    x = np.arange(len(subsets))
-    width = 0.36
+    y = np.arange(len(subsets))
+    height = 0.32
+    ax.axhspan(1.5, 2.5, color="#fbf0e8", zorder=0)
+    ax.barh(y - height / 2, cot_sc, height, label="CoT-SC (N=3)",
+            color=COLOR_COT_SC, edgecolor="black", linewidth=0.4)
+    ax.barh(y + height / 2, cv2, height, label="GERS-DAG",
+            color=COLOR_GERS, edgecolor="black", linewidth=0.4)
 
-    b1 = ax.bar(x - width / 2, cot_sc, width, label="CoT-SC (N=3)",
-                color=COLOR_COT_SC, edgecolor="black", linewidth=0.5)
-    b2 = ax.bar(x + width / 2, cv2, width, label="GERS-CV2 (ours)",
-                color=COLOR_CV2, edgecolor="black", linewidth=0.5)
+    markers = ["*", "*", "n.s."]
+    for yi, (c, v, marker) in enumerate(zip(cot_sc, cv2, markers)):
+        ax.text(c + 0.008, yi - height / 2, f"{c:.3f}", va="center", fontsize=7)
+        ax.text(v + 0.008, yi + height / 2, f"{v:.3f}", va="center", fontsize=7)
+        ax.text(0.485, yi, marker, va="center", ha="right", fontsize=8,
+                color="#2a7a2a" if yi < 2 else "#a05a20")
 
-    # Numeric F1 above each bar (small, unobtrusive)
-    for i, (c, v) in enumerate(zip(cot_sc, cv2)):
-        ax.text(x[i] - width / 2, c + 0.008, f"{c:.3f}",
-                ha="center", va="bottom", fontsize=7, color="#555555")
-        ax.text(x[i] + width / 2, v + 0.008, f"{v:.3f}",
-                ha="center", va="bottom", fontsize=7, color="#555555")
-
-    # Nominal paired markers only; no multiplicity correction is applied.
-    sig_markers = [
-        (0, r"$\ast$",          max(cot_sc[0], cv2[0])),
-        (1, r"$\ast$",          max(cot_sc[1], cv2[1])),
-        (2, "n.s.",             max(cot_sc[2], cv2[2])),
-    ]
-    for idx, marker, top in sig_markers:
-        ax.text(idx, top + 0.055, marker, ha="center", va="center",
-                fontsize=13 if marker != "n.s." else 9,
-                color=COLOR_ANNOT, fontweight="bold")
-
-    ax.set_ylabel("F1 Score")
-    ax.set_xticks(x)
-    ax.set_xticklabels(subsets, fontsize=8.5)
-    ax.set_ylim(0, 0.58)
-    ax.set_yticks(np.arange(0, 0.51, 0.1))
-    # Legend at upper-LEFT to avoid CV2 bar overlap
-    ax.legend(loc="upper left", frameon=False, ncol=1, fontsize=8.5)
-
-    # Regime shading (light) + labels near top of plot
-    ax.axvspan(-0.5, 1.5, alpha=0.06, color="green", zorder=0)
-    ax.axvspan(1.5, 2.5, alpha=0.06, color="orange", zorder=0)
-    ax.text(0.5, 0.555, "Positive subsets", ha="center", va="top",
-            fontsize=8, color="#2a7a2a", style="italic")
-    ax.text(2.0, 0.555, "High timeout", ha="center", va="top",
-            fontsize=8, color="#a05a20", style="italic")
+    ax.set_xlabel("F1")
+    ax.set_xlim(0, 0.51)
+    ax.set_xticks(np.arange(0, 0.51, 0.1))
+    ax.set_yticks(y)
+    ax.set_yticklabels(subsets, fontsize=8)
+    ax.invert_yaxis()
+    ax.grid(axis="x", color="#e3e3e3", linewidth=0.45)
+    ax.legend(loc="lower center", bbox_to_anchor=(0.5, 1.0),
+              frameon=False, ncol=2, fontsize=7.5)
 
     plt.tight_layout()
     out = OUT_DIR / "image4.pdf"
@@ -117,40 +98,36 @@ def figure_longbench_main():
 # ==================== Figure 6: Oracle interventions ====================
 def figure_oracle_waterfall():
     """Independent Oracle interventions on MuSiQue 4-hop, n=200."""
-    fig, ax = plt.subplots(figsize=(3.4, 2.5))
+    fig, ax = plt.subplots(figsize=(3.4, 2.25))
 
-    labels = ["Model\npipeline",
-              "Gold\ndecomp.",
-              "Gold decomp.\n+ retrieval",
-              "Gold decomp.\n+ sub-answers"]
+    labels = ["Model pipeline",
+              "Gold decomposition",
+              "Gold decomp. + retrieval",
+              "Gold decomp. + sub-answers"]
     f1_vals = [0.348, 0.439, 0.514, 0.839]
     deltas = [None, 0.091, 0.166, 0.491]
 
-    x = np.arange(len(labels))
-    colors_bar = [COLOR_COT_SC, "#7fa5cc", "#5b8ac0", COLOR_ORACLE_BAR]
+    y = np.arange(len(labels))
+    colors_bar = [COLOR_COT_SC, "#557da8", "#3f6f9f", "#244f87"]
 
     for i in range(len(labels)):
-        ax.bar(x[i], f1_vals[i], width=0.58,
-               color=colors_bar[i], edgecolor="black", linewidth=0.5)
-        ax.text(x[i], f1_vals[i] + 0.022, f"{f1_vals[i]:.3f}",
-                ha="center", va="bottom", fontsize=9, color=COLOR_ANNOT,
+        ax.barh(y[i], f1_vals[i], height=0.56,
+                color=colors_bar[i], edgecolor="black", linewidth=0.5)
+        ax.text(f1_vals[i] + 0.015, y[i], f"{f1_vals[i]:.3f}",
+                ha="left", va="center", fontsize=8, color=COLOR_ANNOT,
                 fontweight="bold" if i == 3 else "normal")
         if deltas[i] is not None:
-            ax.text(x[i], f1_vals[i] / 2, f"$\\Delta$ {deltas[i]:+.3f}",
-                    ha="center", va="center", fontsize=8.5,
+            ax.text(f1_vals[i] - 0.015, y[i], f"$\\Delta$ {deltas[i]:+.3f}",
+                    ha="right", va="center", fontsize=7.2,
                     color="white", fontweight="bold")
 
-    ax.set_ylabel("F1 Score")
-    ax.set_xticks(x)
-    ax.set_xticklabels(labels, fontsize=8.5)
-    # Y-limit raised from 0.95 to 1.02 for annotation breathing room
-    ax.set_ylim(0, 1.02)
-    ax.set_yticks(np.arange(0, 1.01, 0.2))
-
-    ax.text(0.02, 0.98,
-            "Interventions are independent,\nnot additive module shares",
-            transform=ax.transAxes, fontsize=8, color=COLOR_ANNOT,
-            ha="left", va="top", style="italic")
+    ax.set_xlabel("F1")
+    ax.set_xlim(0, 0.92)
+    ax.set_xticks(np.arange(0, 0.91, 0.2))
+    ax.set_yticks(y)
+    ax.set_yticklabels(labels, fontsize=7.5)
+    ax.invert_yaxis()
+    ax.grid(axis="x", color="#e3e3e3", linewidth=0.45)
 
     plt.tight_layout()
     out = OUT_DIR / "image6.pdf"
@@ -161,8 +138,8 @@ def figure_oracle_waterfall():
 
 # ==================== Figure 7 (optional): Regime map ====================
 def figure_regime_map():
-    """Scatter: dF1 (CV2 - CoT-SC) vs context length, coded by evidence structure."""
-    fig, ax = plt.subplots(figsize=(3.4, 2.4))
+    """Scatter: dF1 (GERS-DAG - CoT-SC) vs context length and evidence structure."""
+    fig, ax = plt.subplots(figsize=(3.4, 2.18))
 
     # (name, ctx_kilo_tokens, dF1, sig, structure, marker)
     # Updated 2026-07-13: 2wikimqa n=200 now measured (dF1 = -0.021 n.s.)
@@ -175,7 +152,15 @@ def figure_regime_map():
         ("narrativeqa",    22.7, -0.027, False, "narrative",    "D"),
     ]
 
-    # Plot each point
+    label_positions = {
+        "HotpotQA": (5.1, -0.043),
+        "multifieldqa_en": (5.6, 0.079),
+        "musique-LB": (12.0, 0.057),
+        "qasper": (2.8, 0.032),
+        "2wikimqa": (5.2, -0.016),
+        "narrativeqa": (19.0, -0.041),
+    }
+
     for name, ctx, dF1, sig, struct, marker in points:
         if dF1 is None:
             continue
@@ -188,41 +173,24 @@ def figure_regime_map():
         lw = 1.2 if sig else 0.4
         ax.scatter(ctx, dF1, c=color, s=80, marker=marker,
                    edgecolor=edge, linewidth=lw, zorder=3)
-        # Point label (bumped from 7.5 to 8.5 pt)
-        offset_y = 0.010 if dF1 > 0 else -0.018
-        offset_x = 0.6 if name != "narrativeqa" else -3.2
+        label_x, label_y = label_positions[name]
         ax.annotate(name, xy=(ctx, dF1),
-                    xytext=(ctx + offset_x, dF1 + offset_y),
-                    fontsize=8.5, color="#222222")
+                    xytext=(label_x, label_y),
+                    fontsize=7.2, color="#222222",
+                    arrowprops=dict(arrowstyle="-", color="#888888", lw=0.45))
 
     # Zero line
     ax.axhline(0, color="black", linewidth=0.5, linestyle="--", alpha=0.6)
-    ax.text(25, 0.006, "CV2 wins above", fontsize=8, color="#2a7a2a",
+    ax.text(25.5, 0.006, "GERS-DAG wins", fontsize=7, color="#2a7a2a",
             ha="right", style="italic")
-    ax.text(25, -0.008, "CoT-SC wins below", fontsize=8, color="#a05a20",
+    ax.text(25.5, -0.009, "CoT-SC wins", fontsize=7, color="#a05a20",
             ha="right", style="italic")
 
     ax.set_xlabel("Median context length (k tokens)")
-    ax.set_ylabel(r"$\Delta$F1 (CV2 $-$ CoT-SC)")
+    ax.set_ylabel(r"$\Delta$F1 (DAG $-$ CoT-SC)")
     ax.set_xlim(2, 26)
     ax.set_ylim(-0.06, 0.10)
 
-    # Legend proxies for evidence structure
-    from matplotlib.lines import Line2D
-    legend_elems = [
-        Line2D([0], [0], marker="s", color="w", label="multi-passage (target)",
-               markerfacecolor="#2a7a2a", markersize=6),
-        Line2D([0], [0], marker="o", color="w", label="single-file",
-               markerfacecolor="#a05a20", markersize=6),
-        Line2D([0], [0], marker="^", color="w", label="single-doc",
-               markerfacecolor="#8888aa", markersize=6),
-        Line2D([0], [0], marker="v", color="w", label="short-multi",
-               markerfacecolor="#b07030", markersize=6),
-        Line2D([0], [0], marker="D", color="w", label="narrative",
-               markerfacecolor="#a03a3a", markersize=6),
-    ]
-    ax.legend(handles=legend_elems, loc="lower right", frameon=False,
-              fontsize=7.5, ncol=2, columnspacing=0.6, handletextpad=0.2)
 
     plt.tight_layout()
     out = OUT_DIR / "image7.pdf"

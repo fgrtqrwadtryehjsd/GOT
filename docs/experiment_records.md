@@ -4,13 +4,13 @@
 > §1.12 LongBench multifieldqa_en F1 SIG (n=100, +0.070, CI [+0.007, +0.132]) + LongBench musique EM+F1 BOTH SIG (n=193, F1 +0.063 CI [+0.001, +0.124], EM +0.067 CI [+0.005, +0.130], McNemar p=0.049)
 > §1.13 Oracle-1 vs CoT-SC 4-hop n=200 F1 SIG (+0.075, CI [+0.017, +0.134], P>0=0.994) + Oracle-1 vs Baseline strongly SIG (F1 +0.091, CI [+0.041, +0.142], McNemar p=0.002)
 > §1.14 model-decomp CV2 vs CoT-SC 4-hop n=85 loses (−0.022 F1, n.s.), quantifying model-vs-gold decomposition gap at ~0.10 F1
-> Current paper target: three-layer narrative — Layer 1 (regime-defined method win: multi-domain 5-12k tok) + Layer 2 (gold-decomp method-value proof) + Layer 3 (systematic diagnosis); see §4 for full framing
+> Current publication terminology: GERS-DAG denotes answer generation; BiCheck denotes the post-hoc diagnostic. Legacy GERS-CV2 names below identify actual experiment configurations and are retained for reproducibility.
 > Active datasets: HotpotQA, 2WikiMultiHopQA, GSM8K, MuSiQue, LongBench {multifieldqa_en, musique, narrativeqa}
 > Deprecated: CLUTRR and all pre-fix HotpotQA numbers are historical only and must not be used as paper claims.
 
 > ⚠️ **CRITICAL (2026-07-08): the headline HotpotQA result in §1.1 is a context-truncation artifact.** Under a fair full-context comparison (n=500, qwen3-8b), plain CoT-SC beats every GERS variant; the "GERS-CV2 > CoT-SC, +0.041 F1, p=0.029" claim reverses sign. See §1.6 for the definitive numbers and §4 (updated) for the re-positioned paper framing. §1.1 is retained as the *truncated-context* record for the confound audit only.
 
-> ⚠️ **CRITICAL SUBMISSION AUDIT (2026-07-13):** in the evaluated single-path `gers_cv2_fullctx` configuration, bidirectional cross-checking is computed *after* the final answer and does not revise or select that answer. It improves the diagnostic Consistency Score but cannot be credited causally for end-task differences. In addition, Oracle retrieval and Oracle sub-answer runs are separate interventions conditioned on gold decomposition, not a cumulative module waterfall; the earlier 66.2/18.4/15.4 additive-share interpretation is retired. The current paper reports nominal LongBench tests without multiplicity correction and explicitly reports paired-valid-output attrition.
+> ⚠️ **CRITICAL SUBMISSION AUDIT (2026-07-13):** in the evaluated single-path `gers_cv2_fullctx` configuration, bidirectional cross-checking is computed *after* the final answer and does not revise or select that answer. It improves the diagnostic Consistency Score but cannot be credited causally for end-task differences. In addition, Oracle retrieval and Oracle sub-answer runs are separate interventions conditioned on gold decomposition, not a cumulative module waterfall; the earlier 66.2/18.4/15.4 additive-share interpretation is retired. The current paper reports exploratory paired LongBench tests without multiplicity correction and explicitly reports paired-valid-output attrition.
 
 ## 1. Current Trustworthy Results
 
@@ -415,20 +415,20 @@ The following must not be used as current paper evidence:
 
 If these numbers appear in older logs or draft files, treat them as historical debugging records only.
 
-## 4. Current Paper Positioning (updated 2026-07-13 submission audit)
+## 4. Current Paper Positioning (updated 2026-07-13 final submission framing)
 
-> **Submission-audit update:** the current paper uses a conservative three-part framing: nominal paired LongBench observations, controlled Oracle headroom, and a post-hoc consistency diagnostic. It does not claim that cross-checking causes the end-task gains, does not report additive Oracle module shares, and does not treat NarrativeQA failures as a proven model-capacity threshold. The old HotpotQA §1.1 framing remains retired.
+> **Submission-audit update:** the current paper separates GERS-DAG answer generation from the BiCheck diagnostic, combines paired LongBench observations with controlled Oracle headroom, and maps regime boundaries. It does not claim that BiCheck causes end-task gains, does not report additive Oracle module shares, and does not treat NarrativeQA failures as a proven model-capacity threshold. The old HotpotQA §1.1 framing remains retired.
 
 ### Layer 1 — LongBench paired observations (§1.12)
 
-Nominal paired intervals favor GERS-CV2 on two LongBench subsets under the reported Qwen3-8B protocol:
+Paired intervals favor the publication-facing GERS-DAG pipeline on two LongBench subsets under the reported Qwen3-8B protocol. The underlying result files retain the `gers_cv2_fullctx` configuration name:
 
 - **multifieldqa_en** (n=100, ~5k tok, multi-domain distractors): F1 0.415 vs 0.345, dF1 = +0.070, **95% CI [+0.007, +0.132]**, McNemar p=0.114 on EM.
-- **musique-LongBench** (n=193, ~11k tok, deep-hop + multi-passage): F1 0.387 vs 0.325, dF1 = +0.063, **95% CI [+0.001, +0.124]**; EM 0.295 vs 0.228, dEM = +0.067, **95% CI [+0.005, +0.130]**, **McNemar p=0.049**. This is the strongest CV2 win under fair full-context conditions — both EM and F1 CIs exclude zero.
+- **musique-LongBench** (n=193, ~11k tok, deep-hop + multi-passage): F1 0.387 vs 0.325, dF1 = +0.063, **95% CI [+0.001, +0.124]**; EM 0.295 vs 0.228, dEM = +0.067, **95% CI [+0.005,+0.130]**, **McNemar p=0.049**. Both EM and F1 intervals exclude zero.
 
 NarrativeQA is inconclusive because both methods perform poorly and have substantial, unequal API failure rates. The five-subset pattern is exploratory and is not multiplicity-adjusted.
 
-The gain regime is thus: **medium-length (5-12k tok), multi-domain / multi-passage distracted context** — precisely the operational RAG sweet spot for retrieval-augmented multi-document QA. HotpotQA (dense single-file evidence) sits on the wrong side (§1.6, CoT-SC wins), narrativeqa (single-narrative but out-of-capacity) is beyond both methods, and LongBench's mid-length multi-domain regime is where CV2 wins statistically.
+The observed gain regime is **medium-length (5-12k tok), multi-domain / multi-passage distracted context**. HotpotQA (dense single-file evidence) sits on the other side (§1.6, CoT-SC wins), while NarrativeQA is inconclusive because both methods have low scores and substantial failure rates.
 
 ### Layer 2 — Gold-decomposition Oracle headroom (§1.13–1.14)
 
@@ -440,21 +440,21 @@ The diagnostic assets remain valid and integrate as the paper's methodological r
 
 1. **Confound audit.** §1.1 HotpotQA "+0.041 F1 SIG" reverses under fair full context (§1.6, CoT-SC +0.032 F1). A methodological caution: unequal context truncation manufactures apparent decomposition wins.
 2. **Oracle interventions at n=200 (§1.13).** Gold sub-answers provide the largest independent Oracle gain, but retrieval and sub-answer interventions are not cumulative and must not be converted into additive module shares.
-3. **CS calibration (§1.2, §4.3 of paper).** Bidirectional cross-checking raises correct/wrong discrimination from −0.0035 to +0.0847, AUROC 0.498→0.589. Signal is diagnostic/ranking-oriented, not a correctness verifier (156/250 CS=1.0 samples still EM-wrong).
+3. **BiCheck calibration (§1.2, §4.3 of paper).** Bidirectional cross-checking raises correct/wrong discrimination from −0.0035 to +0.0847, AUROC 0.498→0.589. The signal is diagnostic, not a correctness verifier (156/250 CS=1.0 samples still EM-wrong).
 4. **Two failed Stage-3 Minimal Fixes (§1.10, §1.11) as honest record.** EASV (+0.004 F1, verifier near-ceiling); IDD (structural failure — attacked leaf layer while lesion is at depth-planning layer). These localize the actual target (depth-planning decomposition) for future work without claiming a fix.
 5. **Boundaries reaffirmed.** HotpotQA short + dense evidence (CV2 -0.032 F1, not the target regime); narrativeqa >22k (model-capacity edge); Qwen-Plus n=300 tied (stronger models compress the advantage).
 
 ### Current synthesis
 
-- **Automatic pipeline evidence:** nominal paired improvements appear on two LongBench subsets, with multiplicity and attrition caveats.
+- **Automatic pipeline evidence:** paired improvements appear on two LongBench subsets, with multiplicity and attrition caveats.
 - **Oracle evidence:** accurate decomposition has measurable headroom, while gold sub-answers provide the largest independent intervention gain.
-- **Diagnostic evidence:** cross-checking improves CS discrimination but is post-hoc in the evaluated single-path system and does not establish causal end-task improvement.
+- **Diagnostic evidence:** BiCheck improves CS discrimination but is post-hoc in the evaluated single-path system and does not establish causal end-task improvement.
 
 This framing supersedes both the retired HotpotQA-win narrative and the earlier additive Oracle-waterfall interpretation.
 
-### Open items
+### Submission artifacts
 
-- ✅ ~~LongBench musique CoT-SC extension to n=200~~ **DONE (2026-07-10 21:05): both EM and F1 SIG, McNemar p=0.049 — Layer-1 confirmed with two independent positive subsets.**
-- GERS-SC / GERS-SC-CV2 under full context (never tested; low priority as GERS-CV2 already provides the significant result).
-- CV2 4-hop extension to n=200 (defer — Oracle-1 SIG at n=200 already establishes gold-decomp ceiling, CV2 at n=85 is directional loss with CI crossing zero).
-- Paper rewrite: `paper_en.tex` Abstract + Intro + main tables must be re-authored under the three-layer structure. See `docs/paper_new_positioning.md` for the structural plan.
+- Canonical paper: `docs/aaai_paper.tex`
+- Canonical supplement: `docs/supplementary.tex`
+- Canonical Overleaf package: `docs/overleaf_submission.zip`
+- Historical paper drafts and duplicate submission packages have been removed.

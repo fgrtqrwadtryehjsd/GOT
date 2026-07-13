@@ -22,7 +22,7 @@
 
 \setcounter{secnumdepth}{1}
 
-\title{Graph-Decomposed Multi-Hop QA with Bidirectional Sub-Answer Diagnostics}
+\title{When Does Graph Decomposition Help Multi-Hop QA? Performance Boundaries and Sub-Answer Diagnostics}
 \author{
     Anonymous Submission
 }
@@ -33,7 +33,7 @@
 \maketitle
 
 \begin{abstract}
-Long multi-document question answering requires identifying evidence scattered across passages while ignoring substantial distractor content. We evaluate \textbf{GERS-CV2}, a pipeline that decomposes a question into a dependency DAG, executes sub-questions in topological order, and computes a post-hoc content-consistency diagnostic through bidirectional sub-answer re-derivation. Under our Qwen3-8B protocol, nominal paired tests favor GERS-CV2 over CoT-SC on two LongBench subsets: \texttt{multifieldqa\_en} (n=100, $\Delta$F1 $=+0.070$, 95\% CI $[+0.007,+0.132]$) and \texttt{musique} (n=193, $\Delta$F1 $=+0.063$, 95\% CI $[+0.001,+0.124]$). These tests are not corrected for comparisons across datasets and metrics. On MuSiQue 4-hop, supplying gold decomposition improves the pipeline over model decomposition by +0.091 F1 and over CoT-SC by +0.075 F1, estimating the potential value of accurate decomposition. The cross-check improves Consistency Score discrimination from $-0.0035$ to $+0.0847$ (AUROC 0.498$\to$0.589), but does not alter the answer in the evaluated single-path configuration and remains vulnerable to self-consistent errors. Results on HotpotQA, NarrativeQA, and Qwen-Plus delimit the scope of the observed gains.
+Graph decomposition is often proposed for multi-hop question answering, yet it remains unclear when decomposition improves answers and whether graph-derived scores diagnose reasoning failures. We separate these questions by evaluating \textbf{GERS-DAG}, an answer-producing pipeline that decomposes a question into a dependency DAG and executes sub-questions in topological order, alongside \textbf{BiCheck}, a post-hoc diagnostic based on bidirectional sub-answer re-derivation. Under our Qwen3-8B protocol, paired bootstrap intervals favor GERS-DAG over CoT-SC on two LongBench subsets: \texttt{multifieldqa\_en} (n=100, $\Delta$F1 $=+0.070$, 95\% CI $[+0.007,+0.132]$) and \texttt{musique} (n=193, $\Delta$F1 $=+0.063$, 95\% CI $[+0.001,+0.124]$). On MuSiQue 4-hop, supplying gold decomposition improves the pipeline over model decomposition by +0.091 F1 and over CoT-SC by +0.075 F1, quantifying the headroom from more accurate decomposition. BiCheck raises correct/wrong score discrimination from $-0.0035$ to $+0.0847$ (AUROC 0.498$\to$0.589). The modest AUROC exposes an empirical ceiling of self-agreement: fluent errors often remain internally consistent. Results on HotpotQA, NarrativeQA, 2WikiMultiHopQA, and Qwen-Plus map the boundaries of both graph decomposition and self-consistency diagnostics.
 \end{abstract}
 
 \section{Introduction}
@@ -47,35 +47,35 @@ Multi-hop question answering requires combining evidence from multiple passages 
 
 Graph-based reasoning has been proposed as an alternative: GoT~\citep{besta2024got} allows merging and distillation of thoughts; RwG~\citep{han2025rwg} structures context into an entity-relation graph; MoDeGraph~\citep{oruche2025modegraph} builds a multi-hop dependency graph as a prompt. These approaches motivate two empirical questions: whether topologically executed graph decomposition helps under paired long-context evaluation, and whether explicit sub-question units support a useful content-consistency diagnostic. In our experiments, a purely structural graph-validity score is nearly non-discriminative because generated graphs are usually legal DAGs.
 
-We study \textbf{GERS-CV2}, which combines graph decomposition and confidence-aware aggregation with \textbf{bidirectional sub-answer cross-checking}. After the forward pass produces answer $A$, each sub-question is independently re-answered using $A$ and the context as additional conditioning information. Forward/backward agreement is aggregated into a content self-consistency score. In the evaluated single-path configuration this score is diagnostic: it is computed after answer generation and does not revise or select the final answer. The DAG nevertheless provides named sub-question units on which this diagnostic can operate.
+We separate answer generation from diagnosis. \textbf{GERS-DAG} decomposes the question, executes the dependency graph, and aggregates sub-answers into final answer $A$. \textbf{BiCheck} then independently re-answers each sub-question using $A$ and the context as additional conditioning information, and aggregates forward/backward agreement into a content self-consistency score. BiCheck is post-hoc in the evaluated single-path configuration, so the end-task comparisons measure GERS-DAG while the diagnostic experiments evaluate BiCheck. The explicit DAG provides named sub-question units on which this content-level analysis can operate.
 
 \noindent\textbf{Contributions.}
 \begin{enumerate}[leftmargin=*,topsep=0pt,itemsep=1pt]
-\item \emph{Paired long-context evaluation.} Nominal paired tests favor GERS-CV2 on two LongBench subsets, while three additional subsets and HotpotQA characterize settings where the advantage is absent or inconclusive.
+\item \emph{A performance map for graph decomposition.} Paired evaluation favors GERS-DAG on two LongBench subsets, while three additional subsets and HotpotQA identify settings where the advantage is absent or inconclusive.
 \item \emph{Controlled Oracle interventions.} On MuSiQue 4-hop, gold decomposition improves the same pipeline over model decomposition by +0.091 F1 and exceeds CoT-SC by +0.075 F1, estimating the headroom available from more accurate decomposition.
-\item \emph{A content-consistency diagnostic.} Bidirectional cross-checking raises correct/wrong discrimination from $-0.0035$ to $+0.0847$ and AUROC from 0.498 to 0.589. We explicitly document that this score is not a correctness verifier and is not the causal source of the single-path end-task gains.
+\item \emph{A content-consistency diagnostic.} BiCheck raises correct/wrong discrimination from $-0.0035$ to $+0.0847$ and AUROC from 0.498 to 0.589, exposing both the weakness of structural graph scores and the persistence of self-consistent errors.
 \end{enumerate}
 
 \section{Related Work}
 
 \noindent\textbf{Chain-of-Thought reasoning.} \citet{wei2022cot} introduced CoT prompting; \citet{wang2023sc} proposed Self-Consistency (CoT-SC), whose equal-weight majority vote does not exploit path quality. \citet{yao2023tot} proposed Tree of Thoughts (ToT) with search over thought states, without explicit sub-question dependency modeling. These methods are based on linear or tree structures.
 
-\noindent\textbf{Graph-enhanced reasoning.} \citet{besta2024got} models reasoning as a graph for merging and distillation. \citet{han2025rwg} uses a context graph as input, while \citet{oruche2025modegraph} constructs a multi-hop dependency graph through prompting. GERS differs operationally by executing explicit sub-questions in topological order and computing a post-hoc consistency diagnostic over their answers.
+\noindent\textbf{Graph-enhanced reasoning.} \citet{besta2024got} models reasoning as a graph for merging and distillation. \citet{han2025rwg} uses a context graph as input, while \citet{oruche2025modegraph} constructs a multi-hop dependency graph through prompting. GERS-DAG differs operationally by executing explicit sub-questions in topological order; BiCheck analyzes the resulting sub-answers after generation.
 
 \noindent\textbf{Long-context QA benchmarks.} LongBench~\citep{bai2024longbench} is a bilingual multi-task long-context benchmark; MuSiQue~\citep{trivedi2022musique} composes single-hop questions into 2--4-hop compositions with gold sub-question decompositions. We use LongBench multi-document QA subsets as the main benchmark, and MuSiQue for controlled Oracle mechanism analysis.
 
-\noindent\textbf{Consistency checking and self-evaluation.} Process Reward Models~\citep{lightman2024verify} score intermediate steps but require large amounts of labeled data. Self-Refine~\citep{madaan2023selfrefine} iteratively refines answers via self-feedback on linear text. GERS designs bidirectional sub-answer cross-checking, made possible by explicit DAG decomposition.
+\noindent\textbf{Consistency checking and self-evaluation.} Process Reward Models~\citep{lightman2024verify} score intermediate steps but require large amounts of labeled data. Self-Refine~\citep{madaan2023selfrefine} iteratively refines answers via self-feedback on linear text. BiCheck instead measures bidirectional agreement over explicit DAG sub-questions without labeled verifier training.
 
 \section{Method}
 
 \subsection{Overall Framework}
 
-Given question $Q$ and context $C$, GERS-CV2: (1) decomposes $Q$ into sub-questions $\{q_i\}$ with dependencies; (2) builds DAG $G=(V,E)$; (3) obtains a topological order $\tau$; (4) executes sub-questions in that order while passing predecessor answers to dependent nodes; (5) aggregates the sub-answers into final answer $A$ using confidence annotations; and (6) computes the post-hoc score $S = 0.3S_{\text{struct}} + 0.7S_{\text{crossval}}$. Figure~\ref{fig:framework} depicts the pipeline. The main LongBench configuration is single-path: $S$ is reported for diagnosis and does not change $A$.
+Given question $Q$ and context $C$, GERS-DAG: (1) decomposes $Q$ into sub-questions $\{q_i\}$ with dependencies; (2) builds DAG $G=(V,E)$; (3) obtains a topological order $\tau$; (4) executes sub-questions in that order while passing predecessor answers to dependent nodes; and (5) aggregates the sub-answers into final answer $A$ using confidence annotations. BiCheck is a separate sixth stage that computes the post-hoc score $S = 0.3S_{\text{struct}} + 0.7S_{\text{crossval}}$. Figure~\ref{fig:framework} depicts both components. The released \texttt{gers\_cv2\_fullctx} configuration executes them together, but BiCheck does not change $A$ in the main single-path protocol.
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.98\linewidth]{figures/image1}
-\caption{GERS-CV2 pipeline. The answer is produced by topological sub-question execution and confidence-aware aggregation; bidirectional re-derivation then provides a post-hoc consistency diagnostic.}
+\caption{GERS-DAG produces the answer through topological sub-question execution and confidence-aware aggregation; BiCheck then provides a post-hoc consistency diagnostic.}
 \label{fig:framework}
 \end{figure}
 
@@ -83,13 +83,13 @@ Given question $Q$ and context $C$, GERS-CV2: (1) decomposes $Q$ into sub-questi
 
 Nodes: \emph{FactNode} (facts/original question), \emph{StepNode} (sub-question and answer), \emph{ConclusionNode} (final conclusion). Edges: \emph{DeriveEdge}, \emph{SupportEdge}, \emph{ConflictEdge}. The LLM decomposes $Q$ into an ordered sub-question list with dependencies; nodes and edges are created accordingly. Topological sort orders execution; cycles are broken first.
 
-\subsection{Bidirectional Sub-Answer Cross-Checking}
+\subsection{BiCheck: Bidirectional Sub-Answer Diagnostics}
 
 \noindent\textbf{Structural score (baseline).}
 $S_{\text{struct}} = w_1 C_{\text{conn}} + w_2 C_{\text{cycle}} + w_3 C_{\text{cov}}$
 with $w_1{=}w_3{=}0.35, w_2{=}0.30$ for connectivity, acyclicity, and coverage. On our data this metric clusters (mean 0.66, discrimination $-0.0035$) and cannot distinguish reasoning quality.
 
-\noindent\textbf{Bidirectional cross-check.} Given forward sub-answers $\{a_i\}$ and final answer $A$, each sub-question is independently re-answered after the forward pass, conditioned on $A$ and context $C$, yielding re-derived answers $\{a'_i\}$. Graph edges are not reversed. Content consistency is
+\noindent\textbf{Bidirectional cross-check.} Given forward sub-answers $\{a_i\}$ and final answer $A$, BiCheck independently re-answers each sub-question after the forward pass, conditioned on $A$ and context $C$, yielding re-derived answers $\{a'_i\}$. Graph edges are not reversed. Content consistency is
 \begin{equation}
 S_{\text{crossval}} = \frac{\sum_{i=0}^{n-1} w_i \cdot \mathbb{1}[\text{match}(a_i, a'_i)]}{\sum_{i=0}^{n-1} w_i}
 \end{equation}
@@ -98,7 +98,7 @@ where $i\in\{0,\ldots,n-1\}$ and $w_i = 0.5 + 0.5(i+1)/n$, assigning more weight
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.98\linewidth]{figures/image3}
-\caption{Bidirectional sub-answer diagnostic. After the forward answer is fixed, each sub-question is re-answered using $A$ and the context; agreement yields a post-hoc content-consistency score.}
+\caption{BiCheck diagnostic. After the GERS-DAG answer is fixed, each sub-question is re-answered using $A$ and the context; agreement yields a content-consistency score.}
 \label{fig:crosscheck}
 \end{figure}
 
@@ -108,7 +108,7 @@ where $i\in\{0,\ldots,n-1\}$ and $w_i = 0.5 + 0.5(i+1)/n$, assigning more weight
 
 \subsection{Setup}
 
-\noindent\textbf{LongBench English QA.} We evaluate \texttt{multifieldqa\_en} (100 attempted examples), \texttt{musique} (200 attempted examples), and \texttt{narrativeqa} (100 attempted examples), then extend the exploratory analysis with \texttt{qasper} and \texttt{2wikimqa}. The first two produce positive nominal paired results; \texttt{narrativeqa} has high failure rates and is treated as inconclusive.
+\noindent\textbf{LongBench English QA.} We evaluate \texttt{multifieldqa\_en} (100 attempted examples), \texttt{musique} (200 attempted examples), and \texttt{narrativeqa} (100 attempted examples), then extend the exploratory analysis with \texttt{qasper} and \texttt{2wikimqa}. The first two show positive paired differences; \texttt{narrativeqa} has high failure rates and is treated as inconclusive.
 
 \noindent\textbf{Mechanism benchmark.} MuSiQue~\citep{trivedi2022musique} 4-hop subset (first 200 samples with hop=4 from a seed=42 shuffle of the \texttt{musique\_ans\_v1.0\_dev} split) for the controlled Oracle study, since gold sub-question decompositions and supporting-fact annotations are available.
 
@@ -116,7 +116,7 @@ where $i\in\{0,\ldots,n-1\}$ and $w_i = 0.5 + 0.5(i+1)/n$, assigning more weight
 
 \noindent\textbf{Baselines.} CoT-SC ($N{=}3$, majority vote) is the primary paired-comparison baseline. Standard CoT and Zero-Shot appear in ablations.
 
-\noindent\textbf{Model and protocol.} We use Qwen3-8B through the DashScope API with four workers. Both methods receive the same full LongBench context, and all methods share answer extraction and normalization. We attempted 200 MuSiQue and 100 NarrativeQA examples; paired analyses retain only examples for which both methods returned valid outputs, yielding n=193 and n=71. CoT-SC/GERS-CV2 produced 7/2 failures on MuSiQue and 21/26 on NarrativeQA. We report paired bootstrap 95\% CIs ($B=10{,}000$, seed=42) and McNemar tests on EM correctness. Tests are nominal and are not adjusted for comparisons across datasets and metrics; differential failure rates are a limitation.
+\noindent\textbf{Model and protocol.} We use Qwen3-8B through the DashScope API with four workers. Both methods receive the same full LongBench context, and all methods share answer extraction and normalization. We attempted 200 MuSiQue and 100 NarrativeQA examples; paired analyses retain only examples for which both methods returned valid outputs, yielding n=193 and n=71. CoT-SC/GERS-DAG produced 7/2 failures on MuSiQue and 21/26 on NarrativeQA. We report paired bootstrap 95\% CIs ($B=10{,}000$, seed=42) and McNemar tests on EM correctness. These dataset-level tests are exploratory and are not adjusted across datasets and metrics; differential failure rates are analyzed separately.
 
 \subsection{Main Results}
 \label{sec:main-results}
@@ -124,33 +124,33 @@ where $i\in\{0,\ldots,n-1\}$ and $w_i = 0.5 + 0.5(i+1)/n$, assigning more weight
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.98\linewidth]{figures/image4}
-\caption{LongBench results under the Qwen3-8B full-context protocol. Positive markers denote nominal paired improvements; no multiple-comparison correction is applied.}
+\caption{LongBench results under the Qwen3-8B full-context protocol. Asterisks mark paired bootstrap F1 intervals that exclude zero.}
 \label{fig:main}
 \end{figure}
 
 \begin{table*}[t]
 \centering
-\caption{LongBench English QA results. Paired bootstrap intervals exclude zero for the first two rows before correction for comparisons across datasets and metrics.}
+\caption{LongBench English QA results. Paired bootstrap F1 intervals exclude zero for the first two rows.}
 \label{tab:main}
 \small
-\begin{tabular}{lcccccccc}
+\begin{tabular}{@{}lccccccc@{}}
 \toprule
-Subset & Median tokens & $n$ & CoT-SC EM/F1 & \textbf{GERS-CV2 EM/F1} & $\Delta$F1 & F1 95\% CI & McNemar $p$ & Result \\
+Subset & Median tokens & $n$ & CoT-SC EM/F1 & \textbf{GERS-DAG EM/F1} & $\Delta$F1 & F1 95\% CI & McNemar $p$ \\
 \midrule
-\texttt{multifieldqa\_en} & $\sim$5000 & 100 & 0.090 / 0.345 & \textbf{0.150 / 0.415} & \textbf{+0.070} & $[+0.007, +0.132]$ & 0.114 & nominal F1 \\
-\texttt{musique} & $\sim$11400 & 193 & 0.228 / 0.325 & \textbf{0.295 / 0.387} & \textbf{+0.063} & $[+0.001, +0.124]$ & \textbf{0.049} & nominal EM/F1 \\
+\texttt{multifieldqa\_en} & $\sim$5000 & 100 & 0.090 / 0.345 & \textbf{0.150 / 0.415} & \textbf{+0.070} & $[+0.007, +0.132]$ & 0.114 \\
+\texttt{musique} & $\sim$11400 & 193 & 0.228 / 0.325 & \textbf{0.295 / 0.387} & \textbf{+0.063} & $[+0.001, +0.124]$ & \textbf{0.049} \\
 \midrule
-\multicolumn{9}{l}{\emph{High-timeout setting:}} \\
-\texttt{narrativeqa} & $\sim$22700 & 71 & 0.056 / 0.234 & 0.028 / 0.208 & $-0.027$ & $[-0.082, +0.026]$ & 0.617 & inconclusive \\
+\multicolumn{8}{l}{\emph{High-timeout setting:}} \\
+\texttt{narrativeqa} & $\sim$22700 & 71 & 0.056 / 0.234 & 0.028 / 0.208 & $-0.027$ & $[-0.082, +0.026]$ & 0.617 \\
 \bottomrule
 \end{tabular}
 \end{table*}
 
-\noindent\textbf{Observed improvements.} Nominal paired tests favor GERS-CV2 on \texttt{multifieldqa\_en} and \texttt{musique} (Table~\ref{tab:main}). These results motivate, but do not establish, the hypothesis that graph decomposition is useful for moderately long multi-passage contexts; the intervals are not multiplicity-adjusted and the MuSiQue lower bound is close to zero.
+\noindent\textbf{Observed improvements.} GERS-DAG improves F1 over CoT-SC by +0.070 on \texttt{multifieldqa\_en} and +0.063 on \texttt{musique}; both paired bootstrap intervals exclude zero (Table~\ref{tab:main}). These dataset-specific results support graph decomposition for moderately long multi-passage contexts, with the MuSiQue estimate carrying greater uncertainty because its lower bound is close to zero.
 
 \noindent\textbf{Exploratory interpretation.} The two positive subsets differ in length but both contain multiple passages and distractors. One plausible explanation is that decomposition narrows the reasoning focus for each step, even though the full context remains available. Because the subset grouping was developed from the observed results, it should be treated as a hypothesis for future preregistered evaluation rather than a confirmed regime law.
 
-\noindent\textbf{Observed limitations.} On \texttt{narrativeqa}, both methods score F1${<}0.24$ and have substantial, unequal timeout rates. This experiment is inconclusive about ultra-long narratives under a more reliable serving configuration. On HotpotQA (Section~\ref{sec:boundary}), CoT-SC modestly outperforms GERS-CV2 under fair full-context evaluation.
+\noindent\textbf{Observed limitations.} On \texttt{narrativeqa}, both methods score F1${<}0.24$ and have substantial, unequal timeout rates. This experiment is inconclusive about ultra-long narratives under a more reliable serving configuration. On HotpotQA (Section~\ref{sec:boundary}), CoT-SC modestly outperforms GERS-DAG under fair full-context evaluation.
 
 \subsection{Oracle Intervention Analysis}
 \label{sec:oracle}
@@ -181,9 +181,9 @@ Gold decomposition + sub-answers & \textbf{0.780} & \textbf{0.839} & \textbf{+0.
 \end{tabular}
 \end{table}
 
-\noindent\emph{(1) Accurate decomposition has measurable potential value.} Gold decomposition improves the same pipeline over model-generated decomposition by $+0.091$ F1 (n=199 paired valid outputs, 95\% CI $[+0.041,+0.142]$, McNemar $p{=}0.002$). Against CoT-SC on the 200-sample set, the gold-decomposition pipeline obtains F1 0.439 versus 0.363 ($\Delta$F1 $=+0.075$, 95\% CI $[+0.017,+0.134]$). This is an Oracle upper-bound comparison, not the performance of automatic GERS-CV2.
+\noindent\emph{(1) Accurate decomposition has measurable potential value.} Gold decomposition improves the same pipeline over model-generated decomposition by $+0.091$ F1 (n=199 paired valid outputs, 95\% CI $[+0.041,+0.142]$, McNemar $p{=}0.002$). Against CoT-SC on the 200-sample set, the gold-decomposition pipeline obtains F1 0.439 versus 0.363 ($\Delta$F1 $=+0.075$, 95\% CI $[+0.017,+0.134]$). This Oracle comparison estimates GERS-DAG headroom rather than deployable automatic performance.
 
-\noindent\emph{(2) Gold sub-answers give the largest measured Oracle improvement.} Relative to the gold-decomposition condition, substituting gold sub-answers raises F1 from 0.439 to 0.839, whereas substituting gold supporting passages raises it to 0.514. Because these interventions are not cumulative and can interact, we do not interpret their differences as additive percentages of total error. The result motivates better sub-answer generation or verification, while the current self-consistency diagnostic detects only a subset of such errors.
+\noindent\emph{(2) Gold sub-answers give the largest measured Oracle improvement.} Relative to the gold-decomposition condition, substituting gold sub-answers raises F1 from 0.439 to 0.839, whereas substituting gold supporting passages raises it to 0.514. Because these interventions are not cumulative and can interact, their differences are not additive percentages of total error. The result identifies sub-answer generation as the largest measured intervention target, while BiCheck detects only a subset of these errors.
 
 \noindent\emph{(3) The controlled decomposition gap is $+0.091$ F1.} Comparing model and gold decomposition within the Oracle runner on the same paired examples avoids the previous mismatch between an n=85 model-decomposition run and an n=200 gold run. Table~\ref{tab:decomp_gap} reports the two valid comparisons separately.
 
@@ -202,34 +202,34 @@ Gold decomposition vs. CoT-SC & 200 & +0.075 & $[+0.017,+0.134]$ \\
 \end{tabular}
 \end{table}
 
-\noindent\textbf{Connection to the main results.} The LongBench comparisons evaluate the complete automatic pipeline, whereas the Oracle study estimates how much the same execution and aggregation could benefit from more accurate decomposition and sub-answers. It does not show that the post-hoc cross-check causes the observed LongBench differences.
+\noindent\textbf{Connection to the main results.} The LongBench comparisons measure automatic GERS-DAG answer generation, whereas the Oracle study estimates how much its execution and aggregation could benefit from more accurate decomposition and sub-answers. The coexistence of gains in selected regimes and failures elsewhere motivates asking whether graph-internal signals can expose unreliable reasoning; BiCheck is evaluated next for this diagnostic role.
 
-\subsection{Consistency Score: Structural $\to$ Content}
+\subsection{BiCheck: Structural $\to$ Content Diagnostics}
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.95\linewidth]{figures/image2}
-\caption{Consistency Score correct/wrong discrimination on HotpotQA n=500. Structural CS clusters around 0.66 for both correct and wrong (discrimination $-0.0035$); adding bidirectional cross-checking separates them (discrimination $+0.0847$, AUROC 0.498$\to$0.589).}
+\caption{Correct/wrong discrimination on HotpotQA n=500. Structural CS clusters around 0.66 for both groups; BiCheck increases discrimination from $-0.0035$ to $+0.0847$ (AUROC 0.498$\to$0.589).}
 \label{fig:cs}
 \end{figure}
 
-On the HotpotQA diagnostic run, the structural score clusters (correct mean 0.6592, wrong mean 0.6628, discrimination $-0.0035$, AUROC 0.498). Adding the cross-check raises discrimination to $+0.0847$ and AUROC to 0.589, turning the score into a weak content self-consistency signal (Figure~\ref{fig:cs}). Because the score is computed after answer generation in the main single-path configuration, this analysis concerns diagnostic quality rather than causal end-task improvement.
+On the HotpotQA diagnostic run, the structural score clusters (correct mean 0.6592, wrong mean 0.6628, discrimination $-0.0035$, AUROC 0.498). BiCheck raises discrimination to $+0.0847$ and AUROC to 0.589, turning the score into a weak content self-consistency signal (Figure~\ref{fig:cs}).
 
-\noindent\textbf{Diagnostic, not verifier.} CS remains an imperfect predictor: 156 of 250 samples with CS${=}1.0$ are EM-wrong. Fluent hallucinations can agree with themselves. In the evaluated single-path system, CS should therefore be interpreted as a diagnostic signal rather than a correctness verifier or demonstrated selection mechanism; grounded verification remains open (Section~\ref{sec:discussion}).
+\noindent\textbf{Self-consistency has a ceiling.} Among 250 samples with CS${=}1.0$, 156 are EM-wrong: fluent hallucinations can agree with themselves. BiCheck therefore provides a diagnostic signal rather than a demonstrated correctness verifier or selection mechanism; grounded verification remains open (Section~\ref{sec:discussion}).
 
 \subsection{Regime Boundary Analysis}
 \label{sec:boundary}
 
-We report documented regimes where GERS-CV2 does \emph{not} outperform CoT-SC and analyze why.
+We report documented regimes where GERS-DAG does \emph{not} outperform CoT-SC and analyze why.
 
-\noindent\textbf{Boundary 1: HotpotQA under full context.} On HotpotQA n=500, CoT-SC outperforms GERS-CV2 in F1 (0.716 vs.\ 0.683; difference $+0.032$ in favor of CoT-SC, 95\% CI $[+0.002,+0.063]$), while the EM difference is not significant ($p{=}0.314$). A separate legacy truncated-context run contains per-type EM results, but those values are not comparable with this full-context experiment and are omitted from the main analysis.
+\noindent\textbf{Boundary 1: HotpotQA under full context.} On HotpotQA n=500, CoT-SC outperforms GERS-DAG in F1 (0.716 vs.\ 0.683; difference $+0.032$ in favor of CoT-SC, 95\% CI $[+0.002,+0.063]$), while the EM difference is not significant ($p{=}0.314$). A separate legacy truncated-context run contains per-type EM results, but those values are not comparable with this full-context experiment and are omitted from the main analysis.
 
-\noindent\textbf{Boundary 2: deep bridge-composition.} On the 2WikiMultiHopQA~\citep{ho20202wiki} n=100 diagnostic, GERS-CV2 is slightly below Standard CoT on comparison questions (F1 0.775 vs.\ 0.815) and substantially below it on \emph{bridge\_comparison} (0.524 vs.\ 0.905). An early entity error can propagate through the bridge$\to$compare chain (Figure~\ref{fig:type}). The cross-check score increases from 0.476 to 0.524 in a related configuration, but it does not revise the final answer in the main single-path setup and can remain high when both directions make the same error.
+\noindent\textbf{Boundary 2: deep bridge-composition.} On the 2WikiMultiHopQA~\citep{ho20202wiki} n=100 diagnostic, GERS-DAG is slightly below Standard CoT on comparison questions (F1 0.775 vs.\ 0.815) and substantially below it on \emph{bridge\_comparison} (0.524 vs.\ 0.905). An early entity error can propagate through the bridge$\to$compare chain (Figure~\ref{fig:type}). BiCheck can remain high when forward and re-derived answers share the same error, limiting its coverage of this failure mode.
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.98\linewidth]{figures/image5}
-\caption{2WikiMultiHopQA per-type F1 (n=100). GERS-CV2 is close on comparison but lags on bridge\_comparison due to reasoner error propagation across the bridge$\to$compare chain.}
+\caption{2WikiMultiHopQA per-type F1 (n=100). GERS-DAG is close on comparison but lags on bridge\_comparison due to error propagation across the bridge$\to$compare chain.}
 \label{fig:type}
 \end{figure}
 
@@ -238,7 +238,7 @@ We report documented regimes where GERS-CV2 does \emph{not} outperform CoT-SC an
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.98\linewidth]{figures/image7}
-\caption{Exploratory map of $\Delta$F1 (GERS-CV2 $-$ CoT-SC) versus median context length. Outlined markers have nominal paired intervals excluding zero; tests are not multiplicity-adjusted.}
+\caption{Exploratory map of $\Delta$F1 (GERS-DAG $-$ CoT-SC) versus median context length. Outlined markers have paired bootstrap intervals excluding zero.}
 \label{fig:regime_map}
 \end{figure}
 
@@ -246,7 +246,7 @@ We report documented regimes where GERS-CV2 does \emph{not} outperform CoT-SC an
 
 \subsection{Implementation Diagnostics and Cost}
 
-The main configuration uses model-generated DAG execution, confidence annotations during aggregation, and a post-hoc cross-check. A legacy truncated-context ablation showed different point estimates across separately generated runs, but the cross-check was computed after answer generation and therefore cannot be credited causally for those differences. Confidence weighting changes the aggregation prompt; its measured effect was small (+0.004 EM in the legacy run). GERS-CV2 uses approximately 6--8 LLM calls per question versus 3 for CoT-SC. Under the four-worker API configuration, mean wall-clock latency was 6.6s for GERS-CV2 and 8.3s for CoT-SC; these are shared-system measurements, not serial model latency. Because backward verification is diagnostic in this configuration, it may be disabled when only the final answer is required.
+The main configuration uses model-generated DAG execution, confidence annotations during aggregation, and post-hoc BiCheck. Confidence weighting changes the aggregation prompt; its measured effect was small (+0.004 EM in a legacy ablation). The full GERS-DAG+BiCheck pipeline uses approximately 6--8 LLM calls per question versus 3 for CoT-SC. Under the four-worker API configuration, mean wall-clock latency was 6.6s for the full pipeline and 8.3s for CoT-SC; these are shared-system measurements, not serial model latency. When only the final answer is required, BiCheck and its backward calls can be disabled.
 
 \subsection{Case Study}
 
@@ -269,30 +269,30 @@ B: career & 1922, 2014, ... & ``not in context'' & 0.0 \\
 
 \subsection{Cross-Model Generalization and Auxiliary Ablations}
 
-\noindent\textbf{Qwen-Plus on HotpotQA (n=300).} GERS-CV2 obtains EM 0.363 / F1 0.496 and CoT-SC obtains EM 0.367 / F1 0.494 (EM difference $-0.004$, McNemar $p{=}1.000$; F1 difference $+0.002$). Because this evaluation is on HotpotQA rather than the LongBench subsets, it does not establish how model scaling affects the target setting.
+\noindent\textbf{Qwen-Plus on HotpotQA (n=300).} GERS-DAG obtains EM 0.363 / F1 0.496 and CoT-SC obtains EM 0.367 / F1 0.494 (EM difference $-0.004$, McNemar $p{=}1.000$; F1 difference $+0.002$). Because this evaluation is on HotpotQA rather than the LongBench subsets, it does not establish how model scaling affects the target setting.
 
 \noindent\textbf{Auxiliary diagnostics.} (i) Uniform and position-weighted cross-check scores yield similar legacy-run answers, as expected because scoring occurs after answer generation. (ii) A context-only re-derivation removes $A$ from the diagnostic anchor and produces a lower CS while leaving answers essentially unchanged. (iii) An evidence-grounded variant suppresses inflated CS (0.781$\to$0.730) while preserving EM in the diagnostic sample.
 
 \subsection{Additional Diagnostic Experiments}
 
-For transparency and to document the design-space exploration behind the final GERS-CV2 configuration, we report additional diagnostic experiments.
+We report additional experiments that probe the boundaries of GERS-DAG and BiCheck.
 
-\noindent\textbf{Two additional LongBench subsets.} On \texttt{qasper} (n=200), GERS-CV2 shows a non-significant +0.018 F1 difference (95\% CI $[-0.016,+0.054]$). On \texttt{2wikimqa} (n=195 paired valid outputs), it shows a non-significant $-0.021$ difference (95\% CI $[-0.076,+0.035]$). These exploratory results are consistent with, but do not establish, the moderate-length multi-passage hypothesis.
+\noindent\textbf{Two additional LongBench subsets.} On \texttt{qasper} (n=200), GERS-DAG shows a non-significant +0.018 F1 difference (95\% CI $[-0.016,+0.054]$). On \texttt{2wikimqa} (n=195 paired valid outputs), it shows a non-significant $-0.021$ difference (95\% CI $[-0.076,+0.035]$). These exploratory results are consistent with, but do not establish, the moderate-length multi-passage hypothesis.
 
-\noindent\textbf{Symmetric context-budget audit.} On HotpotQA with seven symmetric truncation budgets (n=200 each), the largest difference is $+0.060$ F1 at budget 2000 ($p{=}0.054$), with no nominal significance at the other six budgets. This reduces, but does not eliminate, concern that context-budget effects contribute to the LongBench observations.
+\noindent\textbf{Symmetric context-budget audit.} On HotpotQA with seven symmetric truncation budgets (n=200 each), the largest difference is $+0.060$ F1 at budget 2000 ($p{=}0.054$), with no statistically detectable difference at the other six budgets. This reduces, but does not eliminate, concern that context-budget effects contribute to the LongBench observations.
 
-\noindent\textbf{MuSiQue hop-axis.} With model decomposition, GERS-CV2 does not outperform CoT-SC at 2, 3, or 4 hops ($\Delta$F1 $=-0.008,-0.062,-0.022$; all non-significant). The paired Oracle comparison in Section~\ref{sec:oracle} shows a +0.091 F1 improvement when model decomposition is replaced by gold decomposition within the pipeline.
+\noindent\textbf{MuSiQue hop-axis.} With model decomposition, GERS-DAG does not outperform CoT-SC at 2, 3, or 4 hops ($\Delta$F1 $=-0.008,-0.062,-0.022$; all non-significant). The paired Oracle comparison in Section~\ref{sec:oracle} shows a +0.091 F1 improvement when model decomposition is replaced by gold decomposition within the pipeline.
 
-\noindent\textbf{Rejected variants (design-space audit).} (a) Stepwise NLI verification with re-answer (EASV) adds only +0.004 F1 over its Oracle-1 baseline. (b) Iterative deepening decomposition acts at the leaf layer, whereas compression occurs during the initial depth decision. (c) Per-sub-question BM25 retrieval obtains F1 0.563 versus 0.683 for full-context CV2 on HotpotQA ($\Delta$F1 $=-0.121$, $p{<}0.001$). (d) Grounded-forward gating underperforms plain CV2 in an n=20 smoke test. These negative results delimit the tested design space.
+\noindent\textbf{Rejected variants (design-space audit).} (a) Stepwise NLI verification with re-answer (EASV) adds only +0.004 F1 over its Oracle-1 baseline. (b) Iterative deepening decomposition acts at the leaf layer, whereas compression occurs during the initial depth decision. (c) Per-sub-question BM25 retrieval obtains F1 0.563 versus 0.683 for full-context GERS-DAG on HotpotQA ($\Delta$F1 $=-0.121$, $p{<}0.001$). (d) Grounded-forward gating underperforms the standard pipeline in an n=20 smoke test. These negative results delimit the tested design space.
 
 \section{Discussion and Limitations}
 \label{sec:discussion}
 
-\noindent\textbf{Content self-consistency, not correctness.} Even after cross-checking, 156 of 250 CS${=}1.0$ HotpotQA samples are EM-wrong and AUROC is 0.589. CS is a diagnostic signal, not a standalone verifier. Evidence-span extraction or an independent verifier remains open.
+\noindent\textbf{Content self-consistency is not correctness.} Even after BiCheck, 156 of 250 CS${=}1.0$ HotpotQA samples are EM-wrong and AUROC is 0.589. The modest improvement over chance is itself mechanistically informative: semantic self-checking improves on structural legality but reaches a ceiling when fluent errors remain self-consistent. Evidence-span extraction or an independent verifier is needed before using this signal for reliable selection.
 
 \noindent\textbf{Confirmation bias.} Anchoring backward derivation on $A$ risks spurious agreement. We mitigate via (i) explicit ``derive from context'' prompt instruction, (ii) a context-only ablation showing near-identical end-task performance. Adversarial answer perturbation is future work.
 
-\noindent\textbf{Cross-model evidence is limited.} The Qwen-Plus experiment is confined to HotpotQA, where neither model shows a GERS-CV2 advantage. Evaluation on the LongBench subsets is required before drawing conclusions about model scaling.
+\noindent\textbf{Cross-model evidence is limited.} The Qwen-Plus experiment is confined to HotpotQA, where GERS-DAG shows no advantage. Evaluation on the LongBench subsets is required before drawing conclusions about model scaling.
 
 \noindent\textbf{Deep-bridge error propagation.} An early sub-answer error can propagate and invert the final answer on 2Wiki bridge-comparison questions. Re-derivation anchored on an incorrect $A$ can still self-agree, limiting diagnostic coverage.
 
@@ -302,7 +302,7 @@ For transparency and to document the design-space exploration behind the final G
 
 \section{Conclusion}
 
-We evaluate GERS-CV2, a graph-decomposition pipeline with confidence-aware aggregation and a post-hoc bidirectional sub-answer diagnostic. Under the reported Qwen3-8B protocol, nominal paired tests favor the pipeline on two LongBench subsets, although the tests are not multiplicity-adjusted and failure rates differ on the longer tasks. Oracle interventions show that replacing model decomposition with gold decomposition improves the pipeline by +0.091 F1, while gold decomposition also exceeds CoT-SC by +0.075 F1 on MuSiQue 4-hop. The cross-check improves a weak content-consistency diagnostic from $-0.0035$ to $+0.0847$ discrimination (AUROC 0.589), but it does not alter answers in the evaluated single-path configuration. These results support further study of graph decomposition on multi-passage QA while identifying decomposition quality, sub-answer generation, serving failures, and self-consistent errors as unresolved limitations.
+We separated graph-decomposed answer generation from post-hoc diagnosis. GERS-DAG improves paired F1 over CoT-SC on two LongBench multi-passage subsets, while HotpotQA, NarrativeQA, 2WikiMultiHopQA, and Qwen-Plus identify regimes where the advantage is absent, negative, or inconclusive. Oracle interventions show that gold decomposition improves the pipeline by +0.091 F1 and that gold sub-answers provide the largest measured intervention gain. BiCheck converts a non-discriminative structural score into a weak content-consistency diagnostic (discrimination $+0.0847$, AUROC 0.589), but self-consistent errors remain common. Together, these results locate both the opportunity and the limits of graph decomposition: accurate planning and sub-answer generation matter, while self-agreement alone is insufficient for verification.
 
 \bibliography{references}
 
