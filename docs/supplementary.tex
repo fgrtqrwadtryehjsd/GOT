@@ -8,7 +8,7 @@
 \usepackage{array}
 \usepackage[utf8]{inputenc}
 
-\title{Supplementary Material:\\When Does Graph Decomposition Help Multi-Hop QA?\\Performance Boundaries and Sub-Answer Diagnostics}
+\title{Supplementary Material:\\When Does Graph Decomposition Help Multi-Hop QA?\\Cross-Benchmark Evidence and Sub-Answer Diagnostics}
 \author{Anonymous Submission}
 \date{}
 
@@ -35,7 +35,7 @@ CoT-SC & linear samples & implicit & no \\
 ToT / GoT & tree or graph thoughts & search/flexible & state nodes \\
 RwG / graph prompts & entity/context graph & prompt-cond. & usually no \\
 MoDeGraph-style & dependency prompt & prompt-cond. & entity level \\
-GERS-DAG + BiCheck & sub-question DAG & topological & yes, forward/backward \\
+GERS-DAG + BiCheck & sub-question DAG & topological & yes, forward/re-derived \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -113,7 +113,7 @@ Gold decomposition improves over model decomposition by +0.091 F1 on paired vali
 
 \section{Computational Cost}
 
-Table~\ref{tab:cost} reports a legacy HotpotQA cost profile. The accuracy values use the historical truncated-context protocol and are not comparable with the full-context HotpotQA boundary result in the main paper. Backward verification is post-hoc in the evaluated single-path configuration and can be disabled when only the final answer is required.
+Table~\ref{tab:cost} reports a legacy HotpotQA cost profile. The accuracy values use the historical truncated-context protocol and are not comparable with the full-context HotpotQA boundary result in the main paper. Sub-answer re-derivation is post-hoc in the evaluated single-path configuration and can be disabled when only the final answer is required.
 
 \begin{table}[h]
 \centering
@@ -143,7 +143,7 @@ GERS-SC (K=3) & $\sim$12--15 & 16.2s & 0.282 & 0.398 \\
 
 \textbf{2Wiki at larger scale.} On 300 samples, GERS-DAG EM 0.390 / F1 0.462 remains below Standard CoT EM 0.443 / F1 0.521.
 
-\textbf{Evidence-grounded verification (diagnostic).} We test an evidence-grounded BiCheck variant on the first 100 samples, where each backward sub-answer must quote a supporting context span and the score multiplies an evidence-grounding heuristic. On HotpotQA it preserves EM and slightly changes F1 (standard pipeline 0.451 vs.\ grounded 0.455) while lowering CS from 0.781 to 0.730. On 2Wiki it preserves EM and stays close in F1 (0.469 vs.\ 0.463), and improves bridge\_comparison F1 from 0.524 to 0.571 within the same diagnostic rerun, but loses on other types. Because this was a separate diagnostic rerun, its per-type numbers should be compared only against the same-run standard-pipeline row. Evidence grounding suppresses inflated self-consistency scores and helps some bridge cases, but is not yet a robust end-task improvement.
+\textbf{Evidence-grounded verification (diagnostic).} We test an evidence-grounded BiCheck variant on the first 100 samples, where each re-derived sub-answer must quote a supporting context span and the score multiplies an evidence-grounding heuristic. On HotpotQA it preserves EM and slightly changes F1 (standard pipeline 0.451 vs.\ grounded 0.455) while lowering CS from 0.781 to 0.730. On 2Wiki it preserves EM and stays close in F1 (0.469 vs.\ 0.463), and improves bridge\_comparison F1 from 0.524 to 0.571 within the same diagnostic rerun, but loses on other types. Because this was a separate diagnostic rerun, its per-type numbers should be compared only against the same-run standard-pipeline row. Evidence grounding suppresses inflated self-consistency scores and helps some bridge cases, but is not yet a robust end-task improvement.
 
 \textbf{Rejected variants.} Verification-driven repair raises CS while reducing EM/F1. Stepwise NLI re-answering adds only +0.004 F1 in its Oracle-decomposition test. Iterative deepening decomposition acts after the initial depth decision and fails to repair compressed decompositions. Per-sub-question BM25 retrieval is 0.121 F1 below full-context GERS-DAG on HotpotQA. These variants are reported as negative design-space evidence rather than method improvements.
 

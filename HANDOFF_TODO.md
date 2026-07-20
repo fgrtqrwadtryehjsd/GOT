@@ -18,7 +18,7 @@ removed to prevent accidental submission of superseded claims.
 ## Scientific Framing
 
 - `GERS-DAG` is the answer-producing graph-decomposition pipeline.
-- `BiCheck` is a post-hoc bidirectional sub-answer diagnostic.
+- `BiCheck` is a post-hoc forward/re-derived sub-answer agreement diagnostic; graph edges are not reversed.
 - LongBench end-task differences are attributed to GERS-DAG, not BiCheck.
 - Oracle retrieval and sub-answer conditions are independent interventions
   conditioned on gold decomposition, not additive module shares.
