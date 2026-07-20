@@ -33,7 +33,7 @@
 \maketitle
 
 \begin{abstract}
-Graph-structured decomposition is a general reasoning strategy, but when it helps multi-hop question answering---and whether its internal signals diagnose errors---remains unclear. We study these questions with \textbf{GERS-DAG (Graph-Enhanced Reasoning System with DAG execution)}, which represents question decompositions as dependency DAGs and executes sub-questions topologically, and \textbf{BiCheck}, a post-hoc sub-answer re-derivation diagnostic. We evaluate five LongBench subsets, full-context HotpotQA, MuSiQue 4-hop, and 2WikiMultiHopQA. Under Qwen3-8B, paired bootstrap intervals favor GERS-DAG over CoT-SC on LongBench \texttt{multifieldqa\_en} ($\Delta$F1 $=+0.070$, 95\% CI $[+0.007,+0.132]$) and \texttt{musique} ($+0.063$, $[+0.001,+0.124]$), while estimated effects are null, negative, or inconclusive in other end-task settings. In an Oracle study, gold decomposition improves F1 by +0.091 over model decomposition and by +0.075 over CoT-SC. BiCheck raises correctness AUROC from 0.498 to 0.589 and correct/wrong score separation from $-0.0035$ to $+0.0847$, but many incorrect answers remain self-consistent. Thus, graph decomposition is regime-dependent, and BiCheck is a weak diagnostic rather than a correctness verifier.
+Graph-structured decomposition is a general strategy for organizing complex reasoning, but its effectiveness and diagnostic value in multi-hop question answering remain unclear across tasks. We study these questions using \textbf{GERS-DAG (Graph-Enhanced Reasoning System with DAG execution)}, which represents question decompositions as dependency DAGs and executes sub-questions in topological order. Our evaluation covers five LongBench subsets, full-context HotpotQA, a MuSiQue 4-hop Oracle study, and a 2WikiMultiHopQA error analysis, with a Qwen-Plus study providing limited cross-model evidence. Under Qwen3-8B, paired bootstrap intervals favor GERS-DAG over CoT-SC on LongBench \texttt{multifieldqa\_en} ($\Delta$F1 $=+0.070$, 95\% CI $[+0.007,+0.132]$) and \texttt{musique} ($+0.063$, $[+0.001,+0.124]$), while estimated effects are null, negative, or inconclusive in the remaining end-task settings. In the Oracle study, gold decomposition improves F1 by +0.091 over model decomposition and by +0.075 over CoT-SC, identifying decomposition quality as a key bottleneck. Separately, \textbf{BiCheck} re-derives sub-answers after generation and raises correctness AUROC from 0.498 to 0.589 and correct/wrong score separation from $-0.0035$ to $+0.0847$. However, many incorrect answers remain self-consistent. These results show that graph decomposition is regime-dependent and that BiCheck is a weak diagnostic rather than a correctness verifier.
 \end{abstract}
 
 \section{Introduction}
@@ -45,9 +45,9 @@ Multi-hop question answering requires combining evidence from multiple passages 
 \item \textbf{Quality-agnostic voting.} CoT-SC weights sampled answers equally; with three samples, two agreeing but unsupported answers can determine the majority over one correct answer.
 \end{enumerate}
 
-Graph-structured reasoning is not specific to multi-hop QA. GoT~\citep{besta2024got} merges and distills thoughts; RwG~\citep{han2025rwg} structures context as an entity-relation graph; MoDeGraph~\citep{oruche2025modegraph} builds a dependency graph as a prompt. We use multi-hop QA as a measurable setting and ask when topologically executed question decomposition helps across benchmarks and whether explicit sub-question units support content-consistency diagnosis. A purely structural graph-validity score proves nearly non-discriminative because generated graphs are usually legal DAGs.
+Graph-structured reasoning is a general family of methods rather than a technique specific to multi-hop QA. GoT~\citep{besta2024got} allows thoughts to be merged and distilled; RwG~\citep{han2025rwg} structures context as an entity-relation graph; MoDeGraph~\citep{oruche2025modegraph} constructs a dependency graph through prompting. We use multi-hop QA as an evaluation setting in which sub-question dependencies and cross-passage evidence integration can be measured explicitly. This motivates two empirical questions: when topologically executed question decomposition helps across paired QA benchmarks, and whether explicit sub-question units support a useful content-consistency diagnostic. In our experiments, a purely structural graph-validity score is nearly non-discriminative because generated graphs are usually legal DAGs.
 
-We separate answer generation from diagnosis. \textbf{GERS-DAG (Graph-Enhanced Reasoning System with DAG execution)} decomposes the question, executes the dependency graph, and aggregates sub-answers into answer $A$. \textbf{BiCheck} re-answers each sub-question using $A$ and the context, then measures agreement with forward sub-answers. It is post-hoc in the evaluated single-path configuration: end-task comparisons measure GERS-DAG, while diagnostic experiments evaluate BiCheck. The DAG supplies named sub-question units; its edges are not reversed.
+We separate answer generation from diagnosis. \textbf{GERS-DAG (Graph-Enhanced Reasoning System with DAG execution)} decomposes the question, executes the dependency graph, and aggregates sub-answers into final answer $A$. \textbf{BiCheck} then independently re-answers each sub-question using $A$ and the context as conditioning information, and measures agreement with the forward sub-answers. BiCheck is post-hoc in the evaluated single-path configuration, so end-task comparisons measure GERS-DAG while the diagnostic experiments evaluate BiCheck. The explicit DAG provides named sub-question units on which this content-level analysis can operate; the graph edges themselves are not reversed.
 
 \noindent\textbf{Contributions.}
 \begin{enumerate}[leftmargin=*,topsep=0pt,itemsep=1pt]
@@ -60,7 +60,7 @@ We separate answer generation from diagnosis. \textbf{GERS-DAG (Graph-Enhanced R
 
 \noindent\textbf{Chain-of-Thought reasoning.} \citet{wei2022cot} introduced CoT prompting; \citet{wang2023sc} proposed Self-Consistency (CoT-SC), whose equal-weight majority vote does not exploit path quality. \citet{yao2023tot} proposed Tree of Thoughts (ToT) with search over thought states, without explicit sub-question dependency modeling. These methods are based on linear or tree structures.
 
-\noindent\textbf{Graph-structured reasoning and decomposition.} \citet{besta2024got} models general problem solving as a graph of thoughts. \citet{han2025rwg} uses a context graph, while \citet{oruche2025modegraph} constructs a multi-hop dependency graph through prompting. GERS-DAG applies this broader idea to explicit sub-question DAG execution; BiCheck analyzes the resulting sub-answers after generation.
+\noindent\textbf{Graph-structured reasoning and decomposition.} \citet{besta2024got} models general problem solving as a graph of thoughts that supports merging and distillation. \citet{han2025rwg} uses a context graph as input, while \citet{oruche2025modegraph} constructs a multi-hop dependency graph through prompting. These works establish graph structures as general reasoning or context-organization tools. GERS-DAG instantiates this broader idea as explicit sub-question DAG execution for multi-hop QA; BiCheck analyzes the resulting sub-answers after generation rather than changing the answer-producing path.
 
 \noindent\textbf{Long-context QA benchmarks.} LongBench~\citep{bai2024longbench} is a bilingual multi-task long-context benchmark; MuSiQue~\citep{trivedi2022musique} composes single-hop questions into 2--4-hop compositions with gold sub-question decompositions. We use LongBench multi-document QA subsets as the main benchmark, and MuSiQue for controlled Oracle mechanism analysis.
 
@@ -82,6 +82,12 @@ Given question $Q$ and context $C$, GERS-DAG: (1) decomposes $Q$ into sub-questi
 \subsection{Reasoning-State Graph}
 
 Nodes: \emph{FactNode} (facts/original question), \emph{StepNode} (sub-question and answer), \emph{ConclusionNode} (final conclusion). Edges: \emph{DeriveEdge}, \emph{SupportEdge}, \emph{ConflictEdge}. The LLM decomposes $Q$ into an ordered sub-question list with dependencies; nodes and edges are created accordingly. Topological sort orders execution; cycles are broken first.
+
+\subsection{Topological Execution and Answer Aggregation}
+
+The decomposer returns structured sub-questions with an identifier, an operation type, and a \texttt{depends\_on} list. Dependency declarations become directed edges between StepNodes; sub-questions without predecessors are connected to the original FactNode. A topological ordering then guarantees that every required predecessor has been answered before a dependent sub-question is executed. For each StepNode, the prompt includes the original question, the shared evidence context, and the answers of its immediate predecessors. This design makes dependency transmission explicit rather than relying on their accidental ordering in a linear rationale.
+
+After all StepNodes have been executed, GERS-DAG aggregates the ordered sub-question--answer trace into $A$. The aggregation prompt requires the output entity type to match the original question, preventing intermediate entities such as dates or directors from replacing the requested film, person, or place. A lightweight confidence heuristic additionally marks uncertain or weakly grounded sub-answers as \texttt{[LOW CONFIDENCE]}; these annotations inform aggregation but do not alter graph execution. These mechanisms belong to the answer-producing pipeline and are evaluated separately from post-hoc BiCheck.
 
 \subsection{BiCheck: Sub-Answer Re-Derivation Diagnostics}
 
@@ -130,7 +136,7 @@ where $i\in\{0,\ldots,n-1\}$ and $w_i = 0.5 + 0.5(i+1)/n$, assigning more weight
 
 \begin{table*}[t]
 \centering
-\caption{LongBench English QA results. Paired bootstrap F1 intervals exclude zero for the first two rows.}
+\caption{LongBench English QA results across five subsets. Paired bootstrap F1 intervals exclude zero for the first two rows.}
 \label{tab:main}
 \small
 \begin{tabular}{@{}lccccccc@{}}
@@ -142,6 +148,10 @@ Subset & Median tokens & $n$ & CoT-SC EM/F1 & \textbf{GERS-DAG EM/F1} & $\Delta$
 \midrule
 \multicolumn{8}{l}{\emph{High-timeout setting:}} \\
 \texttt{narrativeqa} & $\sim$22700 & 71 & 0.056 / 0.234 & 0.028 / 0.208 & $-0.027$ & $[-0.082, +0.026]$ & 0.617 \\
+\midrule
+\multicolumn{8}{l}{\emph{Additional exploratory subsets:}} \\
+\texttt{qasper} & $\sim$3400 & 200 & 0.100 / 0.272 & 0.105 / 0.290 & +0.018 & $[-0.016, +0.054]$ & 1.000 \\
+\texttt{2wikimqa} & $\sim$4200 & 195 & 0.595 / 0.700 & 0.559 / 0.679 & $-0.021$ & $[-0.076, +0.035]$ & 0.324 \\
 \bottomrule
 \end{tabular}
 \end{table*}
@@ -302,7 +312,7 @@ We report additional experiments that probe the boundaries of GERS-DAG and BiChe
 
 \section{Conclusion}
 
-We evaluated graph decomposition for multi-hop QA while separating answer generation from diagnosis. Across five LongBench subsets, HotpotQA, MuSiQue, and 2WikiMultiHopQA, GERS-DAG improves paired F1 over CoT-SC in two LongBench settings; elsewhere the estimated effect is null, negative, or inconclusive. Oracle interventions show +0.091 F1 from gold decomposition and the largest measured gain from gold sub-answers. BiCheck turns a non-discriminative structural score into a weak content-consistency diagnostic (discrimination $+0.0847$, AUROC 0.589), but self-consistent errors remain common. Graph decomposition is therefore regime-dependent: planning and sub-answer quality matter, while self-agreement alone is insufficient for verification.
+We evaluated graph-structured question decomposition for multi-hop QA while separating answer generation from post-hoc diagnosis. Across five LongBench subsets and additional HotpotQA, MuSiQue, and 2WikiMultiHopQA analyses, GERS-DAG improves paired F1 over CoT-SC in two LongBench settings, while the remaining settings identify regimes where the estimated effect is null, negative, or inconclusive. Oracle interventions show that gold decomposition improves the pipeline by +0.091 F1 and that gold sub-answers provide the largest measured intervention gain, locating two concrete sources of headroom. BiCheck converts a non-discriminative structural score into a weak content-consistency diagnostic (discrimination $+0.0847$, AUROC 0.589), but self-consistent errors remain common. Together, these results locate both the opportunity and the limits of applying graph decomposition to multi-hop QA: accurate planning and sub-answer generation matter, while self-agreement alone is insufficient for verification.
 
 \bibliography{references}
 

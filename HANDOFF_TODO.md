@@ -30,7 +30,7 @@ removed to prevent accidental submission of superseded claims.
 ## Current Submission Status
 
 - The paper uses the official anonymous AAAI 2027 template.
-- The latest reviewed compile is six pages including references.
+- The latest reviewed compile is seven pages including references, within the AAAI-27 7+2 page allowance supplied for this submission.
 - Table 1 now has eight columns; the redundant `Result` column was removed to
   eliminate right-margin overflow.
 - Figures 3, 4, and 6 were adjusted for label spacing and grayscale readability.
