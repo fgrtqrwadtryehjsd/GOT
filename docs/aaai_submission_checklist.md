@@ -2,12 +2,19 @@
 
 The repository contains one canonical AAAI-27 source package at `docs/overleaf_submission.zip`. Upload it to a fresh Overleaf project and select `aaai_paper.tex` as the main document.
 
+Upload `output/pdf/supplementary.pdf` as the Technical Supplement,
+`output/pdf/ReproducibilityChecklist.pdf` as the Reproducibility Checklist, and
+`docs/code_and_data_supplement.zip` as the Code and Data Supplement. Leave the
+Media Supplement empty.
+
 ## Must Fix Before Submission
 
 - Use `docs/aaai_paper.tex` with the included official `aaai2027.sty` / `aaai2027.bst` files.
 - Keep the anonymous author setting in the submission source; do not expose local author names or acknowledgments in the review version.
 - BibTeX flow is active through `docs/references.bib`; verify the final bibliography in Overleaf.
 - Re-check the final page length after the latest Table 1 and figure updates.
+- Keep the final BiCheck diagnostic values synchronized across metadata, paper,
+  figure, and reproducer: separation `+0.0826`, AUROC `0.589`.
 - Package only current sources and figures. Do not include deprecated draft/plan files such as `docs/paper_draft.md` or old experiment notes in review artifacts.
 
 ## Scientific Risks To Address If Time Allows

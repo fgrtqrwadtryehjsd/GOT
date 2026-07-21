@@ -177,14 +177,14 @@ def figure1_framework():
 def figure2_cs_discrimination():
     fig, ax = plt.subplots(figsize=(3.4, 1.72))
     schemes = ["Structural CS", "BiCheck CS"]
-    correct = np.array([0.6592, 0.7888])
-    wrong = np.array([0.6628, 0.7042])
+    correct = np.array([0.6592, 0.8342])
+    wrong = np.array([0.6628, 0.7516])
     x = np.arange(2)
 
     width = 0.30
     ax.bar(x - width / 2, correct, width, color=BLUE, label="Correct", edgecolor="white", linewidth=0.4)
     ax.bar(x + width / 2, wrong, width, color=ORANGE, label="Wrong", edgecolor="white", linewidth=0.4)
-    display_delta = [-0.0035, 0.0847]
+    display_delta = [-0.0035, 0.0826]
     for xi, c, w, delta in zip(x, correct, wrong, display_delta):
         ax.text(xi, max(c, w) + 0.018, f"$\\Delta={delta:+.4f}$", fontsize=7, color=GREEN if delta > 0 else RED, ha="center")
         ax.text(xi - width / 2, c - 0.008, f"{c:.3f}", fontsize=6.2, color="white", ha="center", va="top")
@@ -193,7 +193,7 @@ def figure2_cs_discrimination():
     ax.set_xticks(x)
     ax.set_xticklabels(schemes)
     ax.set_ylabel("Mean consistency score")
-    ax.set_ylim(0.60, 0.84)
+    ax.set_ylim(0.60, 0.88)
     clean_axis(ax)
     ax.legend(frameon=False, loc="upper left", ncol=2, fontsize=7)
     save(fig, "image2")

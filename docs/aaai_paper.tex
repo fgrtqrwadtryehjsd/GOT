@@ -33,7 +33,7 @@
 \maketitle
 
 \begin{abstract}
-Graph-structured decomposition is a general strategy for organizing complex reasoning, but its effectiveness and diagnostic value in multi-hop question answering remain unclear across tasks. We study these questions using \textbf{GERS-DAG (Graph-Enhanced Reasoning System with DAG execution)}, which represents question decompositions as dependency DAGs and executes sub-questions in topological order. Our evaluation covers five LongBench subsets, full-context HotpotQA, a MuSiQue 4-hop Oracle study, and a 2WikiMultiHopQA error analysis, with a Qwen-Plus study providing limited cross-model evidence. Under Qwen3-8B, paired bootstrap intervals favor GERS-DAG over CoT-SC on LongBench \texttt{multifieldqa\_en} ($\Delta$F1 $=+0.070$, 95\% CI $[+0.007,+0.132]$) and \texttt{musique} ($+0.063$, $[+0.001,+0.124]$), while estimated effects are null, negative, or inconclusive in the remaining end-task settings. In the Oracle study, gold decomposition improves F1 by +0.091 over model decomposition and by +0.075 over CoT-SC, identifying decomposition quality as a key bottleneck. Separately, \textbf{BiCheck} re-derives sub-answers after generation and raises correctness AUROC from 0.498 to 0.589 and correct/wrong score separation from $-0.0035$ to $+0.0847$. However, many incorrect answers remain self-consistent. These results show that graph decomposition is regime-dependent and that BiCheck is a weak diagnostic rather than a correctness verifier.
+Graph-structured decomposition is a general strategy for organizing complex reasoning, but its effectiveness and diagnostic value in multi-hop question answering remain unclear across tasks. We study these questions using \textbf{GERS-DAG (Graph-Enhanced Reasoning System with DAG execution)}, which represents question decompositions as dependency DAGs and executes sub-questions in topological order. Our evaluation covers five LongBench subsets, full-context HotpotQA, a MuSiQue 4-hop Oracle study, and a 2WikiMultiHopQA error analysis, with a Qwen-Plus study providing limited cross-model evidence. Under Qwen3-8B, paired bootstrap intervals favor GERS-DAG over CoT-SC on LongBench \texttt{multifieldqa\_en} ($\Delta$F1 $=+0.070$, 95\% CI $[+0.007,+0.132]$) and \texttt{musique} ($+0.063$, $[+0.001,+0.124]$), while estimated effects are null, negative, or inconclusive in the remaining end-task settings. In the Oracle study, gold decomposition improves F1 by +0.091 over model decomposition and by +0.075 over CoT-SC, identifying decomposition quality as a key bottleneck. Separately, \textbf{BiCheck} re-derives sub-answers after generation and raises correctness AUROC from 0.498 to 0.589 and correct/wrong score separation from $-0.0035$ to $+0.0826$. However, many incorrect answers remain self-consistent. These results show that graph decomposition is regime-dependent and that BiCheck is a weak diagnostic rather than a correctness verifier.
 \end{abstract}
 
 \section{Introduction}
@@ -53,7 +53,7 @@ We separate answer generation from diagnosis. \textbf{GERS-DAG (Graph-Enhanced R
 \begin{enumerate}[leftmargin=*,topsep=0pt,itemsep=1pt]
 \item \emph{Cross-benchmark evidence for graph-structured decomposition.} Paired evaluation favors GERS-DAG on two of five LongBench subsets, while the remaining subsets, HotpotQA, and 2WikiMultiHopQA identify settings where the advantage is absent, negative, or inconclusive.
 \item \emph{Controlled Oracle interventions.} On MuSiQue 4-hop, gold decomposition improves the same pipeline over model decomposition by +0.091 F1 and exceeds CoT-SC by +0.075 F1, estimating the headroom available from more accurate decomposition.
-\item \emph{A content-consistency diagnostic.} BiCheck raises correct/wrong discrimination from $-0.0035$ to $+0.0847$ and AUROC from 0.498 to 0.589, exposing both the weakness of structural graph scores and the persistence of self-consistent errors.
+\item \emph{A content-consistency diagnostic.} BiCheck raises correct/wrong discrimination from $-0.0035$ to $+0.0826$ and AUROC from 0.498 to 0.589, exposing both the weakness of structural graph scores and the persistence of self-consistent errors.
 \end{enumerate}
 
 \section{Related Work}
@@ -219,11 +219,11 @@ Gold decomposition vs. CoT-SC & 200 & +0.075 & $[+0.017,+0.134]$ \\
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.95\linewidth]{figures/image2}
-\caption{Correct/wrong discrimination on HotpotQA n=500. Structural CS clusters around 0.66 for both groups; BiCheck increases discrimination from $-0.0035$ to $+0.0847$ (AUROC 0.498$\to$0.589).}
+\caption{Correct/wrong discrimination on HotpotQA n=500. Structural CS clusters around 0.66 for both groups; BiCheck increases discrimination from $-0.0035$ to $+0.0826$ (AUROC 0.498$\to$0.589).}
 \label{fig:cs}
 \end{figure}
 
-On the HotpotQA diagnostic run, the structural score clusters (correct mean 0.6592, wrong mean 0.6628, discrimination $-0.0035$, AUROC 0.498). BiCheck raises discrimination to $+0.0847$ and AUROC to 0.589, turning the score into a weak content self-consistency signal (Figure~\ref{fig:cs}).
+On the HotpotQA diagnostic run, the structural score clusters (correct mean 0.6592, wrong mean 0.6628, discrimination $-0.0035$, AUROC 0.498). BiCheck raises discrimination to $+0.0826$ and AUROC to 0.589, turning the score into a weak content self-consistency signal (Figure~\ref{fig:cs}).
 
 \noindent\textbf{Self-consistency has a ceiling.} Among 250 samples with CS${=}1.0$, 156 are EM-wrong: fluent hallucinations can agree with themselves. BiCheck therefore provides a diagnostic signal rather than a demonstrated correctness verifier or selection mechanism; grounded verification remains open (Section~\ref{sec:discussion}).
 
@@ -312,7 +312,7 @@ We report additional experiments that probe the boundaries of GERS-DAG and BiChe
 
 \section{Conclusion}
 
-We evaluated graph-structured question decomposition for multi-hop QA while separating answer generation from post-hoc diagnosis. Across five LongBench subsets and additional HotpotQA, MuSiQue, and 2WikiMultiHopQA analyses, GERS-DAG improves paired F1 over CoT-SC in two LongBench settings, while the remaining settings identify regimes where the estimated effect is null, negative, or inconclusive. Oracle interventions show that gold decomposition improves the pipeline by +0.091 F1 and that gold sub-answers provide the largest measured intervention gain, locating two concrete sources of headroom. BiCheck converts a non-discriminative structural score into a weak content-consistency diagnostic (discrimination $+0.0847$, AUROC 0.589), but self-consistent errors remain common. Together, these results locate both the opportunity and the limits of applying graph decomposition to multi-hop QA: accurate planning and sub-answer generation matter, while self-agreement alone is insufficient for verification.
+We evaluated graph-structured question decomposition for multi-hop QA while separating answer generation from post-hoc diagnosis. Across five LongBench subsets and additional HotpotQA, MuSiQue, and 2WikiMultiHopQA analyses, GERS-DAG improves paired F1 over CoT-SC in two LongBench settings, while the remaining settings identify regimes where the estimated effect is null, negative, or inconclusive. Oracle interventions show that gold decomposition improves the pipeline by +0.091 F1 and that gold sub-answers provide the largest measured intervention gain, locating two concrete sources of headroom. BiCheck converts a non-discriminative structural score into a weak content-consistency diagnostic (discrimination $+0.0826$, AUROC 0.589), but self-consistent errors remain common. Together, these results locate both the opportunity and the limits of applying graph decomposition to multi-hop QA: accurate planning and sub-answer generation matter, while self-agreement alone is insufficient for verification.
 
 \bibliography{references}
 
