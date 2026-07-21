@@ -38,7 +38,7 @@ Graph-structured decomposition is a general strategy for organizing complex reas
 
 \section{Introduction}
 
-Multi-hop question answering requires combining evidence from multiple passages and is central to evaluating LLM reasoning. Chain-of-Thought (CoT) prompting~\citep{wei2022cot} elicits intermediate steps; Self-Consistency (CoT-SC)~\citep{wang2023sc} samples multiple paths and takes the majority answer. Both are strong baselines, but long multi-document contexts---as in retrieval-augmented generation over multi-domain corpora and benchmarks such as LongBench~\citep{bai2024longbench}---introduce two potential difficulties:
+Multi-hop question answering requires combining evidence from multiple passages and is central to evaluating LLM reasoning. Chain-of-Thought (CoT) prompting~\citep{wei2022cot} elicits intermediate steps; Self-Consistency (CoT-SC)~\citep{wang2023sc} samples multiple paths and takes the majority answer. Both are strong baselines, but long multi-document contexts---as in retrieval-augmented generation~\citep{lewis2020rag} over multi-domain corpora and benchmarks such as LongBench~\citep{bai2024longbench}---introduce two potential difficulties:
 
 \begin{enumerate}[leftmargin=*,topsep=0pt,itemsep=1pt]
 \item \textbf{Cross-passage evidence selection.} When relevant evidence is scattered across thousands of tokens, a single pass must locate and connect facts among distractors.
@@ -58,13 +58,13 @@ We separate answer generation from diagnosis. \textbf{GERS-DAG (Graph-Enhanced R
 
 \section{Related Work}
 
-\noindent\textbf{Chain-of-Thought reasoning.} \citet{wei2022cot} introduced CoT prompting; \citet{wang2023sc} proposed Self-Consistency (CoT-SC), whose equal-weight majority vote does not exploit path quality. \citet{yao2023tot} proposed Tree of Thoughts (ToT) with search over thought states, without explicit sub-question dependency modeling. These methods are based on linear or tree structures.
+\noindent\textbf{Chain-of-Thought and decomposition.} \citet{wei2022cot} introduced CoT prompting; \citet{wang2023sc} proposed Self-Consistency (CoT-SC), whose equal-weight majority vote does not exploit path quality. Least-to-Most~\citep{zhou2023leasttomost} solves simpler subproblems sequentially, Decomposed Prompting~\citep{khot2023decomposed} delegates subproblems to modular handlers, and Self-Ask~\citep{press2023selfask} interleaves follow-up questions with intermediate answers. Tree of Thoughts~\citep{yao2023tot} searches over tree-structured thought states. These methods motivate explicit intermediate structure, but use linear sequences, modular calls, or tree search rather than a dependency DAG whose named sub-answers can be diagnosed after execution.
 
 \noindent\textbf{Graph-structured reasoning and decomposition.} \citet{besta2024got} models general problem solving as a graph of thoughts that supports merging and distillation. \citet{han2025rwg} uses a context graph as input, while \citet{oruche2025modegraph} constructs a multi-hop dependency graph through prompting. These works establish graph structures as general reasoning or context-organization tools. GERS-DAG instantiates this broader idea as explicit sub-question DAG execution for multi-hop QA; BiCheck analyzes the resulting sub-answers after generation rather than changing the answer-producing path.
 
-\noindent\textbf{Long-context QA benchmarks.} LongBench~\citep{bai2024longbench} is a bilingual multi-task long-context benchmark; MuSiQue~\citep{trivedi2022musique} composes single-hop questions into 2--4-hop compositions with gold sub-question decompositions. We use LongBench multi-document QA subsets as the main benchmark, and MuSiQue for controlled Oracle mechanism analysis.
+\noindent\textbf{Retrieval and long-context QA.} Retrieval-augmented generation conditions generation on external evidence~\citep{lewis2020rag}, while IRCoT interleaves retrieval with reasoning for multi-step questions~\citep{trivedi2023ircot}. LongBench~\citep{bai2024longbench} aggregates long-context tasks including NarrativeQA~\citep{kocisky2018narrativeqa} and QASPER~\citep{dasigi2021qasper}; MuSiQue~\citep{trivedi2022musique} provides 2--4-hop compositions with gold sub-question decompositions. We evaluate reasoning over supplied contexts rather than retrieval quality, using LongBench as the main benchmark and MuSiQue for controlled Oracle analysis.
 
-\noindent\textbf{Consistency checking and self-evaluation.} Process Reward Models~\citep{lightman2024verify} score intermediate steps but require large amounts of labeled data. Self-Refine~\citep{madaan2023selfrefine} iteratively refines answers via self-feedback on linear text. BiCheck instead measures agreement between forward and post-hoc re-derived answers over explicit DAG sub-questions, without labeled verifier training.
+\noindent\textbf{Consistency checking and self-evaluation.} Process Reward Models~\citep{lightman2024verify} score intermediate steps but require labeled data, while Self-Refine~\citep{madaan2023selfrefine} iteratively revises linear outputs. SelfCheckGPT detects hallucinations through disagreement across sampled generations~\citep{manakul2023selfcheckgpt}; Chain-of-Verification generates and answers explicit verification questions~\citep{dhuliawala2024cov}. BiCheck instead measures agreement between forward and post-hoc re-derived answers over the same named DAG sub-questions, without verifier training or answer revision.
 
 \section{Method}
 
@@ -114,7 +114,7 @@ where $i\in\{0,\ldots,n-1\}$ and $w_i = 0.5 + 0.5(i+1)/n$, assigning more weight
 
 \subsection{Setup}
 
-\noindent\textbf{LongBench English QA.} We evaluate \texttt{multifieldqa\_en} (100 attempted examples), \texttt{musique} (200 attempted examples), and \texttt{narrativeqa} (100 attempted examples), then extend the exploratory analysis with \texttt{qasper} and \texttt{2wikimqa}. The first two show positive paired differences; \texttt{narrativeqa} has high failure rates and is treated as inconclusive.
+\noindent\textbf{LongBench English QA.} We evaluate \texttt{multifieldqa\_en} (100 attempted examples), \texttt{musique} (200 attempted examples), and \texttt{narrativeqa}~\citep{kocisky2018narrativeqa} (100 attempted examples), then extend the exploratory analysis with \texttt{qasper}~\citep{dasigi2021qasper} and \texttt{2wikimqa}. The first two show positive paired differences; \texttt{narrativeqa} has high failure rates and is treated as inconclusive.
 
 \noindent\textbf{Mechanism benchmark.} MuSiQue~\citep{trivedi2022musique} 4-hop subset (first 200 samples with hop=4 from a seed=42 shuffle of the \texttt{musique\_ans\_v1.0\_dev} split) for the controlled Oracle study, since gold sub-question decompositions and supporting-fact annotations are available.
 
